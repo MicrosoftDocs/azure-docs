@@ -11,9 +11,7 @@ ms.date: 11/04/2026
 
 # Configure network DLP with Azure Firewall and Microsoft Purview (preview)
 
-Azure Firewall integrates with Microsoft Purview to protect sensitive data in supported application traffic. Microsoft Purview classifies content and evaluates DLP policies. Azure Firewall selects the traffic for inspection and applies the resulting policy decision.
-
-This article describes a configuration that maps source IP addresses or CIDR ranges to Microsoft Entra user object IDs. Start in **Alert only** mode and validate evaluation before you select **Alert and deny**. For the shared protection model, see [Azure Firewall AI Security concepts](ai-security-concepts.md).
+Azure Firewall integrates with Microsoft Purview to protect sensitive data in supported application traffic. Microsoft Purview classifies content and evaluates DLP policies. Azure Firewall selects the traffic for inspection and applies the resulting policy decision. This integration helps prevent data exfiltration to cloud, SaaS, and AI destinations while combining data-aware protection with network security policies.
 
 > [!IMPORTANT]
 > Network data loss prevention with Azure Firewall is currently in PREVIEW.
@@ -22,13 +20,12 @@ This article describes a configuration that maps source IP addresses or CIDR ran
 ## Prerequisites
 
 - Azure Firewall Premium with an AI Security add-on license and the add-on enabled on all firewalls associated with the policy, in a region where the preview is available. See [Azure Firewall AI Security concepts](ai-security-concepts.md).
-- A Microsoft Purview license for the integration and permissions to manage the relevant Purview DLP policies.
+- A valid Microsoft Purview license and permissions to manage the relevant Purview DLP policies.
 - Access to configure the Azure Firewall Policy and its application rules.
 - Working TLS inspection, with the inspection certificate authority trusted by the workloads. See [Azure Firewall Premium certificates](premium-certificates.md).
 - The Microsoft Purview tenant GUID.
-- A CSV mapping of source IP addresses or CIDR ranges to Microsoft Entra user object IDs, hosted at a URL that a [managed identity](/entra/identity/managed-identities-azure-resources/overview) can read securely.
+- A CSV mapping of source IP addresses or CIDR ranges to Microsoft Entra user object IDs, hosted at a URL that a [managed identity](/entra/identity/managed-identities-azure-resources/overview) can read securely. Only traffic mapped to Microsoft Entra user IDs is inspected. Assign the **Storage Blob Data Contributor** role to the managed identity that Azure Firewall uses to read this file. Scope the role assignment to the blob container that holds the file or to the storage account.
 - The mapped users included in the intended Purview policy scope.
-- An authorized test environment with synthetic protected content and a benign control. Don't use real sensitive data.
 
 During the preview, configuration is available only in the Azure portal.
 
@@ -52,7 +49,7 @@ Validate each required activity rather than assuming that one successful test es
 
 ## Create a security profile group with a DLP profile
 
-Configure the provider, policy mode, and user mapping in a security profile group that you can apply to application rules.
+Configure a policy in Azure Firewall with the provider, policy mode, and user mapping in a DLP security profile. Include the profile in a security profile group that you can apply to application rules.
 
 1. Open the firewall policy in the Azure portal.
 1. Select **Settings** > **Security Profile Groups (preview)** > **Create security profile group**.
@@ -61,7 +58,10 @@ Configure the provider, policy mode, and user mapping in a security profile grou
 1. For **Mode**, select **Alert only**. This mode monitors without blocking, including when Microsoft Purview returns a deny decision. The other options are **Disabled** and **Alert and deny**.
 1. Under **Data loss prevention provider**, confirm that **Microsoft Purview** is selected and enter the **Purview tenant** GUID.
 1. Under **User identity mapping**, enter the **Mapping file URL** and select a **Managed identity** with secure read access to the mapping file.
-1. Confirm that the mapped user IDs match the users in the intended Purview policy scope.
+   - Use CSV format, with the IP address or CIDR range in the first column and the corresponding user ID in the second column.
+   - Provide one IP address or CIDR range and its corresponding user ID per row.
+   - IP ranges such as `10.0.0.1-10.0.0.255` aren't supported.
+1. Confirm that the mapped user IDs match the users and format in the intended Purview policy scope.
 1. Select **Next**, review the tenant, mode, mapping URL, and managed identity, and then select **Create**.
 
 The mapping file has a limit of 50,000 rows. For this evaluation, use source addresses that have explicit entries in the mapping file.
@@ -110,6 +110,11 @@ Check the following items before changing enforcement:
 - The firewall application rule, group, DLP profile, and tenant are correct.
 - TLS inspection succeeds for the tested HTTPS flow.
 - For blocking, the Firewall profile is in **Alert and deny** mode and the active Purview rule uses **Block**.
+
+## Limitations
+
+- The maximum supported content size is 3 MB for both file and text content.
+- If Microsoft Purview inspection can't complete, such as when a payload exceeds the supported size or an internal error occurs, traffic is allowed (fail-open).
 
 ## Related content
 
