@@ -26,16 +26,17 @@ Azure Multicloud Interconnect supports Amazon Web Services (AWS) during preview.
 > Azure Multicloud Interconnect is currently in preview with Google Cloud.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+
 ## Supported regions
 
 You can create an interconnect in the following Azure regions during preview:
 
-| Peering locations | Cloud providers |
-|---------------|-----|
-| Australia East | Amazon Web Services |
-| East US | Amazon Web Services, Google Cloud |
-| Germany West Central | Amazon Web Services, Google Cloud |
-| West US | Google Cloud |
+| Peering locations | Zone | Cloud providers |
+|--|--|--|
+| Australia East | 1 | Amazon Web Services |
+| East US | 1 | Amazon Web Services, Google Cloud |
+| Germany West Central | 1 | Amazon Web Services, Google Cloud |
+| West US | 1 | Google Cloud |
 
 Region availability is subject to change during preview.
 
@@ -95,6 +96,9 @@ Pricing depends on the location, SKU, and bandwidth. See [Azure Multicloud Inter
 
 Preview pricing can differ from GA pricing. Review the terms for the provider before you deploy.
 
+> [!NOTE]
+> The price listed for 40 Gbps applies to the 50 Gbps bandwidth option.
+
 ## Service-level agreement
 
 For GA connectivity, use the official [Azure Multicloud Interconnect SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?azure-portal=true) page for the current uptime commitment, terms, and exclusions. Public preview connectivity doesn't have an Azure Multicloud Interconnect SLA. 
@@ -115,6 +119,7 @@ The following limitations apply during preview:
 - Bandwidth is limited to 1 Gbps.
 - Azure Multicloud Interconnect supports private connectivity only. Microsoft peering doesn't apply to Azure Multicloud Interconnect.
 - Region availability is limited to the regions listed in [Supported regions](#supported-regions).
+- To enable a Premium circuit, submit a support ticket.
 
 ## Related content
 
