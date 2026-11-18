@@ -82,6 +82,10 @@
           href: tutorial-traffic-manager-linked-records-cli.md
         - name: Create Traffic Manager linked records - PowerShell
           href: tutorial-traffic-manager-linked-records-powershell.md
+        - name: Create Traffic Manager linked records - Bicep
+          href: quickstart-traffic-manager-linked-records-bicep.md
+        - name: Create Traffic Manager linked records - ARM Template
+          href: quickstart-traffic-manager-linked-records-template.md
         - name: Alias records for load balanced web apps
           href: dns-alias-appservice.md
         - name: Integrate with other Azure services
