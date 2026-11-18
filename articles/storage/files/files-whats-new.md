@@ -21,7 +21,7 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 #### Simplified Azure File Sync onboarding for Arc-enabled Windows Servers (Preview)
 
-Azure File Sync now offers a guided Azure portal experience to simplify onboarding Arc-enabled Windows Servers. This streamlined workflow brings together agent installation, server registration, and synchronization with Azure Files, helping customers enable hybrid file access or migrate data to Azure while retaining their familiar Windows Server experience.[Learn more](../file-sync/file-sync-deployment-guide.md?tabs=azure-portal%2Cproactive-portal#install-on-azure-arc-enabled-servers)
+Azure File Sync now offers a guided Azure portal experience to simplify onboarding Arc-enabled Windows Servers. This streamlined workflow brings together agent installation, server registration, and synchronization with Azure Files, helping customers enable hybrid file access or migrate data to Azure while retaining their familiar Windows Server experience. [Learn more](../file-sync/file-sync-deployment-guide.md?tabs=azure-portal%2Cproactive-portal#install-on-azure-arc-enabled-servers)
 
 #### In place provisioned v1 to provisioned v2 storage account upgrade is now in limited public preview 
 
