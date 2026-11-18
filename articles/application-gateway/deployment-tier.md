@@ -6,7 +6,7 @@ author: reyjordi
 ms.author: reyjordi
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 11/11/2026
+ms.date: 11/17/2026
 ---
 
 # Application Gateway deployment tiers
@@ -81,7 +81,6 @@ During preview, Accelerated is available only in the following regions:
 - Canada East
 - Central India
 - East Asia
-- East US 3
 - India South Central
 - Indonesia Central
 - Israel Central
@@ -90,13 +89,12 @@ During preview, Accelerated is available only in the following regions:
 - Korea Central
 - Malaysia West
 - New Zealand North
-- Northeast US 5
 - Poland Central
 - South Africa North
-- South Central US 2
-- Southeast US
-- Southeast US 3
+- Southeast Asia
+- Spain Central
 - Sweden Central
+- West Central US
 - West US 2
 
 ## Choose a deployment tier
