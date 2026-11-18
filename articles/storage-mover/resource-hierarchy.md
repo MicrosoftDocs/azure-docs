@@ -34,7 +34,7 @@ Several Azure resources are involved in a Storage Mover deployment. This article
 
 [!INCLUDE [hybrid-service-explanation](includes/hybrid-service-explanation.md)]
 
-Storage Mover supports agent-based and agentless migration workloads. The resource hierarchy described in this article applies to both workload types, but migration agent resources are only required for agent-based workloads.
+The resource hierarchy described in this article applies to both workload types, but migration agent resources are only required for agent-based workloads.
 
 ## Storage mover resource
 
