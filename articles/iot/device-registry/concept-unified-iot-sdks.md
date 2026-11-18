@@ -1,5 +1,5 @@
 ---
-title: Unified Azure IoT SDKs (preview) for IoT Hub and Azure Device Registry
+title: Unified Azure IoT SDKs for IoT Hub and Azure Device Registry
 titleSuffix: Azure Device Registry
 description: Learn how to choose Azure IoT device SDKs for provisioning, connectivity, certificate management, and device operations.
 author: jesusbar
@@ -11,10 +11,10 @@ ai-usage: ai-assisted
 # Customer intent: As a developer building an end-to-end Azure IoT solution, I want to understand the unified Azure IoT SDK strategy and device lifecycle so that I can choose the supported SDK path from provisioning through ongoing operation.
 ---
 
-# Unified Azure IoT SDKs (preview) for IoT Hub and Azure Device Registry
+# Unified Azure IoT SDKs for IoT Hub and Azure Device Registry
 
 > [!IMPORTANT]
-> Some unified Azure IoT SDK releases and Azure IoT capabilities described in this article are in preview, including .NET SDK version 2.0.0-preview4, C SDK version 2.0.0-preview.2, MQTTv5-enabled IoT Hubs, Azure Device Registry integration with IoT Hub, certificate management, and software updates. Don't interpret an SDK version without a preview suffix as an indication that the Azure IoT capabilities it works with are generally available.
+> Some unified Azure IoT SDK releases and Azure IoT capabilities described in this article are in preview, including .NET SDK version 2.0.0-preview4, C SDK version 2.0.0-preview.2, MQTTv5-enabled IoT Hubs, and software updates. For production workloads, use .NET SDK version 1.2.0 or C SDK version 1.0.0 with generally available capabilities and supported configurations.
 >
 > Preview functionality is provided without a service-level agreement and isn't recommended for production workloads. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
@@ -23,6 +23,8 @@ The unified Azure IoT SDKs provide a lifecycle-aware programming model for build
 Rather than requiring applications to independently coordinate service-specific libraries and device lifecycle state, the unified SDKs introduce a shared connection model and capability-focused clients. This approach simplifies how applications provision devices, establish connections, manage credentials, and interact with Azure IoT services.
 
 The unified SDKs are new SDKs, distinct from the existing Azure IoT Hub and Device Provisioning Service (DPS) SDKs. Existing SDKs remain available for applications that depend on their supported capabilities.
+
+Generally available releases are available for both .NET and C, with additional capabilities available through preview SDK releases.
 
 This article explains the unified SDK architecture, the end-to-end device lifecycle, and how to choose the appropriate SDK version based on your application's requirements.
 
@@ -117,7 +119,7 @@ For more information, see [Azure Device Registry integration with IoT Hub](../..
 
 ## Choose the unified Azure IoT SDK
 
-Unified Azure IoT SDKs are available for .NET and C.
+Unified Azure IoT SDKs are available for .NET and C, with generally available and preview releases.
 
 Choose the SDK based on your device application language, required capabilities, and the Azure IoT services your application needs to use.
 
@@ -145,9 +147,9 @@ For C SDK version-specific changes, review the Azure IoT SDK C release notes in 
 
 ### When to use the .NET SDK versions
 
-**Use version 1.2.0 for supported IoT Hub MQTT 3.1.1 scenarios.**
+**Use version 1.2.0 for generally available MQTT 3.1.1 IoT Hub scenarios.**
 
-Version 1.2.0 provides the unified device programming model for applications using supported DPS provisioning, IoT Hub connectivity, and device operations.
+Version 1.2.0 is the generally available release of the unified .NET SDK. It provides the unified device programming model for applications using supported DPS provisioning, IoT Hub connectivity, and device operations.
 
 This version is appropriate when your application doesn't require the new MQTTv5-specific capabilities currently available in preview. Version 1.2.0 doesn't support connections to MQTTv5-enabled IoT Hubs.
 
@@ -176,7 +178,7 @@ Samples for both API surfaces are in the [preview branch](https://github.com/Azu
 
 The unified C SDK provides a shared connection lifecycle and capability-focused programming model for native C applications, including embedded and constrained-device environments.
 
-**Use version 1.0.0 for MQTT 3.1.1 IoT Hub scenarios.**
+**Use version 1.0.0 for generally available MQTT 3.1.1 IoT Hub scenarios.**
 
 Version 1.0.0 is the generally available release of the unified C SDK. It supports MQTT 3.1.1 IoT Hub connectivity but doesn't support MQTTv5-enabled IoT Hubs or software updates. If DPS assigns the device to an IoT Hub connection profile that version 1.0.0 doesn't support, the connection fails.
 
@@ -312,7 +314,7 @@ For the current implementation scope, consult the repository's supported-feature
 
 ## Get started with the unified Azure IoT SDKs
 
-The unified Azure IoT SDKs are available for .NET and C. Choose the SDK that matches your device environment, and review its supported capabilities, service requirements, and samples before integrating it into your application.
+The unified Azure IoT SDKs are available for .NET and C, with generally available releases for production workloads and preview releases for evaluating additional capabilities. Choose the SDK that matches your device environment, and review its supported capabilities, service requirements, and samples before integrating it into your application.
 
 ### .NET SDK
 
@@ -362,7 +364,7 @@ C SDK version 2.0.0-preview.2 also provides the software updates client for Azur
 
 ## Release information and SDK changes
 
-The unified Azure IoT SDKs continue to evolve as Microsoft adds capabilities.
+The unified Azure IoT SDKs include generally available releases and preview releases that introduce additional capabilities.
 
 Use the following resources to review published versions, supported capabilities, implementation examples, and development activity.
 
@@ -419,8 +421,8 @@ Use the following resources to review published versions, supported capabilities
 For version-specific additions, fixes, and known limitations, see the [Azure IoT SDK release information](https://github.com/Azure/azure-iot-sdk/releases) and the corresponding release documentation.
 
 > [!NOTE]
-> SDK capabilities and authentication requirements vary by language, version, and IoT Hub configuration. Certificate management must be enabled and configured at the Azure Device Registry namespace level. MQTTv5 and Azure Device Registry software updates have separate preview requirements.
->
+> SDK capabilities and authentication requirements vary by language, version, and IoT Hub configuration. Certificate management must be enabled and configured at the Azure Device Registry namespace level. .NET version 1.2.0 and C version 1.0.0 are generally available releases. .NET > version 2.0.0-preview4, C version 2.0.0-preview.2, MQTTv5, and Azure Device Registry software updates are in preview.
+> 
 > This section summarizes documented capabilities and release-selection considerations. It isn't a complete changelog. Changes merged into the repository's `main` branch might not be included in a published SDK release, and preview development continues on the `releases/public-preview` branch. Review the corresponding release tag and version-specific documentation when selecting an SDK.
 
 ## Related content
