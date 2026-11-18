@@ -46,5 +46,5 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 - Check out our [calling hero sample](../../samples/calling-hero-sample.md)
 - Get started with the [UI Library](../../concepts/ui-library/ui-library-overview.md)
-- Learn about [Calling SDK capabilities]()
+- Learn about [Calling SDK capabilities](../../concepts/interop/guest/calling-capabilities.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

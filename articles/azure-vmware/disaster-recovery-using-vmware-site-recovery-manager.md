@@ -148,10 +148,11 @@ Before you migrate any replications, check the replication server list in Site R
 - Go to **Site Pair** > **Configure** > **vSphere Replication** > **Replication Servers**.
 - Check whether an **Embedded Replication Server** entry is present with status **Connected**.
 - Follow the applicable path:
-| Observation | Next action |
-|---|---|
-| Embedded Replication Server is present. | Proceed to Step 4: Reconfigure legacy replications to enhanced replication. |
-| Embedded Replication Server is not present. | Proceed to Step 2: Submit the Run Command to enable enhanced replication. |
+
+  | Observation | Next action |
+  |---|---|
+  | Embedded Replication Server is present. | Proceed to Step 4: Reconfigure legacy replications to enhanced replication. |
+  | Embedded Replication Server is not present. | Proceed to Step 2: Submit the Run Command to enable enhanced replication. |
 
 
 ### 2. Submit the Run Command to enable enhanced replication
