@@ -80,10 +80,6 @@ Object replication doesn't support blob snapshots. The service doesn't replicate
 
 Object replication now supports copying index tags from source blobs to destination blobs. You can configure this capability as part of a new or existing replication rule. For more information, see [Configure object replication](object-replication-configure.md#configure-blob-index-tags-replication).
 
-> [!IMPORTANT]
-> Tag replication is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ### Blob tiering
 
 Object replication is supported when the source and destination accounts are in any online tier (hot, cool, or cold). The source and destination accounts might be in different tiers. However, object replication fails if a blob in either the source or destination account is moved to the archive tier. Rehydrating an archived blob doesn't trigger object replication. Object replication is triggered only when the blob data is updated again after rehydration. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
