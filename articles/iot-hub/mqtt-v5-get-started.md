@@ -6,7 +6,7 @@ author: Usha-Rathnavel
 ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: quickstart
-ms.date: 11/12/2026
+ms.date: 11/16/2026
 ---
 
 # Create and connect to an Azure IoT Hub with the MQTT v5 connection profile
@@ -70,7 +70,7 @@ to create the hub and configure:
 Use the hub configuration guide for the supported portal, CLI, and ARM steps and
 their prerequisites. Record the DPS ID scope for the device application.
 For onboarding options and credential configuration, see
-[Configure a device with the unified SDKs](mqtt-v5-device-setup.md).
+[Connect a device using MQTT v5](mqtt-v5-device-setup.md).
 
 **Checkpoint:** The resource associations and enrollment are ready for the device.
 
@@ -103,7 +103,7 @@ the destination reader is ready.
 
 ## 3. Configure the device and publish
 
-Follow [Configure a device with the unified SDKs](mqtt-v5-device-setup.md):
+Follow [Connect a device using MQTT v5](mqtt-v5-device-setup.md):
 
 1. Choose .NET or C and use the version specified by the example.
 1. Configure the DPS ID scope and X.509 credentials.
