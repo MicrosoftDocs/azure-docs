@@ -119,6 +119,7 @@ The following limitations apply during preview:
 - Bandwidth is limited to 1 Gbps.
 - Azure Multicloud Interconnect supports private connectivity only. Microsoft peering doesn't apply to Azure Multicloud Interconnect.
 - Region availability is limited to the regions listed in [Supported regions](#supported-regions).
+- To enable a Premium circuit, submit a support ticket.
 
 ## Related content
 
