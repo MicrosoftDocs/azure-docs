@@ -17,6 +17,8 @@ Whatever the business driver for creating a custom policy, the steps are the sam
 
 Before creating a custom policy, check the [policy samples](/azure/governance/policy/samples/index) to see whether a policy that matches your needs already exists.
 
+To generate a starting definition from a plain-language requirement and test it before assignment, see [Create and test Azure Policy definitions with Azure Copilot (preview)](../how-to/author-policy-with-copilot.md).
+
 The approach to creating a custom policy follows these steps:
 
 > [!div class="checklist"]
