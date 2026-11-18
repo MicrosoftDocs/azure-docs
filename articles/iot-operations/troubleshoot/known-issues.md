@@ -191,7 +191,7 @@ Issue ID: 5382
 
 ---
 
-Applies to: Azure IoT Operations 2610 public preview, reported on v1.6.0-preview.57 with connector for ONVIF v1.6.5.
+Applies to: Connector for ONVIF v1.6.5 in both Azure IoT Operations 2610 public preview and general availability (GA) releases.
 
 ---
 
