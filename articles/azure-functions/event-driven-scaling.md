@@ -1,7 +1,7 @@
 ---
 title: Event-driven scaling in Azure Functions
 description: Learn how Azure Functions automatically scales your function apps based on event demand in the Flex Consumption, Premium, and Consumption hosting plans.
-ms.date: 08/03/2026
+ms.date: 11/18/2026
 ms.topic: concept-article
 ms.service: azure-functions
 zone_pivot_groups: functions-hosting-plan
@@ -114,9 +114,9 @@ Scaling can vary based on several factors. Apps scale differently based on the t
 
 ::: zone-end
 
-::: zone pivot="consumption-plan,premium-plan"
+::: zone pivot="flex-consumption-plan,consumption-plan,premium-plan"
 
-* **Maximum monitored triggers:** Currently, the scale controller can only monitor up to 100 triggers to make scaling decisions. When your app has more than 100 event-based triggers, scale decisions are based on only the first 100 triggers that execute. For more information, see [Best practices and patterns for scalable apps](#best-practices-and-patterns-for-scalable-apps).  
+* **Maximum monitored triggers:** The scale controller monitors a maximum of 100 event-based functions per function app to make scaling decisions. HTTP triggers and Durable Functions triggers don't count toward this limit. When your app has more than 100 event-based functions, only the first 100 functions, sorted by function name in case-insensitive order, are monitored. Functions outside this set don't drive scaling decisions, which can delay or prevent their execution when no instances are already running. Restarting the app or syncing triggers doesn't change which functions are monitored. This is a hard limit that can affect the scaling and performance of your app. To avoid it, keep each app at 100 or fewer event-based functions. For more information, see [Best practices and patterns for scalable apps](#best-practices-and-patterns-for-scalable-apps).
 
 ::: zone-end
 
@@ -231,7 +231,7 @@ In this example:
 
 Many aspects of a function app impact how it scales, including host configuration, runtime footprint, and resource efficiency. For more information, see the [scalability section of the performance considerations article](performance-reliability.md#scalability-best-practices). You should also be aware of how connections behave as your function app scales. For more information, see [How to manage connections in Azure Functions](manage-connections.md).
 
-If your app has more than 100 functions that use event-based triggers, consider breaking the app into one or more apps, where each app has fewer than 100 event-based functions.
+If your app has more than 100 functions that use event-based triggers, break the app into multiple apps, where each app has 100 or fewer event-based functions. Because of the [maximum monitored triggers](#understanding-scaling-behaviors) limit, functions beyond the first 100 aren't monitored for scaling.
 
 For more information on scaling in Python and Node.js, see the **Scaling and performance** section of the [Azure Functions Python developer guide](functions-reference-python.md) and the **Scaling and concurrency** section of the [Azure Functions Node.js developer guide](functions-reference-node.md).
 
