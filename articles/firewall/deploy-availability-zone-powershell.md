@@ -30,6 +30,7 @@ For new deployments, **don't specify availability zones for the firewall**. Azur
 - Existing firewalls with no specified zones, are platform-migrated in regions that support multiple availability zones.
 - Migration is complete in the listed regions. Other regions are enabled as the migration progresses.
 - You don't need to deallocate, redeploy, or change the firewall's zone settings to receive the automatic migration.
+- If the Azure Firewall is configured with zone 1, 2, or 3, then you would need to deallocate and allocate with a zone-redundant Public IP using Azure Firewall commands.
 
 ## Definitions
 
@@ -142,6 +143,27 @@ New-AzFirewall `
   -Location "eastus" `
   -VirtualNetwork $vnet `
   -PublicIpAddress @($pip1)
+```
+
+If the Azure Firewall is created with zone configuration, please execute the below commands to deallocate and allocate the Azure Firewall with zone-redundant Public IP. This would require a downtime. 
+
+```azurepowershell
+# Select the subscription
+Set-AzContext -SubscriptionId "95189989-a8f1-4278-a852-1cac9ce8b121"
+# Create a public IP
+$NewPublicIPName = "<Enter the new public IP address name here>"
+New-AzPublicIpAddress -Name $NewPublicIPName -ResourceGroupName "rg-hub.vnet-az-asse-prd-001" -Location "southeastasia" -Sku "Standard" -AllocationMethod "Static" -Zone @("1", "2", "3")
+# Stop the firewall
+$azfw = Get-AzFirewall -Name "fw-hub.pcidss-az-asse-prd-001" -ResourceGroupName "rg-hub.vnet-az-asse-prd-001"
+$azfw.Deallocate()
+Set-AzFirewall -AzureFirewall $azfw
+# Start the firewall
+$azfw = Get-AzFirewall -Name "fw-hub.pcidss-az-asse-prd-001" -ResourceGroupName "rg-hub.vnet-az-asse-prd-001"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "rg-hub.vnet-az-asse-prd-001" -Name "vnet-hub.pcidss-az-asse-prd-001"
+$publicip = Get-AzPublicIpAddress -Name $NewPublicIPName -ResourceGroupName "rg-hub.vnet-az-asse-prd-001"
+$azfw.Allocate($vnet, @($publicip))
+$azfw.Zones = @("1", "2", "3")
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ### Limitations
