@@ -154,8 +154,6 @@ Include the following certificates in the PFX file that you import into Key Vaul
 
 Including the trusted root certificate itself in the PFX is optional. This doesn't make the required intermediate certificates or cross-signed CA certificate optional.
 
-Front Door normally preserves an uploaded chain that passes validation. If the bundle is incomplete or contains duplicate, unrelated, or multiple root certificates, Front Door might rebuild the chain. Don't assume that any uploaded bundle is served unchanged.
-
 After deployment, verify that the chain served by your custom domain includes the required intermediate certificates and the cross-signed CA certificate. Validate the chain against the trust store used by your target clients. The trusted root doesn't need to be sent during the TLS handshake, so its absence from the served chain doesn't by itself indicate a broken chain. Validation results can differ between clients because their trust stores and certificate path-building behavior can differ.
 
 #### Import a certificate to Azure Key Vault
@@ -231,7 +229,7 @@ When you update the certificate in your key vault, Azure Front Door can automati
 If you select a specific version of your certificate, you must manually reselect the new version when you update your certificate.
 
 > [!NOTE]
-> If an existing cross-signed certificate serves a previously processed chain that omits the required cross-signed CA certificate, rotate the certificate with the corrected chain. Re-importing the same leaf certificate with an unchanged thumbprint doesn't trigger rotation, even if you create a new Key Vault version. Obtain a reissued leaf certificate with a different thumbprint and import it with the required certificate chain. Follow the version-selection guidance in this section and verify the served chain after deployment. This remediation is for affected existing certificates, not a requirement for first-time setup.
+> If an existing cross-signed certificate doesn't present the required cross-signed CA certificate, obtain a reissued leaf certificate with a different thumbprint and import it into Key Vault with the required certificate chain. Follow the version-selection guidance in this section and verify the served chain after deployment. This remediation is for affected existing certificates, not a requirement for first-time setup.
 
 It takes up to 72 hours for the new version of the certificate or secret to be automatically deployed.
 
