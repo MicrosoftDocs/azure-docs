@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 10/19/2026
+ms.date: 11/19/2026
 ---
 
 # Domains in Azure Front Door
@@ -131,7 +131,7 @@ Sometimes, you need to provide your own TLS certificates. Common scenarios for p
 > - Azure Front Door supports Bring Your Own Certificates (BYOC) for domain ownership validation. Front Door approves the domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the certificate matches the custom domain.
 > - For custom domains created before BYOC based validation, and the domain validation status isn't **Approved**, you need to trigger the auto approval of the domain ownership validation by selecting the **Validation State** and clicking on the **Revalidate** button in the portal. If you use the command line tool, you can trigger domain validation by sending an empty PATCH request to the domain API.
 > - Azure managed certificates can be used with wildcard custom domains. When you select an Azure managed certificate, domain validation uses the DNS TXT record.
-> - Cross-signed certificates are supported only on Azure Front Door Standard and Premium. When you use a cross-signed certificate, upload the complete certificate chain to your key vault, including the cross-signed CA certificate that chains to the widely trusted root CA. Front Door serves the certificate chain that you provide, so the uploaded chain must terminate at the intended trusted root.
+> - Cross-signed certificates are supported only on Azure Front Door Standard and Premium. For chain requirements and validation guidance, see [Cross-signed certificate chains](#cross-signed-certificate-chains).
 
 #### Certificate requirements
 
@@ -141,6 +141,22 @@ To use your certificate with Azure Front Door, it must meet the following requir
 - **Common name:** The common name (CN) of the certificate must match the domain configured in Azure Front Door.
 - **Algorithm:** Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. This certificate requirement is separate from the elliptic-curve groups supported for [TLS key exchange](tls-key-exchange-policy.md).
 - **File (content) type:** You must upload your certificate to your key vault from a PFX file, which uses the `application/x-pkcs12` content type.
+
+#### Cross-signed certificate chains
+
+For a customer-managed server certificate on a client-to-Front Door connection, a cross-signed CA certificate can provide a path to a root CA trusted by your clients.
+
+Include the following certificates in the PFX file that you import into Key Vault:
+
+- The server (leaf) certificate.
+- The required intermediate CA certificates.
+- The cross-signed CA certificate that provides a path to a root CA on the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
+
+Including the trusted root certificate itself in the PFX is optional. This doesn't make the required intermediate certificates or cross-signed CA certificate optional.
+
+Front Door normally preserves an uploaded chain that passes validation. If the bundle is incomplete or contains duplicate, unrelated, or multiple root certificates, Front Door might rebuild the chain. Don't assume that any uploaded bundle is served unchanged.
+
+After deployment, verify that the chain served by your custom domain includes the required intermediate certificates and the cross-signed CA certificate. Validate the chain against the trust store used by your target clients. The trusted root doesn't need to be sent during the TLS handshake, so its absence from the served chain doesn't by itself indicate a broken chain. Validation results can differ between clients because their trust stores and certificate path-building behavior can differ.
 
 #### Import a certificate to Azure Key Vault
 
@@ -213,6 +229,9 @@ Azure-managed certificates are automatically rotated by the Azure service that v
 When you update the certificate in your key vault, Azure Front Door can automatically detect and use the updated certificate. For this functionality to work, set the secret version to **Latest** when you configure your certificate in Azure Front Door.
 
 If you select a specific version of your certificate, you must manually reselect the new version when you update your certificate.
+
+> [!NOTE]
+> If an existing cross-signed certificate serves a previously processed chain that omits the required cross-signed CA certificate, rotate the certificate with the corrected chain. Re-importing the same leaf certificate with an unchanged thumbprint doesn't trigger rotation, even if you create a new Key Vault version. Obtain a reissued leaf certificate with a different thumbprint and import it with the required certificate chain. Follow the version-selection guidance in this section and verify the served chain after deployment. This remediation is for affected existing certificates, not a requirement for first-time setup.
 
 It takes up to 72 hours for the new version of the certificate or secret to be automatically deployed.
 
