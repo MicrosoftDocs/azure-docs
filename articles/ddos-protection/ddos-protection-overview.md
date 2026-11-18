@@ -38,7 +38,7 @@ DDoS IP Protection is a pay-per-protected IP model. DDoS IP Protection contains 
 For more information about the tiers, see [DDoS Protection tier comparison](ddos-protection-sku-comparison.md).
 
 > [!NOTE]
-> You can fine-tune detection thresholds for specific protocols by using a DDoS Protection custom policy (preview). For more information, see [What is Azure DDoS Protection custom policy?](ddos-custom-policy-overview.md)
+> You can fine-tune detection thresholds for specific protocols on supported public IP endpoints by using a DDoS Protection custom policy. For more information, see the [custom policy overview](ddos-custom-policy-overview.md).
 
 ## Key Features  
 
