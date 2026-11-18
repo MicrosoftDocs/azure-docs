@@ -71,6 +71,8 @@ items:
       href: device-registry/how-to-import-software-update.md
     - name: Deploy a software update to a group (preview)
       href: device-registry/how-to-deploy-software-update-group.md
+    - name: Reconcile IoT Hub twin properties with ADR
+      href: device-registry/how-to-reconcile-iot-hub-twins.md
     - name: Deploy an onboarding update to a namespace (preview)
       href: device-registry/how-to-deploy-onboarding-update-namespace.md
   - name: Understand billing
