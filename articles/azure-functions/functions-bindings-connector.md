@@ -111,7 +111,7 @@ Add the [Azure Connectors SDK](https://www.nuget.org/packages/Azure.Connectors.S
 dotnet add package Azure.Connectors.Sdk
 ```
 
-For popular connectors, the SDK provides strongly typed clients for invoking connector actions from your functions; see the [Azure Connectors SDK for .NET API reference](/dotnet/api/azure.connectors.sdk).
+For popular connectors, the SDK provides strongly typed clients for invoking connector actions from your functions; see the [Azure Connectors SDK for .NET API reference](/dotnet/api/azure.connectors.sdk?view=azure-dotnet).
 
 ::: zone-end
 
@@ -153,7 +153,7 @@ If your function only needs to perform actions on external services and doesn't 
 npm install "@azure/connectors@latest"
 ```
 
-The SDK provides strongly typed clients for invoking connector actions from your functions.
+For popular connectors, the SDK provides strongly typed clients for invoking connector actions from your functions; see the [Azure Connectors SDK for Node.js API reference](https://azure.github.io/Connectors-NodeJS-SDK/).
 
 ::: zone-end
 
@@ -202,7 +202,7 @@ If your function only needs to perform actions on external services and doesn't 
 python -m pip install "azure-connectors>=1.0.0"
 ```
 
-The SDK provides strongly typed clients for invoking connector actions from your functions.
+For popular connectors, the SDK provides strongly typed clients for invoking connector actions from your functions; see the [Azure Connectors SDK for Python API reference](https://azure.github.io/connectors-python-sdk/).
 
 For current package versions and complete projects, see the [Azure Functions connector samples for Python](https://github.com/Azure-Samples/functions-connectors-python).
 
