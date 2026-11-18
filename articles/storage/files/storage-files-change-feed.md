@@ -5,7 +5,7 @@ description: Learn how Azure Files change feed records file and directory change
 author: Athreyasubash
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 10/14/2026
+ms.date: 11/16/2026
 ms.author: subhashn
 # Customer intent: As an application developer, I want to process file and directory changes without repeatedly scanning an Azure file share.
 ---
@@ -329,11 +329,12 @@ Azure Files change feed uses the container layout, Avro encoding, segment model,
 
 ## Pricing and billing
 
-The service stores change feed data as blobs in the same storage account. The billing system charges you for stored log data and requests to read it at the applicable Blob Storage rates. Retention duration and change volume directly affect storage and transaction costs. For more information about Azure Files billing models, see [Understand Azure Files billing](understanding-billing.md).
+The service stores change feed data as blobs in the same storage account. The billing system charges you for stored log data and requests to read it at the applicable storage rates. Retention duration and change volume directly affect storage and transaction costs. For more information about Azure Files billing models, see [Understand Azure Files billing](understanding-billing.md).
 
 ## Preview limitations
 
 - Change feed is available only to subscriptions approved for the preview.
+- Change feed supports storage accounts that use locally redundant storage (LRS) or zone-redundant storage (ZRS). Geo-redundant storage (GRS) isn't currently supported, but support is planned for general availability.
 - Premium file shares and NFS operations aren't supported.
 - Configuration uses the management plane and isn't available through the File REST API, SMB, or NFS.
 - Configuration isn't returned for share snapshots and can't be set on a snapshot or a soft-deleted share.
