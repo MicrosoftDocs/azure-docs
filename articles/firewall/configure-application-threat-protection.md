@@ -11,7 +11,9 @@ ms.date: 11/04/2026
 
 # Configure Advanced Application Threat Protection in Azure Firewall (preview)
 
-Advanced Application Threat Protection analyzes eligible HTTP requests to help detect exploit attempts against web applications and APIs. It adds AI-based request analysis to Azure Firewall Premium's existing protections.
+Advanced Application Threat Protection is an AI-powered inline capability for Azure Firewall. It analyzes each eligible HTTP request to help detect attempts to exploit existing and emerging vulnerabilities in enterprise web applications and APIs, including disguised variants that don't match existing signatures.
+
+Azure Firewall sends the HTTP request to an AI service for analysis. The service returns a risk score, which Azure Firewall uses to apply the configured protection settings to alert or deny the request. This capability adds AI-based request analysis to Azure Firewall Premium's existing protections. It's designed to help detect attacks such as SQL injection, cross-site scripting (XSS), path traversal, and command injection.
 
 This article shows how to configure the capability through a security profile group and associate the group with application rules. Start in **Alert only** mode before using **Alert and deny**. For the shared model, see [Azure Firewall AI Security concepts](ai-security-concepts.md).
 
@@ -27,8 +29,6 @@ This article shows how to configure the capability through a security profile gr
 - For HTTPS, working TLS inspection and client trust in the inspection certificate authority. See [Azure Firewall Premium certificates](premium-certificates.md).
 - An authorized test environment and a test application that you own, with approved test requests and a benign control.
 
-Enabling the add-on on an existing firewall requires downtime. Complete that maintenance activity before starting this procedure; creating a profile group isn't a substitute for enabling the add-on.
-
 During the preview, configuration is available only in the Azure portal.
 
 ## Inspection scope
@@ -37,7 +37,7 @@ The capability inspects eligible HTTP or HTTPS requests that match application r
 
 Traffic translated by inbound DNAT rules isn't processed by application rules and isn't inspected by this capability.
 
-Application-request analysis and file analysis address different content. For supported file transfers, see [Configure Advanced Malware Threat Protection](configure-malware-protection.md). Application threat protection complements rather than replaces Azure Web Application Firewall, application security testing, and timely patching.
+Application-request analysis and file analysis address different content. For malware protection in file transfers, see [Configure Advanced Malware Threat Protection](configure-malware-protection.md). Application threat protection complements rather than replaces Azure Web Application Firewall, application security testing, and timely patching.
 
 ## Create a security profile group
 
@@ -99,6 +99,11 @@ Check the following items before changing thresholds:
 - HTTPS traffic is successfully decrypted and the client trusts the inspection certificate authority.
 
 Risk scores are probabilistic and can produce false positives or false negatives. Don't treat a low score or an absent alert as proof that a request is safe.
+
+## Limitations
+
+- Inspects HTTP request content: the method, URL, selected headers, and body.
+- Inspects between 1 and 2 KB of total request content.
 
 ## Related content
 
