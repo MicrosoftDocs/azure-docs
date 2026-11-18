@@ -1,6 +1,6 @@
 ---
-title: What is Azure Multicloud Interconnect Preview?
-description: Learn how Azure Multicloud Interconnect Preview provides private, high-throughput connectivity between Azure and a supported cloud service provider.
+title: What is Azure Multicloud Interconnect?
+description: Learn how Azure Multicloud Interconnect provides private, high-throughput connectivity between Azure and a supported cloud service provider.
 author: duongau
 ms.author: duau
 ms.service: azure
