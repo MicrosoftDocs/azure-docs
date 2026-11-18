@@ -313,6 +313,22 @@ Extension bundles let you add a compatible set of Functions binding extensions t
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
+## fileWatchingEnabled
+
+Sets whether the host watches your app's files for changes. The default is `true`.
+
+When `true`, the host restarts after a change to your function code, config files, or the paths in [watchDirectories](#watchdirectories) and [watchFiles](#watchfiles).
+
+When `false`, the host does not watch any files. `watchDirectories` and `watchFiles` have no effect.
+
+The host always sets this to `false` when the file system is read-only. For example, when you [run from a package file](deployment-zip-push.md#run-functions-from-the-deployment-package).
+
+```json
+{
+    "fileWatchingEnabled": false
+}
+```
+
 ## functions
 
 A list of functions that the job host runs. An empty array means run all functions. Intended for use only when [running locally](functions-run-local.md). In function apps in Azure, you should instead follow the steps in [How to disable functions in Azure Functions](disable-function.md) to disable specific functions rather than using this setting.
