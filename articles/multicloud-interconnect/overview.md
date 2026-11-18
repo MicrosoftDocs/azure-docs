@@ -18,7 +18,7 @@ Azure Multicloud Interconnect with Amazon Web Services (AWS) is generally availa
 Availability, supported SKUs, bandwidths, pricing, and service commitments can vary by provider. For current support, see [Availability and limits](availability-limits.md). 
 
 > [!IMPORTANT]
-> Azure Multicloud Interconnect is currently in PREVIEW with Google Cloud.
+> Azure Multicloud Interconnect is currently in preview with Google Cloud.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE] 
