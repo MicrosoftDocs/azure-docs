@@ -61,6 +61,8 @@ To get started with using WCF Relay, see the following quick starts:
 
 For more samples, see [Azure Relay - WCF Relay samples on GitHub](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay).
 
+To assess compatibility and plan an application migration, see [Migrate WCF Relay to Hybrid Connections](migrate-wcf-relay-to-hybrid-connections-how-to.md).
+
 ## Hybrid Connections vs. WCF Relay
 Hybrid Connections and WCF Relay both enable secure connection to assets that exist within a corporate network. Use of one over the other depends on your particular needs, as described in the following table:
 
