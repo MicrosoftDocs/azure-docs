@@ -5,7 +5,7 @@ author: umamm
 ms.author: umamm
 ms.service: azure
 ms.topic: concept-article
-ms.date: 11/10/2026
+ms.date: 11/18/2026
 ---
 
 # Managed identities in Microsoft Discovery
@@ -66,13 +66,11 @@ A bookshelf references your UAMI through its `workloadIdentities` property. Disc
 
 In the [onboarding-tool path](how-to-set-up-deployment-tool.md#identify-or-create-the-initial-dependencies), create the UAMI before Stage 1; the tool doesn't create it. Stage 2 prepares its assignments after the dependencies exist. These are workload permissions, not the signed-in operator's stage permissions or human PIM eligibility.
 
-You must assign the following built-in roles to your UAMI *before* you create Discovery resources. Assign these roles at the *resource group* scope.
+For a single shared user-assigned managed identity (UAMI), assign the following core roles at the resource group scope before creating Discovery resources.
 
-| Role | Role definition ID | Purpose |
-|------|-------------------|---------|
-| Microsoft Discovery Platform Contributor (preview) | `01288891-85ee-45a7-b367-9db3b752fc65` | Manage Discovery resources, such as workspaces, projects, agents, and tools. |
-| Storage Blob Data Contributor | `ba92f5b4-2d11-453d-a403-e96b0029c9fe` | Read and write blobs in Azure Storage accounts. |
-| AcrPull | `7f951dda-4ed3-4680-a7ca-43fe172d538d` | Pull container images from Container Registry. |
+[!INCLUDE [Shared UAMI core roles](includes/shared-uami-core-roles.md)]
+
+The roles let the identity manage Discovery resources (workspaces, projects, agents, and tools), read and write Azure Storage blobs, and pull container images from Container Registry. Each list entry includes the role definition ID.
 
 The supercomputer cluster identity also needs **Network Contributor** on the referenced network resources to operate cluster networking. The onboarding tool targets its VNet for this role. Confirm coverage when the VNet is in a separate resource group; the three roles above alone don't establish network access. See [Configure managed identities](how-to-configure-managed-identity.md#additional-roles-for-specific-scenarios).
 
