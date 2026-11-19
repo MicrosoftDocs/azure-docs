@@ -5,7 +5,7 @@ author: yousefi
 ms.author: yousefi
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/28/2026
+ms.date: 11/18/2026
 # Customer intent: As a platform administrator, I want to generate a reviewed onboarding configuration so that later stages use consistent approved settings.
 ---
 
@@ -25,6 +25,12 @@ Stage 1 reads Azure state for live checks but doesn't change Azure resources. It
 
 ## Select and complete the workbook
 
+Microsoft Discovery supports the following home regions for its control-plane resources:
+
+[!INCLUDE [Supported home regions](includes/supported-home-regions.md)]
+
+Region support doesn't guarantee model or compute capacity.
+
 1. Use the workbook that ships with your checked-out tool revision:
 
    | Workbook in `stage1-planning` | Supported `network.model` |
@@ -43,7 +49,7 @@ Stage 1 reads Azure state for live checks but doesn't change Azure resources. It
    | `deployingIdentity.objectId` | Deploying principal's Entra object ID. A user UPN or application appId/display name requires directory lookup access. |
    | `resourceGroup` | Existing platform resource group. |
    | `managedIdentity.id` | Full resource ID of the precreated UAMI, not its principal ID. |
-   | `controlPlaneRegion` | Supported Discovery control-plane region: East US, Sweden Central, or UK South. This region can differ from `workloadRegion`. |
+   | `controlPlaneRegion` | Discovery control-plane region from the supported home regions listed above. This region can differ from `workloadRegion`. |
    | `workloadRegion` | Region for the VNet/subnets and all resources in the managed resource groups. For `byo-existing`, this region must match the existing VNet region. |
    | `names.*` | Resource names, including workspace, project, supercomputer, and node pool. Review [naming rules](reference-resource-naming.md). |
 
