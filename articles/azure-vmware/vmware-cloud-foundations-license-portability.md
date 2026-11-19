@@ -102,22 +102,6 @@ You can update a portable VCF configuration without downtime or workload interru
 > [!IMPORTANT]
 > The registered core total across all private clouds must not exceed your Broadcom entitlement. Register a valid Broadcom firewall add-on before you enable or update firewall features.
 
-## Remove a portable VCF configuration
-
-You can unregister a VCF subscription or firewall add-on independently from a private cloud.
-
-1. In the Azure portal, open the Azure VMware Solution private cloud.
-1. Under **Manage**, select **Portable VCF (BYOL)**.
-1. Select **Remove** next to the VCF subscription or firewall add-on that you want to unregister.
-1. Confirm the removal.
-
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-remove.png" alt-text="Screenshot of selections for removing a VCF subscription that's already registered on an Azure VMware Solution private cloud." border="true":::
-
-> [!IMPORTANT]
-> Removing the registration doesn't interrupt workloads, but it changes the private cloud from VCF BYOL to Microsoft-managed VCF. Make this change only when the private cloud is covered by an active VCF license-included reserved instance. Otherwise, the private cloud becomes noncompliant and is at risk of suspension.
-
-Contact your Microsoft account team or Microsoft support before removing a registration if you're unsure whether the private cloud is eligible for Microsoft-managed VCF.
-
 ## Resolve a registration failure
 
 If a registration fails during private cloud creation or management, the Azure portal displays a **Failed** status. This status typically indicates a service error.
