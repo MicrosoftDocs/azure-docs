@@ -2,7 +2,7 @@
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data, including important considerations for your function app instances.
 ms.topic: concept-article
-ms.date: 09/15/2026
+ms.date: 11/09/2026
 ms.custom:
   - ignite-2024
   - sfi-ropc-nochange
@@ -20,7 +20,7 @@ Select your hosting plan at the top of this article to view the storage guidance
 
 |Storage service  | Functions usage  |
 |---------|---------|
-| [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys<sup>1</sup>.<br/>Deployment source for apps that run in a [Flex Consumption plan](flex-consumption-plan.md).<br/>Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md). <br/>Can be used to store function app code for [Linux Consumption remote build](functions-deployment-technologies.md#remote-build) or as part of [external package URL deployments](functions-deployment-technologies.md#external-package-url). |
+| [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys<sup>1</sup>.<br/>Deployment source for code-package apps that run in a [Flex Consumption plan](flex-consumption-plan.md).<br/>Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md). <br/>Can be used to store function app code for [Linux Consumption remote build](functions-deployment-technologies.md#remote-build) or as part of [external package URL deployments](functions-deployment-technologies.md#external-package-url). |
 | [Azure Files](../storage/files/storage-files-introduction.md)<sup>2</sup>  | File share used to store and run your function app code in a [Consumption Plan](consumption-plan.md) and [Premium Plan](functions-premium-plan.md). <br/> Maintain [extension bundles](./extension-bundles.md).<br/>Store deployment logs.<br/>Supports [Managed dependencies in PowerShell](./functions-reference-powershell.md#managed-dependencies-feature). |
 | [Azure Queue storage](../storage/queues/storage-queues-introduction.md)     | Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md). Used for failure and retry handling in [specific Azure Functions triggers](./functions-bindings-storage-blob-trigger.md). Used for object tracking by the [Blob storage trigger](functions-bindings-storage-blob-trigger.md). |
 | [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md).<br/>Used for tracking [diagnostic events](./functions-diagnostics.md).  |
@@ -219,7 +219,7 @@ The Azure Files service provides a shared file system that supports high-scale s
 Using Azure Files requires a connection string, which you store in your app settings as [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). Azure Files doesn't currently support identity-based connections. If your scenario requires that you don't store any secrets in app settings, you must remove your app's dependency on Azure Files. You can avoid this dependency by creating your app without the default Azure Files dependency.
 
 > [!NOTE]
-> You should also consider running your function app in the Flex Consumption plan, which provides greater control over the deployment package, including the ability to use managed identity connections. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
+> You should also consider running your function app as a code-package app in the Flex Consumption plan, which provides greater control over the deployment package, including the ability to use managed identity connections. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
 
 To run your app without the Azure Files share, you must meet the following requirements:
 
@@ -247,7 +247,7 @@ Azure Files is used to enable dynamic scale-out for Functions. Scaling could be 
 ::: zone-end
 ::: zone pivot="flex-consumption-plan"
 
-Flex Consumption doesn't depend on an Azure Files content share. It uses configurable Blob deployment storage and supports managed identity connections. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
+Flex Consumption doesn't depend on an Azure Files content share. Code-package apps use configurable Blob deployment storage and support managed identity connections. Apps that use a container image store the application and its dependencies in the image. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings) and [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 ::: zone-end
 ::: zone pivot="dedicated-plan"

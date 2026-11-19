@@ -1,6 +1,56 @@
 {
   "redirections": [
     {
+      "source_path": "articles/partner-solutions/arize-ai/create.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/arize-ai/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/arize-ai/faq.yml",
+      "redirect_url": "/previous-versions/azure/partner-solutions/arize-ai/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/arize-ai/index.yml",
+      "redirect_url": "/previous-versions/azure/partner-solutions/arize-ai/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/arize-ai/manage.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/arize-ai/manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/arize-ai/overview.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/arize-ai/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/lambda-test/create.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/lambda-test/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/lambda-test/faq.yml",
+      "redirect_url": "/previous-versions/azure/partner-solutions/lambda-test/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/lambda-test/index.yml",
+      "redirect_url": "/previous-versions/azure/partner-solutions/lambda-test/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/lambda-test/manage.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/lambda-test/manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/partner-solutions/lambda-test/overview.md",
+      "redirect_url": "/previous-versions/azure/partner-solutions/lambda-test/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/partner-solutions/astronomer/create.md",
       "redirect_url": "/previous-versions/azure/partner-solutions/astronomer/create",
       "redirect_document_id": false
@@ -8348,6 +8398,11 @@
       "source_path": "articles/dns/private-dns-resiliency.md",
       "redirect_url": "/azure/reliability/reliability-dns-private",
       "redirect_document_id": false
-    }    
+    } ,
+    {
+    "source_path": "articles/virtual-wan/customer-controlled-gateway-maintenance.md",
+    "redirect_url": "/azure/virtual-wan/customer-controlled-maintenance",
+    "redirect_document_id": true 
+}
   ]
 }

@@ -19,6 +19,13 @@ Azure App Service is a platform that lets you run web applications, mobile back 
 
 App Service supports a variety of web stacks: .NET, Java (in Java SE, Tomcat, and JBoss flavors), Node.js, Python, and PHP, and can run them on both Windows and Linux. Or, if your app is containerized, you can just deploy it as a custom container.
 
+## App Service Builder (preview)
+
+For an introduction to App Service Builder, see the [App Service Builder overview](app-service-builder-overview.md).
+
+> [!IMPORTANT]
+> App Service Builder public preview is for development and test workloads. It has no financially backed SLA and isn't recommended for production workloads. The standard App Service capabilities and service guarantees that this article describes don't automatically apply to Builder.
+
 ## Why Use Azure App Service?
 
 Whether you're a student, a small business, a startup, or an enterprise, App Service offers a wide range of features tailored to meet your needs.

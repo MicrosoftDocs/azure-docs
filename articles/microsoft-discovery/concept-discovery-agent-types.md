@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: concept-article
-ms.date: 05/29/2026
+ms.date: 11/17/2026
 
 #CustomerIntent: As a researcher or scientist, I want to understand the different Microsoft Discovery agent types so that I can choose the right agent pattern for my scenario.
 ---
@@ -68,9 +68,9 @@ When you create agents, reference your chat model deployment by specifying the d
 
 #### Response controls
 
-Two parameters control model response characteristics for nonreasoning models:
+Two parameters control model response characteristics for nonreasoning models that support them:
 
-- **Temperature (0–2)**: Uses lower values to produce deterministic outputs. Higher values increase creativity. Use `0` for routing and planning agents that require consistent behavior.
+- **Temperature (0–2)**: Lower values reduce sampling variability but don't guarantee deterministic outputs. Higher values increase creativity. Use `0`, if supported, to reduce variability for routing and planning agents.
 - **Top-P (0–1)**: Controls nucleus sampling diversity. Use lower values for precision tasks. Use higher values for exploratory or creative tasks.
 
 #### Structured inputs

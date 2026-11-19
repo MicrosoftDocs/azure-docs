@@ -197,6 +197,8 @@
       items:
       - name: Versions
         items:
+          - name: v20260701
+            href: swagger/signalr-data-plane-rest-v20260701.md
           - name: v20241201
             href: swagger/signalr-data-plane-rest-v20241201.md
           - name: v20220601

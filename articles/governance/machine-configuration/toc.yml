@@ -57,6 +57,16 @@ items:
           href: ./how-to/assign-security-baselines/understand-baseline-settings-parameter.md
         - name: Deploy a baseline policy assignment
           href: ./how-to/assign-security-baselines/deploy-a-baseline-policy-assignment.md
+    - name: (Preview) Machine Inventory
+      items:
+        - name: Machine Inventory overview
+          href: ./how-to/machine-inventory/overview.md
+        - name: Enable Machine Inventory
+          href: ./how-to/machine-inventory/enable-machine-inventory.md
+        - name: View and query machine inventory
+          href: ./how-to/machine-inventory/view-and-query-machine-inventory.md
+        - name: Enable Microsoft Configuration Manager Connected Inventory
+          href: ./how-to/machine-inventory/configuration-manager-connected-inventory.md
     - name: Develop a custom package
       items:
         - name: Overview

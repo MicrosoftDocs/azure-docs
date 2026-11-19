@@ -221,7 +221,25 @@ The single-tenant model and **Standard** logic app include many current and new 
 
   * **Standard** logic app workflows can trigger from anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
-  * **Standard** logic app workflows support enabling both the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) at the same time, although you can select only one identity to use at a time. While [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) support using the system-assigned identity, most currently don't support selecting user-assigned managed identities for authentication, except for SQL Server and the HTTP connectors.
+  * **Standard** logic app workflows support enabling both the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) at the same time, although you can select only one identity to use at a time. [Built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) that support managed identity authentication can use either system-assigned or user-assigned managed identities. Support depends on the connector. For example, the built-in SFTP connector doesn't support managed identity authentication.
+
+    The user interface has limited support for selecting user-assigned managed identities. When this option isn't available, edit the connection in your logic app project's **connections.json** file. Both identity types use `"Type": "ManagedServiceIdentity"` in the connection's `parameterValues.authProvider` object. The optional `Identity` property determines which identity to use:
+
+    * Omit `Identity`, or set it to an empty string, to use the system-assigned managed identity.
+    * Set `Identity` to the resource ID of a user-assigned managed identity to use that identity.
+
+    The following example shows the configuration for a user-assigned managed identity:
+
+    ```json
+    {
+      "parameterValues": {
+        "authProvider": {
+          "Type": "ManagedServiceIdentity",
+          "Identity": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>"
+        }
+      }
+    }
+    ```
 
     > [!NOTE]
     > By default, the system-assigned identity is already enabled to authenticate connections at run time. 
@@ -305,7 +323,7 @@ For the **Standard** logic app workflow, the following capabilities are differen
 
   * Some request-based triggers that handle inbound calls, such as the Request trigger, currently don't support Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth), while others such as the HTTP Webhook trigger have this support.
 
-  * Some [built-in, service provider-based connectors](/azure/logic-apps/connectors/built-in/reference/) currently don't support selecting the user-assigned managed identity for authentication. However, both system-assigned and user-assigned managed identity supports are available in general. By default, the system-assigned managed identity is automatically enabled.
+  * Managed identity authentication support varies by [built-in, service provider-based connector](/azure/logic-apps/connectors/built-in/reference/). For example, the built-in SFTP connector doesn't support managed identity authentication. For connectors that support it, the user interface has limited support for selecting user-assigned managed identities. When this option isn't available, configure the identity in your logic app project's **connections.json** file.
 
 * **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 

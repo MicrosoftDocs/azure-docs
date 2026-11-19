@@ -97,7 +97,7 @@ To assign a role to the Azure Arc-enabled machine, follow these steps:
 
 ### Step 3: Set the registry key on the Azure Migrate appliance
 
-Add a new registry key `HKLM\SOFTWARE\Microsoft\AzureAppliance\UseManagedIdentityAuth` set to `true` on the Azure Migrate appliance machine.
+Add a new registry key `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance\UseManagedIdentityAuth` set to `true` on the Azure Migrate appliance machine.
 
 ### Step 4: Set up the Azure Migrate appliance
 
@@ -120,7 +120,7 @@ If you set up a scale-out appliance to execute migrations, you can also Arc-enab
 
 1. Create a scale-out appliance key.
 
-1. Add a new registry key `HKLM\SOFTWARE\Microsoft\AzureAppliance\UseManagedIdentityAuth` set to `true`.
+1. Add a new registry key `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance\UseManagedIdentityAuth` set to `true`.
 
 1. Go to the primary appliance machine and run the `ExportConfigFiles.ps1` script. The script is usually present at `C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell`. Enter the user details, and it generates an `.AzM` file on the desktop.
 

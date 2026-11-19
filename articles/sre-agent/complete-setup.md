@@ -2,7 +2,7 @@
 title: Complete setup for Azure SRE Agent
 description: Decide which data sources to connect to your agent, what each source adds to an investigation, and how to confirm a connection works.
 ms.topic: how-to
-ms.date: 09/03/2026
+ms.date: 11/13/2026
 ms.service: azure-sre-agent
 author: craigshoemaker
 ms.author: cshoe
@@ -45,6 +45,14 @@ Pick the situation that matches what your agent is missing.
 - **The answers are technically correct but ignore how your team operates.** Add **knowledge files** so the agent follows your procedures instead of a generic sequence.
 
 Azure resources and incidents are the two connections most likely to involve someone else. Both change what the agent can reach or when it acts, and both need access that a single engineer might not hold.
+
+### Add collaboration and identity separately
+
+Teams chat and governed identity creation are separate from the setup page's investigation data sources:
+
+- For agent-user chat in Teams, [set up the Teams integration](set-up-teams-integration.md) (preview).
+- For scheduled reports and workflow updates, [connect a notification service](connect-notification-service.md). Native approval and authorization requests use [Teams request notifications](teams-integration.md#request-notifications).
+- To provision a governed identity with a new agent, use [Microsoft Entra Agent ID setup](set-up-entra-agent-id.md) (preview). This doesn't change its Azure resource access.
 
 ## Prerequisites
 
@@ -122,4 +130,3 @@ You can also ask the agent what to set up next. It gives recommendations based o
 - [Incident platforms](incident-platforms.md)
 - [Diagnose with Azure observability](diagnose-azure-observability.md)
 - [Diagnose with external observability](diagnose-observability.md)
-

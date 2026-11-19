@@ -256,7 +256,7 @@ Official SDK support for this public preview feature isn't yet available. To get
 
 [Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates and intermediate certificates associated with IoT Hub endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
 
-## TLS 1.3 support (preview)
+## TLS 1.3 support
 
 Azure IoT Hub supports TLS 1.3 through new device and service endpoints available alongside the existing classic endpoint. These endpoints are provisioned automatically on all IoT hubs and can be adopted at your own pace.
 
@@ -265,8 +265,8 @@ Azure IoT Hub supports TLS 1.3 through new device and service endpoints availabl
 | Endpoint | Hostname | TLS support |
 |----------|----------|-------------|
 | Classic | `<hub>.azure-devices.net` | TLS 1.2 |
-| Device (preview) | `<hub>.device.azure-devices.net` | TLS 1.2 (restricted ciphers) + TLS 1.3 |
-| Service (preview) | `<hub>.service.azure-devices.net` | TLS 1.2 (restricted ciphers) + TLS 1.3 |
+| Device | `<hub>.device.azure-devices.net` | TLS 1.2 (restricted ciphers) + TLS 1.3 |
+| Service | `<hub>.service.azure-devices.net` | TLS 1.2 (restricted ciphers) + TLS 1.3 |
 
 The classic endpoint remains fully supported and continues to be the default for existing workloads.
 

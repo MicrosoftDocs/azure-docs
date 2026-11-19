@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using the Azure Fu
 ms.topic: how-to
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.date: 11/02/2025
+ms.date: 11/09/2026
 
 zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
@@ -114,6 +114,9 @@ The Functions extension lets you create the required function app project at the
    You can either create a new folder or choose an empty folder for the project workspace, but don't choose a project folder that's already part of a workspace.   
 
    You can instead run the command `Azure Functions: Create New Containerized Project...` to also get a Dockerfile generated for the project.
+
+   > [!NOTE]
+   > This command generates a Dockerfile that uses the complete Function App image contract. It doesn't generate the worker-only Dockerfile used by Flex Consumption container images. For Flex Consumption, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 1. When prompted, **Select a language** for your project. If necessary, choose a specific language version.
 

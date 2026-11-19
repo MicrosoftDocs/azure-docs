@@ -69,5 +69,5 @@ To confirm that the Azure Migrate project was created, use the Azure portal.
 ## Next steps
 
 In this quickstart, you created an Azure Migrate project. 
-- To learn more about Azure Migrate and its capabilities, continue to the [Azure Migrate overview](migrate-services-overview.md).
+- To learn more about Azure Migrate and its capabilities, continue to the [Azure Catalyst overview](migrate-services-overview.md).
 - Follow these tutorials to discover [VMware VMs](tutorial-discover-vmware.md), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).

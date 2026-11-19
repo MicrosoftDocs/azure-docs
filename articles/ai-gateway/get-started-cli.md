@@ -9,8 +9,6 @@ ms.date: 10/25/2026
 
 # Start with the Azure CLI extension
 
-[!INCLUDE [ai-gateway-preview](./includes/preview.md)]
-
 Use the `aigateway` Azure CLI extension to give applications access to existing Microsoft Foundry model deployments through a shared gateway.
 
 This quickstart introduces the `az aigateway` commands and walks you through your first model request from a Bash or PowerShell terminal.

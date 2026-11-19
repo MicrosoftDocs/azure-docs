@@ -3,7 +3,7 @@ title: Azure Functions best practices
 description: Learn best practices for designing, deploying, and maintaining efficient function code running in Azure.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: concept-article
-ms.date: 09/15/2026
+ms.date: 11/09/2026
 ms.devlang: csharp
 ms.custom:
   - build-2024
@@ -53,7 +53,7 @@ Function apps that scale dynamically can run either from an Azure Files endpoint
 - [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](functions-app-settings.md#website_contentazurefileconnectionstring)
 - [WEBSITE_CONTENTSHARE](functions-app-settings.md#website_contentshare)
 
-The Premium plan and the Consumption plan on Windows support these settings. The Flex Consumption plan doesn't require these settings and uses a Blob storage container to host deployment packages instead of an Azure Files share.
+The Premium plan and the Consumption plan on Windows support these settings. The Flex Consumption plan doesn't require these settings. Flex code-package apps use a Blob storage container to host deployment packages instead of an Azure Files share, while apps that use a [container image](flex-consumption-os-level-dependencies.md) store the application and its dependencies in the image.
 
 When you create your function app in the Azure portal or by using Azure CLI or Azure PowerShell, you create these settings for your function app when needed. When you create your resources from an Azure Resource Manager template (ARM template), you need to also include `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` in the template.
 

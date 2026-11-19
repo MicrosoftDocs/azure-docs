@@ -3,7 +3,7 @@ title: Azure Functions Scale and Hosting
 description: Compare the various options you need to consider when choosing a hosting plan in which to run your function app in Azure Functions.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: limits-and-quotas
-ms.date: 09/16/2026
+ms.date: 11/09/2026
 ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024, ignite-2024
 #customer intent: As a cloud developer or platform engineer, I want guidance on Functions scaling and hosting so I can choose the best hosting plan for performance and cost-efficiency when running my code in Azure.
 ---
@@ -13,7 +13,7 @@ When you create a function app in Azure, you must choose a hosting option for yo
 
 | Hosting option | Service | Availability | Container support |
 | --- | --- | --- | --- | 
-| **[Flex Consumption plan]** | Azure Functions | Generally available (GA) |  None | 
+| **[Flex Consumption plan]** | Azure Functions | Generally available (GA) | [Linux (worker-only preview)](flex-consumption-os-level-dependencies.md) |
 | **[Premium plan]** | Azure Functions | GA | Linux |
 | **[Dedicated plan]** | Azure Functions | GA | Linux |
 | **[Container Apps]** | Azure Container Apps | GA | Linux |
@@ -39,7 +39,7 @@ The following table summarizes the benefits of the various options for Azure Fun
 
 | Option | Benefits |
 | --- | --- |  
-|**[Flex Consumption plan]**|Experience fast horizontal scaling, with flexible compute options, virtual network integration, and serverless pay-as-you-go billing.<br/><br/>In the Flex Consumption plan, function instances dynamically scale out (up to 1,000) based on configured per-instance concurrency, incoming events, and per-function workloads for optimal efficiency.<br/><br/>Consider the Flex Consumption plan when:<br/><br/>✔ You need a serverless host for your function code, paying only for on-demand executions.<br/>✔ You require virtual network connectivity for secure access to Azure resources.<br/>✔ Your workloads are variable and can go from no activity to demanding rapid, event-driven scaling.<br/>✔ You want to customize compute with memory sizes (512 MB, 2,048 MB, or 4,096 MB) and reduce cold starts via one or more pre-provisioned (always-ready) instances.| 
+|**[Flex Consumption plan]**|Experience fast horizontal scaling, with flexible compute options, virtual network integration, and serverless pay-as-you-go billing.<br/><br/>In the Flex Consumption plan, function instances dynamically scale out (up to 1,000) based on configured per-instance concurrency, incoming events, and per-function workloads for optimal efficiency.<br/><br/>Consider the Flex Consumption plan when:<br/><br/>✔ You need a serverless host for your function code, paying only for on-demand executions.<br/>✔ You require virtual network connectivity for secure access to Azure resources.<br/>✔ Your workloads are variable and can go from no activity to demanding rapid, event-driven scaling.<br/>✔ You want to customize compute with memory sizes (512 MB, 2,048 MB, or 4,096 MB) and reduce cold starts via one or more pre-provisioned (always-ready) instances.<br/>✔ Your app requires [OS-level dependencies supplied through a container image](flex-consumption-os-level-dependencies.md).|
 |**[Premium plan]**|Automatically scales based on demand using prewarmed workers, which run applications with no delay after being idle, runs on more powerful instances, and connects to virtual networks. <br/><br/>Consider the Azure Functions Premium plan in the following situations: <br/><br/>✔ Your function apps run continuously, or nearly continuously.<br/>✔ You want more control of your instances and want to deploy multiple function apps on the same plan with event-driven scaling.<br/>✔ You have a high number of small executions and a high execution bill, but low GB seconds in the Consumption plan.<br/>✔ You need more CPU or memory options than are provided by consumption plans.<br/>✔ Your code needs to run longer than the maximum execution time allowed on the Consumption plan.<br/>✔ You require virtual network connectivity for secure access to Azure resources.<br/>✔ You want to provide a custom Linux image in which to run your functions. |  
 |**[Dedicated plan]** |Run your functions within an App Service plan at regular [App Service plan rates](https://azure.microsoft.com/pricing/details/app-service/windows/).<br/><br/>Best for long-running scenarios where [Durable Functions](../durable-task/common/what-is-durable-task.md) can't be used. Consider an App Service plan in the following situations:<br/><br/>✔ You have existing and underutilized virtual machines that are already running other App Service instances.<br/>✔ You must have fully predictable billing, or you need to manually scale instances.<br/>✔ You want to run multiple web apps and function apps on the same plan<br/>✔ You need access to larger compute size choices.<br/>✔ Full compute isolation and secure network access provided by an App Service Environment (ASE).<br/>✔ Very high memory usage and high scale (ASE).|  
 | **[Container Apps]** | Create and deploy containerized function apps in a fully managed environment hosted by Azure Container Apps.<br/><br/>Use the Azure Functions programming model to build event-driven, serverless, cloud native function apps. Run your functions alongside other microservices, APIs, websites, and workflows as container-hosted programs. Consider hosting your functions on Container Apps in the following situations:<br/><br/>✔ You want control of the container image and want to package custom libraries with your function code to support line-of-business apps.<br/>✔ You need to migrate code execution from on-premises or legacy apps to cloud native microservices running in containers.<br/>✔ When you want to avoid the overhead and complexity of managing Kubernetes clusters and dedicated compute.<br/>✔ Your functions need high-end processing power provided by dedicated GPU compute resources. |  
@@ -53,7 +53,7 @@ This table shows operating system support for the hosting options.
 
 | Hosting | Linux<sup>1</sup> deployment| Windows<sup>2</sup> deployment | 
 | --- | --- | --- | 
-| **[Flex Consumption plan]** | ✅ Code-only<br/>❌ Container (not supported) | ❌ Not supported |
+| **[Flex Consumption plan]** | ✅ Code-only<br/>✅ [Container (worker-only preview)](flex-consumption-os-level-dependencies.md) | ❌ Not supported |
 | **[Premium plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only | 
 | **[Dedicated plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only |
 | **[Container Apps]** | ✅ Container-only | ❌ Not supported |

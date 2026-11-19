@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 09/09/2020
+ms.date: 11/11/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to configure the components of an application gateway, so that I can ensure efficient traffic management and optimal security for my backend services."
@@ -25,7 +25,22 @@ The Application Gateway infrastructure includes the virtual network, subnets, ne
 
 For more information, see [Application Gateway infrastructure configuration](configuration-infrastructure.md).
 
+## Deployment tier
 
+The deployment tier determines how the application gateway is deployed and connected to your network. You choose the tier when you create the gateway.
+
+| Tier | Choose it when |
+| --- | --- |
+| **Standard** | You want to use the current, generally available Application Gateway platform architecture, with public or public-and-private frontends. |
+| **Network Isolated** | You need a private-only gateway with no public IP and no public management-traffic dependency. This tier removes the need to register the `EnableApplicationGatewayNetworkIsolation` flag to support a private-only Application Gateway. See [Private Application Gateway deployment](application-gateway-private-deployment.md?tabs=portal). |
+| **Accelerated (Preview)** | You want the modern platform with higher scale limits, faster scaling, and longer connection draining, using public, private-only, or combined public-and-private connectivity. |
+
+> [!IMPORTANT]
+> You can't change the deployment tier after you create the application gateway. To move to a different tier, create a new gateway and migrate your configuration.
+
+Standard and Network Isolated are available in all regions where Application Gateway is available. Accelerated is available only in selected regions during preview. For the supported preview regions and more information, see [Application Gateway deployment tiers](deployment-tier.md#regional-availability).
+
+To try Accelerated during preview, see [Try the Accelerated tier in the Azure portal](deployment-tier.md#try-the-accelerated-tier-in-the-azure-portal).
 
 ## Frontend IP address
 

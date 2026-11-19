@@ -5,14 +5,14 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 09/10/2026
+ms.date: 11/17/2026
 
 #CustomerIntent: As a researcher or scientist, I want to select the best model for my Discovery agents so that I can balance output quality, cost, and response time.
 ---
 
 # Select models for agents in Microsoft Discovery
 
-Microsoft Discovery is built on [Foundry Agent Service](/azure/foundry/agents/concepts/runtime-components). Discovery agents can use all models available in the [Microsoft Foundry model catalog](https://ai.azure.com/catalog/models). Use OpenAI GPT-5.x series models for the best experience with Discovery agents.
+Microsoft Discovery is built on [Foundry Agent Service](/azure/foundry/agents/concepts/runtime-components). Discovery agents can use supported models from the [Microsoft Foundry model catalog](https://ai.azure.com/catalog/models). Before deploying a model, verify the supported model names and formats for your target region, as described in the [chat model deployment reference](/azure/templates/microsoft.discovery/workspaces/chatmodeldeployments#chatmodeldeploymentproperties). Use OpenAI GPT-5.x series models for the best experience with Discovery agents.
 
 This article helps you choose the right model for your agents based on task complexity, output quality, cost, and response time. The guidance applies to both Microsoft Discovery and the Discovery app, with more flexibility available in the Discovery app for third-party model endpoints. (The Discovery app is a local experience built on GitHub Copilot.)
 
@@ -20,7 +20,7 @@ This article helps you choose the right model for your agents based on task comp
 
 | Offering | Model guidance | Additional options |
 | --- | --- | --- |
-| Microsoft Discovery | All guidance in this article applies. You deploy models as workspace-level managed resources. | Models are from the [Foundry model catalog](https://ai.azure.com/catalog/models). |
+| Microsoft Discovery | All guidance in this article applies. You deploy models as workspace-level managed resources. | Supported models are from the [Foundry model catalog](https://ai.azure.com/catalog/models); availability depends on the region. |
 | The Discovery app | Same model selection principles apply. | Supports bring-your-own-model (BYOM) endpoints from third-party platforms. |
 
 ## Prerequisites
@@ -31,7 +31,7 @@ This article helps you choose the right model for your agents based on task comp
 
 ## Understand available GPT-5.x models
 
-The following table summarizes the OpenAI GPT-5.x models recommended for Discovery agents.
+The following table summarizes the OpenAI GPT-5.x models recommended for Discovery agents, except for GPT-5.2-Chat, which is listed only for historical reference.
 
 | Model | Context window | Strengths | Relative cost | Response time |
 | --- | --- | --- | --- | --- |
@@ -40,10 +40,13 @@ The following table summarizes the OpenAI GPT-5.x models recommended for Discove
 | GPT-5.5 | 1,050,000 tokens | Latest reasoning capabilities with improved accuracy and instruction following | High | Medium |
 | GPT-5.2-Pro | 400,000 tokens | Deep reasoning, complex research, advanced code generation | High | Slow |
 | GPT-5.4-Pro | 1,050,000 tokens | Maximum reasoning depth with extended context | Highest | Slowest |
-| GPT-5.2-Chat | 400,000 tokens | Conversational interactions, question and answer, guidance | Medium-Low | Fast |
+| GPT-5.2-Chat (retired by Azure) | 128,000 tokens (historical) | Conversational interactions, question and answer, guidance | Not applicable | Not applicable |
 | GPT-5.4-Chat | 1,050,000 tokens | Conversational interactions with larger context | Medium | Fast |
 | GPT-5-mini | 400,000 tokens | High-volume, cost-sensitive workloads | Low | Fast |
 | GPT-5-nano | 400,000 tokens | Ultra-low-cost, latency-sensitive workloads | Lowest | Fastest |
+
+> [!NOTE]
+> Azure lists both versions of `gpt-5.2-chat` as retired: `2025-12-11` on May 13, 2026, and `2026-02-10` on June 29, 2026. It's included here only for historical reference, not as a recommendation for new deployments. See [Azure's GPT-5.2 model specifications](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure#gpt-52). These provider dates don't establish the state of an existing Microsoft Discovery deployment.
 
 ## Understand available Grok models
 
@@ -85,13 +88,11 @@ Recommended models:
 
 ### Prompt agents for planning and routing
 
-Planning agents generate research plans, make routing decisions, or coordinate other agents. These tasks need consistent, deterministic behavior rather than creative reasoning.
+Planning agents generate research plans, make routing decisions, or coordinate other agents. These tasks need consistent behavior rather than creative reasoning.
 
 Recommended models:
 
-- GPT-5.4. Handles planning and routing reliably. Set temperature to `0` for deterministic behavior.
-
-- GPT-5.2-Chat. A cost-effective alternative for lightweight planning tasks that don't require deep reasoning. Chat models respond faster and cost less per token.
+- GPT-5.4. Handles planning and routing reliably.
 
 - GPT-5-mini. Suitable for simple routing decisions where the agent selects from a fixed set of options. Offers the best balance of cost and speed for straightforward classification tasks.
 
@@ -111,7 +112,7 @@ Interactive agents handle question and answer, onboarding, or exploratory conver
 
 Recommended models:
 
-- GPT-5.2-Chat or GPT-5.4-Chat. Optimized for conversational interactions. Chat models provide natural, responsive dialogue, with lower latency and cost compared to their base counterparts.
+- GPT-5.4-Chat. Optimized for conversational interactions. Chat models provide natural, responsive dialogue, with lower latency and cost compared to their base counterparts.
 
 - GPT-5-mini. A strong choice for high-volume interactive scenarios if cost efficiency matters. Delivers good conversational quality at a fraction of the cost.
 
@@ -133,7 +134,7 @@ Use the following decision matrix to guide your model selection.
 | Large context requirements | GPT-5.4 | Higher cost, supports up to 1,050,000 tokens |
 | Biology and life sciences | Grok-4.20-reasoning | Fewer content restrictions on biology queries; BYOM deployment required |
 | Fast biology inference | Grok-4.20-non-reasoning | Fewer content restrictions; no chain-of-thought reasoning |
-| Fast conversational responses | GPT-5.2-Chat or GPT-5.4-Chat | Reduced reasoning depth |
+| Fast conversational responses | GPT-5.4-Chat | Reduced reasoning depth |
 | Cost optimization | GPT-5-mini | Good quality at lower cost |
 | Lowest cost and latency | GPT-5-nano | Reduced output quality, best for simple tasks |
 
@@ -157,8 +158,8 @@ You configure model deployments at the workspace level. All agents in a project 
 
 1. Under **Chat model**, select the deployment name that corresponds to the model you want to use (for example, `my-gpt-52-deployment`).
 
-1. Adjust **Temperature** and **Top-P** response controls, based on your use case:
-   - For planning and routing agents, set **Temperature** to `0` for deterministic output.
+1. Check which response controls the selected model supports before adjusting **Temperature** or **Top-P**. GPT-5 reasoning models don't support these parameters; see [Unsupported parameters](/azure/foundry/openai/how-to/reasoning#unsupported-parameters). For models that support temperature:
+   - For planning and routing agents, set **Temperature** to `0` to reduce randomness. This setting doesn't guarantee deterministic output; see [Azure OpenAI reproducible output](/azure/foundry-classic/openai/how-to/reproducible-output#parameter-details).
    - For research and analysis agents, use **Temperature** between `0.3` and `0.7` for balanced creativity and precision.
    - For exploratory or brainstorming agents, set **Temperature** between `0.7` and `1.0`.
 
@@ -168,7 +169,7 @@ You can deploy multiple models in the same workspace, and assign different deplo
 
 ## Model selection in the Discovery app
 
-The model selection guidance in this article applies equally to the Discovery app. The same principles for matching models to agent use cases, evaluating tradeoffs among quality, cost, and speed, and configuring response controls remain valid.
+The model selection guidance in this article applies equally to the Discovery app. The same principles for matching models to agent use cases and evaluating tradeoffs among quality, cost, and speed remain valid. Response controls depend on the selected model and provider.
 
 ### BYOM
 
@@ -201,7 +202,7 @@ To configure a third-party model endpoint in the Discovery app:
 
 1. Reference the configured endpoint when you create or edit your custom agent.
 
-The same temperature, Top-P, and other response control parameters apply, regardless of the model provider.
+Available response controls, including temperature and Top-P, depend on the model and provider. Check the provider's documentation for supported parameters and values.
 
 ## Related content
 

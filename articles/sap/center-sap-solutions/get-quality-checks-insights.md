@@ -1,32 +1,33 @@
 ---
 title: View quality checks and insights for a Virtual Instance for SAP solutions
-description: Learn how to use quality checks and insights for a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions.
+description: Learn how to use quality checks and insights for a Virtual Instance for SAP solutions (VIS) resource in Azure Workload Center for SAP.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 11/06/2026
 author: sagarkeswani
 ms.author: sagarkeswani
+ms.reviewer: mattmcinnes
 # Customer intent: As an SAP system administrator, I want to use the quality checks feature to gather insights on my Virtual Instance for SAP solutions, so that I can ensure optimal performance and adherence to best practices for my SAP environment on Azure.
 ---
 
 # View quality checks and insights for a Virtual Instance for SAP solutions
 
-[Azure Center for SAP solutions](overview.md) includes a Quality Insights workbook that runs more than 100 quality checks on your Virtual Instance for SAP solutions (VIS) resources. These checks validate that your SAP system follows Azure and SAP best practices for reliability and performance.
+[Azure Workload Center for SAP](overview.md) includes a Quality Insights workbook that runs more than 100 quality checks on your Virtual Instance for SAP solutions (VIS) resources. These checks validate that your SAP system follows Azure and SAP best practices for reliability and performance.
 
 In this article, you use the Quality Insights workbook to review recommendations, virtual machine (VM) information, and configuration checks for your SAP system.
 
 ## Prerequisites
 
-- An SAP system that you [created with Azure Center for SAP solutions](deploy-s4hana.md) or [registered with Azure Center for SAP solutions](register-existing-system.md).
+- An SAP system that you [created with Azure Workload Center for SAP](deploy-s4hana.md) or [registered with Azure Workload Center for SAP](register-existing-system.md).
 
 ## Open the Quality Insights workbook
 
 To open the workbook:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for and select **Azure Center for SAP solutions** in the Azure portal search bar.
-1. On the **Azure Center for SAP solutions** page, in the sidebar menu, select **Virtual Instances for SAP solutions**.
+1. Search for and select **Azure Workload Center for SAP** in the Azure portal search bar.
+1. In the sidebar menu on **Azure Workload Center for SAP**, select **Virtual Instances for SAP solutions**.
 1. On the **Virtual Instances for SAP solutions** page, select the VIS that you want to get insights about.
 
     :::image type="content" source="media/get-quality-checks-insights/select-vis.png" lightbox="media/get-quality-checks-insights/select-vis.png" alt-text="Screenshot of Azure portal, showing the list of available Virtual Instances for SAP solutions in a subscription.":::
@@ -43,9 +44,9 @@ The workbook has multiple sections:
 
 ## Get Advisor recommendations
 
-The quality checks feature in Azure Center for SAP solutions runs validation checks for all VIS resources. These quality checks validate that SAP system configurations follow best practices for SAP on Azure. If a VIS doesn't follow these best practices, you receive a recommendation from Azure Advisor.
+The quality checks feature in Azure Workload Center for SAP runs validation checks for all VIS resources. These quality checks validate that SAP system configurations follow best practices for SAP on Azure. If a VIS doesn't follow these best practices, you receive a recommendation from Azure Advisor.
 
-Azure Center for SAP solutions runs more than 100 quality checks on all VIS resources across the following categories:
+Azure Workload Center for SAP runs more than 100 quality checks on all VIS resources across the following categories:
 
 - Azure infrastructure checks
 - OS parameter checks
@@ -65,7 +66,7 @@ Select an instance name to see all recommendations, including which action to ta
 
 ### Set alerts for quality check recommendations
 
-Because the quality check recommendations in Azure Center for SAP solutions are integrated with Azure Advisor, you can set alerts for the recommendations. For more information, see [Configure alerts for recommendations](/azure/advisor/advisor-alerts-portal).
+Because the quality check recommendations in Azure Workload Center for SAP are integrated with Azure Advisor, you can set alerts for the recommendations. For more information, see [Configure alerts for recommendations](/azure/advisor/advisor-alerts-portal).
 
 > [!NOTE]
 > The quality checks run on all VIS instances hourly. The corresponding Azure Advisor recommendations also refresh hourly. If you take action on one or more recommendations, wait for the next refresh to see any new recommendations from Azure Advisor.

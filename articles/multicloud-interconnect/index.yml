@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Multicloud Interconnect Preview documentation # < 60 chars
+title: Azure Multicloud Interconnect documentation # < 60 chars
 summary: Azure Multicloud Interconnect provides private, high-throughput connectivity between Azure and a supported cloud service provider.
 
 metadata:
-  title: Azure Multicloud Interconnect Preview documentation
-  description: Learn how to use Azure Multicloud Interconnect Preview to connect Azure workloads to a supported cloud service provider over private connectivity. # < 160 chars
+  title: Azure Multicloud Interconnect documentation
+  description: Learn how to use Azure Multicloud Interconnect to connect Azure workloads to a supported cloud service provider over private connectivity. # < 160 chars
   author: duongau
   ms.author: duau
   ms.service: azure

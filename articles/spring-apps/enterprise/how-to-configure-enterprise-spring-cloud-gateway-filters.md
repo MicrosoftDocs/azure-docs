@@ -1049,7 +1049,7 @@ The following example configures a `Cors` factory:
             "Path=/api/**"
         ],
         "filters": [
-            "Cors=[allowedOrigins:https://origin-1,allowedMethods:GET;POST;DELETE,allowedHeaders:*,maxAge:400,allowCredentials:true,allowedOriginPatterns:https://*.test.com:8080]"
+            "Cors=[allowedOrigins:https://origin-1,allowedMethods:GET;POST;DELETE,allowedHeaders:*,maxAge:400,allowCredentials:true,allowedOriginPatterns:https://*.test1.com:8080]"
         ]
     }
 ]

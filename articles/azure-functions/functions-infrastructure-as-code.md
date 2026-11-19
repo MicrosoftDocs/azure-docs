@@ -3,7 +3,7 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: how-to
-ms.date: 08/28/2026
+ms.date: 11/09/2026
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template, linux-related-content, ignite-2024
 zone_pivot_groups: functions-hosting-plan
 ---
@@ -26,11 +26,13 @@ The template code to create the required Azure resources depends on the desired 
 
 | Hosting option | Deployment type | Sample templates |
 | ----- | ----- | ----- |
-| [Flex Consumption plan](./flex-consumption-plan.md) | Code-only | [Bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-flex-managed-identities/main.bicep)<br/>[ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-flex-managed-identities/azuredeploy.json)<br/>[Terraform](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/terraformazurerm) |
+| [Flex Consumption plan](./flex-consumption-plan.md) | Code \| [Container (preview)](flex-consumption-os-level-dependencies.md) | [Bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-flex-managed-identities/main.bicep)<br/>[ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-flex-managed-identities/azuredeploy.json)<br/>[Terraform](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/terraformazurerm) |
 | [Premium plan](./functions-premium-plan.md) | Code \| Container | [Bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-premium-plan/main.bicep)<br/>[ARM template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-premium-plan/azuredeploy.json) |
 | [Dedicated plan](./dedicated-plan.md) | Code \| Container | [Bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/main.bicep)<br/>[ARM template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/azuredeploy.json) |
 | [Azure Container Apps](../container-apps/functions-overview.md) | Container-only | [Bicep](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/ACAKindfunctionapp)|
 | [Consumption plan](consumption-plan.md)(legacy) | Code-only | [Bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-windows-consumption/main.bicep)<br/>[ARM template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-windows-consumption/azuredeploy.json) |
+
+The Flex Consumption sample templates linked in this table deploy code packages. For the container image configuration model and current deployment procedure, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 For new serverless function apps, use the Flex Consumption plan. <br/>The Consumption plan is a legacy hosting plan. For existing apps, [migrate to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).
 
@@ -1119,9 +1121,11 @@ Your Bicep file or ARM template can optionally also define a deployment for your
 + [Linux container](./functions-how-to-custom-container.md) 
 ::: zone-end  
 ::: zone pivot="flex-consumption-plan"  
-The Flex Consumption plan maintains your project code in a zip-compressed package file in a blob storage container known as the _deployment container_. You can configure both the storage account and container used for deployment. For more information, see [Deployment](flex-consumption-plan.md#deployment). 
+Flex Consumption supports code-package and container-image deployments. This section documents the infrastructure configuration for code-package deployments. For the container image configuration model and current deployment procedure, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
-You must use [package deployment](functions-deployment-technologies.md#flex-consumption-package-deployment) to publish your code package to the deployment container. During an ARM template or Bicep deployment, define a [package source](#deployment-package) that uses the literal `/onedeploy` extension resource name. If you instead upload your package directly to the container, the package isn't automatically deployed.
+For code-package deployments, the Flex Consumption plan maintains your project code in a zip-compressed package file in a blob storage container known as the _deployment container_. You can configure both the storage account and container used for deployment. For more information, see [Deployment](flex-consumption-plan.md#deployment).
+
+Use [package deployment](functions-deployment-technologies.md#flex-consumption-package-deployment) to publish your code package to the deployment container. During an ARM template or Bicep deployment, define a [package source](#deployment-package) that uses the literal `/onedeploy` extension resource name. If you instead upload your package directly to the container, the package isn't automatically deployed.
 
 ### Configure the deployment container
 
@@ -1167,7 +1171,7 @@ When you use a connection string instead of managed identities, set the `authent
 
 ### Deployment package
 
-The Flex Consumption plan uses package deployment for your code project. The code package itself is the same as the package you use for ZIP deployment in other Functions hosting plans. However, the name of the package file must be `released-package.zip`.
+A Flex Consumption code-package app uses package deployment for the project. The code package itself is the same as the package you use for ZIP deployment in other Functions hosting plans. However, the name of the package file must be `released-package.zip`.
 
 To include a deployment package in your template, use the `/onedeploy` resource definition for the remote URL that contains the package. The Functions host must be able to access both this remote package source and the deployment container.
 

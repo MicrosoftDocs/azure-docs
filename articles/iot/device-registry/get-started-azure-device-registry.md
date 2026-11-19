@@ -1,7 +1,7 @@
 ---
-title: Get started with Azure Device Registry for Azure IoT Hub (preview)
+title: Get started with Azure Device Registry for Azure IoT Hub
 titleSuffix: Azure Device Registry
-description: Set up an Azure Device Registry namespace for Azure IoT Hub with guided setup in the Azure portal, or link services individually with the portal or Azure CLI.
+description: Set up an Azure Device Registry namespace for Azure IoT Hub by using the guided setup in the Azure portal, or by connecting services to a namespace individually.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
@@ -12,7 +12,7 @@ ai-usage: ai-assisted
 #Customer intent: As an IoT solution architect, I want to set up an Azure Device Registry namespace with either guided setup or by connecting services individually so that I can deploy or connect the resources required for my IoT devices.
 ---
 
-# Get started with Azure Device Registry for Azure IoT Hub (preview)
+# Get started with Azure Device Registry for Azure IoT Hub
 
 Set up an [Azure Device Registry](overview-device-registry.md) (ADR) namespace with Azure IoT Hub and Device Provisioning Service (DPS). Use the guided setup with new or existing IoT Hub and DPS instances, or connect the instances individually for more control. You can also enable certificate management and the software update feature where supported.
 
@@ -28,10 +28,7 @@ This article covers namespace and service setup, the first stage of connecting a
 After you finish either setup method in this article, follow [Next steps](#next-steps) to continue the remaining stages.
 
 > [!IMPORTANT]
-> Azure Device Registry integration with Azure IoT Hub is in public preview and isn't recommended for production workloads. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-> [!IMPORTANT]
-> Azure Device Registry, including certificate management, is free during preview. The IoT Hub and Device Provisioning Service (DPS) instances that you use with it are billed at their standard rates. For details, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
+> Azure Device Registry bills for device and asset resources, certificate authorities, and certificate issuance and renewal. The IoT Hub and Device Provisioning Service (DPS) instances that you use with it are billed at their standard rates. Groups, jobs, and software updates aren't billed during preview. For IoT Hub rates, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Prerequisites
 
@@ -62,7 +59,7 @@ New IoT Hub instances created through either portal setup method have public net
 
 Use IoT Hub and DPS instances in the namespace's region, and wait for them to finish provisioning before linking them.
 
-Enable a managed identity on both the DPS instance and each IoT Hub instance before linking them. For instructions, see [Enable a managed identity for DPS](../../iot-dps/how-to-manage-linked-iot-hubs.md#link-an-iot-hub-by-using-managed-identity-preview) and [Use managed identities in IoT Hub](../../iot-hub/iot-hub-managed-identity.md). The CLI examples in this article use system-assigned identities.
+Enable a managed identity on both the DPS instance and each IoT Hub instance before linking them. For instructions, see [Enable a managed identity for DPS](../../iot-dps/how-to-manage-linked-iot-hubs.md#link-an-iot-hub-by-using-managed-identity) and [Use managed identities in IoT Hub](../../iot-hub/iot-hub-managed-identity.md). The CLI examples in this article use system-assigned identities.
 
 IoT Hub instances must also have public network access enabled.
 
@@ -132,10 +129,10 @@ You can select up to 10 IoT Hub instances. Linking existing IoT Hub and DPS inst
 On the **Capabilities** page, choose which capabilities to enable. Azure sets up the required resources based on your selection.
 
 - **Certificate management** is selected by default for supported hubs. It creates a Microsoft-issued root CA, or uses the namespace's existing root CA. Creating an intermediate CA and certificate policy is a [separate step](../how-to-create-policy.md).
-- **Software update (preview)** is optional. Azure creates an update instance with a default configuration. Select the edit icon on its card to change its settings before continuing. This option is unavailable if a selected hub already has Azure Device Update configured.
+- **Software update (preview)** is optional. Azure creates an update instance with a default configuration. Select the edit icon on its card to change its settings before continuing. This option is unavailable if a selected IoT hub has a Device Update for IoT Hub instance. Select a new or existing IoT hub that doesn't have one. To use an IoT hub that already has a Device Update for IoT Hub instance, delete that instance first. The guided setup also creates the [role assignments for the managed identities](#role-assignments-created-during-setup) and gives you the Device Update Administrator role on the update instance. For more information, see [Access control](concept-software-updates.md#access-control).
 
 > [!NOTE]
-> Setting up the software update feature can take up to 30 minutes.
+> During preview, setting up the software update feature can take up to 30 minutes.
 
 For the **MQTT v5 (preview)** connection profile, both capabilities are unavailable.
 
@@ -164,7 +161,7 @@ Use this path to choose resources individually or add services to an existing na
 The CLI walkthrough creates an S1 IoT Hub instance with the **Classic** connection profile and uses system-assigned managed identities. This profile supports the optional certificate-management and software update steps.
 
 > [!NOTE]
-> For the **MQTT v5 (preview)** connection profile, use the [guided setup](#use-the-guided-setup) or the Azure portal option in [Connect an IoT Hub instance](#3-connect-an-iot-hub-instance). Create a new hub or select existing hubs with that profile; all hubs in the namespace must use the same profile. After linking, go to [Verify the linked resources](#6-verify-the-linked-resources). The root CA and software update steps apply to the **Classic** connection profile.
+> For the **MQTT v5 (preview)** connection profile, use the [guided setup](#use-the-guided-setup) or the Azure portal option in [Connect an IoT Hub instance](#3-connect-an-iot-hub-instance). Create a new hub or select existing hubs with that profile; all hubs in the namespace must use the same profile. After linking, go to [Verify the connected resources](#6-verify-the-connected-resources). The root CA and software update steps apply to the **Classic** connection profile.
 
 The examples use one resource group. If you use existing DPS or IoT Hub instances in other resource groups, use each instance's resource group in its lookup commands and the namespace's resource group in the link commands.
 
@@ -226,31 +223,31 @@ SU="<software-update-instance-name>"
 If you're creating resources in a new resource group, create it first. Skip this command if you're using an existing resource group.
 
 ```azurecli
-az group create --name $RG --location $LOCATION
+az group create --name "$RG" --location "$LOCATION"
 ```
 
 Create a namespace that uses its system-assigned managed identity to call the services that you connect. Skip this command if you're using an existing namespace.
 
 ```azurecli
-az iot adr ns create --name $NS --resource-group $RG --location $LOCATION --outbound-system-assigned-mi true
+az iot adr ns create --name "$NS" --resource-group "$RG" --location "$LOCATION" --outbound-system-assigned-mi true
 ```
 
 For an existing namespace, check its managed identity configuration:
 
 ```azurecli
-az iot adr ns show --name $NS --resource-group $RG --query "{identityType:identity.type,outboundIdentity:properties.outboundIdentity}"
+az iot adr ns show --name "$NS" --resource-group "$RG" --query "{identityType:identity.type,outboundIdentity:properties.outboundIdentity}"
 ```
 
 If `identityType` doesn't include `SystemAssigned`, enable the namespace's system-assigned identity. DPS linking requires it even if the outbound identity is user-assigned. Skip this command if the system-assigned identity is already enabled.
 
 ```azurecli
-az iot adr ns identity assign --name $NS --resource-group $RG --system-assigned true
+az iot adr ns identity assign --name "$NS" --resource-group "$RG" --system-assigned true
 ```
 
 If `outboundIdentity` is null, enable its system-assigned outbound identity. Keep any existing user-assigned outbound identity.
 
 ```azurecli
-az iot adr ns update --name $NS --resource-group $RG --outbound-system-assigned-mi true
+az iot adr ns update --name "$NS" --resource-group "$RG" --outbound-system-assigned-mi true
 ```
 
 # [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
@@ -273,31 +270,31 @@ $SU = "<software-update-instance-name>"
 If you're creating resources in a new resource group, create it first. Skip this command if you're using an existing resource group.
 
 ```powershell
-az group create --name $RG --location $LOCATION
+az group create --name "$RG" --location "$LOCATION"
 ```
 
 Create a namespace that uses its system-assigned managed identity to call the services that you connect. Skip this command if you're using an existing namespace.
 
 ```powershell
-az iot adr ns create --name $NS --resource-group $RG --location $LOCATION --outbound-system-assigned-mi true
+az iot adr ns create --name "$NS" --resource-group "$RG" --location "$LOCATION" --outbound-system-assigned-mi true
 ```
 
 For an existing namespace, check its managed identity configuration:
 
 ```powershell
-az iot adr ns show --name $NS --resource-group $RG --query "{identityType:identity.type,outboundIdentity:properties.outboundIdentity}"
+az iot adr ns show --name "$NS" --resource-group "$RG" --query "{identityType:identity.type,outboundIdentity:properties.outboundIdentity}"
 ```
 
 If `identityType` doesn't include `SystemAssigned`, enable the namespace's system-assigned identity. DPS linking requires it even if the outbound identity is user-assigned. Skip this command if the system-assigned identity is already enabled.
 
 ```powershell
-az iot adr ns identity assign --name $NS --resource-group $RG --system-assigned true
+az iot adr ns identity assign --name "$NS" --resource-group "$RG" --system-assigned true
 ```
 
 If `outboundIdentity` is null, enable its system-assigned outbound identity. Keep any existing user-assigned outbound identity.
 
 ```powershell
-az iot adr ns update --name $NS --resource-group $RG --outbound-system-assigned-mi true
+az iot adr ns update --name "$NS" --resource-group "$RG" --outbound-system-assigned-mi true
 ```
 
 ---
@@ -322,14 +319,14 @@ You can link only one DPS instance to a namespace. These examples use its system
 1. Use an existing DPS instance, or create a new one in the namespace's region:
 
    ```azurecli
-   az iot dps create --name $DPS --resource-group $RG --location $LOCATION --system-assigned-mi
+   az iot dps create --name "$DPS" --resource-group "$RG" --location "$LOCATION" --system-assigned-mi
    ```
 
 1. Get the resource ID of the DPS instance and connect it to the namespace:
 
    ```azurecli
-   DPS_ID=$(az iot dps show --name $DPS --resource-group $RG --query id --output tsv)
-   az iot adr ns link dps add --name primary-dps --ns $NS --resource-group $RG --dps-id $DPS_ID --system-assigned-mi true
+   DPS_ID=$(az iot dps show --name "$DPS" --resource-group "$RG" --query id --output tsv)
+   az iot adr ns link dps add --name primary-dps --ns "$NS" --resource-group "$RG" --dps-id "$DPS_ID" --system-assigned-mi true
    ```
 
 # [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
@@ -339,14 +336,14 @@ You can link only one DPS instance to a namespace. These examples use its system
 1. Use an existing DPS instance, or create a new one in the namespace's region:
 
    ```powershell
-   az iot dps create --name $DPS --resource-group $RG --location $LOCATION --system-assigned-mi
+   az iot dps create --name "$DPS" --resource-group "$RG" --location "$LOCATION" --system-assigned-mi
    ```
 
 1. Get the resource ID of the DPS instance and connect it to the namespace:
 
    ```powershell
-   $DPS_ID = az iot dps show --name $DPS --resource-group $RG --query id --output tsv
-   az iot adr ns link dps add --name primary-dps --ns $NS --resource-group $RG --dps-id $DPS_ID --system-assigned-mi true
+   $DPS_ID = az iot dps show --name "$DPS" --resource-group "$RG" --query id --output tsv
+   az iot adr ns link dps add --name primary-dps --ns "$NS" --resource-group "$RG" --dps-id "$DPS_ID" --system-assigned-mi true
    ```
 
 ---
@@ -366,7 +363,7 @@ Choose how to connect the IoT Hub instances:
 
 When you connect existing IoT Hub instances, acknowledge that linking them to the namespace is permanent.
 
-Select **Save** and wait for linking to finish. Then [verify the linked DPS and IoT Hub instances](#6-verify-the-linked-resources).
+Select **Save** and wait for linking to finish. Then [verify the linked DPS and IoT Hub instances](#6-verify-the-connected-resources).
 
 # [Azure CLI (Bash)](#tab/azure-cli)
 
@@ -375,14 +372,14 @@ Link a DPS instance before linking an IoT Hub instance. The hub must use a Stand
 1. Use an existing IoT Hub instance, or create a new one in the namespace's region:
 
    ```azurecli
-   az iot hub create --name $HUB --resource-group $RG --location $LOCATION --sku S1 --system-assigned-mi
+   az iot hub create --name "$HUB" --resource-group "$RG" --location "$LOCATION" --sku S1 --system-assigned-mi
    ```
 
 1. Give the DPS identity permission to provision devices on the hub. Assign this role to the service identity, not to your user account. Skip only `az role assignment create` if the identity already has the role on the hub or a parent scope:
 
    ```azurecli
-   HUB_ID=$(az iot hub show --name $HUB --resource-group $RG --query id --output tsv)
-   DPS_PRINCIPAL_ID=$(az iot dps show --name $DPS --resource-group $RG --query identity.principalId --output tsv)
+   HUB_ID=$(az iot hub show --name "$HUB" --resource-group "$RG" --query id --output tsv)
+   DPS_PRINCIPAL_ID=$(az iot dps show --name "$DPS" --resource-group "$RG" --query identity.principalId --output tsv)
    az role assignment create --assignee-object-id "$DPS_PRINCIPAL_ID" --assignee-principal-type ServicePrincipal --role "IoT Hub Data Contributor" --scope "$HUB_ID"
    ```
 
@@ -391,7 +388,7 @@ Link a DPS instance before linking an IoT Hub instance. The hub must use a Stand
 1. Link the hub to the namespace. Enable it for new device provisioning with an allocation weight of 1:
 
    ```azurecli
-   az iot adr ns link hub add --name primary-hub --ns $NS --resource-group $RG --hub-id $HUB_ID --system-assigned-mi true --availability Available --allocation-weight 1
+   az iot adr ns link hub add --name primary-hub --ns "$NS" --resource-group "$RG" --hub-id "$HUB_ID" --system-assigned-mi true --availability Available --allocation-weight 1
    ```
 
 To connect more IoT Hub instances, repeat these steps with a different IoT Hub instance and a unique endpoint name.
@@ -403,14 +400,14 @@ Link a DPS instance before linking an IoT Hub instance. The hub must use a Stand
 1. Use an existing IoT Hub instance, or create a new one in the namespace's region:
 
    ```powershell
-   az iot hub create --name $HUB --resource-group $RG --location $LOCATION --sku S1 --system-assigned-mi
+   az iot hub create --name "$HUB" --resource-group "$RG" --location "$LOCATION" --sku S1 --system-assigned-mi
    ```
 
 1. Give the DPS identity permission to provision devices on the hub. Assign this role to the service identity, not to your user account. Skip only `az role assignment create` if the identity already has the role on the hub or a parent scope:
 
    ```powershell
-   $HUB_ID = az iot hub show --name $HUB --resource-group $RG --query id --output tsv
-   $DPS_PRINCIPAL_ID = az iot dps show --name $DPS --resource-group $RG --query identity.principalId --output tsv
+   $HUB_ID = az iot hub show --name "$HUB" --resource-group "$RG" --query id --output tsv
+   $DPS_PRINCIPAL_ID = az iot dps show --name "$DPS" --resource-group "$RG" --query identity.principalId --output tsv
    az role assignment create --assignee-object-id "$DPS_PRINCIPAL_ID" --assignee-principal-type ServicePrincipal --role "IoT Hub Data Contributor" --scope "$HUB_ID"
    ```
 
@@ -419,7 +416,7 @@ Link a DPS instance before linking an IoT Hub instance. The hub must use a Stand
 1. Link the hub to the namespace. Enable it for new device provisioning with an allocation weight of 1:
 
    ```powershell
-   az iot adr ns link hub add --name primary-hub --ns $NS --resource-group $RG --hub-id $HUB_ID --system-assigned-mi true --availability Available --allocation-weight 1
+   az iot adr ns link hub add --name primary-hub --ns "$NS" --resource-group "$RG" --hub-id "$HUB_ID" --system-assigned-mi true --availability Available --allocation-weight 1
    ```
 
 To connect more IoT Hub instances, repeat these steps with a different IoT Hub instance and a unique endpoint name.
@@ -428,89 +425,138 @@ To connect more IoT Hub instances, repeat these steps with a different IoT Hub i
 
 ### 4. Set up a root certificate authority (optional)
 
-To match guided setup with certificate management selected, create a Microsoft-issued root CA. Skip creation if the namespace already has one. Certificate management isn't supported for the **MQTT v5 (preview)** connection profile.
-
 # [Azure portal](#tab/azure-portal)
 
-1. In the namespace, under **Security**, select **Certificate authorities**.
-1. Select **Create** > **Root certificate authority**.
-1. Enter a name with 3-63 letters, numbers, or hyphens, starting with a letter or number, and select **Create**.
-1. Wait for provisioning to finish and confirm that the root CA appears.
+1. In your namespace, under **Security**, select **Certificate Authorities**.
+1. Select **Create** > **Root Certificate Authority**. This option is disabled if the namespace already has a root CA.
+1. Enter a name for the root CA that's 3-63 characters long, and then select **Create**.
+1. Wait for provisioning to finish. Confirm that the root CA appears on the **Certificate Authorities** page.
 
 # [Azure CLI (Bash)](#tab/azure-cli)
 
-Create the root CA and verify that provisioning succeeded:
+Use the root CA name, namespace, and resource group variables from step 1.
 
-```azurecli
-az iot adr ns ca create --name "$ROOT_CA" --ns "$NS" --resource-group "$RG" --type Root
-az iot adr ns ca show --name "$ROOT_CA" --ns "$NS" --resource-group "$RG"
-```
+1. Create the root CA in the namespace:
+
+   ```azurecli
+   az iot adr ns ca create --name "$ROOT_CA" --ns "$NS" --resource-group "$RG" --type Root
+   ```
+
+1. Verify that provisioning succeeded and review the root CA certificate information:
+
+   ```azurecli
+   az iot adr ns ca show --name "$ROOT_CA" --ns "$NS" --resource-group "$RG"
+   ```
 
 # [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
 
-Create the root CA and verify that provisioning succeeded:
+Use the root CA name, namespace, and resource group variables from step 1.
 
-```powershell
-az iot adr ns ca create --name "$ROOT_CA" --ns "$NS" --resource-group "$RG" --type Root
-az iot adr ns ca show --name "$ROOT_CA" --ns "$NS" --resource-group "$RG"
-```
+1. Create the root CA in the namespace:
+
+   ```powershell
+   az iot adr ns ca create --name "$ROOT_CA" --ns "$NS" --resource-group "$RG" --type Root
+   ```
+
+1. Verify that provisioning succeeded and review the root CA certificate information:
+
+   ```powershell
+   az iot adr ns ca show --name "$ROOT_CA" --ns "$NS" --resource-group "$RG"
+   ```
 
 ---
 
-To issue device certificates, you still need an intermediate CA and certificate policy. Continue with [Set up a managed root and intermediate CA](../how-to-create-policy.md#create-an-intermediate-certificate-authority) after linking the services.
+To issue device certificates, you also need an intermediate CA and a certificate policy. For instructions, see [Set up a managed root and intermediate CA](../how-to-create-policy.md).
 
 ### 5. Connect a software update instance (optional)
 
 > [!NOTE]
-> Setting up the software update feature can take up to 30 minutes.
+> During preview, setting up the software update feature can take up to 30 minutes.
 
-The software update feature isn't supported for the **MQTT v5 (preview)** connection profile. If a hub already has Azure Device Update configured, resolve that configuration before configuring software update for the namespace.
+The software updates (preview) feature isn't supported for the **MQTT v5 (preview)** connection profile. You can't use software updates with an IoT hub that has a Device Update for IoT Hub instance. Connect a new or existing IoT hub that doesn't have one. To use an IoT hub that already has a Device Update for IoT Hub instance, delete that instance first.
+
+Only one software update instance can connect to a namespace. Connecting it creates the [role assignments the namespace and the update instance need](#role-assignments-created-during-setup), so you need permission to create role assignments, as described in [Prerequisites](#prerequisites). Connecting doesn't assign a role to your account, so the last step assigns you one.
 
 # [Azure portal](#tab/azure-portal)
 
-Select **Connect** > **Software update (preview)** and configure the new update instance. Its subscription, resource group, and region match the namespace.
+1. Select **Connect** > **Software update (preview)**. You can also start from the namespace's **Software updates (preview)** page by selecting **Set up software updates (preview)**.
 
-Select **Save**.
+1. In **Configure software update (preview) instance**, enter a **Name** for the new update instance. The subscription, resource group, and region match the namespace.
+
+1. By default, the update instance uses a system-assigned managed identity to communicate with the namespace. To use a user-assigned identity instead, expand **Advanced**, select **User-assigned**, and then select the identity in **Managed identity**.
+
+   :::image type="content" source="media/get-started-azure-device-registry/get-started-software-update-configure.png" alt-text="Screenshot of the Configure software update (preview) instance pane with the subscription, resource group, instance name, and region, and Advanced options showing System-assigned selected as the managed identity type." lightbox="media/get-started-azure-device-registry/get-started-software-update-configure.png":::
+
+1. Select **Save**.
+
+1. Assign yourself the Device Update Content Administrator role on the update instance so you can import and delete updates. For steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). For more information about the roles, see [Access control](concept-software-updates.md#access-control).
 
 # [Azure CLI (Bash)](#tab/azure-cli)
 
-Only one software update instance can connect to a namespace.
+The commands in this step require version `1.1.0b1` of the `azure-iot` extension. For installation steps, see [Azure CLI setup](#azure-cli-setup).
 
-1. Create a software update instance with a system-assigned managed identity, then wait for provisioning to finish:
+Complete all three steps before you import an update.
+
+1. Create a software update instance with a system-assigned managed identity. The update instance uses this identity to communicate with the namespace. To use a user-assigned managed identity instead, replace `--system-assigned-mi true` with `--user-assigned-mi <identity-resource-ID>` in this step and in step 2:
 
    ```azurecli
-   az iot adr ns su instance create --name $SU --resource-group $RG --location $LOCATION --system-assigned-mi true --no-wait
-   az iot adr ns su instance wait --name $SU --resource-group $RG --created --timeout 1800
+   az iot adr ns su instance create --name "$SU" --resource-group "$RG" --location "$LOCATION" --system-assigned-mi true
    ```
 
 1. Get the resource ID of the instance and connect it to the namespace:
 
    ```azurecli
-   SU_ID=$(az iot adr ns su instance show --name $SU --resource-group $RG --query id --output tsv)
-   az iot adr ns link su add --name primary-su --ns $NS --resource-group $RG --su-id $SU_ID --system-assigned-mi true --timeout 1800
+   SU_ID=$(az iot adr ns su instance show --name "$SU" --resource-group "$RG" --query id --output tsv)
+   az iot adr ns link su add --name primary-su --ns "$NS" --resource-group "$RG" --su-id "$SU_ID" --system-assigned-mi true --timeout 1800
+   ```
+
+   If you don't have permission to create role assignments, this command doesn't connect the instance. Instead, it lists the role assignment commands for an administrator to run.
+
+1. Assign yourself the Device Update Content Administrator role on the update instance so you can import and delete updates:
+
+   ```azurecli
+   USER_ID=$(az ad signed-in-user show --query id --output tsv)
+   az role assignment create --assignee-object-id "$USER_ID" --assignee-principal-type User --role "Device Update Content Administrator" --scope "$SU_ID"
    ```
 
 # [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
 
-Only one software update instance can connect to a namespace.
+The commands in this step require version `1.1.0b1` of the `azure-iot` extension. For installation steps, see [Azure CLI setup](#azure-cli-setup).
 
-1. Create a software update instance with a system-assigned managed identity, then wait for provisioning to finish:
+Complete all three steps before you import an update.
+
+1. Create a software update instance with a system-assigned managed identity. The update instance uses this identity to communicate with the namespace. To use a user-assigned managed identity instead, replace `--system-assigned-mi true` with `--user-assigned-mi <identity-resource-ID>` in this step and in step 2:
 
    ```powershell
-   az iot adr ns su instance create --name $SU --resource-group $RG --location $LOCATION --system-assigned-mi true --no-wait
-   az iot adr ns su instance wait --name $SU --resource-group $RG --created --timeout 1800
+   az iot adr ns su instance create --name "$SU" --resource-group "$RG" --location "$LOCATION" --system-assigned-mi true
    ```
 
 1. Get the resource ID of the instance and connect it to the namespace:
 
    ```powershell
-   $SU_ID = az iot adr ns su instance show --name $SU --resource-group $RG --query id --output tsv
-   az iot adr ns link su add --name primary-su --ns $NS --resource-group $RG --su-id $SU_ID --system-assigned-mi true --timeout 1800
+   $SU_ID = az iot adr ns su instance show --name "$SU" --resource-group "$RG" --query id --output tsv
+   az iot adr ns link su add --name primary-su --ns "$NS" --resource-group "$RG" --su-id "$SU_ID" --system-assigned-mi true --timeout 1800
+   ```
+
+   If you don't have permission to create role assignments, this command doesn't connect the instance. Instead, it lists the role assignment commands for an administrator to run.
+
+1. Assign yourself the Device Update Content Administrator role on the update instance so you can import and delete updates:
+
+   ```powershell
+   $USER_ID = az ad signed-in-user show --query id --output tsv
+   az role assignment create --assignee-object-id "$USER_ID" --assignee-principal-type User --role "Device Update Content Administrator" --scope "$SU_ID"
    ```
 
 ---
 
-### 6. Verify the linked resources
+#### Role assignments created during setup
+
+Connecting a software update instance, through the guided setup, the Azure portal, or the Azure CLI, creates these role assignments for the managed identities so that the namespace and the update instance can communicate:
+
+- **Namespace managed identity**: Contributor and Device Update Administrator on the update instance, Azure Device Registry Administrator on the namespace, and Reader on the resource groups of the namespace and the update instance.
+- **Update instance managed identity**: Azure Device Registry Contributor and Reader on the namespace.
+
+### 6. Verify the connected resources
 
 # [Azure portal](#tab/azure-portal)
 
@@ -523,8 +569,8 @@ On the namespace's **Linked services** tab, confirm that the resources show a **
 List the connected services and confirm that each one reports a `linkingState` of `Succeeded`:
 
 ```azurecli
-az iot adr ns link dps list --ns $NS --resource-group $RG
-az iot adr ns link hub list --ns $NS --resource-group $RG --output json
+az iot adr ns link dps list --ns "$NS" --resource-group "$RG"
+az iot adr ns link hub list --ns "$NS" --resource-group "$RG" --output json
 ```
 
 For the hub, also confirm that `provisioning.availability` is `Available` and `provisioning.allocationWeight` is `1`. A successful link alone doesn't confirm that the hub is enabled for new device provisioning.
@@ -532,13 +578,13 @@ For the hub, also confirm that `provisioning.availability` is `Available` and `p
 If you connected a software update instance, verify that connection too:
 
 ```azurecli
-az iot adr ns link su list --ns $NS --resource-group $RG
+az iot adr ns link su list --ns "$NS" --resource-group "$RG"
 ```
 
 If a `link add` command returns before the link finishes, use [az iot adr ns link wait](/cli/azure/iot/adr/ns/link#az-iot-adr-ns-link-wait) to wait for all configured links to succeed:
 
 ```azurecli
-az iot adr ns link wait --ns $NS --resource-group $RG
+az iot adr ns link wait --ns "$NS" --resource-group "$RG"
 ```
 
 # [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
@@ -546,8 +592,8 @@ az iot adr ns link wait --ns $NS --resource-group $RG
 List the connected services and confirm that each one reports a `linkingState` of `Succeeded`:
 
 ```powershell
-az iot adr ns link dps list --ns $NS --resource-group $RG
-az iot adr ns link hub list --ns $NS --resource-group $RG --output json
+az iot adr ns link dps list --ns "$NS" --resource-group "$RG"
+az iot adr ns link hub list --ns "$NS" --resource-group "$RG" --output json
 ```
 
 For the hub, also confirm that `provisioning.availability` is `Available` and `provisioning.allocationWeight` is `1`. A successful link alone doesn't confirm that the hub is enabled for new device provisioning.
@@ -555,13 +601,13 @@ For the hub, also confirm that `provisioning.availability` is `Available` and `p
 If you connected a software update instance, verify that connection too:
 
 ```powershell
-az iot adr ns link su list --ns $NS --resource-group $RG
+az iot adr ns link su list --ns "$NS" --resource-group "$RG"
 ```
 
 If a `link add` command returns before the link finishes, use [az iot adr ns link wait](/cli/azure/iot/adr/ns/link#az-iot-adr-ns-link-wait) to wait for all configured links to succeed:
 
 ```powershell
-az iot adr ns link wait --ns $NS --resource-group $RG
+az iot adr ns link wait --ns "$NS" --resource-group "$RG"
 ```
 
 ---

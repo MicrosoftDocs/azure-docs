@@ -1,5 +1,5 @@
 ---
-title: Certificate Renewal in Azure IoT Hub Certificate Management (Preview)
+title: Certificate Renewal in Azure IoT Hub Certificate Management
 titleSuffix: Azure IoT Hub
 description: Learn how certificate renewal works in Azure IoT Hub certificate management, including when to renew, how the renewal flow works, and how devices can track certificate expiration.
 author: sethmanheim
@@ -12,11 +12,9 @@ ms.date: 03/20/2026
 #Customer intent: As an IoT developer or administrator, I want to understand how certificate renewal works in Azure IoT Hub certificate management so I can keep my devices connected without interruption.
 ---
 
-# Certificate renewal in Azure Device Registry (preview)
+# Certificate renewal in Azure Device Registry 
 
 Certificate renewal is the process where a provisioned device requests and receives a new operational certificate for its existing device identity. Renewal is used to replace certificates that are nearing expiration or have expired. The device remains provisioned with the same identity; only the operational certificate is updated. Each IoT device must track certificate expiration and initiate a renewal before expiration. This article explains when to renew, the available renewal paths, how to track expiration, and what to do if a certificate expires.
-
-[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 ## When devices need to renew
 
@@ -32,7 +30,7 @@ You can renew an operational certificate in either of these ways:
 
 - **Submit a new CSR directly to IoT Hub**: The device submits the CSR to IoT Hub over MQTT. IoT Hub handles the renewal request, coordinates with ADR to get a new operational certificate, and publish the renewal response. For more information, see [Renew a device certificate (operational certificate)](iot-mqtt-connect-to-iot-hub.md#renew-a-device-certificate-operational-certificate).
 
-In both paths, the device should detect when renewal is needed, generate a new key pair to produce the CSR, replace the local certificate, and reconnect with the new certificate.
+In both paths, the device should detect when renewal is needed, generate a new key pair to produce the CSR, replace the local certificate, and reconnect with the new certificate. For implementation guidance, see [Unified Azure IoT SDKs for IoT Hub and Azure Device Registry](device-registry/concept-unified-iot-sdks.md).
 
 ## Track certificate expiration on devices
 
@@ -85,10 +83,11 @@ To remove access for a device that uses an X.509 operational certificate without
 
 ## Related content
 
-- [Certificate issuance in Azure IoT Hub certificate management](concept-certificate-issuance.md)
-- [Certificate revocation and policy management concepts](concepts-certificate-policy-management.md)
-- [Key concepts for certificate management](iot-certificate-management-concepts.md)
-- [What is certificate management (preview)?](iot-certificate-management-overview.md)
-- [Device twins in Azure IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
-- [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md)
+- [Certificate issuance in Azure Device Registry](concept-certificate-issuance.md)
 
+- [Revoke certificates](concepts-certificate-policy-management.md)
+
+- [Key concepts for certificate management](iot-certificate-management-concepts.md)
+- [Certificate management in Azure Device Registry](iot-certificate-management-overview.md)
+
+- [Device twins in Azure IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)

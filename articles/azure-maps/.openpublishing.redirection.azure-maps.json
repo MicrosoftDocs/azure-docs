@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/azure-maps/azure-maps-event-grid-integration.md",
+            "redirect_url": "/azure/azure-maps/about-azure-maps",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/location-based-services/about-location-based-services.md",
             "redirect_url": "/azure/azure-maps/about-azure-maps",
             "redirect_document_id": true

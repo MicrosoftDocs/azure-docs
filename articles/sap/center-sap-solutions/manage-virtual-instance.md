@@ -1,26 +1,27 @@
 ---
 title: Manage a Virtual Instance for SAP solutions
-description: Learn how to view and manage a Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions by using the Azure portal.
+description: Learn how to view and manage a Virtual Instance for SAP solutions (VIS) resource in Azure Workload Center for SAP by using the Azure portal.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 04/22/2026
+ms.date: 11/06/2026
 author: sagarkeswani
 ms.author: sagarkeswani
+ms.reviewer: mattmcinnes
 ms.custom: sfi-image-nochange
 # Customer intent: As a SAP Basis Admin, I want to configure and manage a Virtual Instance for SAP solutions in the Azure portal, so that I can monitor system properties and optimize resource connections for effective SAP system management.
 ---
 
 # Manage a Virtual Instance for SAP solutions
 
-[Azure Center for SAP solutions](overview.md) provides a centralized management experience for SAP systems running on Azure. A Virtual Instance for SAP solutions (VIS) is the resource that represents your SAP system within the service. Once an SAP system is set up on Azure, maintaining consistent oversight of the infrastructure is essential to manage performance and reliability. The VIS provides this central management point in the Azure portal.
+[Azure Workload Center for SAP](overview.md) provides a centralized management experience for SAP systems running on Azure. A Virtual Instance for SAP solutions (VIS) is the resource that represents your SAP system within the service. Once an SAP system is set up on Azure, maintaining consistent oversight of the infrastructure is essential to manage performance and reliability. The VIS provides this central management point in the Azure portal.
 
 This article shows you how to monitor, configure, and manage a VIS resource in the Azure portal.
 
 ## Prerequisites
 
 - An Azure subscription with a successfully created VIS resource.
-- An Azure account with **Azure Center for SAP solutions administrator** role access to the subscription or resource groups where the VIS resources exist.
+- An Azure account with **Azure Workload Center for SAP administrator** role access to the subscription or resource groups where the VIS resources exist.
 
 ## Open a VIS in Azure portal
 
@@ -28,14 +29,14 @@ To configure your VIS in the Azure portal:
 
 1. Open the [Azure portal](https://portal.azure.com) in a browser.
 1. Sign in with your Azure account that has the necessary role access as described in the [prerequisites](#prerequisites).
-1. In the search field in the navigation menu, enter and select **Azure Center for SAP solutions**.
-1. On the **Azure Center for SAP solutions** overview page, search for and select **Virtual Instances for SAP solutions** in the sidebar menu.
+1. In the search field in the navigation menu, enter and select **Azure Workload Center for SAP**.
+1. On the **Azure Workload Center for SAP** overview page, search for and select **Virtual Instances for SAP solutions** in the sidebar menu.
 1. On the **Virtual Instances for SAP solutions** page, select the VIS that you want to view.
 
-   :::image type="content" source="media/configure-virtual-instance/select-vis.png" lightbox="media/configure-virtual-instance/select-vis.png" alt-text="Screenshot of the VIS page in the Azure Center for SAP solutions service of available VIS resources.":::
+   :::image type="content" source="media/configure-virtual-instance/select-vis.png" lightbox="media/configure-virtual-instance/select-vis.png" alt-text="Screenshot of the VIS page in the Azure Workload Center for SAP service of available VIS resources.":::
 
 > [!IMPORTANT]
-> Each VIS resource has a unique managed resource group. This resource group contains resources like a storage account and key vault that are critical for Azure Center for SAP solutions to provide capabilities like infrastructure deployment, SAP software installation, system registration, and other management functions. Don't delete this resource group or any resources within it. If they're deleted, you must re-register the VIS to use any capabilities of Azure Center for SAP solutions.
+> Each VIS resource has a unique managed resource group. This resource group contains resources like a storage account and key vault that are critical for Azure Workload Center for SAP to provide capabilities like infrastructure deployment, SAP software installation, system registration, and other management functions. Don't delete this resource group or any resources within it. If they're deleted, you must re-register the VIS to use any capabilities of Azure Workload Center for SAP.
 
 ## Monitor a VIS
 
@@ -74,7 +75,7 @@ To view the managed identity for the VIS:
 
 ## View default instance numbers
 
-If you deployed an SAP system by using Azure Center for SAP solutions, review the following table to identify the default instance numbers configured during deployment.
+If you deployed an SAP system by using Azure Workload Center for SAP, review the following table to identify the default instance numbers configured during deployment.
 
 | Instance | Distributed systems (HA and non-HA) | Single server systems |
 |---|---|---|
@@ -105,7 +106,7 @@ To delete a VIS:
 1. Select **Delete** to delete the VIS.
 1. Wait for the deletion to finish.
 
-After you delete a VIS, you can register the SAP system again. Open Azure Center for SAP solutions in the Azure portal, and select **Register an existing SAP system**.
+After you delete a VIS, you can register the SAP system again. Open Azure Workload Center for SAP in the Azure portal, and select **Register an existing SAP system**.
 
 ## Connect to an SAP application
 
@@ -121,7 +122,7 @@ To connect to the SAP application:
 
 ## Connect to HANA database
 
-If you deployed an SAP system by using Azure Center for SAP solutions, [find the SAP system's main password and HANA database passwords](#find-sap-and-hana-passwords).
+If you deployed an SAP system by using Azure Workload Center for SAP, [find the SAP system's main password and HANA database passwords](#find-sap-and-hana-passwords).
 
 The HANA database username is either `system` or `SYSTEM` for:
 

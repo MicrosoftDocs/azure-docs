@@ -1,25 +1,25 @@
 ---
-title: Migrate from the AI Gateway tier to AI Gateway resource type (preview)
+title: Migrate from the AI Gateway tier to AI Gateway resource type
 titleSuffix: Azure API Management
-description: Learn how you can migrate from the AI Gateway tier in Azure API Management service to the new AI Gateway resource type (preview).
+description: Learn how you can migrate from the AI Gateway tier in Azure API Management service to the new AI Gateway resource type.
 ms.reviewer: fasantia
 ms.date: 10/06/2026
 ms.topic: how-to
 ms.service: azure
 ---
 
-# Migrate from the AI Gateway tier in API Management (preview)
+# Migrate from the AI Gateway tier in API Management
 
-Azure API Management is changing the resource type used for AI Gateway (preview) from `Microsoft.ApiManagement/service` to `Microsoft.ApiManagement/aigateways`, which offers elastic scaling, faster provisioning time, and the latest capabilities for AI traffic management.
+Azure API Management is changing the resource type used for AI Gateway from `Microsoft.ApiManagement/service` to `Microsoft.ApiManagement/aigateways`. The new resource type offers elastic scaling, faster provisioning time, and the latest capabilities for AI traffic management.
 
 This article explains how to plan for the migration to the new resource type to take advantage of the latest capabilities.
 
 > [!IMPORTANT]
-> `Microsoft.ApiManagement/service` with the `AIGateway` SKU existing resources will continue to work until January 15, 2027. 
+> `Microsoft.ApiManagement/service` with the `AIGateway` SKU existing resources continue to work until January 15, 2027. 
 
 ## What changes
 
-Starting October 14, 2026, Azure API management is changing the resource type for AI Gateway (preview) from `Microsoft.ApiManagement/service` to `Microsoft.ApiManagement/aigateways`.
+Starting October 14, 2026, Azure API Management is changing the resource type for AI Gateway from `Microsoft.ApiManagement/service` to `Microsoft.ApiManagement/aigateways`.
 
 While this change doesn't disrupt the way AI Gateway works, it might require changes in how clients connect to the resource and how automated tools interface with it. The following section describes the changes associated with the new resource type and how to migrate to it. 
 
@@ -64,7 +64,7 @@ The two resource types use different Azure Resource Manager contracts.
 | Contract area | Earlier resource | New resource |
 | --- | --- | --- |
 | Resource type | `Microsoft.ApiManagement/service` | `Microsoft.ApiManagement/aigateways` |
-| API version | `2025-09-01-preview` | `2026-09-01-preview` |
+| API version | `2025-09-01-preview` | `2026-11-01` |
 | Runtime address | `properties.gatewayUrl` | `properties.frontend.defaultHostname` |
 | Response shape | General-purpose API Management service properties | Dedicated AI Gateway properties |
 
@@ -135,8 +135,7 @@ Consider the following limitations before migrating:
 
 | Limitation | What you need to do |
 | --- | --- |
-| Private endpoints aren't supported. | Make sure your security and network design can use the supported public frontend configuration before migrating. |
-| You can't change the virtual network or subnet after the gateway is created. | Confirm the target virtual network, subnet, address space, routing, DNS, and back-end reachability before deployment. To use a different virtual network later, create another gateway and migrate to it. |
+| Private endpoints are in public preview and require approval. | To request access, see [Request access to private endpoints](https://ai.gateway.azure.com/docs/networking/request-private-endpoint-access). |
 | Content safety policy isn't supported. | Identify applications that depend on the existing content safety policy. Before migrating, choose an alternative safety control like guardrais in Microsoft Foundry. |
 
 ## Before you migrate
@@ -146,7 +145,6 @@ Ensure that:
 > [!div class="checklist"]
 > * Your subscription can create `Microsoft.ApiManagement/aigateways` resources.
 > * You can create resources, role assignments, and network configuration.
-> * Your design doesn't require a private endpoint.
 > * You select the final virtual network and subnet because you can't change them after gateway creation.
 > * You know which applications use the gateway.
 
@@ -162,7 +160,7 @@ Record the following configuration:
 
 ## Migrate the gateway
 
-The following section explains how to perform a migration to the new resource type.
+The following section explains how to migrate to the new resource type.
 
 ### Create the new gateway
 
@@ -195,7 +193,7 @@ The following section explains how to perform a migration to the new resource ty
 7. If you use ARM templates for deployment, change definitions to use:
 
     - Resource type `Microsoft.ApiManagement/aigateways`
-    - API version `2026-09-01-preview`
+    - API version `2026-11-01`
     - The new resource ID
     - The new child-resource paths
 

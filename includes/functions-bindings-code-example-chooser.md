@@ -31,7 +31,7 @@ Binding code for C# depends on the [specific process model](../articles/azure-fu
 | Table Storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=isolated-process&pivots=programming-language-csharp)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=isolated-process&pivots=programming-language-csharp) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=isolated-process&pivots=programming-language-csharp#example) | [Link](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/dev/sample/ExtensionsSample/Samples) |
 | Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=isolated-process&pivots=programming-language-csharp#example) | [Link](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/dev/sample/ExtensionsSample/Samples) |
-| Managed connectors | [Trigger](../articles/azure-functions/functions-connectors-overview.md?pivots=programming-language-csharp#connector-based-triggers) | [Link](https://github.com/Azure-Samples/functions-connectors-net) |
+| Managed connectors | [Trigger](../articles/azure-functions/functions-bindings-connector-trigger.md?pivots=programming-language-csharp#examples) | [Link](https://github.com/Azure-Samples/functions-connectors-net) |
 
 
 ### [In-process](#tab/in-process)
@@ -99,7 +99,7 @@ Binding code for C# depends on the [specific process model](../articles/azure-fu
 | Table Storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?pivots=programming-language-javascript)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?pivots=programming-language-javascript) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?pivots=programming-language-javascript#example) | |
 | Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?pivots=programming-language-javascript#example) | |
-| Managed connectors | [Trigger](../articles/azure-functions/functions-connectors-overview.md?pivots=programming-language-typescript#connector-based-triggers) | [Link](https://github.com/Azure-Samples/functions-connectors-typescript) |
+| Managed connectors | [Trigger](../articles/azure-functions/functions-bindings-connector-trigger.md?pivots=programming-language-typescript#examples) | [Link](https://github.com/Azure-Samples/functions-connectors-typescript) |
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
 | Service | Examples | Samples |
@@ -144,7 +144,7 @@ Binding code for Python depends on the Python model version.
 | Table Storage| [Input](../articles/azure-functions/functions-bindings-storage-table-input.md?tabs=python-v2&pivots=programming-language-python)<br/>[Output](../articles/azure-functions/functions-bindings-storage-table-output.md?tabs=python-v2&pivots=programming-language-python) | |
 | Timer | [Trigger](../articles/azure-functions/functions-bindings-timer.md?tabs=python-v2&pivots=programming-language-python#example) | |
 | Twilio | [Output](../articles/azure-functions/functions-bindings-twilio.md?tabs=python-v2&pivots=programming-language-python#example) | |
-| Managed connectors | [Trigger](../articles/azure-functions/functions-connectors-overview.md?pivots=programming-language-python#connector-based-triggers) | [Link](https://github.com/Azure-Samples/functions-connectors-python) |
+| Managed connectors | [Trigger](../articles/azure-functions/functions-bindings-connector-trigger.md?pivots=programming-language-python#examples) | [Link](https://github.com/Azure-Samples/functions-connectors-python) |
 
 ### [v1](#tab/python-v1)
 | Service | Examples | Samples |

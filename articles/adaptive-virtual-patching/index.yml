@@ -1,0 +1,37 @@
+### YamlMime:Landing
+
+title: Azure Adaptive Virtual Patching documentation
+summary: Learn how to deploy and manage Azure Adaptive Virtual Patching to apply temporary protection to supported Azure resources while you prepare permanent patches.
+
+metadata:
+  title: Azure Adaptive Virtual Patching documentation
+  description: Learn how to deploy and manage Azure Adaptive Virtual Patching to apply temporary protection to supported Azure resources while you prepare permanent patches.
+  ms.service: azure
+  ms.topic: landing-page
+  author: AlishaJyoti
+  ms.author: alishajyoti
+  ms.date: 11/05/2026
+
+landingContent:
+  - title: Learn about Azure Adaptive Virtual Patching
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Adaptive Virtual Patching?
+            url: overview.md
+
+  - title: Deploy and manage protection
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy an Adaptive Shield
+            url: deploy-adaptive-shield-portal.md
+          - text: Manage protection and mitigations
+            url: manage-adaptive-shield.md
+
+  - title: Troubleshoot protection
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Frequently asked questions and troubleshooting
+            url: troubleshoot-adaptive-virtual-patching.md

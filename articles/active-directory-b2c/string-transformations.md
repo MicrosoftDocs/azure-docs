@@ -694,7 +694,7 @@ The following example looks up the domain name in one of the inputParameters col
   <InputParameters>
     <InputParameter Id="contoso.com" DataType="string" Value="13c15f79-8fb1-4e29-a6c9-be0d36ff19f1" />
     <InputParameter Id="microsoft.com" DataType="string" Value="0213308f-17cb-4398-b97e-01da7bd4804e" />
-    <InputParameter Id="test.com" DataType="string" Value="c7026f88-4299-4cdb-965d-3f166464b8a9" />
+    <InputParameter Id="test1.com" DataType="string" Value="c7026f88-4299-4cdb-965d-3f166464b8a9" />
     <InputParameter Id="errorOnFailedLookup" DataType="boolean" Value="false" />
   </InputParameters>
   <OutputClaims>
@@ -704,11 +704,11 @@ The following example looks up the domain name in one of the inputParameters col
 ```
 
 - Input claims:
-  - **inputParameterId**: `test.com`
+  - **inputParameterId**: `test1.com`
 - Input parameters:
   - **`contoso.com`**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
   - **`microsoft.com`**: 0213308f-17cb-4398-b97e-01da7bd4804e
-  - **`test.com`**: c7026f88-4299-4cdb-965d-3f166464b8a9
+  - **`test1.com`**: c7026f88-4299-4cdb-965d-3f166464b8a9
   - **errorOnFailedLookup**: false
 - Output claims:
   - **outputClaim**:    c7026f88-4299-4cdb-965d-3f166464b8a9
@@ -729,7 +729,7 @@ The following example looks up the domain name in one of the inputParameters col
   <InputParameters>
     <InputParameter Id="contoso.com" DataType="string" Value="13c15f79-8fb1-4e29-a6c9-be0d36ff19f1" />
     <InputParameter Id="microsoft.com" DataType="string" Value="0213308f-17cb-4398-b97e-01da7bd4804e" />
-    <InputParameter Id="test.com" DataType="string" Value="c7026f88-4299-4cdb-965d-3f166464b8a9" />
+    <InputParameter Id="test1.com" DataType="string" Value="c7026f88-4299-4cdb-965d-3f166464b8a9" />
     <InputParameter Id="errorOnFailedLookup" DataType="boolean" Value="true" />
   </InputParameters>
   <OutputClaims>
@@ -743,7 +743,7 @@ The following example looks up the domain name in one of the inputParameters col
 - Input parameters:
   - **`contoso.com`**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
   - **`microsoft.com`**: 0213308f-17cb-4398-b97e-01da7bd4804e
-  - **`test.com`**: c7026f88-4299-4cdb-965d-3f166464b8a9
+  - **`test1.com`**: c7026f88-4299-4cdb-965d-3f166464b8a9
   - **errorOnFailedLookup**: true
 - Error:
   - No match found for the input claim value in the list of input parameter IDs and errorOnFailedLookup is true.

@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 10/30/2026
+ms.date: 11/09/2026
 ms.custom:
   - references_regions
   - build-2024
@@ -29,6 +29,7 @@ The Flex Consumption plan builds on the strengths of the serverless Consumption 
 + **Improved concurrency handling**: Better handling of concurrent executions with configurable concurrency settings per function.
 + **Flexible memory configuration**: Flex Consumption offers multiple [instance sizes](#instance-sizes) size options, so you can optimize for your specific workload requirements.
 + **Azure Files storage mounts**: [Mount Azure Files shares](#mount-file-shares) directly to your function app so your code can access large binaries, ML models, and shared data without packaging them in your deployment.
++ **OS-level dependencies through containers**: During preview, use a [customer-provided container image](flex-consumption-os-level-dependencies.md) when your app requires native libraries, command-line tools, fonts, drivers, or other OS-level dependencies.
 
 This table helps you directly compare the features of Flex Consumption with the Consumption hosting plan:
 
@@ -166,17 +167,24 @@ To learn how to configure storage mounts, see [Mount file shares](./storage-cons
 
 ## Deployment
 
-Deployments in the Flex Consumption plan follow a single path. You no longer need app settings to influence deployment behavior. You build and zip your project code into an application package, and then deploy it to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (`AzureWebJobsStorage`) also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
+Flex Consumption supports two deployment paths:
+
+- **Code package**: Build and zip your project code into an application package, and then deploy it to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (`AzureWebJobsStorage`) also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
+- **Container image (preview)**: Build a customer-provided image that contains your app, one supported language worker, application dependencies, and required OS-level dependencies. Push the image to a container registry, and then configure the app to use it. Azure supplies and operates the Functions host outside your image. For more information, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 > [!TIP]
-> The Azure portal provides a **Flex Consumption Deployment** diagnostic tool. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Consumption Deployment`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
+> For code-package deployments, the Azure portal provides a **Flex Consumption Deployment** diagnostic tool. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Consumption Deployment`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
 
-### Zero-downtime deployments
+### Zero-downtime deployments for code-package apps
 
 > [!NOTE]
-> Zero-downtime deployments by using rolling updates are currently in public preview.
+> Zero-downtime deployments for code-package apps by using rolling updates are currently in public preview.
 
-Flex Consumption provides zero-downtime deployments through rolling updates as the [site update strategy](flex-consumption-site-updates.md). This strategy allows you to apply code deployments and configuration changes gradually across instances without interrupting function execution. Other hosting plans use deployment slots to minimize downtime during deployments. For deployment options across all hosting plans, see [optimize deployments](functions-best-practices.md#optimize-deployments).
+For Flex Consumption apps that use code-package deployment, rolling updates provide zero-downtime deployments through the [site update strategy](flex-consumption-site-updates.md). This strategy lets you apply code-package deployments and configuration changes gradually across instances without interrupting function execution.
+
+This subsection doesn't apply to container-image updates. For container-image rollout and rollback behavior, see [Update and roll back an image](flex-consumption-os-level-dependencies.md#update-and-roll-back-an-image).
+
+Other hosting plans use deployment slots to minimize downtime during deployments. For deployment options across all hosting plans, see [optimize deployments](functions-best-practices.md#optimize-deployments).
 
 ## Billing
 
@@ -251,9 +259,9 @@ Keep these considerations in mind when using the Flex Consumption plan:
 + **Host**: The app initialization times out after 30 seconds. When your function app takes longer than 30 seconds to start, you might see gRPC-related `System.TimeoutException` entries logged. You can't currently configure this timeout. For more information, see [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
 + **Durable Functions**: Azure Storage and Durable Task Scheduler are the only supported [storage providers](../durable-task/common/durable-task-storage-providers.md?pivots=durable-functions&toc=/azure/durable-task/durable-functions/toc.json) for Durable Functions when hosted in the Flex Consumption plan. See [recommendations](../durable-task/durable-functions/durable-functions-azure-storage-provider.md#flex-consumption-plan) when hosting Durable Functions in the Flex Consumption plan.
 + **Virtual network integration and resource provider registration**: You must have the `Microsoft.App` Azure resource provider registered in your subscription to integrate to a virtual network, which is needed for subnet delegation. The Azure portal and Azure CLI enforce registration at app creation time since you can enable virtual network integration at any point after your app is created. To register this provider, [follow these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
-+ **Triggers**: While all triggers are fully supported in a Flex Consumption plan, the Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./extension-bundles.md), or a later version.
++ **Triggers**: Code-package apps support all triggers in a Flex Consumption plan, but the Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). During the container image preview, the Azure Service Bus extension and Durable Functions aren't supported. For more information, see [HTTP and non-HTTP triggers](flex-consumption-os-level-dependencies.md#http-and-non-http-triggers). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./extension-bundles.md), or a later version.
 + **Regions**: While the Flex Consumption plan is available in many Azure regions, it doesn't currently support all regions. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
-+ **Deployments**: Deployment slots aren't currently supported. For zero downtime deployments by using Flex Consumption, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md). To recover from a bad deployment, see [Recover from a bad Flex Consumption plan deployment](functions-rollback-deployments.md).
++ **Deployments**: Deployment slots aren't currently supported. For code-package deployments, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md) and [Recover from a bad Flex Consumption plan deployment](functions-rollback-deployments.md). For container image updates and rollback guidance, see [Update and roll back an image](flex-consumption-os-level-dependencies.md#update-and-roll-back-an-image).
 + **Azure Storage as a local share**: Network File System (NFS) file shares aren't available for Flex Consumption. Only Server Message Block (SMB) and Azure Blobs (read-only) are supported. For more information, see [Mount file shares](#mount-file-shares).
 + **Scale**: The lowest maximum scale is currently `1`. The highest currently supported value is `1000`.
 + **PowerShell managed dependencies**: Flex Consumption doesn't support [managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature). You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).

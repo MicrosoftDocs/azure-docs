@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 10/27/2026
+ms.date: 11/14/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -19,9 +19,17 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ### 2026 Quarter 4 (October, November, December)
 
+#### Simplified Azure File Sync onboarding for Arc-enabled Windows Servers (Preview)
+
+Azure File Sync now offers a guided Azure portal experience to simplify onboarding Arc-enabled Windows Servers. This streamlined workflow brings together agent installation, server registration, and synchronization with Azure Files, helping customers enable hybrid file access or migrate data to Azure while retaining their familiar Windows Server experience. [Learn more](../file-sync/file-sync-deployment-guide.md?tabs=azure-portal%2Cproactive-portal#install-on-azure-arc-enabled-servers)
+
 #### In place provisioned v1 to provisioned v2 storage account upgrade is now in limited public preview 
 
 Organizations can now upgrade their existing provisioned v1 storage accounts to provisioned v2 storage accounts without downtime, enabling access to the latest pricing and feature benefits. To learn more, read the instructions in the [documentation](./modify-file-share.md#change-the-billing-model-of-a-storage-account).
+
+#### Azure Files-to-Azure Files data copy and synchronization using Azure Storage Mover is now in public preview
+
+You can now copy and synchronize SMB file shares across storage accounts, Azure regions, and subscriptions within the same tenant using Azure Storage Mover. This capability enables scheduled, incremental transfers to maintain secondary copies for business continuity, consolidate file shares, and move data closer to applications and analytics workloads. To learn more, read [Get started with Azure Files-to-Azure Files data copy in Azure Storage Mover](../../storage-mover/azure-files-to-azure-files-copy.md)
 
 #### File shares using Microsoft.FileShares are now available in 12 additional regions
 

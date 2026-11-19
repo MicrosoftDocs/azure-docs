@@ -8,6 +8,8 @@
       href: ddos-protection-features.md
     - name: DDoS custom policy overview
       href: ddos-custom-policy-overview.md
+    - name: DDoS protection for NAT Gateway StandardV2 (preview)
+      href: ddos-protection-nat-gateway-standardv2.md
     - name: Tier comparison
       href: ddos-protection-sku-comparison.md
     - name: Price comparison
@@ -51,6 +53,8 @@
       items:
         - name: Portal
           href: manage-ddos-custom-policy-portal.md
+        - name: PowerShell
+          href: manage-ddos-custom-policy-powershell.md
         - name: CLI
           href: manage-ddos-custom-policy-cli.md
         - name: ARM template

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/01/2026
+ms.date: 11/19/2026
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to enable file access logs on Azure NetApp Files volumes so that I can monitor file access operations and troubleshoot access issues effectively.
@@ -38,7 +38,14 @@ File access logs provide file access logging for individual volumes, capturing f
     * System access control list (SACL) settings for logging should be used sparingly. Frequent operations (for example, READ or GET) can have significant performance impact, but have limited logging value. It's recommended that SACL setting not log these frequent operations to conserve performance. 
     * SACL policy additions aren't currently supported with file access logs. 
 * With clubbing events such as READ/WRITE, only a handful of operation per file read or write are captured to reduce event logging rate.  
-* File access logs support a [log generation rate metric](azure-netapp-files-metrics.md). 
+* File access logs support a customer-visible metric named `FileAccessLogGenerated`. This metric shows the amount of file access log data generated for a subscription. The value is reported every five minutes and represents the file access log events generated during that interval. The metric is scoped to the subscription, so it can't be associated with an Azure NetApp Files volume or capacity pool. Instead, the metric value is reported for each NetApp account in the subscription, provided the NetApp account has at least one volume with file access logs enabled. 
+
+    To view this metric in the Azure portal, perform the following steps:
+    
+    1. Navigate to your NetApp account, expand **Monitoring**, and select **Metrics**. 
+    1. Set **Metric namespace** to **NetApp account standard**, then select **FileAccessLogGenerated** from the **Metric** dropdown to display the graph.
+
+    :::image type="content" source="./media/manage-file-access-logs/file-access-log-generated-metric.png" alt-text="Screenshot of the file access log metric." lightbox="./media/manage-file-access-logs/file-access-log-generated-metric.png":::
 
     If the rate of file access event generation exceeds 64 MiB/minute, the [Activity log](monitor-azure-netapp-files.md) sends a message stating that the rate of file access log generation is exceeding the limit. If log generation exceeds the limit, logging events can be delayed or dropped. If you're approaching this limit, disable noncritical auditing ACLs to reduce the event generation rate. As a precaution, you can [create an alert](/azure/azure-monitor/alerts/alerts-create-activity-log-alert-rule) for this event.
  
@@ -168,25 +175,38 @@ When configuring the Audit ACE, ensure you use the `U:` prefix to denote it's an
     Under **Logs > Categories**, select **ANFFileAccess** then set the retention period of the logs. 
 :::image type="content" source="./media/manage-file-access-logs/logs-diagnostic-settings-enable.png" alt-text="Screenshot of Azure Diagnostic settings menu with file access diagnostic setting.":::
 1. Select one of the destination options for the logs:
-    * Archive to a storage account
-    * Stream to an event hub
-    * Send to Log Analytics workplace
-    * Send to a partner solution
-1. Save the settings.
+    * Archive to a storage account  
+    * Stream to an event hub  
+    * Send to Log Analytics workplace  
+    * Send to a partner solution     
+    
+      >[!NOTE]
+      >If you stream file access logs to an Event Hub with a firewall or private endpoint configured, you must enable **Allow trusted Microsoft services to bypass this firewall** on the Event Hubs namespace. This setting requires the Standard tier or higher.
 
+1. Save the settings.
 
 ## Disable file access logs
 
-1. In the **Volumes** menu, select the volume on which you want to disable file access logs.
-2. Select the **Diagnostic setting** menu from the left-hand pane. 
-3. In the **Diagnostic settings** page, deselect **Audit**. This automatically deselects **ANFFileAccess**.
-4. Select **Save**. 
+To disable file access logs, delete the diagnostic setting that sends the `ANFFileAccess` category. Azure Monitor doesn't let you save a diagnostic setting with no categories selected, so deselecting **Audit** or **ANFFileAccess** alone doesn't work if it's the only category in the setting. 
 
->[!NOTE]
->After disabling file access logs, you must wait at least ten minutes before attempting to enable or re-enable file access logs on any volume.
+1. In the **Volumes** menu, select the volume on which you want to disable file access logs. 
+1. Under **Monitoring**, select **Diagnostic settings**. 
+1. Find the diagnostic setting that includes **ANFFileAccess**, then select **Edit setting**. 
+1. Select **Delete**, then select **Yes** to confirm. 
 
-> [!NOTE]
-> You should use REST APIs to add/delete diagnostic settings to enable/disable file access logs for cache volumes as portal support is not available. For more information, see [Diagnostic Settings](/rest/api/monitor/diagnostic-settings).
+If the diagnostic setting also collects other log categories or metrics you want to keep, deselect only **ANFFileAccess**, then select **Save**. 
+
+You can also delete the setting with the Azure CLI:   
+
+```azurecli 
+
+az monitor diagnostic-settings delete \
+--name <setting-name> \
+--resource <volume-resource-id> 
+
+``` 
+>[!NOTE] 
+>After disabling file access logs, you must wait at least ten minutes before attempting to enable or re-enable file access logs on any volume. 
  
 ## Enable file access logs for cache volumes
 

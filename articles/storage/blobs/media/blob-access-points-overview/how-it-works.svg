@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="500" viewBox="0 0 1080 500" role="img" aria-labelledby="title description">
+  <title id="title">How blob access points work</title>
+  <desc id="description">An application or Azure service sends a Blob Storage read request to a blob access point, which is a container with read-only blobs in the storage account. The blob access point uses its configuration, which holds the source endpoint, credentials, and connection type. Azure Storage sends a signed request to the data source, receives the data, and returns it in the Blob Storage response. Nothing is copied into the storage account.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#365a75"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; fill: #172b3a; font-size: 15px; }
+      .section { font-size: 19px; font-weight: 600; }
+      .heading { font-size: 17px; font-weight: 600; }
+      .note { font-size: 15px; font-style: italic; }
+      .mono { font-family: Consolas, 'Courier New', monospace; font-size: 13px; }
+      .step { font-size: 14px; font-weight: 600; fill: #ffffff; }
+      .connector { fill: none; stroke: #365a75; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1080" height="500" fill="#ffffff"/>
+
+  <rect x="20" y="110" width="200" height="110" rx="8" fill="#ffffff" stroke="#365a75" stroke-width="2"/>
+  <text class="heading" x="120" y="150" text-anchor="middle">Application or</text>
+  <text class="heading" x="120" y="172" text-anchor="middle">Azure service</text>
+  <text x="120" y="200" text-anchor="middle">Uses Blob Storage APIs</text>
+
+  <rect x="310" y="50" width="420" height="360" rx="12" fill="#eef6fd" stroke="#7baed6" stroke-width="2"/>
+  <text class="section" x="332" y="82">Storage account</text>
+
+  <rect x="335" y="100" width="370" height="110" rx="8" fill="#ffffff" stroke="#7baed6" stroke-width="2"/>
+  <text class="heading" x="520" y="135" text-anchor="middle">Blob access point</text>
+  <text x="520" y="160" text-anchor="middle">A container with read-only blobs</text>
+  <text class="mono" x="520" y="188" text-anchor="middle">&lt;account&gt;.blob.core.windows.net/&lt;name&gt;</text>
+
+  <path class="connector" d="M 520 210 V 258"/>
+  <text x="532" y="240">Uses</text>
+
+  <rect x="335" y="260" width="370" height="120" rx="8" fill="#ffffff" stroke="#7baed6" stroke-width="2"/>
+  <text class="heading" x="520" y="295" text-anchor="middle">Blob access point configuration</text>
+  <text x="520" y="322" text-anchor="middle">Source endpoint, credentials, and</text>
+  <text x="520" y="344" text-anchor="middle">connection type</text>
+  <text class="note" x="520" y="368" text-anchor="middle">Stores no data</text>
+
+  <rect x="820" y="255" width="240" height="130" rx="8" fill="#edf7f0" stroke="#80b991" stroke-width="2"/>
+  <text class="heading" x="940" y="302" text-anchor="middle">Data source</text>
+  <text x="940" y="332" text-anchor="middle">Azure NetApp Files, Qumulo,</text>
+  <text x="940" y="354" text-anchor="middle">Nasuni, or Commvault</text>
+
+  <path class="connector" d="M 220 150 H 333"/>
+  <path class="connector" d="M 335 182 H 222"/>
+  <circle cx="277" cy="150" r="12" fill="#0078d4"/>
+  <text class="step" x="277" y="155" text-anchor="middle">1</text>
+  <circle cx="277" cy="182" r="12" fill="#0078d4"/>
+  <text class="step" x="277" y="187" text-anchor="middle">4</text>
+
+  <path class="connector" d="M 705 305 H 818"/>
+  <path class="connector" d="M 820 337 H 707"/>
+  <circle cx="762" cy="305" r="12" fill="#0078d4"/>
+  <text class="step" x="762" y="310" text-anchor="middle">2</text>
+  <circle cx="762" cy="337" r="12" fill="#0078d4"/>
+  <text class="step" x="762" y="342" text-anchor="middle">3</text>
+
+  <text class="note" x="940" y="412" text-anchor="middle">Data stays in the data source</text>
+  <text class="note" x="520" y="438" text-anchor="middle">Nothing is copied into the storage account. Reads are always live.</text>
+
+  <circle cx="40" cy="475" r="11" fill="#0078d4"/>
+  <text class="step" x="40" y="480" text-anchor="middle">1</text>
+  <text x="58" y="480">Blob read request</text>
+  <circle cx="290" cy="475" r="11" fill="#0078d4"/>
+  <text class="step" x="290" y="480" text-anchor="middle">2</text>
+  <text x="308" y="480">Signed request to the data source</text>
+  <circle cx="590" cy="475" r="11" fill="#0078d4"/>
+  <text class="step" x="590" y="480" text-anchor="middle">3</text>
+  <text x="608" y="480">Data from the data source</text>
+  <circle cx="850" cy="475" r="11" fill="#0078d4"/>
+  <text class="step" x="850" y="480" text-anchor="middle">4</text>
+  <text x="868" y="480">Blob Storage response</text>
+</svg>

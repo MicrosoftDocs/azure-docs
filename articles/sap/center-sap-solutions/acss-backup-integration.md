@@ -1,18 +1,19 @@
 ---
 title: Configure and monitor Azure Backup for SAP Virtual Instance (preview)
-description: Learn how to configure and monitor Azure Backup status for your SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Center for SAP solutions.
+description: Learn how to configure and monitor Azure Backup status for your SAP system through the Virtual Instance for SAP solutions (VIS) resource in Azure Workload Center for SAP.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 04/08/2026
+ms.date: 11/06/2026
 ms.author: kanamudu
+ms.reviewer: mattmcinnes
 author: kalyaninamuduri
 # Customer intent: As an SAP Basis Admin, I want to configure and monitor backups for my SAP system using the Virtual Instance for SAP solutions, so that I can ensure data integrity and recoverability in case of system failures.
 ---
 
 # Configure and monitor Azure Backup status for your SAP system through Virtual Instance for SAP solutions (preview)
 
-[Azure Center for SAP solutions](overview.md) lets you manage SAP workloads on Azure through a Virtual Instance for SAP solutions (VIS) resource. Protecting your SAP system requires configuring and monitoring backups for Central Services instances, application servers, database virtual machines, and HANA databases. This process can involve multiple separate steps.
+[Azure Workload Center for SAP](overview.md) lets you manage SAP workloads on Azure through a Virtual Instance for SAP solutions (VIS) resource. Protecting your SAP system requires configuring and monitoring backups for Central Services instances, application servers, database virtual machines, and HANA databases. This process can involve multiple separate steps.
 
 This article shows you how to configure Azure Backup and monitor backup status for your entire SAP system from the VIS resource in a single workflow. If backup is already configured from Azure Backup Center, the VIS resource automatically detects the existing configuration and shows backup job status.
 
@@ -21,20 +22,20 @@ This article shows you how to configure Azure Backup and monitor backup status f
 
 ## Prerequisites
 
-- A VIS resource representing your SAP system on Azure Center for SAP solutions.
+- A VIS resource representing your SAP system on Azure Workload Center for SAP.
 - An Azure account with **Backup Contributor** and **Virtual Machine Contributor** role access on the subscription in which your SAP system exists.
 - For HANA database backup, make sure the [prerequisites](/azure/backup/tutorial-backup-sap-hana-db#prerequisites) required by Azure Backup are in place.
 - For HANA database backup, an **HDB user store key** for preparing HANA DB for configuring backup. For a **highly available (HA)** HANA database, the **HBD user store key** must exist on both the **Primary** and **Secondary** databases.
 
 > [!NOTE]
-> If you're configuring backup for HANA database from the VIS resource, you can skip running the [backup preregistration script](/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does). Azure Center for SAP solutions runs this script before configuring HANA backup.
+> If you're configuring backup for HANA database from the VIS resource, you can skip running the [backup preregistration script](/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does). Azure Workload Center for SAP runs this script before configuring HANA backup.
 
 ## Configure backup for your SAP system
 
 To configure backup for your Central Services instance, application server, database virtual machines, and HANA database from the VIS resource, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for **ACSS** and select **Azure Center for SAP solutions** from search results.
+1. Search for **ACSS** and select **Azure Workload Center for SAP** from search results.
 1. On the left navigation, select **Virtual Instance for SAP solutions**.
 1. Select the **Backup (preview)** tab on the left navigation.
 1. Select **Configure** on the **Backup (preview)** page.
@@ -67,7 +68,7 @@ After you configure backup for the virtual machines and HANA database in your SA
 To monitor backup status:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search for **ACSS** and select **Azure Center for SAP solutions** from search results.
+1. Search for **ACSS** and select **Azure Workload Center for SAP** from search results.
 1. On the left navigation, select **Virtual Instance for SAP solutions**.
 1. Select the **Backup (preview)** tab on the left navigation.
 1. For **Central service + App server VMs** and **HANA Database**, view the protection status of **Backup instances** and the status of **Backup jobs** in the last 24 hours.

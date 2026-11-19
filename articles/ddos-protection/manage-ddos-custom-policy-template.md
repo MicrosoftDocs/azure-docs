@@ -1,5 +1,5 @@
 ---
-title: Create an Azure DDoS Protection custom policy with an Azure Resource Manager template (preview)
+title: Create an Azure DDoS Protection custom policy with an Azure Resource Manager template
 description: Learn how to create an Azure DDoS Protection custom policy with protocol-specific detection thresholds by using an Azure Resource Manager template.
 services: ddos-protection
 author: duongau
@@ -7,21 +7,20 @@ ms.service: azure-ddos-protection
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 ms.author: duau
-ms.date: 06/25/2026
+ms.date: 10/13/2026
 # Customer intent: As a network administrator, I want to create a DDoS Protection custom policy with an Azure Resource Manager template, so that I can deploy protocol-specific detection thresholds as code.
 ---
 
-# Create an Azure DDoS Protection custom policy by using an Azure Resource Manager template (preview)
+# Create an Azure DDoS Protection custom policy by using an Azure Resource Manager template
 
-This article describes how to use an Azure Resource Manager template to create an Azure DDoS Protection custom policy. A custom policy defines protocol-specific detection thresholds that override adaptive auto-tuning for the Standard Load Balancer frontend IP addresses that you associate with it. For more information, see [What is Azure DDoS Protection custom policy?](ddos-custom-policy-overview.md)
+This article describes how to use an Azure Resource Manager template to create an Azure DDoS Protection custom policy. A custom policy defines protocol-specific detection thresholds that override adaptive auto-tuning for supported public IP endpoints. For more information, see the [custom policy overview](ddos-custom-policy-overview.md).
 
-> [!IMPORTANT]
-> Azure DDoS Protection custom policy is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+The template in this article demonstrates the Standard Load Balancer frontend IP configuration management path. Custom-policy resource support isn't limited to this example. Association properties depend on the resource and management interface. For public IP association examples, see the [Azure CLI](manage-ddos-custom-policy-cli.md) and [Azure PowerShell](manage-ddos-custom-policy-powershell.md) guides.
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- A Standard Load Balancer with at least one frontend IP configuration. You need the resource ID of the frontend IP configuration to associate it with the policy.
+- For this template example, a Standard Load Balancer with at least one public frontend IP configuration. You need the resource ID of the frontend IP configuration to associate it with the policy.
 
 ## Review the template
 
@@ -54,6 +53,8 @@ The following template creates a custom policy with a single inbound TCP detecti
     "tcpThreshold": {
       "type": "int",
       "defaultValue": 100000,
+      "minValue": 50000,
+      "maxValue": 2000000,
       "metadata": {
         "description": "Inbound TCP detection threshold in packets per second (50,000 to 2,000,000)."
       }
@@ -93,7 +94,13 @@ The template defines one resource:
 
 - [Microsoft.Network/ddosCustomPolicies](/azure/templates/microsoft.network/ddoscustompolicies)
 
-To tune more protocols, add more entries to `detectionRules` with a `trafficType` of `Tcp`, `Udp`, or `TcpSyn`.
+To tune more protocols, add more entries to `detectionRules` with a `trafficType` of `Tcp`, `Udp`, or `TcpSyn`. Set `packetsPerSecond` within the range for the selected protocol.
+
+| Traffic type | Minimum threshold (packets per second) | Maximum threshold (packets per second) |
+| --- | --- | --- |
+| `Tcp` | 50,000 | 2,000,000 |
+| `Udp` | 20,000 | 200,000 |
+| `TcpSyn` | 1,000 | 100,000 |
 
 ## Deploy the template
 
@@ -145,7 +152,7 @@ Get-AzResource -ResourceGroupName MyResourceGroup -Name MyCustomPolicy -Resource
 
 ## Clean up resources
 
-When you no longer need the resources, delete the resource group to remove the custom policy and any other resources it contains.
+First detach the policy from the load balancer frontend by using the [Azure PowerShell guidance](manage-ddos-custom-policy-powershell.md#remove-the-associations). When you no longer need the example resources, delete their resource group to remove the custom policy and any other resources it contains.
 
 # [CLI](#tab/CLI)
 

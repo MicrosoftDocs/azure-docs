@@ -1,6 +1,6 @@
 ---
-title: Use Azure Migrate in Unsupported Regions
-description: Describes and lists the regions that Azure Migrate doesn't support
+title: Use Azure Catalyst in Unsupported Regions
+description: Describes and lists the regions that Azure Catalyst doesn't support
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.manager: ankitsurkar

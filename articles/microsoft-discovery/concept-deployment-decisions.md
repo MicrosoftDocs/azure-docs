@@ -5,7 +5,7 @@ author: loubigard
 ms.author: loubigard
 ms.service: azure
 ms.topic: concept-article
-ms.date: 11/04/2026
+ms.date: 11/17/2026
 ms.custom: networking, security
 
 #CustomerIntent: As a platform administrator, I want to understand which Microsoft Discovery settings are fixed at creation so that I can make the right architecture decisions before I deploy.
@@ -13,7 +13,7 @@ ms.custom: networking, security
 
 # Microsoft Discovery architecture decisions and fixed settings
 
-You fix several Discovery settings when you create a resource, including tags, the workspace and cluster identities, the encryption model, the supercomputer outbound type, and subnet bindings. Changing these settings later means deleting and re-creating the workspace, supercomputer, or bookshelf. This article lists those decisions, the options for each, and where to find the configuration details, so you can agree on them with your security, network, and platform owners before your first deployment.
+You fix several Discovery settings when you create a resource, including deployment-time tags such as `NetworkIsolation`, the workspace and cluster identities, the encryption model, the supercomputer outbound type, and subnet bindings. Changing these settings later means deleting and re-creating the workspace, supercomputer, or bookshelf. The two Workbench feature tags are separate and can be updated on an existing workspace. This article lists those decisions, the options for each, and where to find the configuration details, so you can agree on them with your security, network, and platform owners before your first deployment.
 
 For deployment paths, prerequisites and their owners, and the onboarding tool stages, see [Microsoft Discovery deployment planning overview](concept-deployment-planning.md).
 
@@ -21,7 +21,7 @@ For deployment paths, prerequisites and their owners, and the onboarding tool st
 
 | Setting | Resource | Can you change it after creation? | More information |
 | --- | --- | --- | --- |
-| Tags, such as `NetworkIsolation`, `discovery.overridemrgregion`, and `discovery.enableprivatecluster` | Workspace, supercomputer, node pool, bookshelf | No. Any tag change requires redeploying the resource. | [Quickstart: Deploy infrastructure](quickstart-infrastructure.md) |
+| Deployment-time tags, such as `NetworkIsolation`, `discovery.overridemrgregion`, and `discovery.enableprivatecluster` | Workspace, supercomputer, node pool, bookshelf | Set these deployment settings before creation. The workspace's Workbench feature tags can be edited separately. | [Quickstart: Deploy infrastructure](quickstart-infrastructure.md) |
 | Workspace identity | Workspace | No | [Managed identities](concept-managed-identities.md#limitations) |
 | Cluster identity | Supercomputer | No | [Managed identities](concept-managed-identities.md#limitations) |
 | Kubelet and workload identities | Supercomputer | Yes, by using `PATCH` | [Managed identities](concept-managed-identities.md#limitations) |
@@ -91,7 +91,7 @@ For a cross-region deployment, apply the `discovery.overridemrgregion` tag when 
 
 ## Workbench features
 
-Decide on the workbench tags when you create the workspace.
+Set `NetworkIsolation` when you create the workspace. You can set the two Workbench feature tags at creation or update them later without changing network isolation.
 
 | Tag | Effect |
 | --- | --- |

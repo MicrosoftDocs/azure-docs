@@ -5,7 +5,7 @@ author: reburkea
 title: Microsoft Discovery Bookshelf & Knowledge Bases
 description: Conceptual overview of Microsoft Discovery Bookshelf service and Knowledge Bases. 
 ms.topic: concept-article
-ms.date: 06/30/2026
+ms.date: 11/17/2026
 ---
 
 # Microsoft Discovery Bookshelf
@@ -49,10 +49,10 @@ Each Bookshelf can only contain one Knowledge Base. However, Projects can contai
 
 ### Incremental indexing
 
-Incremental indexing isn't currently supported. To update Knowledge Bases, you must delete them and re-index.
+Updating documents requires a full knowledge-graph rebuild. You don't necessarily need to delete the knowledge base. For adding or removing documents and reindexing an existing knowledge base, see [Incremental enrichment and reindexing](how-to-index-bookshelf-knowledgebase.md#incremental-enrichment-and-reindexing).
 
 > [!NOTE]
-> Incremental indexing is a planned feature for future releases.
+> Incremental graph indexing isn't currently supported.
 
 ### Local scope queries 
 

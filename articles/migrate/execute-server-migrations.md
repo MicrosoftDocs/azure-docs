@@ -1,6 +1,6 @@
 ---
-title: Overview of executing direct server migrations in Azure Migrate portal
-description: Learn how to navigate the portal to execute direct server migrations.
+title: Overview of executing direct server migrations in Azure Catalyst portal
+description: Learn how to navigate the Azure Catalyst portal to execute direct server migrations.
 ms.topic: how-to
 author: dhananjayanr98 
 ms.author: dhananjayanr
@@ -12,7 +12,7 @@ monikerRange: migrate
 Customer intent: This article is intended to guide users on leveraging the new portal for executing and tracking direct server migrations. 
 ---
 
-# Direct server migrations in Azure Migrate
+# Direct server migrations in Azure Catalyst
 
 Azure Migrate supports two ways to execute migrations after discovery and planning:
  - **Wave migration**: Group applications and workloads into a migration wave and migrate them together.

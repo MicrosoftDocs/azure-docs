@@ -5,7 +5,7 @@ ms.topic: concept-article
 author: rvandenbedem
 ms.author: rvandenbedem
 ms.service: azure-vmware
-ms.date: 11/6/2026
+ms.date: 11/17/2026
 # Customer intent: As a cloud architect, I want to understand how VMware Cloud Foundation 9.1 has been designed and implemented with Azure VMware Solution.
 ---
 
@@ -61,7 +61,7 @@ The following table lists the Azure VMware Solution features and VCF 9.1 capabil
 | --- | --- |
 | Generation 1 Architecture | Yes |
 | Generation 2 Architecture | Yes |
-| Stretched Clusters | Yes |
+| Stretched Clusters (Generation 1) | Yes |
 | AV36P, AV52, AV48, AV64 SKUs | Yes |
 | AV36 SKU | No |
 | Microsoft Azure Government | Yes |
@@ -73,7 +73,7 @@ The following table lists the Azure VMware Solution features and VCF 9.1 capabil
 | VMware vSphere Kubernetes Service | No |
 | VCF Log Management | No (use Azure VMware Solution diagnostics instead) |
 | VCF Operations for Networks | No |
-| VCF Operations orchestrator | No |
+| VCF Operations Orchestrator | No |
 | VMware Identity Broker | No |
 | VCF Automation | No |
 | VCF Operations HCX | Yes |
@@ -81,9 +81,9 @@ The following table lists the Azure VMware Solution features and VCF 9.1 capabil
 | HPE Zerto Software | Yes |
 | NetApp Jetstream DR software | Yes |
 | Azure NetApp Files | Yes |
-| Azure eSAN | Yes |
+| Azure Elastic SAN | Yes |
 | Everpure Cloud Azure Native for Azure VMware Solution | Yes |
-| VMware NSX Public IP Address (PIP) | Yes |
+| VMware NSX Public IP Address (PIP - Generation 1) | Yes |
 | VMware NSX Virtual Private Cloud (VPC) | No |
 | VMware vSphere/NSX Enhanced Data Path (EDP) | Yes |
 | VMware vDefend | Yes |

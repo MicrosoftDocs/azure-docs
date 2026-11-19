@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 11/10/2026
+ms.date: 11/17/2026
 ---
 
 # Configure customer-managed keys for Microsoft Discovery resources
@@ -285,9 +285,9 @@ Use this section when you create a Workspace resource that uses customer-managed
 | `keyVaultProperties.keyVersion` | Key version in Key Vault | Create, update |
 | `logAnalyticsClusterId` | Resource ID of the Log Analytics dedicated cluster | Create only |
 
-### Example Workspace request
+### Workspace CMK request fragment
 
-Use a PUT request when you create the Workspace resource.
+The following block shows the CMK settings for a Workspace resource. It isn't a complete workspace creation payload.
 
 ```json
 {
@@ -304,7 +304,7 @@ Use a PUT request when you create the Workspace resource.
 }
 ```
 
-You can submit the payload by using `az rest --method put` against the `Microsoft.Discovery/workspaces` resource.
+Merge these settings into your workspace creation request, including `properties.workspaceIdentity.id` for an existing user-assigned managed identity and the network configuration described in [Create a workspace](quickstart-infrastructure.md#4-create-a-workspace). Submit the complete request by using `az rest --method put` against the `Microsoft.Discovery/workspaces` resource.
 
 ## Rotate a customer-managed key
 

@@ -17,9 +17,9 @@ items:
     href: device-registry/overview-device-registry.md
   - name: Get started with Azure Device Registry
     items:
-      - name: Azure IoT Hub get started (preview)
+      - name: Azure IoT Hub
         href: device-registry/get-started-azure-device-registry.md
-      - name: Azure IoT Operations get started
+      - name: Azure IoT Operations
         href: ../iot-operations/get-started-end-to-end-sample/quickstart-deploy.md
   - name: What is an Azure Device Registry namespace?
     href: device-registry/concept-namespaces.md
@@ -31,7 +31,7 @@ items:
     items:
     - name: Unified Azure IoT SDKs for IoT Hub and Azure Device Registry
       href: device-registry/concept-unified-iot-sdks.md
-  - name: Manage certificate lifecycle (preview)
+  - name: Manage certificate lifecycle
     items:
       - name: Certificate management overview 
         href: iot-certificate-management-overview.md
@@ -57,7 +57,7 @@ items:
             href: concepts-certificate-policy-management.md
   - name: Manage your device fleet
     items:
-    - name: Disable or enable a device (preview)
+    - name: Disable or enable a device
       href: device-registry/how-to-disable-enable-device.md
     - name: Groups concepts (preview)
       href: device-registry/concept-groups.md
@@ -71,8 +71,12 @@ items:
       href: device-registry/how-to-import-software-update.md
     - name: Deploy a software update to a group (preview)
       href: device-registry/how-to-deploy-software-update-group.md
+    - name: Reconcile IoT Hub twin properties with ADR
+      href: device-registry/how-to-reconcile-iot-hub-twins.md
     - name: Deploy an onboarding update to a namespace (preview)
       href: device-registry/how-to-deploy-onboarding-update-namespace.md
+  - name: Understand billing
+    href: device-registry/concept-billing.md
 - name: References
   items:
   - name: Support and help options

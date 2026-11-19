@@ -3,7 +3,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 11/05/2025
+ms.date: 11/18/2026
 ---
 The following table lists the limits associated with the different service tiers S1, S2, S3, and F1. For information about the cost of each *unit* in each tier, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -62,26 +62,17 @@ IoT Hub throttles requests when the following quotas are exceeded.
 | Jobs per-device operation throughput | 50/sec/unit (for S3), maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1). |
 | Device stream initiation rate | 5 new streams/sec (for S1, S2, S3, and F1 only). |
 
-### IoT Hub with ADR integration (preview) limits
+<a name="iot-hub-with-adr-integration-preview-limits"></a>
 
-The following table lists the limits that apply to IoT Hub (preview) instances.
+### IoT Hub with ADR integration limits
+
+The following table lists the limits that apply to IoT Hub instances with ADR integration.
 
 |Feature|Limit|
 |----------------------------------|-------------------------------|
-|Number of devices per IoT Hub (preview) instance    | 10,000|
-|Number of IoT Hub (preview) instances per ADR namespace | 3|
+|Number of devices per IoT Hub instance    | 1,000,000|
+|Number of IoT Hub instances per ADR namespace | 10|
 |Protocols supported for certificate provisioning|HTTP, MQTT, and MQTT-Web-Sockets protocols. |
 
-All other throttles, limits to IoT Hub preview resources are equivalent to a S1 standard IoT Hub
-
-The following table lists the limits that apply to [ADR integration](../articles/iot-hub/iot-hub-device-registry-overview.md).
-
-| Feature    | Limit|
-|----------------------------------|-------------------------------|
-|Number of ADR namespaces per Azure subscription    | 100|
-|Number of device create per minute    | 500 devices per minute per subscription|
-|Number of devices to be disabled per minute    | 500|
-|Number of devices to be enabled per minute    | 500|
-
-For more information, you can view the [full list of ADR limits](#azure-device-registry-limits).
+For more information about ADR namespaces, see the [full list of ADR limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#azure-device-registry-limits).
 

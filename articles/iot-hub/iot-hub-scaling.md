@@ -1,18 +1,25 @@
 ---
 title: Azure IoT Hub scaling
 description: How to choose the correct IoT hub tier and size to support your anticipated message throughput and desired features.
-author: sethmanheim
+author: Usha-Rathnavel
 
-ms.author: sethm
+ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 03/20/2025
+ms.date: 11/11/2026
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
 ---
 
 # Choose the right IoT Hub tier and size for your solution
 
 Every IoT solution is different, so Azure IoT Hub offers several options based on pricing and scale. This article is meant to help you evaluate your IoT Hub needs. For pricing information about IoT Hub tiers, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub).
+
+> [!IMPORTANT]
+> IoT Hub with the MQTT v5 connection profile uses a different scaling model.
+> See [Scale an IoT hub with the MQTT v5 connection profile](#scale-an-iot-hub-with-the-mqtt-v5-connection-profile).
+> The basic and standard tier comparisons, daily message allowances, partition
+> guidance, and tier/unit scaling procedures elsewhere in this article describe
+> the classic connection profile. Don't apply them to MQTT v5 throughput units.
 
 To decide which IoT Hub tier is right for your solution, ask yourself two questions:
 
@@ -101,7 +108,7 @@ Each IoT Hub tier is available in three sizes, based around how much data throug
 
 A tier-size pair is represented as an *edition*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**. For more information, including pricing details, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/)
 
-Once you choose an edition for your IoT hub, you can multiple its messaging capacity by increasing the number of *units*.
+Once you choose an edition for your IoT hub, you can multiply its messaging capacity by increasing the number of *units*.
 
 Each IoT hub can only be one edition. For example, you can create an IoT hub with multiple units of S1. However, you can't create an IoT hub with a mix of units from different editions, such as S1 and B3 or S1 and S2.
 
@@ -129,6 +136,63 @@ For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md).
 ### Auto-scale
 
 If you're approaching the allowed message limit on your IoT hub, you can use these [steps to automatically scale](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) to increment an IoT Hub unit in the same IoT Hub tier.
+
+## Scale an IoT hub with the MQTT v5 connection profile
+
+During preview, IoT Hub with the MQTT v5 connection profile supports only
+**Standard S1** hubs. Configure capacity by selecting **throughput units
+(TUs)**, from **1 to 25 TUs**. These units aren't the classic S1 units used to
+calculate daily message allowances.
+
+The number of TUs you select determines three capacity dimensions:
+
+- **Throughput:** Combined device-to-hub and hub-to-device traffic, measured in
+  messages per second and MB per second. For example, telemetry sent by a
+  device and a direct method command delivered to a device both count toward
+  throughput.
+  Both limits apply; whichever you reach first limits throughput.
+- **Connected devices:** The maximum number of concurrently connected devices,
+  not the number of registered device identities.
+- **Connection requests:** The number of connection requests per second.
+  Plan for reconnect bursts separately from the steady connected population.
+
+For example, 7 TUs provide capacity for 7,000 messages per second and 7 MB per
+second of combined device-to-hub and hub-to-device traffic, 70,000 concurrently connected devices,
+and 1,400 connection requests per second. At the maximum of 25 TUs, the hub
+supports up to **250,000 concurrently connected devices** during preview.
+The number of registered devices can be higher than this concurrent connection
+limit, subject to the hub's registered identity capacity.
+
+For per-TU values and maximum capacities, see
+[Quotas and throttling for the MQTT v5 connection profile](iot-hub-devguide-quotas-throttling.md#quotas-and-throttling-for-the-mqtt-v5-connection-profile).
+The maximum message size is **1 MB** and doesn't increase with TUs.
+
+### Choose throughput units
+
+Choose enough TUs to accommodate each capacity dimension, not just device
+count. Estimate both traffic sent by devices and traffic received by devices.
+Include peak message rates, message sizes,
+concurrent connections, and connection-request bursts in your capacity plan.
+
+Increasing hub capacity doesn't increase destination or consumer capacity.
+Evaluate routing destinations and receiving applications separately. Similarly,
+Device Provisioning Service (DPS) has its own
+[quotas and limits](../iot-dps/about-iot-dps.md#quotas-and-limits).
+
+### Adjust throughput units in the Azure portal
+
+1. Open your MQTT v5 IoT hub in the [Azure portal](https://portal.azure.com).
+1. Under **Hub settings**, select **Pricing and scale**.
+1. Select **Adjust capacity**.
+1. Set **Number of throughput units** to a value from **1 to 25**.
+   The **Tier edition** remains **S1**.
+1. Review the **Capacity Summary** for throughput, connected devices, and
+   connection requests, and then select **Adjust**.
+
+After adjusting capacity, validate steady traffic and reconnect behavior
+separately. Compare SDK outcomes, routing results, and destination receipt;
+a successful publish acknowledgment doesn't prove application receipt.
+See [Monitor a test run](monitor-iot-hub.md#monitor-a-test-run).
 
 ## Next steps
 

@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-signalr-service
 ms.topic: reference
-ms.date: 06/03/2026
+ms.date: 10/29/2026
 ---
 
 # Azure SignalR Service data-plane REST API reference
@@ -53,7 +53,8 @@ The following table shows all supported REST API versions. It also provides the 
 
 | API version   | Status   | Port     | Documentation                                                    | Specification                                                                                    |
 | ------------- | -------- | -------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------- |
-| `20241201`    | Latest   | Standard | [Article](./swagger/signalr-data-plane-rest-v20241201.md)  | [Swagger file](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v20241201.json)  |
+| `20260701`    | Latest   | Standard | [Article](./swagger/signalr-data-plane-rest-v20260701.md)  | [Swagger file](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v20260701.json)  |
+| `20241201`    | Stable   | Standard | [Article](./swagger/signalr-data-plane-rest-v20241201.md)  | [Swagger file](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v20241201.json)  |
 | `20220601`    | Stable   | Standard | [Article](./swagger/signalr-data-plane-rest-v20220601.md)  | [Swagger file](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/V20220601.json)  |
 | `1.0`         | Stable   | Standard | [Article](./swagger/signalr-data-plane-rest-v1.md)         | [Swagger file](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1.json)         |
 | `1.0-preview` | Obsolete | Standard | [Article](./swagger/signalr-data-plane-rest-v1-preview.md) | [Swagger file](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1-preview.json) |

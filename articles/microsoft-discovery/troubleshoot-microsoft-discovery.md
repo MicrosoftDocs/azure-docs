@@ -5,7 +5,7 @@ author: yousefi
 ms.author: yousefi
 ms.service: azure
 ms.topic: troubleshooting-general
-ms.date: 11/10/2026
+ms.date: 11/17/2026
 
 #customer intent: As a Discovery platform administrator or developer, I want to troubleshoot common Microsoft Discovery problems so that I can restore a working deployment and run investigations.
 
@@ -62,6 +62,7 @@ These workarounds can restore service quickly. For a permanent fix, use the caus
 
 ### Pin a job to a known-good node pool
 
+1. If the agent uses `GetNodePoolContext`, use the node pool ARM resource ID returned by that tool without reconstructing the identifier.
 1. In the project preference, set the correct node pool explicitly (`nodePoolId`).
 1. Resubmit the job or tool run.
 
@@ -445,6 +446,17 @@ For blob permission failures, use [Storage access denied](#storage-access-denied
 
 See [Deploy a tool to Microsoft Discovery](how-to-deploy-tool-to-discovery.md) for the creation workflow.
 
+## Deployed agent instructions are incomplete
+
+The instructions saved in a deployed agent are shorter than the instructions in the source `agent.yaml`.
+
+### Solution: Update Discovery Toolbox and update the agent
+
+1. Compare the deployed agent's saved instructions with the source `agent.yaml` to identify missing content.
+1. Finish any active Discovery Toolbox operations, then install the current version by using the [Discovery Toolbox installation guide](https://github.com/microsoft/discovery/blob/main/utilities/discovery-toolbox/README.md).
+1. Update the affected agent's instructions or redeploy the agent by following the [catalog instructions recovery guidance](https://github.com/microsoft/discovery/blob/main/utilities/discovery-toolbox/README.md#catalog-instructions-and-access). Updating Toolbox alone doesn't repair instructions already saved in a deployed agent.
+1. Open the saved agent instructions and verify that they contain the complete source instructions.
+
 ## Shared sessions or tasks don't make progress
 
 | Symptom | Where to start |
@@ -484,7 +496,7 @@ For files that exist but return access errors, use [Can't view output files](how
 
 1. Call `GetResourceContext` to confirm that the resource URI exists in conversation context.
 1. Check whether it is marked as not shared. If so, the agent hasn't called `ShareResource`.
-1. Call `PreviewResource` on the URI to confirm it contains content.
+1. Call `PreviewResource` on the URI to confirm it contains content. A directory entry in `GetResourceContext` isn't an exhaustive file listing. Preview its URI and inspect relevant subfolders before concluding that a file is missing. See [Built-in resource management tools](how-to-data-handling-with-tools-agents.md#built-in-resource-management-tools).
 1. If the description is missing, verify `UpdateResourceDetails` was called before `ShareResource`.
 1. If the resource is still absent, use Azure Storage Explorer to check whether the file exists under `discoveryOutputs/{projectName}/{investigationName}/{conversationGuid}/`.
 

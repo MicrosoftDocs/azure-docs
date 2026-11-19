@@ -4,7 +4,7 @@ description: Learn how to recover from a bad deployment to an app running in the
 #customer intent: As a developer, I want to roll back or forward a Flex Consumption function app deployment so that I can quickly recover from a bad release.
 ms.topic: how-to
 ms.service: azure-functions
-ms.date: 06/28/2026
+ms.date: 11/09/2026
 ---
 
 # Recover from a bad Flex Consumption plan app deployment
@@ -19,9 +19,12 @@ When a deployment introduces a bug, you need a way to recover quickly. This arti
 
 These strategies recover both your function app code and the app settings, so your configuration changes are recoverable with code changes.
 
+> [!IMPORTANT]
+> The recovery procedure in this article applies to Flex Consumption apps that use code packages. For a Flex Consumption app that uses a container image, retain a previously validated immutable image version and restore the app's image reference to roll back. For more information, see [Update and roll back an image](flex-consumption-os-level-dependencies.md#update-and-roll-back-an-image).
+
 ## Why you need CI/CD to recover a deployment
 
-When you deploy code to your Flex Consumption plan app: 
+When you deploy a code package to your Flex Consumption plan app:
 
 - Your code is deployed as a zip package to a blob storage container, which is mounted at startup. 
 - Each deployment overwrites the current package. 
@@ -29,7 +32,7 @@ When you deploy code to your Flex Consumption plan app:
 - The [deployment slots](./functions-deployment-slots.md) feature isn't currently supported.   
 - App settings are applied separately through the Azure portal, CLI, or infrastructure-as-code (IaC), and the platform can't restore them to a previous state.
 
-These deployment behaviors limit your options for recovering your Flex Consumption plan app from a bad deployment. 
+These package deployment behaviors limit your options for recovering your Flex Consumption plan app from a bad deployment.
 
 Your Git history and CI/CD process provide the only way to track code deployments at a given point in time. Building a deployment that includes both code and configuration enables you to recover from a bad release by pointing the next run at a known good commit.
 
@@ -37,7 +40,7 @@ For more information about the Flex Consumption deployment model, see [Flex Cons
 
 ## Prerequisites
 
-- An existing function app deployed to a [Flex Consumption plan](./flex-consumption-plan.md) in Azure.
+- An existing code-package function app deployed to a [Flex Consumption plan](./flex-consumption-plan.md) in Azure.
 
 - Source code in a Git repository. Use Git tags or record commit SHAs for each release so you can quickly identify what to roll back to. 
 

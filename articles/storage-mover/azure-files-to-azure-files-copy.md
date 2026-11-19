@@ -20,6 +20,9 @@ This article guides you through the complete process of configuring Storage Move
 >
 > The team enables the preview for your subscriptions and contacts you when the feature is available in your regions. You can create Azure Files-to-Azure Files data copy jobs only after the preview is enabled for your subscription.
 
+> [!NOTE]
+> Data copy between storage accounts with secure endpoints is supported. To allow the Storage Mover service to work with secured storage accounts, enable Trusted Microsoft services to access your storage account within the storage account Networking resource settings. For more information, see [Trusted Azure services for Azure Storage network security](../storage/common/storage-network-security-trusted-azure-services.md#trusted-access-for-resources-registered-in-your-microsoft-entra-tenant).
+> 
 > [!IMPORTANT]
 > This feature is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 

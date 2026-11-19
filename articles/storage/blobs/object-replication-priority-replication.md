@@ -17,7 +17,7 @@ ms.custom: references_regions
 
 Object replication (OR) currently copies all operations from a source storage account to one or more destination accounts asynchronously, with no guaranteed completion time. However, with the introduction of object replication priority replication, users can now choose to prioritize the replication of the operations in their replication policy.
 
-When a replication's source and destination account are within the same continent, OR priority replication also replicates 99.0% of objects within 15 minutes for supported workloads. For more information, see [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
+For supported workloads, OR priority replication replicates 99.0% of objects within 15 minutes. For more information, see [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
 
 ## Benefits of priority replication
 

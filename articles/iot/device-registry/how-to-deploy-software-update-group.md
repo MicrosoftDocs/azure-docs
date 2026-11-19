@@ -1,7 +1,7 @@
 ---
 title: Deploy a software update to a device group
 titleSuffix: Azure Device Registry
-description: Deploy a software update to a group of IoT Hub-connected devices in Azure Device Registry by creating and running a job in the Azure portal or with Bicep.
+description: Deploy a software update to a group of IoT Hub-connected devices in Azure Device Registry by creating and running a job in the Azure portal, with the Azure CLI, or with Bicep.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
@@ -15,25 +15,26 @@ ai-usage: ai-assisted
 
 Azure Device Registry uses *jobs* to apply *software updates* to *groups* of IoT Hub-connected devices. A software update job targets a group of devices and applies a software update to the compatible members of that group. In contrast, an onboarding update job targets devices that onboard to a namespace. Deploying a software update as a job lets you roll out the same update to many devices at once, so you can keep your IoT Hub-connected devices current without updating each device individually.
 
-This article shows you how to define or validate a target group, use the Azure portal or Bicep to create a standard software update job, run or schedule the job, and monitor the results. Use this article after you [import the software update](how-to-import-software-update.md) that you want to apply. To learn how jobs, groups, and software updates work together, see [Software updates in Azure Device Registry](concept-software-updates.md).
+This article shows you how to define or validate a target group, use the Azure portal, the Azure CLI, or Bicep to create a standard software update job, run or schedule the job, and monitor the results. Use this article after you [import the software update](how-to-import-software-update.md) that you want to apply. To learn how jobs, groups, and software updates work together, see [Software updates in Azure Device Registry](concept-software-updates.md).
 
 > [!IMPORTANT]
 > Azure Device Registry software updates is currently in preview. The current preview is scoped to IoT Hub-connected devices. This preview is provided without a service-level agreement, and the capability and its portal experience might change before it becomes generally available. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> During the preview, you can use software updates only with IoT hubs that don't have an existing Device Update for IoT Hub instance. To use software updates, link an IoT hub without a Device Update for IoT Hub instance to your namespace, or delete the existing instance before you link the hub. For more information, see [Software updates and Device Update for IoT Hub](concept-software-updates.md#software-updates-and-device-update-for-iot-hub).
+> During the preview, you can use software updates only with IoT hubs that don't have an existing Device Update for IoT Hub instance. To use software updates, connect a different IoT hub to your namespace, or first delete the hub's Device Update for IoT Hub instance. For more information, see [Choose between software updates and Device Update for IoT Hub](concept-software-updates.md#choose-between-software-updates-and-device-update-for-iot-hub).
 
 ## Prerequisites
 
 - IoT Hub-connected devices whose properties identify the devices that you want to update. Use these properties to define the target group.
 - A software update imported into the namespace. To learn more, see [Import a software update (preview)](how-to-import-software-update.md).
-- Software updates enabled on the namespace that contains your devices. To learn more, see [Get started with Azure Device Registry](get-started-azure-device-registry.md).
+- Software updates enabled on the namespace that contains your devices. To learn more, see [Get started with Azure Device Registry for Azure IoT Hub](get-started-azure-device-registry.md).
 - Azure Resource Manager control-plane permissions, such as the **Contributor** role, to create, read, update, and delete jobs.
 - To run jobs, the namespace's managed identity must have access to the software updates instance that's linked to the namespace. If you enable software updates in the Azure portal, these role assignments are created for you.
+- To use the Azure CLI, the Azure CLI with preview version `1.1.0b1` of the `azure-iot` extension. For installation steps, see [Azure CLI setup](get-started-azure-device-registry.md#azure-cli-setup).
 
 ## Define or validate the target group
 
-A software update job targets a group instead of every device in the namespace. Create a group with a filter that selects only the IoT Hub-connected devices that should receive the update, or reuse an existing group whose membership matches that scope. For example, use device properties such as manufacturer, model, or software revision to target a specific device cohort. Use the Azure portal or Bicep to create the group.
+A software update job targets a group instead of every device in the namespace. Create a group with a filter that selects only the IoT Hub-connected devices that should receive the update, or reuse an existing group whose membership matches that scope. For example, use device properties such as manufacturer, model, or software revision to target a specific device cohort. Use the Azure portal, the Azure CLI, or Bicep to create the group.
 
 # [Azure portal](#tab/portal)
 
@@ -47,11 +48,39 @@ To create a group in the Azure portal:
 
     :::image type="content" source="media/how-to-deploy-software-update-group/create-group-definition.png" alt-text="Screenshot of the Definition page with the device query editor." lightbox="media/how-to-deploy-software-update-group/create-group-definition.png":::
 
-    Group filters are immutable after creation. To use different membership criteria, create another group with a different query.
+    You can't change a group's filters after you create it. To use different membership criteria, create another group with a different query.
 
 1. On the **Review** page, verify the **Basics**, **Definition**, and **Query filter**, and then select **Create**.
 
     :::image type="content" source="media/how-to-deploy-software-update-group/create-group-review.png" alt-text="Screenshot of the Review page showing the group name, description, and query filter." lightbox="media/how-to-deploy-software-update-group/create-group-review.png":::
+
+# [Azure CLI (Bash)](#tab/azure-cli)
+
+Set the values that the commands in this article reuse. Then run [az iot adr ns group create](/cli/azure/iot/adr/ns/group#az-iot-adr-ns-group-create) with a `--query-string` that selects the IoT Hub-connected devices that you want to update, and wait for the initial membership calculation to finish:
+
+```azurecli
+RG="<resource-group>"
+NS="<namespace-name>"
+GROUP="contoso-tractors"
+az iot adr ns group create --name $GROUP --ns $NS --resource-group $RG --query-string "WHERE manufacturer = 'contoso' AND model = 'tractor'" --description "Devices to receive the software update"
+az iot adr ns group wait --name $GROUP --ns $NS --resource-group $RG
+```
+
+Group queries are immutable after creation. To use different membership criteria, create another group with a different query.
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+Set the values that the commands in this article reuse. Then run [az iot adr ns group create](/cli/azure/iot/adr/ns/group#az-iot-adr-ns-group-create) with a `--query-string` that selects the IoT Hub-connected devices that you want to update, and wait for the initial membership calculation to finish:
+
+```powershell
+$RG = "<resource-group>"
+$NS = "<namespace-name>"
+$GROUP = "contoso-tractors"
+az iot adr ns group create --name $GROUP --ns $NS --resource-group $RG --query-string "WHERE manufacturer = 'contoso' AND model = 'tractor'" --description "Devices to receive the software update"
+az iot adr ns group wait --name $GROUP --ns $NS --resource-group $RG
+```
+
+Group queries are immutable after creation. To use different membership criteria, create another group with a different query.
 
 # [Bicep](#tab/bicep)
 
@@ -84,13 +113,13 @@ resource group 'Microsoft.DeviceRegistry/namespaces/groups@2026-11-02-preview' =
 
 Group membership is calculated and cached when you create or refresh the group. Before you use a group for a software update job:
 
-- Refresh the group's membership if device properties might have changed. In the Azure portal, **Refresh** is available from the group detail command bar.
-- Wait until the group status is **Ready**.
-- On the group detail view, verify the resolved query filter and the member count. The member list previews up to 10 devices, so treat it as a spot check rather than a complete listing, and confirm that the member count matches the devices that you intend to update.
+- Refresh the group's membership if device properties might have changed. In the Azure portal, **Refresh** is available from the group detail command bar. With the Azure CLI, run `az iot adr ns group refresh`. You can refresh a group's membership once per hour.
+- Wait until the group status is **Ready**. With the Azure CLI, run `az iot adr ns group wait`.
+- On the group detail view, verify the resolved query filter and the member count. The member list previews up to 10 devices, so treat it as a spot check rather than a complete listing, and confirm that the member count matches the devices that you intend to update. With the Azure CLI, run `az iot adr ns group count` and `az iot adr ns group list-members`.
 
 ## Create a software update job
 
-A software update job targets a group of devices and applies an imported software update to the compatible members of that group. Use the Azure portal or Bicep to create the job.
+A software update job targets a group of devices and applies an imported software update to the compatible members of that group. Use the Azure portal, the Azure CLI, or Bicep to create the job.
 
 # [Azure portal](#tab/portal)
 
@@ -123,6 +152,30 @@ A software update job targets a group of devices and applies an imported softwar
     :::image type="content" source="media/how-to-deploy-software-update-group/job-review.png" alt-text="Screenshot of the Jobs page showing the job review for a software update job." lightbox="media/how-to-deploy-software-update-group/job-review.png":::
 
 1. Select **Create**. The job status shows **Creating** and then changes to **Ready** after a moment.
+
+# [Azure CLI (Bash)](#tab/azure-cli)
+
+Run [az iot adr ns job create](/cli/azure/iot/adr/ns/job#az-iot-adr-ns-job-create) with `--type SoftwareUpdate`. Set `--target-group-name` to the group that you want to target, and identify the imported software update by its provider, name, and version from the import manifest. Then wait for the job to be ready:
+
+```azurecli
+JOB="<job-name>"
+az iot adr ns job create --name $JOB --ns $NS --resource-group $RG --type SoftwareUpdate --target-group-name $GROUP --update-id-provider <provider> --update-id-name <name> --update-id-version <version> --description "Software update job"
+az iot adr ns job wait --name $JOB --ns $NS --resource-group $RG
+```
+
+After you create the job, you can't change its target group or software update. To change them, delete the job and create a new one.
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+Run [az iot adr ns job create](/cli/azure/iot/adr/ns/job#az-iot-adr-ns-job-create) with `--type SoftwareUpdate`. Set `--target-group-name` to the group that you want to target, and identify the imported software update by its provider, name, and version from the import manifest. Then wait for the job to be ready:
+
+```powershell
+$JOB = "<job-name>"
+az iot adr ns job create --name $JOB --ns $NS --resource-group $RG --type SoftwareUpdate --target-group-name $GROUP --update-id-provider <provider> --update-id-name <name> --update-id-version <version> --description "Software update job"
+az iot adr ns job wait --name $JOB --ns $NS --resource-group $RG
+```
+
+After you create the job, you can't change its target group or software update. To change them, delete the job and create a new one.
 
 # [Bicep](#tab/bicep)
 
@@ -190,6 +243,42 @@ After a job is ready, you can run it immediately or schedule it to run later.
 
 After you run or schedule the job, the portal moves to the **Runs** tab.
 
+# [Azure CLI (Bash)](#tab/azure-cli)
+
+Run [az iot adr ns job schedule](/cli/azure/iot/adr/ns/job#az-iot-adr-ns-job-schedule). Each time you run or schedule the job, the command creates a *run* and returns its name. Use `--run-name` to choose the name yourself, which makes the run easier to monitor.
+
+- **Run now**: Omit `--scheduled-time`.
+
+    ```azurecli
+    RUN="<run-name>"
+    az iot adr ns job schedule --name $JOB --ns $NS --resource-group $RG --run-name $RUN
+    ```
+
+- **Schedule for later**: Set `--scheduled-time` to a UTC date and time in ISO 8601 format.
+
+    ```azurecli
+    RUN="<run-name>"
+    az iot adr ns job schedule --name $JOB --ns $NS --resource-group $RG --run-name $RUN --scheduled-time 2026-11-15T14:30:00Z
+    ```
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+Run [az iot adr ns job schedule](/cli/azure/iot/adr/ns/job#az-iot-adr-ns-job-schedule). Each time you run or schedule the job, the command creates a *run* and returns its name. Use `--run-name` to choose the name yourself, which makes the run easier to monitor.
+
+- **Run now**: Omit `--scheduled-time`.
+
+    ```powershell
+    $RUN = "<run-name>"
+    az iot adr ns job schedule --name $JOB --ns $NS --resource-group $RG --run-name $RUN
+    ```
+
+- **Schedule for later**: Set `--scheduled-time` to a UTC date and time in ISO 8601 format.
+
+    ```powershell
+    $RUN = "<run-name>"
+    az iot adr ns job schedule --name $JOB --ns $NS --resource-group $RG --run-name $RUN --scheduled-time 2026-11-15T14:30:00Z
+    ```
+
 # [Bicep](#tab/bicep)
 
 Bicep declares resources, so it can't directly trigger an action like running or scheduling a job. Instead, use the job's `schedule` action, which you can call with Azure CLI. To run the job immediately, omit `scheduledTime`. To schedule the job, include a `scheduledTime` value.
@@ -221,6 +310,46 @@ The **Runs** tab shows the jobs, including running, completed, and scheduled run
 1. Select a completed run to view its statistics. The run details show the number of updated devices and details of those devices.
 
 1. **Check a specific device.** To confirm whether a specific device was updated, use the search box in the run details to find the device.
+
+# [Azure CLI (Bash)](#tab/azure-cli)
+
+1. List the runs for the job and their status:
+
+    ```azurecli
+    az iot adr ns job run list --job-name $JOB --ns $NS --resource-group $RG
+    ```
+
+1. View the statistics for a run. The [az iot adr ns job run summary](/cli/azure/iot/adr/ns/job/run#az-iot-adr-ns-job-run-summary) command returns the number of devices that succeeded, failed, are in progress, are pending, were canceled, or weren't applicable:
+
+    ```azurecli
+    az iot adr ns job run summary --name $RUN --job-name $JOB --ns $NS --resource-group $RG
+    ```
+
+1. **Check a specific device.** List the per-device results for the run. To show only the devices that failed, add a filter:
+
+    ```azurecli
+    az iot adr ns job run results --name $RUN --job-name $JOB --ns $NS --resource-group $RG --filter "status eq 'Failed'"
+    ```
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+1. List the runs for the job and their status:
+
+    ```powershell
+    az iot adr ns job run list --job-name $JOB --ns $NS --resource-group $RG
+    ```
+
+1. View the statistics for a run. The [az iot adr ns job run summary](/cli/azure/iot/adr/ns/job/run#az-iot-adr-ns-job-run-summary) command returns the number of devices that succeeded, failed, are in progress, are pending, were canceled, or weren't applicable:
+
+    ```powershell
+    az iot adr ns job run summary --name $RUN --job-name $JOB --ns $NS --resource-group $RG
+    ```
+
+1. **Check a specific device.** List the per-device results for the run. To show only the devices that failed, add a filter:
+
+    ```powershell
+    az iot adr ns job run results --name $RUN --job-name $JOB --ns $NS --resource-group $RG --filter "status eq 'Failed'"
+    ```
 
 # [Bicep](#tab/bicep)
 

@@ -63,7 +63,7 @@ Add a **JourneyFraming** element inside the [RelyingParty](relyingparty.md) elem
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" /> -->
   <UserJourneyBehaviors> 
-    <JourneyFraming Enabled="true" Sources="https://somesite.com https://anothersite.com" /> 
+    <JourneyFraming Enabled="true" Sources="https://somesite.com https://differentsite.com" /> 
   </UserJourneyBehaviors>
 <!--
 </RelyingParty> -->
