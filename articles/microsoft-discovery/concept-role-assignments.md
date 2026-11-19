@@ -348,14 +348,13 @@ Some workflows require Azure built-in roles beyond the Microsoft Discovery roles
 
 ## Who can assign Microsoft Discovery roles
 
-To assign Microsoft Discovery roles, you need one of the following Azure RBAC permissions at the target scope:
+To assign Azure roles, you need one of the following roles at the assignment scope:
 
-| Role | Description |
-|------|-------------|
-| **Owner** | Can assign any Microsoft Discovery role at subscription, resource group, or resource level. Recommended for initial platform setup. |
-| **User Access Administrator** | Designed for managing user access without requiring full resource management permissions. Ideal for dedicated identity and access management teams. |
-| **Role Based Access Control Administrator** | Can assign any Microsoft Discovery role at the scopes where it's granted, without the broader access management permissions of User Access Administrator. |
-| **Microsoft Discovery Platform Administrator (Preview)** | Can't assign the Microsoft Discovery built-in roles. To assign Discovery roles, use one of the roles above. |
+[!INCLUDE [Role-assignment authority](includes/role-assignment-authority.md)]
+
+Owner manages resources and user access and is recommended for initial platform setup. User Access Administrator manages user access without requiring full resource management permissions. Role Based Access Control Administrator manages role assignments without the broader access management permissions of User Access Administrator.
+
+The **Microsoft Discovery Platform Administrator (Preview)** role can't assign the Microsoft Discovery built-in roles. Use one of the role-assignment roles instead.
 
 ## Understanding assignment scopes
 

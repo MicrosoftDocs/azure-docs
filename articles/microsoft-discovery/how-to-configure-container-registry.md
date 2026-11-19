@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 11/10/2026
+ms.date: 11/18/2026
 ---
 
 # Configure a container registry for Microsoft Discovery
@@ -17,9 +17,14 @@ Create and configure Azure Container Registry (ACR) for customer-owned container
 ## Prerequisites
 
 - An Azure subscription with `Microsoft.ContainerRegistry` registered and permission to create/configure a registry in the target resource group.
-- Assignment authority when granting identity roles: Owner, User Access Administrator, or Role Based Access Control Administrator at the assignment scope.
 - An approved network plan and existing virtual network and subnet for private access.
 - The supercomputer kubelet UAMI and identities that publish images.
+
+To assign Azure roles, you need one of the following roles at the assignment scope:
+
+[!INCLUDE [Role-assignment authority](includes/role-assignment-authority.md)]
+
+Owner manages resources and user access and is recommended for initial platform setup. User Access Administrator manages user access without requiring full resource management permissions. Role Based Access Control Administrator manages role assignments without the broader access management permissions of User Access Administrator.
 
 > [!NOTE]
 > You'll require an ACR if you're planning to publish a tool for agentic workflow.
