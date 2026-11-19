@@ -5,7 +5,7 @@ author: yousefi-msft
 ms.author: yousefi
 ms.service: azure
 ms.topic: concept-article
-ms.date: 11/17/2026
+ms.date: 11/18/2026
 ms.custom: security, compliance
 #CustomerIntent: As a security reviewer or deployer, I want to understand the security and compliance posture of Microsoft Discovery so that I can complete a security assessment and deploy the platform safely.
 ---
@@ -141,7 +141,13 @@ Microsoft Discovery uses a highly available, multiregion architecture designed t
 
 ## Data residency
 
-The Microsoft Discovery control plane is available in East US, Sweden Central, and UK South. Managed resource group (data-plane) resources can be deployed in other regions through cross-region deployment, which can help you meet data-residency or capacity requirements. You select the Azure regions for these data-plane resources in your subscription. For the current, authoritative statement of Microsoft data-residency and data-handling commitments, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy) and your applicable Microsoft product terms.
+Microsoft Discovery supports the following home regions for its control-plane resources:
+
+[!INCLUDE [Supported home regions](includes/supported-home-regions.md)]
+
+Region support doesn't guarantee model or compute capacity.
+
+You can deploy managed resource group (data-plane) resources in other regions through cross-region deployment, which can help you meet data-residency or capacity requirements. You select the Azure regions for these data-plane resources in your subscription. For the current, authoritative statement of Microsoft data-residency and data-handling commitments, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy) and your applicable Microsoft product terms.
 
 ## Compliance and certifications
 
