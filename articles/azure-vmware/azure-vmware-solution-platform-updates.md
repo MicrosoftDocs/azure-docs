@@ -14,7 +14,7 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## November 2026
 
-**VMSA-2026-0009 remediation plan**
+**VMSA-2026-0009 remediation**
 
 To address the vulnerabilities (CVE-2026-123890, CVE-2026-123891, CVE-2026-123892, CVE-2026-123893, CVE-2026-123894) reported in Broadcom security advisory [VMSA-2026-0009](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495), all vCenter Server and ESXi hosts will be upgraded to [vCenter Server 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3m-release-notes.html) and [ESXi 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3m-release-notes.html), once vSphere 8.0 U3m has been fully qualified and tested with Azure VMware Solution (estimate November 2026). Even though VMSA-2026-0009 does not explicitly mention ESXi 8.0 U3m, we are including for operational consistency. [Learn more](azure-vmware-solution-known-issues.md)
 
