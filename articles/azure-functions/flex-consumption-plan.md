@@ -185,9 +185,7 @@ Successful validation confirms that:
 - The Functions host starts with the new package and reports that it's ready, so your app isn't failing at startup.
 - Azure can get your function and trigger information from the new package and sync your triggers.
 
-Configuration or connectivity problems that prevent the host from starting can cause validation to fail.
-
-Validation doesn't run your functions, process trigger events, or test calls to downstream services. It also doesn't confirm that every expected function was indexed or guarantee instance health after rollout. After you deploy, check that your functions are listed and running as expected.
+Validation doesn't run your functions, process trigger events, or test calls to downstream services. Configuration or connectivity problems that prevent the host startup can cause validation to fail.
 
 If validation fails, is skipped, or times out, Azure falls back to the previous deployment process, which can still deploy the package. A successful deployment doesn't necessarily mean validation passed or that the package is valid. You might see messages about validation or fallback in Application Insights. If your functions don't run as expected, use the **Flex Consumption Deployment** diagnostic tool to investigate.
 
