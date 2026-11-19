@@ -76,7 +76,7 @@ You can also choose to use your own TLS certificate. Your TLS certificate must m
 
 Create a separate Azure Key Vault instance in which you store your Azure Front Door TLS certificates. For more information, see [Create a Key Vault instance](/azure/key-vault/general/quick-create-portal). If you already have a certificate, you can upload it to your new Key Vault instance. Otherwise, you can create a new certificate through Key Vault from one of the certificate authority (CA) partners.
 
-For a cross-signed certificate, include the required intermediate certificates and cross-signed CA certificate in the PFX. The trusted root certificate itself is optional. Review [cross-signed certificate chains](../domain.md#cross-signed-certificate-chains) before importing the certificate.
+For a cross-signed certificate, include the required intermediate certificates and cross-signed CA certificate in the PFX. The chain must lead to a trusted root CA, but you don't need to include a copy of the root certificate in the PFX. Review [cross-signed certificate chains](../domain.md#cross-signed-certificate-chains) before importing the certificate.
 
 Currently, two methods authenticate Azure Front Door to access your Key Vault:
 

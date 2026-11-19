@@ -152,7 +152,7 @@ Include the following certificates in the PFX file that you import into Key Vaul
 - The required intermediate CA certificates.
 - The cross-signed CA certificate that provides a path to a root CA on the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
 
-Including the trusted root certificate itself in the PFX is optional. This doesn't make the required intermediate certificates or cross-signed CA certificate optional.
+A trusted root CA is still required to validate the chain. However, you don't need to include a copy of the root certificate in the uploaded PFX because the validator can use the copy in its trust store. You must still include the required intermediate and cross-signed CA certificates in the PFX.
 
 After deployment, verify that the chain served by your custom domain includes the required intermediate certificates and the cross-signed CA certificate. Validate the chain against the trust store used by your target clients. The trusted root doesn't need to be sent during the TLS handshake, so its absence from the served chain doesn't by itself indicate a broken chain. Validation results can differ between clients because their trust stores and certificate path-building behavior can differ.
 
@@ -229,7 +229,7 @@ When you update the certificate in your key vault, Azure Front Door can automati
 If you select a specific version of your certificate, you must manually reselect the new version when you update your certificate.
 
 > [!NOTE]
-> If an existing cross-signed certificate doesn't present the required cross-signed CA certificate, obtain a reissued leaf certificate with a different thumbprint and import it into Key Vault with the required certificate chain. Follow the version-selection guidance in this section and verify the served chain after deployment. This remediation is for affected existing certificates, not a requirement for first-time setup.
+> Some existing cross-signed certificates with an incomplete chain might need to be rotated. For these affected certificates, import a new certificate with a different thumbprint and the complete required chain into Key Vault. Re-uploading the same certificate isn't sufficient. Follow the version-selection guidance in this section, then verify the chain served by your custom domain. For a first-time setup, import the complete required chain; you don't need an additional certificate rotation.
 
 It takes up to 72 hours for the new version of the certificate or secret to be automatically deployed.
 
