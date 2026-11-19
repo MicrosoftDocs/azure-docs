@@ -15,7 +15,7 @@ ms.date: 02/24/2026
 
 Azure Network Watcher packet capture allows you to create packet capture sessions to track traffic to and from a virtual machine (VM) or a scale set. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, debugging client-server communications, and more.
 
-Packet capture is an extension that is remotely started through Network Watcher. This capability saves time and eases the burden of running a packet capture manually on the desired virtual machine or virtual machine scale set instances.
+Packet capture is an extension that you start remotely through Network Watcher. This capability saves time and eases the burden of running a packet capture manually on the desired virtual machine or virtual machine scale set instances.
 
 You can trigger packet captures through the portal, PowerShell, Azure CLI, or REST API. You can also use virtual machine alerts to trigger packet captures. You can choose to save captured data in the local disk or in Azure storage blob.
 

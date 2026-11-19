@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: quickstart
-ms.date: 11/10/2026
+ms.date: 11/18/2026
 ms.custom:
   - template-quickstart
   - subject-armqs
@@ -48,13 +48,17 @@ The following prerequisites apply to both the Azure portal and Bicep experiences
    1. Search for `Microsoft.Discovery`.
    1. Select the provider name and select **Register**.
 
-   > [!NOTE]
-   > Ensure that the following resource providers are also registered on your subscription. If not, register them:
-   > `Microsoft.Network`, `Microsoft.Compute`, `Microsoft.Storage`, `Microsoft.ManagedIdentity`, `Microsoft.AlertsManagement`, `Microsoft.Authorization`, `Microsoft.CognitiveServices`, `Microsoft.ContainerInstance`, `Microsoft.ContainerRegistry`, `Microsoft.ContainerService`, `Microsoft.DocumentDB`, `Microsoft.Features`, `Microsoft.KeyVault`, `Microsoft.MachineLearningServices`, `Microsoft.OperationalInsights`, `Microsoft.ResourceGraph`, `Microsoft.Search`, `Microsoft.Web`, `Microsoft.Insights`, `Microsoft.Resources`, `Microsoft.Sql`, `Microsoft.App`, `Microsoft.Bing`
+   Review the [dependent providers](#required-resource-providers) too.
 
 - **Assign the Discovery NSP Perimeter Joiner role.** Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default using Network Security Perimeter (NSP) rules. Before you create your first workspace, bookshelf, or supercomputer, you must create the **Discovery NSP Perimeter Joiner** custom role. Once created, assign the **Discovery NSP Perimeter Joiner** custom role and the **Reader** role to the Discovery control-plane service App (the first-party service principal) so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
 - **Microsoft Foundry, Azure OpenAI quotas, and VM SKU/quotas** available in your chosen region. See [Quota reservations](./concept-quota-reservation.md).
 - An existing **resource group**, or permissions to [create a new one](../azure-resource-manager/management/manage-resource-groups-portal.md). Creating a resource group requires **Contributor** role on the subscription.
+
+### Required resource providers
+
+After registering `Microsoft.Discovery`, review and register the following dependent providers for your planned services. This list covers the broader Discovery deployment guidance. The onboarding tool's Stage 2 registers its own implementation-defined subset and doesn't deploy every optional capability.
+
+[!INCLUDE [Dependent resource providers](includes/deployment-resource-providers.md)]
 
 > [!IMPORTANT]
 > The current Bicep template accepts **East US**, **Sweden Central**, and **UK South** as home regions. Confirm the required model and compute quota in your chosen workload region before deployment; a template parameter doesn't guarantee available capacity. For this exercise, use matching home and workload regions and keep customer-managed resources in one subscription and resource group.
@@ -155,11 +159,11 @@ You can create different UAMIs each with their own required permissions for spec
 
 #### d. Assign Azure Role Based Access Control (RBAC) roles to UAMI
 
-Assign the following built-in roles to the new User Assigned Managed Identity at resource group scope:
+For a single shared user-assigned managed identity (UAMI), assign the following core roles at the resource group scope before creating Discovery resources.
 
-- Microsoft Discovery Platform Contributor (Preview)
-- Storage Blob Data Contributor
-- ACRPull
+[!INCLUDE [Shared UAMI core roles](includes/shared-uami-core-roles.md)]
+
+The roles let the identity manage Discovery resources (workspaces, projects, agents, and tools), read and write Azure Storage blobs, and pull container images from Container Registry. Each list entry includes the role definition ID.
 
 Also assign **Network Contributor** on the referenced virtual network. If the network is in a separate resource group, use that virtual network's scope rather than the platform resource group's scope.
 
@@ -279,7 +283,7 @@ A workspace is a collaborative environment where teams manage large-scale scient
    > Workbench isolation doesn't require clients to use private workspace APIs. To enforce private data-plane access, configure the private endpoint and DNS before disabling `publicNetworkAccess`. See [Configure network security](how-to-configure-network-security.md?tabs=azure-cli#create-private-endpoints-for-data-plane-access).
 
    > [!NOTE]
-   > Tags are immutable for Microsoft Discovery resource types, including workspaces, supercomputers, node pools, and bookshelves. After a resource is created, you can't add, change, or remove its tags. Any tag modification, including adding a tag, requires redeploying the resource.
+   > Set creation-time deployment settings, including `NetworkIsolation`, before you create the workspace. You can edit `discovery.workbench.enableGhcpAiFeatures` and `discovery.workbench.enableExtensions` on an existing workspace. Updating these feature tags doesn't change network isolation.
 
 1. Review the Terms and Conditions, then select **Review + Create**.
 1. Once validation is successful, select **Create**.
@@ -404,7 +408,7 @@ The `location` parameter selects the Discovery home region. The optional `overri
 > For more information, see [Use GitHub Copilot in Microsoft Discovery](how-to-copilot.md).
 
 > [!NOTE]
-> Tags are immutable for Microsoft Discovery resource types, including workspaces, supercomputers, node pools, and bookshelves. After a resource is created, you can't add, change, or remove its tags. Define all required tags in the template before you deploy; any tag modification, including adding a tag, requires redeploying the resource.
+> Set creation-time deployment settings, including `NetworkIsolation`, before you create the workspace. You can edit `discovery.workbench.enableGhcpAiFeatures` and `discovery.workbench.enableExtensions` on an existing workspace. Updating these feature tags doesn't change network isolation.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.discovery/discovery-infra-deployment/main.bicep":::
 

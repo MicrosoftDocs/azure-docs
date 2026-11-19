@@ -2,7 +2,7 @@
 title: Azure Functions hosted skills scenarios
 description: "Explore how Azure Functions hosted skills add AI reasoning to messages, data changes, connector events, workflows, schedules, and file uploads."
 ms.topic: concept-article
-ms.date: 10/20/2026
+ms.date: 11/16/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.collection:
@@ -20,7 +20,7 @@ The following sections describe common scenarios. Use regular function code for 
 
 [!INCLUDE [functions-hosted-skills-preview](../../includes/functions-hosted-skills-preview.md)]
 
-These scenarios are design examples, not complete sample applications. Configure the connections, tools, permissions, and business rules that each example needs. Available connector triggers and actions depend on the connected service and preview support.
+Each scenario links to a matching sample in the [Azure Functions hosted skills samples](https://github.com/Azure-Samples/azure-functions-hosted-skills-samples) repository. The samples use mock business data. Configure the connections, tools, permissions, and business rules that your implementation needs. Available connector triggers and actions depend on the connected service and preview support.
 
 ## Process customer requests from messages
 
@@ -36,6 +36,7 @@ Keep refund and inventory changes behind business rules and approval checks. Use
 
 - [Configure queue and Service Bus triggers](functions-hosted-skills-reference.md#supported-trigger-types)
 - [Design Azure Functions for identical input](functions-idempotent.md)
+- [Customer returns sample](https://github.com/Azure-Samples/azure-functions-hosted-skills-samples/tree/main/customer-returns-queue)
 
 ## Respond to database changes
 
@@ -51,6 +52,7 @@ Store the report separately from the monitored records to avoid a loop in which 
 
 - [Configure database triggers](functions-hosted-skills-reference.md#supported-trigger-types)
 - [Azure Cosmos DB trigger for Azure Functions](functions-bindings-cosmosdb-v2-trigger.md)
+- [Customer retention sample](https://github.com/Azure-Samples/azure-functions-hosted-skills-samples/tree/main/customer-retention-cosmos)
 
 ## Answer questions from connector events
 
@@ -66,6 +68,7 @@ Limit the trigger to the intended channel or supported mention event. Check that
 
 - [Use managed connectors in Azure Functions](functions-connectors-overview.md)
 - [Configure connector MCP tools](functions-hosted-skills-reference.md#azure-connectors)
+- [Teams helpdesk sample](https://github.com/Azure-Samples/azure-functions-hosted-skills-samples/tree/main/teams-helpdesk-connector)
 
 ## Plan a multistep review
 
@@ -81,6 +84,7 @@ Dynamic workflows can preserve execution state through worker restarts. Explicit
 
 - [Dynamic workflows in Azure Functions hosted skills](functions-hosted-skills-dynamic-workflows.md)
 - [Create and run dynamic workflows](functions-hosted-skills-dynamic-workflows-how-to.md)
+- [Claims review workflow sample](https://github.com/Azure-Samples/azure-functions-hosted-skills-samples/tree/main/claims-review-workflow)
 
 ## Add AI to an existing workflow
 
@@ -96,6 +100,7 @@ Call the hosted skill from an activity, not directly from orchestrator code. Thi
 
 - [Configure HTTP triggers and structured responses](functions-hosted-skills-reference.md#agent-file-reference)
 - [Durable orchestrator code constraints](/azure/durable-task/common/durable-task-code-constraints)
+- [Contract review sample](https://github.com/Azure-Samples/azure-functions-hosted-skills-samples/tree/main/contract-review-durable)
 
 ## Investigate selected events
 
@@ -114,6 +119,7 @@ Keep critical alerts on a fixed-rule path that bypasses model filtering. Evaluat
 - [Azure Event Hubs trigger for Azure Functions](functions-bindings-event-hubs-trigger.md)
 - [Deploy and use Microsoft-Decision-1 in Microsoft Foundry](/azure/foundry/foundry-models/how-to/use-foundry-models-microsoft-decision)
 - [Workflow incident triage sample](https://github.com/Azure/azure-functions-agents-runtime/tree/main/samples/workflow-incident-triage)
+- [Alert investigation sample](https://github.com/Azure-Samples/azure-functions-hosted-skills-samples/tree/main/alert-investigation-eventhub)
 
 ## Prepare a scheduled work summary
 
@@ -129,6 +135,7 @@ Plan the schedule in UTC, or use a time zone setting that your hosting plan supp
 
 - [Configure a timer-triggered hosted skill](functions-hosted-skills-reference.md#trigger-examples)
 - [Timer trigger time zones](functions-bindings-timer.md#ncrontab-time-zones)
+- [Daily work briefing sample](https://github.com/Azure-Samples/azure-functions-hosted-skills-samples/tree/main/daily-work-briefing-timer)
 
 ## Process uploaded invoices
 
@@ -145,6 +152,7 @@ Validate amounts and account identifiers with code. Require approval before paym
 - [Configure blob triggers](functions-hosted-skills-reference.md#supported-trigger-types)
 - [Add custom Python tools](functions-hosted-skills-reference.md#custom-python-tools)
 - [Azure AI Document Intelligence overview](/azure/ai-services/document-intelligence/overview)
+- [Invoice review sample](https://github.com/Azure-Samples/azure-functions-hosted-skills-samples/tree/main/invoice-review-blob)
 
 ## Related content
 
@@ -152,3 +160,4 @@ Validate amounts and account identifiers with code. Require approval before paym
 - [Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md)
 - [Build and test a hosted skill with the hosted skills canvas](functions-hosted-skills-canvas.md)
 - [Azure Functions hosted skills reference](functions-hosted-skills-reference.md)
+- [Azure Functions hosted skills samples](https://github.com/Azure-Samples/azure-functions-hosted-skills-samples)

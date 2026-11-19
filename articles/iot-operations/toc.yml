@@ -69,6 +69,9 @@ items:
           - name: Deploy to a production cluster
             href: deploy-iot-ops/howto-deploy-iot-operations.md
             displayName: Kubernetes, Arc-enable, secure settings
+          - name: Deploy using Azure CLI
+            href: deploy-iot-ops/howto-deploy-iot-operations-cli.md
+            displayName: Kubernetes, Arc-enable, init, create, schema registry, preview
           - name: Configure observability
             items:
               - name: Unified health status reporting
@@ -148,6 +151,9 @@ items:
               - name: Connect to MCP
                 href: manage-model-context-protocol/howto-connect-ai-agent.md
                 displayName: AI, agent, sample, Foundry Local, Helm, MQTT
+              - name: Query MQTT broker metadata
+                href: manage-model-context-protocol/howto-query-broker-metadata.md
+                displayName: AI, tools, MQTT, sessions, subscriptions, queue, retained topics
               - name: Expose MCP through Azure Relay
                 href: manage-model-context-protocol/howto-deploy-mcp-relay.md
                 displayName: AI, Relay, remote agent, API Management, Entra, Helm
@@ -208,6 +214,12 @@ items:
               - name: Configure OPC UA assets and devices
                 href: discover-manage-assets/howto-configure-opc-ua.md
                 displayName: operations, experience, device, data points, events, southbound
+              - name: Configure OPC UA WoT connectivity
+                href: discover-manage-assets/howto-configure-opc-ua-web-of-things-connectivity.md
+                displayName: Web of Things, WoT, Thing Description, TD, OPC 10100-1, mRPC, Modbus, southbound
+              - name: Configure declarative OPC UA WoT onboarding
+                href: discover-manage-assets/howto-configure-opc-ua-web-of-things-declarative-onboarding.md
+                displayName: Web of Things, WoT, Thing Description, TD, inline, declarative, materialize, reapplication, southbound
               - name: Configure OPC UA dataset heartbeats
                 href: discover-manage-assets/howto-configure-opc-ua-dataset-heartbeat.md
                 displayName: heartbeat, dataset heartbeat, watchdog, connector liveness, heartbeatDatasource, heartbeatInterval

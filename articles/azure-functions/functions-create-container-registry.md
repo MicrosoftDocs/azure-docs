@@ -1,7 +1,7 @@
 ---
 title: Create Azure Functions in a local Linux container
 description: Get started with Azure Functions by creating a containerized function app on your local computer and publishing the image to a container registry.
-ms.date: 06/23/2023
+ms.date: 11/09/2026
 ms.topic: how-to
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions-no-go
@@ -10,6 +10,9 @@ zone_pivot_groups: programming-languages-set-functions-no-go
 # Create a function app in a local Linux container 
 
 This article shows you how to use Azure Functions Core tools to create your first function in a Linux container on your local computer, verify the function locally, and then publish the containerized function to a container registry. From a container registry, you can easily deploy your containerized functions to Azure. 
+
+> [!IMPORTANT]
+> The Dockerfile and local container in this article use the complete Function App image contract. They aren't compatible with the worker-only container model used by Flex Consumption. For Flex Consumption, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 For a complete example of deploying containerized functions to Azure, which include the steps in this article, see one of the following articles:
 

@@ -1,18 +1,19 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Center for SAP solutions FAQ
-  description: Get answers to common questions about Azure Center for SAP solutions and Virtual Instance for SAP solutions (VIS) resources.
+  title: Azure Workload Center for SAP FAQ
+  description: Get answers to common questions about Azure Workload Center for SAP and Virtual Instance for SAP solutions (VIS) resources.
   ms.topic: faq
   ms.service: sap-on-azure
   ms.subservice: center-sap-solutions
   ms.custom: references_regions
   ms.date: 03/16/2026
   ms.author: sagarkeswani
+  ms.reviewer: mattmcinnes
   author: sagarkeswani
 
-title: Common questions about  Azure Center for SAP Solutions
+title: Common questions about  Azure Workload Center for SAP
 summary: |
-  This article answers commonly asked questions about Azure Center for SAP Solutions (ACSS).
+  This article answers commonly asked questions about Azure Workload Center for SAP (ACSS).
 
 sections:
   - name: General
@@ -117,8 +118,8 @@ sections:
                 Here are the [prerequisites](/azure/sap/center-sap-solutions/register-existing-system#prerequisites) for registering existing SAP systems as a VIS resource.
 
                 - Appropriate role access on the Azure subscription or resource groups where you have the SAP system resources.
-                    - __Azure Center for SAP solutions administrator__ and __Managed Identity Operator__ or equivalent role access.
-                    - A __User-assigned managed identity__ that has __Azure Center for SAP solutions service__ role access on the Compute and Storage resource groups and __Reader__ role access on the Virtual Network resource group of the SAP system. ACSS service uses this identity to discover your SAP system resources and register the system as a VIS resource.
+                    - __Azure Workload Center for SAP administrator__ and __Managed Identity Operator__ or equivalent role access.
+                    - A __User-assigned managed identity__ that has __Azure Workload Center for SAP service__ role access on the Compute and Storage resource groups and __Reader__ role access on the Virtual Network resource group of the SAP system. ACSS service uses this identity to discover your SAP system resources and register the system as a VIS resource.
                 - Make sure ASCS, Application Server, and Database virtual machines of the SAP system are in _Running_ state.
                 - `Sapcontrol` and `saphostctrl` executable files on ASCS, App server, and Database.
                 - Confirm the `sapstartsrv` process is running on all SAP instances and for SAP hostctrl agent on all the VMs in the SAP system.
@@ -162,8 +163,8 @@ sections:
                 Here are prerequisites to deploy a new SAP system with ACSS and create a VIS. For more information, see the [deployment guide](deploy-s4hana.md).
 
                 - Appropriate role access.
-                    - You need an Azure account with __Azure Center for SAP solutions administrator__ and __Managed Identity Operator__ or equivalent role access to the subscription in which you deploy the new system.
-                - A _User-assigned managed identity_ that has __Azure Center for SAP solutions service__ role access on the Subscription or all resource groups (Compute, Network, Storage). If you wish to install SAP Software through ACSS, provide __Reader and Data Access__ role to the identity on SAP software storage account where you would store the SAP Media.
+                    - You need an Azure account with __Azure Workload Center for SAP administrator__ and __Managed Identity Operator__ or equivalent role access to the subscription in which you deploy the new system.
+                - A _User-assigned managed identity_ that has __Azure Workload Center for SAP service__ role access on the Subscription or all resource groups (Compute, Network, Storage). If you wish to install SAP Software through ACSS, provide __Reader and Data Access__ role to the identity on SAP software storage account where you would store the SAP Media.
                 - An existing virtual network that allows outbound internet connectivity from the Virtual Machines even when they are behind a standard Azure load balancer, where you deploy your new SAP system.
                 - Register Appropriate resource providers, such as Compute, Network, Storage, Workloads, or Capacity.
                 - Sufficient virtual machine quota in the region (or regions) used for the deployment. Additionally, minimum *four* cores of Standard_D4ds_v4 or Standard_E4s_v3 SKU are required for the deployment to succeed.

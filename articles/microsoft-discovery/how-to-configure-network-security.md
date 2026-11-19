@@ -3,7 +3,7 @@ title: Configure network security for Microsoft Discovery workspaces
 description: Learn how to assign NSP roles, configure subnets, create private endpoints, and configure DNS for Microsoft Discovery workspaces.
 ms.service: azure
 ms.topic: how-to
-ms.date: 11/10/2026
+ms.date: 11/17/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -526,7 +526,11 @@ If DNS queries return a public IP instead of your private endpoint IP:
 1. Verify the private DNS zone exists: `privatelink.workspace.discovery.azure.com`
 2. Verify the DNS zone is linked to your virtual network.
 3. Verify the DNS zone group is configured on the private endpoint.
-4. If using custom DNS servers, ensure they forward to Azure DNS (`168.63.129.16`).
+4. If you use custom DNS servers, configure forwarding through a virtual network linked to the private DNS zone:
+   - An Azure-hosted DNS forwarder in that virtual network can forward queries to Azure DNS (`168.63.129.16`).
+   - On-premises DNS servers must forward queries to that Azure-hosted forwarder or an Azure DNS Private Resolver inbound endpoint in a zone-linked virtual network, not directly to `168.63.129.16`.
+
+   For configuration examples, see [Azure Private Endpoint DNS integration scenarios](/azure/private-link/private-endpoint-dns-integration#on-premises-workloads-using-a-dns-forwarder-without-azure-private-resolver).
 
 ## Next steps
 

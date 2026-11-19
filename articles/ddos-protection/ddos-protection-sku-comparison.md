@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 03/17/2026
+ms.date: 10/29/2026
 ms.custom: template-concept
 # Customer intent: "As a cloud security administrator, I want to compare the DDoS Protection tiers, so that I can select the appropriate level of security for my Azure resources based on my organization's needs."
 ---
@@ -42,6 +42,8 @@ The following table shows features and corresponding tiers.
 | WAF discount | Not available | Yes |
 | Price | Per protected IP | Per 100 protected IP addresses |
 
+For the **Metrics and alerts** feature, [peacetime telemetry (preview)](monitor-ddos-protection.md#peacetime-telemetry-availability-preview) extends metric availability for eligible protected public IP addresses. It's enabled automatically for supported resources protected by either DDoS Network Protection or DDoS IP Protection. This tier support doesn't establish preview availability for every region, cloud, or IP version. Free infrastructure protection alone doesn't establish peacetime telemetry eligibility.
+
 > [!NOTE]
 > At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more information on supported PaaS services, see [DDoS Protection reference architectures](ddos-protection-reference-architectures.md). Azure DDoS infrastructure protection requires no user configuration or application changes. Azure provides continuous protection against DDoS attacks. DDoS protection doesn't store customer data.
 
@@ -50,7 +52,7 @@ The following table shows features and corresponding tiers.
 DDoS Network Protection and DDoS IP Protection have the following limitations:
 
 - PaaS services (multitenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than APIM with virtual network integration, and Azure Virtual WAN aren't currently supported. For more information, see [Azure DDoS Protection APIM in VNET Integration](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-ddos-standard-protection-now-supports-apim-in-vnet/ba-p/3641671)
-- Protecting a public IP resource attached to a NAT Gateway isn't supported.
+- Protecting public IP addresses attached to Standard SKU NAT Gateway isn't supported. DDoS Protection for StandardV2 IPv4 and IPv6 public IP addresses attached to NAT Gateway StandardV2 is in preview. For protection models and prerequisites, see [DDoS protection for NAT Gateway StandardV2](ddos-protection-nat-gateway-standardv2.md).
 - Virtual machines in Classic/RDFE deployments aren't supported.
 - VPN gateway or Virtual network gateway is protected by a DDoS policy. Adaptive tuning isn't supported at this stage. 
 - Protection of a public IP address prefix linked to a public load balancer frontend is supported with the Azure DDoS Network Protection SKU.

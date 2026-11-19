@@ -17,6 +17,41 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## November 2026
+### FHIR service
+
+**Conditional update no-match behavior**: Conditional update requests now support an optional `x-ms-conditional-update-no-match` header. When the header is set to `create`, the search finds no match, and the request body contains the ID of an existing resource, the service returns HTTP 409 Conflict instead of overwriting that resource. If the header is missing or set to `upsert`, behavior is unchanged.
+
+**Improved export performance**: Export performance is improved for resource types that have a large amount of version history.
+
+**Improved chained search performance**: Search performance is improved for queries that combine multiple chained search parameters.
+
+**Improved error handling for out-of-range numeric values**: Requests with numeric or quantity values that exceed the supported precision now return HTTP 400 Bad Request instead of HTTP 500 Internal Server Error.
+
+**Permission requirement updates**: Several operations now require additional permissions:
+  - Bulk delete requires delete permission plus read or search permission to start a job. Built-in roles aren't affected. If you use a custom role that grants only delete permission, add read or search permission to start bulk delete jobs. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+  - Reindexing a single resource with `$reindex` requires read access to that resource in addition to reindex permission.
+  - Conditional delete requests that use `_include` or `_revinclude` require delete permission for every included resource type.
+
+**SMART on FHIR authorization enforcement updates**: SMART on FHIR scopes are now enforced more consistently:
+  - Patient-level scopes are bound to the authenticated `patient` claim. Requests with duplicate or invalid patient context return HTTP 400 Bad Request.
+  - Patient compartment access requires local references. A reference to a patient on another server no longer grants access to a local patient compartment.
+  - Scope restrictions, including search parameter constraints such as `_tag`, apply to resources returned through `_include` and `_revinclude`. SMART-scoped searches might return fewer included resources than before.
+  - Nested chained and `_has` searches are checked against SMART on FHIR scopes.
+  - Reserved internal search parameters are rejected on client search and export requests, which strengthens SMART on FHIR scope enforcement.
+  - SMART on FHIR bulk exports now leave out included resources that the caller isn't authorized to export.
+
+
+#### Bug fixes:
+
+**Fix for export failures during storage throttling**: Fixed an issue where export jobs could fail with HTTP 412 Precondition Failed during storage throttling.
+
+**Fix for `_type` searches across result pages**: Fixed an issue where searches across multiple resource types using `_type` could return resources of other types on later result pages.
+
+**Fix for `$includes` returning unrequested resource types**: Fixed an issue where `$includes` result pages could return resource types that weren't requested by `_revinclude`.
+
+**Fix for unnecessary versions on unchanged updates**: Fixed an issue where updating a resource that contains full-width (ideographic) space characters created a new version even when the content was unchanged.
+
 ## October 2026
 ### FHIR service
 

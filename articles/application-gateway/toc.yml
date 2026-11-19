@@ -41,6 +41,8 @@
       href: configuration-overview.md
     - name: Infrastructure
       href: configuration-infrastructure.md
+    - name: Deployment tier
+      href: deployment-tier.md
     - name: Frontend IP address
       href: configuration-frontend-ip.md
     - name: Listeners
@@ -51,6 +53,8 @@
       href: configuration-http-settings.md
   - name: Routing
     items:
+    - name: Advanced load balancing (Preview)
+      href: advanced-load-balancing.md
     - name: Advanced Routing Rules
       href: advanced-rules.md
     - name: Multi-site hosting
@@ -101,6 +105,8 @@
     href: mutual-authentication-overview.md
   - name: JSON Web Token (JWT) Configuration
     href: json-web-token-overview.md
+  - name: Centralized user authentication (preview)
+    href: user-authentication.md
   - name: Using Key Vault
     href: key-vault-certs.md
   - name: SSL certificate management

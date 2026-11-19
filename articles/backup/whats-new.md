@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 11/09/2026
+ms.date: 11/19/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -21,6 +21,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2026
+  - [Cross-subscription backup for Azure VMs is now generally available](#cross-subscription-backup-for-azure-vms-is-now-generally-available)
   - [Snapshot backup for SQL instances in Azure VMs is now generally available](#snapshot-backup-for-sql-instances-in-azure-vms-is-now-generally-available)
   - [Vaulted backup support for Azure Cosmos DB is now generally available](#vaulted-backup-support-for-azure-cosmos-db-is-now-generally-available)
 - October 2026
@@ -31,7 +32,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Vaulted backup support for Azure PostgreSQL flexible server and elastic cluster (v2) (preview)](#vaulted-backup-support-for-azure-postgresql-flexible-server-and-elastic-cluster-v2-preview)
 - September 2026
   - [Operational backup support for Azure Elastic SAN volume is now generally available](#operational-backup-support-for-azure-elastic-san-volume-is-now-generally-available)
-  - [Time-based immutability for Recovery Services vaults](#time-based-immutability-for-recovery-services-vaults)
+  - [Time-based immutability for Recovery Services vaults and Backup vaults](#time-based-immutability-for-recovery-services-vaults-and-backup-vaults)
 - August 2026
   - [Auto-protection support for Azure Blob backup for up to 1,000 containers](#auto-protection-support-for-azure-blob-backup-for-up-to-1000-containers)
   - [Auto-protection support for Azure Data Lake Storage backup for up to 1,000 containers](#auto-protection-support-for-azure-data-lake-storage-backup-for-up-to-1000-containers)
@@ -90,6 +91,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Cross-subscription backup for Azure VMs is now generally available
+
+Cross-subscription backup for Azure VMs is now generally available in all Azure regions. You can back up Azure VMs to a Recovery Services vault in a different subscription, provided the VM and vault are in the same tenant and region. This capability lets you centralize VM backup management across subscriptions.
+
+For more information, see [Back up Azure VMs in a Recovery Services vault](backup-azure-arm-vms-prepare.md) and [Supported backup actions](backup-support-matrix-iaas.md#supported-backup-actions).
 
 ## Snapshot backup for SQL instances in Azure VMs is now generally available
 
@@ -177,9 +184,9 @@ Key features include:
 
 For more information, see [Azure Elastic SAN volume operational backup](azure-elastic-san-backup-overview.md).
 
-## Time-based immutability for Recovery Services vaults
+## Time-based immutability for Recovery Services vaults and Backup vaults
 
-Azure Backup now supports time-based immutability for Recovery Services vaults, so you can configure immutability for a specific duration that's independent of the backup policy retention period. Recovery points stay immutable for the duration you set and continue to be retained according to the backup policy. This feature prevents backup policy retention from being shorter than the immutability duration you set. It provides greater flexibility to balance data protection requirements with storage costs, especially when immutability is locked.
+Azure Backup now supports time-based immutability for both Recovery Services vaults and Backup vaults in all Azure regions, so you can configure immutability for a specific duration that's independent of the backup policy retention period. Recovery points stay immutable for the duration you set and continue to be retained according to the backup policy. This feature prevents backup policy retention from being shorter than the immutability duration you set. It provides greater flexibility to balance data protection requirements with storage costs, especially when immutability is locked.
 
 For more information, see [Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md#immutability-enablement-options).
 

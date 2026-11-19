@@ -1,10 +1,10 @@
 ---
 title: Monitor Azure IoT Hub
 description: Start here to learn how to monitor Azure IoT Hub by using Azure Monitor. Learn about the types of monitoring data you can collect and ways to analyze that data.
-ms.date: 08/04/2025
+ms.date: 11/11/2026
 ms.topic: concept-article
-author: sethmanheim
-ms.author: sethm
+author: Usha-Rathnavel
+ms.author: usrathna
 ms.service: azure-iot-hub
 ms.custom:
   - horz-monitor
@@ -15,6 +15,69 @@ ms.custom:
 # Monitor Azure IoT Hub
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
+
+## Monitoring the MQTT v5 connection profile
+
+Hubs with the MQTT v5 connection profile use Azure Monitor metrics, resource
+logs, diagnostic settings, and alerts. Use the shared collection and analysis
+instructions in this article rather than a separate monitoring setup.
+
+The connection profile is in preview. Don't assume every classic-profile
+metric, dimension, log category, or Event Grid scenario described in general
+IoT Hub documentation applies to it. Check the
+[supported capabilities](mqtt-v5-capabilities.md) and support for the operation
+you want to monitor. A metric definition alone doesn't establish profile
+support, and missing data isn't the same as zero.
+
+In the portal, inspect **Monitoring** > **Metrics** and **Diagnostic settings**
+on your hub. Alternatively, discover definitions and log categories with
+Azure CLI from an authenticated PowerShell session in the correct subscription:
+
+```powershell
+$hubId = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Devices/IotHubs/<hub-name>"
+az monitor metrics list-definitions --resource $hubId --output json
+az monitor diagnostic-settings categories list --resource $hubId --output json
+```
+
+Record metric API names, supported aggregations, dimensions, and log categories.
+Select signals for supported operations rather than guessing from chart labels.
+For interpretation, see
+[Investigate routing and throttling together](monitor-iot-hub-reference.md#investigate-routing-and-throttling-together).
+
+For MQTT v5 setup and device failures, use these guides:
+
+- [Troubleshoot hub configuration and resource links](mqtt-v5-cloud-setup.md#troubleshoot-cli-setup).
+- [Troubleshoot provisioning and delivery](mqtt-v5-device-setup.md#troubleshoot-provisioning-and-delivery).
+- [Troubleshoot custom-topic publishing](mqtt-v5-custom-topics.md#troubleshoot-custom-topic-publishing).
+
+## Monitor a test run
+
+Record the UTC start and end time, assigned device ID, message identifier, topic
+if applicable, route, and destination. Don't include credentials in test notes.
+Use a known test device and a destination reader.
+
+| Stage | Signal or observation | What to check |
+| --- | --- | --- |
+| Provisioning | DPS result and device SDK logs, if using DPS | Intended hub assignment and onboarding credential |
+| Connection | SDK connection state and supported connection metrics and logs | Authentication, server trust, and session readiness |
+| Ingress | Publish result and supported telemetry metrics | Accepted publishes, failures, or throttling |
+| Routing | Supported route delivery metrics and resource logs | Matching route, destination failures, and authorization |
+| Consumption | Destination logs and the receiving application | Same test message, expected metadata, and usable payload |
+
+Use DPS diagnostics for provisioning failures and destination diagnostics for
+downstream ingestion problems. In Metrics, select the supported aggregation
+and dimensions needed to isolate an endpoint or outcome. A total across all
+endpoints can hide a failure at one endpoint.
+
+In Logs, use the table populated by your diagnostic setting and restrict the
+query to the hub and test interval. Inspect its schema before writing filters.
+Resource logs and a successful publish acknowledgment aren't substitutes for
+reading telemetry at the destination.
+
+MQTT v5 hubs have no built-in telemetry endpoint or fallback route. Configure
+an explicit delivery path before testing. See
+[Connection profile differences](iot-hub-devguide-messages-d2c.md#connection-profile-differences)
+and [Verify actual delivery at the destination](mqtt-v5-device-setup.md#verify-actual-delivery-at-the-destination).
 
 ## Monitor per-device disconnects with Event Grid
 
@@ -35,6 +98,19 @@ For more information about the resource types for IoT Hub, see [Azure IoT Hub mo
 ### Collect and route monitoring data
 
 Platform metrics, the Activity log, and resource logs have unique collection, storage, and routing specifications.
+
+Before creating or updating a diagnostic setting, inspect existing settings.
+Use a new name or intentionally update an existing setting while preserving
+required log categories, metrics, and destinations. Don't replace another
+workload's collection configuration with a minimal test configuration.
+For CLI and ARM options, see
+[Create diagnostic settings in Azure Monitor](/azure/azure-monitor/data-collection/diagnostic-settings).
+
+Enable collection before reproducing a problem; it doesn't recover logs from
+an earlier uncollected period. After saving a setting, generate new activity
+and verify records in the intended workspace. Configuration success isn't proof
+of ingestion. If no records arrive, check scope, categories, permissions,
+ingestion delay, and the selected workspace and table.
 
 In the Azure portal from your IoT hub under **Monitoring**, you can select **Diagnostic settings** followed by **Add diagnostic setting** to create diagnostic settings scoped to the logs and platform metrics emitted by your IoT hub.
 

@@ -2,7 +2,7 @@
 title: Azure Functions local runtime and tools reference
 description: Reference documentation for the Azure Functions CLI and its predecessor, Azure Functions Core Tools.
 ms.topic: reference
-ms.date: 08/24/2026
+ms.date: 11/09/2026
 ms.custom:
   - build-2026
   - ignite-2023
@@ -100,6 +100,8 @@ The `func init` command supports these options, which depend on the version:
 
 > [!NOTE]
 > When you use either the `--docker` or `--docker-only` option, Core Tools automatically creates the Dockerfile for C#, JavaScript, Python, and PowerShell functions. For Java functions, you must manually create the Dockerfile. For more information, see [Creating containerized function apps](functions-how-to-custom-container.md#creating-containerized-function-apps).
+>
+> The generated Dockerfile uses the complete Function App image contract. It isn't the Dockerfile used by Flex Consumption container images. For the Flex Consumption worker-only container model, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 ### [v1](#tab/v1)
 

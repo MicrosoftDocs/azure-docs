@@ -1,0 +1,14 @@
+- name: Flex Plan
+  href: index.yml
+- name: What is a Flex Plan?
+  href: flex-plan-overview.md
+- name: Buy a Flex Plan
+  href: buy-flex-plan.md
+- name: Manage a Flex Plan
+  href: manage-flex-plan.md
+- name: Billing and charges
+  href: flex-plan-billing.md
+- name: Automate Flex Plan operations
+  href: automate-flex-plan.md
+- name: Troubleshoot Flex Plan
+  href: troubleshoot-flex-plan.md

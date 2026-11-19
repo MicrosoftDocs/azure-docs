@@ -18,6 +18,8 @@ Azure Firewall offers three SKUs to meet various customer needs:
 - **Azure Firewall Standard**: Get Layer 3–Layer 7 firewall capabilities with autoscaling to manage peak traffic up to 30 Gbps. It includes enterprise features like threat intelligence, DNS proxy, custom DNS, and web categories.
 - **Azure Firewall Basic**: Throughput up to 250 Mbps.
 
+Azure Firewall Premium supports the optional [AI Security add-on (preview)](ai-security-concepts.md).
+
 For detailed information about all Azure Firewall features, see [Azure Firewall features by SKU](features-by-sku.md).
 
 ## Feature comparison

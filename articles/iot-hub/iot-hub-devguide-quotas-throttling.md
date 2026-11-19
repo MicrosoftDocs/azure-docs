@@ -2,17 +2,86 @@
 title: Understand Azure IoT Hub quotas and throttling
 titleSuffix: Azure IoT Hub
 description: This article provides a description of the quotas that apply to IoT Hub and the expected throttling behavior.
-author: sethmanheim
-ms.author: sethm
+author: Usha-Rathnavel
+ms.author: usrathna
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 05/21/2025
+ms.date: 11/11/2026
 ms.custom: ["Role: Cloud Development", "Role: Operations", "Role: Technical Support"]
 ---
 
 # IoT Hub quotas and throttling
 
 This article explains the limits that apply to IoT Hub resources. 
+
+> [!IMPORTANT]
+> IoT Hub with the MQTT v5 connection profile uses throughput units rather than
+> the classic tier/unit capacity model. See
+> [Quotas and throttling for the MQTT v5 connection profile](#quotas-and-throttling-for-the-mqtt-v5-connection-profile).
+> Don't apply the classic daily message quotas, operation-rate tables, or
+> message-size limits elsewhere in this article to that profile. A listed
+> operation doesn't establish MQTT v5 support; check
+> [MQTT v5 capabilities](mqtt-v5-capabilities.md).
+
+## Quotas and throttling for the MQTT v5 connection profile
+
+During preview, this profile supports only **Standard S1** hubs, configured with
+**1 to 25 throughput units (TUs)**. Throughput units determine combined
+device-to-hub and hub-to-device throughput, concurrent connected-device capacity, and
+connection-request capacity.
+
+| Capacity | Per TU (1 TU) | Example: 7 TUs | Maximum: 25 TUs |
+| --- | --- | --- | --- |
+| Combined device-to-hub and hub-to-device traffic: messages per second | 1,000 | 7,000 | 25,000 |
+| Combined device-to-hub and hub-to-device traffic: MB per second | 1 | 7 | 25 |
+| Concurrently connected devices | 10,000 | 70,000 | 250,000 |
+| Connection requests per second | 200 | 1,400 | 5,000 |
+
+Both throughput limits apply: whichever you reach first limits throughput.
+Device-to-hub and hub-to-device traffic share this capacity; these aren't
+separate allowances for each direction. For example, telemetry sent by a
+device and a direct method command delivered by a cloud application to a
+device both count.
+
+The maximum message size is **1 MB**, regardless of the number of TUs.
+
+The number of registered devices can exceed the concurrent connection limit,
+subject to the hub's registered identity capacity. During preview, the MQTT v5
+connection profile supports at most **250,000 concurrently connected devices**
+at 25 TUs; fewer TUs provide a lower concurrent connection limit.
+
+The connection-request limit is a rate, not a count of existing sessions.
+For example, a fleet can remain within its concurrent connection capacity
+while a synchronized reconnect creates excessive connection requests.
+
+For capacity planning and portal steps, see
+[Scale an IoT hub with the MQTT v5 connection profile](iot-hub-scaling.md#scale-an-iot-hub-with-the-mqtt-v5-connection-profile).
+Custom-topic configuration limits are separate from throughput capacity; see
+[Preview limits and topic template rules](mqtt-v5-custom-topics.md#preview-limits-and-topic-template-rules).
+
+### Diagnose throttling and manage retries
+
+Distinguish a capacity constraint from authentication, topic authorization,
+invalid input, or network failures. If publishes succeed but a destination
+receives fewer messages than expected, examine route matching, endpoint health,
+and destination capacity rather than assuming an ingress throttle.
+
+Correlate service responses, SDK errors, metrics, and resource logs over the
+same UTC interval. Use the **Throttle Type** dimension to separate supported
+operation categories. For more information, see
+[Investigate routing and throttling together](monitor-iot-hub-reference.md#investigate-routing-and-throttling-together).
+Don't interpret every failed operation as a signal to increase TUs.
+
+Use the SDK's retry behavior and error classification. For application-managed
+retries of transient failures, use bounded backoff with jitter and an overall
+deadline, following any service-provided retry guidance. Avoid unbounded retry
+loops around an SDK that already retries. Correct authentication and
+configuration errors rather than retrying them indefinitely.
+
+Stagger fleet reconnects and provisioning attempts to avoid synchronized
+bursts. Provisioning has separate
+[DPS quotas and limits](../iot-dps/about-iot-dps.md#quotas-and-limits);
+increasing hub TUs doesn't increase DPS capacity.
 
 ## Tier and unit quotas
 
@@ -104,7 +173,35 @@ The same throttle limits apply to identity operations made through [bulk registr
 
 The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle doesn't relate to the maximum number of simultaneously connected devices. Increase the number of units in an IoT hub to increase the *device connections* rate.
 
-For example, if you buy a single S1 unit, you get a throttle of 100 connections/second. Therefore, to connect 100,000 devices, it takes at least 1,000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your identity registry (up to 1,000,000).
+For example, if you buy a single S1 unit, you get a throttle of 100 connections/second. Therefore, to connect 100,000 devices, it takes at least 1,000 seconds (approximately 16 minutes). The connection-attempt rate is separate from the hub's registered identity capacity. For larger fleets, see [Plan device-identity capacity and request an increase](#plan-device-identity-capacity-and-request-an-increase).
+
+## Plan device-identity capacity and request an increase
+
+IoT Hub can support up to five million registered devices per instance. If you
+need to grow beyond one million registered devices, contact Azure support to
+configure extended capacity for your hub.
+
+<!-- REVIEW BLOCKER: Confirm the default/tier/unit identity capacity table and
+whether each threshold counts devices alone or devices plus modules. Do not
+publish the unapproved S3 scaling proposal as a product limit. -->
+
+To request an increase:
+
+1. Follow [Azure support request guidance](/azure/azure-portal/supportability/how-to-create-azure-support-request)
+   and identify the affected IoT hub and subscription.
+1. Describe the request as an increase in registered device-identity capacity,
+   not a daily message-quota or connection-rate increase.
+1. Provide the resource ID, region, SKU and unit count, current device and module
+   counts, requested capacity, target date and expected fleet growth.
+1. Include expected concurrent connections, new connections per second, telemetry
+   rate, message sizes and routing destinations so the workload can be assessed.
+1. Wait for confirmation of the approved scope and any required configuration,
+   then validate the workload before expanding the fleet.
+
+Report device and module counts separately. Identity capacity, simultaneous
+connections, connection-attempt rates, daily message quotas and operation
+throttles are different constraints. An increase to one doesn't imply an
+increase to all of them.
 
 ## Other limits
 
@@ -112,7 +209,7 @@ IoT Hub enforces other operational limits:
 
 | Operation | Limit |
 | --------- | ----- |
-| Device and module identities | The total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. |
+| Device and module identities | Capacity depends on the hub configuration and approved quota. See [Plan device-identity capacity and request an increase](#plan-device-identity-capacity-and-request-an-increase). |
 | File uploads | 10 concurrent file uploads per device. |
 | Jobs<sup>1</sup> | Maximum concurrent jobs are 1 (for free and S1), 5 (for S2), and 10 (for S3). However, the max concurrent [device import/export jobs](iot-hub-bulk-identity-mgmt.md) is 1 for all tiers. <br/>Job history is retained up to 30 days. |
 | Extra endpoints | Basic and standard tier hubs can have 10 extra endpoints. Free tier hubs can have one extra endpoint. |

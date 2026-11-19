@@ -133,4 +133,4 @@ This approach works best for:
 
 ## Next steps
 
-Read the [Azure Migrate overview](migrate-services-overview.md).
+Read the [Azure Catalyst overview](migrate-services-overview.md).

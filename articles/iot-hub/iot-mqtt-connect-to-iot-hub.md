@@ -6,7 +6,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 11/16/2026
 ms.custom:
   - amqp
   - mqtt
@@ -18,10 +18,17 @@ ms.custom:
 
 # Communicate with an IoT hub using the MQTT protocol
 
-This article describes how devices can use the MQTT protocol to communicate with Azure IoT Hub. The IoT Hub device endpoints support device connectivity using:
+This article describes MQTT support for the **classic connection profile** in Azure IoT Hub. The device endpoints for this profile support:
 
 * [MQTT v3.1.1](https://mqtt.org/) on port 8883
 * [MQTT v3.1.1 over WebSocket](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718127) on port 443
+
+> [!NOTE]
+> For the **MQTT v5 connection profile (preview)**, see
+> [Capabilities and connection profiles](mqtt-v5-capabilities.md) and
+> [Connect a device using MQTT v5](mqtt-v5-device-setup.md).
+> The authentication, topic, SDK, and message-size guidance in this article
+> describes the classic profile, not the MQTT v5 preview.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -29,11 +36,13 @@ All device communication with IoT Hub must be secured using TLS. Therefore, IoT 
 
 ## Compare MQTT support in IoT Hub and Event Grid
 
-IoT Hub isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. If your solution needs a cloud-hosted MQTT broker, use [Azure Event Grid](../event-grid/mqtt-overview.md) instead. Event Grid enables bi-directional communication between MQTT clients on flexible hierarchical topics using a publish-subscribe messaging model. It also lets you route MQTT messages to other Azure services or custom endpoints for further processing.
+IoT Hub with the classic connection profile isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. If your solution needs a cloud-hosted MQTT broker, use [Azure Event Grid](../event-grid/mqtt-overview.md) instead. Event Grid enables bi-directional communication between MQTT clients on flexible hierarchical topics using a publish-subscribe messaging model. It also lets you route MQTT messages to other Azure services or custom endpoints for further processing.
 
-The following table summarizes the current differences in MQTT support between the two services:
+The following table compares the classic IoT Hub profile with Event Grid. For the
+MQTT v5 IoT Hub preview, including its publish-only custom-topic support, see
+[Capabilities and connection profiles](mqtt-v5-capabilities.md).
 
-| IoT Hub | Event Grid |
+| IoT Hub (classic connection profile) | Event Grid |
 | ------- | ---------- |
 | Client-server model with tight coupling between devices and cloud apps. | Publish-subscribe model that decouples publishers and subscribers. |
 | Limited feature support for MQTT v3.1.1. | MQTT v3.1.1 and v5 protocol support. |
@@ -105,7 +114,7 @@ The maximum client keep-alive value you can set is `1767 / 1.5 = 1177` seconds. 
 
 ### Migrate a device application from AMQP to MQTT
 
-If you're using the [device SDKs](https://github.com/Azure/azure-iot-sdks), to switch from using AMQP to MQTT requires you to change the protocol parameter in the client initialization.
+If you're using the [device SDKs](https://github.com/Azure/azure-iot-sdk), to switch from using AMQP to MQTT requires you to change the protocol parameter in the client initialization.
 
 When you change from AMQP to MQTT, check the following items:
 
@@ -429,22 +438,22 @@ For more information, see [Understand and invoke direct methods from IoT Hub](..
 
 ## Renew a device certificate (operational certificate)
 
-1. First, a device subscribes to `$iothub/credential/#`, to allow it to receive the operation's response. 
+1. First, a device subscribes to `$iothub/credentials/res/#`, to allow it to receive the operation's response. 
 
-1. Then, it then publishes a message to topic `$iothub/credentials/POST/issueCertificate/?$rid={request_id}`, where the message includes a request ID value. The request body contains the device ID for the device requesting the certificate and a certificate signing request (CSR).
+1. Then, it publishes a message to topic `$iothub/credentials/POST/issueCertificate/?$rid={request_id}`, where the message includes a request ID value. The request body contains the device ID for the device requesting the certificate and a certificate signing request (CSR).
 
 
-```json
-{       
-    "id": "device1", // Required. The ID for the device requesting the certificate. This ID is the active authenticated device.
-    "csr": "MIICYTCCAUkCAQAwHDEaMBgGA1wRZGAw...yM1X8USCtPz/1nRYDOtA==", // Required. The base64 encoded PKCS#10 CSR, without PEM header or footers or new lines.
-    "replace": "*", // Optional. Default null. "*" is accepted to replace any active request.
-  } 
-```
+   ```json
+   {       
+       "id": "device1", // Required. The ID for the device requesting the certificate. This ID is the active authenticated device.
+       "csr": "MIICYTCCAUkCAQAwHDEaMBgGA1wRZGAw...yM1X8USCtPz/1nRYDOtA==", // Required. The base64 encoded PKCS#10 CSR, without PEM header or footers or new lines.
+       "replace": "*", // Optional. Default null. "*" is accepted to replace any active request.
+     } 
+   ```
 
 1. The device receives a response acknowledging the receipt. This is a 202 status. 
 
-1. The service then sends a response message containing the device certificate data on topic `$iothub/credential/res/{status}/?$rid={request-id}`, using the same **request ID** as the request. This is a 200 status.
+1. The service then sends a response message containing the device certificate data on topic `$iothub/credentials/res/{status}/?$rid={request-id}`, using the same **request ID** as the request. This is a 200 status.
 
 The request ID can be any valid value for a message property value, and status is validated as an integer. For more information, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md). 
 

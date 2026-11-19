@@ -38,6 +38,7 @@ The connector for OPC UA is a client application that runs as a middleware servi
 As part of Azure IoT Operations, the connector for OPC UA is a native Kubernetes application that:
 
 - Connects existing OPC UA servers and assets to a native Kubernetes cluster at the edge.
+- In Azure IoT Operations 2610 or later, can [onboard non-OPC UA assets by using WoT connectivity](howto-configure-opc-ua-web-of-things-connectivity.md) through a server that implements the OPC 10100-1 WoT Connectivity API.
 - Can automatically [discover assets](./howto-detect-opc-ua-assets.md) connected to an OPC UA server and add the asset configurations to Azure Device Registry.
 - Publishes JSON-encoded messages from OPC UA servers in OPC UA PubSub format, using a JSON payload. By using this standard format for data exchange, you can reduce the risk of future compatibility issues.
 - Can synchronize OPC UA node properties to the [distributed state store](../develop-edge-apps/overview-edge-apps.md#state-store).

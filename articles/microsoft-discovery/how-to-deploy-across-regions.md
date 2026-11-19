@@ -3,7 +3,7 @@ title: Deploy Microsoft Discovery across Azure regions
 description: Learn how to deploy Microsoft Discovery control-plane resources in a supported home region and managed compute and infrastructure resources in another Azure region.
 author: anzaman
 ms.author: alzam
-ms.date: 09/18/2026
+ms.date: 11/17/2026
 ms.topic: how-to
 ms.service: azure
 ---
@@ -19,12 +19,12 @@ This configuration can help you use capacity and quota in another region, place 
 Before you begin, ensure that you have:
 
 - An Azure subscription with permissions to create Microsoft Discovery and supporting Azure resources.
-- The prerequisites from [Quickstart: Deploy Microsoft Discovery infrastructure](https://learn.microsoft.com/azure/microsoft-discovery/quickstart-infrastructure), including registered resource providers, required roles, and sufficient quota.
+- The prerequisites from [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md), including registered resource providers, required roles, and sufficient quota.
 
 > [!IMPORTANT]
 > Select a single target region for the deployment. Deploy all target-region resources in that region, not across multiple target regions.
 >
-> All required resources and services, including Microsoft Foundry projects and required Foundry features, must be available in the selected target region. Discovery supports all regions where Foundry projects are available as target regions. Before deploying, confirm availability in [Feature availability across cloud regions - Microsoft Foundry](https://learn.microsoft.com/azure/foundry/reference/region-support).
+> All required resources and services, including Microsoft Foundry projects and required Foundry features, must be available in the selected target region. Discovery supports all regions where Foundry projects are available as target regions. Before deploying, confirm availability in [Feature availability across cloud regions - Microsoft Foundry](/azure/foundry/reference/region-support).
 
 ## Understand resource placement
 
@@ -72,7 +72,7 @@ Create the customer-managed resources that the Discovery deployment requires in 
 1. Create any required private endpoints, network security groups, route tables, and firewall rules.
 1. Confirm that the target region has sufficient model and compute quota.
 
-For detailed infrastructure requirements, see [Quickstart: Deploy Microsoft Discovery infrastructure](https://learn.microsoft.com/azure/microsoft-discovery/quickstart-infrastructure).
+For detailed infrastructure requirements, see [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md).
 
 ## Deploy Discovery resources in the home region
 
@@ -90,7 +90,7 @@ To deploy managed resources in West US 3, apply:
 discovery.overridemrgregion: westus3
 ```
 
-Use the programmatic region identifier from the [Azure regions list](https://learn.microsoft.com/azure/reliability/regions-list?tabs=all#azure-regions-list-1), such as `westus3` instead of `West US 3`.
+Use the programmatic region identifier from the [Azure regions list](/azure/reliability/regions-list?tabs=all#azure-regions-list-1), such as `westus3` instead of `West US 3`.
 
 Apply the tag when you create each supported Discovery resource. The following resources support the managed resource group region override:
 
@@ -99,13 +99,6 @@ Apply the tag when you create each supported Discovery resource. The following r
 - Discovery bookshelf
 
 The Discovery resource and its managed resource group remain in the home region. The resources inside the managed resource group are deployed in the target region.
-
-> [!IMPORTANT]
-> For Microsoft-owned subscriptions, also apply the following tag:
->
-> ```text
-> SkipAssociateKeyVaultToNsp: true
-> ```
 
 ## Verify the deployment
 
@@ -171,6 +164,6 @@ Confirm that:
 
 ## Next steps
 
-- [Deploy Microsoft Discovery infrastructure](https://learn.microsoft.com/azure/microsoft-discovery/quickstart-infrastructure)
-- [Review Microsoft Foundry regional availability](https://learn.microsoft.com/azure/foundry/reference/region-support)
-- [Plan for Microsoft Discovery business continuity and disaster recovery](https://learn.microsoft.com/azure/microsoft-discovery/concept-discovery-business-continuity-disaster-recovery)
+- [Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md)
+- [Review Microsoft Foundry regional availability](/azure/foundry/reference/region-support)
+- [Plan for Microsoft Discovery business continuity and disaster recovery](concept-discovery-business-continuity-disaster-recovery.md)

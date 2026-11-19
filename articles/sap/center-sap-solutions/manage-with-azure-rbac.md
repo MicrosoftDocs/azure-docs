@@ -1,34 +1,35 @@
 ---
-title: Azure RBAC for Azure Center for SAP solutions resources
-description: Learn how Azure role-based access control (Azure RBAC) manages access to SAP workloads in Azure Center for SAP solutions, including built-in roles and minimum permissions.
+title: Azure RBAC for Azure Workload Center for SAP resources
+description: Learn how Azure role-based access control (Azure RBAC) manages access to SAP workloads in Azure Workload Center for SAP, including built-in roles and minimum permissions.
 author: kalyaninamuduri
 ms.author: kanamudu
+ms.reviewer: mattmcinnes
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: concept-article
-ms.date: 04/08/2026
+ms.date: 11/06/2026
 ms.custom: template-concept
 # Customer intent: As an SAP system administrator, I want to manage access to SAP workloads using role-based access control, so that I can ensure effective permission management and security for deploying and managing SAP systems in Azure.
 ---
 
-# Azure RBAC for Azure Center for SAP solutions
+# Azure RBAC for Azure Workload Center for SAP
 
-Azure [role-based access control (RBAC)](../../role-based-access-control/overview.md) lets you separate duties within your team and grant only the permissions users need to deploy and manage SAP systems in Azure Center for SAP solutions. Users or user-assigned managed identities require specific roles or minimum permissions for each capability.
+Azure [role-based access control (RBAC)](../../role-based-access-control/overview.md) lets you separate duties within your team and grant only the permissions users need to deploy and manage SAP systems in Azure Workload Center for SAP. Users or user-assigned managed identities require specific roles or minimum permissions for each capability.
 
-This article lists the built-in roles and minimum permissions that users and user-assigned managed identities need for each Azure Center for SAP solutions capability.
+This article lists the built-in roles and minimum permissions that users and user-assigned managed identities need for each Azure Workload Center for SAP capability.
 
 ## Built-in roles
 
-Use [Azure built-in roles](../../role-based-access-control/built-in-roles.md) for Azure Center for SAP solutions, or [create Azure custom roles](../../role-based-access-control/custom-roles.md) for more control. Azure Center for SAP solutions provides the following built-in roles to deploy and manage SAP systems on Azure:
+Use [Azure built-in roles](../../role-based-access-control/built-in-roles.md) for Azure Workload Center for SAP, or [create Azure custom roles](../../role-based-access-control/custom-roles.md) for more control. Azure Workload Center for SAP provides the following built-in roles to deploy and manage SAP systems on Azure:
 
-- The **Azure Center for SAP solutions administrator** role has the required permissions for a user to deploy infrastructure, install SAP, and manage SAP systems from Azure Center for SAP solutions. The role allows users to:
+- The **Azure Center for SAP solutions administrator** role has the required permissions for a user to deploy infrastructure, install SAP, and manage SAP systems from Azure Workload Center for SAP. The role allows users to:
   - Deploy infrastructure for a new SAP system.
   - Install SAP software.
   - Register existing SAP systems as a [Virtual Instance for SAP solutions (VIS)](overview.md#what-is-a-virtual-instance-for-sap-solutions) resource.
   - View the health and status of SAP systems.
   - Perform operations such as **Start** and **Stop** on the VIS resource.
-  - Perform all actions available in Azure Center for SAP solutions, including the deletion of the VIS resource.
-- The **Azure Center for SAP solutions service role** is intended for use by the user-assigned managed identity. The Azure Center for SAP solutions service uses this identity to deploy and manage SAP systems. This role has permissions to support the deployment and management capabilities in Azure Center for SAP solutions.
+  - Perform all actions available in Azure Workload Center for SAP, including the deletion of the VIS resource.
+- The **Azure Center for SAP solutions service role** is intended for use by the user-assigned managed identity. The Azure Center for SAP solutions service uses this identity to deploy and manage SAP systems. This role has permissions to support the deployment and management capabilities in Azure Workload Center for SAP.
 - The **Azure Center for SAP solutions reader** role has permissions to view all VIS resources.
 
 > [!NOTE]
@@ -178,7 +179,7 @@ To install SAP software, a *user* and *user-assigned managed identity* require t
 
 ## Register and manage existing SAP system
 
-To register an existing SAP system and manage that system with Azure Center for SAP solutions, a *user* or *user-assigned managed identity* requires the following role or permissions.
+To register an existing SAP system and manage that system with Azure Workload Center for SAP, a *user* or *user-assigned managed identity* needs the following roles or permissions.
 
 | Built-in roles for *users* | 
 | ------------------------- |
@@ -528,4 +529,4 @@ To delete a VIS resource, a *user* or *user-assigned managed identity* requires 
 
 ## Related content
 
-- [Manage VIS resources in Azure Center for SAP solutions](manage-virtual-instance.md)
+- [Manage VIS resources in Azure Workload Center for SAP](manage-virtual-instance.md)

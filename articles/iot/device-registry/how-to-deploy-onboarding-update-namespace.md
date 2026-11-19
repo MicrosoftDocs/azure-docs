@@ -1,7 +1,7 @@
 ---
 title: Deploy an onboarding update to a namespace
 titleSuffix: Azure Device Registry
-description: Deploy an onboarding update so that devices get a software update when they onboard to an Azure Device Registry namespace, before they start operating. Use the Azure portal or Bicep.
+description: Deploy an onboarding update so that devices get a software update when they onboard to an Azure Device Registry namespace, before they start operating. Use the Azure portal, the Azure CLI, or Bicep.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
@@ -15,26 +15,27 @@ ai-usage: ai-assisted
 
 Azure Device Registry uses *jobs* to apply *software updates* to devices. An *onboarding update job* targets a *namespace*: compatible devices check for the update when they onboard to the namespace, before they register and start operating. In contrast, a software update job targets a group of devices that are already in operation. An onboarding update job remains active until you end it. Use an onboarding update to bring devices that ship with older firmware up to date as they come online, so they're current before they start operating.
 
-This article shows you how to use the Azure portal or Bicep to create an onboarding update job, run or schedule it against a namespace, and monitor the results. Use this article after you [import the software update](how-to-import-software-update.md) that you want to apply. To learn how jobs, groups, and software updates work together, see [Software updates concepts (preview)](concept-software-updates.md).
+This article shows you how to use the Azure portal, the Azure CLI, or Bicep to create an onboarding update job, run or schedule it against a namespace, and monitor the results. Use this article after you [import the software update](how-to-import-software-update.md) that you want to apply. To learn how jobs, groups, and software updates work together, see [Software updates concepts (preview)](concept-software-updates.md).
 
 > [!IMPORTANT]
 > Azure Device Registry software updates is currently in preview. The current preview is scoped to IoT Hub-connected devices. This preview is provided without a service-level agreement, and the capability and its portal experience might change before it becomes generally available. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> During the preview, you can use software updates only with IoT hubs that don't have an existing Device Update for IoT Hub instance. To use software updates, link an IoT hub without a Device Update for IoT Hub instance to your namespace, or delete the existing instance before you link the hub. For more information, see [Software updates and Device Update for IoT Hub](concept-software-updates.md#software-updates-and-device-update-for-iot-hub).
+> During the preview, you can use software updates only with IoT hubs that don't have an existing Device Update for IoT Hub instance. To use software updates, connect a different IoT hub to your namespace, or first delete the hub's Device Update for IoT Hub instance. For more information, see [Choose between software updates and Device Update for IoT Hub](concept-software-updates.md#choose-between-software-updates-and-device-update-for-iot-hub).
 
 ## Prerequisites
 
 - An Azure Device Registry namespace that your devices onboard to.
 - A software update imported into the namespace. To learn more, see [Import a software update (preview)](how-to-import-software-update.md).
 - Devices that use the software updates client in the [unified Azure IoT SDKs (preview)](concept-unified-iot-sdks.md) and check for onboarding updates before they register.
-- Software updates enabled on the namespace. To learn more, see [Get started with Azure Device Registry](get-started-azure-device-registry.md).
+- Software updates enabled on the namespace. To learn more, see [Get started with Azure Device Registry for Azure IoT Hub](get-started-azure-device-registry.md).
 - Azure Resource Manager control-plane permissions, such as the **Contributor** role, to create, read, update, and delete jobs.
 - To run jobs, the namespace's managed identity must have access to the software updates instance that's linked to the namespace. If you enable software updates in the Azure portal, these role assignments are created for you.
+- To use the Azure CLI, the Azure CLI with preview version `1.1.0b1` of the `azure-iot` extension. For installation steps, see [Azure CLI setup](get-started-azure-device-registry.md#azure-cli-setup).
 
 ## Create an onboarding update job
 
-An onboarding update job targets a namespace and applies an imported software update to compatible devices when they onboard. Use the Azure portal or Bicep to create the job.
+An onboarding update job targets a namespace and applies an imported software update to compatible devices when they onboard. Use the Azure portal, the Azure CLI, or Bicep to create the job.
 
 # [Azure portal](#tab/portal)
 
@@ -61,6 +62,34 @@ An onboarding update job targets a namespace and applies an imported software up
 1. Select **Next** to view a summary of the job. The summary shows that the job targets the namespace and lists the software update that the job applies.
 
 1. Select **Create**. The job status shows **Creating** and then changes to **Ready** after a moment.
+
+# [Azure CLI (Bash)](#tab/azure-cli)
+
+Set the values that the commands in this article reuse. Then run [az iot adr ns job create](/cli/azure/iot/adr/ns/job#az-iot-adr-ns-job-create) with `--type OnboardingUpdate`. An onboarding update job always targets the namespace, so you don't specify a target group. Identify the imported software update by its provider, name, and version from the import manifest. Then wait for the job to be ready:
+
+```azurecli
+RG="<resource-group>"
+NS="<namespace-name>"
+JOB="<job-name>"
+az iot adr ns job create --name $JOB --ns $NS --resource-group $RG --type OnboardingUpdate --update-id-provider <provider> --update-id-name <name> --update-id-version <version> --description "Onboarding update job"
+az iot adr ns job wait --name $JOB --ns $NS --resource-group $RG
+```
+
+After you create the job, you can't change its software update. To change it, delete the job and create a new one.
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+Set the values that the commands in this article reuse. Then run [az iot adr ns job create](/cli/azure/iot/adr/ns/job#az-iot-adr-ns-job-create) with `--type OnboardingUpdate`. An onboarding update job always targets the namespace, so you don't specify a target group. Identify the imported software update by its provider, name, and version from the import manifest. Then wait for the job to be ready:
+
+```powershell
+$RG = "<resource-group>"
+$NS = "<namespace-name>"
+$JOB = "<job-name>"
+az iot adr ns job create --name $JOB --ns $NS --resource-group $RG --type OnboardingUpdate --update-id-provider <provider> --update-id-name <name> --update-id-version <version> --description "Onboarding update job"
+az iot adr ns job wait --name $JOB --ns $NS --resource-group $RG
+```
+
+After you create the job, you can't change its software update. To change it, delete the job and create a new one.
 
 # [Bicep](#tab/bicep)
 
@@ -119,6 +148,46 @@ After a job is ready, you can run it immediately or schedule it to run later.
 
 After you run or schedule the job, the portal moves to the **Runs** tab.
 
+# [Azure CLI (Bash)](#tab/azure-cli)
+
+Run [az iot adr ns job schedule](/cli/azure/iot/adr/ns/job#az-iot-adr-ns-job-schedule). Each time you run or schedule the job, the command creates a *run* and returns its name. Use `--run-name` to choose the name yourself, which makes the run easier to monitor.
+
+- **Run now**: Omit `--scheduled-time`.
+
+    ```azurecli
+    RUN="<run-name>"
+    az iot adr ns job schedule --name $JOB --ns $NS --resource-group $RG --run-name $RUN
+    ```
+
+- **Schedule for later**: Set `--scheduled-time` to a UTC date and time in ISO 8601 format.
+
+    ```azurecli
+    RUN="<run-name>"
+    az iot adr ns job schedule --name $JOB --ns $NS --resource-group $RG --run-name $RUN --scheduled-time 2026-11-15T14:30:00Z
+    ```
+
+An onboarding update job remains active until you end it, so eligible devices continue to receive the update as they onboard.
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+Run [az iot adr ns job schedule](/cli/azure/iot/adr/ns/job#az-iot-adr-ns-job-schedule). Each time you run or schedule the job, the command creates a *run* and returns its name. Use `--run-name` to choose the name yourself, which makes the run easier to monitor.
+
+- **Run now**: Omit `--scheduled-time`.
+
+    ```powershell
+    $RUN = "<run-name>"
+    az iot adr ns job schedule --name $JOB --ns $NS --resource-group $RG --run-name $RUN
+    ```
+
+- **Schedule for later**: Set `--scheduled-time` to a UTC date and time in ISO 8601 format.
+
+    ```powershell
+    $RUN = "<run-name>"
+    az iot adr ns job schedule --name $JOB --ns $NS --resource-group $RG --run-name $RUN --scheduled-time 2026-11-15T14:30:00Z
+    ```
+
+An onboarding update job remains active until you end it, so eligible devices continue to receive the update as they onboard.
+
 # [Bicep](#tab/bicep)
 
 Bicep declares resources, so it can't directly trigger an action like running or scheduling a job. Instead, use the job's `schedule` action, which you can call with Azure CLI. To run the job immediately, omit `scheduledTime`. To schedule the job, include a `scheduledTime` value.
@@ -152,6 +221,46 @@ The **Runs** tab shows the jobs, including running, completed, and scheduled run
 1. Select a completed run to view its statistics. The run details show the status of the devices that the job targeted.
 
 1. **Check a specific device.** To confirm whether a specific device was updated, use the search box in the run details to find the device.
+
+# [Azure CLI (Bash)](#tab/azure-cli)
+
+1. List the runs for the job and their status:
+
+    ```azurecli
+    az iot adr ns job run list --job-name $JOB --ns $NS --resource-group $RG
+    ```
+
+1. View the statistics for a run. The [az iot adr ns job run summary](/cli/azure/iot/adr/ns/job/run#az-iot-adr-ns-job-run-summary) command returns the number of devices that succeeded, failed, are in progress, are pending, were canceled, or weren't applicable:
+
+    ```azurecli
+    az iot adr ns job run summary --name $RUN --job-name $JOB --ns $NS --resource-group $RG
+    ```
+
+1. **Check a specific device.** List the per-device results for the run. To show only the devices that failed, add a filter:
+
+    ```azurecli
+    az iot adr ns job run results --name $RUN --job-name $JOB --ns $NS --resource-group $RG --filter "status eq 'Failed'"
+    ```
+
+# [Azure CLI (PowerShell)](#tab/azure-cli-powershell)
+
+1. List the runs for the job and their status:
+
+    ```powershell
+    az iot adr ns job run list --job-name $JOB --ns $NS --resource-group $RG
+    ```
+
+1. View the statistics for a run. The [az iot adr ns job run summary](/cli/azure/iot/adr/ns/job/run#az-iot-adr-ns-job-run-summary) command returns the number of devices that succeeded, failed, are in progress, are pending, were canceled, or weren't applicable:
+
+    ```powershell
+    az iot adr ns job run summary --name $RUN --job-name $JOB --ns $NS --resource-group $RG
+    ```
+
+1. **Check a specific device.** List the per-device results for the run. To show only the devices that failed, add a filter:
+
+    ```powershell
+    az iot adr ns job run results --name $RUN --job-name $JOB --ns $NS --resource-group $RG --filter "status eq 'Failed'"
+    ```
 
 # [Bicep](#tab/bicep)
 

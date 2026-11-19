@@ -5,7 +5,7 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 09/04/2026
+ms.date: 11/17/2026
 
 #CustomerIntent: As a Discovery administrator, I want to delete Microsoft Discovery resources in the right order so that I can fully clean up a deployment.
 ---
@@ -163,7 +163,7 @@ Azure Resource Manager caches resource listings, so a deleted child resource can
 
 ## Troubleshoot a node pool that fails to delete
 
-If node pool deletion returns `InternalServerError` with the target `internalMetadata`, the backing AKS cluster is likely unhealthy. The cluster that backs the supercomputer shows a `Failed` or `Deallocated` state.
+If node pool deletion returns `InternalServerError` with the target `internalMetadata`, collect the deletion response and backing AKS cluster state. A `Failed` or `Deallocated` cluster is diagnostic evidence, not proof of the cause or a customer-run repair.
 
 1. Check the cluster in the supercomputer's managed resource group:
 
@@ -172,15 +172,9 @@ If node pool deletion returns `InternalServerError` with the target `internalMet
      --query "{provisioningState:provisioningState, powerState:powerState.code}"
    ```
 
-1. Reconcile the cluster:
+1. Collect the failed deletion response, timestamp, ARM correlation ID, and cluster state. Follow [Collect cluster state and use supported recovery](troubleshoot-microsoft-discovery.md#a-node-pool-fails-to-delete) with your administrator or Microsoft Support. Don't modify the backing AKS resources as a repair.
 
-   ```azurecli
-   az aks update --resource-group mrg-dscmp-<supercomputer>-<suffix> --name aks-dscmp-<suffix> --yes
-   ```
-
-1. When `provisioningState` returns `Succeeded`, retry the node pool deletion.
-
-A direct node pool reprovision doesn't clear this state. Repair the AKS cluster first.
+1. Retry deletion through Discovery only after the supported recovery procedure indicates it's safe.
 
 ## Related content
 

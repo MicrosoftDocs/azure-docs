@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="420" viewBox="0 0 1080 420" role="img" aria-labelledby="title description">
+  <title id="title">Blob access point connection types</title>
+  <desc id="description">With a public connection, Azure Storage reaches the public HTTPS endpoint of the data source over the internet. If the data source restricts inbound traffic, it can allow the Storage service tag. With a private connection, which is in preview, Azure Storage creates and manages a managed private endpoint that connects to your Private Link service or Application Gateway. You approve the private endpoint connection on that resource, and the resource reaches the private IP address of the data source in Azure or on-premises.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#365a75"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; fill: #172b3a; font-size: 15px; }
+      .section { font-size: 19px; font-weight: 600; }
+      .heading { font-size: 17px; font-weight: 600; }
+      .connector { fill: none; stroke: #365a75; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1080" height="420" fill="#ffffff"/>
+
+  <text class="section" x="20" y="38">Public connection</text>
+
+  <rect x="20" y="60" width="220" height="90" rx="8" fill="#eef6fd" stroke="#7baed6" stroke-width="2"/>
+  <text class="heading" x="130" y="95" text-anchor="middle">Storage account</text>
+  <text x="130" y="120" text-anchor="middle">Blob access point</text>
+  <text x="130" y="140" text-anchor="middle">and configuration</text>
+
+  <path class="connector" d="M 240 105 H 838"/>
+  <text x="540" y="93" text-anchor="middle">Over the internet (HTTPS)</text>
+  <text x="540" y="130" text-anchor="middle">If the data source restricts inbound traffic, allow the Storage service tag</text>
+
+  <rect x="840" y="60" width="220" height="90" rx="8" fill="#edf7f0" stroke="#80b991" stroke-width="2"/>
+  <text class="heading" x="950" y="95" text-anchor="middle">Data source</text>
+  <text x="950" y="122" text-anchor="middle">Public HTTPS endpoint</text>
+
+  <line x1="20" y1="182" x2="1060" y2="182" stroke="#c8d1da" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <text class="section" x="20" y="222">Private connection (preview)</text>
+
+  <rect x="20" y="240" width="220" height="100" rx="8" fill="#eef6fd" stroke="#7baed6" stroke-width="2"/>
+  <text class="heading" x="130" y="278" text-anchor="middle">Storage account</text>
+  <text x="130" y="303" text-anchor="middle">Blob access point</text>
+  <text x="130" y="323" text-anchor="middle">and configuration</text>
+
+  <rect x="290" y="240" width="220" height="100" rx="8" fill="#eef6fd" stroke="#7baed6" stroke-width="2"/>
+  <text class="heading" x="400" y="272" text-anchor="middle">Managed private</text>
+  <text class="heading" x="400" y="294" text-anchor="middle">endpoint</text>
+  <text x="400" y="322" text-anchor="middle">Created by Azure Storage</text>
+
+  <rect x="560" y="240" width="240" height="100" rx="8" fill="#f4f1fa" stroke="#a595c4" stroke-width="2"/>
+  <text class="heading" x="680" y="283" text-anchor="middle">Private Link service</text>
+  <text class="heading" x="680" y="305" text-anchor="middle">or Application Gateway</text>
+
+  <rect x="840" y="240" width="220" height="100" rx="8" fill="#edf7f0" stroke="#80b991" stroke-width="2"/>
+  <text class="heading" x="950" y="278" text-anchor="middle">Data source</text>
+  <text x="950" y="303" text-anchor="middle">Private IP address in</text>
+  <text x="950" y="323" text-anchor="middle">Azure or on-premises</text>
+
+  <path class="connector" d="M 240 290 H 288"/>
+  <path class="connector" d="M 510 290 H 558"/>
+  <path class="connector" d="M 800 290 H 838"/>
+
+  <rect x="20" y="378" width="16" height="16" rx="3" fill="#eef6fd" stroke="#7baed6" stroke-width="2"/>
+  <text x="44" y="391">Azure Storage</text>
+  <rect x="200" y="378" width="16" height="16" rx="3" fill="#f4f1fa" stroke="#a595c4" stroke-width="2"/>
+  <text x="224" y="391">Your Private Link-enabled resource</text>
+  <rect x="500" y="378" width="16" height="16" rx="3" fill="#edf7f0" stroke="#80b991" stroke-width="2"/>
+  <text x="524" y="391">Your data source</text>
+</svg>

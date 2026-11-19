@@ -54,3 +54,47 @@ items:
     - name: Azure VMware Solution landing zone accelerator
       href: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
 
+- name: Azure Workload Center for Oracle (Preview)
+  items:
+  - name: Overview
+    href: overview.md
+  - name: Concepts
+    items:
+    - name: Discovery and resource association
+      href: discovery-resource-association.md
+    - name: Workload health observability
+      href: workload-health-observability.md
+    - name: Azure Copilot Run Oracle Agent
+      href: run-oracle-agent.md
+    - name: Configuration validation
+      href: configuration-validation.md
+  - name: How-to guides
+    items:
+    - name: Permissions and prerequisites
+      href: get-started-prerequisites-permissions.md
+    - name: Enroll an Oracle system
+      href: enroll-oracle-system.md
+    - name: Manage an Oracle workload (Preview)
+      href: manage-oracle-workload-virtual.md
+    - name: Get started with Run Oracle Agent
+      href: run-oracle-agent-get-started.md
+    - name: Get started with configuration validation
+      href: configuration-validation-get-started.md
+    - name: Review configuration findings and manage checks
+      href: review-configuration-findings.md
+    - name: Configuration deviation notifications
+      href: configuration-deviation-notifications.md
+    - name: View Advisor recommendations
+      href: advisor-recommendations.md
+    - name: View health of a WVI
+      href: view-workload-health.md
+    - name: Manage and customize health
+      href: manage-workload-health.md
+    - name: Investigate configuration deviations
+      href: investigate-configuration-deviations.md
+    - name: Perform impact analysis
+      href: impact-analysis.md
+  - name: Supported resources
+    href: supported-resources.md
+  - name: FAQ
+    href: faq.md

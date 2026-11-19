@@ -5,7 +5,7 @@ author: surajmb
 title: Use GitHub Copilot in Microsoft Discovery
 description: Learn how to enable and use GitHub Copilot within the Microsoft Discovery Studio preview experience for AI-assisted scientific research.
 ms.topic: how-to
-ms.date: 06/05/2026
+ms.date: 11/17/2026
 ---
 
 
@@ -42,6 +42,8 @@ The following tags control feature availability:
 |-----|-------------|---------|
 | `discovery.workbench.enableGhcpAiFeatures` | Enables GitHub Copilot and AI features | `false` |
 | `discovery.workbench.enableExtensions` | Enables the VS Code Extension Marketplace | `false` |
+
+You can update these two feature tags on an existing workspace. Set `NetworkIsolation` when you create the workspace; updating the feature tags doesn't change network isolation.
 
 ### Steps to enable
 
@@ -104,13 +106,15 @@ Files persist in your Microsoft Discovery workspace's managed resource group acr
 
 ### Shared across the project
 
-All users within the same project and workspace can access the following resources:
+You can share the following resources within a project. Access depends on effective role assignments on the project and each linked resource. Project membership alone doesn't grant access to all shared resources:
 
 - Shared sessions (investigations) and their chat history
 - Storage containers and storage assets
 - Foundry agents
 - Tools
 - Knowledge bases
+
+Pair project roles with the required resource roles. See [Project-level access control](concept-project-rbac.md#pair-project-roles-with-resource-roles).
 
 > [!NOTE]
 > You can continue to access shared sessions through the Microsoft Discovery Studio UI alongside GitHub Copilot. Use Copilot as the orchestrator for your Foundry agents to combine the interactive UI experience with AI-powered automation.

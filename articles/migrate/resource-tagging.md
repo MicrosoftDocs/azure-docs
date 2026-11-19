@@ -1,6 +1,6 @@
 ---
-title: Tags in Azure Migrate
-description: Azure Migrate tags help you organize and manage migration resources efficiently. Discover how to group workloads for better visibility and control.
+title: Tags in Azure Catalyst
+description: Azure Catalyst tags help you organize and manage migration resources efficiently. Discover how to group workloads for better visibility and control.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: how-to

@@ -2,7 +2,7 @@
 title: Create and Manage Function Apps in a Flex Consumption Plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
 ms.service: azure-functions
-ms.date: 10/12/2026
+ms.date: 11/09/2026
 ms.topic: how-to
 ms.custom:
   - build-2024
@@ -20,6 +20,8 @@ zone_pivot_groups: programming-languages-set-functions
 # Create and manage function apps in the Flex Consumption plan
 
 This article shows you how to create function apps hosted in the [Flex Consumption plan](./flex-consumption-plan.md) in Azure Functions. It also shows you how to manage certain features of a Flex Consumption plan hosted app.
+
+The create and deployment procedures in this article apply to apps that use code packages. To create or configure a Flex Consumption function app that uses a container image for OS-level dependencies, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 Function app resources are language-specific. Make sure to choose your preferred code development language at the beginning of the article.
 
@@ -48,7 +50,7 @@ Function app resources are language-specific. Make sure to choose your preferred
 
 ## Create a Flex Consumption app
 
-This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md#iac-samples-overview).
+This section shows you how to create a code-package function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan by using Bicep or ARM templates, see the [Flex Consumption repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md#iac-samples-overview).
 ::: zone pivot="programming-language-java"
 You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).
 ::: zone-end
@@ -151,7 +153,7 @@ To support your function code, you need to create three resources:
 
 ## Deploy your code project
 
-For deployment, Flex Consumption plan apps use a Blob storage container to host .zip package files that contain your project code and all libraries that are required for your app to run. For more information, see [Deployment](flex-consumption-plan.md#deployment).
+This section applies to Flex Consumption apps that use code packages. For deployment, these apps use a Blob storage container to host .zip package files that contain your project code and all libraries that are required for your app to run. For more information, see [Deployment](flex-consumption-plan.md#deployment). To deploy a container image instead, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 ::: zone pivot="programming-language-java"
 You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).
 ::: zone-end
@@ -731,7 +733,7 @@ az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --stor
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 
-This example sets the always ready instance count for all Durable trigger functions to `3` and sets the always ready instance count to `2` for a service bus triggered function named `function5`:
+This example sets the always ready instance count for all Durable trigger functions to `3` and sets the always ready instance count to `2` for a Service Bus triggered function named `function5`:
 
 ```azurecli
 az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances durable=3 function:function5=2

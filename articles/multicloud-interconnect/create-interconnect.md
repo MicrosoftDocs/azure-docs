@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Multicloud Interconnect Preview resource
-description: Learn how to create an Azure Multicloud Interconnect Preview resource in the Azure portal and generate an activation key for your cloud provider.
+title: Create an Azure Multicloud Interconnect resource
+description: Learn how to create an Azure Multicloud Interconnect resource in the Azure portal and generate an activation key for your cloud provider.
 author: duongau
 ms.author: duau
 ms.service: azure
@@ -11,13 +11,10 @@ ms.date: 08/25/2026
 
 # Create an Azure Multicloud Interconnect Preview resource
 
-This article shows you how to create an Azure Multicloud Interconnect Preview resource in the Azure portal and generate an activation key. You redeem that key with your cloud service provider to complete the connection.
+This article shows you how to create an Azure Multicloud Interconnect resource in the Azure portal and generate an activation key. You redeem that key with your cloud service provider to complete the connection.
 
 Azure Multicloud Interconnect supports two onboarding paths. Use this article when you start the request in Azure. If your provider generated the activation key instead, see [Redeem an Azure Multicloud Interconnect Preview activation key](redeem-activation-key.md).
 
-> [!IMPORTANT]
-> Azure Multicloud Interconnect is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 

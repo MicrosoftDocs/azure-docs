@@ -43,7 +43,7 @@ productDirectory:
       items:
       # Card
       - title: Azure HPC Scenarios and Migration Guidelines
-        imageSrc: ../media/index/migrate.svg
+        imageSrc: ../media/index/azure-catalyst.svg
         links:
            - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
              text: Introduction to HPC Scenario

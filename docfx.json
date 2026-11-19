@@ -938,7 +938,7 @@
         "articles/governance/management-groups/**/*.md": "azure-governance"
       },
       "monikerRange": {
-        "articles/migrate/**/*.md": "<=migrate-classic >=migrate"
+        "articles/migrate/**/*.md": "migrate-classic || migrate"
       },
       "recommendations": {},
       "no-loc": {
@@ -1381,7 +1381,7 @@
       },
       "migrate": {
         "dest": "migrate",
-        "moniker_range": "<=migrate-classic >=migrate"
+        "moniker_range": "migrate-classic || migrate"
       }
     },
     "dest": "azure",

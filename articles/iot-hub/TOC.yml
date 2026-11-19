@@ -22,6 +22,16 @@
     - name: Send telemetry using CLI
       href: quickstart-send-telemetry-cli.md
       displayName: Azure CLI
+- name: IoT Hub with MQTT v5 (preview)
+  items:
+    - name: Overview
+      href: mqtt-v5-overview.md
+    - name: Get started
+      href: mqtt-v5-get-started.md
+    - name: Configure an MQTT v5 hub
+      href: mqtt-v5-cloud-setup.md
+    - name: Configure custom topics
+      href: mqtt-v5-custom-topics.md
 - name: Plan and scale your IoT Hub
   items:
     - name: Choose the right IoT Hub tier
@@ -40,10 +50,12 @@
       displayName: service tags, firewall rules, IP filter
     - name: Best practices for Azure Device Registry namespaces
       href: ../iot/device-registry/best-practices-namespaces.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
-    - name: Protocol support
+    - name: Protocols and connection profiles
       items:
-        - name: MQTT support
+        - name: MQTT v3.1.1 support (classic)
           href: iot-mqtt-connect-to-iot-hub.md
+        - name: MQTT v5 support (preview)
+          href: mqtt-v5-capabilities.md
         - name: AMQP support
           href: iot-hub-amqp-support.md
         - name: Supporting additional protocols
@@ -76,6 +88,8 @@
         displayName: X.509 certificates, root certificate authority (CA), verify certificate, certificate signing request (CSR)
 - name: Connect a device
   items: 
+    - name: Connect a device using MQTT v5 (preview)
+      href: mqtt-v5-device-setup.md
     - name: Create and connect a device
       href: create-connect-device.md
     - name: Tutorial - Connect a device with MQTT
@@ -117,6 +131,8 @@
   items:
     - name: Create and read IoT Hub messages
       href: iot-hub-devguide-messages-construct.md
+    - name: Prepare telemetry for agents and analytics
+      href: iot-hub-agent-ready-data.md
     - name: Understand non-telemetry event schemas
       href: iot-hub-non-telemetry-event-schema.md
       displayName: lifecycle, state events, twin change events
@@ -198,6 +214,8 @@
     - name: Choose an IoT Hub SDK
       href: iot-hub-devguide-sdks.md
       displayName: device SDK, service SDK, management SDK, compatibility
+    - name: Unified Azure IoT SDKs
+      href: ../iot/device-registry/concept-unified-iot-sdks.md
     - name: Understand job scheduling
       href: iot-hub-devguide-jobs.md
     - name: Create back-end app to schedule jobs
@@ -233,6 +251,8 @@
       displayName: security, Transport Layer Security, TLS 1.3, Private Link, private endpoint
     - name: Migrate to a new TLS certificate root
       href: migrate-tls-certificate.md
+    - name: Update root certificate in national clouds
+      href: update-root-certificate-national-clouds.md
     - name: Virtual networks support with Azure Private Link
       href: virtual-network-support.md
       displayName: Security, Private Link, network isolation, private endpoint
@@ -289,6 +309,8 @@
       displayName: disaster recovery, failback, failover, geo-redundancy
 - name: Troubleshoot
   items:
+    - name: Investigate with Azure MCP Server
+      href: iot-hub-troubleshoot-mcp.md
     - name: Troubleshoot device connectivity
       href: iot-hub-troubleshoot-connectivity.md
     - name: Troubleshoot message routing
