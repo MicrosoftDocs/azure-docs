@@ -15,7 +15,7 @@ This article describes what Azure Multicloud Interconnect supports, along with t
 
 ## Supported cloud providers
 
-Azure Multicloud Interconnect supports Amazon Web Services (AWS) during preview. Support for other cloud service providers is announced separately.
+Azure Multicloud Interconnect is generally available for Amazon Web Services (AWS) and in public preview for Google Cloud. The following table lists supported providers, release stages, and bandwidth options.
 
 | Provider | Release stage | Supported bandwidth  | 
 |---------------|-----|-----|
