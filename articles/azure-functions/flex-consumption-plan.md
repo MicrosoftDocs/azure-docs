@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 11/09/2026
+ms.date: 11/17/2026
 ms.custom:
   - references_regions
   - build-2024
@@ -174,6 +174,20 @@ Flex Consumption supports two deployment paths:
 
 > [!TIP]
 > For code-package deployments, the Azure portal provides a **Flex Consumption Deployment** diagnostic tool. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Consumption Deployment`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
+
+### Deployment validation for code-package apps
+
+To validate a new package, Azure starts your app with that package on a temporary instance, verifies that the Functions host is ready, and syncs your triggers. When validation succeeds, Azure marks the package active and updates the instances serving your app.
+
+Successful validation confirms that:
+
+- Azure can retrieve and load the new deployment package on an instance.
+- The Functions host starts with the new package and reports that it's ready, so your app isn't failing at startup.
+- Azure can get your function and trigger information from the new package and sync your triggers.
+
+Validation doesn't run your functions, process trigger events, or test calls to downstream services. Configuration or connectivity problems that prevent the host startup can cause validation to fail.
+
+If validation fails, is skipped, or times out, Azure falls back to the previous deployment process, which can still deploy the package. A successful deployment doesn't necessarily mean validation passed or that the package is valid. You might see messages about validation or fallback in Application Insights. If your functions don't run as expected, use the **Flex Consumption Deployment** diagnostic tool to investigate.
 
 ### Zero-downtime deployments for code-package apps
 
