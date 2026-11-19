@@ -177,7 +177,17 @@ Flex Consumption supports two deployment paths:
 
 ### Deployment validation for code-package apps
 
-To validate a new package, Azure starts your app on a temporary instance, verifies that the Functions host is ready, and syncs your triggers. When validation succeeds, Azure marks the package active and updates the instances serving your app.
+To validate a new package, Azure starts your app with that package on a temporary instance, verifies that the Functions host is ready, and syncs your triggers. When validation succeeds, Azure marks the package active and updates the instances serving your app.
+
+Successful validation confirms that:
+
+- Azure can retrieve and load the new deployment package on an instance.
+- The Functions host starts with the new package and reports that it's ready, so your app isn't failing at startup.
+- Azure can get your function and trigger information from the new package and sync your triggers.
+
+Configuration or connectivity problems that prevent the host from starting can cause validation to fail.
+
+Validation doesn't run your functions, process trigger events, or test calls to downstream services. It also doesn't confirm that every expected function was indexed or guarantee instance health after rollout. After you deploy, check that your functions are listed and running as expected.
 
 If validation fails, is skipped, or times out, Azure falls back to the previous deployment process, which can still deploy the package. A successful deployment doesn't necessarily mean validation passed or that the package is valid. You might see messages about validation or fallback in Application Insights. If your functions don't run as expected, use the **Flex Consumption Deployment** diagnostic tool to investigate.
 
