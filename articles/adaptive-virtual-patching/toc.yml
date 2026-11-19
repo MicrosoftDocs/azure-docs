@@ -22,7 +22,7 @@ items:
 - name: Resources
   items:
   - name: Pricing
-    href: overview.md#pricing
+    href: https://azure.microsoft.com/pricing/details/adaptive-virtual-patching/
   - name: Azure Networking blog
     href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Microsoft Learn training for Azure networking

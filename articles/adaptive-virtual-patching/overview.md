@@ -13,12 +13,16 @@ ms.custom: references_regions
 
 Azure Adaptive Virtual Patching is an AI-driven, preemptive security service that protects Azure resources from known and emerging vulnerabilities, including zero-day threats. It bridges the gap between public disclosure of vulnerabilities (CVEs) and patch deployment by applying temporary protection to running workloads. This protection reduces exposure to resource exploitation while giving you time to evaluate the vulnerability and deploy a permanent software patch.
 
+:::image type="content" source="media/overview/adaptive-virtual-patching-diagram.png" alt-text="Diagram of Azure Adaptive Virtual Patching. Threat intelligence sources, including MSRC bulletins, CVE feeds, and exploit telemetry, feed an AI core that maps the threat surface of protected Azure resources, generates mitigations, and enforces them at the network." lightbox="media/overview/adaptive-virtual-patching-diagram.png" border="true":::
+
 > [!IMPORTANT]
 > Azure Adaptive Virtual Patching is in preview. Supported features, configurations, and limitations can change before general availability. For more information, see [Prerequisites](deploy-adaptive-shield-portal.md#prerequisites), [Preview limitations](#preview-limitations), and [Supported regions](#supported-regions).
 
 ## Key benefits
 
 Some vulnerabilities can't be patched right away. A patch might require a maintenance window, a reboot, or extensive testing. During that time, workloads remain exposed.
+
+:::image type="content" source="media/overview/patch-cycle-risk-window.png" alt-text="Diagram of a traditional enterprise patch cycle. A vulnerability is announced on day 0, and the stages to assess, test, approve, and deploy a patch take five to eight weeks. Attackers can exploit the vulnerability during this risk window." lightbox="media/overview/patch-cycle-risk-window.png" border="true":::
 
 By using Azure Adaptive Virtual Patching (AVP), you can:
 
@@ -59,7 +63,6 @@ You can manually roll back an applied mitigation at any time, as long as it supp
 
 Azure Adaptive Virtual Patching is available in the following regions for preview:
 
-- North Central US
 - West Central US
 - East US 2
 - West US
@@ -67,9 +70,6 @@ Azure Adaptive Virtual Patching is available in the following regions for previe
 - Australia East
 - Southeast Asia
 - Japan East
-- Europe North
-- Switzerland North
-- UAE North
 
 Early access (EUAP) regions are also available for testing:
 
