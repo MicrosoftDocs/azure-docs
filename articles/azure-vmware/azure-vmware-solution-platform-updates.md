@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 11/18/2026
+ms.date: 11/19/2026
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
@@ -13,6 +13,10 @@ ms.date: 11/18/2026
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
 
 ## November 2026
+
+**VMSA-2026-0009 remediation plan**
+
+To address the vulnerabilities (CVE-2026-123890, CVE-2026-123891, CVE-2026-123892, CVE-2026-123893, CVE-2026-123894) reported in Broadcom security advisory [VMSA-2026-0009](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495), all vCenter Server and ESXi hosts will be upgraded to [vCenter Server 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3m-release-notes.html) and [ESXi 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3m-release-notes.html), once vSphere 8.0 U3m has been fully qualified and tested with Azure VMware Solution (estimate November 2026). Even though VMSA-2026-0009 does not explicitly mention ESXi 8.0 U3m, we are including for operational consistency. [Learn more](azure-vmware-solution-known-issues.md)
 
 **Introduction to VMware Cloud Foundation 9.1**
 
