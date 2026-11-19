@@ -159,11 +159,11 @@ You can create different UAMIs each with their own required permissions for spec
 
 #### d. Assign Azure Role Based Access Control (RBAC) roles to UAMI
 
-Assign the following built-in roles to the new User Assigned Managed Identity at resource group scope:
+For a single shared user-assigned managed identity (UAMI), assign the following core roles at the resource group scope before creating Discovery resources.
 
-- Microsoft Discovery Platform Contributor (Preview)
-- Storage Blob Data Contributor
-- ACRPull
+[!INCLUDE [Shared UAMI core roles](includes/shared-uami-core-roles.md)]
+
+The roles let the identity manage Discovery resources (workspaces, projects, agents, and tools), read and write Azure Storage blobs, and pull container images from Container Registry. Each list entry includes the role definition ID.
 
 Also assign **Network Contributor** on the referenced virtual network. If the network is in a separate resource group, use that virtual network's scope rather than the platform resource group's scope.
 
