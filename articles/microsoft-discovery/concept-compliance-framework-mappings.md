@@ -5,7 +5,7 @@ author: yousefi-msft
 ms.author: yousefi
 ms.service: azure
 ms.topic: concept-article
-ms.date: 09/05/2026
+ms.date: 11/18/2026
 ms.custom: security, compliance
 #CustomerIntent: As a security reviewer, I want to know which Microsoft Discovery controls I must assess myself and which authoritative Microsoft sources cover the rest so that I can complete a compliance review without duplicating platform-level analysis.
 ---
@@ -51,7 +51,7 @@ These are the control decisions that are specific to Microsoft Discovery and tha
 
 | Control area | Discovery-specific evidence to capture | Reference |
 | --- | --- | --- |
-| Deployment and trust boundary | Resources deploy to your subscription and tenant; a managed resource group holds backend resources; the control plane runs in East US, Sweden Central, and UK South, with cross-region data-plane deployment available. | [Security and compliance overview](concept-security-overview.md), [Service architecture](overview-service-architecture.md) |
+| Deployment and trust boundary | Resources deploy to your subscription and tenant; a managed resource group holds backend resources; the control plane runs in [supported home regions](concept-security-overview.md#data-residency), with cross-region data-plane deployment available. | [Security and compliance overview](concept-security-overview.md), [Service architecture](overview-service-architecture.md) |
 | Identity and access | Discovery built-in platform roles, project-level roles that isolate investigations, and the identity slots that require user-assigned managed identities rather than secrets. | [Role assignments](concept-role-assignments.md), [Project-level access control](concept-project-rbac.md), [Managed identities](concept-managed-identities.md) |
 | Encryption at rest | Microsoft-managed keys by default; customer-managed keys available for workspace, supercomputer, and bookshelf resources, and selectable only at resource creation time. | [Data encryption at rest](concept-data-encryption-at-rest.md) |
 | Network security | Network hardening on by default from API version `2026-02-01-preview`; private endpoints for workspace and bookshelf data-plane APIs; virtual network injection through delegated subnets; the scope of the NSP Perimeter Joiner custom role. | [Network security](concept-network-security.md), [Virtual networks](concept-virtual-networks.md) |

@@ -3,7 +3,7 @@ title: Network security for Microsoft Discovery
 description: Understand how Microsoft Discovery uses Network Security Perimeters and private endpoints to protect managed resources and data-plane traffic.
 ms.service: azure
 ms.topic: concept-article
-ms.date: 11/10/2026
+ms.date: 11/18/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -60,8 +60,9 @@ These backend controls don't require clients to use a private endpoint for works
 
 For network-hardening preparation, the Discovery first-party service principal (**Discovery control-plane service App**) needs two role assignments on your subscription:
 
-- **Discovery NSP Perimeter Joiner** (custom role) - Grants the join permissions used by the Discovery control plane during network-hardening preparation. It doesn't grant arbitrary perimeter or access-rule administration.
-- At least **Reader** (built-in role) - Allows the service principal to enumerate subscription resources for network configuration validation. If you already have Owner or Contributor assigned, a separate Reader assignment isn't needed.
+[!INCLUDE [Control-plane network roles](includes/control-plane-network-roles.md)]
+
+**Discovery NSP Perimeter Joiner** grants the join permissions used by the Discovery control plane during network-hardening preparation. It doesn't grant arbitrary perimeter or access-rule administration. **Reader** allows the service principal to enumerate subscription resources for network configuration validation. If it already has **Owner** or **Contributor** assigned, a separate **Reader** assignment isn't needed.
 
 For steps to create and assign these roles, see [Configure network security](how-to-configure-network-security.md#assign-the-nsp-perimeter-joiner-role).
 

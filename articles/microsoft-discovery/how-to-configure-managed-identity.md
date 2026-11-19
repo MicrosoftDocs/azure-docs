@@ -41,8 +41,13 @@ Both approaches work with Microsoft Discovery. The quickstart guides use a singl
 
 - An active Azure subscription enabled for **Microsoft Discovery**.
 - **Managed Identity Contributor** role at the resource group or subscription level - required to create UAMI resources.
-- **User Access Administrator**, **Role Based Access Control Administrator**, or **Owner** at the assignment scope - required to grant roles to the UAMI.
 - The `Microsoft.ManagedIdentity` resource provider [registered](how-to-register-resource-providers.md) in your subscription.
+
+To assign Azure roles, you need one of the following roles at the assignment scope:
+
+[!INCLUDE [Role-assignment authority](includes/role-assignment-authority.md)]
+
+Owner manages resources and user access and is recommended for initial platform setup. User Access Administrator manages user access without requiring full resource management permissions. Role Based Access Control Administrator manages role assignments without the broader access management permissions of User Access Administrator.
 
 ## Create a user-assigned managed identity
 

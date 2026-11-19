@@ -3,7 +3,7 @@ title: Configure network security for Microsoft Discovery workspaces
 description: Learn how to assign NSP roles, configure subnets, create private endpoints, and configure DNS for Microsoft Discovery workspaces.
 ms.service: azure
 ms.topic: how-to
-ms.date: 11/17/2026
+ms.date: 11/18/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -28,7 +28,13 @@ This article walks you through the prerequisites for network hardening and how t
 
 ## Assign the NSP Perimeter Joiner role
 
-The Discovery control plane needs permission to associate managed resources with its Network Security Perimeter. Create the custom role and assign it to the **Discovery control-plane service App** service principal, together with subscription Reader. The join role doesn't grant arbitrary perimeter or access-rule administration. [Onboarding Stage 2](how-to-prepare-landing-zone.md) automates this preparation.
+For network-hardening preparation, the Discovery first-party service principal (**Discovery control-plane service App**) needs two role assignments on your subscription:
+
+[!INCLUDE [Control-plane network roles](includes/control-plane-network-roles.md)]
+
+**Discovery NSP Perimeter Joiner** grants the join permissions used by the Discovery control plane during network-hardening preparation. It doesn't grant arbitrary perimeter or access-rule administration. **Reader** allows the service principal to enumerate subscription resources for network configuration validation. If it already has **Owner** or **Contributor** assigned, a separate **Reader** assignment isn't needed.
+
+Create the custom role and assign these roles before creating network-hardened Discovery resources. [Onboarding Stage 2](how-to-prepare-landing-zone.md) automates this preparation.
 
 ### Verify the service principal
 

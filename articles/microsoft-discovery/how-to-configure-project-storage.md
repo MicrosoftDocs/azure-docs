@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 11/10/2026
+ms.date: 11/18/2026
 ---
 
 # Configure project storage for Microsoft Discovery
@@ -20,9 +20,14 @@ For the onboarding tool, create the account before Stage 1, and then let [Stage 
 
 - An active Azure subscription and permission to create and configure storage in the selected resource group, such as Storage Account Contributor or Contributor.
 - The `Microsoft.Storage` resource provider registered.
-- For role assignments, Owner, User Access Administrator, or Role Based Access Control Administrator at the assignment scope.
 - For final networking, an approved virtual network, subnet, and client-access plan. You can create the account before the final virtual network exists.
 - For runtime access, a [precreated UAMI](how-to-configure-managed-identity.md). Create its role assignments once the relevant resources exist.
+
+To assign Azure roles, you need one of the following roles at the assignment scope:
+
+[!INCLUDE [Role-assignment authority](includes/role-assignment-authority.md)]
+
+Owner manages resources and user access and is recommended for initial platform setup. User Access Administrator manages user access without requiring full resource management permissions. Role Based Access Control Administrator manages role assignments without the broader access management permissions of User Access Administrator.
 
 ## Role of storage in Microsoft Discovery
 

@@ -35,7 +35,7 @@ The following prerequisites apply to both the Azure portal and Bicep experiences
 
 - An active [Azure subscription](https://portal.azure.com) that's enabled (allow-listed) for Microsoft Discovery access. If your subscription isn't yet enabled, contact your Microsoft account representative to request access.
 - **Sufficient permissions** in your Azure subscription to register resource providers, assign roles, and create resources:
-  - The **Owner**, **Role Based Access Control Administrator**, or **User Access Administrator** role is required to assign roles to administrators (Platform Admins, Scientists, and Engineers) who manage and use Discovery resources. For the full list of required roles, see [Roles required by persona](concept-role-assignments.md#roles-required-by-persona).
+  - [Role-assignment authority](concept-role-assignments.md#who-can-assign-microsoft-discovery-roles) is required to grant roles to administrators, scientists, and engineers who manage and use Discovery resources. For the full list of required roles, see [Roles required by persona](concept-role-assignments.md#roles-required-by-persona).
   - A **Contributor** or higher privileged role (for example, **Owner**) is required to register resource providers and create a resource group.
 
     > [!TIP]
@@ -50,7 +50,7 @@ The following prerequisites apply to both the Azure portal and Bicep experiences
 
    Review the [dependent providers](#required-resource-providers) too.
 
-- **Assign the Discovery NSP Perimeter Joiner role.** Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default using Network Security Perimeter (NSP) rules. Before you create your first workspace, bookshelf, or supercomputer, you must create the **Discovery NSP Perimeter Joiner** custom role. Once created, assign the **Discovery NSP Perimeter Joiner** custom role and the **Reader** role to the Discovery control-plane service App (the first-party service principal) so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
+- **Prepare network-hardening permissions.** Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default using Network Security Perimeter (NSP) rules. Before creating these resources, follow [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role) to create the custom role and assign the required control-plane roles.
 - **Microsoft Foundry, Azure OpenAI quotas, and VM SKU/quotas** available in your chosen region. See [Quota reservations](./concept-quota-reservation.md).
 - An existing **resource group**, or permissions to [create a new one](../azure-resource-manager/management/manage-resource-groups-portal.md). Creating a resource group requires **Contributor** role on the subscription.
 
@@ -60,8 +60,16 @@ After registering `Microsoft.Discovery`, review and register the following depen
 
 [!INCLUDE [Dependent resource providers](includes/deployment-resource-providers.md)]
 
+### Supported home regions
+
+Microsoft Discovery supports the following home regions for its control-plane resources:
+
+[!INCLUDE [Supported home regions](includes/supported-home-regions.md)]
+
+Region support doesn't guarantee model or compute capacity.
+
 > [!IMPORTANT]
-> The current Bicep template accepts **East US**, **Sweden Central**, and **UK South** as home regions. Confirm the required model and compute quota in your chosen workload region before deployment; a template parameter doesn't guarantee available capacity. For this exercise, use matching home and workload regions and keep customer-managed resources in one subscription and resource group.
+> Select one of these home regions in the Bicep template. Confirm the required model and compute quota in your chosen workload region before deployment; a template parameter doesn't guarantee available capacity. For this exercise, use matching home and workload regions and keep customer-managed resources in one subscription and resource group.
 
 > [!NOTE]
 > You can associate a virtual network with only one Microsoft Discovery workspace. If you need multiple workspaces, create a separate virtual network and subnets for each one.

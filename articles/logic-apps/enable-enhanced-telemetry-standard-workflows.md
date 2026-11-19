@@ -7,7 +7,7 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.date: 11/18/2026
 ms.custom: sfi-image-nochange
 
 # Customer intent: As a developer, I want to turn on and view enhanced telemetry in Application Insights for Standard logic app workflows.
@@ -910,6 +910,41 @@ With Application Insights enhanced telemetry enabled, you can stream verbose deb
    The **Log stream** page connects to your Application Insights instance and shows the debugging output. For example, the following output includes request and response calls among other information:
 
    :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/log-stream.png" alt-text="Screenshot shows Azure portal and Standard logic app menu with selected item named Log stream." lightbox="media/enable-enhanced-telemetry-standard-workflows/log-stream.png":::
+
+## View Runs in logic apps Insights blade
+
+With Application Insights enabled, you can also view Runs under logic apps Insights blade in the Azure portal. Some prerequisites must be met in order for Runs to show up.
+
+1. Application Insights V2 integration must be enabled in host.json.
+
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
+    "version": " [1, 2.00) "
+  },
+  "extensions": {
+    "workflow": {
+      "Settings": {
+        "Runtime.ApplicationInsightTelemetryVersion": "v2"
+      }
+    }
+  }
+}
+
+2. If you do not see the list of workflows under Runs tab, likely you are missing one tag in this logic app. 
+
+name: hidden-link: /app-insights-resource-id
+value: /subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/components/{applicationinsightsname}
+
+This tag is automatically added only if you create application insights instance directly from Application Insights blade in the logic app page in portal or create insights instance when you create the logic app.  If you select existing instance of application insights it won't be added. You can check the JSON view on the Overview blade to verify whether your logic app has this tag. 
+
+If the logic app does not have this tag, you can use the following PowerShell method to add it. Please note you will not be able to add the tag through the Azure portal.  
+
+   1. Open PowrShell window and run "Install-Module -Name Az -AllowClobber -Scope CurrentUser". Close the window when it finishes.
+
+   2. Open another PowerShell windwow and run: New-AzTag -ResourceId "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupid}/providers/Microsoft.Web/sites/{logicappname}" -Tag @{ "hidden-link: /app-insights-resource-id" = "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/components/{applicationinsightsname}" }
+
 
 ## Next steps
 

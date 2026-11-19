@@ -5,7 +5,7 @@ author: yousefi
 ms.author: yousefi
 ms.service: azure
 ms.topic: how-to
-ms.date: 10/28/2026
+ms.date: 11/18/2026
 # Customer intent: As a platform administrator, I want to prepare the onboarding runner so that I can execute the stages with consistent inputs and appropriate access.
 ---
 
@@ -58,6 +58,12 @@ The stage scripts read `.xlsx` files without ImportExcel. The separate persona-r
 
 Confirm your deployment path in the [planning overview](concept-deployment-planning.md). Before filling in the workbook, review [network choices](how-to-plan-deployment-network.md) and [resource naming rules](reference-resource-naming.md).
 
+Microsoft Discovery supports the following home regions for its control-plane resources:
+
+[!INCLUDE [Supported home regions](includes/supported-home-regions.md)]
+
+Region support doesn't guarantee model or compute capacity.
+
 Stage 2 [registers the providers](how-to-register-resource-providers.md) it needs. A [container registry](how-to-configure-container-registry.md) is needed for custom tool images, not for this guide's Q&A test. These linked procedures aren't additional onboarding stages.
 
 ## Select the live Azure context
@@ -101,7 +107,7 @@ Before Stage 1, create or identify a platform resource group, UAMI, and project 
 
    Project storage is required even without Bookshelf. Get owner approval for a shared account: Stage 2 changes its firewall, CORS, containers, and private endpoints.
 
-1. Check [quota and capacity](concept-quota-reservation.md) in the selected region. Supported Discovery home regions are East US, Sweden Central, and UK South. Region support doesn't guarantee model or VM capacity.
+1. Check [quota and capacity](concept-quota-reservation.md) in the selected region.
 
 Set `controlPlaneRegion` for Discovery control-plane resources and `workloadRegion` for the VNet, subnets, and managed-resource-group resources. The regions can differ. For an existing network, prepare it in `workloadRegion` before Stage 1. Otherwise, Stage 2 can create it from your approved plan.
 
