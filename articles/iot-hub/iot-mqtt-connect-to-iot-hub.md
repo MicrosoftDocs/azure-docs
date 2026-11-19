@@ -455,7 +455,7 @@ For more information, see [Understand and invoke direct methods from IoT Hub](..
 
 1. The service then sends a response message containing the device certificate data on topic `$iothub/credentials/res/{status}/?$rid={request-id}`, using the same **request ID** as the request. This is a 200 status.
 
-The request ID can be any valid value for a message property value, and status is validated as an integer. For more information, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md). 
+The device supplies a request ID (`$rid`) that must be 4–36 characters long and contain only ASCII letters (`A–Z`, `a–z`), digits (`0–9`), or hyphens (`-`). It must not begin or end with a hyphen. Use a unique value for each new renewal request; a GUID is recommended, for example, `7d4beab2-0858-4f13-91b5-a6069fc43352`. IoT Hub includes the same request ID in its responses so the device can correlate them with the request. The status is validated as an integer. For more information, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md). 
 
 The response body contains the full chain for the renewed device certificate, as shown in the following response example:
 
