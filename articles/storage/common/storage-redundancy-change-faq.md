@@ -91,8 +91,6 @@ You incur no conversion charges when you **remove** geo-redundancy or zone redun
 - **ZRS** &rarr; **LRS**
 - **GZRS** &rarr; **GRS**
 
-Ongoing data storage and transaction charges apply according to the storage account's redundancy configuration.
-
 When you remove read access from a storage account, it continues to incur charges as *RA-GRS* or *RA-GZRS* for 30 days beyond the date on which it was converted. This policy applies to **RA-GRS &rarr; GRS** or **RA-GZRS &rarr; GZRS**.
 
 You can learn more about changing a storage account's replication options in the [Change the redundancy option for a storage account](redundancy-migration.md) article.
