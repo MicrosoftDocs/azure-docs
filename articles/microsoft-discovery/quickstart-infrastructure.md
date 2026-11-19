@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: quickstart
-ms.date: 11/17/2026
+ms.date: 11/18/2026
 ms.custom:
   - template-quickstart
   - subject-armqs
@@ -48,13 +48,17 @@ The following prerequisites apply to both the Azure portal and Bicep experiences
    1. Search for `Microsoft.Discovery`.
    1. Select the provider name and select **Register**.
 
-   > [!NOTE]
-   > Ensure that the following resource providers are also registered on your subscription. If not, register them:
-   > `Microsoft.Network`, `Microsoft.Compute`, `Microsoft.Storage`, `Microsoft.ManagedIdentity`, `Microsoft.AlertsManagement`, `Microsoft.Authorization`, `Microsoft.CognitiveServices`, `Microsoft.ContainerInstance`, `Microsoft.ContainerRegistry`, `Microsoft.ContainerService`, `Microsoft.DocumentDB`, `Microsoft.Features`, `Microsoft.KeyVault`, `Microsoft.MachineLearningServices`, `Microsoft.OperationalInsights`, `Microsoft.ResourceGraph`, `Microsoft.Search`, `Microsoft.Web`, `Microsoft.Insights`, `Microsoft.Resources`, `Microsoft.Sql`, `Microsoft.App`, `Microsoft.Bing`
+   Review the [dependent providers](#required-resource-providers) too.
 
 - **Assign the Discovery NSP Perimeter Joiner role.** Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default using Network Security Perimeter (NSP) rules. Before you create your first workspace, bookshelf, or supercomputer, you must create the **Discovery NSP Perimeter Joiner** custom role. Once created, assign the **Discovery NSP Perimeter Joiner** custom role and the **Reader** role to the Discovery control-plane service App (the first-party service principal) so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
 - **Microsoft Foundry, Azure OpenAI quotas, and VM SKU/quotas** available in your chosen region. See [Quota reservations](./concept-quota-reservation.md).
 - An existing **resource group**, or permissions to [create a new one](../azure-resource-manager/management/manage-resource-groups-portal.md). Creating a resource group requires **Contributor** role on the subscription.
+
+### Required resource providers
+
+After registering `Microsoft.Discovery`, review and register the following dependent providers for your planned services. This list covers the broader Discovery deployment guidance. The onboarding tool's Stage 2 registers its own implementation-defined subset and doesn't deploy every optional capability.
+
+[!INCLUDE [Dependent resource providers](includes/deployment-resource-providers.md)]
 
 > [!IMPORTANT]
 > The current Bicep template accepts **East US**, **Sweden Central**, and **UK South** as home regions. Confirm the required model and compute quota in your chosen workload region before deployment; a template parameter doesn't guarantee available capacity. For this exercise, use matching home and workload regions and keep customer-managed resources in one subscription and resource group.
