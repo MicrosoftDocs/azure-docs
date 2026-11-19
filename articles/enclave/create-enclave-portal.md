@@ -104,7 +104,7 @@ You can change an enclave's DNS servers without enabling maintenance mode.
 1. Under **DNS servers**, select **Azure-provided DNS service** or **Custom**. For custom DNS, enter up to 20 unique IPv4 addresses in priority order.
 1. Select **Apply**.
 
-Make sure your workloads can reach the custom DNS servers and that the servers can resolve the names your workloads need, including private endpoint names. Existing VMs might need a DHCP lease renewal or restart to use the updated DNS settings.
+Make sure your workloads can reach the custom DNS servers and that the servers can resolve the names your workloads need, including private endpoint names.
 
 ## References
 

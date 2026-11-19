@@ -75,4 +75,4 @@ Operations to avoid performing directly on the enclave virtual network include, 
 
 ## DNS servers
 
-Configure DNS servers through the enclave's **Configuration** page rather than editing the virtual network directly. Direct DNS changes can leave the virtual network's DNS settings out of sync with the enclave's confirmed configuration and cause a conflict when you update DNS through the enclave. For instructions, see [Update DNS servers](./create-enclave-portal.md#update-dns-servers).
+Configure DNS servers through the enclave's **Configuration** page instead of editing the virtual network directly. For instructions, see [Update DNS servers](./create-enclave-portal.md#update-dns-servers).
