@@ -128,7 +128,7 @@ Equal-cost multipath (ECMP) routing distributes traffic across multiple applianc
 
 Azure uses the [normal route selection process](#how-azure-selects-routes-for-traffic-routing) to select the route, then distributes traffic among its next hops. ECMP doesn't provide appliance-level load balancing or failover.
 
-#### Pre-requisities
+#### Prerequisites
 
 - Register `Microsoft.Network/AllowEcmpInRoute` in each subscription that contains ECMP routes. You need [feature registration permissions](../azure-resource-manager/management/preview-features.md#required-access), plus permissions to register the `Microsoft.Network` resource provider, manage routes, and update the source subnet.
 - Enable [IP forwarding](virtual-network-network-interface.md#enable-or-disable-ip-forwarding) on each NVA's network interface and in its operating system or software. Configure security policies and destination reachability on every NVA. Use a separate subnet from the source workloads to avoid routing loops.
