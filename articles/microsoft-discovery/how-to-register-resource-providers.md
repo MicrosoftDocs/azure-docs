@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 11/10/2026
+ms.date: 11/18/2026
 ---
 
 # Register Microsoft Discovery resource providers
@@ -52,32 +52,9 @@ You can register the `Microsoft.Discovery` resource provider using the Azure por
 
 The registration status changes from **Not Registered** to **Registering**, and then to **Registered**. Registration can take a few minutes. It runs in parallel across supported regions, so you don't need to wait for all regions to finish before you create resources.
 
-After registering `Microsoft.Discovery`, review and register the dependent providers for your planned services by using the same steps. This list covers the broader Discovery deployment guidance. The onboarding tool's Stage 2 registers its own implementation-defined subset and doesn't deploy every optional capability.
+After registering `Microsoft.Discovery`, review and register the following dependent providers for your planned services. This list covers the broader Discovery deployment guidance. The onboarding tool's Stage 2 registers its own implementation-defined subset and doesn't deploy every optional capability.
 
-- `Microsoft.Network`
-- `Microsoft.Compute`
-- `Microsoft.Storage`
-- `Microsoft.ManagedIdentity`
-- `Microsoft.AlertsManagement`
-- `Microsoft.Authorization`
-- `Microsoft.CognitiveServices`
-- `Microsoft.ContainerInstance`
-- `Microsoft.ContainerRegistry`
-- `Microsoft.ContainerService`
-- `Microsoft.DocumentDB`
-- `Microsoft.Features`
-- `Microsoft.KeyVault`
-- `Microsoft.MachineLearningServices`
-- `Microsoft.NetApp`
-- `Microsoft.OperationalInsights`
-- `Microsoft.ResourceGraph`
-- `Microsoft.Search`
-- `Microsoft.Web`
-- `Microsoft.Insights`
-- `Microsoft.Resources`
-- `Microsoft.Sql`
-- `Microsoft.App`
-- `Microsoft.Bing`
+[!INCLUDE [Dependent resource providers](includes/deployment-resource-providers.md)]
 
 #### Verify registration in the portal
 
