@@ -157,6 +157,8 @@ For more information, see [What is Azure Arc site manager (preview)?](/azure/azu
 
 If you use enterprise firewalls or proxies to manage outbound traffic, configure the following endpoints before deploying Azure IoT Operations.
 
+For traffic inside the cluster, including pod-to-pod connections and admission webhooks, see [Configure network policies for Azure IoT Operations](../manage-layered-network/howto-configure-network-policies.md).
+
 * Endpoints in the [Azure Arc-enabled Kubernetes endpoints](/azure/azure-arc/network-requirements-consolidated#azure-arc-enabled-kubernetes-endpoints).
 
   > [!NOTE]

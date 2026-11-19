@@ -171,6 +171,8 @@ items:
               - name: Deploy with private connectivity
                 href: manage-layered-network/howto-private-connectivity.md
                 displayName: Private Link, Arc Gateway, explicit proxy, private endpoints, storage, dataflow
+              - name: Configure network policies
+                href: manage-layered-network/howto-configure-network-policies.md
               - name: Troubleshoot private connectivity
                 href: manage-layered-network/howto-troubleshoot-private-connectivity.md
                 displayName: DNS, Private Endpoint, RBAC, SecretSync, Schema Registry, data flow, troubleshooting
