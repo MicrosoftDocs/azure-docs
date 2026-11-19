@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: concept-article
-ms.date: 11/10/2026
+ms.date: 11/18/2026
 ---
 
 # Role assignments in Microsoft Discovery
@@ -306,23 +306,27 @@ The storage container roles don't grant access to the underlying blob contents. 
 
 For onboarding automation, distinguish these target-user personas from the identity executing each stage. Planning and default readiness checks use subscription Reader; landing-zone preparation requires separate elevated authority. See [Onboarding permissions by stage](reference-deployment-permissions.md). Activate PIM-eligible roles before the operation that needs them; eligibility alone doesn't grant active access.
 
-The following table summarizes the recommended role combinations for each user persona. Roles can be assigned at the subscription or resource group scope. You can add more roles as your requirements grow.
+The following lists summarize the recommended role combinations for each user persona. Assign roles at the subscription or resource group scope, except where a specific scope is listed. You can add more roles as your requirements grow.
 
 > [!TIP]
 > Start with least-privilege roles scoped to the narrowest scope needed, and expand permissions only as required.
 
-| Platform administrator | Scientist / researcher | Reader / viewer |
-|-----------------------------|------------------------|-----------------|
-| Microsoft Discovery Platform Administrator (Preview) | Microsoft Discovery Platform Contributor (Preview) | Microsoft Discovery Platform Reader (Preview) |
-| Managed Identity Contributor | Storage Account Contributor | Reader |
-| Managed Identity Operator | Storage Blob Data Contributor | |
-| Storage Account Contributor | AcrPush | |
-| Storage Blob Data Contributor | Reader (subscription level) | |
-| Network Contributor | Foundry User (Workspace MRG level) | |
-| AcrPush | Microsoft Discovery Bookshelf Index Data Reader - Preview | |
-| Reader | | |
-| Foundry Owner (Workspace MRG level) | | |
-| Microsoft Discovery Bookshelf Index Data Reader - Preview | | |
+### Platform administrator
+
+The platform administrator persona uses the following roles:
+
+[!INCLUDE [Platform Administrator persona roles](includes/platform-administrator-roles.md)]
+
+### Scientist or researcher
+
+The scientist persona uses the following roles:
+
+[!INCLUDE [Scientist persona roles](includes/scientist-roles.md)]
+
+### Reader or viewer
+
+- Microsoft Discovery Platform Reader (Preview)
+- Reader
 
 ## Other Azure roles definition
 
