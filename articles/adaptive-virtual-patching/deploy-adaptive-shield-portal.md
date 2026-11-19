@@ -15,10 +15,13 @@ In this article, you learn how to deploy Azure Adaptive Virtual Patching by usin
 
 ## Prerequisites
 
+Before you deploy an Adaptive Shield, make sure that you have the following:
+
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- Access to the preview. To sign up, fill out the [Azure Adaptive Shield Public Preview intake form](https://aka.ms/AVP_RequestAccess). You should receive a response about access to the preview within 24 to 48 hours.
 - Your subscription has the `Microsoft.NetworkSecurity` resource provider and the `Microsoft.NetworkSecurity/AdaptiveVirtualPatchingPreview` preview feature registered. Register the resource provider first, and then register the preview feature. For steps, see [Register resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) and [Set up preview features in an Azure subscription](/azure/azure-resource-manager/management/preview-features).
 - The resource you want to protect is running, has outbound network connectivity, and has a system-assigned managed identity with the required permissions.
-- An **Automatic** upgrade policy for any virtual machine scale set you want to protect. Without that policy, Adaptive Shield protection doesn't work.
+- An **Automatic** upgrade policy for any virtual machine scale set you want to protect. Without that policy, Adaptive Shield protection doesn't work. For steps, see [Set the upgrade policy mode on Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-set-upgrade-policy?tabs=portal).
 - An Adaptive Shield and every resource you want to protect with it must be deployed in the same region. For the region list, see [Supported regions](overview.md#supported-regions).
 
 For other preview limitations, see [Preview limitations](overview.md#preview-limitations).
