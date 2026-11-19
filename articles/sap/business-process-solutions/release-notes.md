@@ -18,7 +18,7 @@ The following document outlines the changes to Business Process Solutions. Chang
 
 - Updated notebooks to emit telemetry logs for number of rows processed and table processing status.
 - Updated pipelines to check for active dataset before processing.
-- Update environment code to handle special fiscal period scenarios.
+- Updated environment code to handle special fiscal period scenarios.
 
 ## Version 1.0.6
 
