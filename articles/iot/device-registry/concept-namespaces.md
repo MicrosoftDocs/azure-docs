@@ -62,15 +62,7 @@ For more information, see [Integration with Azure Device Registry](../../iot-hub
 
 ## Planning constraints and limits
 
-The following limits apply to namespaces and Azure IoT Operations devices and assets. For the full list, see [Azure Device Registry limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-device-registry-limits).
-
-| Resource | Limit |
-|---|---|
-| Namespaces per subscription | 100 |
-| Devices per namespace | 10,000 |
-| Assets per namespace | 10,000 |
-
-For linked IoT hubs, see [IoT Hub with ADR integration (preview) limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-with-adr-integration-preview-limits), including devices per hub and hubs per namespace.
+For Azure Device Registry quotas and limits, see [Azure Device Registry limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-device-registry-limits).
 
 ## Related content
 
