@@ -4,7 +4,7 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 11/18/2026
+ms.date: 11/19/2026
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
@@ -13,6 +13,10 @@ ms.date: 11/18/2026
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
 
 ## November 2026
+
+**VMSA-2026-0009 remediation**
+
+To address the vulnerabilities (CVE-2026-123890, CVE-2026-123891, CVE-2026-123892, CVE-2026-123893, CVE-2026-123894) reported in Broadcom security advisory [VMSA-2026-0009](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495), all vCenter Server and ESXi hosts will be upgraded to [vCenter Server 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3m-release-notes.html) and [ESXi 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3m-release-notes.html), once vSphere 8.0 U3m has been fully qualified and tested with Azure VMware Solution (estimate November 2026). Even though VMSA-2026-0009 does not explicitly mention ESXi 8.0 U3m, we are including for operational consistency. [Learn more](azure-vmware-solution-known-issues.md)
 
 **Introduction to VMware Cloud Foundation 9.1**
 
@@ -138,31 +142,49 @@ vSAN in-transit encryption is now available in Azure VMware Solution through a R
 
 ## February 2025
 
+**Azure Elastic SAN**
+
 Azure Elastic SAN for AV64 SKU is now generally available. [Learn more](/azure/azure-vmware/configure-azure-elastic-san)
 
 ## December 2024
+
+**Azure Resource Health**
 
 Resource Health for Azure VMware Solution is now available in Public Preview. Resource Health, an Azure native feature, now monitors the health of Azure VMware Solution private cloud resources, provides recommended actions for current issues, and allows reporting on past and present resource health. [Learn more](resource-health-for-azure-vmware-solution-overview.md)
 
 ## November 2024
 
+**VMware vSphere 8.0 upgrades**
+
 Azure VMware Solution is now ready to update all existing Azure Commercial customers from vSphere 7 to vSphere 8 (Stretched Clusters & Azure Government still pending). Over the coming months, all customers will receive a scheduling notice for this upgrade. If you want to prioritize your vSphere 8 upgrade, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "Priority vSphere 8 upgrade" for your private cloud. [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
+**Azure Government**
+
 All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in [Microsoft Azure Government](https://azure.microsoft.com/explore/global-infrastructure/government/#why-azure). [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+**Trusted Launch**
 
 Trusted Launch is now available in all Azure VMware Solution regions. This enables Virtual Trusted Platform Module (vTPM) on virtual machines, ensuring compliance with the latest security standards and unlocking the potential to run modern operating systems like Microsoft Windows 11. [Learn more](configure-virtual-trusted-platform-module.md#configure-virtual-trusted-platform-module-vtpm-on-virtual-machines-with-azure-vmware-solution)
 
 ## October 2024
 
+**VCF BYOL**
+
 The VMware Cloud Foundations (VCF) license portability feature on Azure VMware Solution allows you to bring your VCF entitlement to Azure VMware Solution and take advantage of potential cost savings.
 
 ## August 2024
 
+**VMware vSphere 8.0**
+
 All new Azure VMware Solution private clouds are being deployed with VMware vSphere 8.0 version in Azure Commercial (Stretched Clusters excluded). [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+**Azure Government**
 
 Azure VMware Solution was approved to be added as a service within the [DoD SRG Impact Level 4 (IL4)](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope#azure-government-services-by-audit-scope) Provisional Authorization (PA) in [Microsoft Azure Government](https://azure.microsoft.com/explore/global-infrastructure/government/#why-azure).
 
 ## May 2024
+
+**New Azure regions**
 
 Azure VMware Solution is now generally available in the Central India, UAE North, and Italy North regions, increasing the total region count to 33. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
 
@@ -170,15 +192,23 @@ VMware HCX 4.8.2 is now available. [Learn more](architecture-private-clouds.md#v
 
 ## April 2024
 
+**Stretched Clusters**
+
 Azure VMware Solution Stretched Clusters is now generally available in the East US region. [Learn more](architecture-stretched-clusters.md)
 
 ## March 2024
 
+**Pure Cloud Block Store**
+
 Pure Cloud Block Store for Azure VMware Solution is now generally available. [Learn more](ecosystem-external-storage-solutions.md)
+
+**VMware vSphere 7.0 U3o**
 
 VMware vCenter Server 7.0 U3o and VMware ESXi 7.0 U3o are being rolled out. [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
 ## February 2024
+
+**VMware NSX 4.1.1**
 
 All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.1.1. [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
@@ -250,7 +280,7 @@ Stretched Clusters for Azure VMware Solution is now available and provides 99.99
 
 ## May 2023
 
-**Azure VMware Solution in Azure Gov**
+**Azure VMware Solution in Azure Government**
  
 Azure VMware Service will become generally available on May 17, 2023, to US Federal and State and Local Government (US) customers and their partners, in the regions of Arizona and Virginia. With this release, we're combining world-class Azure infrastructure together with VMware technologies by offering Azure VMware Solutions on Azure Government, which is designed, built, and supported by Microsoft. 
 
@@ -269,6 +299,8 @@ To learn more about available regions of Azure products, see [Azure Products by 
 Introducing Run Commands for VMware HCX on Azure VMware Solution. You can use these run commands to restart VMware HCX Cloud Manager in your Azure VMware Solution private cloud. Additionally, you can also scale VMware HCX Cloud Manager using Run Commands. To learn how to use run commands for VMware HCX, see [Use VMware HCX Run commands](use-hcx-run-commands.md).
 
 ## February 2023
+
+**VMware NSX-T Data Center 3.2.2**
 
 All new Azure VMware Solution private clouds are being deployed with VMware NSX-T Data Center version 3.2.2. NSX-T Data Center versions in existing private clouds will be upgraded to NSX-T Data Center version 3.2.2 through April 2023.
 
@@ -302,9 +334,13 @@ For more information, see [Azure Migration and Modernization blog](https://techc
 
 ## January 2023
 
+**Azure signed certificates**
+
 Starting January 2023, all new Azure VMware Solution private clouds are being deployed with Microsoft signed TLS certificate for vCenter Server and NSX.
 
 ## November 2022
+
+**New SKU sizes**
 
 AV36P and AV52 node sizes available in Azure VMware Solution. The new node sizes increase memory and storage options to optimize your workloads. The gains in performance enable you to do more per server, break storage bottlenecks, and lower transaction costs of latency-sensitive workloads. The availability of the new nodes allows for large latency-sensitive services to be hosted efficiently on the Azure VMware Solution infrastructure.
   
@@ -312,9 +348,13 @@ For pricing and region availability, see the [Azure VMware Solution pricing page
 
 ## July 2022
 
+**VMware HCX**
+
 VMware HCX Cloud Manager in Azure VMware Solution can now be accessible over a public IP address. You can pair VMware HCX sites and create a service mesh from on-premises to Azure VMware Solution private cloud using Public IP.
 
 VMware HCX with public IP is especially useful in cases where On-premises sites aren't connected to Azure via ExpressRoute or VPN. VMware HCX service mesh appliances can be configured with public IPs to avoid lower tunnel MTUs due to double encapsulation if a VPN is used for on-premises to cloud connections. For more information, please see [Enable VMware HCX over the internet](./enable-hcx-access-over-internet.md)
+
+**VMware vSphere 7.0 U3c**
 
 All new Azure VMware Solution private clouds are now deployed with VMware vCenter Server version 7.0 Update 3c and ESXi version 7.0 Update 3c. 
 
@@ -324,11 +364,15 @@ You'll receive a notification through Azure Service Health that includes the tim
 
 ## June 2022
 
+**VMware vSphere 7.0 U3c**
+
 All new Azure VMware Solution private clouds in regions (East US2, Canada Central, North Europe, and Japan East), are now deployed in with VMware vCenter Server version 7.0 Update 3c and ESXi version 7.0 Update 3c.
 
 Any existing private clouds in the above mentioned regions will also be upgraded to these versions. For more information, please see [VMware ESXi 7.0 Update 3c Release Notes](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-vcenter-server-70-release-notes.html) and [VMware vCenter Server 7.0 Update 3c Release Notes](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-vcenter-server-70u3c-release-notes.html).
 
 ## May 2022
+
+**VMware vSphere 7.0 U3c**
 
 All new Azure VMware Solution private clouds in regions (Germany West Central, Australia East, Central US and UK West), are now deployed with VMware vCenter Server version 7.0 Update 3c and ESXi version 7.0 Update 3c.
 
@@ -338,11 +382,13 @@ You'll receive a notification through Azure Service Health that includes the tim
 
 All new Azure VMware Solution private clouds in regions (France Central, Brazil South, Japan West, Australia Southeast, Canada East, East Asia, and Southeast Asia), are now deployed with VMware vCenter Server version 7.0 Update 3c and ESXi version 7.0 Update 3c.
 
- Any existing private clouds in the previously mentioned regions will be upgraded to those versions. For more information, please see [VMware ESXi 7.0 Update 3c Release Notes](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-70u3c-release-notes.html) and [VMware vCenter Server 7.0 Update 3c Release Notes](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-vcenter-server-70u3c-release-notes.html).  
+Any existing private clouds in the previously mentioned regions will be upgraded to those versions. For more information, please see [VMware ESXi 7.0 Update 3c Release Notes](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-70u3c-release-notes.html) and [VMware vCenter Server 7.0 Update 3c Release Notes](https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-vcenter-server-70u3c-release-notes.html).  
 
 You'll receive a notification through Azure Service Health that includes the timeline of the upgrade. You can reschedule an upgrade as needed. This notification also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services.
 
 ## February 2022
+
+**VMSA-2022-0004 remediation**
 
 Per VMware security advisory [VMSA-2022-0004](https://www.vmware.com/security/advisories/VMSA-2022-0004.html), multiple vulnerabilities in VMware ESXi have been reported to VMware.
 
@@ -353,6 +399,8 @@ For more information on this ESXi version, see [VMware ESXi 6.7, Patch Release E
 No further action is required.
 
 ## December 2021
+
+**VMSA-2021-0028 remediation**
 
 Azure VMware Solution has completed maintenance  activities to address critical vulnerabilities in Apache Log4j. The fixes documented in the VMware security advisory [VMSA-2021-0028.6](https://www.vmware.com/security/advisories/VMSA-2021-0028.html) to address CVE-2021-44228 and CVE-2021-45046 have been applied to these Azure VMware Solution managed VMware products: vCenter Server, NSX-T Data Center, SRM and HCX. We strongly encourage customers to apply the fixes to on-premises HCX connector appliances. 
 
@@ -366,6 +414,8 @@ Note that you may experience intermittent connectivity to these components when 
 
 ## November 2021
 
+**VMSA-2021-0027 remediation**
+
 Per VMware security advisory [VMSA-2021-0027](https://www.vmware.com/security/advisories/VMSA-2021-0027.html), multiple vulnerabilities in VMware vCenter Server have been reported to VMware.
 
 To address the vulnerabilities (CVE-2021-21980 and CVE-2021-22049) reported in VMware security advisory, vCenter Server has been updated to 6.7 Update 3p release in all Azure VMware Solution private clouds.
@@ -376,11 +426,15 @@ No further action is required.
 
 ## September 2021
 
+**VMSA-2021-0020 remediation**
+
 Per VMware security advisory [VMSA-2021-0020](https://www.vmware.com/security/advisories/VMSA-2021-0020.html), multiple vulnerabilities in the VMware vCenter Server have been reported to VMware.  To address the vulnerabilities (CVE-2021-21991, CVE-2021-21992, CVE-2021-21993, CVE-2021-22005, CVE-2021-22006, CVE-2021-22007, CVE-2021-22008, CVE-2021-22009, CVE-2021-22010, CVE-2021-22011, CVE-2021-22012,CVE-2021-22013, CVE-2021-22014, CVE-2021-22015, CVE-2021-22016, CVE-2021-22017, CVE-2021-22018, CVE-2021-22019, CVE-2021-22020) reported in VMware security advisory [VMSA-2021-0020](https://www.vmware.com/security/advisories/VMSA-2021-0020.html), vCenter Server has been updated to 6.7 Update 3o in all Azure VMware Solution private clouds. All new Azure VMware Solution private clouds are deployed with vCenter Server version 6.7 Update 3o.   For more information, see [VMware vCenter Server 6.7 Update 3o Release Notes](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/vsphere-vcenter-server-67u3o-release-notes.html).  No further action is required.
 
 All new Azure VMware Solution private clouds are now deployed with ESXi version ESXi670-202103001 (Build number: 17700523). ESXi hosts in existing private clouds have been patched to this version. For more information on this ESXi version, see [VMware ESXi 6.7, Patch Release ESXi670-202103001](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/esxi670-202103001.html).
 
 ## July 2021
+
+**VMware NSX-T Data Center 3.1.1**
 
 All new Azure VMware Solution private clouds are now deployed with NSX-T Data Center version 3.1.1. NSX-T Data Center version in existing private clouds will be upgraded through September 2021 to NSX-T Data Center 3.1.1 release.
  
@@ -390,17 +444,23 @@ For more information on this NSX-T Data Center version, see [VMware NSX-T Data C
 
 ## May 2021
 
+**VMSA-2021-0010 remediation**
+
 Per VMware security advisory [VMSA-2021-0010](https://www.vmware.com/security/advisories/VMSA-2021-0010.html), multiple vulnerabilities in VMware ESXi and vSphere Client (HTML5) have been reported to VMware.  To address the vulnerabilities ([CVE-2021-21985](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21985) and [CVE-2021-21986](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21986)) reported in VMware security advisory [VMSA-2021-0010](https://www.vmware.com/security/advisories/VMSA-2021-0010.html), vCenter Server has been updated in all Azure VMware Solution private clouds. No further action is required.
 
 Azure VMware Solution service will do maintenance work through May 23, 2021, to apply important updates to the vCenter Server in your private cloud.  You'll receive a notification through Azure Service Health that includes the timeline of the maintenance for your private cloud.  During this time, VMware vCenter Server will be unavailable and you won't be able to manage VMs (stop, start, create, or delete). It's recommended that, during this time, you don't plan any other activities like scaling up private cloud, creating new networks, and so on, in your private cloud. There's no impact to workloads running in your private cloud.
 
 ## April 2021
 
+**VMware vSphere 6.7 U3l and VMware NSX-T Data Center 2.5.2**
+
 All new Azure VMware Solution private clouds are now deployed with VMware vCenter Server version 6.7U3l and NSX-T Data Center version 2.5.2. We're not using NSX-T Data Center 3.1.1 for new private clouds because of an identified issue in NSX-T Data Center 3.1.1 that impacts customer VM connectivity. 
 
 The VMware recommended mitigation was applied to all existing private clouds currently running NSX-T Data Center 3.1.1 on Azure VMware Solution. The workaround has been confirmed that there's no impact to customer VM connectivity.
 
 ## March 2021
+
+**VMware vSphere 6.7 U3l and VMware NSX-T Data Center 2.5.2**
 
 All new Azure VMware Solution private clouds are deployed with VMware vCenter Server version 6.7U3l and NSX-T Data Center version 3.1.1. Any existing private clouds will be updated and upgraded **through June 2021** to the releases mentioned above.   You'll receive an email with the planned maintenance date and time. You can reschedule an upgrade. The email also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services.  An hour before the upgrade, you'll receive a notification and then again when it finishes.
 
