@@ -13,11 +13,11 @@ ms.author: primittal
 # Optimize GitHub costs with a Pre-Purchase plan
 
 > [!IMPORTANT]
-> **Changes to GitHub prepurchase plan availability starting January 1, 2027**
+> **Changes to GitHub pre-purchase plan availability starting January 1, 2027**
 >
-> Starting January 1, 2027, you can buy or renew the GitHub prepurchase plan only through an Enterprise Agreement (EA) or a Cloud Solution Provider (CSP) partner. Buy online channels and built-in tiered volume discounts will no longer apply.
+> Starting January 1, 2027, you can buy or renew the GitHub pre-purchase plan only through an Enterprise Agreement (EA) or a Cloud Solution Provider (CSP) partner. Buy online channels and built-in tiered volume discounts no longer apply.
 >
-> If you have a Microsoft Customer Agreement for enterprise (MCA-E), you can't buy or renew GitHub prepurchase plans starting January 1, 2027. Consider GitHub Flex Plan for your GitHub portfolio instead. To learn more, see the [Flex Plan overview](../benefits/flex-plan/flex-plan-overview.md).
+> If you have a Microsoft Customer Agreement for enterprise (MCA-E), you can't buy or renew GitHub pre-purchase plans starting January 1, 2027. Consider GitHub Flex Plan for your GitHub portfolio instead. To learn more, see the [Flex Plan overview](../benefits/flex-plan/flex-plan-overview.md).
 
 Save on your GitHub costs when you buy a Pre-Purchase plan. Pre-Purchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, if GitHub generates a retail cost of $100 based on GitHub usage, then 100 GitHub CUs (GCUs) are consumed.
 
