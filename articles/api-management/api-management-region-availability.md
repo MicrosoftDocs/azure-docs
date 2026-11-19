@@ -5,7 +5,7 @@ services: api-management
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/17/2026
+ms.date: 11/18/2026
 ms.custom:
   - references_regions
   - build-2025
@@ -49,9 +49,9 @@ The following table is updated regularly. Capacity availability in Azure regions
 | North Central US | ✅ | ✅ | ✅ | ✅ |
 | North Europe | ✅ | ✅ |  | ⚠️ ¹ |
 | Norway East | ✅ | ✅ | ✅ | ✅ |
-| South Africa North | ✅ | ✅ | |  |
-| South Central US | ✅ | ✅ |  |  |
-| South India | ✅ | ✅ |  |  |
+| South Africa North | ✅ | ✅ | ✅ |  |
+| South Central US | ✅ | ✅ | ✅  |  |
+| South India | ✅ | ✅ | ✅  |  |
 | Southeast Asia | ✅ | ✅ |✅|  |
 | Spain Central | ✅ | ✅ | ✅ |  |
 | Sweden Central | ✅ | ✅ | ✅ |  |
