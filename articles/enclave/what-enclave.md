@@ -58,7 +58,7 @@ Because the enclave holds this authoritative state, change the enclave Virtual N
 
 > [!IMPORTANT]
 > 
-> Treat Azure Enclave as the single source of truth for the enclave Virtual Network. Make Virtual Network and subnet changes through the enclave management experience rather than editing the Virtual Network directly.
+> Treat Azure Enclave as the single source of truth for the enclave Virtual Network. Make Virtual Network and subnet changes through the enclave's `Manage` experience rather than editing the Virtual Network directly.
 
 ## DNS servers
 

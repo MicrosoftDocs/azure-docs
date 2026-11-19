@@ -11,7 +11,7 @@ ms.date: 08/07/2026
 
 # Understanding DNS in Azure Enclave
 
-New [enclaves](./what-enclave.md) use Azure-provided DNS by default, or you can configure custom DNS servers for them. DNS servers specified on a community aren't automatically applied to its enclaves. For instructions, see [Create an enclave in the Azure portal](./create-enclave-portal.md#update-dns-servers).
+New [enclaves](./what-enclave.md) use Azure-provided DNS by default, or you can configure custom DNS servers for them. For instructions, see [Create an enclave in the Azure portal](./create-enclave-portal.md#update-dns-servers).
 
 Workloads and resources created in enclaves follow existing [name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
