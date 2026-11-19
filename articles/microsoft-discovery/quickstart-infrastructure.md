@@ -60,8 +60,16 @@ After registering `Microsoft.Discovery`, review and register the following depen
 
 [!INCLUDE [Dependent resource providers](includes/deployment-resource-providers.md)]
 
+### Supported home regions
+
+Microsoft Discovery supports the following home regions for its control-plane resources:
+
+[!INCLUDE [Supported home regions](includes/supported-home-regions.md)]
+
+Region support doesn't guarantee model or compute capacity.
+
 > [!IMPORTANT]
-> The current Bicep template accepts **East US**, **Sweden Central**, and **UK South** as home regions. Confirm the required model and compute quota in your chosen workload region before deployment; a template parameter doesn't guarantee available capacity. For this exercise, use matching home and workload regions and keep customer-managed resources in one subscription and resource group.
+> Select one of these home regions in the Bicep template. Confirm the required model and compute quota in your chosen workload region before deployment; a template parameter doesn't guarantee available capacity. For this exercise, use matching home and workload regions and keep customer-managed resources in one subscription and resource group.
 
 > [!NOTE]
 > You can associate a virtual network with only one Microsoft Discovery workspace. If you need multiple workspaces, create a separate virtual network and subnets for each one.
