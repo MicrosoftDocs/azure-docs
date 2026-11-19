@@ -70,7 +70,7 @@ Set `rbac.humanAccessMode` explicitly according to customer policy.
 | `permanent-role-assignments` | Standard Azure role assignments | Review assignments and scopes; no PIM activation for these assignments. |
 | `customer-jit-managed` | Time-bound PIM eligibility | Each user activates required roles before the operation that needs them. |
 
-For `customer-jit-managed`, set `rbac.jitEligibilityDurationDays` to a whole number from **7 through 3650** for new eligibility. The value sets the eligibility duration in days, not the activation window. Confirm PIM licensing and policy with your IAM team.
+For `customer-jit-managed`, set `rbac.jitEligibilityDurationDays` within the [onboarding-tool input bounds](reference-limits-quotas.md#onboarding-tool-input-bounds) for new eligibility. The value sets the eligibility duration in days, not the activation window. Confirm PIM licensing and policy with your IAM team.
 
 This choice applies to users. The tool continues to create persistent assignments for service principals and managed identities. Eligible user roles aren't active access, even when Stage 2 reports success.
 

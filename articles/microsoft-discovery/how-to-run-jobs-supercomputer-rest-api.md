@@ -3,7 +3,7 @@ title: Submit and monitor Microsoft Discovery jobs by using REST APIs
 description: Learn how to submit, monitor, and cancel compute jobs on the Microsoft Discovery Supercomputer platform using the data-plane REST APIs.
 ms.topic: how-to
 ms.service: azure
-ms.date: 11/10/2026
+ms.date: 11/17/2026
 ms.author: alzam
 author: anzaman
 ---
@@ -76,7 +76,7 @@ All tool-run endpoints are namespaced under a project:
 To submit a job, send a `POST` request to the `:run` endpoint with a JSON payload describing the command, nodepool, resource requirements, and data mounts.
 
 > [!IMPORTANT]
-> A job can run for a maximum of 42 days. The 42-day limit starts when the job is scheduled from the queue.
+> Plan your workload within the [job execution limit](reference-limits-quotas.md#job-execution-limits), measured from when the job is scheduled from the queue.
 
 ### Endpoint
 
