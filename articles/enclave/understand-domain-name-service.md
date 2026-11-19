@@ -11,7 +11,7 @@ ms.date: 08/07/2026
 
 # Understanding DNS in Azure Enclave
 
-When creating a [community](./what-community.md) using Azure Enclave, you also specify a list of DNS servers. This list of DNS servers is then passed down to all [enclaves](./what-enclave.md) created within the community. 
+New [enclaves](./what-enclave.md) use Azure-provided DNS by default, or you can configure custom DNS servers for them. DNS servers specified on a community aren't automatically applied to its enclaves. For instructions, see [Create an enclave in the Azure portal](./create-enclave-portal.md#update-dns-servers).
 
 Workloads and resources created in enclaves follow existing [name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
@@ -20,7 +20,7 @@ Workloads and resources created in enclaves follow existing [name resolution for
 Some enterprise systems require more control over DNS resolution and need a custom, customer-managed DNS solution for all resources in a community. This requirement arises when you use a custom DNS server that isn't configured to forward queries about private endpoints to Azure DNS. In these scenarios, Azure Enclave advises you to:
 
 - **Deploy a DNS solution** as a [workload](./what-workload.md) within an enclave. An example solution is deploying an Active Directory Domain Controller [Virtual Machine](https://aka.ms/vm).
-- Specify that DNS server's private IP address as a custom DNS server for your community.
+- Configure the private IP address of the DNS server that workloads should use as a custom DNS server for each enclave. If you use an enclave-local forwarder, specify the forwarder's private IP address.
 - Deploy a DNS resolver or forwarder Virtual Machine in each enclave to handle local private endpoint resolution.
 - Connect to each DNS resolver VM and manually add conditional forwarder DNS zone records for private endpoint resources in that enclave. This configuration enables the custom DNS server to forward queries it can't resolve directly to Azure DNS (168.63.129.16).
 

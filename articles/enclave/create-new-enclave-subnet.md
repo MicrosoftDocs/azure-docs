@@ -73,6 +73,6 @@ Operations to avoid performing directly on the enclave virtual network include, 
 - Editing route tables, network security group associations, or peerings.
 - Other virtual network-level edits.
 
-## Example allowed customer operation: DNS servers
+## DNS servers
 
-Modifying the DNS servers on the enclave virtual network is supported and doesn't cause the enclave to drift out of management. You can set custom DNS servers on the enclave virtual network to provide name resolution for your workloads. Apart from DNS server settings, use the Azure Enclave management experience for other virtual network and subnet changes.
+Configure DNS servers through the enclave's **Configuration** page rather than editing the virtual network directly. Direct DNS changes can leave the virtual network's DNS settings out of sync with the enclave's confirmed configuration and cause a conflict when you update DNS through the enclave. For instructions, see [Update DNS servers](./create-enclave-portal.md#update-dns-servers).

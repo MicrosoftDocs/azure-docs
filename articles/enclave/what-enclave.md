@@ -58,7 +58,11 @@ Because the enclave holds this authoritative state, change the enclave Virtual N
 
 > [!IMPORTANT]
 > 
-> Treat Azure Enclave as the single source of truth for the enclave Virtual Network. Make Virtual Network and subnet changes through the enclave's `Manage` experience rather than editing the Virtual Network directly.
+> Treat Azure Enclave as the single source of truth for the enclave Virtual Network. Make Virtual Network and subnet changes through the enclave management experience rather than editing the Virtual Network directly.
+
+## DNS servers
+
+New enclaves use Azure-provided DNS by default. You can configure custom DNS servers when you create an enclave or update them later through the enclave's **Configuration** page, without enabling maintenance mode. For instructions, see [Create an enclave in the Azure portal](./create-enclave-portal.md).
 
 ## Subnet delegation within the enclave
 Subnets inside the enclave Virtual Network support Azure subnet delegation. Delegation designates a subnet for use by a specific Azure service so that the service can create and manage its service-specific resources within that subnet. Configure subnet delegation as part of creating or managing subnets through the enclave, so that the delegation is captured in the enclave's authoritative state and remains consistent with enclave connection management. Delegating a subnet directly on the Virtual Network instead of through Azure Enclave is an operation that can cause drift.

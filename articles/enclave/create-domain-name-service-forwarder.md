@@ -38,13 +38,13 @@ Use this guide to configure a Windows Server VM as a DNS forwarder for workloads
 
    ![Screenshot showing the IP address configuration.](./media/dns-forwarder-static-ip-config.png)
 
-## Configure virtual network DNS
+## Configure enclave DNS
 
-1. Open the virtual network used by the enclave.
-1. In the virtual network settings, select **DNS**.
-1. Configure the custom DNS server as the DNS forwarder VM's static private IP address. Don't enter the domain controller IP addresses here; the forwarder sends queries to those servers.
-1. This setting directs the virtual network's DNS queries to the forwarder. Ensure the domain controllers or their upstream DNS servers can resolve all other names your workloads need.
-1. Save the change. Restart existing VMs that need to use the updated virtual network DNS settings.
+1. Open the enclave in the Azure portal.
+1. Under **Settings**, select **Configuration**.
+1. Under **DNS servers**, select **Custom** and enter the DNS forwarder VM's static private IP address. Don't enter the domain controller IP addresses here; the forwarder sends queries to those servers.
+1. Select **Apply**. Ensure the domain controllers or their upstream DNS servers can resolve all other names your workloads need.
+1. Restart existing VMs that need to use the updated virtual network DNS settings.
 
 ## Validate name resolution
 

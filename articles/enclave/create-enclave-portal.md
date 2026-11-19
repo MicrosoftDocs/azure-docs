@@ -49,9 +49,9 @@ Enclave deployments can take several minutes to complete. After deployment compl
 
    :::image type="content" source="./media/create-enclave-tab-1-basics.png" alt-text="Screenshot showing the enclave basics settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-1-basics.png":::
 
-1. Select `Next`. On the `Network` tab, select the network size, choose whether enclave subnet communication is allowed by default, [create subnets](./create-new-enclave-subnet.md), and enable Azure Bastion as needed. For planning guidance, see [Azure Virtual Network concepts and best practices](/azure/virtual-network/concepts-and-best-practices) and [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+1. Select `Next`. On the `Network` tab, select the network size, choose whether enclave subnet communication is allowed by default, [create subnets](./create-new-enclave-subnet.md), and enable Azure Bastion as needed. Under **DNS servers**, keep **Azure-provided DNS service** or select **Custom** and enter up to 20 unique IPv4 addresses in priority order. For planning guidance, see [Azure Virtual Network concepts and best practices](/azure/virtual-network/concepts-and-best-practices) and [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 
-   :::image type="content" source="./media/create-enclave-tab-2-network.png" alt-text="Screenshot showing the enclave networking settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-2-network.png":::
+   :::image type="content" source="./media/create-enclave-tab-2-network.png" alt-text="Screenshot showing the enclave network settings with custom DNS servers during creation in the portal." border="True" lightbox="./media/create-enclave-tab-2-network.png":::
 
    > [!NOTE]
    >
@@ -94,6 +94,17 @@ Enclave deployments can take several minutes to complete. After deployment compl
 1. Select `Next`, and then select `Review + create`, validate that the details for your enclave are correct, and then select `Create`.
 
    :::image type="content" source="./media/tutorial-step-two-webapp-enclave-overview-page.png" alt-text="Screenshot showing created enclave on its overview page." border="True" lightbox="./media/tutorial-step-two-webapp-enclave-overview-page.png":::
+
+## Update DNS servers
+
+You can change an enclave's DNS servers without enabling maintenance mode.
+
+1. In the Azure portal, open your enclave.
+1. Under **Settings**, select **Configuration**.
+1. Under **DNS servers**, select **Azure-provided DNS service** or **Custom**. For custom DNS, enter up to 20 unique IPv4 addresses in priority order.
+1. Select **Apply**.
+
+Make sure your workloads can reach the custom DNS servers and that the servers can resolve the names your workloads need, including private endpoint names. Existing VMs might need a DHCP lease renewal or restart to use the updated DNS settings.
 
 ## References
 
