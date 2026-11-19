@@ -3,7 +3,7 @@ title: Create your Azure Maps account using an Azure Resource Manager template i
 description: Learn how to create an Azure Maps account using an Azure Resource Manager template.
 author: pbrasil
 ms.author: peterbr
-ms.date: 08/28/2026
+ms.date: 10/24/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: manage-account
@@ -45,20 +45,20 @@ The Azure Maps account resource is defined in this template:
 
     ![ARM template deploy portal](./media/how-to-create-template/create-account-using-template-portal.png)
 
-    Unless it's specified, use the default value to create your Azure Maps account.
+    Unless otherwise specified, use the default value to create your Azure Maps account.
 
     * **Subscription**: select an Azure subscription.
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
     * **Location**: select a location.
     * **Account Name**: enter a name for your Azure Maps account, which must be globally unique.
-    * **Pricing Tier**: confirm that the value is **G2**.
+    * **Pricing Tier**: select the appropriate pricing tier. The default value for the template is G2.
 
 3. Select **Review + create**.
-4. Confirm your settings on the review page and select **Create**. Once deployed successfully, you get a notification:
+4. Confirm your settings on the review page and select **Create**. After the deployment succeeds, you receive a notification:
 
     ![ARM template deploy portal notification](./media/how-to-create-template/resource-manager-template-portal-deployment-notification.png)
 
-The Azure portal is used to deploy your template. You can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates].
+The Azure portal is used to deploy your template. You can also use Azure PowerShell, the Azure CLI, and the REST API. To learn other deployment methods, see [Deploy templates].
 
 ## Review deployed resources
 
@@ -70,7 +70,7 @@ az maps account keys list --name MyMapsAccount --resource-group MyResourceGroup
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, which also deletes the Azure Maps account. To delete the resource group by using Azure CLI:
+When no longer needed, delete the resource group, which also deletes the Azure Maps account. To delete the resource group by using the Azure CLI:
 
 ```azurecli-interactive
 az group delete --name MyResourceGroup
