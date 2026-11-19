@@ -27,6 +27,8 @@ Partners can help customers assess, plan, design, and execute their Nutanix Clou
 Customers should evaluate and select the partner that best aligns with their business objectives, technical requirements, delivery needs, and commercial expectations.
  
 ## Approved partners for NC2 on Azure
+
+[Accenture](https://www.accenture.com/en/services/ecosystem-partners#block-accordion-ecosystem-partner-faqs)
  
 [Cognizant](https://www.cognizant.com/us/en/about-cognizant/partners/nutanix)  
 
