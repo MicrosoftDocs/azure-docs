@@ -100,7 +100,7 @@ You can specify the following next hop types when you create a UDR:
 
     You can define a route with 0.0.0.0/0 as the address prefix and a next hop type of virtual appliance. This configuration allows the appliance to inspect the traffic and determine whether to forward or drop the traffic. If you intend to create a UDR that contains the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first.
 
-    * **Virtual appliance ECMP**: Distributes traffic across multiple network virtual appliances by using equal-cost multipath (ECMP) routing. Specify between 2 and 64 next hop IP addresses with the `VirtualApplianceEcmp` next hop type. The subscription must have the `Microsoft.Network/AllowEcmpInRoute` feature registered. For requirements and configuration examples, see [Equal-cost multipath routing for user-defined routes](#equal-cost-multipath-routing-for-user-defined-routes).
+    * **Virtual appliance ECMP**: Distributes traffic across multiple network virtual appliances by using equal-cost multipath (ECMP) routing. Specify between 2 and 64 next hop IP addresses with the `VirtualApplianceEcmp` next hop type. The subscription must have the `Microsoft.Network/AllowEcmpInRoute` feature registered. For requirements and configuration examples, see [Equal-cost multipath routing for user-defined routes](#equal-cost-multipath-routing-for-user-defined-routes-public-preview).
 
 * **Virtual network gateway**: User-defined routes with next hop type Virtual Network Gateway allow you to route traffic to a Virtual Network's gateway. A Virtual Network has a single gateway automatically set by the underlying software-defined networking platform based on your deployment. User-defined routes with next hop Virtual Network Gateway are supported only when the Virtual Network's gateway is a **VPN gateway (and not ExpressRoute, RouteServer or Virtual WAN hub router)**.  
    * For Virtual Networks with a VPN Gateway, ExpressRoute Gateway and/or Route Server:
@@ -122,37 +122,27 @@ You can specify the following next hop types when you create a UDR:
 
 You can't specify **Virtual network peering** or `VirtualNetworkServiceEndpoint` as the next hop type in UDRs. Azure creates routes with **Virtual network peering** or `VirtualNetworkServiceEndpoint` next hop types only when you configure a virtual network peering or a service endpoint.
 
-### Equal-cost multipath routing for user-defined routes
+### Equal-cost multipath routing for user-defined routes (public preview)
 
-Equal-cost multipath (ECMP) routing distributes traffic across multiple network virtual appliances (NVAs) for a single user-defined route. Use the `VirtualApplianceEcmp` next hop type to specify between 2 and 64 next hop IP addresses for the route's destination prefix.
+Equal-cost multipath (ECMP) routing distributes traffic across multiple appliances, including network virtual appliances (NVAs) and [Azure Virtual Network routing appliances](virtual-network-routing-appliance-overview.md), through a single user-defined route (UDR). Use the `VirtualApplianceEcmp` next hop type with 2 to 64 next hop IP addresses instead of creating multiple routes for the same destination prefix.
 
-Configure the addresses on one route rather than creating multiple routes with the same destination prefix. The following table compares single-appliance and ECMP route configuration:
+Azure uses the [normal route selection process](#how-azure-selects-routes-for-traffic-routing) to select the route, then distributes traffic among its next hops. ECMP doesn't provide appliance-level load balancing or failover.
 
-| Setting | Single-appliance route | ECMP route |
-| --- | --- | --- |
-| Next hop type | `VirtualAppliance` | `VirtualApplianceEcmp` |
-| Azure CLI address parameter | `--next-hop-ip-address` | `--next-hop` with a `next-hop-ip-addresses` list |
-| Azure PowerShell address parameter | `-NextHopIpAddress` with one address | `-NextHopIpAddress` with an array of 2 to 64 addresses |
-| REST address property | `properties.nextHopIpAddress` | `properties.nextHop.nextHopIpAddresses` |
+#### Pre-requisities
 
-The REST `nextHop` object is allowed only when `nextHopType` is `VirtualApplianceEcmp`. Don't use the singular Azure CLI parameter `--next-hop-ip-address` for an ECMP route.
+- Register `Microsoft.Network/AllowEcmpInRoute` in each subscription that contains ECMP routes. You need [feature registration permissions](../azure-resource-manager/management/preview-features.md#required-access), plus permissions to register the `Microsoft.Network` resource provider, manage routes, and update the source subnet.
+- Enable [IP forwarding](virtual-network-network-interface.md#enable-or-disable-ip-forwarding) on each NVA's network interface and in its operating system or software. Configure security policies and destination reachability on every NVA. Use a separate subnet from the source workloads to avoid routing loops.
+- Use a version of Azure CLI or Az.Network that supports `VirtualApplianceEcmp`.
 
-#### Requirements
+For setup steps, see [Configure ECMP routing in the route table tutorial](tutorial-create-route-table.md#configure-ecmp-routing-optional). For routes that use `0.0.0.0/0`, review the [default-route considerations](#default-route).
 
-- Register the Azure Feature Exposure Control (AFEC) feature `Microsoft.Network/AllowEcmpInRoute` in each subscription that contains ECMP routes.
-- Ensure that you have permissions to register subscription features and the `Microsoft.Network` resource provider, manage routes, and update the source subnet. Feature registration requires the relevant `Microsoft.Features/*` actions. For more information, see [Required access for feature registration](../azure-resource-manager/management/preview-features.md#required-access).
-- Enable [IP forwarding](virtual-network-network-interface.md#enable-or-disable-ip-forwarding) on each appliance's network interfaces and configure forwarding in the appliance operating system or software.
-- Use an Azure CLI or Az.Network version that supports `VirtualApplianceEcmp`. For command details, see [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create) and [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig).
+#### Limitations
 
-For feature registration and configuration steps using the Azure portal, Azure CLI, or Azure PowerShell, see [Configure ECMP routing in the route table tutorial](tutorial-create-route-table.md#configure-ecmp-routing-optional).
-
-#### ECMP routing considerations
-
-- **Route selection:** Review [how Azure selects routes](#how-azure-selects-routes-for-traffic-routing), including the documented exceptions, when you add the ECMP route.
-- **Forwarding:** Configure forwarding, security policies, and destination reachability on every appliance. Deploy the appliances in a separate subnet from the workloads that route through them to avoid routing loops.
-- **Stateful appliances:** Validate return-path symmetry and session-state requirements with the appliance vendor. Multiple configured next hops don't establish session-state synchronization or a failover guarantee.
-- **Next hop changes:** Keep between 2 and 64 addresses in the ECMP list. Prepare new appliances before you add their addresses, and validate the effect of membership changes on active connections.
-- **Default routes:** Before you use `0.0.0.0/0`, review the [default-route considerations](#default-route).
+- Each route supports 2 to 64 next hop IP addresses.
+- The REST `nextHop` object requires `nextHopType` to be `VirtualApplianceEcmp`. In Azure CLI, use `--next-hop` with a `next-hop-ip-addresses` list, not `--next-hop-ip-address`.
+- ECMP doesn't synchronize session state between NVAs or ensure return-path symmetry. Check stateful appliance requirements with the vendor.
+- Multiple next hops don't guarantee failover. Configure appliance health checks and recovery behavior for your design.
+- Changing next hop membership can affect active connections. Prepare new NVAs before adding them, and validate the change.
 
 ### Service tags for user-defined routes
 
