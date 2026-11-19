@@ -3,7 +3,7 @@ title: Configure managed identities for Microsoft Discovery
 description: Learn how to create and configure user-assigned managed identities (UAMI) for Microsoft Discovery workspaces, supercomputers, and bookshelves, including the required Azure role assignments.
 ms.service: azure
 ms.topic: how-to
-ms.date: 11/10/2026
+ms.date: 11/18/2026
 ms.author: umamm
 author: umamm
 ms.custom: identity, managed-identity, rbac
@@ -61,15 +61,15 @@ For the [onboarding tool](how-to-create-deployment-configuration.md), create the
 
 ## Assign required roles
 
-After creating the UAMI, assign the following Azure built-in roles at the **resource group** scope. Following are the minimum roles needed for a functional Discovery deployment.
+After creating the UAMI, assign roles for your chosen identity strategy. For separate identities, follow [Granular role assignments per identity](concept-managed-identities.md#advanced-configuration-granular-role-assignments-per-identity).
 
 ### Core platform roles
 
-| Role | Role definition ID | Purpose |
-|------|-------------------|---------|
-| **Microsoft Discovery Platform Contributor (Preview)** | `01288891-85ee-45a7-b367-9db3b752fc65` | Allows the UAMI to manage Discovery resources (workspaces, projects, agents, tools). |
-| **Storage Blob Data Contributor** | `ba92f5b4-2d11-453d-a403-e96b0029c9fe` | Allows the UAMI to read and write blobs in Azure Storage accounts used by storage containers. |
-| **AcrPull** | `7f951dda-4ed3-4680-a7ca-43fe172d538d` | Allows the UAMI to pull container images from Azure Container Registry for tool execution. |
+For a single shared user-assigned managed identity (UAMI), assign the following core roles at the resource group scope before creating Discovery resources.
+
+[!INCLUDE [Shared UAMI core roles](includes/shared-uami-core-roles.md)]
+
+The roles let the identity manage Discovery resources (workspaces, projects, agents, and tools), read and write Azure Storage blobs, and pull container images from Container Registry. Each list entry includes the role definition ID.
 
 ### Additional roles for specific scenarios
 

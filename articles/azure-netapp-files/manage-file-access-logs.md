@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/01/2026
+ms.date: 11/19/2026
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to enable file access logs on Azure NetApp Files volumes so that I can monitor file access operations and troubleshoot access issues effectively.
@@ -38,7 +38,14 @@ File access logs provide file access logging for individual volumes, capturing f
     * System access control list (SACL) settings for logging should be used sparingly. Frequent operations (for example, READ or GET) can have significant performance impact, but have limited logging value. It's recommended that SACL setting not log these frequent operations to conserve performance. 
     * SACL policy additions aren't currently supported with file access logs. 
 * With clubbing events such as READ/WRITE, only a handful of operation per file read or write are captured to reduce event logging rate.  
-* File access logs support a [log generation rate metric](azure-netapp-files-metrics.md). 
+* File access logs support a customer-visible metric named `FileAccessLogGenerated`. This metric shows the amount of file access log data generated for a subscription. The value is reported every five minutes and represents the file access log events generated during that interval. The metric is scoped to the subscription, so it can't be associated with an Azure NetApp Files volume or capacity pool. Instead, the metric value is reported for each NetApp account in the subscription, provided the NetApp account has at least one volume with file access logs enabled. 
+
+    To view this metric in the Azure portal, perform the following steps:
+    
+    1. Navigate to your NetApp account, expand **Monitoring**, and select **Metrics**. 
+    1. Set **Metric namespace** to **NetApp account standard**, then select **FileAccessLogGenerated** from the **Metric** dropdown to display the graph.
+
+    :::image type="content" source="./media/manage-file-access-logs/file-access-log-generated-metric.png" alt-text="Screenshot of the file access log metric." lightbox="./media/manage-file-access-logs/file-access-log-generated-metric.png":::
 
     If the rate of file access event generation exceeds 64 MiB/minute, the [Activity log](monitor-azure-netapp-files.md) sends a message stating that the rate of file access log generation is exceeding the limit. If log generation exceeds the limit, logging events can be delayed or dropped. If you're approaching this limit, disable noncritical auditing ACLs to reduce the event generation rate. As a precaution, you can [create an alert](/azure/azure-monitor/alerts/alerts-create-activity-log-alert-rule) for this event.
  

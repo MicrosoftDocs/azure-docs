@@ -6,7 +6,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 ms.topic: concept-article
-ms.date: 11/09/2026
+ms.date: 11/11/2026
 ai-usage: ai-assisted
 #Customer intent: As an IoT solution architect, I want to understand the Azure Device Registry software updates capability so that I can plan how to prepare, deploy, and monitor updates across my device fleet.
 ---
@@ -15,12 +15,12 @@ ai-usage: ai-assisted
 
 Use *Software updates*, a capability of Azure Device Registry, to deliver over-the-air updates to your devices at scale. Import updates into an Azure Device Registry namespace, and then use [jobs](concept-jobs.md) and [groups](concept-groups.md) in that namespace to deploy them to devices.
 
+[!INCLUDE [Relationships between groups, jobs, and software updates](includes/groups-jobs-software-updates.md)]
+
 > [!IMPORTANT]
 > Azure Device Registry software updates is currently in preview. The current preview is scoped to IoT Hub-connected devices. Don't use preview features for production workloads. For production workloads, continue to use [Device Update for IoT Hub](../../iot-hub-device-update/understand-device-update.md), which remains generally available.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-[!INCLUDE [Relationships between groups, jobs, and software updates](includes/groups-jobs-software-updates.md)]
 
 ## Service applicability
 
@@ -28,11 +28,9 @@ Use *Software updates*, a capability of Azure Device Registry, to deliver over-t
 |---|---|---|
 | Software updates | Not applicable | Preview |
 
-## Software updates and Device Update for IoT Hub
+## Choose between software updates and Device Update for IoT Hub
 
-Software updates brings over-the-air update capabilities into Azure Device Registry. It uses the same import manifest format as [Device Update for IoT Hub](../../iot-hub-device-update/understand-device-update.md), and lets you manage updates at the namespace level by using Azure Device Registry groups and jobs.
-
-Use the following guidance to choose the right option:
+Software updates uses the same import manifest format as [Device Update for IoT Hub](../../iot-hub-device-update/understand-device-update.md), but you manage updates in an Azure Device Registry namespace instead of in a Device Update account. Use the following table to choose the right option:
 
 | If you... | Use |
 |---|---|
@@ -41,17 +39,17 @@ Use the following guidance to choose the right option:
 
 Keep the following considerations in mind if you already use Device Update for IoT Hub:
 
-- **You can't use both on the same IoT hub.** In this preview, you can use software updates only with IoT hubs that don't have an existing Device Update for IoT Hub instance. To try software updates, connect an IoT hub that doesn't use Device Update for IoT Hub to your namespace.
+- **You can't use both on the same IoT hub.** In this preview, you can't use software updates with an IoT hub that has a Device Update for IoT Hub instance. Connect a new or existing IoT hub that doesn't have one. To use an IoT hub that already has a Device Update for IoT Hub instance, delete that instance first.
 - **Devices use a different client.** Devices that run the [Device Update agent](../../iot-hub-device-update/device-update-agent-overview.md) can't receive updates from software updates. To receive software updates, a device uses the software updates client in the [unified Azure IoT SDKs (preview)](concept-unified-iot-sdks.md).
 
 ## How software updates work
 
 You enable software updates on an Azure Device Registry namespace, either when you set up the namespace or later. To learn how, see [Get started with Azure Device Registry for Azure IoT Hub](get-started-azure-device-registry.md). The capability introduces the following components:
 
-- **Software update**: An update that you import into a namespace. A software update consists of one or more update files and an import manifest. After you import a software update, it's available to software update jobs and onboarding update jobs in that namespace.
-- **Software update job**: Applies a software update to the compatible devices in a target group.
-- **Onboarding update job**: Applies a software update to compatible devices when they check for updates during onboarding, before they register and start operating.
-- **Software updates client**: The part of the [unified Azure IoT SDKs (preview)](concept-unified-iot-sdks.md) that your device application uses to check for, download, and install software updates, and to report the results.
+- **Software update.** An update that you import into a namespace. A software update consists of one or more update files and an import manifest. After you import a software update, it's available to software update jobs and onboarding update jobs in that namespace.
+- **Software update job.** Applies a software update to the compatible devices in a target group.
+- **Onboarding update job.** Applies a software update to compatible devices when they check for updates during onboarding, before they register and start operating.
+- **Software updates client.** The part of the [unified Azure IoT SDKs (preview)](concept-unified-iot-sdks.md) that your device application uses to check for, download, and install software updates, and to report the results.
 
 A typical update flow looks like this:
 
@@ -65,12 +63,12 @@ A typical update flow looks like this:
 
 A software update consists of two components that you upload together:
 
-- **Update files**: The payload that the device installs. The payload can be a firmware image, a software package, a script, or multiple related files.
-- **Import manifest**: A JSON file with the `.importmanifest.json` extension that describes the update. The import manifest declares:
-  - **Update identity**: The provider, name, and version that uniquely identify the update. The provider and name together identify an *update family*, such as all versions of the firmware for one device model.
-  - **Compatibility properties**: The device properties that determine which devices can install the update. For more information, see [Device compatibility](#device-compatibility).
-  - **Installation instructions**: The installation steps, their order, and the *handler* for each step. The handler tells the device how to apply that step, such as by installing a package, running a script, or writing an image.
-  - **File metadata**: The name, size, and hash of each update file. The service uses the hashes to verify file integrity at import, and the device can use them to verify each file before installation.
+- **Update files.** The payload that the device installs. The payload can be a firmware image, a software package, a script, or multiple related files.
+- **Import manifest.** A JSON file with the `.importmanifest.json` extension that describes the update. The import manifest declares:
+  - **Update identity.** The provider, name, and version that uniquely identify the update. The provider and name together identify an *update family*, such as all versions of the firmware for one device model.
+  - **Compatibility properties.** The device properties that determine which devices can install the update. For more information, see [Device compatibility](#device-compatibility).
+  - **Installation instructions.** The installation steps, their order, and the *handler* for each step. The handler tells the device how to apply that step, such as by installing a package, running a script, or writing an image.
+  - **File metadata.** The name, size, and hash of each update file. The service uses the hashes to verify file integrity at import, and the device can use them to verify each file before installation.
 
 Every software update requires an import manifest. If you try to import update files without an import manifest, the import fails. When you import, you can optionally scan the update files for malware. Malware scanning is available in select regions. For step-by-step instructions, see [Import a software update](how-to-import-software-update.md).
 
@@ -119,7 +117,7 @@ The following example shows an import manifest for an image-based update:
 }
 ```
 
-Software updates use the same import manifest format as Device Update for IoT Hub. To learn how to author an import manifest, see:
+To learn how to author an import manifest, see:
 
 - [Import manifest schema](../../iot-hub-device-update/import-schema.md)
 - [Multistep ordered execution](../../iot-hub-device-update/device-update-multi-step-updates.md)
@@ -149,53 +147,80 @@ Matching works as follows:
 
 A group can contain devices with different compatibility properties. A software update job applies the update only to the compatible devices in the target group. For example, if a group contains 18 `IrrigationControllerV2` devices and six `SoilSensorV1` devices, an update for `IrrigationControllerV2` devices is applied to the 18 compatible devices. The six `SoilSensorV1` devices aren't affected.
 
-> [!TIP]
-> Devices report their compatibility properties to Azure Device Registry, so you can use them in a [group query](concept-groups.md) to create groups that contain only the devices an update applies to.
+## Deploy software updates
 
-## Jobs, groups, and rollout behavior
+To deploy an imported software update, create a [job](concept-jobs.md) in the namespace. A [group](concept-groups.md) defines *which devices* to target, and a job defines *what to do and when*. Create one of the following jobs:
 
-You deploy a software update by creating a [job](concept-jobs.md) in the namespace. Software updates supports two job types:
+- **Software update job.** Targets a group of registered devices. For steps, see [Deploy a software update to a group](how-to-deploy-software-update-group.md).
+- **Onboarding update job.** Targets the namespace instead of a group, and updates devices while they onboard. For steps, see [Deploy an onboarding update to a namespace](how-to-deploy-onboarding-update-namespace.md).
 
-| Job type | Target | When to use it |
+### Which devices receive the update
+
+**Software update job.** When a run starts, it delivers the update to the compatible devices in the target group that are online. While the run is active, it also delivers the update to:
+
+- **Devices that reconnect.** Compatible devices in the target group that were offline when the run started, after they reconnect and check for updates.
+- **Devices that join the group.** Compatible devices that join the target group after the run starts. Group membership isn't updated automatically, so new devices join the group only after you refresh its membership. For more information, see [Cached membership and refresh](concept-groups.md#cached-membership-and-refresh).
+- **Devices that become compatible.** Devices in the target group that become compatible after the run starts, for example, because their reported compatibility properties change.
+
+**Onboarding update job.** The run remains active until you end it, so compatible devices continue to receive the update as they onboard.
+
+For job states, scheduling, retries, and monitoring, see [Jobs concepts (preview)](concept-jobs.md).
+
+## Access control
+
+Access to software updates is split between two resources:
+
+- **Namespace.** Roles on the namespace control access to the namespace and its jobs.
+- **Software update instance.** Roles on the software update instance that's linked to the namespace control access to imported software updates. Azure Resource Manager roles such as Owner and Contributor don't include this access, even if you created the namespace.
+
+Assign the following roles to each user or Microsoft Entra group, based on the tasks they perform. A user who imports updates and deploys them needs roles on both resources. To find the linked software update instance, open the namespace and select the **Linked services** tab.
+
+The following table lists the minimum built-in role for each task. Roles with more permissions on the same resource also work. For example, Contributor on the namespace includes everything that Reader allows.
+
+| Task | Minimum built-in role | Assign the role on |
 |---|---|---|
-| Software update | An Azure Device Registry [group](concept-groups.md) | Update registered devices that are already in operation. The group defines the scope of the job, and compatibility properties determine which devices in that scope install the update. |
-| Onboarding update | The Azure Device Registry namespace | Bring devices to a required software version as they onboard, before they start operating. For example, use an onboarding update for devices that spent time in storage and are running older firmware. |
+| View the namespace, its jobs, and job run results | [Reader](../../role-based-access-control/built-in-roles/general.md#reader) | Namespace |
+| Create, run, update, and delete software update jobs and onboarding update jobs | [Contributor](../../role-based-access-control/built-in-roles/privileged.md#contributor) | Namespace |
+| View imported software updates | [Device Update Content Reader](../../role-based-access-control/built-in-roles/internet-of-things.md#device-update-content-reader) | Software update instance linked to the namespace |
+| Import and delete software updates | [Device Update Content Administrator](../../role-based-access-control/built-in-roles/internet-of-things.md#device-update-content-administrator) | Software update instance linked to the namespace |
 
-A software update job doesn't stop after it reaches the devices that are compatible when it starts. While the job run is active, it continues to apply the update to:
+Keep the following points in mind:
 
-- Devices that were offline when the job started, after they reconnect and check for updates.
-- Devices that join the target group. Group membership isn't updated automatically: new devices join the group the next time you refresh its membership. For more information, see [Cached membership and refresh](concept-groups.md#cached-membership-and-refresh).
-- Devices that become eligible for the update, for example, because their reported compatibility properties change.
+- **Import also needs storage access.** For details, see the prerequisites in [Import a software update](how-to-import-software-update.md#prerequisites).
+- **User roles are separate from service roles.** The namespace and the software update instance communicate by using managed identities. Connecting the software update instance to the namespace creates those role assignments. For details, see [Role assignments created during setup](get-started-azure-device-registry.md#role-assignments-created-during-setup).
 
-An onboarding update job remains active until you end it, so compatible devices continue to receive the update as they onboard.
+If you open **Software updates (preview)** in a namespace and see the message "Contact your administrator to request access to view and manage software updates for this namespace," you don't have a role on the software update instance that lets you view imported software updates, such as Device Update Content Reader. The **Imports** page might also show **No updates to display**, with **Import** and **Delete** unavailable.
 
-For job states, scheduling, and monitoring, see [Jobs concepts (preview)](concept-jobs.md).
+To request access, ask someone who can assign roles on the namespace or the software update instance, such as an Owner or User Access Administrator, to assign you the role that you need. For steps, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md). A new role assignment can take a few minutes to take effect.
 
 ## Device SDK considerations
 
 Devices receive software updates through the software updates client in the [unified Azure IoT SDKs (preview)](concept-unified-iot-sdks.md). Keep the following considerations in mind when you plan your device software:
 
-- **Supported devices**: In this preview, the software updates client is primarily intended for Linux-based devices with more than 32 MB of available memory.
-- **Integration**: The SDK is a library, not a ready-to-run agent. You integrate the software updates client into your device application and provide the logic that downloads, installs, and applies updates on your hardware. Microsoft provides samples to help you get started.
-- **Two ways to check for updates**: A device that's being onboarded checks for onboarding updates before it registers. A registered device checks for software updates from a software update job. Your device application decides when to check for updates.
-- **Connectivity**: The device checks for updates and reports results over its Device Provisioning Service connection. It doesn't need a separate endpoint or credential to receive updates.
-- **Security**: Before it downloads any update files, the software updates client verifies the signature of the update information that it receives from the service. Devices download update files only over HTTPS, so update content is always encrypted in transit. Ensure that your devices can make outbound HTTPS connections to download update files.
-- **Status reporting**: After an installation attempt, the device reports the result, including error codes if the installation failed. The result appears in the device-level results of the job run.
-- **Your responsibility**: You're responsible for validating the integration in your own environment, including recovery behavior if an installation fails or the device restarts during an update.
+- **Supported devices.** In this preview, the software updates client is primarily intended for Linux-based devices with more than 32 MB of available memory.
+- **Integration.** The SDK is a library, not a ready-to-run agent. You integrate the software updates client into your device application and provide the logic that downloads, installs, and applies updates on your hardware. Microsoft provides samples to help you get started.
+- **Two ways to check for updates.** A device that's being onboarded checks for onboarding updates before it registers. A registered device checks for software updates from a software update job. Your device application decides when to check for updates.
+- **Connectivity.** The device checks for updates and reports results over its Device Provisioning Service connection. It doesn't need a separate endpoint or credential to receive updates.
+- **Security.** Before it downloads any update files, the software updates client verifies the signature of the update information that it receives from the service. Devices download update files only over HTTPS, so update content is always encrypted in transit. Ensure that your devices can make outbound HTTPS connections to download update files.
+- **Status reporting.** After an installation attempt, the device reports the result, including error codes if the installation failed. The result appears in the device-level results of the job run.
+- **Your responsibility.** You're responsible for validating the integration in your own environment, including recovery behavior if an installation fails or the device restarts during an update.
 
 ## Preview limitations
 
 The current preview has the following limitations:
 
 - Software updates supports IoT Hub-connected devices. Azure IoT Operations devices and assets aren't supported in this preview.
-- You can't use software updates with an IoT hub that has an existing Device Update for IoT Hub instance.
-- Every software update requires an import manifest. You can't create an import manifest in the Azure portal.
+- You can't use software updates with an IoT hub that has a Device Update for IoT Hub instance. For more information, see [Choose between software updates and Device Update for IoT Hub](#choose-between-software-updates-and-device-update-for-iot-hub).
+- Software updates isn't supported for the **MQTT v5 (preview)** connection profile.
+- Setting up software updates for a namespace can take up to 30 minutes.
+- You can't create an import manifest in the Azure portal.
 - The software updates client doesn't currently support proxy updates or updates that use reference steps (parent and child updates).
 
 For limits that apply to imported updates, such as the maximum update size, see [Device Update for IoT Hub limits](../../iot-hub-device-update/device-update-limits.md). For limits that apply to groups and jobs, see [Groups concepts (preview)](concept-groups.md#limits-and-preview-restrictions) and [Jobs concepts (preview)](concept-jobs.md#limits).
 
 ## Related content
 
+- [Get started with Azure Device Registry (preview)](get-started-azure-device-registry.md)
 - [Import a software update](how-to-import-software-update.md)
 - [Deploy a software update to a group](how-to-deploy-software-update-group.md)
 - [Deploy an onboarding update to a namespace](how-to-deploy-onboarding-update-namespace.md)
