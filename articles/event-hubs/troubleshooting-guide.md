@@ -1,14 +1,30 @@
 ---
-title: Troubleshoot Azure Event Hubs connectivity issues
-description: Diagnose and resolve permanent and transient connectivity issues with Azure Event Hubs, including firewall settings, connection strings, and network configuration.
+title: Azure Event Hubs troubleshooting guide
+description: Troubleshoot Azure Event Hubs issues by symptom. Find guidance for connectivity, consumer groups, authentication, checkpoints, Kafka clients, and exceptions.
 ms.topic: troubleshooting-general
-ms.date: 05/04/2026
-#customer intent: As a developer or IT administrator, I want to troubleshoot Event Hubs connectivity issues so that I can restore access to my event hubs.
+ms.date: 11/12/2026
+ai-usage: ai-assisted
+#customer intent: As a developer or IT administrator, I want to find troubleshooting guidance for my Event Hubs symptoms so that I can resolve issues with my applications and resources.
 ---
 
-# Troubleshoot connectivity issues - Azure Event Hubs
+# Troubleshoot issues in Azure Event Hubs
 
-If your client application can't connect to an event hub, use this article to diagnose and resolve the issue. Connectivity problems fall into two categories: permanent issues (the connection never succeeds) and transient issues (intermittent failures).
+Use this article to troubleshoot Azure Event Hubs issues by symptom. It covers connectivity and consumer group behavior, and links to specialized troubleshooting articles for other categories.
+
+## Find guidance for your symptoms
+
+| Category | Symptom | Troubleshooting guidance |
+| --- | --- | --- |
+| Connectivity | The client never connects to the event hub. | [Permanent connectivity issues](#troubleshoot-permanent-connectivity-issues) |
+| Connectivity | Connections fail intermittently, disconnect, or experience temporary throttling. | [Transient connectivity problems](#troubleshoot-transient-connectivity-problems) |
+| Consumer groups | Clients receive events after consumer group deletion or use a never-created group name. | [Receiving events after consumer group deletion](#receiving-events-after-consumer-group-deletion) |
+| Authentication and authorization | Credentials or permissions prevent access. | [Authentication and authorization issues](troubleshoot-authentication-authorization.md) |
+| Checkpointing | The event processor reports checkpoint store or partition ownership errors. | [Checkpoint store issues](troubleshoot-checkpoint-store-issues.md) |
+| Apache Kafka | Kafka clients report connection, configuration, or protocol errors. | [Kafka troubleshooting guide](apache-kafka-troubleshooting-guide.md) |
+| Client exceptions | A .NET client reports an Event Hubs exception. | [EventHubsException](exceptions-dotnet.md) and [.NET messaging exceptions](event-hubs-messaging-exceptions.md) |
+| Resource management | An Azure Resource Manager operation fails. | [Resource Manager exceptions](resource-manager-exceptions.md) |
+
+## Connectivity checks at a glance
 
 For **permanent issues**, check these settings and other options mentioned in the [Troubleshoot permanent connectivity issues](#troubleshoot-permanent-connectivity-issues) section:
 
@@ -109,6 +125,80 @@ Transient connectivity problems can happen because of backend service upgrades a
 - Requests are momentarily throttled.
 
 If your application code uses the SDK, it already has an active retry policy. The application reconnects without significant impact to the application or workflow. By catching these transient errors, backing off, and then retrying the call, you make sure your code can handle these transient problems.
+
+## Receiving events after consumer group deletion
+
+An Azure Event Hubs client can continue to receive events after you delete its consumer group. A new client can also receive events by using a consumer group name that you never created. This section explains how virtual consumer groups affect these scenarios and how to distinguish resource existence from the ability to receive events. For background, see [Consumer groups](event-hubs-features.md#consumer-groups).
+
+### Why this behavior occurs
+
+Event Hubs uses virtual consumer groups as an internal implementation detail to support other features. They aren't a standalone customer-facing feature and aren't intended for customers to adopt or manage directly.
+
+With virtual consumer groups enabled, an authorized AMQP receiver can use a consumer group name without a corresponding persisted consumer group resource in Azure Resource Manager. This behavior can also affect standalone Event Hubs applications.
+
+Deleting the persisted resource and receiving events are separate operations:
+
+- **Management plane:** Azure Resource Manager creates, lists, and deletes persisted consumer group resources. A successful deletion followed by a resource lookup returning HTTP `404` confirms that the persisted resource is absent.
+- **Data plane:** An authorized receiver can use a virtual consumer group even when the persisted resource is absent. Successful reception doesn't prove that a corresponding Azure Resource Manager resource exists.
+
+Before this change, applications might have relied on a missing consumer group causing a resource-not-found error when a receiver connected. Where virtual consumer groups are enabled, don't rely on that error to validate resource existence.
+
+> [!IMPORTANT]
+> Deleting a consumer group isn't a reliable way to stop consumption. Virtual consumer groups don't grant receive permissions; clients still require valid authorization to receive events. Evaluate access through the client's credentials and applicable permissions, separately from whether the persisted consumer group exists.
+
+### Recognize the symptoms
+
+You might observe one or more of these symptoms:
+
+- Consumer group deletion succeeds, and a subsequent management-plane lookup returns `404`, but a receiver using the deleted name receives events.
+- A newly created receiver using the deleted name receives events.
+- A receiver using a never-created consumer group name connects without a resource-not-found error. A receive operation might return an empty batch if no events are available at the requested position.
+- An application health check that previously failed after consumer group deletion continues to report a healthy connection.
+
+These symptoms don't, by themselves, mean that the deletion failed or that the client SDK is defective. This section describes AMQP receiver behavior; it doesn't introduce a change to Kafka consumer group behavior.
+
+### Verify resource existence separately from connectivity
+
+1. Confirm the subscription, namespace, event hub, and consumer group name that your application uses.
+1. Check the persisted resource through the Azure portal, an Event Hubs management SDK, or the [Consumer Groups - Get REST API](/rest/api/eventhub/consumer-groups/get). Verify that the lookup targets the same resource that you deleted.
+1. Record the management response separately from the receiver's connection and receive results. An authorization or network error during the lookup doesn't mean that the resource is absent.
+1. When investigating continued reception, distinguish events already buffered by the application from events received from the service after deletion. Use existing logs where possible; don't delete another production consumer group or restart production consumers solely to reproduce the behavior.
+
+A successful receive and an absent management resource can both be valid results. Check each independently rather than treating one as proof of the other.
+
+### Update applications and health checks
+
+If your application requires a persisted consumer group, explicitly validate that resource through the management plane. Handle a missing resource as an application configuration issue, even if a receiver can connect. The identity performing the management check needs the appropriate management-plane read permission; receive permission alone doesn't establish that access.
+
+Keep these checks separate:
+
+| Check | What it establishes |
+| --- | --- |
+| Management-plane resource lookup | Whether the persisted consumer group exists. |
+| Receiver connection and receive operation | Whether the client can connect and receive at the requested position. An empty batch alone doesn't indicate a missing consumer group. |
+| Application processing health | Whether your application is processing events as intended. |
+
+Update tests that expect a missing consumer group to cause a data-plane resource-not-found error. Continue to test authentication and authorization failures independently.
+
+### Stop consumption or restrict access
+
+To stop an application from consuming events, stop or disable its consumers through the application's normal operational controls.
+
+If you need to restrict access, review the identity or shared access signature (SAS) credentials used by the application and the permissions that grant receive access. Consider inherited permissions and other applications that share those credentials before making changes. Follow the guidance for [Microsoft Entra ID authorization](authorize-access-azure-active-directory.md) or [SAS authorization](authorize-access-shared-access-signature.md), as applicable.
+
+Don't assume that an access change immediately stops every existing connection. Verify the outcome by using receiver and application telemetry, and account for events already buffered by the application.
+
+### Collect information for support
+
+If the behavior doesn't match this guidance, collect the following information for your support request:
+
+- Namespace, event hub, consumer group name, and Azure region.
+- Protocol, SDK name and version, and authentication method. Don't include access tokens, SAS keys, connection strings, or event payloads.
+- UTC timestamps, management operation results, error messages, and correlation or tracking IDs.
+- Whether the observation involves an existing receiver, a newly started receiver, or both.
+- The difference between expected and observed behavior.
+
+If reception appears to continue after the client no longer has the required authorization, investigate that separately. Don't treat it as expected solely because virtual consumer groups are enabled.
 
 ## Next steps
 See the following articles:

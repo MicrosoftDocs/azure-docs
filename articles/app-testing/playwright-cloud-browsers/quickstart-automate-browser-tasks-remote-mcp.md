@@ -12,9 +12,6 @@ ms.author: apremsekhar
 
 # Quickstart: Automate browser tasks with the Playwright Workspaces remote MCP server
 
-> [!IMPORTANT]
-> The Playwright Workspaces remote Model Context Protocol (MCP) server is in preview. Preview features don't have a service-level agreement and aren't recommended for production workloads. Features, limits, and availability can change.
-
 In this quickstart, you connect an AI agent to the Playwright Workspaces remote MCP server. The agent uses a managed cloud browser to open a webpage, inspect its accessibility snapshot, report page content, and close the browser session.
 
 The remote MCP server provides browser automation tools over streamable HTTP. You don't need to install Playwright, browser binaries, or a local MCP server in the agent environment.
@@ -24,7 +21,7 @@ After you complete this quickstart, you have an MCP client connected to a Playwr
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
-- A [Playwright workspace](./../playwright-workspaces/quickstart-run-end-to-end-tests.md#create-a-workspace) that is enabled for the remote MCP preview.
+- A [Playwright workspace](./../playwright-workspaces/quickstart-run-end-to-end-tests.md#create-a-workspace) created in your subscription.
 - The **Contributor** or **Owner** Azure role at the workspace scope. This role is required to create a workspace access token. For more information, see [Manage access to a Playwright workspace](./../playwright-workspaces/how-to-manage-workspace-access.md).
 - One of the following MCP clients:
   - GitHub Copilot CLI with MCP support.
