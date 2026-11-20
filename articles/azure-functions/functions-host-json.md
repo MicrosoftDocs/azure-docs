@@ -317,11 +317,11 @@ Extension bundles let you add a compatible set of Functions binding extensions t
 
 Sets whether the host watches your app's files for changes. The default is `true`.
 
-When `true`, the host restarts after a change to your function code, config files, or the paths in [watchDirectories](#watchdirectories) and [watchFiles](#watchfiles).
+When `true`, the host picks up changes to your function code, config files, the directories in [watchDirectories](#watchdirectories), and the files named in [watchFiles](#watchfiles). Depending on the change, the host either reloads the affected function or restarts. For example, a C# script change can be reloaded without a full restart. Entries in `watchFiles` are matched by file name, not by path.
 
-When `false`, the host does not watch any files. `watchDirectories` and `watchFiles` have no effect.
+When `false`, the host doesn't monitor your app's files, so `watchDirectories` and `watchFiles` have no effect. The host still watches its own internal debug and diagnostic sentinel files.
 
-The host always sets this to `false` when the file system is read-only. For example, when you [run from a package file](deployment-zip-push.md#run-functions-from-the-deployment-package).
+The host always sets this to `false` when it treats the file system as read-only. This happens when configuration or a recognized hosting mode marks the app as read-only, for example when you [run from a package file](deployment-zip-push.md#run-functions-from-the-deployment-package). A read-only mount alone, without those settings, doesn't turn off file watching.
 
 ```json
 {
