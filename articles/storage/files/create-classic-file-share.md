@@ -5,7 +5,8 @@ description: Learn how to create a storage account and an Azure classic file sha
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/26/2026
+ms.date: 11/17/2026
+ai-usage: ai-assisted
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 ---
@@ -16,13 +17,13 @@ ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 :heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
 
 > [!TIP]
-> **Creating an NFS file share? Use Microsoft.FileShares.** Classic file shares support NFS, but use the Microsoft.FileShares resource provider for new NFS deployments. To create an NFS file share with Microsoft.FileShares, see [Create an Azure file share with Microsoft.FileShares](create-file-share.md). For the differences between the resource providers, see [Azure Files management concepts](files-management-concepts.md).
+> **Creating an NFS file share? Consider using Microsoft.FileShares.** To create an NFS file share with Microsoft.FileShares, see [Create an Azure file share with Microsoft.FileShares](create-file-share.md). For the differences between the resource providers, and features supported on the new file share experience, see [Azure Files management concepts](files-management-concepts.md).
 
 This article describes how to create a storage account and a classic file share in it. Before you create a classic file share, decide on these properties:
 
 - **Media tier**: SSD file shares provide consistent high performance and low latency. HDD file shares provide cost-effective storage for general-purpose use.
-- **Protocol**: SMB file shares are available on both media tiers. NFS file shares require the SSD media tier.
-- **Redundancy**: HDD file shares support locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS). SSD file shares support LRS and ZRS. For more information, see [Azure Files data redundancy](files-redundancy.md).
+- **Protocol**: SMB file shares are available on both media tiers. NFS file shares support SSD and, in preview, HDD with provisioned v2 billing.
+- **Redundancy**: HDD SMB file shares support locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS). SSD file shares support LRS and ZRS. NFS HDD file shares support only LRS. For more information, see [Azure Files data redundancy](files-redundancy.md).
 
 For more information, see [Plan an Azure Files deployment](storage-files-planning.md).
 
@@ -208,7 +209,7 @@ The following `Update-AzStorageFileServiceProperty` parameters set the file serv
 | Portal setting | Parameter | Values |
 |-|-|-|
 | Require Encryption in Transit for SMB | `SmbEncryptionInTransitRequired` | `$true` or `$false`. |
-| Require Encryption in Transit for NFS | `NfsEncryptionInTransitRequired` | `$true` or `$false`. Applies to NFS file shares, which require SSD. |
+| Require Encryption in Transit for NFS | `NfsEncryptionInTransitRequired` | `$true` or `$false`. Applies to SSD NFS shares and NFS HDD shares in preview. |
 | SMB Multichannel | `EnableSmbMultichannel` | `$true` or `$false`. SSD storage accounts only. |
 | Enable soft delete for classic file shares | `EnableShareDeleteRetentionPolicy` | `$true` (default) or `$false`. |
 | Days to retain deleted classic file shares | `ShareRetentionDays` | 1 to 365. The default is 7. |
@@ -283,6 +284,8 @@ az storage account create \
     --output none
 ```
 
+For the NFS HDD preview, use `--kind FileStorage` and `--sku StandardV2_LRS` in the preceding example. Don't use `StorageV2` or a zone-redundant or geo-redundant SKU for NFS HDD shares. Keep `--https-only true` and use the AzNFS mount helper for encrypted access.
+
 To allow access only from specific networks, add `--default-action Deny`, `--bypass AzureServices`, `--vnet-name`, and `--subnet` to the previous command. To add an IP address rule, run [az storage account network-rule add](/cli/azure/storage/account/network-rule#az-storage-account-network-rule-add) after you create the storage account. Replace `<public-ip-address-or-range>` with your own value. For more information, see [Restrict access to the public endpoint to specific networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks).
 
 ```azurecli
@@ -303,12 +306,12 @@ The following `az storage account file-service-properties update` parameters set
 | Portal setting | Parameter | Values |
 |-|-|-|
 | Require Encryption in Transit for SMB | `--require-smb-encryption-in-transit` | `true` or `false`. |
-| Require Encryption in Transit for NFS | `--require-nfs-encryption-in-transit` | `true` or `false`. Applies to NFS file shares, which require SSD. |
+| Require Encryption in Transit for NFS | `--require-nfs-encryption-in-transit` | `true` or `false`. For the NFS HDD preview, configure the NFS-specific requirement with PowerShell as described in the PowerShell tab. |
 | SMB Multichannel | `--enable-smb-multichannel` | `true` or `false`. SSD storage accounts only. |
 | Enable soft delete for classic file shares | `--enable-delete-retention` | `true` (default) or `false`. |
 | Days to retain deleted classic file shares | `--delete-retention-days` | 1 to 365. The default is 7. |
 
-The following example configures the same settings that the Azure portal uses by default:
+The following example configures the same settings that the Azure portal uses by default. For the NFS HDD preview, omit `--require-nfs-encryption-in-transit` from this command and configure that setting with PowerShell. Until you configure the NFS-specific setting, keep `--https-only true` on the storage account to require encrypted NFS access.
 
 ```azurecli
 az storage account file-service-properties update \
@@ -343,6 +346,20 @@ A file share name can contain only lowercase letters, numbers, and single hyphen
 ### Create a provisioned v2 classic file share
 For a provisioned v2 file share, you provision storage, IOPS, and throughput. Your bill depends on the amount of each that you provision. Azure Files recommends IOPS and throughput based on the provisioned storage. You can use the recommendation, or specify your own values. For more information, see [Provisioned v2 model](./understanding-billing.md#provisioned-v2-model).
 
+#### NFS on HDD preview
+
+NFS file shares on the HDD media tier are in **preview** for both management models. You must sign up through the [preview survey](https://aka.ms/AzureFilesNFSHDD) to get access before you use this feature. During the preview, you can create NFS HDD file shares only by using PowerShell or the Azure CLI. The Azure portal doesn't currently support NFS HDD.
+
+For new NFS HDD deployments, consider using the Microsoft.FileShares resource provider. For steps, see [Create an NFS HDD file share with Microsoft.FileShares](create-file-share.md#nfs-on-hdd-preview). To understand the differences between the resource providers and the features supported on the new file share experience, see [Azure Files management concepts](files-management-concepts.md).
+
+To create a classic NFS HDD file share, use the following configuration:
+
+- The Microsoft.Storage resource provider and a `FileStorage` storage account.
+- The provisioned v2 billing model with the `StandardV2_LRS` SKU. NFS HDD doesn't support provisioned v1 or pay-as-you-go billing.
+
+> [!IMPORTANT]
+> NFS HDD file shares support only LRS. They don't support ZRS, GRS, or GZRS, and you can't change their redundancy.
+
 # [Portal](#tab/azure-portal)
 1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 2. Select **+ Classic file share**.
@@ -352,7 +369,6 @@ For a provisioned v2 file share, you provision storage, IOPS, and throughput. Yo
    - **Provisioned storage (GiB)**: The amount of storage to provision. You're billed for the provisioned storage, regardless of how much you use.
    - **Provisioned IOPS and throughput**: Select **Recommended provisioning** to use the recommended IOPS and throughput, or select **Manually specify IOPS and throughput**. If you don't know your IOPS and throughput requirements, use the recommendation and adjust it later.
    - **IOPS** and **Throughput (MiB/sec)**: If you selected **Manually specify IOPS and throughput**, enter the values to provision. The range for each value appears under the field.
-   - **Protocol**: Select **SMB** or **NFS**. **NFS** is available only in SSD storage accounts. For an NFS file share, you can also set **Root Squash**. For more information, see [Configure root squash for Azure Files](nfs-root-squash.md).
 
    :::image type="content" source="media/storage-how-to-create-file-share/new-share-provisioned-v2.png" alt-text="Screenshot of the Basics tab of the New classic file share page for a provisioned v2 storage account.":::
 
@@ -364,7 +380,7 @@ To create a provisioned v2 classic file share, use the [New-AzRmStorageShare](/p
 
 ```azurepowershell
 # QuotaGiB is the provisioned storage in GiB. The valid range is 32 to 262,144.
-# EnabledProtocol is "SMB" or "NFS". NFS requires an SSD storage account.
+# EnabledProtocol is "SMB" or "NFS".
 $params = @{
     ResourceGroupName = $resourceGroupName
     StorageAccountName = $storageAccountName
@@ -382,7 +398,7 @@ To create a provisioned v2 classic file share, use the [az storage share-rm crea
 
 ```azurecli
 # --quota is the provisioned storage in GiB. The valid range is 32 to 262,144.
-# --enabled-protocols is SMB or NFS. NFS requires an SSD storage account.
+# --enabled-protocols is SMB or NFS.
 az storage share-rm create \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \

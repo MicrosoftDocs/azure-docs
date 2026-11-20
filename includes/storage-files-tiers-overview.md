@@ -5,7 +5,8 @@
  author: khdownie
  ms.service: azure-file-storage
  ms.topic: include
- ms.date: 07/11/2025
+ ms.date: 11/17/2026
+ ai-usage: ai-assisted
  ms.author: kendownie
  ms.custom: include file
 ---
@@ -16,6 +17,8 @@ Azure Files offers two media tiers of storage: solid-state disk (SSD) and hard d
   You can use SSD file shares with both the SMB and NFS protocols. SSD file shares are available in the [provisioned v2](../articles/storage/files/understanding-billing.md#provisioned-v2-model) and [provisioned v1](../articles/storage/files/understanding-billing.md#provisioned-v1-model) billing models. SSD file shares offer a [higher availability SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services) than HDD file shares.
 
 - **HDD (standard)**: HDD file shares provide a cost-effective storage option for general-purpose file shares. HDD file shares are available with the [provisioned v2](../articles/storage/files/understanding-billing.md#provisioned-v2-model) and [pay-as-you-go](../articles/storage/files/understanding-billing.md#pay-as-you-go-model) billing models, although we recommend the provisioned v2 model for new deployments of file shares. For information about the SLA, see the [Azure SLA page for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+
+NFS file shares on HDD are in preview and require sign-up. They support provisioned v2 billing and LRS only on both management models. For more information, see [NFS on HDD preview](../articles/storage/files/create-file-share.md#nfs-on-hdd-preview). HDD pay-as-you-go shares support SMB, not NFS.
 
 When you're selecting a media tier for your workload, consider your performance and usage requirements. If your workload requires single-digit latency, or you're using SSD storage media on-premises, SSD file shares are probably the best fit. If low latency isn't as much of a concern, HDD file shares might be a better fit from a cost perspective. For example, low-latency might be less of a concern with team shares mounted on-premises from Azure or cached on-premises through Azure File Sync.
 

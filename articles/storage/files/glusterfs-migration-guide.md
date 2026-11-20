@@ -148,7 +148,7 @@ rsync -avz --progress --stats --delete <GlusterFS_Source>/ <AzureFiles_Destinati
 ### Step 2: Prepare Azure environment
 
 1. [Create a storage account](../common/storage-account-create.md) in the appropriate Azure region.
-   - Choose the right media tier (HDD or SSD) based on your needs. SSD is required for NFS file shares.
+   - Choose the right media tier (HDD or SSD) based on your needs. Use SSD for NFS file shares. NFS on HDD is in preview.
 
 1. Configure networking. See [Azure Files networking considerations](storage-files-networking-overview.md).
    - SMB: Configure firewall and private endpoints as needed. See [Restrict access to the public endpoint to specific networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks) and [Configure network endpoints for accessing Azure file shares](storage-files-networking-endpoints.md).
