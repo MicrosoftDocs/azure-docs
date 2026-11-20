@@ -361,7 +361,7 @@
           href: passwordless-migration-event-hubs.md
     - name: Troubleshoot
       items:
-        - name: Troubleshoot connectivity issues
+        - name: Azure Event Hubs troubleshooting guide
           href: troubleshooting-guide.md
         - name: Troubleshoot authentication and authorization issues
           href: troubleshoot-authentication-authorization.md
