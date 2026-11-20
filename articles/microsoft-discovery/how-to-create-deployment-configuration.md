@@ -5,7 +5,7 @@ author: yousefi
 ms.author: yousefi
 ms.service: azure
 ms.topic: how-to
-ms.date: 11/18/2026
+ms.date: 11/20/2026
 # Customer intent: As a platform administrator, I want to generate a reviewed onboarding configuration so that later stages use consistent approved settings.
 ---
 
@@ -93,7 +93,9 @@ Use the [network planning task](how-to-plan-deployment-network.md) for architect
 | `workspace.publicNetworkAccess` | `Enabled` or `Disabled`; affects workspace data-plane runner access. |
 | `workspace.networkIsolation` | `true` or `false`; independently controls Workbench isolation. |
 
-Review [quota and capacity](concept-quota-reservation.md) for all planned capabilities. The tool's default compute sizing uses three `Standard_D4s_v6` system nodes and up to three `Standard_D4ds_v6` workload nodes. Advanced JSON can override `systemSku`, `nodePoolVmSize`, and `nodePoolMaxNodeCount`; live checks derive vCPU requirements from selected SKU metadata.
+Review [quota and capacity](concept-quota-reservation.md) for all planned capabilities. In either workbook, select **SC system SKU** (`systemSku`) under **SIZING & SCALE**. The default is `Standard_D4s_v6`. Stage 1 saves your selection in `config.json`, and Stage 4 uses it for the supercomputer system pool. Advanced JSON can also set `systemSku` and override `nodePoolVmSize` and `nodePoolMaxNodeCount`.
+
+The system pool has three nodes. By default, it needs 12 vCPUs, with up to 12 more for three `Standard_D4ds_v6` workload nodes. Stages 1 and 3 calculate requirements from live metadata for the selected SKUs and compare them with remaining regional and VM-family quota in `workloadRegion`. A system-pool quota shortfall is `Fail`; a shortfall only in the additional quota needed for maximum workload-node autoscale is `Warn`.
 
 The workspace path needs 450,000 GPT-5.4 GlobalStandard TPM: 250,000 for the built-in deployment and 200,000 for the validation chat model. Quota is scoped by subscription, region, model, and deployment type. An absent portal row doesn't mean zero quota; a catalog read is also required. Resumed-deployment checks account for allocations still to be created.
 
@@ -119,7 +121,7 @@ If Azure Policy will deny deployment, the policy owner must resolve it or create
    ```
 
 1. Review `.\out\stage1.md` and `.\out\stage1.json`. Required checks must pass or have a recorded approved waiver before a new configuration is exported. If the run fails, don't consume an old `config.json` left by a previous run.
-1. Confirm the output is from the current run. Inspect subscription, names, UAMI resource ID, storage, network mode, CIDRs, outbound settings, human-access mode, and workspace controls.
+1. Confirm the output is from the current run. Inspect subscription, names, UAMI resource ID, storage, selected `systemSku`, network mode, CIDRs, outbound settings, human-access mode, and workspace controls.
 1. Review every Warn, Skip, or Waived row. Some Azure-dependent checks degrade to Warn/Skip when not signed in; a locally generated config doesn't prove provider visibility, quota, policy, or name availability.
 1. Correct failed inputs in the workbook and rerun Stage 1. After configuration or network changes, regenerate downstream readiness evidence before deployment.
 

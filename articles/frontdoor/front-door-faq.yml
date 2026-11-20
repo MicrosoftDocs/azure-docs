@@ -332,7 +332,7 @@ sections:
     - question: | 
         What is happening with DigiCert's CNAME Delegation DCV workflow? 
       answer: |
-        Effective August 15, 2025, DigiCert transitioned to a new open-source software (OSS) domain control validation (DCV) platform designed to enhance transparency and accountability in domain validation processes. DigiCert no longer supports the legacy CNAME Delegation DCV workflow for domain control validation in the specified Azure services. [Learn more](https://learn.microsoft.com/en-us/azure/security/fundamentals/managed-tls-changes)
+        Effective August 15, 2025, DigiCert transitioned to a new open-source software (OSS) domain control validation (DCV) platform designed to enhance transparency and accountability in domain validation processes. DigiCert no longer supports the legacy CNAME Delegation DCV workflow for domain control validation in the specified Azure services. [Learn more](/azure/security/fundamentals/managed-tls-changes)
     
     - question: | 
         Which Azure Front Door tiers are affected by this change? 
@@ -358,7 +358,7 @@ sections:
        - If your domain doesn't meet these validation requirements or has HTTPS disabled, the certificate state changes to Pending revalidation, and you must revalidate domain ownership.
 
        To renew the certificate without waiting for automatic rotation, manually revalidate domain ownership by using either of the following methods:
-         - Adding the required DNS validation record following step 3 for [domains pending validation](https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-add-custom-domain#add-a-new-custom-domain)
+         - Adding the required DNS validation record following step 3 for [domains pending validation](standard-premium/how-to-add-custom-domain.md#add-a-new-custom-domain)
          - Triggering validation manually using PowerShell or Azure CLI (`RefreshValidation`).
 
     

@@ -58,7 +58,7 @@ In many cases, you can install the client certificate directly on the client com
 
 > [!NOTE] 
 > If the required root certificate isn't already installed on your client device, install the root certificate included in the VPN client configuration package before using the VPN client profile.
-For example, if you're updating your P2S VPN profile as part of the [gateway root certificate migration](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-about-gateway-certificate-migration)
+For example, if you're updating your P2S VPN profile as part of the [gateway root certificate migration](point-to-site-about-gateway-certificate-migration.md)
  and the G2 root certificate isn't already installed on your client device, install the G2 root certificate included in the updated VPN client package before using the updated P2S VPN profile.
 
 ##### Install the client certificate

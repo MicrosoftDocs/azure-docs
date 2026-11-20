@@ -27,6 +27,8 @@ Devices can temporarily disconnect from IoT Hub for several reasons, including:
 
 Transient device disconnects are normal and expected in cloud-connected applications. Device applications should be designed to detect a lost connection and reconnect by using an appropriate retry strategy.
 
+To tell expected reconnections apart from a connectivity problem that needs action,  monitor the **Connected devices** metric together with **Successful connects**, as described in [Monitor device connectivity health in Azure IoT Hub](how-to-monitor-device-connectivity-health.md).
+
 ## Why you need a reconnection strategy
 
 It's important to have a strategy to reconnect devices as described in the following sections.  Without a reconnection strategy, you could see a negative effect on your solution's performance, availability, and cost. 

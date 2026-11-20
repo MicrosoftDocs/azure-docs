@@ -56,7 +56,7 @@ The chat hub works alongside the standard hub, so you can extend your real-time 
 
 ## How can I use Web PubSub chat hub to build a conversational AI, like an AI chatbot?
 
-Use Web PubSub chat hub as the real-time conversation layer and [Foundry Agent Service](https://learn.microsoft.com/azure/foundry/what-is-foundry) as the intelligence layer behind your chatbot.
+Use Web PubSub chat hub as the real-time conversation layer and [Foundry Agent Service](/azure/foundry/what-is-foundry) as the intelligence layer behind your chatbot.
 
 In this architecture:
 

@@ -73,7 +73,7 @@ Hybrid key exchange supports inbound client-to-App Service front-end TLS connect
 
 You don't need to change your app configuration, minimum TLS version, cipher-suite settings, or [TLS certificate and binding](configure-ssl-bindings.md) to use hybrid key exchange. No new or post-quantum certificate is required; existing server and mTLS client-certificate requirements still apply. Setting the minimum TLS version to 1.3 doesn't require post-quantum key exchange: TLS 1.3 clients that support only classical groups can still connect. Neither **Minimum TLS Cipher Suite** nor `FrontEndSSLCipherSuiteOrder` enables, disables, prioritizes, or requires `X25519MLKEM768`, because these settings control cipher suites rather than supported groups.
 
-For background, see the [Microsoft Quantum overview](https://quantum.microsoft.com/vision/quantum-cryptography-overview) and the [Windows TLS supported groups reference](https://learn.microsoft.com/windows/win32/secauthn/tls-supported-groups-in-windows-11-24h2-and-later).
+For background, see the [Microsoft Quantum overview](https://quantum.microsoft.com/vision/quantum-cryptography-overview) and the [Windows TLS supported groups reference](/windows/win32/secauthn/tls-supported-groups-in-windows-11-24h2-and-later).
 
 ### TLS 1.2
 

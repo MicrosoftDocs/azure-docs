@@ -14,7 +14,7 @@ ms.custom:
 
 # Microsoft Entra ID Free
 
-Microsoft Entra ID Free is a no-charge billing record that represents the legal ownership of your [Microsoft Entra tenant](https://learn.microsoft.com/entra/fundamentals/whatis). It connects the tenant to the billing account that owns it and makes that relationship visible in Microsoft billing experiences.
+Microsoft Entra ID Free is a no-charge billing record that represents the legal ownership of your [Microsoft Entra tenant](/entra/fundamentals/whatis). It connects the tenant to the billing account that owns it and makes that relationship visible in Microsoft billing experiences.
 
 ## What Microsoft Entra ID Free represents
 
@@ -32,13 +32,13 @@ Microsoft Entra ID Free doesn't replace or change the tenant. The tenant ID, use
 
 ## How it appears under your billing account and tenant
 
-For a [Microsoft Customer Agreement](https://learn.microsoft.com/azure/cost-management-billing/understand/mca-overview), the Microsoft Entra ID Free billing record appears in the billing hierarchy:
+For a [Microsoft Customer Agreement](../understand/mca-overview.md), the Microsoft Entra ID Free billing record appears in the billing hierarchy:
 
 | Billing hierarchy level | Relationship |
 |---|---|
-| [**Billing account**](https://learn.microsoft.com/azure/cost-management-billing/understand/mca-overview#your-billing-account) | Represents the commercial relationship with Microsoft and the organization that owns the tenant. |
-| [**Billing profile**](https://learn.microsoft.com/azure/cost-management-billing/understand/mca-overview#billing-profiles) | Exists within the billing account and manages invoice and payment information. |
-| [**Invoice section**](https://learn.microsoft.com/azure/cost-management-billing/understand/mca-overview#invoice-sections) | Exists within the billing profile and organizes products and subscriptions. |
+| [**Billing account**](../understand/mca-overview.md#your-billing-account) | Represents the commercial relationship with Microsoft and the organization that owns the tenant. |
+| [**Billing profile**](../understand/mca-overview.md#billing-profiles) | Exists within the billing account and manages invoice and payment information. |
+| [**Invoice section**](../understand/mca-overview.md#invoice-sections) | Exists within the billing profile and organizes products and subscriptions. |
 | **Microsoft Entra ID Free** | Exists within the invoice section and represents the tenant's legal ownership. |
 
 > [!NOTE]
@@ -73,7 +73,7 @@ When you create an eligible Microsoft Entra tenant, Microsoft automatically crea
 
 Not all existing tenants have this billing record yet. Microsoft is adding records to eligible existing tenants in phases and will notify affected customers.
 
-To create a tenant, see [Quickstart: Access and create a new tenant](https://learn.microsoft.com/entra/fundamentals/create-new-tenant?tabs=workforce).
+To create a tenant, see [Quickstart: Access and create a new tenant](/entra/fundamentals/create-new-tenant?tabs=workforce).
 
 ### Tenant deletion
 
@@ -81,13 +81,13 @@ Deleting or canceling the Microsoft Entra ID Free billing record isn't the way t
 
 After you delete a tenant, its billing record might remain visible temporarily while Microsoft billing systems process the change.
 
-For instructions, see [Delete a Microsoft Entra tenant](https://learn.microsoft.com/entra/identity/users/directory-delete-howto).
+For instructions, see [Delete a Microsoft Entra tenant](/entra/identity/users/directory-delete-howto).
 
 ### Tenant transfer
 
 Transferring a tenant's legal ownership changes the billing account associated with its Microsoft Entra ID Free billing record. It doesn't move or recreate the Microsoft Entra directory.
 
-The tenant ID and directory contents remain unchanged. Users, groups, domains, applications, authentication settings, Microsoft Entra roles, [Azure role-based access control assignments](https://learn.microsoft.com/azure/role-based-access-control/overview), service data, and tenant configuration aren't affected.
+The tenant ID and directory contents remain unchanged. Users, groups, domains, applications, authentication settings, Microsoft Entra roles, [Azure role-based access control assignments](/azure/role-based-access-control/overview), service data, and tenant configuration aren't affected.
 
 > [!IMPORTANT]
 > A tenant ownership transfer is a billing operation, not a directory migration. Review the transfer scope before you accept the request.
@@ -118,8 +118,8 @@ Before creating a transfer request, confirm the following conditions.
 
 The transfer requester must:
 
-- Have a billing account for a Microsoft Customer Agreement. To identify your billing account type, see [Check for access to a Microsoft Customer Agreement](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-request-billing-ownership#check-for-access).
-- Have an owner or contributor role for the destination billing account or the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](https://learn.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles#invoice-section-roles-and-tasks).
+- Have a billing account for a Microsoft Customer Agreement. To identify your billing account type, see [Check for access to a Microsoft Customer Agreement](mca-request-billing-ownership.md#check-for-access).
+- Have an owner or contributor role for the destination billing account or the relevant billing profile or invoice section. For more information, see [Billing roles and tasks](understand-mca-roles.md#invoice-section-roles-and-tasks).
 
 The transfer recipient must:
 
@@ -136,7 +136,7 @@ The tenant must:
 
 The transfer requester starts the transfer by using the process for requesting billing ownership of Azure products under a Microsoft Customer Agreement:
 
-1. Follow the steps in [Create the product transfer request](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-request-billing-ownership#create-the-product-transfer-request).
+1. Follow the steps in [Create the product transfer request](mca-request-billing-ownership.md#create-the-product-transfer-request).
 2. Select the destination billing account, billing profile, and invoice section.
 3. Send the request to the transfer recipient.
 
@@ -152,11 +152,11 @@ The transfer recipient uses the standard Microsoft Customer Agreement process to
 4. Select the **Review request** tab and verify the selected products.
 5. Resolve any warnings or failed validation messages, and then complete the transfer.
 
-Only tenants with a **Microsoft Entra ID Free** billing record are available for selection. For the complete workflow, see [Review and approve the transfer request](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-request-billing-ownership#review-and-approve-transfer-request).
+Only tenants with a **Microsoft Entra ID Free** billing record are available for selection. For the complete workflow, see [Review and approve the transfer request](mca-request-billing-ownership.md#review-and-approve-transfer-request).
 
 #### Check the transfer status
 
-After the transfer recipient approves the request, use the standard transfer experience to monitor it. For instructions and status definitions, see [Check the transfer request status](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-request-billing-ownership#check-the-transfer-request-status).
+After the transfer recipient approves the request, use the standard transfer experience to monitor it. For instructions and status definitions, see [Check the transfer request status](mca-request-billing-ownership.md#check-the-transfer-request-status).
 
 If the request contains multiple products, review the transfer details to confirm the result for each selected Microsoft Entra tenant.
 
@@ -182,4 +182,4 @@ If validation or processing fails, confirm that:
 - The source and destination are in the same Azure cloud.
 - The request hasn't expired.
 
-For general transfer warnings and failed validation messages, see [Review and approve the transfer request](https://learn.microsoft.com/azure/cost-management-billing/manage/mca-request-billing-ownership#review-and-approve-transfer-request).
+For general transfer warnings and failed validation messages, see [Review and approve the transfer request](mca-request-billing-ownership.md#review-and-approve-transfer-request).

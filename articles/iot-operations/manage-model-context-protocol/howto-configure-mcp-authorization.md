@@ -121,7 +121,7 @@ ServiceAccount annotation.
 | `DataReader` | `mq_messages` and `dss_get`, which read MQTT messages and distributed State Store values. It doesn't include `Reader`. |
 | `Admin` | `*`: all tools on this backend, including write tools and tools added later. It doesn't grant downstream permissions or Azure administration rights. |
 
-The `Reader` allow list is:
+The following table lists documentation and resource-inspection tools. The default `Reader` role grants access unless otherwise noted.
 
 | Tool category | Unprefixed tool names |
 | --- | --- |
@@ -131,6 +131,7 @@ The `Reader` allow list is:
 | Devices | `list_devices`, `get_device`, `device_details` |
 | Connectors | `list_connectors`, `get_connector`, `connector_details`, `find_connector_by_device` |
 | MQTT brokers | `list_brokers`, `get_broker`, `broker_details` |
+| Broker metadata | `broker_metadata` (use `Admin`; see [Enable broker metadata access](#enable-broker-metadata-access-optional)) |
 | Data flows | `list_dataflows`, `get_dataflow`, `dataflow_details` |
 | Data flow graphs | `list_dataflow_graphs`, `get_dataflow_graph`, `dataflow_graph_details` |
 
@@ -366,6 +367,65 @@ az deployment group create \
     authorizationPolicyName=aio-mcp-policy-v1
 ```
 
+## Enable broker metadata access (optional)
+
+The `broker_metadata` tool inspects MQTT broker sessions, subscriptions, client queue state, and retained topic names. To enable it, authorize the MCP client to call the tool and separately grant the MCP backend permission to read the broker's metadata topics.
+
+### Permit the client to call the tool
+
+Use the `Admin` role to permit the client to call `broker_metadata`. The default `aio-mcp-policy-v1` policy grants `Admin` access to all backend tools, so you don't need a custom role or additional policy rule. If the `aio` connection uses a custom policy, verify that it grants `Admin` access to `broker_metadata` or `*`; assigning a role doesn't create a policy grant.
+
+Add `Admin` to the MCP client's ServiceAccount through its deployment configuration. For a client that already has `Reader`, merge this annotation into its ServiceAccount metadata:
+
+```yaml
+metadata:
+  annotations:
+    aio-mcp-auth/roles: '["Reader","Admin"]'
+```
+
+Preserve any other roles the client requires. Annotate the client's ServiceAccount, not the gateway's or backend's. The role doesn't grant broker permissions.
+
+> [!IMPORTANT]
+> Under the default policy, `Admin` permits all tools on the backend, including write tools and tools added later, not just broker metadata. Assign it only to trusted clients. Roles apply across connections whose policies grant them.
+
+### Permit the backend to read metadata
+
+The tool uses MQTT 5 to read metadata through the backend's broker identity. Use a combined authorization policy on the backend's existing listener port: retain the permissions required by existing clients and tools, and add metadata access only for the backend. You don't need a dedicated port or a different backend endpoint.
+
+> [!IMPORTANT]
+> If the listener port doesn't have an explicit authorization policy, attaching one replaces its default authorization behavior. Include the permissions required by all existing clients and tools before attaching the policy. Don't attach a metadata-only policy to a shared port.
+
+For a backend that authenticates with a Kubernetes service account token:
+
+1. Add the annotation `aio-broker-auth/mcp-metadata: "enabled"` to the MCP backend's ServiceAccount through its deployment configuration. Don't annotate the MCP client's or gateway's ServiceAccount.
+1. Follow [Configure MQTT broker authorization](../manage-mqtt-broker/howto-configure-authorization.md) to update the policy used by the backend's listener port, or create a combined policy if none is linked. Preserve the existing permissions and append the following rule to the policy's rules list (`spec.authorizationPolicies.rules` in Kubernetes YAML). This fragment isn't a complete policy.
+
+   ```yaml
+   - principals:
+       attributes:
+         - mcp-metadata: "enabled"
+     brokerResources:
+       - method: Connect
+       - method: Subscribe
+         topics:
+           - "$SYS/topology"
+           - "$SYS/store/sessions/#"
+           - "$SYS/store/client_state/#"
+           - "$SYS/store/retain/#"
+   ```
+
+1. Verify that the combined policy is [linked to the listener port](../manage-mqtt-broker/howto-configure-authorization.md#link-brokerauthorization-to-brokerlistener) used by the MCP backend. Keep the existing port, authentication, TLS, and service settings unchanged.
+1. Reconnect the MCP backend to the broker after updating its ServiceAccount attributes, so authentication picks up the changes.
+
+For other authentication methods, match the backend's authenticated attributes as described in [Configure MQTT broker authorization](../manage-mqtt-broker/howto-configure-authorization.md). A broker grant for `#` doesn't include `$SYS` topics; explicitly grant the required metadata topics.
+
+> [!NOTE]
+> Metadata is read using the backend's identity, not the original caller's MQTT identity. Collection results aren't filtered by each caller's MQTT topic permissions. Grant tool access only to callers who can inspect the returned client IDs, subscriptions, queue state, and topic names.
+
+### Verify metadata access
+
+Repeat [Verify the deployment](#verify-the-deployment), inspecting the policy referenced by the `aio` connection and confirming that it grants `Admin` access to `broker_metadata` or `*`. After reconciliation, start a new client session and verify that the client with `Admin` can discover and call `aio_broker_metadata`, while a client without a matching grant is denied. A broker authorization error requires checking the backend's broker permissions, not adding MCP roles to the backend.
+
 ## Allow a write tool (optional)
 
 This example grants a dedicated `MqttPublisher` role access to
@@ -457,6 +517,7 @@ Don't delete the template-managed `aio` connection or `aio-mcp-policy-v1` policy
 
 ## Related content
 
+- [MCP tools overview](overview-mcp-tools.md)
 - [Connect to MCP](howto-connect-ai-agent.md)
 - [Expose MCP through Azure Relay](howto-deploy-mcp-relay.md)
 - [Troubleshoot MCP](troubleshoot-mcp.md)

@@ -235,6 +235,9 @@
       displayName: monitor, alerts
     - name: Use metrics and logs to monitor IoT Hub
       href: tutorial-use-metrics-and-diags.md
+    - name: Monitor device connectivity health
+      href: how-to-monitor-device-connectivity-health.md
+      displayName: connected devices, disconnects, reconnections, dashboard, workbook, alerts
     - name: React to IoT Hub events with Event Grid
       href: iot-hub-event-grid.md
       displayName: MQTT, AMQP

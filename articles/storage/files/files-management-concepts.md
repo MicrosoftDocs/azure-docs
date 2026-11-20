@@ -26,7 +26,7 @@ This video provides a comprehensive overview of the differences between the stor
 
 ## Classic file shares (Microsoft.Storage)
 
-Classic file shares are file shares deployed in storage accounts. They support SMB and NFS, SSD and HDD media tiers, and multiple redundancy options. Supported combinations and regional availability depend on the protocol, media tier, and billing model. For example, NFS requires SSD storage. The storage account model has the following considerations:
+Classic file shares are file shares deployed in storage accounts. They support SMB and NFS, SSD and HDD media tiers, and multiple redundancy options. Supported combinations and regional availability depend on the protocol, media tier, and billing model. For example, NFS on HDD is in preview. The storage account model has the following considerations:
 
 - **Capacity planning**: Classic file shares share the limits of their storage account. Provisioned storage accounts contain only file shares. Pay-as-you-go storage accounts can also contain blob containers, queues, and tables. Consider the combined storage, IOPS, and throughput needs of the resources in each account.
 
@@ -92,7 +92,7 @@ Use the following table to compare feature support for your workload. Classic fi
 | Pay-as-you-go billing model | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Provisioned v1 billing model | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Provisioned v2 billing model | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| HDD supportability | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| HDD supportability | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | SSD supportability | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | LRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |

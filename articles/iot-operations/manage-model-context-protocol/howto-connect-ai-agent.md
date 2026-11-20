@@ -67,7 +67,7 @@ dedicated agent ServiceAccount directly from Helm values.
 - An Azure IoT Operations installation in the `azure-iot-operations`
   namespace, including the ready MCP Gateway, `aio` connection, authorization
   policy, and `azure-iot-operations-aio-ca-trust-bundle` from [Deploy MCP](howto-deploy-mcp.md).
-- [Foundry Local installed as an Azure Arc extension](https://learn.microsoft.com/azure/azure-sovereign-clouds/private/foundry-local/deploy-foundry-local-arc-extension),
+- [Foundry Local installed as an Azure Arc extension](/azure/azure-sovereign-clouds/private/foundry-local/deploy-foundry-local-arc-extension),
   with a model that supports tool calling deployed and reachable from the agent's namespace. Install the
   extension and deploy a model before installing the agent.
 - `helm` and `kubectl`, with the `kubectl` context set to the target cluster.
