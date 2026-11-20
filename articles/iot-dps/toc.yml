@@ -146,6 +146,8 @@ items:
     items:
     - name: Troubleshooting DPS
       href: how-to-troubleshoot-dps.md
+    - name: Monitor device connectivity health
+      href: ../iot-hub/how-to-monitor-device-connectivity-health.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
     - name: DPS FAQ
       href: dps-faq.yml
 - name: Reference
