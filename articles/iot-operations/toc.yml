@@ -148,6 +148,9 @@ items:
               - name: Configure MCP authorization
                 href: manage-model-context-protocol/howto-configure-mcp-authorization.md
                 displayName: AI, authentication, policy, roles, service account token
+              - name: MCP tools overview
+                href: manage-model-context-protocol/overview-mcp-tools.md
+                displayName: AI, tools, broker metadata, MQTT, State Store, Edge Registry
               - name: Connect to MCP
                 href: manage-model-context-protocol/howto-connect-ai-agent.md
                 displayName: AI, agent, sample, Foundry Local, Helm, MQTT

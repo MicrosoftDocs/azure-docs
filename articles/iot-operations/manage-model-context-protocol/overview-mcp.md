@@ -45,5 +45,6 @@ You can bring your own MCP-compatible agent. An optional sample agent demonstrat
 
 ## Related content
 
+- [MCP tools overview](overview-mcp-tools.md)
 - [Query MQTT broker metadata](howto-query-broker-metadata.md)
 - [Troubleshoot MCP](troubleshoot-mcp.md)
