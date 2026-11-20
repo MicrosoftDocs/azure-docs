@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 11/19/2026
+ms.date: 11/20/2026
 ---
 
 # Domains in Azure Front Door
@@ -152,9 +152,9 @@ Include the following certificates in the PFX file that you import into Key Vaul
 - The required intermediate CA certificates.
 - The cross-signed CA certificate that provides a path to a root CA on the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
 
-A trusted root CA is still required to validate the chain. However, you don't need to include a copy of the root certificate in the uploaded PFX because the validator can use the copy in its trust store. You must still include the required intermediate and cross-signed CA certificates in the PFX.
+Front Door must be able to validate the certificate chain to a root CA trusted by its validator. You can omit the self-signed root certificate from the uploaded PFX when that root is already in the validator's trust store. Include the server certificate and its private key, all required intermediate CA certificates, and the cross-signed CA certificate needed for the intended trust path.
 
-After deployment, verify that the chain served by your custom domain includes the required intermediate certificates and the cross-signed CA certificate. Validate the chain against the trust store used by your target clients. The trusted root doesn't need to be sent during the TLS handshake, so its absence from the served chain doesn't by itself indicate a broken chain. Validation results can differ between clients because their trust stores and certificate path-building behavior can differ.
+After deployment, inspect the certificate chain served by your custom domain and test validation with your target clients. Confirm that the served chain provides the certificates needed to reach a root those clients trust. The self-signed root certificate does not need to be sent during the TLS handshake. Validation results can differ because clients use different trust stores and certificate path-building behavior.
 
 #### Import a certificate to Azure Key Vault
 
