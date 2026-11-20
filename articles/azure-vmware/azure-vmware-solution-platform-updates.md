@@ -22,6 +22,9 @@ To address the vulnerabilities (CVE-2026-123890, CVE-2026-123891, CVE-2026-12389
 
 As we approach the completion of the VMware Cloud Foundation 9.1 (VCF) integration with Azure VMware Solution, we have created a page explaining how VCF 9.1 will work with Azure VMware Solution, including an FAQ section. [Learn more](architecture-vmware-cloud-foundation.md)
 
+**Preflight validation for Remove Host operations**
+Azure VMware Solution now supports preflight validation for customer-initiated Remove Host operations in the Azure portal. Customers can identify and resolve supported maintenance mode blockers before initiating host removal, helping prevent avoidable failures.
+
 ## August 2026
 
 **Portable VMware Cloud Foundation licensing reference**
