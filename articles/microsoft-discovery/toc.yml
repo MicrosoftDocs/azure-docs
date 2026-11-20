@@ -181,6 +181,8 @@ items:
             displayName: Microsoft Discovery, plan, architecture, decisions, immutable settings, create-only, network, identities, customer-managed keys
           - name: Quota and capacity requirements
             href: concept-quota-reservation.md
+          - name: Limits and quotas
+            href: reference-limits-quotas.md
           - name: Resource naming rules
             href: reference-resource-naming.md
           - name: Register resource providers
