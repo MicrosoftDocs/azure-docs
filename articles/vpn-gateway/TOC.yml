@@ -226,6 +226,8 @@
               href: openvpn-azure-ad-mfa.md
         - name: Configure Azure VPN Client
           href: point-to-site-entra-vpn-client.md
+        - name: Modern Authentication for Azure VPN Client on macOS
+          href: modern-authentication-methods-for-azure-vpn-client-macos.md
         - name: Configure device SSO for Windows
           href: point-to-site-entra-vpn-client-windows-device-sso.md
         - name: Generate VPN client profile configuration files
@@ -248,12 +250,12 @@
           href: point-to-site-user-groups-about.md
         - name: Configure groups and client address pools
           items:
-          - name: Azure portal
-            href: point-to-site-user-groups-create-portal.md
-          - name: PowerShell
-            href: point-to-site-user-groups-create.md
-          - name: Azure CLI
-            href: point-to-site-user-groups-create-cli.md
+            - name: Azure portal
+              href: point-to-site-user-groups-create-portal.md
+            - name: PowerShell
+              href: point-to-site-user-groups-create.md
+            - name: Azure CLI
+              href: point-to-site-user-groups-create-cli.md
         - name: RADIUS - Configure NPS and user groups
           href: point-to-site-user-groups-radius.md
         - name: Configure Always On tunnels
@@ -333,12 +335,12 @@
       href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Reliability
   items:
-  - name: Reliability in VPN Gateway
-    href: /azure/reliability/reliability-virtual-network-gateway?pivots=vpn&toc=/azure/vpn-gateway/TOC.json
-  - name: Configure a zone redundant gateway
-    href: create-zone-redundant-vnet-gateway.md
-  - name: Design highly available gateway connections
-    href: vpn-gateway-highlyavailable.md
+    - name: Reliability in VPN Gateway
+      href: /azure/reliability/reliability-virtual-network-gateway?pivots=vpn&toc=/azure/vpn-gateway/TOC.json
+    - name: Configure a zone redundant gateway
+      href: create-zone-redundant-vnet-gateway.md
+    - name: Design highly available gateway connections
+      href: vpn-gateway-highlyavailable.md
 - name: Routing
   items:
     - name: Forced tunneling

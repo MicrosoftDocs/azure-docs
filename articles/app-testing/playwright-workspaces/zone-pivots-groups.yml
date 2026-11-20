@@ -8,3 +8,12 @@ groups:
     title: Playwright Test Runner
   - id: nunit-test-runner
     title: NUnit
+- id: playwright-workspaces-automation
+  title: Automation type
+  prompt: Choose an automation type
+  pivots:
+  - id: testautomation
+    title: Test automation
+  - id: browserautomation
+    title: Browser automation (MCP)
+  

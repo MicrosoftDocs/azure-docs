@@ -12,9 +12,6 @@ ms.author: apremsekhar
 
 # Troubleshoot the Playwright Workspaces remote MCP server
 
-> [!IMPORTANT]
-> The Playwright Workspaces remote Model Context Protocol (MCP) server is in preview. Preview features don't have a service-level agreement and aren't recommended for production workloads. Features, limits, and availability can change.
-
 This article provides guidance for designing reliable browser automation flows and resolving errors that might occur when you use the Playwright Workspaces remote MCP server.
 
 ## Design a reliable browser automation flow
@@ -57,7 +54,7 @@ A timeout or disconnected caller doesn't prove that an action had no effect. Bef
 
 ## Review tool input shapes and limits
 
-All browser-scoped tools require a `browserSessionId`. The string and collection bounds in this section are current preview limits.
+All browser-scoped tools require a `browserSessionId`.
 
 ### Form field shape
 
@@ -131,7 +128,7 @@ For `browser_run_code`, pass statements that form the body of an asynchronous fu
 | JavaScript function or code | 1 MiB characters | Keep code small, reviewed, and narrowly scoped. |
 | Browser session ID | 256 characters | Pass the value returned by `create_browser_session` unchanged. |
 
-Responses are returned inline. This preview doesn't expose MCP resources or persistent artifact storage for large snapshots, screenshots, or downloads. Browser, operating-system, viewport, locale, and user-agent overrides aren't exposed as session-creation parameters.
+Responses are returned inline. The service doesn't expose MCP resources or persistent artifact storage for large snapshots, screenshots, or downloads. The service doesn't expose browser, operating-system, viewport, locale, and user-agent overrides as session-creation parameters.
 
 ## Resolve remote MCP server errors
 
