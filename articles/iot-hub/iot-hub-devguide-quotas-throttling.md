@@ -218,6 +218,7 @@ IoT Hub enforces other operational limits:
 | Device-to-cloud messaging | Maximum message size 256 KB |
 | Cloud-to-device messaging<sup>1</sup> | Maximum message size 64 KB. Maximum pending messages for delivery count is 50 per device. |
 | Direct method<sup>1</sup> | Maximum direct method payload size is 128 KB for the request and 128 KB for the response. |
+| HTTP response from an upstream endpoint | Default maximum response size is 15 MiB (15,728,640 bytes). If the response exceeds the configured limit, IoT Hub returns `400038 HttpResponseExceededAllowedSize`. If your solution requires a larger response size, contact Azure support to review your requirements. |
 | Automatic device and module configurations<sup>1</sup> | 100 configurations per basic or standard tier hub. 10 configurations per free tier hub. |
 | IoT Edge automatic deployments<sup>1</sup> | 50 modules per deployment. 100 deployments (including layered deployments) per basic or standard tier hub. 10 deployments per free tier hub. |
 | Twins<sup>1</sup> | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. Maximum size of each individual property in every section is 4 KB. |
