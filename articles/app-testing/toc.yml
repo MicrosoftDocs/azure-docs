@@ -214,9 +214,9 @@ items:
         - name: Set up continuous end-to-end testing
           displayName: getting started, quickstart, github actions, azure pipelines, azure devops, ci/cd, CICD, continuous integration, continuous delivery
           href: playwright-workspaces/quickstart-automate-end-to-end-testing.md
-        - name: Perform advanced diagnostics with Playwright Workspaces reporting
+        - name: Perform advanced diagnostics with Playwright Workspaces observability
           displayName: getting started, quickstart, cli, command-line, playwright
-          href: playwright-workspaces/quickstart-advanced-diagnostic-with-playwright-workspaces-reporting.md
+          href: playwright-workspaces/quickstart-observability-with-playwright-workspaces.md
     - name: Concepts
       items:
         - name: Determine optimal test suite configuration
@@ -263,6 +263,8 @@ items:
           href: playwright-workspaces/troubleshoot-test-run-failures.md
         - name: Troubleshoot Playwright Workspaces reporting
           href: playwright-workspaces/troubleshoot-playwright-workspaces-reporting.md
+        - name: Troubleshoot private workspace
+          href: playwright-workspaces/troubleshoot-private-websites.md
     - name: Reference
       items:
         - name: .NET
@@ -306,7 +308,18 @@ items:
         - name: Get started with the remote MCP server
           displayName: MCP, browser automation, AI agent, GitHub Copilot CLI, Microsoft Foundry
           href: playwright-cloud-browsers/quickstart-automate-browser-tasks-remote-mcp.md
+    - name: Capabilities
+      expanded: true
+      items:
+        - name: Session recordings
+          href: playwright-cloud-browsers/capabilities/session-recording.md
+        - name: Private website access (preview)
+          href: playwright-cloud-browsers/capabilities/private-website-access.md
+        - name: CAPTCHA - Web bot auth (preview)
+          href: playwright-cloud-browsers/capabilities/captcha-handling.md
     - name: Troubleshoot & debug
       items:
         - name: Troubleshoot the remote MCP server
           href: playwright-cloud-browsers/troubleshoot-remote-mcp-server.md
+        - name: Troubleshoot session recordings
+          href: playwright-cloud-browsers/troubleshoot-browser-session-recordings.md

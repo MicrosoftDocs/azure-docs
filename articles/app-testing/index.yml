@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure App Testing documentation
-summary: Improve your app performance at scale. Run end-to-end Playwright tests, or run automated load tests on the cloud using JMeter or Locust scripts with Azure App Testing.
+summary: Improve your app performance at scale. Run end-to-end Playwright tests, automate cloud browsers with AI agents, or run cloud load tests using JMeter or Locust scripts with Azure App Testing.
 
 metadata:
   title: Azure App Testing documentation
-  description: Improve your app performance at scale. Run end-to-end Playwright tests, or run automated load tests on the cloud using JMeter or Locust scripts with Azure App Testing.
+  description: Improve your app performance at scale. Run end-to-end Playwright tests, automate cloud browsers with AI agents, or run cloud load tests using JMeter or Locust scripts with Azure App Testing.
   ms.service: azure-app-testing
   ms.topic: landing-page
   ms.author: nandinim
   author: nandinimurali
-  ms.date: 07/24/2025
+  ms.date: 11/19/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -59,7 +59,31 @@ landingContent:
           - text: Set up continuous end-to-end testing
             url: playwright-workspaces/quickstart-automate-end-to-end-testing.md
           - text: Perform advanced diagnostics with Playwright Workspaces reporting
-            url: playwright-workspaces/quickstart-advanced-diagnostic-with-playwright-workspaces-reporting.md
+            url: playwright-workspaces/quickstart-observability-with-playwright-workspaces.md
+
+  # Card
+  - title: Playwright Cloud Browsers MCP
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Automate browsers with the remote MCP server
+            url: playwright-cloud-browsers/how-to-playwright-workspaces-remote-mcp.md
+      - linkListType: quickstart
+        links:
+          - text: Get started with the remote MCP server
+            url: playwright-cloud-browsers/quickstart-automate-browser-tasks-remote-mcp.md
+      - linkListType: how-to-guide
+        links:
+          - text: Save and view browser session recordings
+            url: playwright-cloud-browsers/capabilities/session-recording.md
+          - text: Access private websites (preview)
+            url: playwright-cloud-browsers/capabilities/private-website-access.md
+          - text: Reduce CAPTCHA challenges with Web Bot Auth (preview)
+            url: playwright-cloud-browsers/capabilities/captcha-handling.md
+          - text: Troubleshoot the remote MCP server
+            url: playwright-cloud-browsers/troubleshoot-remote-mcp-server.md
+          - text: Troubleshoot browser session recordings
+            url: playwright-cloud-browsers/troubleshoot-browser-session-recordings.md
 
   # Card
   - title: Load testing scenarios
