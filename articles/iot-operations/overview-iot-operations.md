@@ -8,7 +8,7 @@ ms.topic: overview
 ms.custom:
   - ignite-2023
   - references_regions
-ms.date: 09/24/2025
+ms.date: 11/19/2026
 ---
 
 # What is Azure IoT Operations?
@@ -21,7 +21,7 @@ Azure IoT Operations:
 * Is part of the Microsoft [adaptive cloud approach](https://azure.microsoft.com/solutions/adaptive-cloud). This approach unifies siloed teams, distributed sites, and disparate systems into a single operations, security, application, and data model.
 * Includes an industrial-grade, edge-native MQTT broker that powers event-driven architectures.
 * Is highly extensible, scalable, resilient, and secure.
-* Can operate offline for a maximum of 72 hours. Degradation might occur during this period. However, the service resumes full functionality when it reconnects.
+* Supports local processing during cloud connectivity outages, with recovery validated after up to 45 days offline in tested configurations. For prerequisites and limitations, see [Plan for offline operation and recovery](deployment-plan/deployment-planning-offline-operation.md).
 * Lets you manage edge services and resources from the cloud by using [Azure Arc](/azure/azure-arc/overview).
 * Enables secure management of devices in layered networks by using open, industry-recognized software, along with Kubernetes-based configuration.
 * Can integrate customer workloads into the platform to create a unified solution.
