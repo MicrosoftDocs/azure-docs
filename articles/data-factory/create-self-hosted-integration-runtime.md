@@ -514,7 +514,7 @@ Follow these steps:
 
 # Prerequisites:
 # - PowerShell installed
-# - Azure CLI (az) installed and logged in (https://learn.microsoft.com/en-us/cli/azure/)
+# - [Azure CLI (az) installed and logged in ](/cli/azure/)
 # - signed in user needs rights to modify NSG (e.g. Network contributor) and to read status of the SHIR (e.g. reader), plus reader on the subscription
 
 param (

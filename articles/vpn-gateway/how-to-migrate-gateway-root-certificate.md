@@ -12,12 +12,12 @@ ai-usage: ai-assisted
 
 # How to migrate a gateway root certificate for P2S Gateway  
 
-This article helps you migrate a point-to-site (P2S) VPN gateway to the new gateway root certificate by using the guided migration experience in the Azure portal. For background on why the migration is needed and who is affected, see [About gateway root certificate migration and P2S VPN profile updates](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-about-gateway-certificate-migration)
+This article helps you migrate a point-to-site (P2S) VPN gateway to the new gateway root certificate by using the guided migration experience in the Azure portal. For background on why the migration is needed and who is affected, see [About gateway root certificate migration and P2S VPN profile updates](point-to-site-about-gateway-certificate-migration.md)
 
 > [!Important] 
 > You must commit the migration before January 31, 2027. Before you can start the migration, you must download the updated VPN client profile and distribute it to all P2S VPN users. If you start the migration before the updated profile is available on clients, users can lose connectivity.
 
-The migration uses the same Prepare, Migrate, and Commit workflow as the Basic SKU public IP address migration for VPN Gateway. For more information about that workflow, see [How to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway](https://learn.microsoft.com/azure/vpn-gateway/basic-public-ip-migrate-howto?tabs=portal). Your gateway configuration, including tunnel type, authentication method, address pool, and routing, doesn't change.
+The migration uses the same Prepare, Migrate, and Commit workflow as the Basic SKU public IP address migration for VPN Gateway. For more information about that workflow, see [How to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway](basic-public-ip-migrate-howto.md?tabs=portal). Your gateway configuration, including tunnel type, authentication method, address pool, and routing, doesn't change.
 
 ## Workflow
 
@@ -61,7 +61,7 @@ The first step is to make sure your clients have the updated VPN client profile.
 
 -  Select **Download VPN client**, and save the ZIP file to your local computer. The ZIP file contains profiles for all supported VPN client types.
 
--  Distribute the updated profile to all users who connect to the gateway by using P2S VPN, and have them install it. The new profile doesn't automatically overwrite an existing profile on the client. For detailed steps, see [How to update point-to-site VPN clients](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-user-vpn-profile-update?tabs=vpn-gateway).
+-  Distribute the updated profile to all users who connect to the gateway by using P2S VPN, and have them install it. The new profile doesn't automatically overwrite an existing profile on the client. For detailed steps, see [How to update point-to-site VPN clients](point-to-site-user-vpn-profile-update.md?tabs=vpn-gateway).
 
 :::image type="content" source="media/how-to-migrate-gateway-root-certificate-for-p2s/download-vpn-client-selected.png" alt-text="Screenshot of Point-to-site configuration page with Download VPN client button selected and preparing download message.":::
 
