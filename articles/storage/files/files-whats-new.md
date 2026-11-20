@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 11/14/2026
+ms.date: 11/18/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -18,6 +18,10 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 ## What's new in 2026
 
 ### 2026 Quarter 4 (October, November, December)
+
+#### NFS Azure file shares on HDD are in preview
+
+NFS support for the HDD media tier is in preview for both Microsoft.FileShares and Microsoft.Storage resource providers. NFS HDD file shares use the provisioned v2 billing model and support only locally redundant storage (LRS). To learn more, see [NFS on HDD preview](create-file-share.md#nfs-on-hdd-preview).
 
 #### Simplified Azure File Sync onboarding for Arc-enabled Windows Servers (Preview)
 
@@ -41,7 +45,7 @@ For details, see [Regional availability](./files-management-concepts.md#regional
 
 #### Microsoft Entra ID-based authentication for Azure Files on macOS is now in public preview
 
-Mac users can now access Azure file shares securely using their Entra ID credentials, with no storage account keys, no credential prompts, and no complex configuration. This brings MacOS to full parity with the traditional Windows SMB share experience, backed by the same identity governance that organizations apply across their environments. Organizations can extend a consistent, cloud-native file access model to every device in their fleet, with no on-premises AD infrastructure dependency.
+Mac users can now access Azure file shares securely using their Entra ID credentials, with no storage account keys, no credential prompts, and no complex configuration. This brings macOS to full parity with the traditional Windows SMB share experience, backed by the same identity governance that organizations apply across their environments. Organizations can extend a consistent, cloud-native file access model to every device in their fleet, with no on-premises AD infrastructure dependency.
 
 To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/secure-modern-access-to-azure-files-on-macos-with-ms-entra-id/4524077).
 

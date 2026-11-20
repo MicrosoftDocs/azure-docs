@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 10/26/2026
+ms.date: 11/17/2026
 ms.author: kendownie
 ms.custom:
   - references_regions
@@ -66,9 +66,9 @@ Azure Files supports four different redundancy options that you can use to contr
 
 Azure Files supports two different top-level resource types, which are items that you create and manage within your Azure subscriptions and resource groups. Each resource type supports slightly different billing model options, which in turn impacts both cost and cost structure:
 
-- **Storage accounts** represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. Storage accounts support all billing models, media tiers, and redundancy options. All storage resources that you deploy into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS protocols, although NFS is only supported on SSD storage. The `Microsoft.Storage` resource provider offers storage accounts, and you create classic file shares within those storage accounts.
+- **Storage accounts** represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. Storage accounts support all billing models, media tiers, and redundancy options, but not every combination supports both protocols. All storage resources that you deploy into a storage account share the limits that apply to that storage account. Classic file shares support both SMB and NFS, and both performance tiers. The `Microsoft.Storage` resource provider offers storage accounts, and you create classic file shares within those storage accounts.
 
-- **File shares** are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. The `Microsoft.FileShares` resource provider offers file shares as a top-level resource.
+- **File shares** are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support both media tiers with the NFS file system protocol. The `Microsoft.FileShares` resource provider offers file shares as a top-level resource.
 
 ## Azure Files storage units
 
@@ -131,12 +131,14 @@ The provisioned v2 model is available for the following combinations of media ti
 | HDD | Zone | SMB | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | HDD | Geo | SMB | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | HDD | GeoZone | SMB | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| HDD | Local | NFS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| HDD | Local | NFS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | HDD | Zone | NFS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | HDD | Geo | NFS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | HDD | GeoZone | NFS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 The provisioned v2 model is generally available in all Azure public cloud regions and all Azure US Government cloud regions. Not all regions support all media tiers and redundancy options.
+
+NFS HDD support is a separate preview that requires sign-up. To learn about its prerequisites, see [NFS on HDD preview](create-file-share.md#nfs-on-hdd-preview). NFS HDD shares support only LRS, and you can't change their redundancy.
 
 ### Provisioned v2 provisioning
 
@@ -499,7 +501,7 @@ The following table shows the categorization of each transaction:
 | FileREST management delete transactions | <ul><li>`DeleteShare`</li></ul> |  
 
 > [!NOTE]
-> NFSv4.1 is only available for SSD file shares that use either the provisioned v2 or provisioned v1 billing models. Transaction buckets don't affect billing for provisioned file shares.
+> NFSv4.1 supports SSD file shares that use provisioned v2 or provisioned v1 billing, and HDD file shares that use provisioned v2 billing in preview. NFS isn't supported with pay-as-you-go billing. Transaction buckets don't affect billing for provisioned file shares.
 
 ### Switching between access tiers
 

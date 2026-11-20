@@ -91,7 +91,7 @@ This identity allows the Supercomputer to securely access Azure resources such a
 :::image type="content" source="./media/how-to-manage-supercomputers/create-supercomputer-identities.jpg" alt-text="Screenshot of Azure portal Assign UAMI page." lightbox="./media/how-to-manage-supercomputers/create-supercomputer-identities.jpg":::
 
 ### Encryption
-1. Enable customer-managed keys for extra control over data encryption. See [Configure a Supercomputer resource with CMK](https://learn.microsoft.com/azure/microsoft-discovery/howto-data-encryption-at-rest#configure-a-supercomputer-resource-with-cmk) for details.
+1. Enable customer-managed keys for extra control over data encryption. See [Configure a Supercomputer resource with CMK](howto-data-encryption-at-rest.md#configure-a-supercomputer-resource-with-cmk) for details.
 2. Select **Next**.
 
 ### Create the Supercomputer

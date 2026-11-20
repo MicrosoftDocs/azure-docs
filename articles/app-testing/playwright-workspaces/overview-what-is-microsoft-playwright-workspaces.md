@@ -62,7 +62,7 @@ By using Playwright Workspaces, AI agents can:
 - Automate repetitive business processes
 - Execute complex, multistep browser workflows
 
-By combining AI models with reliable cloud browser execution, organizations can build agents that automate browser tasks that traditionally required human interaction. To learn more, see [Browser Automation Tool in Microsoft Foundry](https://learn.microsoft.com/azure/foundry/agents/how-to/tools/browser-automation?tabs=prompt-agents&pivots=python).
+By combining AI models with reliable cloud browser execution, organizations can build agents that automate browser tasks that traditionally required human interaction. To learn more, see [Browser Automation Tool in Microsoft Foundry](/azure/foundry/agents/how-to/tools/browser-automation?tabs=prompt-agents&pivots=python).
 
 ## Remote MCP server
 

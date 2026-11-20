@@ -6,7 +6,7 @@ metadata:
   author: craigshoemaker
   ms.topic: faq
   ms.service: azure-container-apps
-  ms.date: 09/21/2026
+  ms.date: 11/20/2026
   ms.author: cshoe
 title: Azure Container Apps express frequently asked questions (FAQs)
 summary: |
@@ -306,7 +306,7 @@ sections:
       - question: |
           Do I need to validate my app after an automatic migration?
         answer: |
-          No additional validation is required. The automated process includes post-migration checks.
+          The automated process includes post-migration checks, but please do contact support if you notice anything that is not working as expected.
 
       - question: |
           What should I do if the environment is no longer needed or will be deleted soon?

@@ -419,16 +419,6 @@ Some or all of the following are typically required:
     1. Paste it into a text file.
     1. Save the text file as a *.cer* file.
 
-### Test with the SAML test app
-
-You can use our [SAML test application][samltest] to test your configuration:
-
-* Update the tenant name.
-* Update the policy name. For example, use *B2C_1A_signup_signin_saml*.
-* Specify the issuer URI. Use one of the URIs found in the `identifierUris` element in the application registration manifest. For example, use `https://contoso.onmicrosoft.com/app-name`.
-
-Select **Login**, and a user sign-in screen should appear. After you sign in, a SAML response will be issued back to the sample application.
-
 ## Supported and unsupported SAML modalities
 
 The following SAML application scenarios are supported via your own metadata endpoint:

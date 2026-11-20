@@ -138,6 +138,8 @@ items:
         href: ./afds/waf-front-door-exclusion-configure.md
       - name: Exception lists
         href: ./afds/front-door-exceptions.md
+      - name: Upgrade ruleset version
+        href: ./afds/upgrade-ruleset-version.md
       - name: Managed ruleset support policy
         href: ruleset-support-policy.md?pivots=front-door
     - name: HTTP DDoS protection

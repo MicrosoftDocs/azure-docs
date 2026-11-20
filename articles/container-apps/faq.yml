@@ -104,7 +104,7 @@ sections:
       - question: |
           How can I request a quota increase?
         answer: |
-          [Request a quota increase in the Azure portal](https://learn.microsoft.com/azure/quotas/quickstart-increase-quota-portal) with **Azure Container Apps** selected as the provider.
+          [Request a quota increase in the Azure portal](/azure/quotas/quickstart-increase-quota-portal) with **Azure Container Apps** selected as the provider.
 
           Consider the following details when submitting a quota increase request: 
 

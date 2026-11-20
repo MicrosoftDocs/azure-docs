@@ -97,7 +97,7 @@ sections:
       - question: |
          Where can I find pricing information?
         answer: |
-              Review [Site Recovery pricing](https://learn.microsoft.com/azure/site-recovery/site-recovery-cost) details.
+              Review [Site Recovery pricing](site-recovery-cost.md) details.
 
       - question: |
          How can I calculate approximate charges during the use of Site Recovery?
