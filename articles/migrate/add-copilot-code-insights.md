@@ -39,7 +39,7 @@ You can add code insights by using any of the following methods:
 
 Using the GitHub Copilot Modernize CLI enables at-scale code assessment for multiple applications and web apps, with source code spread across multiple repositories.
 
-First, you download a configuration file from Azure Catalyst that contains details of all the web apps. You then update the mapping of web apps to repositories and run the assessment by using the GitHub Copilot Modernize CLI. Code changes are automatically mapped back to Azure Catalyst for the corresponding applications and web apps.
+First, download a configuration file from Azure Catalyst that contains details of all the web apps. Then update the mapping of web apps to repositories and run the assessment by using the GitHub Copilot Modernize CLI. Code changes automatically map back to Azure Catalyst for the corresponding applications and web apps.
 
 ### Prerequisites for Azure Catalyst users
 
