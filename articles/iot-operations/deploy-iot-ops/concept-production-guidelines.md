@@ -4,7 +4,7 @@ description: Learn about the recommendations and guidelines for preparing Azure 
 author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
-ms.date: 06/10/2026
+ms.date: 11/19/2026
 ms.service: azure-iot-operations
 ai-usage: ai-assisted
 
@@ -31,7 +31,7 @@ Create an Arc-enabled cluster that meets the system requirements.
 
 * Use a [supported environment for Azure IoT Operations](../overview-support.md#supported-environments).
 * [Configure the cluster](./howto-prepare-cluster.md) according to documentation.
-* If you expect intermittent connectivity for your cluster, ensure that you allocate enough disk space to the cluster cache data and messages while the cluster is offline. Azure IoT Operations can operate offline for a maximum of 72 hours.
+* For intermittent cloud connectivity, plan for local processing and allocate enough storage to buffer the data you need to retain. Recovery after up to 45 days offline is validated in tested configurations. For certificate validity, storage sizing, persistence, expiry settings, and reconnection checks, see [Plan for offline operation and recovery](../deployment-plan/deployment-planning-offline-operation.md).
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
 * [Turn off autoupgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
 * *For multinode clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-azure-container-storage-enabled-by-azure-arc) to prepare for enabling fault tolerance during deployment.

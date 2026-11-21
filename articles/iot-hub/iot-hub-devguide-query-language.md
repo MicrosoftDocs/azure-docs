@@ -174,6 +174,8 @@ Query-result pagination is separate from the default **Devices** list in the Azu
 A query object is instantiated with a max page size of **less than** or **equal to** 100 records. To obtain multiple pages, call the [nextAsTwin](how-to-device-twins.md?pivots=programming-language-node#create-a-device-twin-query) on Node.js SDK or [GetNextAsTwinAsync](how-to-device-twins.md?pivots=programming-language-csharp#create-a-device-twin-query) on .NET SDK method multiple times.
 A query object can expose multiple Next values, depending on the deserialization option required by the query. For example, a query object can return device twin or job objects, or plain JSON when using projections.
 
+The default maximum HTTP response size for service API calls is **15 MiB (15,728,640 bytes)**. If a query response exceeds the configured limit, IoT Hub returns `400038 HttpResponseExceededAllowedSize`. To reduce the size of query responses, use pagination with a smaller page size and select only the properties that your application requires instead of using `SELECT *` when you don't need the complete twin.
+
 ## Expressions and conditions
 
 At a high level, an *expression*:

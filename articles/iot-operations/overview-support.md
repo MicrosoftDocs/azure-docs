@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: overview
-ms.date: 02/18/2026
+ms.date: 11/19/2026
 ms.custom: references_regions
 
 # As an IT admin, you want to know the supported environments for Azure IoT Operations to plan your deployment effectively.
@@ -14,6 +14,12 @@ ms.custom: references_regions
 # Azure IoT Operations versions, support, and licensing
 
 This article explains the supported versions, environments, regions, and SKUs for Azure IoT Operations, along with its key dependencies and related resources. Use this guide to ensure compatibility and optimize your deployment. The guide also provides information about licensing for Azure IoT Operations.
+
+## Offline operation
+
+Azure IoT Operations supports local processing during cloud connectivity outages. Recovery after up to 45 days without cloud connectivity is validated in tested configurations.
+
+For tested configurations, certificate validity, storage and message retention limits, and recovery checks, see [Plan for offline operation and recovery](deployment-plan/deployment-planning-offline-operation.md). The recovery window isn't a guarantee of uninterrupted operation or complete message retention.
 
 ## Supported versions
 
