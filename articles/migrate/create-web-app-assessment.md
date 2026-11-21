@@ -13,7 +13,7 @@ ms.update-cycle: 1095-days
 ---
 # Tutorial: Create web app assessment for modernization 
 
-This article describes how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or [Azure App Service](/azure/app-service/overview) using Azure Catalyst. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month. 
+This article describes how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or [Azure App Service](/azure/app-service/overview) by using Azure Catalyst. When you create an assessment for your web apps, you get recommended targets for them and key insights such as app readiness, target right-sizing, and cost to host and run these apps month over month. 
 
 In this article, you'll learn how to: 
 
