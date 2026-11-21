@@ -292,7 +292,7 @@ After the appliance is connected, it gathers configuration data for ASP.NET web 
 Support | ASP.NET web apps | Java web apps
 --- | --- | ---
 Stack |VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical servers.
-Windows servers | Windows Server 2008 R2 and later are supported. | Windows Server 2008 R2 and later are supported.
+| Windows servers | Windows Server 2008 R2 and later are supported. | Windows Server 2008 R2 and later are supported. |
 Linux servers | Not supported | Servers that meet the [requirements](#vmware-requirements).
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
 Connection | Uses VMware tools. </br></br> If VMware tools is not installed, WinRM port 5986 (HTTPS) is used by default. If HTTPS prerequisites aren't configured on the target servers, communication falls back to WinRM port 5985 (HTTP) | Uses VMware tools. </br></br> If VMware tools is not installed, SSH port 22 (TCP) is used.
