@@ -1,6 +1,6 @@
 ---
 title: Tutorial to assess web apps for migration
-description: Learn how to create assessment for web apps in Azure Migrate
+description: Learn how to create assessment for web apps in Azure Catalyst
 author: ankitsurkar06
 ms.author: nikitabajaj
 ms.topic: tutorial
@@ -13,18 +13,18 @@ ms.update-cycle: 1095-days
 ---
 # Tutorial: Create web app assessment for modernization 
 
-This article describes how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or [Azure App Service](/azure/app-service/overview) using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month. 
+This article describes how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or [Azure App Service](/azure/app-service/overview) using Azure Catalyst. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month. 
 
 In this article, you'll learn how to: 
 
-- Set up your Azure Migrate environment to assess web apps. 
-- Choose a set of related web applications discovered using the Azure Migrate appliance. 
+- Set up your Azure Catalyst environment to assess web apps. 
+- Choose a set of related web applications discovered using the Azure Catalyst appliance. 
 - Provide assessment configurations such as preferred Azure targets, target region, Azure reserved Instances, sizing criteria and more. 
 - Create web app assessment with a recommended modernization path. 
 
 ## Prerequisites 
 
-- Deploy and configure the Azure Migrate appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical](tutorial-discover-physical.md) environments. 
+- Deploy and configure the Azure Catalyst appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical](tutorial-discover-physical.md) environments. 
 - Check the [appliance requirements](migrate-appliance.md#appliance---vmware) and [URL access](migrate-appliance.md#url-access) to be provided. 
 - Follow [these steps](how-to-discover-sql-existing-project.md) to discover web apps running on your environment. Web app assessment is supported for appliance-based discovery only.
 
@@ -32,7 +32,7 @@ In this article, you'll learn how to:
 
 To create an assessment, follow these steps:
 
-1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**.  
+1. On the Azure Catalyst project **Overview** page, under **Decide and Plan**, select **Assessments**.  
 
    :::image type="content" source="./media/create-web-app-assessment/create-workload-assessment.png" alt-text="Screenshot shows how to create web app assessment." lightbox="./media/create-web-app-assessment/create-workload-assessment.png" :::
 
@@ -128,7 +128,7 @@ To create an assessment, follow these steps:
 ::: moniker range="migrate"
 ## Target right-sizing for Web apps
 
-Azure Migrate supports two types of target sizing for Web app assessments:
+Azure Catalyst supports two types of target sizing for Web app assessments:
 
 #### Performance-based Sizing
 
@@ -144,7 +144,7 @@ This method provides target size recommendations based on gathered performance d
 - Performance data is collected every 15 minutes in both ASP.NET and Java web app scenarios and stored in a service-managed storage account.
 
 > [!NOTE]
-> For private endpoint scenarios, data is stored in a user-managed Storage account set up during Azure Migrate project creation.
+> For private endpoint scenarios, data is stored in a user-managed Storage account set up during Azure Catalyst project creation.
 
 #### As on-premises sizing: 
 This method provides target size recommendations based on configuration data. Following values are considered for CPU and memory utilization per web app:
