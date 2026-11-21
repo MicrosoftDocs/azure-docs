@@ -45,7 +45,7 @@ First, download a configuration file from Azure Catalyst that contains details o
 
 - An Azure Catalyst project with successful discovery of applications and web apps.
 - ASP.NET or Java web apps. These types of web apps are supported.
-- Azure App Service, Azure Container Apps or Azure Kubernetes Service. Code insights are supported for these Azure targets.
+- Azure App Service, Azure Container Apps, or Azure Kubernetes Service. Code insights are supported for these Azure targets.
 
 ### Prerequisites for GitHub Copilot Modernize CLI users
 
