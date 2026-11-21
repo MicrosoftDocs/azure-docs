@@ -283,16 +283,16 @@ Use the following sample scripts to create a login and provision it with the nec
 
 ## Web apps discovery requirements
 
-[Software inventory](how-to-discover-applications.md) identifies the web server role existing on discovered servers. If a server has a web server installed, Azure Migrate and Modernize discovers web apps on the server.
+[Software inventory](how-to-discover-applications.md) identifies the web server role on discovered servers. If a server has a web server installed, Azure Catalyst discovers web apps on the server.
 
-You can add both domain and nondomain credentials on the appliance. Ensure that the account used has local admin privileges on source servers. Azure Migrate and Modernize automatically maps credentials to the respective servers, so you don't have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
+You can add both domain and non-domain credentials on the appliance. Azure Catalyst automatically maps credentials to the respective servers, so you don't have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
 
-After the appliance is connected, it gathers configuration data for ASP.NET web apps (IIS web server) and Java web apps (Tomcat servers). Web apps configuration data is updated once every 24 hours.
+After the appliance is connected, it gathers configuration data for ASP.NET web apps (IIS web server on Windows) and Java web apps (Tomcat web server on Windows and Linux). Azure Catalyst updates web apps configuration data once every 24 hours.
 
 Support | ASP.NET web apps | Java web apps
 --- | --- | ---
 Stack |VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical servers.
-Windows servers | Windows Server 2008 R2 and later are supported. | Not supported.
+| Windows servers | Windows Server 2008 R2 and later are supported. | Windows Server 2008 R2 and later are supported. |
 Linux servers | Not supported | Servers that meet the [requirements](#vmware-requirements).
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
 Connection | Uses VMware tools. </br></br> If VMware tools is not installed, WinRM port 5986 (HTTPS) is used by default. If HTTPS prerequisites aren't configured on the target servers, communication falls back to WinRM port 5985 (HTTP) | Uses VMware tools. </br></br> If VMware tools is not installed, SSH port 22 (TCP) is used.
