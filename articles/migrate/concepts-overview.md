@@ -92,4 +92,4 @@ Apart from configuration and performance data, Azure Migrate assessment also con
 - Review the [best practices for creating an assessment](./best-practices-assessment.md) with Azure Migrate.
 - Learn about how to run assessments for servers that run in [VMware](./tutorial-discover-vmware.md) and [Hyper-V ](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md).
 - Learn about how to assess servers [imported with a comma-separated value file](./tutorial-discover-import.md).
-- Learn about how to set up [dependency visualization](concepts-dependency-visualization.md).
+- Learn how to set up [dependency visualization](concepts-dependency-visualization.md).
