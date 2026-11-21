@@ -37,7 +37,7 @@ Azure Migrate supports two types of assessments:
 | Servers | Assess your servers hosted on-premises or in public clouds to migrate to Azure virtual machines (VMs). |
 | Azure VMware Solution | Assess your on-premises servers hosted on VMware to Azure VMware Solution. [Learn more](/azure/azure-vmware/introduction). |
 | SQL servers and databases | Assess your SQL servers to migrate to Azure SQL Database, Azure SQL Managed Instance, or SQL Server on Azure VMs. |
-| Web apps | Assess your web apps to migrate to Azure App Service, Azure Spring Apps, or Azure Kubernetes Service. |
+| Web apps | Assess your web apps to migrate to Azure App Service, Azure Container Apps, or Azure Kubernetes Service. |
 
 ## Prerequisites for assessments
 
