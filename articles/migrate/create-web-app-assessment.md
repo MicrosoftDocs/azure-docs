@@ -18,7 +18,7 @@ This article describes how to create a web app assessment for modernization to [
 In this article, you'll learn how to: 
 
 - Set up your Azure Catalyst environment to assess web apps. 
-- Choose a set of related web applications discovered using the Azure Catalyst appliance. 
+- Choose a set of related web applications discovered by using the Azure Catalyst appliance. 
 - Provide assessment configurations such as preferred Azure targets, target region, Azure reserved Instances, sizing criteria and more. 
 - Create web app assessment with a recommended modernization path. 
 
