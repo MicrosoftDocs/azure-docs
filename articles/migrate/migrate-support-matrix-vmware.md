@@ -285,7 +285,7 @@ Use the following sample scripts to create a login and provision it with the nec
 
 [Software inventory](how-to-discover-applications.md) identifies the web server role existing on discovered servers. If a server has a web server installed, Azure Catalyst discovers web apps on the server.
 
-You can add both domain and nondomain credentials on the appliance. Azure Catalyst automatically maps credentials to the respective servers, so you don't have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
+You can add both domain and non-domain credentials on the appliance. Azure Catalyst automatically maps credentials to the respective servers, so you don't have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
 
 After the appliance is connected, it gathers configuration data for ASP.NET web apps (IIS web server on Windows) and Java web apps (Tomcat web server on Windows and Linux). Azure Catalyst updates web apps configuration data once every 24 hours.
 
