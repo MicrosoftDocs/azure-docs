@@ -17,7 +17,7 @@ ms.custom: engagement-fy24
 
 This article describes how to add code insights by using GitHub Copilot modernization when you're migrating applications to Azure services. Adding code insights helps you better assess migration readiness and get recommendations for migration strategies based on the code changes identified during the scan.
 
-Code insights for web apps provide changes required to modernize them to Azure Kubernetes Service (AKS) and Azure App Service. Code changes for an application are an aggregate of code changes for its child web apps.
+Code insights for web apps provide changes required to modernize them to Azure Kubernetes Service (AKS), Azure Container Apps and Azure App Service. Code changes for an application are an aggregate of code changes for its child web apps.
 
 In this article, you learn how to:
 
@@ -45,7 +45,7 @@ First, download a configuration file from Azure Catalyst that contains details o
 
 - An Azure Catalyst project with successful discovery of applications and web apps.
 - ASP.NET or Java web apps. These types of web apps are supported.
-- Azure App Service or Azure Kubernetes Service. Code insights are supported for these Azure targets.
+- Azure App Service, Azure Container Apps or Azure Kubernetes Service. Code insights are supported for these Azure targets.
 
 ### Prerequisites for GitHub Copilot Modernize CLI users
 
