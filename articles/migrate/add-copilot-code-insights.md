@@ -190,7 +190,7 @@ You can generate a code assessment report by using the GitHub Copilot modernizat
 
 ## Request a report via GitHub
 
-Requesting a report via GitHub connects Azure Catalyst to a GitHub repository by using the provided connection details and automatically creates an issue in that repository. By using the GitHub Copilot modernization extension, you can scan your code and upload reports directly to the related GitHub issue.
+When you request a report via GitHub, you connect Azure Catalyst to a GitHub repository by using the connection details you provide. Azure Catalyst automatically creates an issue in that repository. By using the GitHub Copilot modernization extension, you can scan your code and upload reports directly to the related GitHub issue.
 
 After you update the issue, Azure Catalyst automatically attaches the code scan reports to the associated web applications. By using this approach, cloud administrators and developers can collaborate while maintaining security boundaries for application code.
 
