@@ -151,7 +151,7 @@ This method provides target size recommendations based on configuration data. Fo
 - ASP.NET web app: 0.15 cores, 0.25 GB memory
 - Java web app: 0.15 cores, 0.15 GB memory. If static memory is configured for Tomcat server, it is considered instead of these values.
 
-Besides the values estimated for performance-based and as on-premises sizing, following default resource utilization values for running the container image for each web app are added when Azure App Service containers, Azure Container Apps, and AKS are considered as migration targets:
+Besides the values estimated for performance-based and as on-premises sizing, the following default resource utilization values for running the container image for each web app are added when Azure App Service containers, Azure Container Apps, and AKS are considered as migration targets:
 - ASP.NET web app: 0.2 core, 0.65 GB memory
 - Java web app: 0.1 core, 0.25 GB memory
 ::: moniker-end
