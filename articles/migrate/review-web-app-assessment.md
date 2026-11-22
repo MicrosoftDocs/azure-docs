@@ -4,7 +4,7 @@ description: Learn how to review assessment for web apps in Azure Migrate
 author: ankitsurkar06
 ms.author: nikitabajaj
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 11/22/2026
 ms.service: azure-migrate
 ms.reviewer: v-gajeronika
 ms.update-cycle: 365-days
@@ -13,7 +13,7 @@ ms.custom: engagement-fy24
 ---
 # Create a web app assessment for modernization 
 
-This article describes how to review the insights from a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or Azure App Service using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month.
+This article describes how to review the insights from a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes), Azure App Service, or Azure Container Apps using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month.
 
 In this article, you learn how to: 
 
