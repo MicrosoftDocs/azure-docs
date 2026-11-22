@@ -43,7 +43,6 @@ The following Azure Native Integrations partners provide data management, integr
 
 | Partner name                  | Solution description |
 |-------------------------------|-------------|
-| **Astro (retired)**           | [Apache Airflow on Astro](astronomer/overview.md) is a managed service for workflow orchestration. It helps enable scalable and reliable data pipelines. |
 | **Commvault**                 | [Azure Native Commvault Cloud](commvault/overview.md) is a fully managed integration that lets you provision and manage Commvault data-protection resources, including backup plans and protection groups, directly from Azure. |
 | **Confluent Cloud**                 | [Apache Kafka & Apache Flink on Confluent Cloud](apache-kafka-confluent-cloud/overview.md) provides managed Apache Kafka for real-time data streaming. It supports event-driven architectures and data integration. |
 | **Dell PowerScale** | [Dell PowerScale](dell/overview.md) is an enterprise-class, high-performance software-defined file storage solution that brings PowerScale OneFS software to Azure. |

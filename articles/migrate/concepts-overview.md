@@ -37,7 +37,7 @@ Azure Migrate supports two types of assessments:
 | Servers | Assess your servers hosted on-premises or in public clouds to migrate to Azure virtual machines (VMs). |
 | Azure VMware Solution | Assess your on-premises servers hosted on VMware to Azure VMware Solution. [Learn more](/azure/azure-vmware/introduction). |
 | SQL servers and databases | Assess your SQL servers to migrate to Azure SQL Database, Azure SQL Managed Instance, or SQL Server on Azure VMs. |
-| Web apps | Assess your web apps to migrate to Azure App Service, Azure Spring Apps, or Azure Kubernetes Service. |
+| Web apps | Assess your web apps to migrate to Azure App Service, Azure Container Apps, or Azure Kubernetes Service. |
 
 ## Prerequisites for assessments
 
@@ -92,4 +92,4 @@ Apart from configuration and performance data, Azure Migrate assessment also con
 - Review the [best practices for creating an assessment](./best-practices-assessment.md) with Azure Migrate.
 - Learn about how to run assessments for servers that run in [VMware](./tutorial-discover-vmware.md) and [Hyper-V ](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md).
 - Learn about how to assess servers [imported with a comma-separated value file](./tutorial-discover-import.md).
-- Learn about how to set up [dependency visualization](concepts-dependency-visualization.md).
+- Learn how to set up [dependency visualization](concepts-dependency-visualization.md).
