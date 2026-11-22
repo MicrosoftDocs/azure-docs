@@ -240,6 +240,8 @@ items:
       href: ./afds/waf-front-door-best-practices.md
     - name: Monitoring and logging
       href: ./afds/waf-front-door-monitor.md
+    - name: WAF insights dashboards
+      href: ./afds/insights.md
 - name: Reference
   items:
   - name: Azure PowerShell
