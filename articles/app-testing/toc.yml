@@ -317,6 +317,10 @@ items:
           href: playwright-cloud-browsers/capabilities/private-website-access.md
         - name: CAPTCHA - Web bot auth (preview)
           href: playwright-cloud-browsers/capabilities/captcha-handling.md
+        - name: Browser proxies (preview)
+          href: playwright-cloud-browsers/capabilities/browser-proxies.md
+        - name: Secret stores (preview)
+          href: playwright-cloud-browsers/capabilities/secret-store.md
     - name: Troubleshoot & debug
       items:
         - name: Troubleshoot the remote MCP server
