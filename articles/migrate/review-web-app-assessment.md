@@ -13,7 +13,7 @@ ms.custom: engagement-fy24
 ---
 # Create a web app assessment for modernization 
 
-This article describes how to review the insights from a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes), Azure App Service, or Azure Container Apps using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month.
+This article describes how to review the insights from a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes), Azure App Service, or Azure Container Apps using Azure Migrate. When you create an assessment for your web apps, you get the recommended targets for them and key insights such as app readiness, target right-sizing, and cost to host and run these apps month over month.
 
 In this article, you learn how to: 
 
