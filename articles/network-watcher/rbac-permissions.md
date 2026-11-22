@@ -97,7 +97,7 @@ Because enabling traffic analytics is part of the flow log resource, you need th
 [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 > [!IMPORTANT]
-> [Management group](../governance/management-groups/overview.md?toc=/azure/network-watcher/toc.json) inherited permissions aren't currently supported for enabling traffic analytics.
+> Permissions inherited from a [management group](../governance/management-groups/overview.md?toc=/azure/network-watcher/toc.json) aren't supported for enabling traffic analytics. Assign the required permissions directly on the subscription that contains the Log Analytics workspace. For virtual network flow logs, assign Monitoring Contributor or an equivalent custom role with the required DCR and DCE permissions on that subscription.
 
 ## Connection troubleshoot
 
