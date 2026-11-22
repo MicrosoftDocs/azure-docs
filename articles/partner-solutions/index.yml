@@ -29,11 +29,6 @@ highlightedContent:
 productDirectory:
   title: Available Services
   items:
-    - title: Astro
-      imageSrc: ./media/index/astronomer.svg
-      links:
-        - url: ./astronomer/astronomer-overview.md
-          text: Deploy a fully managed and seamless Apache Airflow on Astro on Azure.
     - title: Commvault Cloud
       imageSrc: ./media/index/commvault.png
       links:
