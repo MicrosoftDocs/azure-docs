@@ -4,7 +4,7 @@ description: Learn how to create assessment for web apps in Azure Catalyst
 author: ankitsurkar06
 ms.author: nikitabajaj
 ms.topic: tutorial
-ms.date: 10/22/2025
+ms.date: 11/22/2026
 ms.service: azure-migrate
 ms.reviewer: v-gajeronika
 ms.custom: engagement-fy24
@@ -13,7 +13,7 @@ ms.update-cycle: 1095-days
 ---
 # Tutorial: Create web app assessment for modernization 
 
-This article describes how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or [Azure App Service](/azure/app-service/overview) by using Azure Catalyst. When you create an assessment for your web apps, you get recommended targets for them and key insights such as app readiness, target right-sizing, and cost to host and run these apps month over month. 
+This article describes how to create a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes), [Azure App Service](/azure/app-service/overview), or [Azure Container Apps](/azure/container-apps/overview) by using Azure Catalyst. When you create an assessment for your web apps, you get recommended targets for them and key insights such as app readiness, target right-sizing, and cost to host and run these apps month over month. 
 
 In this article, you'll learn how to: 
 
@@ -151,7 +151,7 @@ This method provides target size recommendations based on configuration data. Fo
 - ASP.NET web app: 0.15 cores, 0.25 GB memory
 - Java web app: 0.15 cores, 0.15 GB memory. If static memory is configured for Tomcat server, it is considered instead of these values.
 
-Besides the values estimated for performance-based and as on-premises sizing, following default resource utilization values for running the container image for each web app are added when Azure App Service containers and AKS are considered as migration targets:
+Besides the values estimated for performance-based and as on-premises sizing, the following default resource utilization values for running the container image for each web app are added when Azure App Service containers, Azure Container Apps, and AKS are considered as migration targets:
 - ASP.NET web app: 0.2 core, 0.65 GB memory
 - Java web app: 0.1 core, 0.25 GB memory
 ::: moniker-end
