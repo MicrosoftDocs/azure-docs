@@ -26,7 +26,7 @@ This quickstart describes how to use Bicep to create a **Traffic Manager Linked 
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/traffic-manager-linked-record).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/traffic-manager-linked-record/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/traffic-manager-linked-record/main.bicep":::
 
