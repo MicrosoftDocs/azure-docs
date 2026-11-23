@@ -43,7 +43,7 @@ Citrix Virtual Apps and Desktop service supports Azure VMware Solution. Azure VM
 
 - Q. Who do I call for support?
 
-    A. Customers should contact Citrix support www.citrix.com/support  for assistance.
+    A. Customers should contact Citrix support [https://support.citrix.com](https://support.citrix.com/support-home/home) for assistance.
 
 - Q. Can I use my Azure Virtual Desktop benefit from Microsoft with Citrix on Azure VMware Solution?
  

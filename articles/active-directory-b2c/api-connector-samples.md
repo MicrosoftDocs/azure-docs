@@ -26,7 +26,7 @@ The following tables provide links to code samples for using web APIs in your us
 ## Azure Function quickstarts
 | Sample                                                                                                                          | Description                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [.NET Core](https://github.com/azure-samples/functions-connectors-dotnet) | This .NET Core Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information. |
+| [.NET Core](https://github.com/Azure-Samples/functions-connectors-net) | This .NET Core Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information. |
 | [Node.js](https://github.com/azure-samples/functions-connectors-typescript)   | This Node.js Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.  |
 | [Python](https://github.com/azure-samples/functions-connectors-python)    | This Python Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.    |
 
