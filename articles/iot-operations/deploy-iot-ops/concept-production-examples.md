@@ -4,7 +4,7 @@ description: Describes some example deployments to help you understand how to sc
 author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
-ms.date: 06/22/2026
+ms.date: 11/23/2026
 ms.service: azure-iot-operations
 
 #CustomerIntent: I want to see some scaling recommendations before I before deploying to production.
@@ -27,8 +27,6 @@ Example hardware specifications:
 - K3s on Azure VM (Standard_D4ds_v5  with Intel Xeon Platinum 8370C), 4 core (4 vCPU), 16-GB memory, 30-GB storage.
 
 - AKS-EE on P3 Tiny Workstation (13th Generation Intel® Core™ i7-13700 vPro® Processor), 16 core (24 threads), 32-GB memory, 1-TB storage.
-
-[!INCLUDE [supported-environments](../includes/supported-environments.md)]
 
 The following table shows the MQTT broker configuration for the single node example:
 
@@ -74,8 +72,6 @@ Example hardware specifications:
 - 5-node K3s with Azure VMs (Standard_D8d_v5 with Intel Xeon Platinum 8370C), 8 core (8 vCPU), 32-GB memory, 30 GB.
 
 - 5-node K3S with P3 Tiny Workstations (13th Generation Intel® Core™ i7-13700 vPro® Processor), 16 core (24 threads), 32-GB memory, 1-TB storage.
-
-[!INCLUDE [supported-environments](../includes/supported-environments.md)]
 
 The following table shows the MQTT broker configuration for the multi-node example:
 
