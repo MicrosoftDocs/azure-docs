@@ -21,13 +21,13 @@ This article explains what hosted Model Context Protocol (MCP) servers are in Co
 
 ## What are hosted MCP servers?
 
-When you create a *hosted MCP server* in Connector Namespace, the platform runs a prebuilt image of the server in dedicated compute that it provisions. Other than compute, the namespace provides networking, lifecycle management, and dependency management so that you don't need to provision or maintain any infrastructure. A curated set of hosted servers is supported during the preview.
+When you create a *hosted MCP server* in Connector Namespace, the platform runs a prebuilt image of the server in dedicated compute that it provisions. Other than compute, the namespace provides networking, lifecycle management, and dependency management so that you don't need to provision or maintain any infrastructure. During the preview, you can deploy a server from a curated catalog or bring your own server image.
 
 A hosted MCP server is a first-class resource within a connector namespace. The namespace is the parent resource that hosts and manages it, and the server inherits the namespace's identity, networking, and access policy capabilities. You create, configure, and manage each hosted MCP server directly inside its connector namespace.
 
 When you deploy a hosted MCP server, the namespace:
 
-- Pulls the prebuilt server image from the catalog.
+- Deploys the server image you choose or provide.
 - Provisions the runtime environment with your configuration.
 - Exposes a secure MCP endpoint that agents and MCP clients can connect to.
 - Handles scaling, health monitoring, and authentication.
@@ -38,18 +38,36 @@ The Connector Namespace catalog offers three types of MCP servers:
 
 | Type | Description | Configuration |
 | ---- | ----------- | ------------- |
-| **Hosted server** | Runs an existing open-source or non-Microsoft MCP server implementation without modification. You provide any required configuration. | Environment variables, configuration files |
+| **Hosted server** | Runs a prebuilt MCP server from the catalog or a container image that you provide. You provide any required configuration. | Environment variables, configuration files |
 | **Managed connector** | Platform-built and maintained by the namespace service. Exposes a fixed set of tools with no configuration required. | None |
 | **Configurable connector** | Platform-built and maintained, but you select which tools to expose or adjust tool behavior. | Select tools or set parameters |
 
-## Supported servers
+## Preview support
 
-During the preview, the catalog offers the following curated set of hosted MCP servers. The catalog expands over time.
+### Supported servers
+
+During the preview, the catalog offers the following hosted MCP server options. The catalog expands over time.
 
 | Server | Description |
 | ------ | ----------- |
 | **Playwright** | Provides browser automation tools for web navigation, screenshots, and interaction |
 | **Azure SQL** | Exposes SQL operations as MCP tools through [Data API builder](/azure/data-api-builder/mcp/overview) so that AI agents can interact with SQL databases through a controlled, secure contract with entity abstraction, role-based access control, and caching |
+| **Azure Cosmos DB MCP server for NoSQL** | Discovers databases, containers, and document structures, and retrieves and queries data in Azure Cosmos DB for NoSQL |
+| **Bring-your-own-image** | Runs an MCP server that you built or packaged as a container image |
+
+### Supported regions
+
+During the preview, hosted MCP servers are available in the following regions:
+
+- Brazil South
+- Central US
+- East Asia
+- Japan East
+- North Europe
+- Sweden Central
+- UK South
+- West Central US
+- West US 2
 
 ## Server authentication
 
@@ -78,7 +96,7 @@ Keep the following points in mind when you're working with hosted MCP servers du
 
 - **Preview limitations**. The service isn't recommended for production workloads. Expect breaking changes between preview milestones.
 - **Catalog availability**. The set of supported servers expands over time based on demand and validation.
-- **Region availability**. Limited regions are available during early preview: West Central US, East Asia, Central US, North Europe.
+- **Region availability**. Hosted MCP servers are available in a limited set of [preview regions](#supported-regions).
 - **Cold start**. Servers that didn't receive traffic recently might experience a brief cold start delay on the first request.
 - **Configuration responsibility**. Unlike managed MCP servers, you're responsible for correctly configuring hosted servers. Misconfigured environment variables or parameters can cause server failures.
 
@@ -96,7 +114,6 @@ Top items in the backlog include:
 - **Expanding the server catalog**. Adding more servers based on demand and community requests.
 - **Region availability**. Expanding regional coverage beyond the current preview regions.
 - **Virtual network (VNet) support**. Deploying hosted MCP servers inside VNets with private endpoints.
-- **Custom server images**. Support for bringing your own MCP server images to the catalog.
 - **Tool-level access control**. Fine-grained permissions and throttling at the individual tool level.
 
 ## Related content
