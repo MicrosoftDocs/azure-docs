@@ -53,32 +53,6 @@ The Chat REST API uses the same resource endpoint and hub route as the Web PubSu
 > [!NOTE]
 > For the detailed REST API specification, see the [Web PubSub Chat REST API reference](/rest/api/webpubsub/dataplane/webpubsubchat/operation-groups).
 
-With a bearer token from either method, you call a chat endpoint with any HTTP client. For example:
-
-```javascript
-const endpoint = process.env.WebPubSubEndpoint; // https://contoso.webpubsub.azure.com
-const hub = "chat";
-const token = "<bearer token>"; // from Microsoft Entra ID or an access key, as described above
-
-async function chatRequest(method, path, body) {
-  const res = await fetch(`${endpoint}/api/hubs/${hub}/chat/${path}?api-version=2026-02-01-preview`, {
-    method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: body ? JSON.stringify(body) : undefined,
-  });
-  if (!res.ok) {
-    throw new Error(`Chat API ${method} ${path} failed: ${res.status}`);
-  }
-  return res.status === 204 ? undefined : res.json();
-}
-
-// Example: create a room, then add a member
-await chatRequest("PUT", "rooms/falcon", { title: "Project Falcon" });
-await chatRequest("PUT", "rooms/falcon/members/bob", { roleName: "room.member" });
-```
 
 ## Next steps
 
