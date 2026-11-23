@@ -275,10 +275,10 @@ items:
         href: tutorial-migrate-vmware.md
       - name: Agent-based migration using portal
         href: tutorial-migrate-vmware-agent.md
-      - name: Redeploy servers using IaC
-        href: server-redeploy.md
   - name: Generate and deploy a platform landing zone
     href: platform-landing-zone.md
+  - name: Redeploy servers to Azure VMs with scoped data copy
+    href: server-redeploy.md
   - name: Support Matrix
     items:
     - name: Overview of server migration methods
