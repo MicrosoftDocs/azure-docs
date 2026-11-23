@@ -5,7 +5,7 @@ ms.topic: concept-article
 author: jobingeorge
 ms.author: jobingeorge
 ms.service: azure-vmware
-ms.date: 08/12/2026
+ms.date: 11/23/2026
 # Customer intent: "As an IT administrator managing Azure VMware Solution, I want to ensure optimal performance and minimize downtime during updates."
 ---
 
@@ -82,6 +82,10 @@ The following actions are necessary for ensuring host maintenance operations are
 | **ERECOMMENDATION_CLUSTER_SIZE:** This recommendation indicates a cluster in the private cloud has 14 or more hosts. Azure VMware Solution supports a maximum of 16 hosts in a cluster. | Create a new cluster for any new hosts that you need. |
 | **ERECOMMENDATION_PRIVATECLOUD_SIZE:** This recommendation indicates a private cloud has 90 or more hosts. Azure VMware Solution supports a maximum of 96 hosts in a private cloud. | Consider creating a new private cloud for any new hosts and distribute hosts across the private clouds as necessary. |
 | **ERECOMMENDATION_VCENTER_SCALE:** This recommendation identifies that the vCenter VM is provisioned with fewer CPU cores or less memory than recommended for the current VM count within the private cloud. | Open a support request to increase the vCenter memory and CPU. |
+| **vSAN datastore utilization above 75%:** Host maintenance mode requires enough free vSAN capacity to evacuate and resynchronize data from the host being upgraded. Clusters above 75% utilization don't have the required headroom, so upgrades, patches, and host remediation can't proceed. | Keep vSAN utilization at or below 75% at all times, in line with the Azure VMware Solution SLA and VMware's vSAN slack-space guidance. Reduce utilization by removing unneeded snapshots, templates, and VMs; add hosts to the cluster; or move data to a supported external datastore such as Azure NetApp Files or Azure Elastic SAN. | If vSAN utilization is above 80% when a maintenance activity is due — including critical security upgrades — Microsoft adds one or more hosts to the cluster to create the capacity required to complete the maintenance. Added hosts are billed to your subscription at standard rates. |
+
+> [!IMPORTANT] 
+> You're responsible for keeping vSAN utilization at or below 75% so your private cloud remains maintenance-ready. Microsoft notifies you about high utilization and pending maintenance through Azure Service Health and email where possible. These notifications are informational — they don't constitute a notice period, and Microsoft may add billable hosts without advance notice when required to complete critical security maintenance. Charges for hosts added for this reason aren't eligible for refunds or credits.
 
 > [!NOTE]
 > Azure VMware Solution tenant admins must not edit or delete the previously defined VMware vCenter Server alarms because the Azure VMware Solution control plane on vCenter Server manages them. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.
