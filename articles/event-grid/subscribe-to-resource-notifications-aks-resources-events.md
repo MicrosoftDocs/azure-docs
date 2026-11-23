@@ -182,7 +182,7 @@ To delete the event subscription, use the [`az eventgrid system-topic event-subs
 ```azurecli-interactive
 az eventgrid system-topic event-subscription delete \
    --name EVENTSUBSCRIPTIONNAME \
-   --resourcegroup RESOURCEGROUPNAME \
+   --resource-group RESOURCEGROUPNAME \
   --system-topic-name SYSTEMTOPICNAME
 ```
 
