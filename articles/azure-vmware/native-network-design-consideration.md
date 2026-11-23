@@ -105,7 +105,7 @@ Example /22 CIDR network address block **10.31.0.0/22** is divided into the foll
 > [!Note]
 > For Azure VMware Solution Gen 2 deployments, customers must now allocate an two additional /24 subnets for HCX management and uplink, in addition to the /22 entered during SDDC deployment. In AVS Gen 2, only the HCX mgmt and HCX uplink subnets are required. The vMotion and replication networks aren't required for AVS Gen 2.
 
-> [!Note]
+    > [!NOTE]
 > When extending networks with Broadcom HCX in an Azure VMware Solution Generation 2 (Gen 2) private cloud, target the Gen 2 default Tier-1 (T1) gateway for customer workload segments. Do not target the HCX Tier-1 (T1) gateway for these segments. The HCX Tier-1 (T1) will be removed if you uninstall HCX. Example of an HCX T1 to avoid: TNT123-HCX-T1 (the gateway name contains HCX, and 123 varies by deployment).
 
 ## NSX Routes programming on to Azure Virtual Network
