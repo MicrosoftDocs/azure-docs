@@ -1194,7 +1194,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | `Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read` | Gets the diagnostic setting for the resource |
 > | `Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write` | Creates or updates the diagnostic setting for the resource |
 > | `Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read` | Gets the available logs for managed instance databases |
-> | `Microsoft.Sql/managedInstances/databases/queries/read` | Get query text by query id |
+> | `Microsoft.Sql/managedInstances/databases/queries/action` | Get query text by query id |
 > | `Microsoft.Sql/managedInstances/databases/queries/statistics/read` | Get query execution statistics by query id |
 > | `Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read` | List the recommended sensitivity labels for a given database |
 > | `Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/write` | Batch update recommended sensitivity labels |
