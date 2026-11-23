@@ -458,7 +458,7 @@ Standard HDD LRS (`Standard_LRS`) | `Standard_LRS` | `Standard_LRS` | Standard H
 Standard SSD LRS or ZRS (`StandardSSD_LRS`, `StandardSSD_ZRS`) | Matches the source redundancy | Matches the source redundancy | ZRS source disks are supported for regional disaster recovery, but not zone-to-zone disaster recovery.
 Premium SSD v1 LRS or ZRS (`Premium_LRS`, `Premium_ZRS`) | Matches the source redundancy | Matches the source redundancy | ZRS source disks are supported for regional disaster recovery, but not zone-to-zone disaster recovery.
 Premium SSD v2 LRS (`PremiumV2_LRS`) | `Premium_LRS` | `PremiumV2_LRS` | Generally available. Requires High Churn and must be selected when replication is enabled. Host caching isn't supported.
-Ultra Disk LRS (`UltraSSD_LRS`) | `Premium_LRS` | `UltraSSD_LRS` | Requires High Churn. Zone-to-zone disaster recovery and host caching aren't supported.
+Ultra Disk LRS (`UltraSSD_LRS`) | `Premium_LRS` | `UltraSSD_LRS` | Requires High Churn. Zone-to-zone disaster recovery is supported. Host caching isn't supported.
 
 > [!NOTE]
 > For a Premium SSD v2 or Ultra Disk source with a 4-KiB logical sector size, Site Recovery preserves a 6-MiB VHDX header on the Premium SSD v1 replica disk and aligns the replica capacity to a whole GiB. As a result, the replica disk is provisioned 1 GiB larger than the source disk.
@@ -505,7 +505,7 @@ Azure Storage firewalls for virtual networks | Supported. | If you want to restr
 General-purpose V2 storage accounts (hot and cool tiers) | Supported. | Transaction costs increase substantially compared to general-purpose V1 storage accounts.
 Managed shared disk | Supported with restrictions. | See the [shared disk support matrix](shared-disk-support-matrix.md). The same shared-disk set must be attached to every protected Windows Server Failover Cluster node, and every node must have a healthy Mobility service.
 Managed Premium SSD v2 | Supported. | Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Premium SSD v2 disks isn't supported there. Converting a protected Premium SSD v1 disk requires disabling and re-enabling replication. Public network access is required during enable protection or resynchronization operations. It can be disabled after the operation has completed.
-Ultra Disks | Supported. | Zone-to-zone disaster recovery isn't supported. Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Ultra Disks isn't supported there. Public network access is required during enable protection or resynchronization operations. It can be disabled after the operation has completed.
+Ultra Disks | Supported. | Zone-to-zone disaster recovery is supported. Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Ultra Disks isn't supported there. Public network access is required during enable protection or resynchronization operations. It can be disabled after the operation has completed.
 Secure transfer option | Supported.
 Write Accelerator-enabled disks | Not supported during protection. | Disable Write Accelerator before enabling replication. After failover, re-enable it manually only on a supported M-series VM with Premium SSD v1 and a compatible caching setting.
 Tags | Supported. | User-generated tags replicate every 24 hours.
