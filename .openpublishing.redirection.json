@@ -8413,6 +8413,11 @@
     "source_path": "articles/virtual-wan/customer-controlled-gateway-maintenance.md",
     "redirect_url": "/azure/virtual-wan/customer-controlled-maintenance",
     "redirect_document_id": true 
-}
+},
+    {
+      "source_path": "articles/logic-apps/estimate-storage-costs.md",
+      "redirect_url": "/azure/logic-apps/plan-manage-costs",
+      "redirect_document_id": false
+    }
   ]
 }
