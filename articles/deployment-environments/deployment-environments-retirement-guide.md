@@ -5,8 +5,8 @@ description: Plan for Azure Deployment Environments retirement by inventorying r
 ms.service: azure-deployment-environments
 ms.topic: upgrade-and-migration-article
 ms.custom: doc-kit-assisted
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.date: 09/04/2026
 # customer intent: As a platform engineer or business decision maker, I want to plan for Azure Deployment Environments retirement so that I can transition workflows and clean up resources before retirement.
 ---

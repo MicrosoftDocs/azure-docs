@@ -4,8 +4,8 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to add a catalog in your Azure Deployment Environments dev center or project to provide environment definitions for your developers.
 ms.service: azure-deployment-environments
 ms.custom: build-2023, build-2024
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.date: 05/04/2026
 ms.topic: how-to
 #customer intent: As a platform engineer, I want to learn how to add a catalog in my Azure Deployment Environments dev center or project so that I can provide environment definitions for my developers.

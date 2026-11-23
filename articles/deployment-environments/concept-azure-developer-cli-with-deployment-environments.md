@@ -1,8 +1,8 @@
 ---
 title: Use Azure Developer CLI with Azure Deployment Environments
 description: Understand how ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.service: azure-deployment-environments
 ms.topic: concept-article
 ms.date: 05/22/2026
