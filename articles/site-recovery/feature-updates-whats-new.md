@@ -5,7 +5,7 @@ ms.topic: concept-article
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 author: Jeronika-MS
-ms.date: 10/31/2026
+ms.date: 11/11/2026
 # Customer intent: "As a disaster recovery manager, I want to stay informed about the latest updates in Azure Site Recovery features, so that I can ensure optimal protection and monitoring of our critical workloads."
 ---
 
@@ -14,6 +14,16 @@ ms.date: 10/31/2026
 The Azure Site Recovery service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest feature releases. This page is updated regularly.
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
+
+## Updates (November 2026)
+
+### Azure Site Recovery support for zonal disaster recovery for Ultra disks
+
+Azure Site Recovery now supports zone-to-zone disaster recovery for Azure virtual machines using Ultra disks. This capability enhances recovery strategy for customers using Ultra disks for their performance-intensive, high-IOPS demanding applications running on virtual machines, and protects them from zone failure and disruptions by replicating and recovering the VMs to another zone within the same Azure region.
+
+Previously, customers using Ultra disks couldn't combine their preferred storage option with ASR's zone disaster recovery capabilities. This enhancement improves application resilience against zone failures and also expands Azure Site Recovery's support for modern Azure infrastructure, helping customers confidently protect their most demanding workloads while meeting stringent recovery objectives.
+
+For more information, see [Enable Azure VM disaster recovery between availability zones](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 
 ## Updates (October 2026)
 
