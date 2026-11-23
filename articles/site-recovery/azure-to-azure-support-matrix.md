@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 11/11/2026
+ms.date: 11/23/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -460,6 +460,9 @@ Premium SSD v1 LRS or ZRS (`Premium_LRS`, `Premium_ZRS`) | Matches the source re
 Premium SSD v2 LRS (`PremiumV2_LRS`) | `Premium_LRS` | `PremiumV2_LRS` | Generally available. Requires High Churn and must be selected when replication is enabled. Host caching isn't supported.
 Ultra Disk LRS (`UltraSSD_LRS`) | `Premium_LRS` | `UltraSSD_LRS` | Requires High Churn. Zone-to-zone disaster recovery is supported. Host caching isn't supported.
 
+> [!NOTE]
+> For a Premium SSD v2 or Ultra Disk source with a 4-KiB logical sector size, Site Recovery preserves a 6-MiB VHDX header on the Premium SSD v1 replica disk and aligns the replica capacity to a whole GiB. As a result, the replica disk is provisioned 1 GiB larger than the source disk.
+
 Component | Support | Details
 --- | --- | ---
 Disk renaming | Supported. | 
@@ -467,7 +470,7 @@ OS disk maximum size | [4,095 GiB](/Azure/virtual-machines/managed-disks-overvie
 Temporary disk | Not supported. | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. Learn more about [temporary disks](/Azure/virtual-machines/managed-disks-overview).
 Data disk minimum size | 1 GiB. | No additional restrictions.
 Data disk maximum number | Up to 64, with LUNs 0 through 63. | The selected source or target VM size can impose a lower limit.
-Data disk maximum size | 32,767 GiB (approximately 32 TiB). | This Site Recovery limit also applies to Premium SSD v2 and Ultra Disk, even when Azure Disk Storage supports a larger disk.
+Data disk maximum size | 32,767 GiB (approximately 32 TiB). | For a Premium SSD v2 or Ultra Disk source with a 4-KiB logical sector size, the maximum source disk size is 32,766 GiB. The Premium SSD v1 replica requires 1 GiB of additional aligned capacity and can't exceed its 32,767-GiB limit. For other supported disk configurations, the maximum source disk size is 32,767 GiB.
 Disk subscription limits | Up to 3,000 (1,200 if Trusted VMs) protected disks per subscription. | Ensure that the source or target subscription doesn't have more than 3,000 (1,200 if Trusted VMs) Site Recovery-protected disks (both data and OS).
 Standard SSD | Supported. |
 Managed disk redundancy | LRS and ZRS are supported. | ZRS is available only for Standard SSD and Premium SSD v1. Premium SSD v2 and Ultra Disk don't have a ZRS SKU.
