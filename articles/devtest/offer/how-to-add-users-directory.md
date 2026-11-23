@@ -32,7 +32,7 @@ Determine whether you need to add a new user to your subscription. Common scenar
 
 Microsoft Entra ID provides identity management, while [Azure role-based access control](../../role-based-access-control/overview.md) \(Azure RBAC\) defines access to resources. After determining the need to add a user, identify where to add them and the scope of access required. Scope defines the set of resources a user can access.
 
-If projects require IT oversight for security, assign an administrative role at the management group level to provide broad access accross the subscription.
+If projects require IT oversight for security, assign an administrative role at the management group level to provide broad access across the subscription.
 
 In contrast, collaborators might only require access to the resource group or resource level.  
 
