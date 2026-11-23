@@ -6,7 +6,7 @@ description: "Learn how Durable Task Scheduler billing works, including Dedicate
 ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 05/01/2026
+ms.date: 11/23/2026
 ms.author: hannahhunter
 ---
 # Durable Task Scheduler billing
@@ -128,11 +128,12 @@ You can create up to 10 schedulers per region per subscription and up to 5 task 
 
 ### Example 1
 
-A development team is testing simple orchestrations, each with three actions (using [the "Hello City" pattern](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-functions/dotnet/HelloCities)), and runs 10,000 orchestrations per month.
+A development team is testing simple orchestrations by using [the "Hello City" pattern](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-functions/dotnet/HelloCities) and runs 10,000 orchestrations per month. Each orchestration calls three activities, so it uses seven actions: one for the orchestrator start and two for each activity, as shown in the [earlier example](#example).
 
 | Step | Calculation | Result |
 | - | ----------- | ------ |
-| Monthly actions | 10,000 × 3 | 30,000 actions |
+| Actions per orchestration | 1 + (3 × 2) | 7 actions |
+| Monthly actions | 10,000 × 7 | 70,000 actions |
 
 ### Example 2
 
@@ -153,15 +154,14 @@ The Consumption SKU bills you by actions dispatched.
 | Step | Calculation |
 | - | - |
 | 1. Monthly actions | `orchestrations per month × actions per orchestration` |
-| 2. Convert to million actions | `monthly actions ÷ 1,000,000` |
-| 3. Monthly scheduler spend | `(monthly actions ÷ 1,000,000) × regional price per million actions` |
+| 2. Monthly scheduler spend | `monthly actions × regional price per action` |
 
 Using the existing consumption examples in this article:
 
 | Workload | Monthly actions | Monthly scheduler spend |
 | - | - | - |
-| Example 1 (10,000 runs × 3 actions) | 30,000 | `(30,000 ÷ 1,000,000) × regional price per million actions` |
-| Example 2 (20,000 runs × 7 actions) | 140,000 | `(140,000 ÷ 1,000,000) × regional price per million actions` |
+| Example 1 (10,000 runs × 7 actions) | 70,000 | `70,000 × regional price per action` |
+| Example 2 (20,000 runs × 7 actions) | 140,000 | `140,000 × regional price per action` |
 
 ### Dedicated SKU monthly spend example
 
