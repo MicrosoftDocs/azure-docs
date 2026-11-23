@@ -20,14 +20,9 @@ ms.custom: ai-assisted
 
 This guide covers features, configuration details, and requirements for hosted Model Context Protocol (MCP) servers in Connector Namespace. For an overview of hosted MCP servers, see [Hosted MCP servers in Connector Namespace](connector-namespace-hosted-mcp.md).
 
-## Supported regions
+## Preview support
 
-During the preview, hosted MCP servers are available in the following regions:
-
-- West Central US
-- East Asia
-- Central US
-- North Europe
+See [Preview support](connector-namespace-hosted-mcp.md#supported-regions) for supported servers and regions.
 
 ## Access to the Connector Namespace portal
 

@@ -19,7 +19,7 @@ zone_pivot_groups: connector-namespace-hosted-servers
 > This preview feature is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> During the preview, hosted MCP servers are available in the following regions: **West Central US, East Asia, Central US, and North Europe**.
+> During the preview, hosted MCP servers are available in the following regions: **Brazil South, Central US, East Asia, Japan East, North Europe, Sweden Central, UK South, West Central US, and West US 2**.
 
 In this quickstart, you create a [hosted Model Context Protocol (MCP) server](./connector-namespace-hosted-mcp.md) in [Connector Namespace](./connector-namespace-overview.md) and connect it to MCP clients. Use the server selector at the top of this page to choose the server that you want to deploy.
 
