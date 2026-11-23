@@ -2,8 +2,8 @@
 title: Create a Service Fabric cluster environment
 description: Learn how to create an environment with a self-contained Service Fabric cluster. See how to start and stop the cluster by using schedules.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 06/26/2020
 ms.custom:
   - UpdateFrequency2

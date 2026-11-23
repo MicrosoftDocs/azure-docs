@@ -3,8 +3,8 @@ title: Troubleshoot Artifacts on Lab Virtual Machines
 titleSuffix: Azure DevTest Labs
 description: Troubleshoot issues with applying artifacts on lab virtual machines in Azure DevTest Labs, including script problems, failure errors, and analyzing log data.
 ms.topic: troubleshooting-general
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 07/18/2025
 ms.custom:
   - UpdateFrequency2

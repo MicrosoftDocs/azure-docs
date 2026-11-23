@@ -2,8 +2,8 @@
 title: Move DevTest Labs to another region
 description: Shows you how to move a lab to another region.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 09/30/2023
 ms.custom:
   - devx-track-azurepowershell

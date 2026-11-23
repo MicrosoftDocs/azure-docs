@@ -2,8 +2,8 @@
 title: Add and configure lab users with role-based access control (RBAC)
 description: Learn about the Azure DevTest Labs Owner, Contributor, and DevTest Labs User roles, and how to add members to lab roles by using the Azure portal or Azure PowerShell.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/26/2025
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 

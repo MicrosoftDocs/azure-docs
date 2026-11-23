@@ -2,8 +2,8 @@
 title: Set lab policies
 description: Learn how to define lab policies such as VM sizes, maximum VMs per user, and shutdown automation.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/31/2025
 ms.custom:
   - UpdateFrequency2

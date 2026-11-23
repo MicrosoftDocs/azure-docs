@@ -2,8 +2,8 @@
 title: Access, claim, and connect to lab VMs
 description: Learn how to access, claim, unclaim, delete, and connect to DevTest Labs virtual machines (VMs).
 ms.topic: tutorial
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/31/2025
 ms.custom:
   - UpdateFrequency2

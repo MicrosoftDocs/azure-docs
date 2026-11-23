@@ -2,8 +2,8 @@
 title: Use platform-as-a-service (PaaS) environments in labs
 description: Learn about platform-as-a-service (PaaS) environments in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 09/30/2023
 ms.custom:
   - UpdateFrequency2

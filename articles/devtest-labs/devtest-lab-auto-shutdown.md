@@ -2,8 +2,8 @@
 title: Configure autoshutdown for lab virtual machines
 description: Learn how to set autoshutdown schedules and policies to shut down all or individual Azure DevTest Labs lab virtual machines (VMs) at a specific time daily.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/18/2025
 ms.custom:
   - UpdateFrequency2

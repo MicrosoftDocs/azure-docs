@@ -2,8 +2,8 @@
 title: Create custom artifacts for VMs
 description: Learn how to create and use artifacts to deploy and set up applications on DevTest Labs virtual machines (VMs).
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 12/08/2025
 ms.custom: UpdateFrequency2
 #customer intent: As an Azure DevTest Labs user, I want to learn how to create and store artifact definition files so I can use them to install tools or take other actions on my lab VMs.
