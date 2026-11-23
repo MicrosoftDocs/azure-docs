@@ -128,7 +128,7 @@ You can create up to 10 schedulers per region per subscription and up to 5 task 
 
 ### Example 1
 
-A development team is testing simple orchestrations using [the "Hello City" pattern](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-functions/dotnet/HelloCities) and runs 10,000 orchestrations per month. Each orchestration calls three activities, so it uses seven actions: one for the orchestrator start and two for each activity, as shown in the [earlier example](#example).
+A development team is testing simple orchestrations by using [the "Hello City" pattern](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-functions/dotnet/HelloCities) and runs 10,000 orchestrations per month. Each orchestration calls three activities, so it uses seven actions: one for the orchestrator start and two for each activity, as shown in the [earlier example](#example).
 
 | Step | Calculation | Result |
 | - | ----------- | ------ |
