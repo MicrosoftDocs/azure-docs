@@ -70,6 +70,8 @@ b = 3
 c = "Default Value"
 ```
 
+For parameter names, start with an ASCII letter (`A`-`Z` or `a`-`z`) or an underscore (`_`). Use only ASCII letters, digits (`0`-`9`), and underscores for the remaining characters. For example, use `customer_id` or `_run_date`. Don't use spaces, hyphens, periods, line breaks, or non-ASCII characters, such as in `customer id`, `customer-id`, `customer.id`, or `café`. Match each name exactly in the notebook's parameter cell and the pipeline's base parameters. This guidance applies to parameter names, not parameter values.
+
 You can reference these parameters in other cells and when you run the notebook to use the default values you specify in the parameters cell.
 
 When you run this notebook from a pipeline, Azure Data Factory looks for the parameters cell and uses the values you provided as defaults for the parameters passed in at execution time. If you [assign parameters values from a pipeline](#assign-parameters-values-from-a-pipeline), the execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
