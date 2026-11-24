@@ -8,8 +8,8 @@ metadata:
   description: Learn how Azure Relay service allows you to securely expose services that run in your corporate network to the public cloud.
   ms.service: azure-relay
   ms.topic: landing-page
-  author: spelluru
-  ms.author: spelluru
+  author: eldertgrootenboer
+  ms.author: egrootenboer
   ms.date: 01/24/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

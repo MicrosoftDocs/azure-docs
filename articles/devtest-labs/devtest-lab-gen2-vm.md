@@ -2,8 +2,8 @@
 title: Generation 2 VMs in Azure DevTest Labs
 description: Learn how to use Generation 2 virtual machines (VMs) in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 01/20/2025
 ms.custom: UpdateFrequency2
 ---

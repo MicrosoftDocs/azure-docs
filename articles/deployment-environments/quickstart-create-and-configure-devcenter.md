@@ -2,8 +2,8 @@
 title: "Quickstart: Set up Azure Deployment Environments"
 titleSuffix: Azure Deployment Environments
 description: Learn how to set up the resources to get started with Azure Deployment Environments. Configure a dev center, attach an identity, and attach a catalog for using IaC templates.
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.topic: quickstart
 ms.service: azure-deployment-environments
 ms.custom: build-2023

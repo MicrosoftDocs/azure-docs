@@ -2,8 +2,8 @@
 title: Add and Configure an Environment Definition in a Catalog
 titleSuffix: Azure Deployment Environments
 description: Learn how to add and configure an environment definition to use in Azure Deployment Environments projects. 
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.service: azure-deployment-environments
 ms.topic: how-to
 ms.date: 06/04/2026

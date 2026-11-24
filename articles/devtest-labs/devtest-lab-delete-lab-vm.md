@@ -2,8 +2,8 @@
 title: Delete a lab virtual machine or a lab
 description: Learn how to delete a virtual machine from a lab or delete a lab in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 09/30/2023
 ms.custom:
   - UpdateFrequency2

@@ -2,8 +2,8 @@
 title: Azure DevTest Labs scenarios
 description: This article describes primary Azure DevTest Labs scenarios, and how an organization can begin exploring DevTest Labs.
 ms.topic: overview
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/09/2025
 ms.reviewer: christianreddington,anthdela,juselph
 ms.custom:

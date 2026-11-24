@@ -2,8 +2,8 @@
 title: Manage your environment
 titleSuffix: Azure Deployment Environments
 description: Learn how to manage your Azure Deployment Environments deployment environment in the developer portal or by using the Azure CLI.
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023, ignite-2024
 ms.topic: how-to

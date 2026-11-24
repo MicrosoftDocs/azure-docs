@@ -36,6 +36,8 @@
     href: extension-resource-types.md
   - name: Resource instance limit
     href: resources-without-resource-group-limit.md
+  - name: Reliability
+    href: /azure/reliability/reliability-resource-manager?toc=/azure/azure-resource-manager/management/toc.json
   - name: Security
     items:
     - name: TLS support

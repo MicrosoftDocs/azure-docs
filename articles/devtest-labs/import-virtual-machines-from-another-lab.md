@@ -3,8 +3,8 @@ title: Import virtual machines from another lab
 titleSuffix: Azure DevTest Labs
 description: Learn how to import virtual machines from one lab to another in Azure DevTest Labs by using the REST API or PowerShell.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 05/30/2024
 ms.custom: UpdateFrequency2
 

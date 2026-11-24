@@ -3,8 +3,8 @@ title: Manage Azure storage accounts for labs
 titleSuffix: Azure DevTest Labs
 description: Learn about Azure storage accounts for DevTest Labs, including encryption, customer-managed keys, and setting expiration dates for artifact results storage.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 05/30/2024
 ms.custom:
   - UpdateFrequency2

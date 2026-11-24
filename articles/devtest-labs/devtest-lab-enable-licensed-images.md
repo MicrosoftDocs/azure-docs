@@ -2,8 +2,8 @@
 title: Enable a licensed image in your lab
 description: Learn how to enable a licensed image in Azure DevTest Labs using the Azure portal
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 06/26/2020
 ms.custom:
   - UpdateFrequency2

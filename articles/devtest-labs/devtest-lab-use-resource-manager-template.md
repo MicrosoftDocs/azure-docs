@@ -2,8 +2,8 @@
 title: Create and manage ARM templates for VMs
 description: Learn how to create and manage Azure Resource Manager (ARM) templates for virtual machine (VM) in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/18/2025
 ms.custom:
   - UpdateFrequency2

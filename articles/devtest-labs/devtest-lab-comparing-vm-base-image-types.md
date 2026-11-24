@@ -2,8 +2,8 @@
 title: Compare custom images and formulas
 description: Explore the differences between custom images and formulas as virtual machine (VM) bases so you can decide which one best suits your environment.
 ms.topic: concept-article
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 12/15/2025
 ms.custom: UpdateFrequency2
 

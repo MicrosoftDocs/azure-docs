@@ -43,7 +43,7 @@ The following table provides information on the Peering Service connectivity par
 | [Liquid Telecom](https://liquidc2.com/connect/#maps) | Africa |
 | [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) | Asia, Europe, North America |
 | [MainOne](https://mainone.net/connectivity-and-data-center-services/) | Africa |
-| [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) | Africa |
+| [NAP Africa](https://www.napafrica.net/technical/azure-peering-service/) | Africa |
 | [NEC](https://jpn.nec.com/) | Japan |
 | [NTT Communications](https://www.ntt.com/en/index.html) | Japan, Indonesia |
 | [PCCW](https://www.pccwglobal.com/) | Asia |
@@ -107,12 +107,12 @@ The following table provides information on the Peering Service connectivity par
 | Atlanta | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Barcelona | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | Chicago | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
-| Cape Town | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |
+| Cape Town | [NAP Africa](https://www.napafrica.net/technical/azure-peering-service/) |
 | Chennai | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/)|
 | Dallas | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/), [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Dubai | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | Frankfurt | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
-| Johannesburg | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |
+| Johannesburg | [NAP Africa](https://www.napafrica.net/technical/azure-peering-service/) |
 | Kuala Lumpur | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |
 | London | [LINX](https://www.linx.net/services/microsoft-azure-peering/) |
 | Madrid | [DE-CIX](https://www.de-cix.net/services/microsoft-azure-peering-service/) |

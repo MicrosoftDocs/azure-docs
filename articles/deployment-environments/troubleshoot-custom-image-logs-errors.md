@@ -3,8 +3,8 @@ title: Troubleshoot custom image deployment errors
 description: Learn how to troubleshoot and resolve errors encountered during custom image deployments in Azure Deployment Environments.
 ms.service: azure-deployment-environments
 ms.topic: troubleshooting-general
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.date: 05/26/2026
 ---
 # Troubleshoot custom image deployment errors

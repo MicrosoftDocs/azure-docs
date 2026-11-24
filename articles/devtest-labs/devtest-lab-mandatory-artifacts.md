@@ -3,8 +3,8 @@ title: Specify mandatory artifacts for lab virtual machines
 titleSuffix: Azure DevTest Labs
 description: Learn how to specify mandatory artifacts to install at creation of every lab virtual machine (VM) in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 06/10/2024
 ms.custom:
   - UpdateFrequency2

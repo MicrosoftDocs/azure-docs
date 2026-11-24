@@ -110,7 +110,7 @@ For more information, see:
   export resource_group_name="<your_resource_group_name>"
   ```
 
-  For sample code, see the [AzureLogicAppTool utility on GitHub](https://github.com/azure-ai-foundry/foundry-samples/blob/main/samples-classic/python/getting-started-agents/logic_apps/user_logic_apps.py).
+  For sample code, see the [AzureLogicAppTool utility on GitHub](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ai/azure-ai-agents/samples/utils/user_logic_apps.py).
 
 ## Limitations
 
@@ -288,7 +288,7 @@ On your system, set the following environment variables:
 
 For sample code, see:
 
-- [AzureLogicAppTool utility on GitHub](https://github.com/azure-ai-foundry/foundry-samples/blob/main/samples-classic/python/getting-started-agents/logic_apps/user_logic_apps.py)
+- [AzureLogicAppTool utility on GitHub](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ai/azure-ai-agents/samples/utils/user_logic_apps.py)
 
 - [Full sample for Azure Logic Apps integration with Foundry agent](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ai/azure-ai-agents/samples/agents_tools/sample_agents_logic_apps.py)
 
@@ -312,7 +312,7 @@ project_client = AIProjectClient(
 
 ## 3: Register your logic app
 
-Register your Consumption logic app resource by providing the trigger name and information. To find the `AzureLogicAppTool` utility code, visit the [full sample on GitHub](https://github.com/azure-ai-foundry/foundry-samples/blob/main/samples-classic/python/getting-started-agents/logic_apps/user_logic_apps.py).
+Register your Consumption logic app resource by providing the trigger name and information. To find the `AzureLogicAppTool` utility code, visit the [full sample on GitHub](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ai/azure-ai-agents/samples/utils/user_logic_apps.py).
 
 ```python
 from user_logic_apps import AzureLogicAppTool
