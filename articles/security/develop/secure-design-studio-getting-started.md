@@ -6,7 +6,7 @@ ms.author: frasim
 ms.service: security
 ms.subservice: security-develop
 ms.topic: quickstart
-ms.date: 11/13/2026
+ms.date: 11/24/2026
 #customer intent: As a developer or architect, I want to create and review a first model in SecureDesignStudio so that I can document security and privacy design decisions.
 ---
 
@@ -31,7 +31,7 @@ You don't need an Azure account or AI service for this quickstart. On macOS and 
 
 For current setup guidance, see [aka.ms/securedesignstudio](https://aka.ms/securedesignstudio).
 
-The commands use [source commit `2ce3c17`](https://github.com/microsoft/SecureDesignStudio/tree/2ce3c17e5619549eb40f912a189ae5777ec830cb), application version 1.0.48, rather than the changing `main` branch. The project doesn't currently publish tagged releases. This source snapshot isn't a Microsoft-supported product release. For maintenance and issue reporting, see [Open-source support](threat-modeling-tool.md#open-source-support).
+The commands clone the latest source from the project's `main` branch instead of pinning an older commit. An existing local installation doesn't update automatically. The screenshots show an earlier version, so current controls might differ. The project doesn't currently publish tagged releases, and the source isn't a Microsoft-supported product release. For maintenance and issue reporting, see [Open-source support](threat-modeling-tool.md#open-source-support).
 
 ### Windows
 
@@ -40,7 +40,6 @@ Open PowerShell in the folder where you want to keep the app. Run each command i
 ```powershell
 git clone https://github.com/microsoft/SecureDesignStudio.git
 Set-Location .\SecureDesignStudio
-git checkout --detach 2ce3c17e5619549eb40f912a189ae5777ec830cb
 .\Start-SecureDesignStudio.ps1
 ```
 
@@ -53,7 +52,6 @@ Open Terminal and run each command in order, continuing only if it succeeds:
 ```sh
 git clone https://github.com/microsoft/SecureDesignStudio.git
 cd SecureDesignStudio
-git checkout --detach 2ce3c17e5619549eb40f912a189ae5777ec830cb
 sh ./start-securedesignstudio.sh
 ```
 
@@ -130,6 +128,6 @@ Keep the original `.tm7` file. Import doesn't preserve every template property o
 
 ## Next steps
 
-- Explore the [SecureDesignStudio feature overview](secure-design-studio-feature-overview.md), or open a [synthetic sample model](https://github.com/microsoft/SecureDesignStudio/blob/2ce3c17e5619549eb40f912a189ae5777ec830cb/samples/README.md) with **File** > **Open**.
-- For optional AI-assisted design and review, follow [Bring your own AI](https://github.com/microsoft/SecureDesignStudio/blob/2ce3c17e5619549eb40f912a189ae5777ec830cb/docs/bring-your-own-ai.md). Choose Azure OpenAI in Microsoft Foundry Models, Claude Code, or Codex only when your organization approves the provider and the data you plan to send. None is required for this quickstart.
+- Explore the [SecureDesignStudio feature overview](secure-design-studio-feature-overview.md), or open a [synthetic sample model](https://github.com/microsoft/SecureDesignStudio/blob/main/samples/README.md) with **File** > **Open**.
+- For optional AI-assisted design and review, follow [Bring your own AI](https://github.com/microsoft/SecureDesignStudio/blob/main/docs/bring-your-own-ai.md). Choose Azure OpenAI in Microsoft Foundry Models, Claude Code, or Codex only when your organization approves the provider and the data you plan to send. None is required for this quickstart.
 - To continue with TMT instead, use the [TMT getting-started guide](threat-modeling-tool-getting-started.md).
