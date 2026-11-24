@@ -1,8 +1,8 @@
 ---
 title: Build a Container Image from JAR or WAR
 description: Describes how to build a container image from a built JAR or WAR file.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article

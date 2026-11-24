@@ -1,8 +1,8 @@
 ---
 title: Migrate API Portal with Azure Spring Apps Enterprise Plan to Azure API Management
 description: Describes how to migrate API Portal to Azure API Management.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article

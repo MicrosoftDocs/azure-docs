@@ -1,8 +1,8 @@
 ---
 title: Migrate Application Configuration Service to Config Server for Spring in Azure Container Apps
 description: Describes how to migrate Application Configuration Service and Config Server to Config Server for Spring in Azure Container Apps.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
