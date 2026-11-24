@@ -16,7 +16,6 @@ Before you begin, make sure you have:
 
 - An Azure account with an active subscription.
 - A virtual network with a gateway subnet that is /26 or larger. This size ensures enough IP address space for gateway scaling and high availability.
-- Verified that your region supports the scalable gateway. For region availability, see [About ExpressRoute scalable gateway](scalable-gateway.md#region-availability).
 
 ## Create a virtual network gateway
 
