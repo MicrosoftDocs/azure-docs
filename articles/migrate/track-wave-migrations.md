@@ -1,6 +1,6 @@
 ---
-title: Track and troubleshoot wave migrations in Azure Migrate
-description: Monitor migration steps, investigate waiting or failed work, and report wave migration progress in Azure Migrate.
+title: Track and troubleshoot wave migrations in Azure Catalyst
+description: Monitor migration steps, investigate waiting or failed work, and report wave migration progress in Azure Catalyst.
 author: snehithm
 ms.author: snmuvva
 ms.service: azure-migrate
@@ -10,7 +10,7 @@ ms.date: 10/28/2026
 #CustomerIntent: As a migration engineer, I want to track wave migrations so that I can troubleshoot issues, recover from failures, and report status.
 
 ---
-# Track and troubleshoot wave migrations in Azure Migrate (preview)
+# Track and troubleshoot wave migrations in Azure Catalyst (preview)
 
 Monitor a wave's migration steps, investigate issues, and report progress after execution starts.
 
@@ -18,13 +18,13 @@ Use this procedure to monitor an active migration or review a completed wave. St
 
 ## Prerequisites
 
-- Have the **Azure Migrate Owner** or **Azure Migrate Execute Expert** role on the Azure Migrate project to view migration progress and download execution artifacts.
+- Have the **Azure Migrate Owner** or **Azure Migrate Execute Expert** role on the Azure Catalyst project to view migration progress and download execution artifacts.
 
 ## Open the view for your task
 
 Choose a wave-level or project-level view based on the scope of the progress you need to review.
 
-1. Open the Azure Migrate project that contains the wave.
+1. Open the Azure Catalyst project that contains the wave.
 2. Choose the view that matches what you need to review:
 
 | View | Scope | Use it to |
@@ -34,7 +34,7 @@ Choose a wave-level or project-level view based on the scope of the progress you
 | **Waves** | Project | Review execution status for all waves and open a wave for its execution details |
 | **Migrations** | Project | Review overall application or workload migration status across waves |
 
-3. Select the relevant wave or run where applicable. Completed-wave execution views remain available for review unless the wave or its Azure Migrate project is deleted.
+3. Select the relevant wave or run where applicable. Completed-wave execution views remain available for review unless the wave or its Azure Catalyst project is deleted.
 
 ### Review an earlier execution run
 
@@ -76,7 +76,7 @@ Use the wave-level issue details and execution-run information to identify the c
 | Observation | Next action |
 | --- | --- |
 | **Needs action** on an approval step | Review the gate and [approve ready workloads](execute-wave-migration.md#approve-ready-workloads-at-approval-steps) or withhold approval |
-| **Needs action** on a manual step | [Complete manual work](execute-wave-migration.md#complete-manual-work-when-requested) outside Azure Migrate, then select **Mark as complete** and **Complete** |
+| **Needs action** on a manual step | [Complete manual work](execute-wave-migration.md#complete-manual-work-when-requested) outside Azure Catalyst, then select **Mark as complete** and **Complete** |
 | A workload failed, or a step is **Failed** or **Partially succeeded** | [Diagnose and retry the failed work](execute-wave-migration.md#recover-from-failures); successful workloads don't need to rerun |
 | A step is waiting for work in another group | Review the dependency and resolve the predecessor's pending work |
 | Some workloads progress ahead of others in one step | Check for same-workload dependencies, which allow independent progress |

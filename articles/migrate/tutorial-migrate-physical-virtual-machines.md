@@ -1,6 +1,6 @@
 ---
-title: Migrate machines as physical servers to Azure with Azure Migrate and Modernize
-description: This article describes how to migrate physical machines to Azure with Azure Migrate and Modernize.
+title: Migrate machines as physical servers to Azure with Azure Catalyst
+description: This article describes how to migrate physical machines to Azure with Azure Catalyst.
 author: dhananjayanr98
 ms.author: dhananjayanr
 ms.manager: kmadnani
@@ -28,8 +28,8 @@ This article shows you how to migrate machines as physical servers to Azure by u
  In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare Azure with required permissions to use Azure Migrate.
-> * Check requirements for machines you want to migrate. Prepare a machine for the Azure Migrate and Modernize replication appliance that's used to discover and migrate machines to Azure.
+> * Prepare Azure with required permissions to use Azure Catalyst.
+> * Check requirements for machines you want to migrate. Prepare a machine for the Azure Catalyst replication appliance that's used to discover and migrate machines to Azure.
 > * Set up the replication appliance.
 > * Install the Mobility service on machines you want to migrate.
 > * Start migration execution.
@@ -38,7 +38,7 @@ This article shows you how to migrate machines as physical servers to Azure by u
 > * Run a full VM migration.
 
 > [!NOTE]
-> Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof of concept. Tutorials use default options where possible and don't show all possible settings and paths. For detailed instructions, review the how-to articles for Azure Migrate and Modernize.
+> Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof of concept. Tutorials use default options where possible and don't show all possible settings and paths. For detailed instructions, review the how-to articles for Azure Catalyst.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
@@ -52,7 +52,7 @@ Before you begin:
 1. Verify permissions for your Azure account. You need permissions to:
     - Create a VM.
     - Write to an Azure managed disk.
-5.  For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
+5.  For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Catalyst](prepare-azure-accounts.md).
 6.  Assign permissions to register the Replication Appliance in Microsoft Entra ID. For more information, see [required permissions](../site-recovery/deploy-vmware-azure-replication-appliance-modernized.md#required-permissions).
 
 Also,
@@ -63,7 +63,7 @@ Also,
 [!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 > [!NOTE]
-> If you're planning to upgrade your Windows operating system, Azure Migrate and Modernize might download the Windows SetupDiag utility for error details in case upgrade fails. Ensure that the VM created in Azure after the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). If there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
+> If you're planning to upgrade your Windows operating system, Azure Catalyst might download the Windows SetupDiag utility for error details in case upgrade fails. Ensure that the VM created in Azure after the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). If there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
 
 ### Create an Azure network
 
@@ -77,7 +77,7 @@ Also,
 To prepare for migrating physical servers,  ensure that you:
 
 - **Check machine requirements**: Verify that your source machines are supported for physical server migration.
--  **Set up a replication appliance**: Physical server migrations require a separate replication appliance to execute agent-based migrations. You can’t use the Azure Migrate appliance created for discovery to execute physical server migrations.
+-  **Set up a replication appliance**: Physical server migrations require a separate replication appliance to execute agent-based migrations. You can’t use the Azure Catalyst appliance created for discovery to execute physical server migrations.
 
 ### Check machine requirements for migration
 
@@ -90,7 +90,7 @@ Make sure machines comply with requirements for migration to Azure.
 1. Verify that on-premises machines that you replicate to Azure comply with [Azure VM requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 1. Some changes are needed on VMs before you migrate them to Azure:
 
-    - For some operating systems, Azure Migrate and Modernize makes these changes automatically.
+    - For some operating systems, Azure Catalyst makes these changes automatically.
     - Make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
@@ -101,13 +101,13 @@ The Azure Site Recovery Replication appliance is used to replicate machines to A
 To set up a new appliance, you can use PowerShell installer script. Ensure you meet the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. 
 
 > [!NOTE]
-> The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before.
+> The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Catalyst: Discovery and assessment appliance you might have installed before.
 
 ## Set up the replication appliance
 
 This section describes how to download and use the PowerShell installer script to set up the replication appliance.
 
-1. In the Azure Migrate project, go to **Manage** > **Server replication**, and select **Start replication**.
+1. In the Azure Catalyst project, go to **Manage** > **Server replication**, and select **Start replication**.
    
 2. On **Specify intent**, under **What do you want to migrate**, select **Servers** or **virtual machines (VMs)**. Under **Where do you want to migrate to**, select **Azure VM**.
    
@@ -171,7 +171,7 @@ Use the following steps to register the appliance:
 
    > [!Note]
    > The name can't be changed once set.
-1. **Azure Migrate replication appliance key**: Copy the key from the portal's discovery screen.
+1. **Azure Catalyst replication appliance key**: Copy the key from the portal's discovery screen.
     
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/generate-key.png" alt-text="Screenshot shows the generated key":::.
 
@@ -226,22 +226,22 @@ You can install the Mobility service using the Mobility service agent software. 
 > [!NOTE]
 > In the portal you can select up to 10 machines at once for replication. If you need to replicate more, then group them in batches of 10.
 
-1. In the Azure Migrate project, go to **Manage** > **Server replication**, and select **Start replication**.
+1. In the Azure Catalyst project, go to **Manage** > **Server replication**, and select **Start replication**.
 
 2. On the Specify intent page, under **What do you want to migrate**, select Servers or virtual machines (VMs). Under **Where do you want to migrate to**, select Azure VM.
 
 3. Under **How will you select workloads**, select one of the following options:
-     - If you have an existing Azure Migrate appliance, select one of the following options and proceed to **Discovery method**.
+     - If you have an existing Azure Catalyst appliance, select one of the following options and proceed to **Discovery method**.
          - **From all inventory** to manually select servers.
          - **From an assessment** to use an existing assessment.
-     - If you don't have an existing Azure Migrate appliance (required for assessments, wave planning, and other planning capabilities) and want to directly execute agent-based migrations, select **From a replication appliance (Physical or others)**. If you completed the replication appliance setup, you can proceed
+     - If you don't have an existing Azure Catalyst appliance (required for assessments, wave planning, and other planning capabilities) and want to directly execute agent-based migrations, select **From a replication appliance (Physical or others)**. If you completed the replication appliance setup, you can proceed
        to **Workloads**. Otherwise, complete the setup as per the steps provided in the previous section.
 
 4. In **Discovery method**, select the appliance that matches your source environment (Physical) and then select **Next**.
 
 5.  In **Workloads**:
     - Select the **Target VM security type**.
-        - Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
+        - Azure Catalyst supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
         - You can also migrate eligible machines to Confidential virtual machines [Learn more](../confidential-computing/confidential-vm-overview.md). If you select **Confidential virtual machines**, only eligible servers are available for selection and the rest are greyed out. Refer [CVM support matrix](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines).
      - Select the replication appliance you set up from the drop-down menu or set up a new replication appliance by referring to the steps provided in the previous section.
          - In **Guest credentials**, specify the VM admin account that you use for push installation of the Mobility service.
@@ -251,7 +251,7 @@ You can install the Mobility service using the Mobility service agent software. 
      - **Storage account**: Keep the default option to use the cache storage account that the portal automatically creates for the project. To use a different storage account for replication, select it from the drop-down list.
     
    > [!NOTE]
-   > - If you use private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
+   > - If you use private endpoint as the connectivity method for the Azure Catalyst project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1)
    
     - **Azure Hybrid Benefit**: Apply Azure Hybrid Benefit and save up to 76% vs. pay-as-you-go costs by using an eligible Windows Server and/or Enterprise Linux license. Check the boxes applicable to your license (Windows Server license or Enterprise Linux license).
@@ -292,7 +292,7 @@ You can install the Mobility service using the Mobility service agent software. 
       
 7. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform to [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
-   - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
+   - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Catalyst picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
    - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk contains the operating system bootloader and installer.
    - **Availability Zone**: Specify the Availability Zone to use.
    - **Availability Set**: Specify the Availability Set to use.
@@ -315,7 +315,7 @@ You can install the Mobility service using the Mobility service agent software. 
 
 This section explains how to track replicating servers and perform test and final migrations.
 
-1. In your Azure Migrate project, go to **Manage** > **Server replication**. Navigate to **Other**.
+1. In your Azure Catalyst project, go to **Manage** > **Server replication**. Navigate to **Other**.
 2. The following columns show the replication and migration status of your servers for which you initiated replication:
     - **Replication status**: Displays the current state of replication for the server. Learn more about [replication states](concepts-vmware-agentless-migration.md#replication-states).
     - **Replication health**: Indicates whether replication is Healthy, Warning, or Critical.

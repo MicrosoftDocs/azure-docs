@@ -1,6 +1,6 @@
 ---
-title: VMware server discovery support in Azure Migrate and Modernize
-description: Learn about Azure Migrate and Modernize discovery and assessment support for servers in a VMware environment.
+title: VMware server discovery support in Azure Catalyst
+description: Learn about Azure Catalyst discovery and assessment support for servers in a VMware environment.
 author: molir
 ms.author: molir
 ms.manager: ronai
@@ -14,15 +14,15 @@ ms.custom:
   - engagement-fy24
 ms.collection:
  - migration
-# Customer intent: As an IT administrator managing VMware servers, I want to use a discovery and assessment tool in Azure Migrate, so that I can effectively plan and execute the migration of my servers to Azure while ensuring compatibility and adherence to requirements.
+# Customer intent: As an IT administrator managing VMware servers, I want to use a discovery and assessment tool in Azure Catalyst, so that I can effectively plan and execute the migration of my servers to Azure while ensuring compatibility and adherence to requirements.
 ---
 
 # Support matrix for VMware discovery
 
-This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool to discover and assess servers in a VMware environment for migration to Azure.
+This article summarizes prerequisites and support requirements for using the [Azure Catalyst: Discovery and assessment](migrate-services-overview.md) tool to discover and assess servers in a VMware environment for migration to Azure.
 
 
-To assess servers, first, create an Azure Migrate project. The Azure Migrate: Discovery and assessment tool is automatically added to the project. Then, deploy the Azure Migrate appliance. The appliance continuously discovers on-premises or Azure VMware Solution servers and sends configuration and performance metadata to Azure. When discovery is finished, gather the discovered servers into groups and run assessments per group.
+To assess servers, first, create an Azure Catalyst project. The Azure Catalyst: Discovery and assessment tool is automatically added to the project. Then, deploy the Azure Catalyst appliance. The appliance continuously discovers on-premises or Azure VMware Solution servers and sends configuration and performance metadata to Azure. When discovery is finished, gather the discovered servers into groups and run assessments per group.
 
 As you plan your migration of VMware servers to Azure, see the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
@@ -32,7 +32,7 @@ As you plan your migration of VMware servers to Azure, see the [migration suppor
 VMware | Details
 --- | ---
 vCenter Server | Servers that you want to discover and assess must be managed by vCenter Server version [!INCLUDE [vmware-discovery-supported-versions](includes/vmware-discovery-supported-versions.md)].<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses aren't supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
-Permissions | The Azure Migrate: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory, agentless dependency analysis, web apps, and SQL discovery, the account must have privileges for guest operations on VMware virtual machines (VMs).
+Permissions | The Azure Catalyst: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory, agentless dependency analysis, web apps, and SQL discovery, the account must have privileges for guest operations on VMware virtual machines (VMs).
 
 
 ## Server requirements
@@ -43,9 +43,11 @@ Operating systems | All Windows and Linux operating systems can be assessed for 
 Storage | Disks attached to SCSI, IDE, and SATA-based controllers are supported.
 
 
-## Azure Migrate appliance requirements
+<a name="azure-migrate-appliance-requirements"></a>
 
-Azure Migrate and Modernize uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance as a server in your VMware environment by using a VMware Open Virtualization Appliance template imported into vCenter Server. You can also use a [PowerShell script](deploy-appliance-script.md). Learn more about [appliance requirements for VMware](migrate-appliance.md#appliance---vmware).
+## Azure Catalyst appliance requirements
+
+Azure Catalyst uses the [Azure Catalyst appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance as a server in your VMware environment by using a VMware Open Virtualization Appliance template imported into vCenter Server. You can also use a [PowerShell script](deploy-appliance-script.md). Learn more about [appliance requirements for VMware](migrate-appliance.md#appliance---vmware).
 
 Here are more requirements for the appliance:
 
@@ -56,23 +58,23 @@ Here are more requirements for the appliance:
 
 Device | Connection
 --- | ---
-Azure Migrate appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br /><br /> Inbound connections on port 44368 to remotely access the appliance management app by using the URL `https://<appliance-ip-or-name>:44368`. <br /><br />Outbound connections on port 443 (HTTPS) to send discovery and performance metadata to Azure Migrate and Modernize.
+Azure Catalyst appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br /><br /> Inbound connections on port 44368 to remotely access the appliance management app by using the URL `https://<appliance-ip-or-name>:44368`. <br /><br />Outbound connections on port 443 (HTTPS) to send discovery and performance metadata to Azure Catalyst.
 vCenter Server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br /><br /> The appliance connects to vCenter on port 443 by default. If vCenter Server listens on a different port, you can modify the port when you set up discovery.
 ESXi hosts | For [discovery of software inventory](how-to-discover-applications.md) or [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), the appliance connects to ESXi hosts on TCP port 443 to discover software inventory and dependencies on the servers.
 
 
 ## Software inventory requirements
 
-In addition to discovering servers, Azure Migrate: Discovery and assessment can perform software inventory on servers. Software inventory provides the list of applications, roles, and features running on Windows and Linux servers that are discovered by using Azure Migrate and Modernize. It allows you to identify and plan a migration path tailored for your on-premises or Azure VMware Solution workloads.
+In addition to discovering servers, Azure Catalyst: Discovery and assessment can perform software inventory on servers. Software inventory provides the list of applications, roles, and features running on Windows and Linux servers that are discovered by using Azure Catalyst. It allows you to identify and plan a migration path tailored for your on-premises or Azure VMware Solution workloads.
 
 Support | Details
 --- | ---
-Supported servers | You can perform software inventory on up to 10,000 servers running across vCenter Servers added to each Azure Migrate appliance.
+Supported servers | You can perform software inventory on up to 10,000 servers running across vCenter Servers added to each Azure Catalyst appliance.
 Operating systems | Servers running all Windows and Linux versions are supported.
 Server requirements | For software inventory, VMware Tools must be installed and running on your servers. The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.<br/><br/>Windows Management Instrumentation (WMI) must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.
 vCenter Server account | To interact with the servers for software inventory, the vCenter Server read-only account used for assessment must have privileges for guest operations on VMware VMs.
 Server access | You can add multiple domains and nondomain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-sudo access) for all Linux servers.
-Port access | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory. <br /><br /> If you use domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /> <br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
+Port access | The Azure Catalyst appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory. <br /><br /> If you use domain credentials, the Azure Catalyst appliance must be able to connect to the following TCP and UDP ports: <br /> <br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
 Discovery | Software inventory is performed from vCenter Server by using VMware Tools installed on the servers.<br/><br/> The appliance gathers the information about the software inventory from the server running vCenter Server through vSphere APIs.<br/><br/> Software inventory is agentless. No agent is installed on the server, and the appliance doesn't connect directly to the servers.
 
 ## SQL Server instance and database discovery requirements
@@ -94,7 +96,7 @@ Supported SQL configuration | Discovery of standalone, highly available, and dis
 Supported SQL services | Only SQL Server Database Engine is supported. <br /><br /> Discovery of SQL Server Reporting Services, SQL Server Integration Services, and SQL Server Analysis Services isn't supported.
 
 > [!NOTE]
-> By default, Azure Migrate and Modernize uses the most secure way of connecting to SQL instances. That is, Azure Migrate and Modernize encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the `TrustServerCertificate` property to `true`. Also, the transport layer uses Secure Socket Layer to encrypt the channel and bypass the certificate chain to validate trust. For this reason, the appliance server must be set up to trust the certificate's root authority.
+> By default, Azure Catalyst uses the most secure way of connecting to SQL instances. That is, Azure Catalyst encrypts communication between the Azure Catalyst appliance and the source SQL Server instances by setting the `TrustServerCertificate` property to `true`. Also, the transport layer uses Secure Socket Layer to encrypt the channel and bypass the certificate chain to validate trust. For this reason, the appliance server must be set up to trust the certificate's root authority.
 >
 > However, you can modify the connection settings by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
@@ -283,9 +285,9 @@ Use the following sample scripts to create a login and provision it with the nec
 
 ## Web apps discovery requirements
 
-[Software inventory](how-to-discover-applications.md) identifies the web server role on discovered servers. If a server has a web server installed, Azure Catalyst discovers web apps on the server.
+[Software inventory](how-to-discover-applications.md) identifies the web server role existing on discovered servers. If a server has a web server installed, Azure Catalyst discovers web apps on the server.
 
-You can add both domain and non-domain credentials on the appliance. Azure Catalyst automatically maps credentials to the respective servers, so you don't have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
+You can add both domain and nondomain credentials on the appliance. Ensure that the account used has local admin privileges on source servers. Azure Catalyst automatically maps credentials to the respective servers, so you don't have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
 
 After the appliance is connected, it gathers configuration data for ASP.NET web apps (IIS web server on Windows) and Java web apps (Tomcat web server on Windows and Linux). Azure Catalyst updates web apps configuration data once every 24 hours.
 
@@ -304,7 +306,7 @@ Required privileges | The user should be a part of the two user groups 1. Remote
 
 ## Dependency analysis requirements (agentless)
 
-[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers. You can easily visualize dependencies with a map view in an Azure Migrate project. You can use dependencies to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis.
+[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers. You can easily visualize dependencies with a map view in an Azure Catalyst project. You can use dependencies to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis.
 
 Support | Details
 --- | ---
@@ -312,10 +314,10 @@ Supported servers | You can enable agentless dependency analysis on up to 3,000 
 Windows servers | Windows Server 2022 <br/> Windows Server 2019<br /> Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br /> Windows Server 2008 (32-bit)
 Linux servers | Red Hat Enterprise Linux 6.x, 7.x, 8.x, 9.x, 9.5 <br /> Ubuntu 24.04, 22.04, 12.04, 14.04, 16.04, 18.04, 20.04, 22.04 <br /> OracleLinux 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5 <br /> SUSE Linux 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3 <br /> Debian 7, 8, 9, 10, 11 <br /> Alma Linux 8.x, 9.x <br /> Rocky Linux 8.x, 9.x
 Server requirements | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Windows Servers have PowerShell version 2.0 or later.<br /><br /> Linux Servers have Bash version 4.0 or later installed. <br /><br/> WMI should be enabled and available on Windows servers.
-vCenter Server account | The read-only account used by Azure Migrate and Modernize for assessment must have privileges for guest operations on VMware VMs.
+vCenter Server account | The read-only account used by Azure Catalyst for assessment must have privileges for guest operations on VMware VMs.
 Windows server access |  A user account (local or domain) with administrator permissions on servers.
 Linux server access | A sudo user account with permissions to execute ls and netstat commands. If you're providing a sudo user account, ensure that you enable **NOPASSWD** for the account to run the required commands without prompting for a password every time a sudo command is invoked. <br /><br /> |
-|Port access | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running the servers that have dependencies you want to discover. The server running vCenter Server returns an ESXi host connection to download the file containing the dependency data.
+|Port access | The Azure Catalyst appliance must be able to connect to TCP port 443 on ESXi hosts running the servers that have dependencies you want to discover. The server running vCenter Server returns an ESXi host connection to download the file containing the dependency data.
 Discovery method |  Dependency information between servers is gathered by using VMware Tools installed on the server running vCenter Server.<br /><br /> The appliance gathers the information from the server by using vSphere APIs.<br /><br /> No agent is installed on the server, and the appliance doesn't connect directly to servers.
 
 > [!Note]
@@ -333,14 +335,14 @@ If you are using Service Map for agent-based dependency analysis, migrate to VM 
 
 ## Import servers using RVTools XLSX (preview)
 
-As part of your migration journey to Azure by using the Azure Migrate appliance, you first discover servers, inventory, and workloads. However, for a quick assessment before you deploy the appliance, you can [import the servers by using the RVTools XLSX file (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
+As part of your migration journey to Azure by using the Azure Catalyst appliance, you first discover servers, inventory, and workloads. However, for a quick assessment before you deploy the appliance, you can [import the servers by using the RVTools XLSX file (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
 
 ### Key benefits
 
 Using an RVTools XLSX file:
 
 - Helps to create a business case or assess the servers before you deploy the appliance.
-- Aids as an alternative when there's an organizational restriction to deploy the Azure Migrate appliance.
+- Aids as an alternative when there's an organizational restriction to deploy the Azure Catalyst appliance.
 - Is helpful when you can't share credentials that allow access to on-premises or Azure VMware Solution servers.
 - Is useful when security constraints prevent you from gathering and sending data collected by the appliance to Azure.
 

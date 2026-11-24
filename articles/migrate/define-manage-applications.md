@@ -1,6 +1,6 @@
 ---
-title: Define and manage applications in Azure Migrate
-description:  Learn how to define and manage applications in Azure Migrate for application centric migration planning and execution.
+title: Define and manage applications in Azure Catalyst
+description:  Learn how to define and manage applications in Azure Catalyst for application centric migration planning and execution.
 author: vikram1988
 ms.author: vibansa
 ms.manager: ronai
@@ -16,8 +16,8 @@ ms.custom:
 
 # Explore application inventory
 
-This article describes how you can use Azure Migrate to define applications running in your datacenter by logically grouping servers and workloads as an application. These applications can be used to plan and execute the migrations more efficiently. 
-You can add applications by performing a bulk import using a CSV file or by adding them one at a time through the portal. You can also initiate automatic discovery of applications where Azure Migrate uses naming patterns, inferred environments, and derived server roles from workloads discovered using Azure Migrate appliance or Collector or CSV Import.
+This article describes how you can use Azure Catalyst to define applications running in your datacenter by logically grouping servers and workloads as an application. These applications can be used to plan and execute the migrations more efficiently. 
+You can add applications by performing a bulk import using a CSV file or by adding them one at a time through the portal. You can also initiate automatic discovery of applications where Azure Catalyst uses naming patterns, inferred environments, and derived server roles from workloads discovered using Azure Catalyst appliance or Collector or CSV Import.
 
 ## Current limitations
 
@@ -25,19 +25,19 @@ You can add applications by performing a bulk import using a CSV file or by addi
 
 ## Before you start
 
-1. Ensure that you have an [Azure Migrate project](./create-manage-projects.md).
-2. Based on your requirements,  select a [discovery method](./discovery-methods-modes.md), Azure Migrate Appliance, Collector, or CSV Import to perform discovery of your datacenter.
+1. Ensure that you have an [Azure Catalyst project](./create-manage-projects.md).
+2. Based on your requirements,  select a [discovery method](./discovery-methods-modes.md), Azure Catalyst Appliance, Collector, or CSV Import to perform discovery of your datacenter.
 3. You can select the discovery method hat best suits your needs and organizational policies:
-  - [Azure Migrate appliance](./migrate-appliance.md)- A continuous discovery mode that helps with discovery of VMware or Hyper-V or Physical environment. You can also [configure server credentials](./add-server-credentials.md) for discovery of software, dependencies, web apps, and database workloads.
+  - [Azure Catalyst appliance](./migrate-appliance.md)- A continuous discovery mode that helps with discovery of VMware or Hyper-V or Physical environment. You can also [configure server credentials](./add-server-credentials.md) for discovery of software, dependencies, web apps, and database workloads.
   - [Collector](how-to-discover-using-collector.md)- A disconnected discovery mode that supports discovery of VMware or Physical environment. You can also configure server credentials for discovery of software, web apps, and database workloads (Gathering of network dependency data not supported currently).
   - [CSV Import](./tutorial-discover-import.md)- A snapshot-based discovery mode that supports only discovery of servers from any environment. 
 
 ## Review inventory & server dependencies
 
-- After completing discovery using any of the modes, go to your Azure Migrate project and review the discovered inventory in **All inventory** under **Explore inventory**. 
-- If you have configured an Azure Migrate appliance, you can review the collected dependency data in your project through **Dependency analysis** under **Explore applications**. Here you can visualize dependencies across all discovered servers in your Azure Migrate project. 
+- After completing discovery using any of the modes, go to your Azure Catalyst project and review the discovered inventory in **All inventory** under **Explore inventory**. 
+- If you have configured an Azure Catalyst appliance, you can review the collected dependency data in your project through **Dependency analysis** under **Explore applications**. Here you can visualize dependencies across all discovered servers in your Azure Catalyst project. 
 - The visualization shows logically spread server nodes with their connections, indicating their network affinity to help you identify applications running in your datacenter. [Learn more](how-to-create-group-machine-dependencies-agentless.md)
-- You can **add or edit tags** on the servers, you identify to be part of the same application group. Tags can help you define application entity in the Azure Migrate project.
+- You can **add or edit tags** on the servers, you identify to be part of the same application group. Tags can help you define application entity in the Azure Catalyst project.
 
 ## Add applications
 
@@ -45,24 +45,24 @@ You can start identifying the applications running in your datacenter. Here are 
 
 1. You can either go to **Overview** and select **Add applications** from the All inventory summary card to Auto discover applications or Import applications or Create new application or you can go to **Applications** under **Explore applications** and select **Add applications** to Auto discover applications or Create new application. Alternatively, select **Import** to Import Applications.
 2. The applications can be added in one of three ways-
-  - **Auto discover applications**- Azure Migrate automatically groups discovered workloads into applications and derives Application Name, Type, Business Criticality, and Complexity using discovered metadata of workloads.
+  - **Auto discover applications**- Azure Catalyst automatically groups discovered workloads into applications and derives Application Name, Type, Business Criticality, and Complexity using discovered metadata of workloads.
   - **Import applications**- Add Applications at scale by importing a CSV file with Application Names added in an exported CSV file with all discovered workloads.
   - **Create new application**- Use portal to create one application at a time by providing basic details, grouping discovered workloads and adding application properties and tags.
 
 ### Auto discover applications
 
-Azure Migrate supports automatic application discovery by grouping servers discovered using Azure Migrate appliance, Collector, or CSV Import.
+Azure Catalyst supports automatic application discovery by grouping servers discovered using Azure Catalyst appliance, Collector, or CSV Import.
 
 1. To start automatic discovery, go to **Add Applications** > **Auto discover applications** in Applications view. In the side pane, select **Discover applications** to initiate the process.
 2. You can run this process only once (it's recommended to initiate it after you complete the discovery of your servers and workloads). The operation can take **up to one hour** depending on the total number of discovered workloads.
 3. Each autodiscovered application represents a logical grouping of servers (and workloads running on those servers) automatically identified using **server-naming patterns, inferred environments, and derived server roles**.
-4. Azure Migrate performs automatic **grouping** of Applications, provides an **Application Name** , derived from server names grouped together, identifies the **Application Type** (Custom or Packaged) from the software running on the servers and also identifies the **Business criticality** & **Complexity** of an application (High or Medium or Low) based on the count and type of workloads grouped together. The **Description** of the application covers the explanation on how Azure Migrate derived all these details automatically.
+4. Azure Catalyst performs automatic **grouping** of Applications, provides an **Application Name** , derived from server names grouped together, identifies the **Application Type** (Custom or Packaged) from the software running on the servers and also identifies the **Business criticality** & **Complexity** of an application (High or Medium or Low) based on the count and type of workloads grouped together. The **Description** of the application covers the explanation on how Azure Catalyst derived all these details automatically.
    
     >[!Note]
     > The Application type **Packaged** refers to the Commercial-off-the-shelf (COTS) applications you are running in your datacenter. In case the metadata from discovered workloads is insufficient, the Application Name will be set as 'Application_01', 'Applications_02' etc., the Application Type will be defaulted to 'Custom', Business Criticality and Complexity will be set to 'Medium' by default. You can review the applications and update these details as required.
     
-5. Azure Migrate sets **Managed by** property to 'System' for automatically discovered applications. The property is set to 'User' for manually added applications (either via portal or CSV import).
-6. Azure Migrate also defines a property **Confidence score** which is a system assigned score to represent the accuracy of the application grouping. The user-defined (manually created) applications don't have a confidence score value so it's set to '-'.
+5. Azure Catalyst sets **Managed by** property to 'System' for automatically discovered applications. The property is set to 'User' for manually added applications (either via portal or CSV import).
+6. Azure Catalyst also defines a property **Confidence score** which is a system assigned score to represent the accuracy of the application grouping. The user-defined (manually created) applications don't have a confidence score value so it's set to '-'.
 7. After the automatic discovery is complete, you can **review and update** the application details, grouping, properties, and tags by scoping them in the Applications view.
 
     >[!Note]
@@ -95,8 +95,8 @@ Azure Migrate supports automatic application discovery by grouping servers disco
 When the application is defined using import, a warning icon appears next to the application name to indicate that mandatory properties need to be updated. You can update these properties individually by selecting the application in the Applications view, or update them at scale using **Import> Import application properties**. 
 
 1. Update the properties of applications in the prescribed template, which is an export of applications inventory.
-2. Select **Export applications** to download a CSV file containing details of all applications added manually (via CSV import or the portal) or automatically by Azure Migrate.
-3. In the exported CSV, you can add/edit application details like Name, Description, Type, and mandatory properties like Business Criticality and Complexity, especially for applications added through CSV import. You can also edit the properties of applications that were added manually (CSV import or portal) or automatically by Azure Migrate. 
+2. Select **Export applications** to download a CSV file containing details of all applications added manually (via CSV import or the portal) or automatically by Azure Catalyst.
+3. In the exported CSV, you can add/edit application details like Name, Description, Type, and mandatory properties like Business Criticality and Complexity, especially for applications added through CSV import. You can also edit the properties of applications that were added manually (CSV import or portal) or automatically by Azure Catalyst. 
 
     >[!Note]
     > Don't edit the **App ARM ID** column in the CSV file. You can add application properties across multiple import operations but avoid triggering multiple imports in parallel.

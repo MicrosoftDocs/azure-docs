@@ -40,7 +40,7 @@ To perform the backup operation:
 Once the configuration is successful:
 
 1. The Backup service invokes the backup based on the policy schedules on the ARM API of PostgreSQL Flexible server, writing data to a secure blob container with a SAS for enhanced security. 
-1. A service-managed clone server is automatically provisioned behind the scenes for backup operations, isolating backup processing from the primary PostgreSQL server and helping avoid disruptions to production workloads during long-running backup operations.
+1. For v1 backups, a service-managed clone server named `ltrclone-XXX` is automatically provisioned for backup operations, isolating backup processing from the primary PostgreSQL server and helping avoid disruptions to production workloads during long-running backups. The Backup service automatically deletes the clone shortly after the operation completes. Your data isn't exposed to public internet traffic, and the temporary clone is accessible only to Azure internal services. This clone server is created only for v1 backups and isn't created for v2 backups.
 1. The retention and recovery point lifecycles align with the backup policies for effective management. 
 1. During the restore, the Backup service invokes restore on the ARM API of PostgreSQL Flexible server using the SAS for asynchronous, nondisruptive recovery. 
 

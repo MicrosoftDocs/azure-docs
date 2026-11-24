@@ -14,26 +14,26 @@ Customer intent: This article is intended to guide users on leveraging the new p
 
 # Direct server migrations in Azure Catalyst
 
-Azure Migrate supports two ways to execute migrations after discovery and planning:
+Azure Catalyst supports two ways to execute migrations after discovery and planning:
  - **Wave migration**: Group applications and workloads into a migration wave and migrate them together.
  - **Direct migration**: Migrate selected servers without creating a wave. Direct migration supports servers only.
 
-This article explains how to directly execute server migrations in Azure Migrate. 
+This article explains how to directly execute server migrations in Azure Catalyst. 
 
 ## Start replication
 
-Replication is the first step to migrate your servers to Azure. You can replicate servers discovered through **Azure Migrate appliance** or **Other sources**.
+Replication is the first step to migrate your servers to Azure. You can replicate servers discovered through **Azure Catalyst appliance** or **Other sources**.
 
-1. In Azure Migrate project, go to **Execute** > **Migrations**, and then select **Start execution**.
+1. In Azure Catalyst project, go to **Execute** > **Migrations**, and then select **Start execution**.
    
    :::image type="content" source="./media/end-to-end-portal-experience-server-migrations/start-execution.png" alt-text="Screenshot on start execution from server replication page." lightbox="./media/end-to-end-portal-experience-server-migrations/start-execution.png":::
 
 2. On **Specify intent** page, select **Servers** or **Virtual machines (VMs)**, and choose **Azure VM** as the target.
 3. In **How do you select Workloads**:
-     - If you have existing **Azure Migrate appliance sources**, select one of the following options and proceed to **Discovery method**.
+     - If you have existing **Azure Catalyst appliance sources**, select one of the following options and proceed to **Discovery method**.
           - From all inventory to manually select servers.
           - From an assessment to use an existing assessment.
-     - If you plan to execute migrations directly by using **Other sources** without **Azure Migrate appliance sources**, select one of the following options and proceed to **Workloads**.
+     - If you plan to execute migrations directly by using **Other sources** without **Azure Catalyst appliance sources**, select one of the following options and proceed to **Workloads**.
           - From a replication appliance (VMware)
           - From a replication appliance (Physical or others)
           - From replication provider (Hyper-V)  
@@ -41,14 +41,14 @@ Replication is the first step to migrate your servers to Azure. You can replicat
    :::image type="content" source="./media/end-to-end-portal-experience-server-migrations/appliance-other-sources.png" alt-text="Screenshot on how to select workloads." lightbox="./media/end-to-end-portal-experience-server-migrations/appliance-other-sources.png":::
 
 
-4. Under **Discovery method**, select the Azure Migrate appliance that matches your source environment **(VMware, Hyper‑V, or Physical)**. The list shows appliances that you already installed.
+4. Under **Discovery method**, select the Azure Catalyst appliance that matches your source environment **(VMware, Hyper‑V, or Physical)**. The list shows appliances that you already installed.
 
    :::image type="content" source="./media/end-to-end-portal-experience-server-migrations/specify-intent-appliance-selection.png" alt-text="Screenshot on discovery method drop-down menu." lightbox="./media/end-to-end-portal-experience-server-migrations/specify-intent-appliance-selection.png":::
 
-    - **VMware agentless**: Select the configured Azure Migrate VMware appliance, select **Agentless migration**, and then select **Continue**.
-    - **VMware agent-based**: Select the configured Azure Migrate VMware appliance and select Agent-based migration. If the replication appliance isn't already installed, use the link provided in the portal to install it. After you configure the replication appliance, select **Continue**.
-    - **Hyper-V**: Select the configured Azure Migrate Hyper-V appliance. If the replication provider isn't already installed, you can install it by using the link provided on the portal. After you configure the provider by using the provided link, select **Continue**.
-    - **Physical**: Select the configured Azure Migrate physical appliance. If the replication appliance isn't already installed, use the link provided in the portal to install it. After you configure the replication appliance, select **Continue**.
+    - **VMware agentless**: Select the configured Azure Catalyst VMware appliance, select **Agentless migration**, and then select **Continue**.
+    - **VMware agent-based**: Select the configured Azure Catalyst VMware appliance and select Agent-based migration. If the replication appliance isn't already installed, use the link provided in the portal to install it. After you configure the replication appliance, select **Continue**.
+    - **Hyper-V**: Select the configured Azure Catalyst Hyper-V appliance. If the replication provider isn't already installed, you can install it by using the link provided on the portal. After you configure the provider by using the provided link, select **Continue**.
+    - **Physical**: Select the configured Azure Catalyst physical appliance. If the replication appliance isn't already installed, use the link provided in the portal to install it. After you configure the replication appliance, select **Continue**.
 5. In **Workloads**, configure the required **Target security type** and then select the servers you want to migrate.
       - For **VMware agent-based and physical servers**, select the **replication appliance** you set up from the drop-down menu. If the replication appliance isn't set up, select **Set up the replication appliance** and complete the registration by following the steps from [How to set up replication appliance for agent-based migrations](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance).
           
@@ -67,7 +67,7 @@ Replication is the first step to migrate your servers to Azure. You can replicat
 
 This section explains how to monitor replicating servers and perform test and final migrations.
 
-1. In Azure Migrate project, go to **Manage** > **Server replication**.
+1. In Azure Catalyst project, go to **Manage** > **Server replication**.
 2. The following columns show the replication and migration status of your servers for which you initiated replication:
     - **Replication status**: Displays the current state of replication for the server. Learn more about [replication states](concepts-vmware-agentless-migration.md#replication-states).
     - **Replication health**: Indicates whether replication is Healthy, Warning, or Critical.
@@ -110,4 +110,4 @@ This section explains how to monitor replicating servers and perform test and fi
    
 ## Related content
 
-- [Learn more](server-migrate-overview.md) about different migration methods in Azure Migrate.
+- [Learn more](server-migrate-overview.md) about different migration methods in Azure Catalyst.

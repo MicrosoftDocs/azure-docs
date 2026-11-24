@@ -128,7 +128,7 @@ To create an assessment, follow these steps:
 ::: moniker range="migrate"
 ## Target right-sizing for Web apps
 
-Azure Catalyst supports two types of target sizing for web app assessments:
+Azure Catalyst supports two types of target sizing for Web app assessments:
 
 #### Performance-based Sizing
 

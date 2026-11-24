@@ -1,6 +1,6 @@
 ---
 title: Assessment Properties
-description: Describes the components of an assessment in Azure Migrate.
+description: Describes the components of an assessment in Azure Catalyst.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
@@ -17,7 +17,7 @@ This article explains the assessment properties on the **General** tab that you 
 
 ## Assessment settings
 
-General assessment properties in Azure Migrate help set key options for migration, like target region, sizing method, pricing preferences, and security settings. These apply across workloads and support accurate planning and cost estimation.
+General assessment properties in Azure Catalyst help set key options for migration, like target region, sizing method, pricing preferences, and security settings. These apply across workloads and support accurate planning and cost estimation.
 
 | **Setting Category**  | **Default Setting** | **Details** |                
 |-------------------|---------|--------  |                                                     

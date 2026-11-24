@@ -1,6 +1,6 @@
 ---
-title: Azure Migrate Application and Code Assessment for Java Version 7
-description: Learn how to use the next generation of Azure Migrate application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
+title: Azure Catalyst Application and Code Assessment for Java Version 7
+description: Learn how to use the next generation of Azure Catalyst application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -15,12 +15,12 @@ ms.date: 06/24/2026
 # Customer intent: As a developer, I want to utilize the application and code assessment tool for Java, so that I can evaluate my application's readiness for migration to Azure and identify necessary changes for replatforming.
 ---
 
-# Azure Migrate application and code assessment for Java version 7 (preview)
+# Azure Catalyst application and code assessment for Java version 7 (preview)
 
 > [!NOTE]
-> This article is for the next generation of *Azure Migrate application and code assessment for Java*, version 7.x. This version is in preview. For the previous stable version, version 6.x, see [Azure Migrate application and code assessment for Java](./java.md).
+> This article is for the next generation of *Azure Catalyst application and code assessment for Java*, version 7.x. This version is in preview. For the previous stable version, version 6.x, see [Azure Catalyst application and code assessment for Java](./java.md).
 
-This article shows you how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure. This tool is offered as a command-line interface (CLI), and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
+This article shows you how to use the Azure Catalyst application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure. This tool is offered as a command-line interface (CLI), and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
 
 The tool discovers application technology usage through static code analysis, provides effort estimation, and accelerates code replatforming. This assessment helps you to prioritize and move Java applications to Azure. With a set of engines and rules, the tool can discover and assess different technologies such as Java 11, Java 17, Jakarta EE, Spring, Hibernate, Java Message Service (JMS), and more. The tool then helps you replatform the Java application to different Azure targets - Azure App Service, Azure Kubernetes Service, and Azure Container Apps - with specific Azure replatforming rules.
 
@@ -39,7 +39,7 @@ With it, you can perform the following tasks:
 
 The tool contains rules for helping you replatform your applications so you can deploy to, and use, different Azure services.
 
-The rules used by Azure Migrate application and code assessment are grouped based on a *target*. A target is where or how the application runs, and general needs and expectations. When assessing an application, you can choose multiple targets. The following table describes the available targets:
+The rules used by Azure Catalyst application and code assessment are grouped based on a *target*. A target is where or how the application runs, and general needs and expectations. When assessing an application, you can choose multiple targets. The following table describes the available targets:
 
 | Target name              | Description                                                            | Target                 |
 |--------------------------|------------------------------------------------------------------------|------------------------|
@@ -570,7 +570,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 
 ## License
 
-Azure Migrate application and code assessment for Java is a free, open source-based tool.
+Azure Catalyst application and code assessment for Java is a free, open source-based tool.
 
 ## Data collection
 

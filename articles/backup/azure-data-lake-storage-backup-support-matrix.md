@@ -2,7 +2,7 @@
 title: Support matrix for Azure Data Lake Storage Vaulted Backup
 description: Learn about the  regional availability, supported scenarios, and limitations for vaulted backups of Azure Data Lake Storage.
 ms.topic: reference
-ms.date: 10/09/2026
+ms.date: 11/24/2026
 ms.custom:
   - references_regions
   - engagement-fy24
@@ -26,7 +26,7 @@ Vaulted backups of Azure Data Lake Storage regional availability is shared below
 
 | Availability type | Region |
 | --- | --- |
-| **General availability** | Vaulted backup for Azure Data Lake Storage is available in all public cloud regions. |
+| **General availability** | Vaulted backup for Azure Data Lake Storage is available in all public cloud regions. It's also available in the following sovereign cloud regions: China East 2, China East 3, China North 2, China North 3, US Gov Arizona, US Gov Texas, US Gov Virginia, US DoD East, and US DoD Central. |
 
 ## Supported storage accounts
 

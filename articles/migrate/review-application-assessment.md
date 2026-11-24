@@ -1,6 +1,6 @@
 ---
 title: Review an application assessment
-description: Learn about the concepts in an application assessment created using Azure Migrate.
+description: Learn about the concepts in an application assessment created using Azure Catalyst.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
@@ -17,13 +17,13 @@ In this article, you learn about the concepts of an application/cross-workload a
 
 ## Overview
 
-An Azure Migrate assessment evaluates your on-premises workloads or workloads hosted on other public clouds for migration to Azure, analyzing Azure readiness for different Azure targets, right-sizing, and cost. The application/cross-workload assessment enables you to assess all the constituent workloads of an application together and identify a strategy to migrate all the constituent workloads to Azure. Each migration strategy is complete in itself and tries to maximize the migration coverage. You can add any type of workload to the scope of an application/cross-workload assessment. Use this article for a guided walkthrough of an application assessment.  
+An Azure Catalyst assessment evaluates your on-premises workloads or workloads hosted on other public clouds for migration to Azure, analyzing Azure readiness for different Azure targets, right-sizing, and cost. The application/cross-workload assessment enables you to assess all the constituent workloads of an application together and identify a strategy to migrate all the constituent workloads to Azure. Each migration strategy is complete in itself and tries to maximize the migration coverage. You can add any type of workload to the scope of an application/cross-workload assessment. Use this article for a guided walkthrough of an application assessment.  
 
 ## Review an assessment
 
 To review an application/cross-workload assessment, follow the steps: 
 
-1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**.
+1. On the Azure Catalyst project **Overview** page, under **Decide and Plan**, select **Assessments**.
 
    ![Screenshot of Overview page.](./media/review-application-assessment/overview.png)
    
@@ -51,7 +51,7 @@ To review an application/cross-workload assessment, follow the steps:
 
 ## Migration strategies
 
-Azure Migrate assessment provides migration strategy recommendations inline with the 5Rs of migration:
+Azure Catalyst assessment provides migration strategy recommendations inline with the 5Rs of migration:
 
 | **Migration Strategy** | **Details** |
 |---|---|

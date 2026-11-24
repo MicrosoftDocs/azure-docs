@@ -12,7 +12,7 @@ ms.date: 11/11/2025
 # Customer intent: As a system administrator managing physical and VMware environments, I want to utilize an upgraded agent-based migration stack so that I can efficiently migrate newer Linux distributions and ensure a seamless migration process to Azure.
 ---
 
-# Overview of simplified experience for Azure Migrate (agent-based migration of VMware or physical servers)
+# Overview of simplified experience for Azure Catalyst (agent-based migration of VMware or physical servers)
 
 The simplified experience leverages an enhanced agent-based migration stack tailored for physical and VMware environments, offering several key advantages:
 - **Broader OS support**: It enables migration of newer Linux distributions to Azure, expanding compatibility and allowing customers to benefit from the latest innovations in Linux technology.

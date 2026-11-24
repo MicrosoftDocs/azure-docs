@@ -1,6 +1,6 @@
 ---
-title: Set up an Azure Migrate appliance in Azure Government
-description: Learn how to set up an Azure Migrate appliance in Azure Government
+title: Set up an Azure Catalyst appliance in Azure Government
+description: Learn how to set up an Azure Catalyst appliance in Azure Government
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -10,13 +10,13 @@ ms.date: 03/21/2025
 ms.reviewer: v-gajeronika
 ms.custom: engagement-fy25
 ms.update-cycle: 1825-days
-# Customer intent: "As an IT administrator in a government setting, I want to deploy an Azure Migrate appliance using a PowerShell script, so that I can efficiently discover, assess, and replicate servers from various environments to Azure Government cloud."
+# Customer intent: "As an IT administrator in a government setting, I want to deploy an Azure Catalyst appliance using a PowerShell script, so that I can efficiently discover, assess, and replicate servers from various environments to Azure Government cloud."
 ---
 
 
 # Set up an appliance for Azure Government cloud
 
-Follow this article to deploy an [Azure Migrate appliance](./migrate-appliance-architecture.md) for Azure Government cloud to perform:
+Use this article to deploy an [Azure Catalyst appliance](./migrate-appliance-architecture.md) for Azure Government cloud to perform the following tasks:
 
 - Discovery, assessment and agentless replication of servers running in VMware environment
 - Discovery and assessment of servers running in Hyper-V environment
@@ -29,10 +29,10 @@ If you want to set up  an appliance in the public cloud, follow [this article](d
 
 ## Prerequisites
 
-You can use the script to deploy the Azure Migrate appliance on an existing physical or a virtualized server.
+Use the script to deploy the Azure Catalyst appliance on an existing physical or a virtualized server.
 
 - The server that will act as the appliance must be running Windows Server 2019 or Windows Server 2022 and meet other requirements for [VMware](migrate-appliance.md#appliance---vmware), [Hyper-V](migrate-appliance.md#appliance---hyper-v), and [physical servers](migrate-appliance.md#appliance---physical).
-- If you run the script on a server with Azure Migrate appliance already set up, you can choose to clean up the existing configuration and set up a fresh appliance of the desired configuration. When you execute the script, you will get a notification as shown below:
+- If you run the script on a server with an Azure Catalyst appliance already set up, you can choose to clean up the existing configuration and set up a new appliance with the desired configuration. When you run the script, you receive a notification as shown in the following image:
   
     :::image type="content" source="./media/deploy-appliance-script/script-reconfigure-appliance.png" alt-text="Screenshot that shows how to reconfigure an appliance.":::
 
@@ -45,7 +45,7 @@ You can use the script to deploy the Azure Migrate appliance on an existing phys
 
 ### Download the script
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals**, select **Servers, databases, and web apps** > **Azure Catalyst: Discovery and assessment**, and then select **Discover**.
 2. In **Discover server** > **Are your servers virtualized?**, select **Yes, with VMware vSphere hypervisor**.
 3. Provide an appliance name and generate a project key in the portal.
 3. Select **Download**, to download the zipped file.
@@ -56,7 +56,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
 
 ### Run the script
 
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
+1. Extract the zipped file to a folder on the server that hosts the appliance. Don't run the script on a server with an existing Azure Catalyst appliance.
 
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 
@@ -66,7 +66,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
 
    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
-5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover, assess and migrate **servers running in your VMware environment** to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure Government cloud**.
+5. Select from the scenario, cloud, and connectivity options to deploy an appliance with the desired configuration. For example, the following selection sets up an appliance to discover, assess, and migrate **servers running in your VMware environment** to an Azure Catalyst project with **default (public endpoint) connectivity** on **Azure Government cloud**.
 
    :::image type="content" source="./media/deploy-appliance-script-government/script-vmware-gov-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for VMware." lightbox="./media/deploy-appliance-script-government/script-vmware-gov-expanded.png":::
 
@@ -75,7 +75,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
    - Installs agents and a web application.
    - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
    - Download and installs an IIS rewritable module.
-   - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+   - Updates a registry key (HKLM) with a persistent setting for Azure Catalyst.
    - Creates the following files under the path:
      - **Config Files**: %Programdata%\Microsoft Azure\Config
      - **Log Files**: %Programdata%\Microsoft Azure\Logs
@@ -95,7 +95,7 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 ### Download the script
 
-1.	In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals**, select **Servers, databases, and web apps** > **Azure Catalyst: Discovery and assessment**, and then select **Discover**.
 2.	In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
 3. Provide an appliance name and generate a project key in the portal.
 3. Select **Download**, to download the zipped file. 
@@ -106,7 +106,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
 
 ### Run the script
 
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
+1. Extract the zipped file to a folder on the server that hosts the appliance. Don't run the script on a server with an existing Azure Catalyst appliance.
 
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 
@@ -116,7 +116,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
 
    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
-5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **servers running in your Hyper-V environment** to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure Government cloud**.
+5. Select from the scenario, cloud, and connectivity options to deploy an appliance with the desired configuration. For example, the following selection sets up an appliance to discover and assess **servers running in your Hyper-V environment** to an Azure Catalyst project with **default (public endpoint) connectivity** on **Azure Government cloud**.
 
     :::image type="content" source="./media/deploy-appliance-script-government/script-hyperv-gov-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for Hyper-V." lightbox="./media/deploy-appliance-script-government/script-hyperv-gov-expanded.png":::
 
@@ -125,7 +125,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
     - Installs agents and a web application.
     - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
     - Download and installs an IIS rewritable module.
-    - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+    - Updates a registry key (HKLM) with persistent setting details for Azure Catalyst.
     - Creates the following files under the path:
     - **Config Files**: %Programdata%\Microsoft Azure\Config
     - **Log Files**: %Programdata%\Microsoft Azure\Logs
@@ -146,7 +146,7 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 ### Download the script
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen etc.)**.
 3. Select **Download**, to download the zipped file.
 
@@ -156,7 +156,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
 
 ### Run the script
 
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
+1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Catalyst appliance.
 
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 
@@ -166,7 +166,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
 
     `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
-5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure Government cloud**.
+5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Catalyst project with **default _(public endpoint)_ connectivity** on **Azure Government cloud**.
 
     :::image type="content" source="./media/deploy-appliance-script-government/script-physical-gov-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for Physical servers." lightbox="./media/deploy-appliance-script-government/script-physical-gov-expanded.png":::
 
@@ -175,7 +175,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
     - Installs agents and a web application.
     - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
     - Download and installs an IIS rewritable module.
-    - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+    - Updates a registry key (HKLM) with persistent setting details for Azure Catalyst.
     - Creates the following files under the path:
         - **Config Files**: %Programdata%\Microsoft Azure\Config
         - **Log Files**: %Programdata%\Microsoft Azure\Logs

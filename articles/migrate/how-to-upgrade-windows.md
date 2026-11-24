@@ -12,9 +12,9 @@ ms.custom: engagement-fy25
 # Customer intent: As a system administrator, I want to upgrade the Windows Server OS during migration to Azure, so that I can ensure a seamless transition while preserving my settings, server roles, and data integrity.
 ---
 
-# Azure Migrate Windows Server upgrade (preview)  
+# Azure Catalyst Windows Server upgrade (preview)  
 
-This article describes how to upgrade Windows Server OS while migrating to Azure. Azure Migrate OS upgrade allows you to move from an older operating system to a newer one while keeping your settings, server roles, and data intact. You can move your on-premises server to Azure with an upgraded OS version of Windows Server using Windows upgrade.
+This article describes how to upgrade Windows Server OS while migrating to Azure. Azure Catalyst OS upgrade allows you to move from an older operating system to a newer one while keeping your settings, server roles, and data intact. You can move your on-premises server to Azure with an upgraded OS version of Windows Server using Windows upgrade.
 
 > [!NOTE]
 > - The upgrade feature only works for Windows Server Standard, Datacenter, and Enterprise editions.
@@ -24,18 +24,18 @@ This article describes how to upgrade Windows Server OS while migrating to Azure
 
 ## Prerequisites 
 
-- Ensure you have an existing Migrate project or [create](create-manage-projects.md) a project. 
+- Ensure you have an existing Azure Catalyst project or [create](create-manage-projects.md) a project. 
 - Ensure you have discovered the servers according to your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical server](tutorial-discover-physical.md) environments and replicated the servers as described in [Migrate VMware VMs](tutorial-migrate-vmware.md), [Migrate Hyper-V VMs](tutorial-migrate-hyper-v.md), or [Migrate Physical servers](tutorial-migrate-physical-virtual-machines.md) based on your environment. 
 - Verify the operating system disk has enough [free space](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements) to perform the in-place upgrade. The minimum disk space requirement is 32 GB.   
 - If you're upgrading from Windows Server 2008 or 2008 R2, ensure you have PowerShell 3.0 installed.
 - To upgrade from Windows Server 2008 or 2008 R2, ensure you have Microsoft .NET Framework 4 installed on your machine. This is available by default in Windows Server 2008 SP2 and Windows Server 2008 R2 SP1.
 - Disable antivirus and anti-spyware software and firewalls. These types of software can conflict with the upgrade process. Re-enable antivirus and anti-spyware software and firewalls after the upgrade is completed.  
 - Ensure that your VM has the capability of adding another data disk as this feature requires the addition of an extra data disk temporarily for a seamless upgrade experience. 
-- For Private Endpoint enabled Azure Migrate projects, follow [these](migrate-vmware-servers-to-azure-using-private-link.md) steps before initiating any Test migration/Migration with OS upgrade.  
+- For Private Endpoint enabled Azure Catalyst projects, follow [these](migrate-vmware-servers-to-azure-using-private-link.md) steps before initiating any Test migration/Migration with OS upgrade.  
 
 
 > [!NOTE]
-> In case of OS upgrade failure, Azure Migrate might download the Windows SetupDiag for error details. Ensure the VM created in Azure, post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
+> In case of OS upgrade failure, Azure Catalyst might download the Windows SetupDiag for error details. Ensure the VM created in Azure, post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
 
 ## Overview 
 
@@ -76,7 +76,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 1.  In the **Server replication** page, select the Windows server for which you want to upgrade the OS, and then select **Migrate**.
 1. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.  
-   - By default, Azure Migrate shuts down the on-premises VM to ensure minimum data loss.  
+   - By default, Azure Catalyst shuts down the on-premises VM to ensure minimum data loss.  
    - If you don't want to shut down the VM, select No.  
 1. Select the **Upgrade available** option. 
 1. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. 

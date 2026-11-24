@@ -1,6 +1,6 @@
 ---
 title: Discover, assess, and migrate Google Cloud Platform (GCP) VMs to Azure
-description: This article describes how to migrate GCP VMs to Azure with Azure Migrate and Modernize.
+description: This article describes how to migrate GCP VMs to Azure with Azure Catalyst.
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: tutorial
@@ -19,15 +19,15 @@ ms.custom:
 
 # Discover, assess, and migrate Google Cloud Platform (GCP) VMs to Azure
 
-This tutorial shows you how to discover, assess, and migrate Google Cloud Platform (GCP) virtual machines (VMs) to Azure VMs by using the Azure Migrate: Server Assessment and Migration and modernization tools.
+This tutorial shows you how to discover, assess, and migrate Google Cloud Platform (GCP) virtual machines (VMs) to Azure VMs by using the Azure Catalyst: Server Assessment and Migration and modernization tools.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Verify prerequisites for migration.
-> * Prepare Azure resources with the Migration and modernization tool. Set up permissions for your Azure account and resources to work with Azure Migrate and Modernize.
+> * Prepare Azure resources with the Migration and modernization tool. Set up permissions for your Azure account and resources to work with Azure Catalyst.
 > * Prepare GCP VM instances for migration.
-> * Add the Migration and modernization tool in the Azure Migrate and Modernize hub.
+> * Add the Migration and modernization tool in the Azure Catalyst hub.
 > * Set up the replication appliance and deploy the configuration server.
 > * Install the Mobility service on GCP VMs you want to migrate.
 > * Enable replication for VMs.
@@ -45,7 +45,7 @@ To set up an assessment:
 
 1. Follow the [tutorial](./tutorial-discover-gcp.md) to set up Azure and prepare your GCP VMs for an assessment. Note that:
 
-    - Azure Migrate and Modernize uses password authentication to discover GCP VM instances. GCP instances don't support password authentication by default. Before you can discover an instance, you need to enable password authentication.
+    - Azure Catalyst uses password authentication to discover GCP VM instances. GCP instances don't support password authentication by default. Before you can discover an instance, you need to enable password authentication.
         - For Windows machines, allow WinRM port 5985 (HTTP). This port allows remote WMI calls.
         - For Linux machines:
             1. Sign in to each Linux machine.
@@ -58,7 +58,7 @@ To set up an assessment:
         1. In the file, locate the `PermitRootLogin` line and change the value to `yes`.
         1. Save the file and close it. Restart the ssh service.
 
-1. Then, follow this [tutorial](./tutorial-assess-gcp.md) to set up an Azure Migrate project and appliance to discover and assess your GCP VMs.
+1. Then, follow this [tutorial](./tutorial-assess-gcp.md) to set up an Azure Catalyst project and appliance to discover and assess your GCP VMs.
 
 Although we recommend that you try out an assessment, performing an assessment isn't a mandatory step to be able to migrate VMs.
 
@@ -68,7 +68,7 @@ Although we recommend that you try out an assessment, performing an assessment i
 - Make sure your GCP VMs comply with the [supported configurations](./migrate-support-matrix-physical-migration.md#physical-server-requirements) for migration to Azure.
 - Verify that the GCP VMs that you replicate to Azure comply with [Azure VM requirements](./migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 - Some changes are needed on the VMs before you migrate them to Azure:
-    - For some operating systems, Azure Migrate and Modernize makes these changes automatically.
+    - For some operating systems, Azure Catalyst makes these changes automatically.
     - Make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
@@ -78,7 +78,7 @@ Prepare Azure for migration with the Migration and modernization tool.
 
 Task | Details
 --- | ---
-Create an Azure Migrate project | Your Azure account needs Contributor or Owner permissions to [create a new project](./create-manage-projects.md).
+Create an Azure Catalyst project | Your Azure account needs Contributor or Owner permissions to [create a new project](./create-manage-projects.md).
 Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure managed disk.
 
 ### Assign permissions to create a project
@@ -115,7 +115,7 @@ The Migration and modernization tool uses a replication appliance to replicate m
 To prepare for appliance deployment:
 
 - Set up a separate GCP VM to host the replication appliance. This instance must be running Windows Server 2012 R2 or Windows Server 2016. [Review](./migrate-replication-appliance.md#appliance-requirements) the hardware, software, and networking requirements for the appliance.
-- The appliance shouldn't be installed on a source VM that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before. It should be deployed on a different VM.
+- The appliance shouldn't be installed on a source VM that you want to replicate or on the Azure Catalyst: Discovery and assessment appliance you might have installed before. It should be deployed on a different VM.
 - The source GCP VMs to be migrated should have a network line of sight to the replication appliance. Configure necessary firewall rules to enable this capability. We recommend that you deploy the replication appliance in the same virtual private cloud (VPC) network as the source VMs to be migrated. If the replication appliance needs to be in a different VPC, the VPCs must be connected through VPC peering.
 - The source GCP VMs communicate with the replication appliance on ports HTTPS 443 (control channel orchestration) and TCP 9443 (data transport) inbound for replication management and replication data transfer. The replication appliance in turn orchestrates and sends replication data to Azure over port HTTPS 443 outbound. To configure these rules, edit the security group inbound/outbound rules with the appropriate ports and source IP information.
 
@@ -132,7 +132,7 @@ The first step of migration is to set up the replication appliance. To set up th
 
 ### Download the replication appliance installer
 
-1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Discover**.
+1. In the Azure Catalyst project, select **Servers, databases, and web apps** > **Migration and modernization** > **Discover**.
 
     ![Screenshot that shows the Discover button.](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -142,9 +142,9 @@ The first step of migration is to set up the replication appliance. To set up th
 1. Select **Create resources**. This step creates an Azure Site Recovery vault in the background.
     - If you already set up migration with the Migration and modernization tool, the target option can't be configured because the resources were set up previously.
     - You can't change the target region for this project after you select this button.
-    - To migrate your VMs to a different region, you need to create a new or different Azure Migrate project.
+    - To migrate your VMs to a different region, you need to create a new or different Azure Catalyst project.
     > [!NOTE]
-    > If you selected private endpoint as the connectivity method for the Azure Migrate project when it was created, the Recovery Services vault is also configured for private endpoint connectivity. Ensure that the private endpoints are reachable from the replication appliance. [Learn more](troubleshoot-network-connectivity.md).
+    > If you selected private endpoint as the connectivity method for the Azure Catalyst project when it was created, the Recovery Services vault is also configured for private endpoint connectivity. Ensure that the private endpoints are reachable from the replication appliance. [Learn more](troubleshoot-network-connectivity.md).
 
 1. In **Do you want to install a new replication appliance?**, select **Install a replication appliance**.
 1. In **Download and install the replication appliance software**, download the appliance installer and the registration key. You need the key to register the appliance. The key is valid for five days after download.
@@ -203,12 +203,12 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
 > [!NOTE]
 > Through the portal, you can add up to 10 VMs for replication at once. To replicate more VMs simultaneously, you can add them in batches of 10.
 
-1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicate**.
+1. In the Azure Catalyst project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicate**.
 
     ![Screenshot that shows selecting Replicate.](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
 1. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
-1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
+1. In **On-premises appliance**, select the name of the Azure Catalyst appliance that you set up.
 1. In **Process Server**, select the name of the replication appliance.
 1. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](#download-the-replication-appliance-installer) to install the Mobility service manually. (Push installation isn't supported.) Then select **Next: Virtual machines**.
 
@@ -223,7 +223,7 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
 1. In **Cache storage account**, keep the default option to use the cache storage account that was automatically created for the project. Use the dropdown list if you want to specify a different storage account to use as the cache storage account for replication. <br/>
     > [!NOTE]
     >
-    > - If you selected private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [Learn more](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault).
+    > - If you selected private endpoint as the connectivity method for the Azure Catalyst project, grant the Recovery Services vault access to the cache storage account. [Learn more](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault).
     > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [Learn more](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1).
 1. In **Availability options**, select:
     -  **Availability Zone**: Pins the migrated machine to a specific availability zone in the region. Use this option to distribute servers that form a multinode application tier across availability zones. If you select this option, you need to specify the availability zone to use for each of the selected machines on the **Compute** tab. This option is only available if the target region selected for the migration supports availability zones.
@@ -247,7 +247,7 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
-    - **VM size**: If you're using assessment recommendations, the VM size dropdown list shows the recommended size. Otherwise, Azure Migrate and Modernize picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
+    - **VM size**: If you're using assessment recommendations, the VM size dropdown list shows the recommended size. Otherwise, Azure Catalyst picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Zone**: Specify the availability zone to use.
     - **Availability Set**: Specify the availability set to use.
@@ -313,7 +313,7 @@ To do a test migration:
 
 After you verify that the test migration works as expected, you can migrate the GCP VMs.
 
-1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicating servers**.
+1. In the Azure Catalyst project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicating servers**.
 
     ![Screenshot that shows Replicating servers.](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
@@ -369,8 +369,8 @@ After you verify that the test migration works as expected, you can migrate the 
 **Question:** My replication status isn't progressing.<br>
 **Answer:** Check if your replication appliance meets the requirements. Make sure that you enabled the required ports on your replication appliance TCP port 9443 and HTTPS 443 for data transport. Ensure that there are no stale duplicate versions of the replication appliance connected to the same project.
 
-**Question:** I'm unable to discover GCP instances by using Azure Migrate and Modernize because of the HTTP status code of 504 from the remote Windows management service.<br>
-**Answer:** Make sure to review the Azure Migrate appliance requirements and URL access needs. Make sure no proxy settings are blocking the appliance registration.
+**Question:** I'm unable to discover GCP instances by using Azure Catalyst because of the HTTP status code of 504 from the remote Windows management service.<br>
+**Answer:** Make sure to review the Azure Catalyst appliance requirements and URL access needs. Make sure no proxy settings are blocking the appliance registration.
 
 **Question:** Do I have to make any changes before I migrate my GCP VMs to Azure?<br>
 **Answer:** You might have to make the following changes before you migrate your GCP VMs to Azure:

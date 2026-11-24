@@ -1,6 +1,6 @@
 ---
 title: Migrate VMware VMs agentless the Migration and modernization tool
-description: Learn how to run an agentless migration of VMware VMs with Azure Migrate.
+description: Learn how to run an agentless migration of VMware VMs with Azure Catalyst.
 author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
@@ -40,19 +40,21 @@ Before you begin this tutorial, you should:
 2. We recommend that you complete the second tutorial to [assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure, but you don't have to.
 3. Go to the already created project or [create a new project](create-manage-projects.md)
 4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
-5.  For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
+5.  For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Catalyst](prepare-azure-accounts.md).
 
 > [!NOTE]
-> If you're planning to upgrade your Windows operating system, Azure Migrate may download the Windows SetupDiag for error details in case upgrade fails. Ensure the VM created in Azure post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there's no access to SetupDiag, you may not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
+> If you're planning to upgrade your Windows operating system, Azure Catalyst may download the Windows SetupDiag for error details in case upgrade fails. Ensure the VM created in Azure post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there's no access to SetupDiag, you may not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
 
-## Set up the Azure Migrate appliance
+<a name="set-up-the-azure-migrate-appliance"></a>
+
+## Set up the Azure Catalyst appliance
 
 The Migration and modernization tool runs a lightweight VMware VM appliance that's used for discovery, assessment, and agentless migration of VMware VMs. If you follow the [assessment tutorial](./tutorial-assess-vmware-azure-vm.md), you've already set up the appliance. If  you didn't, set it up now, using one of these methods:
 
 - **OVA template**: [Set up](how-to-set-up-appliance-vmware.md) on a VMware VM using a downloaded OVA template.
 - **Script**: [Set up](deploy-appliance-script.md) on a VMware VM or physical machine, using a PowerShell installer script. This method should be used if you can't set up a VM using an OVA template, or if you're in Azure Government.
 
-After creating the appliance, you check that it can connect to Azure Migrate: Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
+After creating the appliance, you check that it can connect to Azure Catalyst: Server Assessment, configure it for the first time, and register it with the Azure Catalyst project.
 
 ## Execute migrations
 
@@ -62,17 +64,17 @@ After setting up the appliance and completing discovery, you can begin replicati
 - In the portal, you can select up to 10 VMs at once for migration. To migrate more machines, add them to groups in batches of 10.
 
 > [!Note]
-> Azure Migrate doesn't support agentless migration of VMware VMs with VMDK containing non-ASCII characters.
+> Azure Catalyst doesn't support agentless migration of VMware VMs with VMDK containing non-ASCII characters.
 
 Enable replication as follows:
 
-1. In the Azure Migrate project, go to **Manage** > **Server replication**, and select **Start replication**.
+1. In the Azure Catalyst project, go to **Manage** > **Server replication**, and select **Start replication**.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/execute-migration.png" alt-text="Screenshot how to navigate to start the execution." lightbox="./media/tutorial-migrate-vmware/execute-migration.png":::
 
 2. In **Specify intent**, > **What do you want to migrate**, select **Servers or Virtual Machines(VM)**. Under **Where do you want to migrate to**, select **Azure VM**.
 
-3. In **How will you select workloads**, select one of the following options under **Azure migrate appliance sources**,
+3. In **How will you select workloads**, select one of the following options under **Azure Catalyst appliance sources**,
     - **From all inventory** to manually select servers 
     - **From an assessment** to use an existing assessment
 
@@ -82,7 +84,7 @@ Enable replication as follows:
 
 5. In **Workloads**,
    - Select the **Target VM security type**.
-        - Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
+        - Azure Catalyst supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
         - You can also migrate eligible machines to Confidential virtual machines [Learn more](../confidential-computing/confidential-vm-overview.md). If you select **Confidential virtual machines**, only eligible servers are available for selection and the rest are greyed out. Refer [CVM support matrix](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines).
    - Then, select the machines you want to replicate and migrate and click **Next**.
 
@@ -91,7 +93,7 @@ Enable replication as follows:
     - **Storage account**: Keep the default option to use the cache storage account that the portal automatically creates for the project. To use a different storage account for replication, select it from the drop-down list.
     
    > [!NOTE]
-   > - If you use private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
+   > - If you use private endpoint as the connectivity method for the Azure Catalyst project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
    > - To replicate by using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1)
    > - After you start the first replication of a VM, the target region and storage account can't be changed. The default option selected in the drop-down list is used to create a new storage account. If no option is selected, the storage account is created in the final step of enabling replication.
    
@@ -134,7 +136,7 @@ Enable replication as follows:
 
 7. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). Ensure that the VMs conform to [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
-    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
+    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Catalyst picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Zone**: Specify the Availability Zone to use.
     - **Availability Set**: Specify the Availability Set to use.
@@ -165,7 +167,7 @@ Enable replication as follows:
 ## Track and migrate replicating servers
 This section explains how to track replicating servers and perform test and final migrations.
 
-1. In Azure Migrate project, go to **Manage** > **Server replication**.
+1. In Azure Catalyst project, go to **Manage** > **Server replication**.
 2. The following columns show the replication and migration status of your servers for which you initiated replication:
     - **Replication status**: Displays the current state of replication for the server. Learn more about [replication states](concepts-vmware-agentless-migration.md#replication-states).
     - **Replication health**: Indicates whether replication is Healthy, Warning, or Critical.
@@ -213,7 +215,7 @@ After validation is complete, select the menu on the right of the server, and th
 
 ## Monitor and expedite migrations to remediate slow or stuck replications
        
-1. You can use PowerShell to view **Time Remaining** across all stages of server migration in Azure Migrate. This helps you monitor replication progress and remediate slow or stuck replications and plan cutover accurately. You can use PowerShell, Windows PowerShell, or Cloud Shell on Azure portal.
+1. You can use PowerShell to view **Time Remaining** across all stages of server migration in Azure Catalyst. This helps you monitor replication progress and remediate slow or stuck replications and plan cutover accurately. You can use PowerShell, Windows PowerShell, or Cloud Shell on Azure portal.
 2. Open the **Azure portal**, and then select the **Cloud Shell** at the top. Select **PowerShell** when prompted.
 3. Run this command in Azure Cloud Shell to monitor the migration status of the server you need.
 
@@ -222,7 +224,7 @@ After validation is complete, select the menu on the right of the server, and th
     Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -MachineName "<your-server-name>"
 
     ```
-4. Replace `your-project-name`, `your-resource-group`, and `your-server-name` with the actual Azure Migrate project, resource group, and server name.
+4. Replace `your-project-name`, `your-resource-group`, and `your-server-name` with the actual Azure Catalyst project, resource group, and server name.
 5. You run this command and get the following output: 
 
     :::image type="content" source="./media/tutorial-migrate-vmware/run-command.png" alt-text="Screenshot shows the output when you run the command." lightbox="./media/tutorial-migrate-vmware/run-command.png":::
@@ -246,7 +248,7 @@ After validation is complete, select the menu on the right of the server, and th
 
     Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>" -ResourceGroupName "<your-resource-group>"
     ```
-10. Replace `your-project-name` and `your-resource-group` with the actual Azure Migrate project and resource group names.
+10. Replace `your-project-name` and `your-resource-group` with the actual Azure Catalyst project and resource group names.
 11. You run this command and get the following output: <br /><br />
 
     :::image type="content" source="./media/tutorial-migrate-vmware/replication-status.png"alt-text="Screenshot shows the overall replication status. "lightbox="./media/tutorial-migrate-vmware/replication-status.png":::
@@ -265,14 +267,14 @@ After validation is complete, select the menu on the right of the server, and th
 ```powershell
    Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -                ApplianceName "<your-appliance-
  ```
-15. Replace `your-project-name`, `your-resource-group`, and `your-appliance-name` with the actual values from your Azure Migrate setup.
+15. Replace `your-project-name`, `your-resource-group`, and `your-appliance-name` with the actual values from your Azure Catalyst setup.
 
 16. Run this command to get the following output: <br /><br />
 
 :::image type="content" source="./media/tutorial-migrate-vmware/appliance-name.png" alt-text="Screenshot shows Azure Migrate server migration status." lightbox="./media/tutorial-migrate-vmware/appliance-name.png":::
 
 >[!NOTE]
-> You can run the above commands in Azure Cloud Shell. You can also use PowerShell or Windows PowerShell on any Windows machine. A machine refers to any Windows PC, not an appliance, or server, as long as it has access to the Azure Migrate project.
+> You can run the above commands in Azure Cloud Shell. You can also use PowerShell or Windows PowerShell on any Windows machine. A machine refers to any Windows PC, not an appliance, or server, as long as it has access to the Azure Catalyst project.
 
 
 ## Post-migration best practices

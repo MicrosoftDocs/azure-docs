@@ -1,6 +1,6 @@
 ---
-title: Support for Hyper-V migration in Azure Migrate
-description: Learn about support for Hyper-V migration with Azure Migrate.
+title: Support for Hyper-V migration in Azure Catalyst
+description: Learn about support for Hyper-V migration with Azure Catalyst.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -29,7 +29,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
-| **Deployment**       | The Hyper-V host can be standalone or deployed in a cluster. <br>Azure Migrate replication software (Hyper-V Replication provider) is installed on the Hyper-V hosts.|
+| **Deployment**       | The Hyper-V host can be standalone or deployed in a cluster. <br>Azure Catalyst replication software (Hyper-V Replication provider) is installed on the Hyper-V hosts.|
 | **Permissions**           | You need administrator permissions on the Hyper-V host. |
 | **Host operating system** | Windows Server 2022, Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2 with latest updates. Note that Server core installation of these operating systems is also supported. |
 | **Other Software requirements** | .NET Framework 4.7 or later |
@@ -43,23 +43,23 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | :----------------------------- | :------------------- |
 | **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure. |
 **Windows Server 2003** | For VMs running Windows Server 2003, you need to [install Hyper-V Integration Services](prepare-windows-server-2003-migration.md) before migration. | 
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br><br> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br> - Red Hat Enterprise Linux 10.x, 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br> - CentOS  Stream</br> - SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 24.04, 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 13, 12, 11, 10, 9, 8, 7<br> - Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> - AlmaLinux 10.x, 8.x, 9.x <br> - Rocky Linux 10.x, 8.x, 9.x <br> - For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br><br> For Linux, Azure Catalyst makes the changes automatically for these operating systems:<br> - Red Hat Enterprise Linux 10.x, 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br> - CentOS  Stream</br> - SUSE Linux Enterprise Server 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 24.04, 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 13, 12, 11, 10, 9, 8, 7<br> - Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> - AlmaLinux 10.x, 8.x, 9.x <br> - Rocky Linux 10.x, 8.x, 9.x <br> - For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
 | **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Make adjustments manually before migration. The relevant articles contain instructions about how to do this. |
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks. |
 | **UEFI boot**                  | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.  |
 | **UEFI - Secure boot**         | Not supported for migration.|
 | **Migration from Generation 1 to Generation 2 VMs**         | Supported for migration to Confidential Virtual Machines (CVMs) for [CVM eligible OS](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines). Also supported for VMs running NVMe-eligible operating systems when migrating to VM SKU families that require NVMe storage and Generation 2 VMs. For the list of NVMe eligible operating systems, see [Supported OS images](/azure/virtual-machines/enable-nvme-interface).|
-| **Disk size**                  | Up to 2 TB OS disk for gen 1 VM; up to 4 TB OS disk for gen 2 VM; 32 TB for data disks. </br></br> For existing Azure Migrate projects, you might need to upgrade the replication provider on the Hyper-V host to the latest version to replicate large disks up to 32 TB.|
+| **Disk size**                  | Up to 2 TB OS disk for gen 1 VM; up to 4 TB OS disk for gen 2 VM; 32 TB for data disks. </br></br> For existing Azure Catalyst projects, you might need to upgrade the replication provider on the Hyper-V host to the latest version to replicate large disks up to 32 TB.|
 | **Disk number** | A maximum of 16 disks per VM.|
 | **Encrypted disks/volumes**    | Not supported for migration.|
 | **RDM/passthrough disks**      | Not supported for migration.|
 | **Shared disk** | VMs using shared disks aren't supported for migration.|
-| **Ultra Disk** | Ultra Disk migration isn't supported from the Azure Migrate portal. You have to do an out-of-band migration for the disks that are recommended as Ultra Disks. That is, you can migrate selecting it as premium disk type and change it to Ultra Disk after migration.|
+| **Ultra Disk** | Ultra Disk migration isn't supported from the Azure Catalyst portal. You have to do an out-of-band migration for the disks that are recommended as Ultra Disks. That is, you can migrate selecting it as premium disk type and change it to Ultra Disk after migration.|
 | **NFS**                        | NFS volumes mounted as volumes on the VMs won't be replicated.|
 | **ReiserFS**                   | Not supported.
 | **ISCSI**                      | VMs with iSCSI targets aren't supported for migration.
 | **Target disk**                | You can migrate to Azure VMs with managed disks only. |
-| **NVMe disk controllers**                | - Supported for migration of Hyper-V VMs to Azure VM sizes that use an NVMe disk controller, provided the source operating system supports NVMe disk controller. Refer [NVMe eligible operating systems](/azure/virtual-machines/enable-nvme-interface). If the source OS version isn't supported for NVMe migration, upgrade it to a supported version, confirm that the required NVMe drivers are present, and retry the migration. <br/> - Both SCSI-to-NVMe and NVMe-to-NVMe migrations are supported. <br/> - NVMe-only Azure VM sizes require Generation 2 and UEFI boot. For a Generation 1 or BIOS-based source VM, Azure Migrate attempts to convert the VM during migration. Automatic conversion can fail due to an unsupported disk layout, insufficient disk space, or boot configuration issues. If the conversion fails, convert the source VM to UEFI in the on-premises environment, verify that the VM boots successfully, and retry the migration.  <br/> - Migration to an NVMe-only target isn't supported if the following conditions are missing in source VMs. For Windows, the native stornvme.sys driver must be present in the source Windows installation. For Linux, the active kernel must include the required NVMe drivers:  nvme  and  nvme_core. |
+| **NVMe disk controllers**                | - Supported for migration of Hyper-V VMs to Azure VM sizes that use an NVMe disk controller, provided the source operating system supports NVMe disk controller. Refer [NVMe eligible operating systems](/azure/virtual-machines/enable-nvme-interface). If the source OS version isn't supported for NVMe migration, upgrade it to a supported version, confirm that the required NVMe drivers are present, and retry the migration. <br/> - Both SCSI-to-NVMe and NVMe-to-NVMe migrations are supported. <br/> - NVMe-only Azure VM sizes require Generation 2 and UEFI boot. For a Generation 1 or BIOS-based source VM, Azure Catalyst attempts to convert the VM during migration. Automatic conversion can fail due to an unsupported disk layout, insufficient disk space, or boot configuration issues. If the conversion fails, convert the source VM to UEFI in the on-premises environment, verify that the VM boots successfully, and retry the migration.  <br/> - Migration to an NVMe-only target isn't supported if the following conditions are missing in source VMs. For Windows, the native stornvme.sys driver must be present in the source Windows installation. For Linux, the active kernel must include the required NVMe drivers:  nvme  and  nvme_core. |
 | **IPv6** | Not supported.|
 | **NIC teaming** | Not supported.|
 | **Azure Site Recovery and/or Hyper-V** | You can't replicate using Migration and modernization if the VM is enabled for replication with Azure Site Recovery or with Hyper-V replica.|
@@ -92,7 +92,7 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 time.nist.gov | Verifies time synchronization between system and global time.   
 
 >[!Note]
-> If your Migrate project has **private endpoint connectivity**, the replication provider software on the Hyper-V hosts will need access to these URLs for private link support. 
+> If your Azure Catalyst project has **private endpoint connectivity**, the replication provider software on the Hyper-V hosts will need access to these URLs for private link support. 
 > - *.blob.core.windows.com - To access storage account that stores replicated data. This is optional and isn't required if the storage account has a private endpoint attached. 
 > - login.windows.net for access control and identity management using Active Directory.
 
@@ -107,8 +107,8 @@ Premium storage | Supported | However, standard storage accounts are recommended
 Region | Same region as virtual machine | Storage account should be in the same region as the virtual machine being protected.
 Subscription | Can be different from source virtual machines | The Storage account need not be in the same subscription as the source virtual machine(s).
 Azure Storage firewalls for virtual networks | Supported | If you're using firewall enabled replication storage account or target storage account, ensure you [Allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions). Also, ensure that you allow access to at least one subnet of source virtual network. **You should allow access from All networks for public endpoint connectivity.** 
-Soft delete | Not supported | Soft delete isn't supported because once it's enabled on replication storage account, it increases cost. Azure Migrate performs very frequent creates/deletes of log files while replicating causing costs to increase.
-Private endpoint | Supported | Follow the guidance to [set up Azure Migrate with private endpoints](migrate-hyper-v-servers-to-azure-using-private-link.md).
+Soft delete | Not supported | Soft delete isn't supported because once it's enabled on replication storage account, it increases cost. Azure Catalyst performs very frequent creates/deletes of log files while replicating causing costs to increase.
+Private endpoint | Supported | Follow the guidance to [set up Azure Catalyst with private endpoints](migrate-hyper-v-servers-to-azure-using-private-link.md).
 
 ## Azure VM requirements
 

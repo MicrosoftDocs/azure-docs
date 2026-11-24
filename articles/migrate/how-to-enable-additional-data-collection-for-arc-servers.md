@@ -1,6 +1,6 @@
 ---
 title: Enable additional data collection for Arc-enabled servers
-description: Learn how to enable additional data collection on Arc-enabled servers using the Azure Migrate Collector VM extension for right-sized assessments and comprehensive migration planning.
+description: Learn how to enable additional data collection on Arc-enabled servers using the Azure Catalyst Collector VM extension for right-sized assessments and comprehensive migration planning.
 author: snehithm
 ms.author: snmuvva
 ms.service: azure-migrate
@@ -13,13 +13,13 @@ monikerRange: migrate
 
 # Enable additional data collection for Arc-enabled servers
 
-This article describes how to enable additional data collection from Arc-enabled servers to enhance Azure Migrate assessments and business case recommendations.
+This article describes how to enable additional data collection from Arc-enabled servers to enhance Azure Catalyst assessments and business case recommendations.
 
-By default, Azure Migrate projects for Arc resources collect basic configuration metadata from Arc-enabled servers. To provide right-sized recommendations and comprehensive migration insights comparable to appliance-based discovery, you can enable additional data collection using the Azure Migrate Collector VM extension.
+By default, Azure Catalyst projects for Arc resources collect basic configuration metadata from Arc-enabled servers. To provide right-sized recommendations and comprehensive migration insights comparable to appliance-based discovery, you can enable additional data collection using the Azure Catalyst Collector VM extension.
 
 ## What additional data can be collected?
 
-The Azure Migrate Collector VM extension enhances your migration assessments by collecting additional data beyond basic configuration:
+The Azure Catalyst Collector VM extension enhances your migration assessments by collecting additional data beyond basic configuration:
 
 ### Currently available
 
@@ -52,19 +52,19 @@ Enabling additional data collection provides:
 
 ## Prerequisites
 
-- An existing Azure Migrate project created for Arc resources. If you don't have one, see [Create a migrate project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md).
+- An existing Azure Catalyst project created for Arc resources. If you don't have one, see [Create a Azure Catalyst project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md).
 - Arc-enabled servers running the connected machine agent version [1.46 (September 2024 release)](/azure/azure-arc/servers/agent-release-notes-archive#version-146---september-2024) or higher.
 - **Hybrid Server Resource Administrator** role on the Arc-enabled server resources where you want to enable data collection.
-- Network connectivity from Arc-enabled servers to the Azure Migrate endpoint - ```https://*.migration.windowsazure.com```
+- Network connectivity from Arc-enabled servers to the Azure Catalyst endpoint - ```https://*.migration.windowsazure.com```
 
 ## How additional data collection works
 
-Additional data collection is enabled through the Azure Migrate Collector VM extension:
+Additional data collection is enabled through the Azure Catalyst Collector VM extension:
 
-1. **Extension deployment and configuration**:  Install the VM extension on Arc-enabled servers (Windows or Linux). Configure the extension with your Azure Migrate project information during installation. 
+1. **Extension deployment and configuration**:  Install the VM extension on Arc-enabled servers (Windows or Linux). Configure the extension with your Azure Catalyst project information during installation. 
 2. **Data collection**: The extension collects performance metrics and other data at regular intervals.
-3. **Data transmission**: The collected data is securely transmitted to your Azure Migrate project.
-4. **Assessment enhancement**: Azure Migrate uses the additional data to provide enhanced recommendations.
+3. **Data transmission**: The collected data is securely transmitted to your Azure Catalyst project.
+4. **Assessment enhancement**: Azure Catalyst uses the additional data to provide enhanced recommendations.
 
 ## Enable additional data collection
 
@@ -82,7 +82,7 @@ Choose your preferred method to enable additional data collection on a single Ar
 
 3. Select **+ Add**.
 
-4. Search for **Azure Migrate Collector for Windows** or **Azure Migrate Collector for Linux**, based on your server's operating system, and select it. 
+4. Search for **Azure Catalyst Collector for Windows** or **Azure Catalyst Collector for Linux**, based on your server's operating system, and select it. 
 
 5. Select **Next**.
 
@@ -99,10 +99,10 @@ Choose your preferred method to enable additional data collection on a single Ar
    ```
 
    Replace the placeholders:
-   - `<subscription-id>`: Your Azure Migrate project's subscription ID
-   - `<resource-group>`: Your Azure Migrate project's resource group name
-   - `<project-name>`: Your Azure Migrate project name
-   - `<project-region>`: Your Azure Migrate project region (e.g., eastus, westeurope)
+   - `<subscription-id>`: Your Azure Catalyst project's subscription ID
+   - `<resource-group>`: Your Azure Catalyst project's resource group name
+   - `<project-name>`: Your Azure Catalyst project name
+   - `<project-region>`: Your Azure Catalyst project region (e.g., eastus, westeurope)
 
 7. Select **Review + create**.
 
@@ -144,10 +144,10 @@ Replace the placeholders in the commands:
 - `<arc-server-resource-group>`: Resource group containing the Arc-enabled server
 - `<arc-server-name>`: Name of the Arc-enabled server
 - `<arc-server-location>`: Azure region of the Arc-enabled server
-- `<subscription-id>`: Your Azure Migrate project's subscription ID
-- `<resource-group>`: Your Azure Migrate project's resource group name
-- `<project-name>`: Your Azure Migrate project name
-- `<project-region>`: Your Azure Migrate project region
+- `<subscription-id>`: Your Azure Catalyst project's subscription ID
+- `<resource-group>`: Your Azure Catalyst project's resource group name
+- `<project-name>`: Your Azure Catalyst project name
+- `<project-region>`: Your Azure Catalyst project region
 
 ---
 
@@ -156,7 +156,7 @@ Replace the placeholders in the commands:
 To enable additional data collection across multiple Arc-enabled servers, use Azure Policy. This approach is recommended for large environments or when you want to ensure consistent data collection across your estate.
 
 > [!IMPORTANT]
-> You must have **Owner** role on all subscriptions with Arc resources that you included in the Azure Migrate project scope.
+> You must have **Owner** role on all subscriptions with Arc resources that you included in the Azure Catalyst project scope.
 
 #### Step 1: Create custom policy for Linux machines
 
@@ -427,13 +427,13 @@ Complete the following steps for both the Linux and Windows policies you created
 4. Select **Assign policy**.
 
 5. On the **Basics** tab:
-   - **Scope**: Select all subscriptions that contain Arc included in your Azure Migrate project scope.
+   - **Scope**: Select all subscriptions that contain Arc included in your Azure Catalyst project scope.
    - **Policy enforcement**: Ensure this is set to **Enabled**.
 
 6. Select **Next**.
 
 7. On the **Parameters** tab:
-   - For **migrateProjects**, provide the JSON array with your Azure Migrate project information:
+   - For **migrateProjects**, provide the JSON array with your Azure Catalyst project information:
    
      ```json
      [{"id":"/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Migrate/migrateProjects/<project-name>","location":"<project-region>"}]
@@ -483,13 +483,13 @@ After enabling additional data collection, verify that it's working correctly:
 
 5. Wait 15-30 minutes for the extension to begin collecting and transmitting data.
 
-6. Navigate to your Azure Migrate project and create or refresh an assessment to see enhanced recommendations based on collected data.
+6. Navigate to your Azure Catalyst project and create or refresh an assessment to see enhanced recommendations based on collected data.
 
 ## View enhanced assessment data
 
 After you enable additional data collection and sufficient performance data is collected:
 
-1. Navigate to your Azure Migrate project.
+1. Navigate to your Azure Catalyst project.
 
 2. Select **Assessments** to view existing assessments or create a new one.
 
@@ -514,11 +514,11 @@ To stop collecting additional data from specific servers:
 4. Select **Uninstall**.
 
 > [!NOTE]
-> Previously collected data remains in your Azure Migrate project and continues to be used for assessments until you sync new data or remove the servers from the project.
+> Previously collected data remains in your Azure Catalyst project and continues to be used for assessments until you sync new data or remove the servers from the project.
 
 ## Next steps
 
-- [Manage sync of Arc resources to Azure Migrate project](how-to-manage-arc-resource-sync.md)
+- [Manage sync of Arc resources to Azure Catalyst project](how-to-manage-arc-resource-sync.md)
 - [Create performance-based assessments](how-to-create-assessment.md)
 - [View business case reports](how-to-view-a-business-case.md)
-- [Azure Migrate Collector extension reference](migrate-virtual-machine-extension-reference.md)
+- [Azure Catalyst Collector extension reference](migrate-virtual-machine-extension-reference.md)

@@ -1,6 +1,6 @@
 ---
-title: Discover software inventory on on-premises servers with Azure Migrate 
-description: Learn how to discover software inventory on on-premises servers with Azure Migrate Discovery and assessment.
+title: Discover software inventory on on-premises servers with Azure Catalyst 
+description: Learn how to discover software inventory on on-premises servers with Azure Catalyst Discovery and assessment.
 author: vikram1988
 ms.author: vibansa
 ms.manager: ronai
@@ -14,7 +14,7 @@ ms.custom: engagement-fy23
 
 # Discover installed software inventory, web apps, and database instances
 
-This article describes how to discover installed software, ASP.NET web apps, and SQL, PostgreSQL and MYSQL Server instances and databases on servers running in your on-premises environment, using Azure Migrate.
+This article describes how to discover installed software, ASP.NET web apps, and SQL, PostgreSQL and MYSQL Server instances and databases on servers running in your on-premises environment, using Azure Catalyst.
 
 ::: moniker range="migrate"
 In this tutorial, you learn how:
@@ -25,11 +25,11 @@ In this tutorial, you learn how:
 ::: moniker-end
 
 > [!NOTE]
-> Software inventory is performed by the Azure Migrate appliance using server credentials. The discovery is completely agentless, that is, no agents are installed on the servers to collect this data.
+> Software inventory is performed by the Azure Catalyst appliance using server credentials. The discovery is completely agentless, that is, no agents are installed on the servers to collect this data.
 
 ## Before you start
 
-- Ensure that you've [created an Azure Migrate project](./create-manage-projects.md).
+- Ensure that you've [created an Azure Catalyst project](./create-manage-projects.md).
 - Review the requirements based on your environment and the appliance you're setting up to perform software inventory:
 
     Environment | Requirements
@@ -39,9 +39,11 @@ In this tutorial, you learn how:
     Physical servers or servers running on other clouds | Review [server requirements](migrate-support-matrix-physical.md#physical-server-requirements) <br/> Review [appliance requirements](migrate-appliance.md#appliance---physical)<br/> Review [port access requirements](migrate-support-matrix-physical.md#port-access)<br/> Review [software inventory requirements](migrate-support-matrix-physical.md#software-inventory-requirements)
 - Review the Azure URLs that the appliance needs to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 
-## Deploy and configure the Azure Migrate appliance
+<a name="deploy-and-configure-the-azure-migrate-appliance"></a>
 
-1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
+## Deploy and configure the Azure Catalyst appliance
+
+1. Deploy the Azure Catalyst appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
 2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
     - The details of the source environment (vCenter Servers /Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
@@ -59,7 +61,7 @@ In this tutorial, you learn how:
 5. In **Step 3: Provide server credentials to perform guest discovery of installed software, dependencies and workloads**, select **Add credentials** to provide multiple server credentials to perform software inventory.
 6. Select **Start discovery**, to initiate discovery.
 
-After the server discovery is complete, appliance initiates the discovery of installed software, roles, and features (software inventory) on the servers. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate portal. After the initial discovery is complete, software inventory data is collected and sent to Azure once every 24 hours. Review the [data](discovered-metadata.md#software-inventory-data) collected by appliance during software inventory.
+After the server discovery is complete, appliance initiates the discovery of installed software, roles, and features (software inventory) on the servers. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Catalyst portal. After the initial discovery is complete, software inventory data is collected and sent to Azure once every 24 hours. Review the [data](discovered-metadata.md#software-inventory-data) collected by appliance during software inventory.
 
 ## Review the software inventory
 
@@ -85,7 +87,7 @@ After software inventory has completed, you can review the inventory in the Azur
 
 ### Review software at project level
 
-1. Go to your Azure Migrate project and from the left menu, select **Software** under **Explore inventory** to review software discovered from all servers in the project.
+1. Go to your Azure Catalyst project and from the left menu, select **Software** under **Explore inventory** to review software discovered from all servers in the project.
 
 :::image type="content" source="./media/how-to-discover-applications/security-insights-overview.png" alt-text="Screenshot shows the security insights." lightbox="./media/how-to-discover-applications/security-insights-overview.png":::
 
@@ -93,7 +95,7 @@ After software inventory has completed, you can review the inventory in the Azur
 3. By default, **All software** card is selected but you can select from **Security & compliance**, **Databases & Data platforms**, **Web hosting**, **Business applications**, **Others** to review discovered software that have been classified in that category.
 4. You can view the aggregated insights for the software inventory to review **Servers with discovery issues**- selecting **View issues** takes you to the Action Center view which is prefiltered to show all servers with issues in gathering software inventory. You can either review the errors at per server level or switch to **View by issues** to review issues aggregated by Error codes and take the suggested remedial action to resolve the issues.
 5. The other aggregated insight in the software view shows the count of unique **Vulnerabilities** identified across all the discovered software. You can choose to select **View all** to review identified vulnerabilities across all discovered software or review them at per software level from the table below.
-6. In the table, you can review each software metadata like **Name**, **Publisher**, **Version** that have been gathered through Software inventory, performed using servers credentials you provided on the Azure Migrate appliance.
+6. In the table, you can review each software metadata like **Name**, **Publisher**, **Version** that have been gathered through Software inventory, performed using servers credentials you provided on the Azure Catalyst appliance.
 7. You can also review the additional insights like **Category**, **Subcategory**, **Support Status**, **Server count** and **Vulnerabilities** which are derived using the metadata gathered as part of software inventory.
 
     > [!NOTE]
@@ -177,7 +179,7 @@ The table below shows different categories and subcategories in which the discov
 
 In addition to reviewing software at project level, you can also review them at per server level by following these steps:
 
-1. Go to your Azure Migrate project and from the left menu, select **Infrastructure** under **Explore inventory** to review software discovered from each server.
+1. Go to your Azure Catalyst project and from the left menu, select **Infrastructure** under **Explore inventory** to review software discovered from each server.
 
 :::image type="content" source="./media/how-to-discover-applications/software-inventory-infra-view.png" alt-text="Screenshot shows the software inventory view of infrastructure." lightbox="./media/how-to-discover-applications/software-inventory-infra-view.png":::
 
@@ -241,8 +243,8 @@ Once connected, the appliance gathers configuration and performance data of MySQ
 
 ## Discover ASP.NET web apps
 
-- Software inventory identifies web server role existing on discovered servers. If a server has web server role enabled, Azure Migrate performs web apps discovery on the server.
-- User can add both domain and non-domain credentials on appliance. Make sure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
+- Software inventory identifies web server role existing on discovered servers. If a server has web server role enabled, Azure Catalyst performs web apps discovery on the server.
+- User can add both domain and non-domain credentials on appliance. Make sure that the account used has local admin privileges on source servers. Azure Catalyst automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in source environment.
 - After the appliance is connected, it gathers configuration data for IIS web server and ASP.NET web apps. Web apps configuration data is updated once every 24 hours.
 
 
