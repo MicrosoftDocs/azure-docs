@@ -1,8 +1,8 @@
 ---
 title: Resiliency in Azure Center for SAP Solutions
 description: Find out about reliability in Azure Center for SAP Solutions
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: vaidehikher18
+ms.author: vaidehikher
 ms.topic: overview
 ms.custom: subject-reliability, references_regions
 ms.service: sap-on-azure

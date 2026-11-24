@@ -1,8 +1,8 @@
 ---
 title: Configure customer-enabled disaster recovery in Azure Center for SAP solutions
 description: Learn how to configure customer-enabled disaster recovery for Virtual Instance for SAP solutions resources in Azure Center for SAP solutions.
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: vaidehikher18
+ms.author: vaidehikher
 ms.topic: how-to
 ms.custom: references_regions
 ms.service: sap-on-azure
