@@ -7,7 +7,7 @@ ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/07/2026
+ms.date: 11/24/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
 service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
@@ -493,7 +493,7 @@ resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01
 ## Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions are created using the API.
-- There's a limit of 5,000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. To create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 5000 limit.
+- There's a limit of 5,000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. To create more subscriptions through the API, create another enrollment account. Canceled and transferred subscriptions count toward the 5000 limit.
 - Users who aren't Account Owners, but were added to an enrollment account via Azure role-based access control, can't create subscriptions in the Azure portal.
 
 ## Next steps
