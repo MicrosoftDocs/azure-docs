@@ -61,6 +61,9 @@ items:
   - name: Assign Azure Baseline Security
     displayName: assign, definition, enforce
     href: ./tutorials/assign-absm.md
+  - name: Block resource deletion from specific IP addresses (preview)
+    displayName: ip filtering, ip address, ipRangeContains, requestContext, clientIpAddress, denyAction, deny
+    href: ./tutorials/block-requests-by-ip-address.md
 - name: Samples
   items:
   - name: Index
