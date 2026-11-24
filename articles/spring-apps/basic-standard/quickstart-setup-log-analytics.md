@@ -1,8 +1,8 @@
 ---
 title: "Quickstart - Set Up a Log Analytics Workspace in Azure Spring Apps"
 description: This article describes the setup of a Log Analytics workspace for app deployment.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: felixsong
 ms.service: azure-spring-apps
 ms.topic: quickstart
