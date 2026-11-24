@@ -96,9 +96,6 @@ Because enabling traffic analytics is part of the flow log resource, you need th
 
 [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
-> [!IMPORTANT]
-> [Management group](../governance/management-groups/overview.md?toc=/azure/network-watcher/toc.json) inherited permissions aren't currently supported for enabling traffic analytics.
-
 ## Connection troubleshoot
 
 > [!div class="mx-tableFixed"]
