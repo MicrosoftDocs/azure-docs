@@ -2,14 +2,14 @@
 title: How to set up SMT server for SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn how to set up SMT server for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-author: jjaygbay1 
+author: mattmcinnes 
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 06/25/2021
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 ms.custom:
   - H1Hack27Feb2017
   - linux-related-content
