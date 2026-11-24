@@ -1,6 +1,6 @@
 ---
-title: Questions about Discovery and Dependency Analysis in Azure Migrate
-description: Get answers to common questions about discovery and dependency analysis in Azure Migrate.
+title: Questions about Discovery and Dependency Analysis in Azure Catalyst
+description: Get answers to common questions about discovery and dependency analysis in Azure Catalyst.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: ronai
@@ -10,50 +10,50 @@ ms.date: 09/09/2024
 ms.reviewer: v-gajeronika
 ms.custom: engagement-fy25
 ms.update-cycle: 1825-days
-# Customer intent: As a cloud migration specialist, I want to understand the differences between agent-based and agentless dependency analysis in Azure Migrate so that I can choose the best approach for assessing my organization's server migration needs.
+# Customer intent: As a cloud migration specialist, I want to understand the differences between agent-based and agentless dependency analysis in Azure Catalyst so that I can choose the best approach for assessing my organization's server migration needs.
 ---
 
 # Discovery and dependency analysis - Common questions
 
-This article answers common questions about discovery and dependency analysis in Azure Migrate. If you've other questions, check these resources:
+This article answers common questions about discovery and dependency analysis in Azure Catalyst. If you've other questions, check these resources:
 
-- [General questions](resources-faq.md) about Azure Migrate
-- Questions about the [Azure Migrate appliance](common-questions-appliance.md)
+- [General questions](resources-faq.md) about Azure Catalyst
+- Questions about the [Azure Catalyst appliance](common-questions-appliance.md)
 - Questions about [Migration and modernization](common-questions-server-migration.md)
-- Get questions answered in the [Azure Migrate forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate)
+- Get questions answered in the [Azure Catalyst forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate)
 
 ## What is dependency analysis?
 
-The Dependency Analysis feature in Azure Migrate helps customers visualize inter-server network dependencies, enabling them to build high-confidence migration plans. By grouping dependent servers together, it ensures that no critical dependency is overlooked during migration. [Learn more](concepts-dependency-visualization.md)
+The Dependency Analysis feature in Azure Catalyst helps customers visualize inter-server network dependencies, enabling them to build high-confidence migration plans. By grouping dependent servers together, it ensures that no critical dependency is overlooked during migration. [Learn more](concepts-dependency-visualization.md)
 
 Agentless dependency analysis gathers TCP connection data from servers without installing any agents on the guest operating systems. The gathered dependencies can be visualized either at the project level (across all servers) or at the individual server level.
 
-Agent-based dependency analysis requires the installation of the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) and the Dependency agent on each guest server to gather dependency data. This data can then be visualized in a Log Analytics workspace associated with the Azure Migrate project. 
+Agent-based dependency analysis requires the installation of the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) and the Dependency agent on each guest server to gather dependency data. This data can then be visualized in a Log Analytics workspace associated with the Azure Catalyst project. 
 
 > [!NOTE]
 > Agent-based dependency analysis is supported only in the classic view and isn't available in the new experience. The classic view is scheduled for deprecation by the end of 2026. Until then, you can continue to access Log Analytics workspaces for servers where agent-based dependency analysis is already enabled. However, you can't onboard new servers for agent-based dependency analysis.
 
 ## Do I need to deploy the appliance for agentless dependency analysis?
 
-Yes, the [Azure Migrate appliance](migrate-appliance.md) must be deployed.
+Yes, the [Azure Catalyst appliance](migrate-appliance.md) must be deployed.
 
 ## Do I pay for dependency visualization?
 
-Agent-based dependency analysis incurs standard Log Analytics charges. To avoid these charges, use agentless dependency analysis. We recommend moving to agentless dependency analysis for a seamless experience. For more information, see [Azure Migrate Pricing](https://azure.microsoft.com/pricing/details/azure-migrate/).
+Agent-based dependency analysis incurs standard Log Analytics charges. To avoid these charges, use agentless dependency analysis. We recommend moving to agentless dependency analysis for a seamless experience. For more information, see [Azure Catalyst Pricing](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
 ## What are the new capabilities offered by agentless dependency analysis?
 
 The new agentless dependency experience was released on Sep 30,2025. You need to upgrade your existing dependency capability by following simple steps as provided on dependencies view. In the new capability:
 
-1. Dependency analysis automatically runs on up to 1,000 servers discovered by each Azure Migrate appliance that passes the prerequisite checks. You don’t need to enable it manually anymore.
+1. Dependency analysis automatically runs on up to 1,000 servers discovered by each Azure Catalyst appliance that passes the prerequisite checks. You don’t need to enable it manually anymore.
 2. The enhanced dependency visualization helps you **review additional information** about the servers, connections, and processes. You can filter the view by process type to analyze resolvable or relevant dependencies in the visualization.
 3. In the new visualization, after identifying key dependencies, you can **group servers into an application** by tagging them inline.
 4. Go to Explore Application menu, and then select Dependency Analysis to view dependencies gathered across all enabled servers discovered in the project.
 
 ## I'm an existing user who had enabled agentless dependency analysis in Classic experience but in the new experience, why do I see a higher count for servers enabled?
-- In the new experience if you've upgraded to the new dependency capability for an appliance, Azure Migrate will automatically enable dependency analysis for servers where pre-validations have passed. 
+- In the new experience if you've upgraded to the new dependency capability for an appliance, Azure Catalyst will automatically enable dependency analysis for servers where pre-validations have passed. 
 - The total number of servers enabled can't exceed the limit of 1,000 per appliance. Therefore, the count of automatically enabled servers are 1,000 minus the number of servers you had previously enabled manually.
-- We recommend using the new experiences in Azure Migrate to view the dependency visualization for enabled servers.
+- We recommend using the new experiences in Azure Catalyst to view the dependency visualization for enabled servers.
 - You switch to the old experience only if you've gathered dependency data over a long period and want to export it.
 
 ## As an existing user of the classic experience, how can I upgrade to the new dependency visualization?
@@ -80,13 +80,15 @@ For more information, see on how to [switch to the new enhanced visualization](/
 For more information, see, [how to review the dependency view across enabled servers, discovered in the project](/azure/migrate/how-to-create-group-machine-dependencies-agentless#visualize-dependencies).
 
 ## As an existing user of agent-based dependency analysis, can I continue using the capability after the release of the new experience?
-- Agent-based dependency analysis is **not supported in the new Azure Migrate experience**. You can go to the Classic experience through a footer note on the **Overview** page of the project. 
+- Agent-based dependency analysis is **not supported in the new Azure Catalyst experience**. You can go to the Classic experience through a footer note on the **Overview** page of the project. 
 - Agent-based dependency analysis is supported only in the classic view and isn't available in the new experience. The classic view is scheduled for deprecation by the end of 2026. Until then, you can continue to access Log Analytics workspaces for servers where agent-based dependency analysis is already enabled. However, you can't onboard new servers for agent-based dependency analysis.
 
-## After the deprecation of MMA agent, how can I continue to use agent-based dependency analysis for Azure Migrate discovered servers?
+<a name="after-the-deprecation-of-mma-agent-how-can-i-continue-to-use-agent-based-dependency-analysis-for-azure-migrate-discovered-servers"></a>
+
+## After the deprecation of MMA agent, how can I continue to use agent-based dependency analysis for Azure Catalyst discovered servers?
 - The Log Analytics MMA agent was retired on August 31, 2024. To gather dependencies, you still need a separate Dependency Agent. 
 - The Dependency agent requires the new Azure Monitor Agent (AMA) to be deployed on guest servers to gather dependency data.
-- After switching to AMA, the Dependency agent will push the dependency data to the same Log Analytics workspace (ID) that was previously associated with the Azure Migrate project for agent-based dependency analysis.
+- After switching to AMA, the Dependency agent will push the dependency data to the same Log Analytics workspace (ID) that was previously associated with the Azure Catalyst project for agent-based dependency analysis.
 
 ## After the deprecation of MMA agent, how can I transition to the new AMA agent to continue gathering the dependency data?
 

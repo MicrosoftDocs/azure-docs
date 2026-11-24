@@ -17,9 +17,9 @@ ms.update-cycle: 1095-days
 
 Follow this article to learn how to add multiple server credentials on the appliance configuration manager to perform software inventory (discover installed applications), agentless dependency analysis, and discover web apps, SQL Server instances, and databases.
 
-The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate: Discovery and assessment to discover on-premises servers and send server configuration and performance metadata to Azure. The appliance can also be used to perform software inventory, agentless dependency analysis and discover of web app, and SQL Server instances and databases.
+The [Azure Catalyst appliance](migrate-appliance.md) is a lightweight appliance used by Azure Catalyst: Discovery and assessment to discover on-premises servers and send server configuration and performance metadata to Azure. The appliance can also be used to perform software inventory, agentless dependency analysis and discover of web app, and SQL Server instances and databases.
 
-The appliance isn't limited to servers. You can configure it to pull infrastructure-specific information across all your infrastructure components, including compute (servers), storage (network-attached storage), and network, and send the metadata to Azure Migrate. For storage, you can configure the appliance to discover network-attached storage (NAS) systems, such as Dell PowerScale (OneFS) and NetApp ONTAP, and the SMB, NFS, and S3 file shares that they host. Discovered NAS clusters and their shares appear in your Azure Migrate project alongside the Windows and Linux file servers that the appliance already discovers. To discover NAS file shares, add NAS credentials and a NAS discovery source as described in [Provide credentials and a discovery source for NAS file shares](#provide-credentials-and-a-discovery-source-for-nas-file-shares). For network, you can discover networking resources from VMware environments by pulling information from VMware vCenter Server and from VMware NSX, as required. To discover these resources, provide the corresponding environment-level credentials as described in [Credentials for VMware networking discovery](#credentials-for-vmware-networking-discovery).
+The appliance isn't limited to servers. You can configure it to pull infrastructure-specific information across all your infrastructure components, including compute (servers), storage (network-attached storage), and network, and send the metadata to Azure Catalyst. For storage, you can configure the appliance to discover network-attached storage (NAS) systems, such as Dell PowerScale (OneFS) and NetApp ONTAP, and the SMB, NFS, and S3 file shares that they host. Discovered NAS clusters and their shares appear in your Azure Catalyst project alongside the Windows and Linux file servers that the appliance already discovers. To discover NAS file shares, add NAS credentials and a NAS discovery source as described in [Provide credentials and a discovery source for NAS file shares](#provide-credentials-and-a-discovery-source-for-nas-file-shares). For network, you can discover networking resources from VMware environments by pulling information from VMware vCenter Server and from VMware NSX, as required. To discover these resources, provide the corresponding environment-level credentials as described in [Credentials for VMware networking discovery](#credentials-for-vmware-networking-discovery).
 
 ::: moniker range="migrate"
 > [!Note]
@@ -89,11 +89,11 @@ Provide vCenter Server credentials to discover networking resources and relation
 
 ## Provide credentials and a discovery source for NAS file shares
 
-Azure Migrate discovers network-attached storage (NAS) systems and the SMB, NFS, and S3 shares that they host. After discovery runs, NAS clusters and their shares appear as inventory objects in your Azure Migrate project, alongside the Windows and Linux file servers that the appliance already discovers. You configure NAS discovery on the same appliance that you use to discover servers, and you can mix NAS sources with vCenter Server and NSX manager sources on one appliance.
+Azure Catalyst discovers network-attached storage (NAS) systems and the SMB, NFS, and S3 shares that they host. After discovery runs, NAS clusters and their shares appear as inventory objects in your Azure Catalyst project, alongside the Windows and Linux file servers that the appliance already discovers. You configure NAS discovery on the same appliance that you use to discover servers, and you can mix NAS sources with vCenter Server and NSX manager sources on one appliance.
 
 ### Supported NAS platforms
 
-Azure Migrate discovers the following NAS platforms:
+Azure Catalyst discovers the following NAS platforms:
 
 | Vendor | Platform | Protocols discovered |
 | --- | --- | --- |
@@ -103,7 +103,7 @@ Azure Migrate discovers the following NAS platforms:
 A share that you expose through more than one protocol, such as SMB and S3, or NFS and S3, is identified as a multi-protocol share in the inventory.
 
 > [!NOTE]
-> Storage area network (SAN) and logical unit number (LUN) discovery aren't supported. Non-file protocols, such as iSCSI and SAN mapping, are out of scope. Azure Migrate collects share and system metadata only. It doesn't crawl file contents, and it doesn't analyze access control lists (ACLs) or scan for personally identifiable information.
+> Storage area network (SAN) and logical unit number (LUN) discovery aren't supported. Non-file protocols, such as iSCSI and SAN mapping, are out of scope. Azure Catalyst collects share and system metadata only. It doesn't crawl file contents, and it doesn't analyze access control lists (ACLs) or scan for personally identifiable information.
 
 ### Add NAS credentials
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.update:cycle: 365-days
 ms.date: 06/20/2024
 ms.custom: engagement-fy24
-# Customer intent: As an IT administrator using Azure Migrate, I want to resolve troubleshooting issues related to project creation and assessment, so that I can ensure a smooth migration process for our applications and infrastructure.
+# Customer intent: As an IT administrator using Azure Catalyst, I want to resolve troubleshooting issues related to project creation and assessment, so that I can ensure a smooth migration process for our applications and infrastructure.
 ---
 
-# Troubleshoot Azure Migrate
+# Troubleshoot Azure Catalyst
 
-[Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, and third-party independent software vendor (ISV) offerings. This article helps you troubleshoot issues with Azure Migrate, Azure Migrate Server Assessment, and Migration and modernization.
+[Azure Catalyst](migrate-services-overview.md) provides a hub of tools for assessment and migration, and third-party independent software vendor (ISV) offerings. This article helps you troubleshoot issues with Azure Catalyst, Azure Catalyst Server Assessment, and Migration and modernization.
 
 ## How do I create or find a project?
 

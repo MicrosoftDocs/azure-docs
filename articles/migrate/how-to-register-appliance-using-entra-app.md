@@ -1,6 +1,6 @@
 ---
-title: Register Azure Migrate appliance using a preconfigured Microsoft Entra ID application
-description: Learn how to register an Azure Migrate appliance using a preconfigured Microsoft Entra ID app.
+title: Register Azure Catalyst appliance using a preconfigured Microsoft Entra ID application
+description: Learn how to register an Azure Catalyst appliance using a preconfigured Microsoft Entra ID app.
 author: molishv
 ms.author: molir
 ms.manager: ronai
@@ -13,10 +13,10 @@ ms.custom: engagement-fy25
 # Customer intent: "As an IT administrator, I would like ot set up Migarte appliance using an existing Microsoft Entra ID application and not in the user context to avoid challenges such as missing tenant permissions for the user and DCF being disabled at Microsoft Entra ID level."
 ---
 
-# Register Azure Migrate appliance using a preconfigured Microsoft Entra ID application
+# Register Azure Catalyst appliance using a preconfigured Microsoft Entra ID application
 
 
-After setting up Azure Migrate appliance prerequisite, users sign in to Azure to register the appliance with an Azure Migrate project. The common challenges in the Azure sign in  step include:
+After setting up Azure Catalyst appliance prerequisite, users sign in to Azure to register the appliance with an Azure Catalyst project. The common challenges in the Azure sign in  step include:
 -	**Insufficient permissions at tenant level**: The user deploying the appliance might lack tenant-level permissions required to register applications in Microsoft Entra ID. 
 -	**Device Code Flow (DCF) restrictions**: Some organizations disable Device Code Flow (DCF) in Microsoft Entra ID, which blocks appliance registration.
 -	**Use of Pre-Approved Microsoft Entra ID Applications**: Enterprises might prefer to use existing, preapproved Microsoft Entra ID applications that align with internal naming conventions and compliance policies, rather than allowing the appliance to create a new Microsoft Entra ID app automatically.
@@ -24,7 +24,7 @@ After setting up Azure Migrate appliance prerequisite, users sign in to Azure to
 To avoid registering the appliance under a user's context and to address the above challenges, you can use a preconfigured Microsoft Entra ID application for appliance registration.
 
 > [!NOTE]
-> Alternatively, register the appliance without a Microsoft Entra ID application by installing the Azure Arc agent. For information about how to install the Azure Arc agent and the supported scenarios, see [Register Azure Migrate appliance by onboarding it to Azure Arc](how-to-register-appliance-using-arc-agent.md).
+> Alternatively, register the appliance without a Microsoft Entra ID application by installing the Azure Arc agent. For information about how to install the Azure Arc agent and the supported scenarios, see [Register Azure Catalyst appliance by onboarding it to Azure Arc](how-to-register-appliance-using-arc-agent.md).
 
 
 ## 1. Register an application with Microsoft Entra ID and create a service principal
@@ -42,7 +42,7 @@ A service principal is automatically created for the app registration.
 
 ## 2. Assign permissions to the application
 
-Assign the **Contributor** or **Azure Migrate Owner** role to the registered Microsoft Entra ID application at the resource group where the Azure Migrate project is deployed.
+Assign the **Contributor** or **Azure Migrate Owner** role to the registered Microsoft Entra ID application at the resource group where the Azure Catalyst project is deployed.
 
 ![Screenshot of permissions assignment.](./media/how-to-register-appliance-using-entra-app/contributor.png)
 
@@ -56,7 +56,7 @@ The Microsoft Entra application must be able to acquire an access token for itse
 4. Ensure **Assignment required?** is set to **No**, then select **Save** if you changed the setting.
 
 > [!NOTE]
-> After registration, the appliance agents authenticate by using the application's certificate and request an access token intended for that same application. If **Assignment required?** is set to **Yes** and the application doesn't have an app-role assignment to itself, Microsoft Entra ID refuses to issue the token, preventing the agents from communicating with the Azure Migrate service.
+> After registration, the appliance agents authenticate by using the application's certificate and request an access token intended for that same application. If **Assignment required?** is set to **Yes** and the application doesn't have an app-role assignment to itself, Microsoft Entra ID refuses to issue the token, preventing the agents from communicating with the Azure Catalyst service.
 
 ## 4. Generate certificates to authenticate the application
 
@@ -99,7 +99,7 @@ Export-PfxCertificate -Cert $cert -FilePath "C:\Users\admin\Desktop\$certname.pf
 
 ```
 
-Save the private certificated(_.pfx file) in Azure Migrate appliance machine.
+Save the private certificated(_.pfx file) in Azure Catalyst appliance machine.
 
 ## 6.	Upload the public certificate to the Microsoft Entra ID application
 1. Navigate to Microsoft Entra ID > App registrations and select the application you registered earlier.
@@ -196,9 +196,9 @@ Write-Output "All registry entries created successfully!"
 
 ## Limitations
 
--	An Entra ID application registered for appliance authentication is limited to one Azure Migrate appliance. You can't reuse the same Microsoft Entra application to register multiple appliances, even if they're part of the same Azure Migrate project or a different one.
+-	An Entra ID application registered for appliance authentication is limited to one Azure Catalyst appliance. You can't reuse the same Microsoft Entra application to register multiple appliances, even if they're part of the same Azure Catalyst project or a different one.
 To deploy another appliance, you must register a new application in Microsoft Entra ID, ensure a new service principal is created, and assign the required Azure role (such as Contributor) to the new application in the appropriate resource group.
--	The approach can be used to set up [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md) and [physical](how-to-set-up-appliance-physical.md) stack of Azure Migrate appliance. This approach can't be used to set up [Azure Site Recovery replication appliance](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance). 
+-	The approach can be used to set up [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md) and [physical](how-to-set-up-appliance-physical.md) stack of Azure Catalyst appliance. This approach can't be used to set up [Azure Site Recovery replication appliance](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance). 
 
 
 ## Next steps

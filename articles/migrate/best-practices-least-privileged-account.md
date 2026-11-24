@@ -1,6 +1,6 @@
 ---
 title: Set Up Least Privileged Accounts
-description: Learn how to configure the Azure Migrate appliance with least privileged access by setting up read-only VMware roles with guest operations and scoped permissions.
+description: Learn how to configure the Azure Catalyst appliance with least privileged access by setting up read-only VMware roles with guest operations and scoped permissions.
 author: molishv
 ms.author: molir
 ms.reviewer: v-gajeronika
@@ -10,18 +10,18 @@ ms.date: 09/04/2025
 ms.update-cycle: 365-days
 ms.custom:
   - build-2025
-# Customer intent: As an IT administrator, I want to securely configure the Azure Migrate appliance with least privileged access by setting up read-only VMware roles with guest operations and scoped permissions to enable efficient workload discovery, software inventory, and agentless migration.
+# Customer intent: As an IT administrator, I want to securely configure the Azure Catalyst appliance with least privileged access by setting up read-only VMware roles with guest operations and scoped permissions to enable efficient workload discovery, software inventory, and agentless migration.
 
 ---
 
-# Set up least privileged accounts in Azure Migrate
+# Set up least privileged accounts in Azure Catalyst
 
-The Azure Migrate appliance is a lightweight tool that discovers on-premises servers and sends their configuration and performance data to Azure. It also performs software inventory, performs agentless dependency analysis, and detects workloads like web apps and instances of SQL Server or MySQL Server.
+The Azure Catalyst appliance is a lightweight tool that discovers on-premises servers and sends their configuration and performance data to Azure. It also performs software inventory, performs agentless dependency analysis, and detects workloads like web apps and instances of SQL Server or MySQL Server.
 
 To use these features, you add server and guest credentials in the appliance configuration manager. Following the principle of least privilege helps keep the setup secure and efficient.
 
 >[!IMPORTANT]
-> In addition to configuring least‑privileged credentials for the Azure Migrate appliance, ensure that users are assigned the appropriate Azure Migrate built‑in roles in Azure. These roles provide the minimum required permissions for discovery, assessment, and migration activities. [Learn more](prepare-azure-accounts.md).
+> In addition to configuring least‑privileged credentials for the Azure Catalyst appliance, ensure that users are assigned the appropriate Azure Migrate built‑in roles in Azure. These roles provide the minimum required permissions for discovery, assessment, and migration activities. [Learn more](prepare-azure-accounts.md).
 
 ## Discovery of the VMware estate
 
@@ -47,7 +47,7 @@ To discover the basic settings of servers running in the VMware estate, you need
 
 #### Agentless migration
 
-To perform agentless migration, ensure that the vCenter account that the Azure Migrate appliance uses has permissions at all required levels: datacenter, cluster, host, VM, and datastore. Apply permissions at each level to avoid replication errors.
+To perform agentless migration, ensure that the vCenter account that the Azure Catalyst appliance uses has permissions at all required levels: datacenter, cluster, host, VM, and datastore. Apply permissions at each level to avoid replication errors.
 
 | vSphere privilege name| Privilege purpose| Required | API privilege name |
 | --- | --- | --- | --- |
@@ -64,7 +64,7 @@ To perform agentless migration, ensure that the vCenter account that the Azure M
 
 ### Guest discovery of installed software, dependencies, and workloads
 
-To effectively discover software, application dependencies, and workloads on target servers, the Azure Migrate appliance requires guest operating system (OS) credentials. These credentials enable the appliance to securely connect to the servers and collect detailed inventory and performance data.
+To effectively discover software, application dependencies, and workloads on target servers, the Azure Catalyst appliance requires guest operating system (OS) credentials. These credentials enable the appliance to securely connect to the servers and collect detailed inventory and performance data.
 
 #### Quick guest discovery
 
@@ -100,7 +100,7 @@ For deep discovery of the Hyper-V estate and to perform software inventory and d
 
 ## Discovery of physical and cloud servers
 
-To discover and assess physical servers or servers hosted in other public clouds, the Azure Migrate appliance requires credentials with least privileged access. These credentials allow the appliance to connect and gather necessary data without overexposing sensitive system permissions.
+To discover and assess physical servers or servers hosted in other public clouds, the Azure Catalyst appliance requires credentials with least privileged access. These credentials allow the appliance to connect and gather necessary data without overexposing sensitive system permissions.
 
 ### Quick server discovery
 

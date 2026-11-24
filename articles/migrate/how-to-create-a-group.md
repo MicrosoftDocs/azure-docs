@@ -1,26 +1,26 @@
 ---
-title: Group servers for assessment with Azure Migrate | Microsoft Docs
-description: Describes how to group servers before you run an assessment with the Azure Migrate service.
+title: Group servers for assessment with Azure Catalyst | Microsoft Docs
+description: Describes how to group servers before you run an assessment with the Azure Catalyst service.
 ms.service: azure-migrate
 ms.topic: how-to
 ms.reviewer: v-gajeronika
 ms.date: 08/21/2024
 ms.custom: engagement-fy25
-# Customer intent: As a cloud migration planner, I want to group servers for assessment in Azure Migrate, so that I can evaluate their suitability and obtain accurate sizing and cost estimates for a successful migration to the cloud.
+# Customer intent: As a cloud migration planner, I want to group servers for assessment in Azure Catalyst, so that I can evaluate their suitability and obtain accurate sizing and cost estimates for a successful migration to the cloud.
 ---
 
 # Create a group for assessment
 
-This article describes how to create groups of servers for assessment with Azure Migrate: Discovery and assessment.
+This article describes how to create groups of servers for assessment with Azure Catalyst: Discovery and assessment.
 
-[Azure Migrate](migrate-services-overview.md) helps you to migrate to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
+[Azure Catalyst](migrate-services-overview.md) helps you to migrate to Azure. Azure Catalyst provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 ## Grouping servers
 
 You gather servers into groups to assess whether they're suitable for migration to Azure, and to get Azure sizing and cost estimations for them. There are a couple of ways to create groups:
 
-- If you know the servers that need be migrated together, you can manually create the group in Azure Migrate.
-- If you are not sure about the servers that need to be grouped together, you can use the dependency visualization functionality in Azure Migrate to create groups. 
+- If you know the servers that need be migrated together, you can manually create the group in Azure Catalyst.
+- If you are not sure about the servers that need to be grouped together, you can use the dependency visualization functionality in Azure Catalyst to create groups. 
 
 > [!NOTE]
 > The dependency visualization functionality is not available in Azure Government.
@@ -31,12 +31,12 @@ You can create a group at the same time that you [create an assessment](how-to-c
 
 If you want to create a group manually outside of creating an assessment, do the following:
 
-1. In the Azure Migrate project > **Overview**, select **Assess and migrate servers**. In **Azure Migrate: Discovery and assessment**, select **Groups**
-    - If you haven't yet added the Azure Migrate: Discovery and assessment tool, select to add it. [Learn more](how-to-assess.md).
-    - If you haven't yet created an Azure Migrate project, [learn more](./create-manage-projects.md).
+1. In the Azure Catalyst project > **Overview**, select **Assess and migrate servers**. In **Azure Catalyst: Discovery and assessment**, select **Groups**
+    - If you haven't yet added the Azure Catalyst: Discovery and assessment tool, select to add it. [Learn more](how-to-assess.md).
+    - If you haven't yet created an Azure Catalyst project, [learn more](./create-manage-projects.md).
 
 2. Select the **Group** icon.
-3. In **Create group**, specify a group name, and in **Appliance name**, select the Azure Migrate appliance you're using for server discovery.
+3. In **Create group**, specify a group name, and in **Appliance name**, select the Azure Catalyst appliance you're using for server discovery.
 4. From the server list, select the servers you want to add to the group > **Create**.
 
 You can now use this group when you [create an Azure VM assessment](how-to-create-assessment.md) or [an Azure VMware Solution (AVS) assessment](how-to-create-azure-vmware-solution-assessment.md) or [an Azure SQL assessment](how-to-create-azure-sql-assessment.md) or [an Azure App Service assessment](how-to-create-azure-app-service-assessment.md).
@@ -51,7 +51,7 @@ Dependency mapping helps you to visualize dependencies across servers. You typic
 
 If you've already [set up dependency mapping](how-to-create-group-machine-dependencies.md), and want to refine an existing group, do the following:
 
-1. In the **Servers, databases and web apps** tab, in **Azure Migrate: Discovery and assessment** tile, select **Groups**.
+1. In the **Servers, databases and web apps** tab, in **Azure Catalyst: Discovery and assessment** tile, select **Groups**.
 2. Select the group you want to refine.
     - If you haven't yet set up dependency mapping, the **Dependencies** column will show a **Requires installation** status. For each server for which you want to visualize dependencies, select **Requires installation**. Install a couple of agents on each server, before you can map the server dependencies. [Learn more](how-to-create-group-machine-dependencies.md).
 

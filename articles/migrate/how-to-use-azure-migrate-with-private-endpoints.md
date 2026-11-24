@@ -1,6 +1,6 @@
 ---
 title: Use Private Endpoints
-description: Use Azure Migrate to discover, assess, and migrate servers by using Azure Private Link.
+description: Use Azure Catalyst to discover, assess, and migrate servers by using Azure Private Link.
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: concept-article
@@ -12,14 +12,14 @@ ms.custom:
   - subject-rbac-steps
   - engagement-fy23
   - sfi-image-nochange
-# Customer intent: As a cloud architect, I want to use Azure Migrate with private endpoints so that I can securely discover, assess, and migrate servers without relying on public networks.
+# Customer intent: As a cloud architect, I want to use Azure Catalyst with private endpoints so that I can securely discover, assess, and migrate servers without relying on public networks.
 ---
 
 # Support requirements and considerations for private endpoint connectivity
 
-This article describes how to use Azure Migrate to discover, assess, and migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the tools in Azure Migrate to connect to the service over an Azure ExpressRoute private peering connection or a site-to-site VPN connection by using Private Link. For more information about these tools, see [What is Azure Migrate?](migrate-services-overview.md)
+This article describes how to use Azure Catalyst to discover, assess, and migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the tools in Azure Catalyst to connect to the service over an Azure ExpressRoute private peering connection or a site-to-site VPN connection by using Private Link. For more information about these tools, see [What is Azure Catalyst?](migrate-services-overview.md)
 
-We recommend the method of private endpoint connectivity when there's an organizational requirement to access Azure Migrate and other Azure resources without traversing public networks. By using Private Link, you can use your existing ExpressRoute private peering circuits for better bandwidth or latency requirements.
+We recommend the method of private endpoint connectivity when there's an organizational requirement to access Azure Catalyst and other Azure resources without traversing public networks. By using Private Link, you can use your existing ExpressRoute private peering circuits for better bandwidth or latency requirements.
 
 ## Supported geographies
 
@@ -33,21 +33,21 @@ You must have Contributor, User Access Administrator, or Owner permissions on th
 
 Deployment | Details | Tools
 --- | --- | ---
-Discovery and assessment | Perform an agentless, at-scale discovery and assessment of your servers running on any platform. Examples include hypervisor platforms such as [VMware vSphere](./tutorial-discover-vmware.md) or [Microsoft Hyper-V](./tutorial-discover-hyper-v.md), public clouds such as [AWS](./tutorial-discover-aws.md) or [GCP](./tutorial-discover-gcp.md), or even [bare-metal servers](./tutorial-discover-physical.md). | Azure Migrate Discovery and Assessment
-Software inventory | Discover apps, roles, and features running on VMware VMs. | Azure Migrate Discovery and Assessment
-Dependency visualization | Use dependency analysis to identify and understand dependencies across servers. <br/><br/> [Agentless dependency visualization](./how-to-create-group-machine-dependencies-agentless.md) is supported natively with Azure Migrate support for Private Link. <br/><br/>[Agent-based dependency visualization](./how-to-create-group-machine-dependencies.md) requires internet connectivity. [Learn how to use private endpoints for agent-based dependency visualization](/azure/azure-monitor/logs/private-link-security). | Azure Migrate Discovery and Assessment
-Migration | Perform [agentless VMware migrations](./tutorial-migrate-vmware.md), perform [agentless Hyper-V migrations](./tutorial-migrate-hyper-v.md), or use the agent-based approach to migrate your [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](./tutorial-migrate-gcp-virtual-machines.md), or VMs running on a different virtualization provider. | Azure Migrate and Modernize
+Discovery and assessment | Perform an agentless, at-scale discovery and assessment of your servers running on any platform. Examples include hypervisor platforms such as [VMware vSphere](./tutorial-discover-vmware.md) or [Microsoft Hyper-V](./tutorial-discover-hyper-v.md), public clouds such as [AWS](./tutorial-discover-aws.md) or [GCP](./tutorial-discover-gcp.md), or even [bare-metal servers](./tutorial-discover-physical.md). | Azure Catalyst Discovery and Assessment
+Software inventory | Discover apps, roles, and features running on VMware VMs. | Azure Catalyst Discovery and Assessment
+Dependency visualization | Use dependency analysis to identify and understand dependencies across servers. <br/><br/> [Agentless dependency visualization](./how-to-create-group-machine-dependencies-agentless.md) is supported natively with Azure Catalyst support for Private Link. <br/><br/>[Agent-based dependency visualization](./how-to-create-group-machine-dependencies.md) requires internet connectivity. [Learn how to use private endpoints for agent-based dependency visualization](/azure/azure-monitor/logs/private-link-security). | Azure Catalyst Discovery and Assessment
+Migration | Perform [agentless VMware migrations](./tutorial-migrate-vmware.md), perform [agentless Hyper-V migrations](./tutorial-migrate-hyper-v.md), or use the agent-based approach to migrate your [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](./tutorial-migrate-gcp-virtual-machines.md), or VMs running on a different virtualization provider. | Migration and modernization
 
 > [!NOTE]
-> 'Export' functionality in Azure Migrate portal might not work when using a private endpoint. It is recommended to use a machine with public network access for exporting csv files.
+> 'Export' functionality in Azure Catalyst portal might not work when using a private endpoint. It is recommended to use a machine with public network access for exporting csv files.
 
 ### Other integrated tools
 
-Other migration tools might not be able to upload usage data to the Azure Migrate project if public network access is turned off. The Azure Migrate project should be configured to allow traffic from all networks so that it can receive data from other Microsoft or external offerings.
+Other migration tools might not be able to upload usage data to the Azure Catalyst project if public network access is turned off. The Azure Catalyst project should be configured to allow traffic from all networks so that it can receive data from other Microsoft or external offerings.
 
-To turn on public network access for the Azure Migrate project:
+To turn on public network access for the Azure Catalyst project:
 
-1. Sign in to the Azure portal and go to **Azure Migrate**.
+1. Sign in to the Azure portal and go to **Azure Catalyst**.
 1. Under **Manage**, select **Properties**.
 1. Select **No** > **Save**.
 
@@ -59,7 +59,7 @@ Consideration | Details
 --- | ---
 Pricing | See [Azure page blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 Virtual network requirements | The ExpressRoute or VPN gateway endpoint should reside in the selected virtual network or a virtual network connected to it. You need a maximum of 15 IP addresses in the virtual network.
-PowerShell support | PowerShell isn't supported. We recommend using the Azure portal or REST APIs for Private Link support in Azure Migrate.
+PowerShell support | PowerShell isn't supported. We recommend using the Azure portal or REST APIs for Private Link support in Azure Catalyst.
 Multiple Appliances | Adding new appliances to the project would require further private IPs from virtual network, please plan accordingly.
 
 ## Related content

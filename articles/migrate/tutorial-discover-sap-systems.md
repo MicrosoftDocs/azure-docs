@@ -1,6 +1,6 @@
 ---
-title: Discover SAP systems with Azure Migrate Discovery and assessment 
-description: Learn how to discover SAP systems with Azure Migrate.
+title: Discover SAP systems with Azure Catalyst Discovery and assessment 
+description: Learn how to discover SAP systems with Azure Catalyst.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -10,10 +10,10 @@ ms.reviewer: v-gajeronika
 ms.date: 02/07/2025
 ms.custom: engagement-fy24
 
-# Customer intent: "As a system administrator, I want to discover on-premises SAP systems using Azure Migrate, so that I can assess and plan their migration to the cloud effectively."
+# Customer intent: "As a system administrator, I want to discover on-premises SAP systems using Azure Catalyst, so that I can assess and plan their migration to the cloud effectively."
 ---
 
-# Tutorial: Discover SAP systems with Azure Migrate (preview)
+# Tutorial: Discover SAP systems with Azure Catalyst (preview)
 
 As part of your migration journey to Azure, discover your on-premises SAP inventory and workloads.
 
@@ -21,12 +21,12 @@ As part of your migration journey to Azure, discover your on-premises SAP invent
 > This discovery and assessment tool is being deprecated. "Deprecated" means we intend to remove the feature. The feature will remain working and will be fully supported until it's officially removed. This deprecation notification might span a few months. After removal, the tool won't work. We're notifying you now so that you have sufficient time to plan before the tool is removed.
 
 
-This tutorial explains how to prepare an import file with server inventory details and to discover the SAP systems within Azure Migrate.
+This tutorial explains how to prepare an import file with server inventory details and to discover the SAP systems within Azure Catalyst.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up an Azure Migrate project
+> * Set up an Azure Catalyst project
 > * Prepare the import file
 > * Import the SAP systems inventory
 > * View discovered SAP systems
@@ -36,10 +36,12 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
-## Set up an Azure Migrate project
+<a name="set-up-an-azure-migrate-project"></a>
+
+## Set up an Azure Catalyst project
 
 To set up a migration project, follow these steps:
-1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for **Azure Migrate**.
+1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for **Catalyst**.
 1. On the **Get started** page, select **Discover, assess and migrate**.
 1. On the **Servers, databases and web apps** page, select **Create project**.
 1. On the **Create project** page, do the following:
@@ -48,7 +50,7 @@ To set up a migration project, follow these steps:
     2. **PROJECT DETAILS**:
         1. **Project**: Enter the project name.
         2. **Region**: Select the region in which you want to create the project.
-        1. **Advanced**: Expand this option and select a desired **Connectivity method**. <br/>By default, the **Public endpoint** is selected. If you want to create an Azure Migrate project with the private endpoint connectivity, select **Private endpoint**. [Learn more.](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
+        1. **Advanced**: Expand this option and select a desired **Connectivity method**. <br/>By default, the **Public endpoint** is selected. If you want to create an Azure Catalyst project with the private endpoint connectivity, select **Private endpoint**. [Learn more.](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity)
 
 1. Select **Create**.
 
@@ -65,7 +67,7 @@ To prepare the import file, do the following:
 ### Download the template file
 
 To download the template, follow these steps:
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. On the **Azure Catalyst** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, select **Using import** from the **Discover** dropdown menu.
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/using-import.png" alt-text="Screenshot that shows how to download a template using import option." lightbox="./media/tutorial-discover-sap-systems/using-import.png":::
@@ -115,11 +117,11 @@ The following table summarizes the file fields to fill in:
 <sup>*</sup> These fields are mandatory.
 
 ## Import SAP systems inventory
-After you add information to the import file, import the file from your machine to Azure Migrate.
+After you add information to the import file, import the file from your machine to Azure Catalyst.
 
 To import SAP systems inventory, follow these steps:
 
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. On the **Azure Catalyst** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, from the **Discover** dropdown menu, select **Using import**.
 1. On the **Discover** page, under **Import the file**, upload the XLS file.
 1. Select **Import**.
@@ -133,7 +135,7 @@ To import SAP systems inventory, follow these steps:
 ## View discovered SAP systems
 
 To view the discovered SAP systems, follow these steps:
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. On the **Azure Catalyst** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, select the number associated with **Discovered SAP® systems**.
 
     :::image type="content" source="./media/tutorial-discover-sap-systems/discovered-systems.png" alt-text="Screenshot that shows discovered SAP inventory." lightbox="./media/tutorial-discover-sap-systems/discovered-systems.png":::

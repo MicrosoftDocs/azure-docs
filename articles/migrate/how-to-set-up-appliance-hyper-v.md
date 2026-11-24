@@ -1,6 +1,6 @@
 ---
-title: Set up an Azure Migrate appliance for Hyper-V
-description: Learn how to set up an Azure Migrate appliance to assess and migrate servers on Hyper-V.
+title: Set up an Azure Catalyst appliance for Hyper-V
+description: Learn how to set up an Azure Catalyst appliance to assess and migrate servers on Hyper-V.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -13,21 +13,21 @@ ms.custom:
   - engagement-fy25
   - sfi-image-nochange
   - sfi-ropc-nochange
-# Customer intent: "As an IT administrator managing Hyper-V environments, I want to set up an Azure Migrate appliance for server discovery and assessment, so that I can effectively migrate my on-premises servers to the cloud."
+# Customer intent: "As an IT administrator managing Hyper-V environments, I want to set up an Azure Catalyst appliance for server discovery and assessment, so that I can effectively migrate my on-premises servers to the cloud."
 ---
 
 # Set up an appliance for servers on Hyper-V
 
-Follow this article to set up the Azure Migrate appliance for discovery and assessment of servers on Hyper-V with the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool.
+Follow this article to set up the Azure Catalyst appliance for discovery and assessment of servers on Hyper-V with the [Azure Catalyst: Discovery and assessment](migrate-services-overview.md) tool.
 
-The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate: Discovery and assessment/ Migration to discover on-premises servers on Hyper-V, and send server metadata/performance data to Azure.
+The [Azure Catalyst appliance](migrate-appliance.md) is a lightweight appliance used by Azure Catalyst: Discovery and assessment/ Migration to discover on-premises servers on Hyper-V, and send server metadata/performance data to Azure.
 
 You can deploy the appliance using a couple of methods:
 
 - Set up on a server on Hyper-V using a downloaded VHD. This method described in the current article.
 - Set up on a server on Hyper-V or physical server with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a server using a VHD, or if you're in Azure Government.
 
-After creating the appliance, you check that it can connect to Azure Migrate: Discovery and assessment, configure it for the first time, and register it with the project.
+After creating the appliance, you check that it can connect to Azure Catalyst: Discovery and assessment, configure it for the first time, and register it with the project.
 
 > [!NOTE]
 > If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers. [Learn more](create-manage-projects.md#find-a-project).
@@ -38,21 +38,21 @@ To set up the appliance using a VHD template:
 
 - Provide an appliance name and generate a project key in the portal.
 - Download a compressed Hyper-V VHD from the Azure portal.
-- Create the appliance, and check that it can connect to Azure Migrate: Discovery and assessment.
+- Create the appliance, and check that it can connect to Azure Catalyst: Discovery and assessment.
 - Configure the appliance for the first time, and register it with the project using the project key.
 
 ### Generate the project key
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
-3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers on Hyper-V. The name should be alphanumeric with 14 characters or fewer.
+3. In **1:Generate project key**, provide a name for the Azure Catalyst appliance that you will set up for discovery of servers on Hyper-V. The name should be alphanumeric with 14 characters or fewer.
 1. Select **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
 ### Download the VHD
 
-In **2: Download Azure Migrate appliance**, select the .VHD file and select **Download**.
+In **2: Download Azure Catalyst appliance**, select the .VHD file and select **Download**.
 
    :::image type="content" source="./media/tutorial-assess-hyper-v/generate-key-hyper-v-inline-1.png" alt-text="Screenshots of selections for Generate Key." lightbox="./media/tutorial-assess-hyper-v/generate-key-hyper-v-expanded-1.png":::
 
@@ -116,9 +116,9 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
     > [!NOTE]
-    > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
+    > This is a new user experience in Azure Catalyst appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
-    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
+    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Catalyst: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
 	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and go to an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
@@ -220,9 +220,9 @@ Select **Start discovery**, to kick off server discovery from the successfully v
 
 After discovery finishes, you can verify that the servers appear in the portal.
 
-1. Go to the Azure Migrate dashboard.
-2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
+1. Go to the Azure Catalyst dashboard.
+2. In **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 
 ## Next steps
 
-Try out [Hyper-V assessment](tutorial-assess-hyper-v.md) with Azure Migrate: Discovery and assessment.
+Try out [Hyper-V assessment](tutorial-assess-hyper-v.md) with Azure Catalyst: Discovery and assessment.

@@ -86,13 +86,13 @@ Watch this video to learn how Azure Catalyst delivers enhanced experiences. It h
 
 ### Decide
 
-The first step in a migration journey is to identify your workloads. This process of identification is called *discovery*. To discover your workloads, you can deploy a lightweight [Azure Migrate appliance](migrate-appliance.md) (recommended approach), deploy Azure Migrate collector or quickly import the inventory data for your workloads.
+The first step in a migration journey is to identify your workloads. This process of identification is called *discovery*. To discover your workloads, you can deploy a lightweight [Azure Catalyst appliance](migrate-appliance.md) (recommended approach), deploy Azure Catalyst Collector, or quickly import the inventory data for your workloads.
 
-The Azure Migrate appliance is a virtual appliance you can deploy on a server in your datacenter. The appliance collects the configuration and performance data for your servers and continually sends it to the Azure Catalyst service.
+The Azure Catalyst appliance is a virtual appliance you can deploy on a server in your datacenter. The appliance collects the configuration and performance data for your servers and continually sends it to the Azure Catalyst service.
 
-**Azure Migrate Collector** 
+**Azure Catalyst Collector** 
 
-Azure Migrate Collector enables a quick snapshot discovery of your on-premises environment without requiring continuous Azure connectivity. This mode supports discovery in air-gapped or restricted networks where deploying an appliance isn't feasible. [Learn more](how-to-discover-using-collector.md).
+Azure Catalyst Collector enables a quick snapshot discovery of your on-premises environment without requiring continuous Azure connectivity. This mode supports discovery in air-gapped or restricted networks where deploying an appliance isn't feasible. [Learn more](how-to-discover-using-collector.md).
 
 After you identify the inventory of workloads, you can create a *business case* to make your decision to migrate your on-premises workloads to Azure. A business case helps you estimate the costs and savings of moving to Azure. It helps you identify:
   
@@ -105,7 +105,7 @@ After you identify the inventory of workloads, you can create a *business case* 
 
 ### Plan
 
-After you make the decision to migrate to Azure, the next important phase of migration is planning. To plan migration in detail, use Azure Migrate assessments to find:
+After you make the decision to migrate to Azure, the next important phase of migration is planning. To plan migration in detail, use Azure Catalyst assessments to find:
 
 - **Azure readiness**: Assess whether on-premises servers, SQL servers, and web apps are ready for migration to Azure.
 - **Right-sizing**: Estimate the size of Azure virtual machines (VMs), the Azure SQL configuration, and the number of Azure VMware Solution nodes after migration.
@@ -116,13 +116,13 @@ After you make the decision to migrate to Azure, the next important phase of mig
 
 In the execution phase, you perform the migration or modernization of your workloads to move to Azure. You can use the Azure Catalyst service or partner tools to migrate your servers, databases, web apps, or virtual desktops with minimal downtime and risk.
 
-You can migrate the following workloads by using the integrated Azure Migrate and Modernize tool:
+You can migrate the following workloads by using the integrated Migration and modernization tool:
 
 | Workload | Details |
 |---|---|
-| On-premises VMware VMs | Migrate VMs to Azure by using agentless or agent-based migration.<br><br>For agentless migration, the Azure Migrate and Modernize tool uses the same appliance that's used for discovery and assessment of servers.<br><br>For agent-based migration, the Azure Migrate and Modernize tool uses a replication appliance. |
-| On-premises Hyper-V VMs | Migrate VMs to Azure.<br><br>The Azure Migrate and Modernize tool uses provider agents installed on a Hyper-V host for the migration. |
-| On-premises physical servers or servers hosted on other clouds | Migrate physical servers to Azure. You can also migrate other virtualized servers, and VMs from other public clouds, by treating them as physical servers for the purpose of migration. The Azure Migrate and Modernize tool uses a replication appliance for the migration. |
+| On-premises VMware VMs | Migrate VMs to Azure by using agentless or agent-based migration.<br><br>For agentless migration, the Migration and modernization tool uses the same appliance that's used for discovery and assessment of servers.<br><br>For agent-based migration, the Migration and modernization tool uses a replication appliance. |
+| On-premises Hyper-V VMs | Migrate VMs to Azure.<br><br>The Migration and modernization tool uses provider agents installed on a Hyper-V host for the migration. |
+| On-premises physical servers or servers hosted on other clouds | Migrate physical servers to Azure. You can also migrate other virtualized servers, and VMs from other public clouds, by treating them as physical servers for the purpose of migration. The Migration and modernization tool uses a replication appliance for the migration. |
 | Web apps hosted on Windows in a VMware environment | Perform agentless migration of ASP.NET web apps at scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) by using Azure Catalyst. |
 
 For detailed information on how to migrate servers to Azure, see [Tutorial: Migrate VMware](tutorial-migrate-vmware.md). This tutorial is a step-by-step walkthrough of discovering VMware virtual machines, assessing their readiness for Azure, and performing replication and migration by using Azure Catalyst.
@@ -163,5 +163,5 @@ For detailed capabilities and latest updates, see [What's new](whats-new.md).
 ## Related content
 
 - Try tutorials to discover [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md).
-- Review [frequently asked questions about Azure Migrate](resources-faq.md).
+- Review [frequently asked questions about Azure Catalyst](resources-faq.md).
 - Learn about the [Azure VMware Solution landing zone accelerator](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone).

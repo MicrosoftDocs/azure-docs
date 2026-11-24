@@ -1,6 +1,6 @@
 ---
-title: Azure Migrate replication appliance 
-description: Learn about the Azure Migrate replication appliance for agent-based VMware migration.
+title: Azure Catalyst replication appliance 
+description: Learn about the Azure Catalyst replication appliance for agent-based VMware migration.
 author: piyushdhore-microsoft 
 ms.author: piyushdhore
 ms.manager: vijain
@@ -9,7 +9,7 @@ ms.service: azure-migrate
 ms.reviewer: v-gajeronika
 ms.date: 09/26/2024
 ms.custom: engagement-fy25
-# Customer intent: As a system administrator, I want to deploy the Azure Migrate replication appliance for agent-based migration of VMware VMs and physical servers, so that I can efficiently manage data replication to Azure and facilitate a seamless migration process.
+# Customer intent: As a system administrator, I want to deploy the Azure Catalyst replication appliance for agent-based migration of VMware VMs and physical servers, so that I can efficiently manage data replication to Azure and facilitate a seamless migration process.
 ---
 
 
@@ -31,15 +31,15 @@ The replication appliance is deployed when you set up agent-based migration of V
 
 **Used for** | **Details**
 --- |  ---
-**VMware VM agent-based migration** | You download OVA template from the Azure Migrate hub, and import to vCenter Server to create the appliance VM.
-**Physical machine agent-based migration** | If you don't have a VMware infrastructure, or if you can't create a VMware VM using an OVA template, you download a software installer from the Azure Migrate hub, and run it to set up the appliance machine.
+**VMware VM agent-based migration** | You download OVA template from the Azure Catalyst hub, and import to vCenter Server to create the appliance VM.
+**Physical machine agent-based migration** | If you don't have a VMware infrastructure, or if you can't create a VMware VM using an OVA template, you download a software installer from the Azure Catalyst hub, and run it to set up the appliance machine.
 
 > [!NOTE]
 > If you're deploying in Azure Government, use the installation file to deploy the replication appliance.
 
 ## Appliance requirements
 
-When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
+When you set up the replication appliance using the OVA template provided in the Azure Catalyst hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
 
 **Component** | **Requirement**
 --- | ---
@@ -57,7 +57,7 @@ License | The appliance comes with a Windows Server 2016 evaluation license, whi
 Operating system locale | English (en-us)
 TLS | TLS 1.2 should be enabled.
 .NET Framework | .NET Framework 4.6 or later should be installed on the machine with strong cryptography enabled.
-MySQL | MySQL should be installed on the appliance. <br> MySQL should be installed. You can install it manually, or Azure Migrate can install it during the appliance deployment.
+MySQL | MySQL should be installed on the appliance. <br> MySQL should be installed. You can install it manually, or Azure Catalyst can install it during the appliance deployment.
 Other apps | Don't run other apps on the replication appliance.
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10)).
@@ -76,7 +76,7 @@ MySQL must be installed on the replication appliance machine. It can be installe
 --- | ---
 Download and install manually | [Download](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) the MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br> When you set up the appliance, MySQL shows as already installed.
 Without online download | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and select download and install MySQL, setup uses the installer you added.
-Download and install in Azure Migrate | When you install the appliance and are prompted for MySQL, select **Download and install**.
+Download and install in Azure Catalyst | When you install the appliance and are prompted for MySQL, select **Download and install**.
 
 ## URL access
 
@@ -112,7 +112,7 @@ The replication appliance needs access to these URLs in Azure Government.
 
 >[!Note]
 >
-> If your Migrate project has private endpoint connectivity, you will need access to the following URLs over and above private link access:   
+> If your Azure Catalyst project has private endpoint connectivity, you will need access to the following URLs over and above private link access:   
 > - `*.blob.core.windows.com` - To access the storage account that stores replicated data. This is optional and is not required if the storage account has a private endpoint attached. 
 > - `https://management.azure.com` for replication management operations and coordination. 
 >- `https://login.microsoftonline.com` <br>`https://login.windows.net` <br> `https://www.live.com` and <br> `https://www.microsoft.com` for access control and identity management by Microsoft Entra ID
@@ -158,9 +158,9 @@ Process server | The process server receives replication data, optimizes, and en
 
 ## Appliance upgrades
 
-The appliance is upgraded manually from the Azure Migrate hub. We recommend that you always run the latest version.
+The appliance is upgraded manually from the Azure Catalyst hub. We recommend that you always run the latest version.
 
-1. In Azure Migrate > Servers, databases and web apps> Migration and modernization > Overview > Migration > Infrastructure servers  select **Configuration servers**.
+1. In Azure Catalyst > Servers, databases and web apps> Migration and modernization > Overview > Migration > Infrastructure servers  select **Configuration servers**.
 2. In **Configuration servers** screen, a link appears in **Agent Version** when a new version of the replication appliance is available. 
 3. Download the installer to the replication appliance machine, and install the upgrade. The installer detects the version currently running on the appliance.
  

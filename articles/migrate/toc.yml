@@ -111,7 +111,7 @@ items:
       href: how-to-manage-arc-resource-sync.md
     - name: Collect additional data about Arc enabled servers
       href: how-to-enable-additional-data-collection-for-arc-servers.md
-    - name: Azure Migrate VM Extension for Arc-enabled servers
+    - name: Azure Catalyst Collector VM extension for Arc-enabled servers
       href: migrate-virtual-machine-extension-reference.md
   - name: Discover using inventory import
     items:
@@ -431,7 +431,7 @@ items:
       href: troubleshoot-general.md
   - name: Appliance configuration
     items:
-    - name: Troubleshoot Azure Migrate appliance
+    - name: Troubleshoot Azure Catalyst appliance
       href: troubleshoot-appliance.md
     - name: Troubleshoot with appliance diagnostics
       href: troubleshoot-appliance-diagnostic.md
@@ -469,7 +469,7 @@ items:
     href: resources-faq.md
   - name: RVTools XLSX import
     href: common-questions-import.md
-  - name: Azure Migrate appliance
+  - name: Azure Catalyst appliance
     href: common-questions-appliance.md
   - name: Discovery and dependency analysis
     href: common-questions-discovery-dependency-analysis.md
