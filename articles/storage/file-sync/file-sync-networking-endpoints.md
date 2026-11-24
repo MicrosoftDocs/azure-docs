@@ -1,11 +1,11 @@
 ---
 title: Configure Azure File Sync network endpoints
 description: Learn how to create private endpoints, restrict public endpoint access, and use Azure Policy for Azure File Sync and Azure Files network endpoint compliance.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/24/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As a cloud administrator, I want to configure private and public network endpoints for Azure File Sync, so that I can securely manage access to file shares and enhance network security.
 ---

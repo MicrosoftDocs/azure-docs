@@ -8,8 +8,8 @@ metadata:
   description: Azure Container Storage provides cloud-native persistent storage for Kubernetes and manages distributed accelerator for cloud storage (preview) for AI. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: azure-container-storage #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
-  author: khdownie #Required; your GitHub user alias, with correct capitalization.
-  ms.author: kendownie #Required; microsoft alias of author; optional team alias.
+  author: schoag-msft #Required; your GitHub user alias, with correct capitalization.
+  ms.author: schoag #Required; microsoft alias of author; optional team alias.
   ms.date: 10/07/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

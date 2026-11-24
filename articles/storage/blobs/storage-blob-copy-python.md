@@ -3,9 +3,9 @@ title: Copy a blob with Python
 titleSuffix: Azure Storage
 description: Learn how to copy a blob in Azure Storage by using the Python client library.
 services: storage
-author: stevenmatthew
+author: schoag-msft
 
-ms.author: shaas
+ms.author: schoag
 ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to

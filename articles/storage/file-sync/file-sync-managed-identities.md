@@ -1,11 +1,11 @@
 ---
 title: How to Use Managed Identities with Azure File Sync
 description: Learn how to configure Azure File Sync to use system-assigned managed identities provided by Microsoft Entra ID. 
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 07/27/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As an IT administrator, I want to configure Azure File Sync to use system-assigned managed identities, so that I can enhance security by eliminating the need for shared keys and streamline authentication to Azure file shares."
 ---
 

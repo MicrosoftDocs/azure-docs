@@ -1,11 +1,11 @@
 ---
 title: Use Azure Container Storage with Local NVMe
 description: Configure Azure Container Storage for use with local NVMe on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage class and deploy a pod using standard Kubernetes patterns.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 09/10/2025
-ms.author: kendownie
+ms.author: schoag
 ms.custom: references_regions
 # Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage to use local NVMe for ephemeral volumes, so that I can optimize storage performance for my applications requiring low latency that don't require data durability using standard Kubernetes patterns."
 ---

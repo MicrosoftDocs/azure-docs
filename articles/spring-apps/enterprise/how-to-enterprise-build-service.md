@@ -1,8 +1,8 @@
 ---
 title: How to Use Tanzu Build Service in the Azure Spring Apps Enterprise Plan
 description: Learn how to use Tanzu Build Service in the Azure Spring Apps Enterprise plan.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: fenzho
 ms.service: azure-spring-apps
 ms.topic: how-to

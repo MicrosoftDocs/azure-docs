@@ -1,8 +1,8 @@
 ---
 title: Configure multiple NICs for Azure IoT Edge for Linux on Windows
 description: Configuration for attaching multiple network interfaces to Azure IoT Edge for Linux on Windows virtual machine
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: concept-article

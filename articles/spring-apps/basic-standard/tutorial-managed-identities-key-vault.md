@@ -1,8 +1,8 @@
 ---
 title:  Connect Azure Spring Apps to Key Vault Using Managed Identities
 description: Set up managed identity to connect Key Vault to an app deployed to Azure Spring Apps.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/19/2025

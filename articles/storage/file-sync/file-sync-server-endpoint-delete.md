@@ -1,11 +1,11 @@
 ---
 title: Deprovision an Azure File Sync Server Endpoint
 description: Learn how to safely delete an Azure File Sync server endpoint without losing data. This article covers two scenarios, syncing all data to the cloud before deletion and recalling all tiered files to the local server before deletion.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/28/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As a cloud administrator, I want to properly deprovision my Azure File Sync server endpoint, so that I can ensure data integrity and prevent permanent data loss during the removal process.
 ---
 

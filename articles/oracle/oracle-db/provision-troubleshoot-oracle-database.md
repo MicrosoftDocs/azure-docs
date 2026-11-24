@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot provisioning issues
 description: Troubleshoot provisioning issues.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: troubleshooting
 ms.date: 6/07/2024
 ms.custom: engagement-fy23
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: "As a database administrator, I want to troubleshoot provisioning issues in Oracle AI Database on Azure, so that I can ensure smooth resource management and avoid deployment failures."
 ---
 

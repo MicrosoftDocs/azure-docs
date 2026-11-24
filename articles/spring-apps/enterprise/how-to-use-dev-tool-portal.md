@@ -1,8 +1,8 @@
 ---
 title: Configure Tanzu Dev Tools in the Azure Spring Apps Enterprise Plan
 description: Learn how to use Tanzu Dev Tools in the Azure Spring Apps Enterprise plan.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: zlhe
 ms.service: azure-spring-apps
 ms.topic: how-to

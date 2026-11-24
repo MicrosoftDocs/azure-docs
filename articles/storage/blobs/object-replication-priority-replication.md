@@ -2,12 +2,12 @@
 title: Introducing object replication priority replication for block blobs
 titleSuffix: Azure Storage
 description: Object replication's priority replication feature allows users to obtain prioritized replication from their source storage account to the destination storage account of their replication policy.
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 10/22/2025
-ms.author: shaas
+ms.author: schoag
 ms.custom: references_regions
 
 # Customer intent: As a cloud storage administrator, I want to implement priority object replication for block blobs, so that I can improve data availability, reduce read latency, and optimize cost-efficiency across multiple regions.

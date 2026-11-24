@@ -1,8 +1,8 @@
 ---
 title: Start here - Migrate VMware deployments to Azure
 description: Provides an overview how to migrate from VMware to Azure.
-author: iamwilliew
-ms.author: wwilliams
+author: ankitsurkar06
+ms.author: ankitsurkar
 ms.topic: overview
 ms.service: azure-migrate
 ms.reviewer: v-gajeronika

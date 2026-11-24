@@ -3,8 +3,8 @@ title: Azure Large Instances FAQ
 titleSuffix: Azure Large Instances
 description: Provides resolutions for common issues that arise in working with Azure Large Instances for the Epic workload.
 ms.topic: faq
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: mattmcinnes
+ms.author: mattmcinnes
 ms.custom: references_regions
 ms.service: azure-large-instances
 ms.date: 06/01/2023

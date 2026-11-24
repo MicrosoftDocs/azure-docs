@@ -1,12 +1,12 @@
 ---
 title: What's new in Oracle AI Database@Azure
 description: Learn about what's new in Oracle AI Database@Azure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: whats-new
 ms.date: 08/29/2024
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: As a database administrator, I want to understand the new features of Oracle AI Database@Azure, so that I can effectively utilize it with multiple Azure subscriptions to enhance my database management capabilities.
 ---
 

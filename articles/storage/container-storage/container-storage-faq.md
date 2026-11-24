@@ -1,10 +1,10 @@
 ---
 title: Frequently asked questions about Azure Container Storage
 description: Get answers to Azure Container Storage frequently asked questions (FAQ).
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.date: 10/30/2026
-ms.author: kendownie
+ms.author: schoag
 ms.topic: faq
 ms.custom: references_regions
 # Customer intent: "As a cloud architect, I want to understand the capabilities and limitations of Azure Container Storage, so that I can effectively plan and optimize stateful container applications on Azure Kubernetes Service."

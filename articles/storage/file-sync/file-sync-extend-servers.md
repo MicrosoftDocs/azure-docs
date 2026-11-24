@@ -1,11 +1,11 @@
 ---
 title: Extend Windows File Servers with Azure File Sync
 description: Learn how to extend Windows file servers to the cloud while maintaining fast local access to frequently used data with Azure File Sync.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: tutorial
 ms.date: 06/12/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator, I want to learn how to extend the storage capacity of Windows file servers with Azure File Sync, so that I can effectively manage data storage and access across local and cloud environments.
 ---

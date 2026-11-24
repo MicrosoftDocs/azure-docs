@@ -2,8 +2,8 @@
 title: Expose Applications with End-to-End TLS in a Virtual Network Using Application Gateway
 titleSuffix: Azure Spring Apps
 description: How to expose applications to the internet using Application Gateway
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/19/2025

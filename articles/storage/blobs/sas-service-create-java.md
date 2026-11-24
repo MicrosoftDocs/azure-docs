@@ -2,12 +2,12 @@
 title: Create a service SAS for a container or blob with Java
 titleSuffix: Azure Storage
 description: Learn how to create a service shared access signature (SAS) for a container or blob using the Azure Blob Storage client library for Java.
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 09/06/2024
-ms.author: shaas
+ms.author: schoag
 ms.reviewer: nachakra
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, engagement-fy23, devx-track-java, devx-track-extended-java

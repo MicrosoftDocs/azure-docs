@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure IoT Edge for Linux on Windows common issues
 description: Learn how to resolve common issues encountered when deploying an IoT Edge for Linux on Windows (EFLOW) solution.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 02/26/2026
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge

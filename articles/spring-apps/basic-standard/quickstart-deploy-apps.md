@@ -1,8 +1,8 @@
 ---
 title: "Quickstart - Build and Deploy Apps to Azure Spring Apps"
 description: Describes app deployment to Azure Spring Apps.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 08/19/2025

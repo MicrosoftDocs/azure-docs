@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 01/29/2025
 ms.custom: horz-monitor
 ms.topic: reference
-author: khdownie
-ms.author: kendownie
+author: normesta
+ms.author: normesta
 ms.service: azure-file-storage
 # Customer intent: "As a cloud administrator, I want to access monitoring metrics for Azure File Sync, so that I can effectively track and manage data synchronization and performance across my storage resources."
 ---

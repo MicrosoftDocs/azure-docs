@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Deploy Your First Java Native Image Application to Azure Spring Apps
 description: Describes how to deploy a Java Native Image application to Azure Spring Apps.
-author: KarlErickson
+author: sandeep-sen
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: yili7
 ---
 

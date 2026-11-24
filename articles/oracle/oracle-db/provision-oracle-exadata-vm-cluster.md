@@ -1,13 +1,13 @@
 ---
 title: Provision an Exadata VM Cluster
 description: Provision an Exadata VM Cluster.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: how-to
 ms.date: 6/07/2024
 ms.custom: engagement-fy23
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: As a cloud architect, I want to provision an Oracle Exadata VM Cluster within my existing infrastructure, so that I can leverage its capabilities for running Oracle Exadata Databases efficiently.
 ---
 

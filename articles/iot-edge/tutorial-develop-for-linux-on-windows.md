@@ -1,8 +1,8 @@
 ---
 title: Develop modules for Linux devices using Azure IoT Edge for Linux on Windows
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules running in Linux containers for Windows devices, by using Azure IoT Edge for Linux on Windows.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 07/16/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge

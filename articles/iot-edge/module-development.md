@@ -1,8 +1,8 @@
 ---
 title: Develop modules for Azure IoT Edge
 description: Develop custom modules for Azure IoT Edge that can communicate with the runtime and Azure IoT Hub. Learn how to package your program as an IoT Edge module.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge

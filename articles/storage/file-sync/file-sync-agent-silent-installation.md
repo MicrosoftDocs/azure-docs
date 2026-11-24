@@ -1,11 +1,11 @@
 ---
 title: How to install the Azure File Sync agent Silently 
 description: Learn how to perform a silent (unattended) installation of the Azure File Sync agent by using default or custom settings.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 08/14/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: sfi-ropc-nochange
 # Customer intent: "As an IT administrator, I want to perform a silent installation of the Azure File Sync agent using default or custom settings, so that I can streamline deployment and minimize user interaction during the setup process."
 ---

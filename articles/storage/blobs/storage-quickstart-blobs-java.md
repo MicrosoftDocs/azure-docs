@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Azure Blob Storage library - Java"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Java to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: stevenmatthew
-ms.author: shaas
+author: schoag-msft
+ms.author: schoag
 ms.date: 09/02/2026
 ms.service: azure-blob-storage
 ms.topic: quickstart

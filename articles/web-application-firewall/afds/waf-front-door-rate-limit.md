@@ -1,8 +1,8 @@
 ---
 title: WAF Rate Limiting for Azure Front Door
 description: Learn how Azure Web Application Firewall rate limiting on Azure Front Door counts requests by socket IP address, country/region, AS number, or JA4 fingerprint.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 11/10/2026

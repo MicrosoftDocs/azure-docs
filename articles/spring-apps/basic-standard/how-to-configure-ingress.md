@@ -1,8 +1,8 @@
 ---
 title: Customize the Ingress Configuration in Azure Spring Apps
 description: Learn how to customize the ingress configuration in Azure Spring Apps.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: haital
 ms.service: azure-spring-apps
 ms.topic: how-to

@@ -1,8 +1,8 @@
 ---
 title: Link Oracle AI Database@Azure to multiple Azure subscriptions
 description: Learn how to link your Oracle AI Database@Azure resources to multiple Azure subscriptions.
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: vaidehikher18
+ms.author: vaidehikher
 ms.topic: how-to
 ms.service: oracle-on-azure
 ms.date: 08/01/2024

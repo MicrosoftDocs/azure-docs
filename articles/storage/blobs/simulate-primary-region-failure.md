@@ -2,12 +2,12 @@
 title: Tutorial - Simulate a failure in reading data from the primary region
 titleSuffix: Azure Storage
 description: Simulate an error in reading data from the primary region when the storage account is configured for read-access geo-zone-redundant storage (RA-GZRS).
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 09/06/2022
-ms.author: shaas
+ms.author: schoag
 ms.reviewer: artek
 ms.devlang: javascript
 ms.custom:

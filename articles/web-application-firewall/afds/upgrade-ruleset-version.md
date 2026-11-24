@@ -2,8 +2,8 @@
 title: Upgrade DRS Ruleset Version on Azure Front Door
 titleSuffix: Azure Web Application Firewall
 description: Learn how to upgrade the Default Rule Set (DRS) version of an Azure Front Door Web Application Firewall policy to DRS 2.2 while keeping your rule overrides, exclusions, and exceptions.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 11/19/2026

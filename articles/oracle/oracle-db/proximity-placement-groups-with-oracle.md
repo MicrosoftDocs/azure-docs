@@ -1,12 +1,12 @@
 ---
 title: Use Azure proximity placement groups with Oracle AI Database@Azure 
 description: Learn proximity placement group-specific requirements, resource relationships, Azure design considerations, validation checks, and common troubleshooting actions for Exadata Database Service on Dedicated Infrastructure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: best-practice
 ms.date: 09/04/2026
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent:  Use this article to deploy and validate Azure proximity placement groups with Oracle AI Database@Azure for low-latency application and database connectivity.
 ---
 

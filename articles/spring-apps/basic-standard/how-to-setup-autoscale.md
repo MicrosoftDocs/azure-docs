@@ -1,8 +1,8 @@
 ---
 title: Set Up Autoscale Rules for Azure Spring Apps Applications
 description: Shows you how to configure autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: ninpan-ms
 ms.service: azure-spring-apps
 ms.topic: how-to

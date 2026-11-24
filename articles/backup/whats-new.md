@@ -21,6 +21,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2026
+  - [Vaulted backup support for Azure Data Lake Storage is now available in sovereign clouds](#vaulted-backup-support-for-azure-data-lake-storage-is-now-available-in-sovereign-clouds)
   - [Cross-subscription backup for Azure VMs is now generally available](#cross-subscription-backup-for-azure-vms-is-now-generally-available)
   - [Snapshot backup for SQL instances in Azure VMs is now generally available](#snapshot-backup-for-sql-instances-in-azure-vms-is-now-generally-available)
   - [Vaulted backup support for Azure Cosmos DB is now generally available](#vaulted-backup-support-for-azure-cosmos-db-is-now-generally-available)
@@ -92,6 +93,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Vaulted backup support for Azure Data Lake Storage is now available in sovereign clouds
+
+Vaulted backup for Azure Data Lake Storage is now available in the Azure China and Azure Government sovereign clouds, in addition to all public cloud regions. You can use vaulted backup to protect Azure Data Lake Storage in China East 2, China East 3, China North 2, China North 3, US Gov Arizona, US Gov Texas, US Gov Virginia, US DoD East, and US DoD Central.
+
+For more information, see [Supported regions for Azure Data Lake Storage vaulted backup](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
 
 ## Cross-subscription backup for Azure VMs is now generally available
 

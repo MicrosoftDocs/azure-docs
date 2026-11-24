@@ -1,8 +1,8 @@
 ---
 title: Reliability in Azure Spring Apps
 description: Learn how to ensure reliability in Azure Spring Apps by using zone redundancy, multi-region disaster recovery, and high availability for Spring Boot applications.
-author: anaharris-ms
-ms.author: anaharris
+author: sandeep-sen
+ms.author: sandeepsen
 ms.topic: reliability-article
 ms.custom: subject-reliability, references.regions
 ms.service: azure-spring-apps

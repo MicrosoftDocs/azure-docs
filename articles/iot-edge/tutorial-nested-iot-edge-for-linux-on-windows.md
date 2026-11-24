@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge for Linux on Windows
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge for Linux on Windows devices.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 07/16/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge

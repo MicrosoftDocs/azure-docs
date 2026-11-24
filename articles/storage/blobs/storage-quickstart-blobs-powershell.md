@@ -3,11 +3,11 @@ title: 'Quickstart: Upload, download, and list blobs - Azure PowerShell'
 titleSuffix: Azure Storage
 description: In this quickstart, you use Azure PowerShell in object (Blob) storage. Then you use PowerShell to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: stevenmatthew
+author: schoag-msft
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.date: 06/26/2023
-ms.author: shaas
+ms.author: schoag
 ms.custom: devx-track-azurepowershell, mode-api
 # Customer intent: As a cloud user, I want to upload, download, and manage blobs using PowerShell, so that I can efficiently transfer and organize files in Azure Blob storage.
 ---

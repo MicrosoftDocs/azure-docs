@@ -1,11 +1,11 @@
 ---
 title: Install Azure Container Storage with AKS
 description: Learn how to install Azure Container Storage for use with Azure Kubernetes Service (AKS). Create an AKS cluster and install Azure Container Storage.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.topic: tutorial
 ms.date: 10/30/2026
-ms.author: kendownie
+ms.author: schoag
 ms.custom: devx-track-azurecli, references_regions
 zone_pivot_groups: azure-cli-or-terraform
 # Customer intent: "As a cloud administrator, I want to install Azure Container Storage on an AKS cluster so that I can efficiently manage storage for containerized applications."

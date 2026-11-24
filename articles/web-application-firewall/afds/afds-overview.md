@@ -1,8 +1,8 @@
 ---
 title: What Is Azure Web Application Firewall on Azure Front Door?
 description: Learn how Azure Web Application Firewall protects Azure Front Door applications and how WAF policies, attachment scopes, rules, modes, and actions work.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 10/22/2026

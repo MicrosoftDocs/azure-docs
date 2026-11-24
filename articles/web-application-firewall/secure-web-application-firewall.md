@@ -1,8 +1,8 @@
 ---
 title: Secure your Azure Web Application Firewall deployment
 description: Learn how to secure Azure Web Application Firewall, with best practices for network security, identity and access management, data protection, logging, compliance, and recovery.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: best-practice
 ms.custom: horz-security

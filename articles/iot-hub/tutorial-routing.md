@@ -2,12 +2,12 @@
 title: Tutorial - Configure message routing
 titleSuffix: Azure IoT Hub
 description: Tutorial - Route device messages to an Azure Storage account with message routing for Azure IoT Hub using the Azure CLI and the Azure portal
-author: sethmanheim
+author: dimatx
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 03/31/2025
-ms.author: sethm
+ms.author: dimatokar
 ms.custom:
   - mvc
   - 'Role: Cloud Development'

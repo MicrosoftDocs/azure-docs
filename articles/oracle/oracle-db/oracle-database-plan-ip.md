@@ -1,12 +1,12 @@
 ---
 title: Plan IP address space for Oracle AI Database@Azure
 description: Learn how to plan your IP address space for Oracle AI Database@Azure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: concept-article
 ms.date: 08/29/2024
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: "As a cloud architect, I want to plan the IP address space for Oracle AI Database deployment on Azure, so that I can ensure sufficient and non-overlapping IP allocations for virtual machine clusters and networking services."
 ---
 

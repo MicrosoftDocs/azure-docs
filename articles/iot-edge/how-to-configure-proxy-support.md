@@ -1,8 +1,8 @@
 ---
 title: Configure devices for network proxies for Azure IoT Edge
 description: Learn how to configure Azure IoT Edge devices to communicate through a proxy server.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 07/16/2026
 ms.topic: how-to
 ms.service: azure-iot-edge

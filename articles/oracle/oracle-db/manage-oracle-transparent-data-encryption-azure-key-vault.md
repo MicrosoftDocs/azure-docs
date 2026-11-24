@@ -1,13 +1,13 @@
 ---
 title: Integrate Oracle Exadata Database@Azure with Azure Key Vault
 description: Follow a comprehensive step-by-step guide for integrating Oracle Exadata Database@Azure with Azure Key Vault.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: how-to
 ms.date: 04/15/2025
 ms.custom: engagement-fy23
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 ---
 
 # Integrate Oracle Exadata Database@Azure with Azure Key Vault

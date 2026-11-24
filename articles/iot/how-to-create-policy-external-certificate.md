@@ -2,8 +2,8 @@
 title: Bring your own CA
 titleSuffix: Azure Device Registry
 description: Create or edit an external CA policy in Azure Device Registry so you can use your external CA to issue IoT device certificates.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-device-registry
 ms.topic: how-to
 ms.date: 09/16/2026

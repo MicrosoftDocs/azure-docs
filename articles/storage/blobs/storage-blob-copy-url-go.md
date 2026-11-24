@@ -2,9 +2,9 @@
 title: Copy a blob from a source object URL with Go
 titleSuffix: Azure Storage
 description: Learn how to copy a blob from a source object URL in Azure Storage by using the Go client library.
-author: stevenmatthew
+author: schoag-msft
 
-ms.author: shaas
+ms.author: schoag
 ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to

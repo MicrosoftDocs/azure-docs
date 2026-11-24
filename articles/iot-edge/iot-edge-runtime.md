@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Edge runtime and architecture explained
 description: Discover how Azure IoT Edge runtime manages modules, security, and communication with IoT Hub to optimize IoT solutions.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 03/02/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge

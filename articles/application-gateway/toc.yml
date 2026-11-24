@@ -51,6 +51,8 @@
       href: configuration-request-routing-rules.md
     - name: HTTP settings
       href: configuration-http-settings.md
+    - name: Global configurations
+      href: global-configuration.md      
   - name: Routing
     items:
     - name: Advanced load balancing (Preview)
