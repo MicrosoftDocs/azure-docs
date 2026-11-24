@@ -2,9 +2,9 @@
 title: Copy a blob with asynchronous scheduling using JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to copy a blob with asynchronous scheduling in Azure Storage by using the JavaScript client library.
-author: stevenmatthew
+author: schoag-msft
 
-ms.author: shaas
+ms.author: schoag
 ms.date: 10/28/2024
 ms.service: azure-blob-storage
 ms.topic: how-to

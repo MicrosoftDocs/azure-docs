@@ -2,9 +2,9 @@
 title: Copy a blob with .NET
 titleSuffix: Azure Storage
 description: Learn how to copy blobs in Azure Storage using the .NET client library.
-author: stevenmatthew
+author: schoag-msft
 
-ms.author: shaas
+ms.author: schoag
 ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to

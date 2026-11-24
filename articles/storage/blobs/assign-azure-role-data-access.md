@@ -2,8 +2,8 @@
 title: Assign an Azure Role for Blob Data Access
 titleSuffix: Azure Storage
 description: Assign Azure roles for blob data access with Azure RBAC and Microsoft Entra ID. Follow this guide to grant least-privilege permissions securely.
-author: stevenmatthew
-ms.author: shaas
+author: schoag-msft
+ms.author: schoag
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/08/2026

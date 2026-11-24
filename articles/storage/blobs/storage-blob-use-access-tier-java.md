@@ -3,8 +3,8 @@ title: Set or change a blob's access tier with Java
 titleSuffix: Azure Storage 
 description: Learn how to set or change a blob's access tier in your Azure Storage account using the Java client library.
 services: storage
-author: stevenmatthew
-ms.author: shaas
+author: schoag-msft
+ms.author: schoag
 
 ms.service: azure-blob-storage
 ms.topic: how-to

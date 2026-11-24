@@ -2,8 +2,8 @@
 title: Configure anonymous read access for containers and blobs
 titleSuffix: Azure Storage
 description: "Learn how to configure anonymous read access for containers and blobs by setting the storage account and container access levels."
-author: stevenmatthew
-ms.author: shaas
+author: schoag-msft
+ms.author: schoag
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/20/2026

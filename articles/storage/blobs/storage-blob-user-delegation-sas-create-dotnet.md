@@ -3,8 +3,8 @@ title: Create a user delegation SAS for Azure Blob, Azure Files, and Azure Queue
 titleSuffix: Azure Storage
 description: Learn how to create a user delegation SAS for a container or blob with Microsoft Entra credentials by using the .NET client library for Blob Storage, File Storage, or Queue Storage.
 services: storage
-author: stevenmatthew
-ms.author: shaas
+author: schoag-msft
+ms.author: schoag
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 09/06/2024

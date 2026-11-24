@@ -3,12 +3,12 @@ title: List blobs with Go
 titleSuffix: Azure Storage
 description: Learn how to list blobs in your storage account using the Azure Storage client library for Go. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 11/02/2026
-ms.author: shaas
+ms.author: schoag
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
 # Customer intent: As a Go developer, I want to list blobs in my Azure Storage account so that I can retrieve and manage my data efficiently, using both flat and hierarchical listing options as needed.
