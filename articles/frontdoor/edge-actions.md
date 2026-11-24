@@ -93,7 +93,7 @@ When you configure an Edge Action with the **Client Response** invocation point,
 1. The Edge Action runs in its execution environment and modifies the response properties.
 
 > [!IMPORTANT]
-> Client response invocations are temporarily unavailable due to a known issue. Existing edge actions configured for this invocation phase will not execute until the issue is resolved. A fix is targeted for December 11, 2026.
+> Client response invocations are temporarily unavailable due to a known issue. Existing edge actions configured for this invocation phase won't execute until the issue is resolved. A fix is targeted for December 11, 2026.
 
 ### Execution environment
 
