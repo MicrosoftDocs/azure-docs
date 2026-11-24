@@ -6,10 +6,11 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 03/31/2026
+ms.date: 11/24/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network engineer, I want to configure and customize traffic routing in an Azure virtual network, so that I can optimize connectivity between my virtual and on-premises resources."
+ai-usage: ai-assisted
 ---
 
 # Azure virtual network traffic routing
@@ -99,6 +100,8 @@ You can specify the following next hop types when you create a UDR:
 
     You can define a route with 0.0.0.0/0 as the address prefix and a next hop type of virtual appliance. This configuration allows the appliance to inspect the traffic and determine whether to forward or drop the traffic. If you intend to create a UDR that contains the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first.
 
+    * **Virtual appliance ECMP**: Distributes traffic across multiple network virtual appliances by using equal-cost multipath (ECMP) routing. Specify between 2 and 16 next hop IP addresses with the `VirtualApplianceEcmp` next hop type. The subscription must have the `Microsoft.Network/AllowEcmpInRoute` feature registered. For requirements and configuration examples, see [Equal-cost multipath routing for user-defined routes](#equal-cost-multipath-routing-for-user-defined-routes-public-preview).
+
 * **Virtual network gateway**: User-defined routes with next hop type Virtual Network Gateway allow you to route traffic to a Virtual Network's gateway. A Virtual Network has a single gateway automatically set by the underlying software-defined networking platform based on your deployment. User-defined routes with next hop Virtual Network Gateway are supported only when the Virtual Network's gateway is a **VPN gateway (and not ExpressRoute, RouteServer or Virtual WAN hub router)**.  
    * For Virtual Networks with a VPN Gateway, ExpressRoute Gateway and/or Route Server:
       * If RouteServer is deployed in a virtual network, RouteServer is set as the Virtual Network's gateway.
@@ -118,6 +121,28 @@ You can specify the following next hop types when you create a UDR:
 * **Internet**: Specify the **Internet** option when you want to explicitly route traffic destined to an address prefix to the internet. Or use it if you want traffic destined for Azure services with public IP addresses kept within the Azure backbone network.
 
 You can't specify **Virtual network peering** or `VirtualNetworkServiceEndpoint` as the next hop type in UDRs. Azure creates routes with **Virtual network peering** or `VirtualNetworkServiceEndpoint` next hop types only when you configure a virtual network peering or a service endpoint.
+
+### Equal-cost multipath routing for user-defined routes (public preview)
+
+Equal-cost multipath (ECMP) routing distributes traffic across multiple appliances, including network virtual appliances (NVAs) and [Azure Virtual Network routing appliances](virtual-network-routing-appliance-overview.md), through a single user-defined route (UDR). Use the `VirtualApplianceEcmp` next hop type with 2 to 16 next hop IP addresses instead of creating multiple routes for the same destination prefix.
+
+Azure uses the [normal route selection process](#how-azure-selects-routes-for-traffic-routing) to select the route, then distributes traffic among its next hops. ECMP doesn't provide appliance-level load balancing or failover.
+
+#### Prerequisites
+
+- Register `Microsoft.Network/AllowEcmpInRoute` in each subscription that contains ECMP routes. You need [feature registration permissions](../azure-resource-manager/management/preview-features.md#required-access), plus permissions to register the `Microsoft.Network` resource provider, manage routes, and update the source subnet.
+- Enable [IP forwarding](virtual-network-network-interface.md#enable-or-disable-ip-forwarding) on each NVA's network interface and in its operating system or software. Configure security policies and destination reachability on every NVA. Use a separate subnet from the source workloads to avoid routing loops.
+- Use a version of Azure CLI or Az.Network that supports `VirtualApplianceEcmp`.
+
+For setup steps, see [Configure ECMP routing in the route table tutorial](tutorial-create-route-table.md#configure-ecmp-routing-optional). For routes that use `0.0.0.0/0`, review the [default-route considerations](#default-route).
+
+#### Limitations
+
+- Each route supports 2 to 16 next hop IP addresses.
+- The REST `nextHop` object requires `nextHopType` to be `VirtualApplianceEcmp`. In Azure CLI, use `--next-hop` with a `next-hop-ip-addresses` list, not `--next-hop-ip-address`.
+- ECMP doesn't synchronize session state between NVAs or ensure return-path symmetry. Check stateful appliance requirements with the vendor.
+- Multiple next hops don't guarantee failover. Configure appliance health checks and recovery behavior for your design.
+- Changing next hop membership can affect active connections. Prepare new NVAs before adding them, and validate the change.
 
 ### Service tags for user-defined routes
 
@@ -169,6 +194,7 @@ The name displayed and referenced for next hop types is different between the Az
 |Virtual network                 |`VNetLocal`                                       | `VNETLocal` (not available in the classic CLI in classic deployment model mode)|
 |Internet                        |Internet                                        |Internet (not available in the classic CLI in classic deployment model mode)|
 |Virtual appliance               |`VirtualAppliance`                                |`VirtualAppliance`|
+|Virtual appliance ECMP          |`VirtualApplianceEcmp`                            |Not applicable|
 |None                            |None                                            |Null (not available in the classic CLI in classic deployment model mode)|
 |Virtual network peering         |Virtual network peering                                    |Not applicable|
 |Virtual network service endpoint|`VirtualNetworkServiceEndpoint`                   |Not applicable|

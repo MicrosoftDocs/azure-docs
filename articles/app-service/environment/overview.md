@@ -65,8 +65,8 @@ If you require physical isolation down to the hardware level, you can deploy you
   
 Only I1v2, I2v2, and I3v2 SKU sizes are available in an App Service Environment deployed on dedicated hosts. Extra charges apply for dedicated host deployments.
 
-> [!NOTE]
-> Dedicated host deployments are available only in limited regions, and expansion to additional regions isn't planned.
+> [!IMPORTANT]
+> Dedicated host deployments are available only in limited regions. If a deployment operation fails with a regional availability or capacity error, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for assistance.
 
 Most customers don't require isolation down to the hardware level, so consider the limitations of dedicated host deployments before you use this feature. To determine whether a dedicated host deployment is right for you, review your security and compliance requirements before deployment.
 
@@ -100,7 +100,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
   
   For more information, see [Reliability in App Service Environment](/azure/reliability/reliability-app-service-environment).
 
-- You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
+- You can deploy an App Service Environment v3 on a dedicated host group. Dedicated host deployments aren't zone redundant and don't span availability zones.
 
 - It scales faster than an App Service Environment v2.
 
@@ -131,6 +131,11 @@ You can also use [reserved instance pricing for Iv2](../../cost-management-billi
 ## Regions
 
 App Service Environment v3 is available in the following regions.
+
+> [!NOTE]
+> This table lists regional deployment and availability zone support for App Service Environment v3. It doesn't indicate dedicated host availability, which is limited to select regions.
+>
+> To check dedicated host availability for your subscription, use the [List ASE Regions API](/rest/api/appservice/list-ase-regions/list-ase-regions). Filter the results for `properties.dedicatedHost: true`; `properties.displayName` gives the region name.
 
 ### Azure public regions
 
@@ -192,7 +197,8 @@ App Service Environment v3 is available in the following regions.
 | West US 2            | ✅                           | ✅                          |
 | West US 3            | ✅                           | ✅                          |
 
-\* App Service Environment v3 has limited availability and no support for dedicated host deployments.  
+\* App Service Environment v3 has limited availability.
+
 \** To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative.
 
 ### Azure Government regions

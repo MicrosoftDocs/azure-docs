@@ -91,7 +91,7 @@ The first tab to complete when creating a file share is labeled **Basics**. It c
 | Protocol | N/A | -- | Microsoft.FileShares currently supports the NFS protocol. Classic file shares support SMB and NFS. |
 | Region | Drop-down list | *Available Azure regions* | The region for the file share to be deployed into. This region can be the region associated with the resource group, or any other available region. |
 | Provisioned capacity (GiB) | Text box | Integer  | Provisioned capacity for the file share, ranging from 32 GiB to 262,144 GiB. |
-| Redundancy | Drop-down list | <ul><li>Locally redundant storage (LRS)</li><li>Zone-redundant storage (ZRS)</li></ul> | The redundancy choice for the SSD file share. See [Azure Files redundancy](files-redundancy.md) for more information. | |
+| Redundancy | Drop-down list | <ul><li>Locally redundant storage (LRS)</li><li>Zone-redundant storage (ZRS)</li></ul> | The redundancy choice for the SSD file share. See [Azure Files redundancy](files-redundancy.md) for more information. |
 | Provisioned IOPS and throughput | Radio button group | <ul><li>Recommended provisioning</li><li>Manually specify IOPS and throughput:<ul><li>Provisioned IOPS</li><li>Provisioned throughput (MiB/sec)</li></ul></li></ul> | The Microsoft.FileShares resource provider only uses the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model). |
 
 ### Advanced

@@ -47,6 +47,9 @@ Choose schedules when you want declarative, manageable recurring execution. Choo
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or later
 - [Docker](https://www.docker.com/products/docker-desktop/) for running the [Durable Task Scheduler emulator](../scheduler/durable-task-scheduler.md#emulator-for-local-development)
 - The `Microsoft.DurableTask.Worker.AzureManaged` and `Microsoft.DurableTask.Client.AzureManaged` NuGet packages
+- The separate `Microsoft.DurableTask.ScheduledTasks` preview NuGet package. The AzureManaged packages don't include this dependency.
+
+Scheduled tasks are a preview SDK feature implemented by a durable entity and orchestration. A worker configured with `UseScheduledTasks()` must run to process schedules; this isn't an autonomous managed-service scheduling feature.
 
 ## Enable scheduled tasks
 

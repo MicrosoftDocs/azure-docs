@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: vikramdesai01
 ms.author: vikdesai
-ms.date: 06/26/2025
+ms.date: 11/16/2026
 ms.topic: reference
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -39,8 +39,8 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | AccountOwnerId¹ | EA, pay-as-you-go | The email ID of the EA enrollment account owner. |
 | AdditionalInfo¹  | All | Service-specific metadata. For example, an image type for a virtual machine. |
 | AvailabilityZone | EA |This field is included only for AWS-connected accounts via the cross-cloud cost management connector and is not applicable to native Azure resources. It represents the specific AWS Availability Zone where the resource usage occurred. Note: This field is no longer supported, as the cross-cloud connector has been deprecated. |
-| BenefitId¹ | EA, MCA | Unique identifier for the purchased savings plan instance. |
-| BenefitName | EA, MCA | Unique identifier for the purchased savings plan instance. |
+| BenefitId¹ | EA, MCA | Unique identifier for the purchased savings plan or Flex Plan that applies to the charge. |
+| BenefitName | EA, MCA | Name of the purchased savings plan or Flex Plan that applies to the charge. |
 | BillingAccountId¹ | All | Unique identifier for the root billing account. |
 | BillingAccountName | All | Name of the billing account. |
 | BillingCurrency | All | Currency associated with the billing account. |
@@ -50,7 +50,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | BillingPeriodStartDate | All | The start date of the billing period. |
 | BillingProfileId¹ | All | Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile. |
 | BillingProfileName | All | Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile. |
-| ChargeType | All | Indicates whether the charge represents usage (**Usage**), a purchase (**Purchase**), or a refund (**Refund**). |
+| ChargeType | All | Indicates whether the charge represents usage (**Usage**), a purchase (**Purchase**), or a refund (**Refund**). A Flex Plan purchase appears as **Purchase**, and usage that a Flex Plan covers appears as **Usage**. |
 | ConsumedService | All | Name of the service the charge is associated with. |
 | CostCenter¹ | EA, MCA | The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts). |
 | Cost | EA, pay-as-you-go | See CostInBillingCurrency. |
@@ -90,8 +90,9 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | PlanName | EA, pay-as-you-go | Marketplace plan name. |
 | PreTaxCost| EA, pay-as-you-go | Cost of the charge before credits or taxes. You can compute `PreTaxCost` by multiplying `ResourceRate` with `UsageQuantity`. |
 | PreviousInvoiceId | MCA | Reference to an original invoice if the line item is a refund. |
+| PriceFactors | EA, MCA | JSON array that lists the factors that affected the price of the charge, such as a savings plan or Flex Plan benefit. Factors in the same group are combined, and separate groups are applied in sequence. A factor for a benefit, such as a savings plan or Flex Plan, includes the benefit's product code and identifiers. In exports, available in dataset version 2026-10-01 and later. Downloaded files include it at the end of the file. For more information, see [Understand price factors and supplemental charge details](understand-price-factors-supplemental-charge-details.md). |
 | PricingCurrency | MCA | Currency used when rating based on negotiated prices. |
-| PricingModel | All | Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, and `SavingsPlan`) |
+| PricingModel | All | Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, `SavingsPlan`, `FlexPlan`, and `SpotPlus`). `FlexPlan` appears on a Flex Plan purchase and on usage that a Flex Plan covered. `SpotPlus` appears on Spot Plus virtual machine usage. |
 | ProductName | All | Name of the product. |
 | ProductId¹ | MCA | Unique identifier for the product. |
 | ProductOrderId | All | Unique identifier for the product order. |
@@ -121,8 +122,9 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | ServiceTier | pay-as-you-go | Name of the service subclassification category. |
 | SubscriptionId¹ | All | Unique identifier for the Azure subscription. |
 | SubscriptionName | All | Name of the Azure subscription. |
+| SupplementalChargeDetails | EA, MCA | JSON string with supplemental details about how the charge was calculated, such as price modifiers or a cost or quantity cap. Empty when not applicable. In exports, available in dataset version 2026-10-01 and later. Downloaded files include it at the end of the file. For more information, see [Understand price factors and supplemental charge details](understand-price-factors-supplemental-charge-details.md). |
 | Tags¹ | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
-| Term | All | Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
+| Term | All | The length of the term for a reservation, savings plan, Flex Plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P2M` (two months), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage. |
 | UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour. |
 | UnitPrice² ³| All | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (`PayG` price column) for your contract. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details). |
 | UsageDateTime | EA, pay-as-you-go | The usage date of the charge in yyyy-mm-dd format. |

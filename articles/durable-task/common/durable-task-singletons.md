@@ -223,12 +223,10 @@ public HttpResponseMessage runSingle(
     String instanceId = req.getHeaders().getOrDefault("instanceId", "singleton-job");
     DurableTaskClient client = durableContext.getClient();
 
-    // Check to see if an instance with this ID is already running
+    // Protect all nonterminal instances, including Pending and Suspended.
     OrchestrationMetadata metadata = client.getInstanceMetadata(instanceId, false);
-    if (metadata == null || !metadata.isRunning()) {
+    if (!metadata.isInstanceFound() || metadata.isCompleted()) {
         // No such instance exists or it finished - create a new one.
-        // De-dupe is handled automatically in the storage layer if another
-        // function tries to also use this instance ID.
         client.scheduleNewOrchestrationInstance("MyOrchestration", null, instanceId);
         return durableContext.createCheckStatusResponse(req, instanceId);
     }
@@ -276,6 +274,7 @@ else
 
 ```python
 from durabletask.azuremanaged.client import DurableTaskSchedulerClient
+from durabletask.client import OrchestrationStatus
 
 instance_id = "singleton-job"
 
@@ -283,7 +282,11 @@ instance_id = "singleton-job"
 existing_instance = client.get_orchestration_state(instance_id)
 
 if (existing_instance is None or
-    existing_instance.runtime_status in ['COMPLETED', 'FAILED', 'TERMINATED']):
+    existing_instance.runtime_status in (
+        OrchestrationStatus.COMPLETED,
+        OrchestrationStatus.FAILED,
+        OrchestrationStatus.TERMINATED,
+    )):
     # An instance with the specified ID doesn't exist or an existing one stopped running, create one.
     client.schedule_new_orchestration(my_orchestration, input=input_data, instance_id=instance_id)
     print(f"Started orchestration with ID = '{instance_id}'.")
@@ -300,15 +303,15 @@ import com.microsoft.durabletask.OrchestrationMetadata;
 
 String instanceId = "singleton-job";
 
-// Check to see if an instance with this ID is already running
+// Protect all nonterminal instances, including Pending and Suspended.
 OrchestrationMetadata existingInstance = client.getInstanceMetadata(instanceId, false);
 
-if (existingInstance == null || !existingInstance.isRunning()) {
+if (!existingInstance.isInstanceFound() || existingInstance.isCompleted()) {
     // An instance doesn't exist or finished - create one
     client.scheduleNewOrchestrationInstance("MyOrchestration", input, instanceId);
     System.out.println("Started orchestration with ID = '" + instanceId + "'.");
 } else {
-    // An instance with the specified ID exists and is still running
+    // An instance with the specified ID exists and isn't terminal.
     System.out.println("An instance with ID '" + instanceId + "' already exists.");
 }
 ```

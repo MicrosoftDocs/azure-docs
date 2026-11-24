@@ -3,7 +3,7 @@ title: "Handle Errors and Retries in Durable Functions"
 description: Learn how to handle errors, configure automatic retries, and set timeouts in Durable Functions and Durable Task SDKs. Explore retry policies, custom retry handlers, and compensation patterns to build resilient orchestrations.
 ms.topic: how-to
 ms.service: durable-task
-ms.date: 10/12/2026
+ms.date: 11/10/2026
 ai-usage: ai-assisted
 ms.author: hannahhunter
 author: hhunter-ms
@@ -31,6 +31,10 @@ Apps that use cloud services need to handle failures, and client-side retries ar
 
 ::: zone-end
 
+
+## Compensate for external changes
+
+Retries and compensation don't provide cross-service transaction isolation or automatic database rollback. Explicitly author compensating activities, such as releasing an inventory reservation on cancellation or failure, and make both forward operations and compensation retry-safe with stable, operation-specific idempotency keys and atomic service-side deduplication. Cleanup might not run after termination, so the inventory service must also expire abandoned holds. For the reservation and confirmation boundaries, see [Coordinate changes to external business data](durable-task-orchestrations.md#coordinate-changes-to-external-business-data).
 
 ## Handle errors in activity functions and sub-orchestrations
 
@@ -660,7 +664,7 @@ PowerShell doesn't support entity functions.
 
 # [Java](#tab/java)
 
-Java doesn't support entity functions.
+Java entity operations require out-of-process entity support in both the Functions host and storage provider. See [Entity functions](durable-task-entities.md) for Java setup and examples.
 
 # [Go](#tab/go)
 
@@ -1627,11 +1631,11 @@ In Durable Task workflows, task failures are serialized to a `FailureDetails` ob
 You can extend this behavior to include additional, custom exception properties in the `FailureDetails.Properties` dictionary by registering a custom exception properties provider.
 
 > [!NOTE]  
-> This feature is available in **.NET Isolated** and **JavaScript** only. Support for Python, PowerShell, and Java isn't available yet.
+> This feature is available in **.NET Isolated**, **JavaScript**, and **Java**. Support for Python and PowerShell isn't available.
 
 # [C#](#tab/csharp)
 
-Starting with Microsoft.Azure.Functions.Worker.Extensions.DurableTask [v1.9.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.9.0), you can extend this behavior by implementing `IExceptionPropertiesProvider` (defined in the `Microsoft.DurableTask.Worker` package starting in [v1.16.1](https://www.nuget.org/packages/Microsoft.DurableTask.Worker/1.16.1)). This provider defines which exception types and properties to include in the `FailureDetails.Properties` dictionary.
+Starting with Microsoft.Azure.Functions.Worker.Extensions.DurableTask [v1.9.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.9.0), you can extend this behavior by implementing `IExceptionPropertiesProvider` (defined in the `Microsoft.DurableTask.Worker` package starting in [v1.16.0](https://www.nuget.org/packages/Microsoft.DurableTask.Worker/1.16.0)). This provider defines which exception types and properties to include in the `FailureDetails.Properties` dictionary. Use v1.16.1 or later for the fix that includes exception properties when an orchestrator throws directly.
 
 > [!NOTE]  
 > - Make sure you're using **Microsoft.Azure.Functions.Worker.Extensions.DurableTask v1.9.0** or later.  
@@ -1709,7 +1713,7 @@ When an exception occurs that matches your provider’s configuration, the orche
 In the Node.js V4 programming model, you can extend this behavior by registering a global exception properties provider with `df.app.setExceptionPropertiesProvider(...)`. The provider extracts selected fields from thrown exceptions, and the Durable worker propagates them onto the `FailureDetails.Properties` dictionary. Return `undefined` to opt out for a particular error.
 
 > [!NOTE]
-> The `df.app.setExceptionPropertiesProvider` API requires version `3.4.0` or later of the `durable-functions` npm package and version `3.13.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension. Until version 3.13.0 is available in extension bundles, [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version). 
+> The `df.app.setExceptionPropertiesProvider` API requires version `3.5.0` or later of the `durable-functions` npm package and version `3.13.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension. [Update the SDK and extension or bundle](../durable-functions/durable-functions-extension-upgrade.md) together. If your supported bundle doesn't include the required extension version, [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version).
 >
 > [See when version releases are available for the extension bundle.](https://github.com/Azure/azure-functions-extension-bundles/releases) 
 
@@ -1837,7 +1841,7 @@ Custom exception properties for `FailureDetails` aren't supported in PowerShell 
 
 # [Java](#tab/java)
 
-Java doesn't support custom exception properties for `FailureDetails` yet.
+Configure [`ExceptionPropertiesProvider`](https://github.com/microsoft/durabletask-java/blob/main/client/src/main/java/com/microsoft/durabletask/ExceptionPropertiesProvider.java) in the Java worker to add custom exception properties to `FailureDetails`. For Functions apps, include the Durable Functions Java integration.
 
 # [Go](#tab/go)
 

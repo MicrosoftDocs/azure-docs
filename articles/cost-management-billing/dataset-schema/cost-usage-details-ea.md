@@ -6,10 +6,13 @@ ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/10/2026
+ms.date: 11/16/2026
 ms.author: vikdesai
 ---
 # Enterprise Agreement cost and usage details file schema
+
+> [!NOTE]
+> Exports let you select a dataset version, and version 2026-10-01 is available only in exports. Usage files that you download from the Azure portal, or by using the download APIs, don't use version 2026-10-01. Instead, they include the `priceFactors` and `supplementalChargeDetails` columns at the end of the file. For more information, see [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md).
 
 ## Version 2026-10-01
 
@@ -47,12 +50,12 @@ ms.author: vikdesai
 | 30 |UnitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 | 31 |ProductOrderId|Unique identifier for the product order.|
 | 32 |ProductOrderName|Unique name for the product order.|
-| 33 |Term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
+| 33 |Term|The length of the term for a reservation, savings plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage.|
 | 34 |PublisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 35 |PublisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
-| 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+| 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, `SavingsPlan`, and `SpotPlus`). `SpotPlus` appears on Spot Plus virtual machine usage.|
 | 39 | AvailabilityZone |This field is included only for AWS-connected accounts via the cross-cloud cost management connector, and is not applicable to native Azure resources. It represents the specific AWS Availability Zone where the resource usage occurred. Note: This field is no longer supported, as the cross-cloud connector has been deprecated. |
 | 40 |BillingAccountId|Unique identifier for the root billing account. |
 | 41 |BillingAccountName|Name of the billing account.|
@@ -69,11 +72,11 @@ ms.author: vikdesai
 | 52 |ServiceFamily|Service family that the service belongs to.|
 | 53 |CostAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
 | 54 |benefitId|  Unique identifier for the purchased savings plan instance.|
-| 55 |benefitName| Unique identifier for the purchased savings plan instance.|
+| 55 |benefitName| Name of the purchased savings plan.|
 | 56 |AccountId|Unique identifier for the EA enrollment account.|
 | 57 |ResourceLocationNormalized|Standardized format of the Azure region where the resource is deployed, also referred to as the datacenter location where the resource is running. The normalized location is used to resolve inconsistencies in region names sent by different Azure Resource Providers (RPs).|
-| 58 |PriceFactors|JSON array listing the factors affecting the price, such as benefits applied. When multiple factors apply, factors in the same group are combined while factors in separate groups are applied in sequence. Each factor includes a product code, which can be joined to product data to identify the benefit. Empty when standard market price applies.|
-| 59 |SupplementalChargeDetails|JSON string with supplemental details about how this charge was calculated, such as price modifiers or a cost or quantity cap. Empty when not applicable, such as for a typical OnDemand charge.|
+| 58 |PriceFactors|JSON array listing the factors affecting the price, such as benefits applied. When multiple factors apply, factors in the same group are combined while factors in separate groups are applied in sequence. A factor for a benefit, such as a savings plan, includes the benefit's product code and identifiers. For more information, see [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md).|
+| 59 |SupplementalChargeDetails|JSON string with supplemental details about how this charge was calculated, such as price modifiers or a cost or quantity cap. Empty when not applicable, such as for a typical OnDemand charge. For more information, see [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md).|
 
 ## Version 2024-08-01
 
@@ -111,12 +114,12 @@ ms.author: vikdesai
 | 30 |UnitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 | 31 |ProductOrderId|Unique identifier for the product order.|
 | 32 |ProductOrderName|Unique name for the product order.|
-| 33 |Term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
+| 33 |Term|The length of the term for a reservation, savings plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage.|
 | 34 |PublisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 35 |PublisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
-| 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+| 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, `SavingsPlan`, and `SpotPlus`). `SpotPlus` appears on Spot Plus virtual machine usage.|
 | 39 | AvailabilityZone |This field is included only for AWS-connected accounts via the cross-cloud cost management connector, and is not applicable to native Azure resources. It represents the specific AWS Availability Zone where the resource usage occurred. Note: This field is no longer supported, as the cross-cloud connector has been deprecated. | 
 | 40 |BillingAccountId|Unique identifier for the root billing account. |
 | 41 |BillingAccountName|Name of the billing account.|
@@ -173,12 +176,12 @@ ms.author: vikdesai
 | 30 |UnitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 | 31 |ProductOrderId|Unique identifier for the product order.|
 | 32 |ProductOrderName|Unique name for the product order.|
-| 33 |Term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
+| 33 |Term|The length of the term for a reservation, savings plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage.|
 | 34 |PublisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 35 |PublisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
-| 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+| 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, `SavingsPlan`, and `SpotPlus`). `SpotPlus` appears on Spot Plus virtual machine usage.|
 | 39 | AvailabilityZone|This field is included only for AWS-connected accounts via the cross-cloud cost management connector, and is not applicable to native Azure resources. It represents the specific AWS Availability Zone where the resource usage occurred. Note: This field is no longer supported, as the cross-cloud connector has been deprecated. |
 | 40 |BillingAccountId|Unique identifier for the root billing account.|
 | 41 |BillingAccountName|Name of the billing account.|
@@ -238,7 +241,7 @@ ms.author: vikdesai
 | 35 |PlanName|Marketplace plan name.|
 | 36 |PublisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 37 |PublisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
-| 38 |Term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
+| 38 |Term|The length of the term for a reservation, savings plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage.|
 | 39 |BillingAccountId|Unique identifier for the root billing account.|
 | 40 |BillingAccountName|Name of the billing account.|
 | 41 |BillingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
@@ -248,7 +251,7 @@ ms.author: vikdesai
 | 45 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
 | 46 |IsAzureCreditEligible|Indicates if the charge is eligible to be paid for using Azure credits (Values: `True` or `False`).|
 | 47 |PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
-| 48 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+| 48 |PricingModel|Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, `SavingsPlan`, and `SpotPlus`). `SpotPlus` appears on Spot Plus virtual machine usage.|
 | 49 |BillingPeriodStartDate|The start date of the billing period.|
 | 50 |BillingPeriodEndDate|The end date of the billing period.|
 | 51 |InvoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
@@ -292,12 +295,12 @@ ms.author: vikdesai
 | 30 |UnitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 | 31 |ProductOrderId|Unique identifier for the product order.|
 | 32 |ProductOrderName|Unique name for the product order.|
-| 33 |Term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
+| 33 |Term|The length of the term for a reservation, savings plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage.|
 | 34 |PublisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 35 |PublisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
-| 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+| 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, `SavingsPlan`, and `SpotPlus`). `SpotPlus` appears on Spot Plus virtual machine usage.|
 | 39 |BillingAccountId|Unique identifier for the root billing account.|
 | 40 |BillingAccountName|Name of the billing account.|
 | 41 |BillingCurrencyCode| Currency associated with the billing account.|
@@ -349,12 +352,12 @@ ms.author: vikdesai
 | 30 |UnitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 | 31 |ProductOrderId|Unique identifier for the product order.|
 | 32 |ProductOrderName|Unique name for the product order.|
-| 33 |Term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
+| 33 |Term|The length of the term for a reservation, savings plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage.|
 | 34 |PublisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 35 |PublisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 36 |ChargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
 | 37 |Frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
-| 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+| 38 |PricingModel|Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, `SavingsPlan`, and `SpotPlus`). `SpotPlus` appears on Spot Plus virtual machine usage.|
 | 39 |BillingAccountId|Unique identifier for the root billing account.|
 | 40 |BillingAccountName|Name of the billing account.|
 | 41 |BillingCurrencyCode| Currency associated with the billing account.|

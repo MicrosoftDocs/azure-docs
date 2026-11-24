@@ -1066,11 +1066,22 @@ To run the sample:
 
 # [C#](#tab/csharp)
 
+This client setup requires the `Microsoft.DurableTask.Client.AzureManaged`, `Microsoft.Extensions.DependencyInjection`, and `Microsoft.Extensions.Logging` NuGet packages.
+
 ```csharp
 using System;
 using System.Threading.Tasks;
+using Microsoft.DurableTask.Client;
+using Microsoft.DurableTask.Client.AzureManaged;
+using Microsoft.Extensions.DependencyInjection;
 
-var client = DurableTaskClientBuilder.UseDurableTaskScheduler(connectionString).Build();
+string connectionString = Environment.GetEnvironmentVariable("DTS_CONNECTION_STRING")
+    ?? "Endpoint=http://localhost:8080;TaskHub=default;Authentication=None";
+var services = new ServiceCollection();
+services.AddLogging();
+services.AddDurableTaskClient(builder => builder.UseDurableTaskScheduler(connectionString));
+await using ServiceProvider serviceProvider = services.BuildServiceProvider();
+DurableTaskClient client = serviceProvider.GetRequiredService<DurableTaskClient>();
 
 // Schedule the approval workflow
 var input = new ApprovalRequestData

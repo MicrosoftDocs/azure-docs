@@ -1,7 +1,7 @@
 ---
 title: TLS 1.2 secure communication in Azure Monitor for SAP solutions
 description: Learn about secure communication with TLS 1.2 or later in Azure Monitor for SAP solutions, including supported certificate types and how encryption works.
-author: sameeksha91
+author: samierose
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: concept-article

@@ -111,18 +111,20 @@ You can use the following table to understand the significant tradeoffs between 
 | ------- | ---------------------- | ------------- | ----- | --------- |
 | Official support status | ✅ Generally available (GA) | ✅ Generally available (GA) | ✅ Generally available (GA) | ✅ Generally available (GA) |
 | External dependencies | N/A | Azure Storage account (general purpose v1) | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database | Azure Event Hubs<br/>Azure Storage account (general purpose) | 
-| Local development and emulation options | [Durable Task Scheduler emulator](../scheduler/durable-task-scheduler.md#emulator-for-local-development) | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | 
+| Local development and emulation options | [Durable Task Scheduler emulator](../scheduler/durable-task-scheduler.md#emulator-for-local-development) | [Azurite](../../storage/common/storage-use-azurite.md) (cross platform) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) |
 | Task hub configuration | Explicit | Explicit | Implicit by default ([more information](https://microsoft.github.io/durabletask-mssql/#/taskhubs)) | Explicit | 
 | Maximum throughput | Very high | Moderate | Moderate | Very high | 
 | Maximum orchestration/entity scale-out (nodes) | N/A | 16 | N/A | 32 | 
 | Maximum activity scale-out (nodes) | N/A | N/A | N/A | 32 | 
-| Durable Entities support | ✅ Fully supported | ✅ Fully supported | ⚠️ Supported except when using .NET Isolated | ✅ Fully supported |
-| [KEDA 2.0](https://keda.sh/) scaling support<br/>([more information](../../azure-functions/functions-kubernetes-keda.md)) | Coming soon! | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) | ❌ Not supported | 
-| Support for [extension bundles](../../azure-functions/extension-bundles.md) (recommended for non-.NET apps) | Coming soon! | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported | 
+| Durable Entities support | ✅ Fully supported | ✅ Fully supported | ✅ Supported, including .NET isolated (see below) | ✅ Fully supported |
+| [KEDA](https://keda.sh/) scaling support<br/>([more information](../../azure-functions/functions-kubernetes-keda.md)) | Coming soon! | ❌ Not supported | ✅ Supported using the [MSSQL scaler](https://keda.sh/docs/scalers/mssql/) ([more information](https://microsoft.github.io/durabletask-mssql/#/scaling)) | ❌ Not supported |
+| Support for [extension bundles](../../azure-functions/extension-bundles.md) (recommended for non-.NET apps) | ✅ Supported ([setup](../scheduler/quickstart-durable-task-scheduler.md)) | ✅ Fully supported | ✅ Fully supported | ✅ Fully supported |
 | Price-performance configurable? | Coming soon! | ❌ No | ✅ Yes (SQL vCPUs) | ✅ Yes (Event Hubs TUs and CUs) | 
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported | ❌ Azure connectivity required |
 | Identity-based connections | ✅ Fully supported | ✅ Fully supported | ⚠️ Requires runtime-driven scaling | ❌ Not supported |
 | [Flex Consumption plan](../../azure-functions/flex-consumption-plan.md) | ✅ Fully supported | ✅ Fully supported ([see notes](../durable-functions/durable-functions-azure-storage-provider.md#flex-consumption-plan)) | ✅ Fully supported | ❌ Not supported |
+
+For .NET isolated, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer`](https://microsoft.github.io/durabletask-mssql).
 
 ::: zone-end
 

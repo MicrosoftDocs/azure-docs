@@ -985,8 +985,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.containerservice/managedclustersnapshots
 - microsoft.containerservice/snapshots
 - microsoft.containerstorage/pools
-- microsoft.contoso/employees
-- microsoft.contoso/employees/desks
 - microsoft.costmanagement/connectors
 - microsoft.customproviders/resourceproviders
 - microsoft.d365customerinsights/instances

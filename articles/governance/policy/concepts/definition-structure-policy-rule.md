@@ -749,10 +749,6 @@ This policy rule example uses the `resourceGroup` resource function to get the `
 
 ### IP filtering policy rule examples (preview)
 
-> [!IMPORTANT]
-> IP filtering by using `requestContext().clientIpAddress` is currently in preview and supports only the `deny` and `denyAction` effects. Your tenant must be enabled for the preview before you can use it.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 Azure Policy can allow or block requests based on the IP address they come from, at any scope where you can assign a policy, such as a management group, subscription, or resource group. To filter by IP address, combine `ipRangeContains()` with `requestContext().clientIpAddress` in a policy rule. Azure Policy then evaluates both the request header content, such as the client IP address, and the resource payload in the request body.
 
 **Single allowed IP range**

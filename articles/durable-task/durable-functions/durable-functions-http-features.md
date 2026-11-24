@@ -87,6 +87,8 @@ public static async Task<HttpResponseData> StartHelloCitiesUntyped(
 
 # [Python](#tab/python)
 
+The following starter uses the Python v1 programming model. An empty request body starts the orchestration without input; a nonempty body must contain valid JSON.
+
 **__init__.py**
 
 ```python
@@ -97,9 +99,14 @@ import azure.durable_functions as df
 async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     client = df.DurableOrchestrationClient(starter)
     function_name = req.route_params['functionName']
-    event_data = req.get_body()
+    event_data = None
+    if req.get_body():
+        try:
+            event_data = req.get_json()
+        except ValueError:
+            return func.HttpResponse("Request body must be valid JSON.", status_code=400)
 
-    instance_id = await client.start_new(function_name, instance_id, event_data)
+    instance_id = await client.start_new(function_name, client_input=event_data)
     
     logging.info(f"Started orchestration with ID = '{instance_id}'.")
     return client.create_check_status_response(req, instance_id)
@@ -261,9 +268,9 @@ Starting with Durable Functions 2.0, orchestrations can natively consume HTTP AP
 >
 > | Feature | C# | JavaScript | Python | PowerShell | Java |
 > |---|---|---|---|---|---|
-> | Basic `callHttp` | ✅ | ✅ | ✅ | ❌ | ❌ |
-> | HTTP 202 auto-polling | ✅ | ❌ | ❌ | ❌ | ❌ |
-> | Managed identities | ✅ | ✅ | ✅ | ❌ | ❌ |
+> | Basic `callHttp` | ✅ | ✅ | ✅ | ❌ | ✅ See the Java tab below for SDK and host requirements |
+> | HTTP 202 auto-polling | ✅ | ✅ See [HTTP 202 handling](#http-202-handling) for SDK and schema requirements | ❌ | ❌ | ❌ |
+> | Managed identities | ✅ | ✅ | ✅ | ❌ | ✅ |
 >
 > For languages that don't support `callHttp`, use [activity functions](../common/programming-model-overview.md#activities) with a language-specific HTTP client library to make outbound HTTP calls.
 
@@ -346,6 +353,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     
     if response["statusCode"] >= 400:
         # handling of error codes goes here
+        pass
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
@@ -356,7 +364,7 @@ This feature isn't available in PowerShell.
 
 # [Java](#tab/java)
 
-This feature isn't available in Java.
+Use `ctx.callHttp(...)` for durable HTTP calls through the Durable Functions host. The [Java HTTP API](https://github.com/microsoft/durabletask-java/blob/main/client/src/main/java/com/microsoft/durabletask/TaskOrchestrationContext.java) includes `callHttp(DurableHttpRequest request)`, which returns `Task<DurableHttpResponse>`. Java 1.10.0 supports managed-identity authentication through `ManagedIdentityTokenSource` and the `DurableHttpRequest` token source. HTTP 202 auto-polling isn't supported in Java.
 
 ---
 
@@ -368,11 +376,13 @@ By using the "call HTTP" action, you can do the following actions in your orches
 
 The ability to consume HTTP APIs directly from orchestrator functions is intended as a convenience for a certain set of common scenarios. You can implement all of these features yourself using activity functions. In many cases, activity functions might give you more flexibility.
 
-### <a name="http-202-handling"></a>HTTP 202 handling (.NET only)
+### <a name="http-202-handling"></a>HTTP 202 handling
 
 The "call HTTP" API can automatically implement the client side of the polling consumer pattern. If a called API returns an HTTP 202 response with a Location header, the orchestrator function automatically polls the Location resource until receiving a response other than 202. This response will be the response returned to the orchestrator function code.
 
 # [C# (InProc)](#tab/csharp-inproc)
+
+HTTP automatic polling on 202 responses is enabled by default in .NET in-process.
 
 ```csharp
 [FunctionName(nameof(CheckSiteAvailabilityWithPolling))]
@@ -389,6 +399,8 @@ public static async Task CheckSiteAvailabilityWithPolling(
 
 # [C# (Isolated)](#tab/csharp-isolated)
 
+HTTP automatic polling is supported in Durable Functions .NET Isolated starting from version [v1.5.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.5.0) or later. It's disabled by default; set `asynchronousPatternEnabled: true` to enable it, as shown below.
+
 ```csharp
 [Function(nameof(CheckSiteAvailabilityWithPolling))]
 public static async Task CheckSiteAvailabilityWithPolling(
@@ -402,13 +414,28 @@ public static async Task CheckSiteAvailabilityWithPolling(
         url!,
         content: null,
         retryOptions: null,
-        asynchronousPatternEnabled: true)
+        asynchronousPatternEnabled: true);
 }
 
 ```
 # [JavaScript](#tab/javascript)
 
-This feature is currently not supported in JavaScript.
+For the Node.js v4 programming model, use the options-object overload and enable polling explicitly:
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestration("CheckSiteAvailabilityWithPolling", function* (context) {
+    const url = context.df.getInput();
+    return yield context.df.callHttp({
+        method: "GET",
+        url,
+        enablePolling: true,
+    });
+});
+```
+
+For this overload, polling defaults to enabled. Polling behavior also depends on the replay schema negotiated with the Durable Functions extension: with schema V3 or later, the JavaScript SDK polls by using durable timers and requires the polling interval supplied by the extension; older schemas delegate polling to the extension.
 
 # [Python](#tab/python)
 
@@ -426,9 +453,7 @@ This feature is currently not supported in Java.
 
 > [!NOTE]
 > - Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](../common/durable-task-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
-> - The built-in HTTP polling pattern is currently available only in the .NET host.
-> - The polling pattern is enabled by default in .NET in-process but disabled by default in .NET Isolated. If you want to enable it in .NET Isolated, refer to the sample code and set the asynchronousPatternEnabled argument to true.
-> - HTTP automatic polling pattern is supported in Durable Functions .NET Isolated starting from version [v1.5.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.5.0) or later.
+> - Built-in HTTP polling is available for .NET and JavaScript with the version and schema requirements described in the examples.
 
 ### Managed identities
 
@@ -466,7 +491,7 @@ public static async Task RunOrchestrator(
 
 ```csharp
 [Function(nameof(RestartVm))]
-public static async Task<string> RestartVm(
+public static async Task RestartVm(
     [OrchestrationTrigger] TaskOrchestrationContext context)
 {
     string subscriptionId = "mySubId";
@@ -483,7 +508,7 @@ public static async Task<string> RestartVm(
         new Uri($"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/restart?api-version={apiVersion}"),
         tokenSource: tokenSource);
 
-    if (restartResponse.StatusCode != HttpStatusCode.OK)
+    if (response.StatusCode != HttpStatusCode.OK)
     {
         throw new ArgumentException($"Failed to restart VM: {response.StatusCode}: {response.Content}");
     }
@@ -491,7 +516,7 @@ public static async Task<string> RestartVm(
 ```
 
 > [!NOTE]
-> Support for Token Credential in the HTTP feature for Durable Functions .NET Isolated is available starting from version [v1.6.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask).
+> Support for Token Credential in the HTTP feature for Durable Functions .NET Isolated is available starting from version [v1.6.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.6.0).
 
 # [JavaScript](#tab/javascript)
 

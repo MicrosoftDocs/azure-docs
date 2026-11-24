@@ -54,7 +54,7 @@ This article helps you diagnose and fix common issues when building applications
 - [C#: Roslyn analyzer throws in foreach loops](#roslyn-analyzer-throws-in-foreach-loops)
 - [Java: Gradle permission denied error](#gradle-permission-denied-error)
 - [Java: OrchestratorBlockedException](#orchestratorblockedexception)
-- [Python: Retry policy requires max_retry_interval](#retry-policy-requires-max_retry_interval)
+- [Python: Optional retry interval cap](#optional-retry-interval-cap)
 - [Python: WhenAllTask exception behavior](#whenalltask-exception-behavior)
 - [Go: Missing module checksum entries](#missing-module-checksum-entries)
 - [Go: Migrate from earlier Go SDK versions](#migrate-from-earlier-go-sdk-versions)
@@ -86,7 +86,7 @@ These SDKs connect to the [Durable Task Scheduler](../scheduler/durable-task-sch
 | `CANCELLED: Cancelled on client` during shutdown | [Stream cancellation errors during shutdown](#stream-cancellation-errors-during-shutdown) |
 | `CS0419` / `VSTHRD105` warnings break build | [Source generator warnings break builds (C#)](#source-generator-warnings-break-builds) |
 | `OrchestratorBlockedException` (Java) | [OrchestratorBlockedException (Java)](#orchestratorblockedexception) |
-| Unhelpful error when using `retry_policy` (Python) | [Retry policy requires max_retry_interval (Python)](#retry-policy-requires-max_retry_interval) |
+| Unhelpful error when using `retry_policy` (Python) | [Optional retry interval cap (Python)](#optional-retry-interval-cap) |
 | `missing go.sum entry` (Go) | [Missing module checksum entries (Go)](#missing-module-checksum-entries) |
 
 ## Connection and setup issues
@@ -672,21 +672,18 @@ chmod +x gradlew
 
 #### OrchestratorBlockedException
 
-The `OrchestratorBlockedException` occurs when orchestrator code performs a blocking operation that the SDK detects as potentially nondeterministic. This exception is a safeguard to prevent orchestrator code from violating [orchestrator code constraints](../common/durable-task-code-constraints.md).
+The Java SDK uses `OrchestratorBlockedException` as normal control flow when `Task.await()` waits for an incomplete durable task. The executor catches it, yields execution, and replays the orchestrator when more work is available. It doesn't diagnose nondeterministic blocking I/O.
 
-Common causes:
-- Calling a blocking external API in orchestrator code.
-- Using `Thread.sleep()` directly instead of `ctx.createTimer()`.
-- Performing file or network I/O in orchestrator code.
+Don't catch this exception in orchestrator code, including broad handlers that catch its base type. A debugger configured to break on first-chance exceptions might stop here during a valid durable wait. Continue execution or adjust the debugger's exception settings. If the exception escapes the SDK executor and fails an invocation, investigate the SDK and host versions and capture the stack trace.
 
-Move all blocking or I/O operations into activities.
+File or network I/O and `Thread.sleep()` still violate [orchestrator code constraints](../common/durable-task-code-constraints.md). Use activities for I/O and durable timers for delays, but don't treat this exception alone as evidence of those violations.
 
 
 ### Python
 
-#### Retry policy requires max_retry_interval
+#### Optional retry interval cap
 
-When you configure a `retry_policy` in Python, omitting the `max_retry_interval` parameter produces an error that doesn't clearly indicate the cause. Always specify `max_retry_interval`:
+`max_retry_interval` defaults to `None` (no interval cap). Set it to a nonnegative `timedelta` to limit the delay between retries:
 
 ```python
 from datetime import timedelta
@@ -695,7 +692,7 @@ from durabletask import task
 retry_policy = task.RetryPolicy(
     max_number_of_attempts=3,
     first_retry_interval=timedelta(seconds=5),
-    max_retry_interval=timedelta(minutes=1),  # Required
+    max_retry_interval=timedelta(minutes=1),  # Optional interval cap
 )
 ```
 

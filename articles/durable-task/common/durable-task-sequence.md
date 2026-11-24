@@ -135,7 +135,7 @@ The `context` object contains a `df` durable orchestration context object that l
 
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js" range="1-14":::
 
-All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). This module enables you to write Durable Functions in JavaScript. To use the V4 node programming model, you need to install the `v3.x` version of `durable-functions`.
+All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). This module enables you to write Durable Functions in JavaScript. For the V4 Node.js programming model, follow the [Node.js v4 setup instructions](../durable-functions/quickstart-js-vscode.md).
 
 Two key differences between an orchestrator function and other JavaScript functions:
 
@@ -149,7 +149,7 @@ The `context` object contains a `df` durable orchestration context object that l
 # [Python](#tab/python)
 
 > [!NOTE]
-> Python Durable Functions are available for the Functions 3.0 runtime only.
+> Use Azure Functions 4.x with a [supported Python version](../../azure-functions/supported-languages.md).
 
 
 #### function.json
@@ -800,16 +800,6 @@ To interact with orchestrators, use `Start-DurableOrchestration` to start an orc
 
 # [Java](#tab/java)
 
-```java
-@FunctionName("StartHelloSequence")
-public HttpResponseMessage startHelloSequence(
-        @HttpTrigger(name = "req", methods = {HttpMethod.POST},
-            authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Void> request,
-        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
-
-    DurableTaskClient client = durableContext.getClient();
-    String instanceId = client.scheduleNewOrchestrationInstance("E1_HelloSequence");
 Use an HTTP-triggered client function to start the Java chaining orchestration:
 
 ```java
@@ -844,12 +834,22 @@ Start an orchestration from a client application. The client schedules the orche
 
 # [C#](#tab/csharp)
 
+This client setup requires the `Microsoft.DurableTask.Client.AzureManaged`, `Microsoft.Extensions.DependencyInjection`, and `Microsoft.Extensions.Logging` NuGet packages.
+
 ```csharp
 using System;
 using Microsoft.DurableTask.Client;
+using Microsoft.DurableTask.Client.AzureManaged;
+using Microsoft.Extensions.DependencyInjection;
 
 // Create the client
-var client = DurableTaskClientBuilder.UseDurableTaskScheduler(connectionString).Build();
+string connectionString = Environment.GetEnvironmentVariable("DTS_CONNECTION_STRING")
+    ?? "Endpoint=http://localhost:8080;TaskHub=default;Authentication=None";
+var services = new ServiceCollection();
+services.AddLogging();
+services.AddDurableTaskClient(builder => builder.UseDurableTaskScheduler(connectionString));
+await using ServiceProvider serviceProvider = services.BuildServiceProvider();
+DurableTaskClient client = serviceProvider.GetRequiredService<DurableTaskClient>();
 
 // Schedule a new orchestration instance
 string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(
@@ -898,6 +898,7 @@ Create the `DurableTaskAzureManagedClientBuilder` by using a connection string t
 
 ```python
 from durabletask.azuremanaged.client import DurableTaskSchedulerClient
+from durabletask.client import OrchestrationStatus
 
 # Create the client
 client = DurableTaskSchedulerClient(
@@ -918,7 +919,7 @@ print(f"Started orchestration with ID: {instance_id}")
 # Wait for the orchestration to complete
 result = client.wait_for_orchestration_completion(instance_id, timeout=60)
 
-if result and result.runtime_status == "COMPLETED":
+if result and result.runtime_status == OrchestrationStatus.COMPLETED:
     print(f"Orchestration completed with result: {result.serialized_output}")
 ```
 

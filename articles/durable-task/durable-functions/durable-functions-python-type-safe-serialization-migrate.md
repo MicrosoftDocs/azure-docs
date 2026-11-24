@@ -73,11 +73,12 @@ Adopt type-safe serialization in phases. Steps 1 and 2 are backward compatible a
 
 ### Step 1: Upgrade the packages
 
-Update your app's requirements to the minimum versions in [Prerequisites](#prerequisites). For example, in *requirements.txt*:
+Update your app's requirements to compatible versions that meet the minimums in [Prerequisites](#prerequisites). For example, in *requirements.txt*:
 
 ```text
-azure-functions>=2.2.0
-azure-functions-durable>=1.6.0
+azure-functions>=2.3.0; python_version >= "3.13"
+azure-functions==1.26.0; python_version < "3.13"
+azure-functions-durable>=1.7.0
 ```
 
 After you upgrade, your app continues to run in loose mode with no behavior change. You don't need to make any other changes to keep your existing app working.
@@ -139,7 +140,7 @@ After this step, run your app and watch the logs for type-mismatch warnings unde
 
 Strict mode changes the contract for custom types. In strict mode, `to_json()` must return a value that `json.dumps` can serialize natively, such as dicts, lists, strings, numbers, booleans, or `None`. You must explicitly serialize nested custom objects instead of returning them as instances, and `from_json()` must reconstruct them symmetrically.
 
-This requirement removes `__module__` strings from stored payloads at every nesting level, so deserialization no longer needs to resolve type names from payload data.
+This requirement avoids automatically generated custom-object envelopes inside your `to_json()` payload. The top-level custom-object envelope still contains `__class__`, `__module__`, and `__data__`. Strict decoding validates that envelope against the caller's expected type and calls that type's `from_json()` without importing a module named by the payload.
 
 ```python
 class Order:
@@ -162,18 +163,35 @@ class Order:
         )
 ```
 
-**Handle in-flight legacy payloads during rollout.** If your app might still read payloads that were written in loose mode before the upgrade, make `from_json` tolerate both shapes. A loose-encoded nested value arrives as an already-reconstructed instance (the legacy `object_hook` fires), while a strict-encoded value arrives as a plain dict.
+**Handle in-flight legacy payloads during rollout.** The decoding mode determines what `from_json()` receives. Loose decoding uses the legacy `object_hook` and can reconstruct nested objects. Strict decoding doesn't run that hook: it passes the raw top-level `__data__` to the expected type's `from_json()`. A nested object previously written in loose mode therefore arrives as a dictionary containing `__class__`, `__module__`, and `__data__`, while the new explicitly serialized nested payload is a plain dictionary.
+
+Before enabling strict mode, support both stored shapes using the known expected nested type. The following replacement for `Order.from_json()` validates a legacy envelope against `Hat` and unwraps only its data. It never imports a module or selects a type using payload strings:
 
 ```python
     @staticmethod
     def from_json(data):
         hat_data = data["hat"]
         if isinstance(hat_data, Hat):
-            hat = hat_data                 # loose-encoded: object already built
+            hat = hat_data  # already reconstructed by loose decoding
         else:
-            hat = Hat.from_json(hat_data)  # strict-encoded: plain dict
+            if not isinstance(hat_data, dict):
+                raise TypeError("Expected Hat data to be a dictionary")
+            envelope_keys = {"__class__", "__module__", "__data__"}
+            if envelope_keys.intersection(hat_data):
+                if (
+                    not envelope_keys.issubset(hat_data)
+                    or hat_data["__class__"] != Hat.__name__
+                    or hat_data["__module__"] != Hat.__module__
+                ):
+                    raise TypeError("Unexpected legacy Hat envelope")
+                hat_data = hat_data["__data__"]
+            if not isinstance(hat_data, dict):
+                raise TypeError("Expected Hat payload to be a dictionary")
+            hat = Hat.from_json(hat_data)
         return Order(item=data["item"], hat=hat)
 ```
+
+Test replay against representative persisted payloads before rollout. If you can't support both shapes, drain legacy instances or keep them on a separate version-compatible hub/app instead of enabling strict mode for their histories.
 
 ### Step 4: Enable strict mode
 

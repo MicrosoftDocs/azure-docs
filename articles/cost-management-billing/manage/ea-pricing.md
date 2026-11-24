@@ -6,7 +6,7 @@ ms.reviewer: megankairiss
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 07/31/2025
+ms.date: 11/19/2026
 ms.author: megankairiss
 service.tree.id: f1bb13fb-3d35-4f13-93af-d6137ba7f2e3
 ---
@@ -14,6 +14,9 @@ service.tree.id: f1bb13fb-3d35-4f13-93af-d6137ba7f2e3
 # View and download your organization's Azure pricing
 
 Azure customers with an Azure Enterprise Agreement (EA), Microsoft Customer Agreement (MCA), or Microsoft Partner Agreement (MPA) can view and download their pricing in the Azure portal. [Learn how to check your billing account type](#check-your-billing-account-type). Price sheets are available for download covering up to 13 months prior.
+
+> [!NOTE]
+> The price sheet that you download includes the `priceFactors` column at the end of the file. This column shows when a price comes from a benefit, such as a savings plan or Flex Plan. For more information, see [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md). Downloaded price sheets keep their schema version. To select a dataset version, such as 2026-10-01, use [exports](../costs/tutorial-improved-exports.md). For more information, see [Columns in downloaded price sheets](#columns-in-downloaded-price-sheets) and [Compare downloads and exports](../understand/compare-downloads-exports.md).
 
 ## Download pricing for an Enterprise Agreement
 
@@ -33,6 +36,21 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
 For billing periods January 2023 onwards, a new version of the Azure price sheet is available for download. The new version features a new schema. It's a .ZIP file to support large amounts of data.
 
 Azure reservation pricing is available in the Azure Price Sheet for the current billing period. If you want to maintain an ongoing record of Azure reservation pricing, we recommend that you download your Azure Price Sheet for each billing period.
+
+### Download pricing for an indirect Enterprise Agreement
+
+If a partner manages your enrollment (an indirect EA), partner administrators can download the price sheet from the billing profile.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for *Cost Management + Billing*.
+1. Select **Billing scopes**, and then select the billing account that you want to work with.
+1. Select **Billing profiles**, and then select the billing profile that you want to work with.
+1. Select **Usage + Charges**.
+1. For the month you want, select **Download**.
+1. On the **Download Usage + Charges** page, under **Price Sheet**, select **Prepare document**.
+1. When the file is ready to download, select **Download Azure price sheet**.
+
+For more information, see [View your usage summary details and download reports for EA enrollments](direct-ea-azure-usage-charges-invoices.md#download-usage-charges-csv-file).
 
 ## Download pricing for an MCA or MPA account
 
@@ -65,6 +83,18 @@ If you have an MCA, you can download pricing for the current billing period at t
 1. On the Downloads page, select **Download Azure price sheet for *Month* *Year***.  
     :::image type="content" source="./media/ea-pricing/download-price-sheet-month-year.png" alt-text="Screenshot that shows navigation to Download price sheet." lightbox="./media/ea-pricing/download-price-sheet-month-year.png":::
 1. Azure prepares the price sheet. When the file is ready, it downloads automatically.
+
+## Columns in downloaded price sheets
+
+You can't select a dataset version for a downloaded price sheet, and its version doesn't change when a new dataset version is released for exports. When new columns are added, they're added at the end of the file. If you process the file with scripts or reports, read columns by name instead of by position.
+
+| Agreement type | Column descriptions | Flex Plan prices | Columns at the end of the file |
+| --- | --- | --- | --- |
+| EA (direct and indirect) | [EA price sheet schema](../dataset-schema/price-sheet-ea.md) | Not available | `priceFactors` |
+| MCA | [Terms in your MCA price sheet](mca-understand-pricesheet.md) | A row for each Flex Plan offer that covers a meter, with `priceType` set to `FlexPlan` | `priceFactors` |
+| MPA | [Terms in your MCA price sheet](mca-understand-pricesheet.md) | Same as MCA | `priceFactors` |
+
+In a Flex Plan price row, `priceFactors` includes the product code of the Flex Plan offer. For more information, see [Review Flex Plan prices in your price sheet](../benefits/flex-plan/review-flex-plan-prices.md) and [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md). For more information about how downloads differ from exports, see [Compare downloads and exports](../understand/compare-downloads-exports.md).
 
 ## Estimate costs with the Azure pricing calculator
 
