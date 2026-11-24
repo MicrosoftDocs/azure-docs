@@ -1,11 +1,11 @@
 ---
 title: Monitor Azure File Sync Cloud Tiering
 description: Use metrics to monitor your cloud tiering policies. You can monitor files synced, server cache size, cache hit rate, and more.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 08/12/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As a system administrator, I want to monitor cloud tiering metrics for Azure File Sync through both the server endpoint and Azure Monitor, so that I can optimize storage efficiency and improve performance.
 ---
 

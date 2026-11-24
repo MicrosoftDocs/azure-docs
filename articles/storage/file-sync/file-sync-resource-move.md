@@ -1,11 +1,11 @@
 ---
 title: Azure File Sync Resource Moves and Topology Changes
 description: Learn how to move sync resources across resource groups, subscriptions, and Microsoft Entra tenants.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 08/04/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to move Azure File Sync resources across resource groups and subscriptions, so that I can maintain an organized and efficient resource structure while ensuring uninterrupted data synchronization."
 ---

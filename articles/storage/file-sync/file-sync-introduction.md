@@ -1,11 +1,11 @@
 ---
 title: What is Azure File Sync?
 description: An overview of Azure File Sync, a service that centralizes file shares in Azure Files while maintaining fast local access on Windows servers through cloud tiering and multi-site sync.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 08/17/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As an IT administrator looking to optimize file storage, I want to implement Azure File Sync so that I can centralize my file shares in the cloud while maintaining quick local access and ensuring data resilience across multiple sites."
 ---
 

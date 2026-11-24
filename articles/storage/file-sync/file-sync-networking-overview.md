@@ -1,11 +1,11 @@
 ---
 title: Azure File Sync networking considerations
 description: Learn how to configure networking for Azure File Sync, including proxy servers, firewalls and service tags, VPN and ExpressRoute tunneling, private endpoints, and SMB over QUIC.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 11/09/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As an IT administrator, I want to configure networking for Azure File Sync on my on-premises Windows Server, so that I can efficiently cache files while maintaining secure and optimized access to Azure file shares.
 ---
 

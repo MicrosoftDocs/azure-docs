@@ -1,11 +1,11 @@
 ---
 title: Replace an Azure File Sync Server
 description: Learn how to replace an Azure File Sync server due to hardware decommissioning or end of support for old operating systems. 
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/24/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As an IT administrator, I want to replace an Azure File Sync server due to hardware decommissioning, so that I can ensure continuous file synchronization and support for the latest operating systems."
 ---
 

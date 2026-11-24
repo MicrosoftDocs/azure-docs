@@ -1,11 +1,11 @@
 ---
 title: Azure File Sync Throttling Limits
 description: Understand how Azure File Sync implements throttling on key APIs for individual resources and within a storage sync service.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 10/21/2025
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As an IT administrator, I want to understand Azure File Sync throttling behavior so I can avoid throttling and maintain optimal performance for my file shares."
 ---
 

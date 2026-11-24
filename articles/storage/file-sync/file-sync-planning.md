@@ -1,11 +1,11 @@
 ---
 title: Plan an Azure File Sync deployment
 description: Plan your Azure File Sync deployment by choosing servers, sync topologies, networking, cloud tiering policies, and Windows Server configurations.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 08/17/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: references_regions
 # Customer intent: "As an IT administrator, I want to plan for an Azure File Sync deployment so that I can effectively manage on-premises file caching and ensure seamless integration with cloud file shares."
 ---

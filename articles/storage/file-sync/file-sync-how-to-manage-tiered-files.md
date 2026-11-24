@@ -1,11 +1,11 @@
 ---
 title: How to manage Azure File Sync tiered files
 description: Learn tips and PowerShell commands to help manage cloud tiering with Azure File Sync.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/23/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As an IT administrator, I want to manage cloud tiering settings and file exclusions in Azure File Sync, so that I can optimize storage usage and ensure important files remain accessible locally.
 ---
 
