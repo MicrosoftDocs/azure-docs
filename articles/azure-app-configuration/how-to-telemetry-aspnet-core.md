@@ -80,7 +80,7 @@ In this tutorial, you use telemetry in your ASP.NET Core application to track fe
     > [!WARNING]
     > Authentication must run before the targeting middleware so the signed-in user's identity is available when associating feature evaluations and custom events with a targeting ID.
 
-### Track custom events
+## Track custom events
 
 Use the existing `ILogger` in *Index.cshtml.cs* to record when a signed-in user likes a quote. Azure Monitor maps a log with the `microsoft.custom_event.name` attribute to an Application Insights custom event.
 
@@ -139,7 +139,7 @@ Use the existing `ILogger` in *Index.cshtml.cs* to record when a signed-in user 
     > [!NOTE]
     > The request invokes `OnPostHeartQuoteAsync` and includes the antiforgery token required by Razor Pages. A `Liked` event is recorded when a signed-in user selects the heart, but not when they deselect it.
 
-### Build and run the app
+## Build and run the app
 
 1. Copy your Application Insights resource's connection string from its **Overview** page in the Azure portal. From your application's project directory, set the connection string as a user secret.
 
