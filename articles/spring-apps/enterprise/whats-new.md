@@ -1,8 +1,8 @@
 ---
 title: What's New in Azure Spring Apps?
 description: Learn about the new features and recent improvements in Azure Spring Apps.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: hangwan
 ms.service: azure-spring-apps
 ms.topic: whats-new
