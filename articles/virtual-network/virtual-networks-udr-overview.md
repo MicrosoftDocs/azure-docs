@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 11/11/2026
+ms.date: 11/24/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network engineer, I want to configure and customize traffic routing in an Azure virtual network, so that I can optimize connectivity between my virtual and on-premises resources."
@@ -100,7 +100,7 @@ You can specify the following next hop types when you create a UDR:
 
     You can define a route with 0.0.0.0/0 as the address prefix and a next hop type of virtual appliance. This configuration allows the appliance to inspect the traffic and determine whether to forward or drop the traffic. If you intend to create a UDR that contains the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first.
 
-    * **Virtual appliance ECMP**: Distributes traffic across multiple network virtual appliances by using equal-cost multipath (ECMP) routing. Specify between 2 and 64 next hop IP addresses with the `VirtualApplianceEcmp` next hop type. The subscription must have the `Microsoft.Network/AllowEcmpInRoute` feature registered. For requirements and configuration examples, see [Equal-cost multipath routing for user-defined routes](#equal-cost-multipath-routing-for-user-defined-routes-public-preview).
+    * **Virtual appliance ECMP**: Distributes traffic across multiple network virtual appliances by using equal-cost multipath (ECMP) routing. Specify between 2 and 16 next hop IP addresses with the `VirtualApplianceEcmp` next hop type. The subscription must have the `Microsoft.Network/AllowEcmpInRoute` feature registered. For requirements and configuration examples, see [Equal-cost multipath routing for user-defined routes](#equal-cost-multipath-routing-for-user-defined-routes-public-preview).
 
 * **Virtual network gateway**: User-defined routes with next hop type Virtual Network Gateway allow you to route traffic to a Virtual Network's gateway. A Virtual Network has a single gateway automatically set by the underlying software-defined networking platform based on your deployment. User-defined routes with next hop Virtual Network Gateway are supported only when the Virtual Network's gateway is a **VPN gateway (and not ExpressRoute, RouteServer or Virtual WAN hub router)**.  
    * For Virtual Networks with a VPN Gateway, ExpressRoute Gateway and/or Route Server:
@@ -124,7 +124,7 @@ You can't specify **Virtual network peering** or `VirtualNetworkServiceEndpoint`
 
 ### Equal-cost multipath routing for user-defined routes (public preview)
 
-Equal-cost multipath (ECMP) routing distributes traffic across multiple appliances, including network virtual appliances (NVAs) and [Azure Virtual Network routing appliances](virtual-network-routing-appliance-overview.md), through a single user-defined route (UDR). Use the `VirtualApplianceEcmp` next hop type with 2 to 64 next hop IP addresses instead of creating multiple routes for the same destination prefix.
+Equal-cost multipath (ECMP) routing distributes traffic across multiple appliances, including network virtual appliances (NVAs) and [Azure Virtual Network routing appliances](virtual-network-routing-appliance-overview.md), through a single user-defined route (UDR). Use the `VirtualApplianceEcmp` next hop type with 2 to 16 next hop IP addresses instead of creating multiple routes for the same destination prefix.
 
 Azure uses the [normal route selection process](#how-azure-selects-routes-for-traffic-routing) to select the route, then distributes traffic among its next hops. ECMP doesn't provide appliance-level load balancing or failover.
 
@@ -138,7 +138,7 @@ For setup steps, see [Configure ECMP routing in the route table tutorial](tutori
 
 #### Limitations
 
-- Each route supports 2 to 64 next hop IP addresses.
+- Each route supports 2 to 16 next hop IP addresses.
 - The REST `nextHop` object requires `nextHopType` to be `VirtualApplianceEcmp`. In Azure CLI, use `--next-hop` with a `next-hop-ip-addresses` list, not `--next-hop-ip-address`.
 - ECMP doesn't synchronize session state between NVAs or ensure return-path symmetry. Check stateful appliance requirements with the vendor.
 - Multiple next hops don't guarantee failover. Configure appliance health checks and recovery behavior for your design.
