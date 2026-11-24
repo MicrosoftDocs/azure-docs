@@ -53,7 +53,7 @@ This tutorial requires that your application:
 
 ## Assess the application
 
-Before you create a container image, inventory the application's runtime, operating system, configuration, storage, networking, and external service dependencies. Use [Azure Migrate application and code assessment for Java](./appcat/java.md) to identify changes that help prepare the application for Azure Container Apps.
+Before you create a container image, inventory the application's runtime, operating system, configuration, storage, networking, and external service dependencies. Use [Azure Catalyst application and code assessment for Java](./appcat/java.md) to identify changes that help prepare the application for Azure Container Apps.
 
 Review the following areas:
 

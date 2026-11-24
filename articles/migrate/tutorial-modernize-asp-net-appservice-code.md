@@ -1,6 +1,6 @@
 ---
 title: Modernize ASP.NET web apps to Azure App Service code
-description: At-scale migration of ASP.NET web apps to Azure App Service using Azure Migrate
+description: At-scale migration of ASP.NET web apps to Azure App Service using Azure Catalyst
 author: Jeronika-MS
 ms.author: nikitabajaj
 ms.service: azure-migrate
@@ -16,7 +16,7 @@ ms.custom:
 
 # Modernize ASP.NET web apps to Azure App Service code
 
-This article shows you how to migrate ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using Azure Migrate.
+This article shows you how to migrate ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using Azure Catalyst.
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible and don't show all possible settings and paths.
@@ -24,7 +24,7 @@ This article shows you how to migrate ASP.NET web apps at-scale to [Azure App Se
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Migrate ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using integrated flow in Azure Migrate.
+> * Migrate ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using integrated flow in Azure Catalyst.
 > * Change migration plans for web apps.
 > * Change App Service plan for web apps.
 
@@ -40,7 +40,7 @@ Before you begin this tutorial, you should:
 
 ## Migrate web apps
 
-Once the web apps are assessed, you can migrate them using the integrated migration flow in Azure Migrate.
+Once the web apps are assessed, you can migrate them using the integrated migration flow in Azure Catalyst.
 
   - You can select up to five App Service Plans as part of a single migration.  
   - Currently, we don't support selecting existing App Service Plans during the migration flow. 
@@ -50,7 +50,7 @@ Once the web apps are assessed, you can migrate them using the integrated migrat
   - Currently, the migration flow doesn't support VNet integrated scenarios.
 
 To migrate the web apps, perform these steps:
-1. In the Azure Migrate project > **Execute** > **Migration**, select **Replicate**.
+1. In the Azure Catalyst project > **Execute** > **Migration**, select **Replicate**.
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/select-replicate.png" alt-text="Screenshot of the Replicate option selected.":::
 
@@ -93,7 +93,7 @@ To migrate the web apps, perform these steps:
      >    :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/app-service-plan-edit-details.png" alt-text="Screenshot of App Service Plan Edit details.":::
 
 1. Once the App Service Plans are verified, select **Next: Review + create**.
-1. Azure Migrate will now validate the migration settings. Validation may take a few minutes to run. Once complete, review the details and select **Migrate**. 
+1. Azure Catalyst will now validate the migration settings. Validation may take a few minutes to run. Once complete, review the details and select **Migrate**. 
 
     > [!NOTE]
     > To download the migration summary, select the **Download CSV** button.

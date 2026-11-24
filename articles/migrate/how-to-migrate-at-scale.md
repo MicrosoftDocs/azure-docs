@@ -1,6 +1,6 @@
 ---
-title: Automate migration of machines in Azure Migrate
-description: Describes how to use scripts to migrate a large number of machines in Azure Migrate
+title: Automate migration of machines in Azure Catalyst
+description: Describes how to use scripts to migrate a large number of machines in Azure Catalyst
 author: sunishvohra-ms 
 ms.author: sunishvohra
 ms.service: azure-migrate
@@ -42,7 +42,7 @@ Before you get started, you need to do the following steps:
     - Target Network Security Group and its Resource Group
 - Ensure that you have decided on the following properties of the target VM
     - Target VM name
-    - Target VM size in Azure (can be decided using Azure Migrate assessment)
+    - Target VM size in Azure (can be decided using Azure Catalyst assessment)
     - Private IP Address of the primary NIC in the VM
 - Download the scripts from [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repo on GitHub
 

@@ -1,6 +1,6 @@
 ---
-title: Generate and deploy Platform Landing Zone with Azure Migrate 
-description: Learn how to generate and deploy Platform Landing Zone with Azure Migrate to set up governance, networking, and core Azure services for migration readiness.
+title: Generate and deploy Platform Landing Zone with Azure Catalyst 
+description: Learn how to generate and deploy Platform Landing Zone with Azure Catalyst to set up governance, networking, and core Azure services for migration readiness.
 ms.topic: how-to
 author: piyushdhore-microsoft  
 ms.author: piyushdhore
@@ -9,29 +9,29 @@ ms.date: 03/12/2026
 ms.update-cycle: 180-days
 ms.reviewer: v-gajeronika
 monikerRange: migrate
-# Customer intent: This article helps customers generate, customize, and deploy a Platform Landing Zone using Azure Migrate to establish core Azure foundations as part of migration planning.
+# Customer intent: This article helps customers generate, customize, and deploy a Platform Landing Zone using Azure Catalyst to establish core Azure foundations as part of migration planning.
 ---
 
-# Generate and deploy a Platform Landing Zone using Azure Migrate agent (preview)
+# Generate and deploy a Platform Landing Zone using Azure Catalyst agent (preview)
 
-This article describes how to generate a **Platform Landing Zone (PLZ)** by using **Azure Migrate**. It also explains how to iterate on the generated configuration before deploying it with **Visual Studio Code**, **GitHub Copilot Chat**, and the **Azure Model Context Protocol (MCP) server**.
+This article describes how to generate a **Platform Landing Zone (PLZ)** by using **Azure Catalyst**. It also explains how to iterate on the generated configuration before deploying it with **Visual Studio Code**, **GitHub Copilot Chat**, and the **Azure Model Context Protocol (MCP) server**.
 
 A Platform Landing Zone provides foundational Azure capabilities such as resource organization, governance, identity, networking, and management. Teams use it as a standardized baseline for deploying workloads in Azure.
 
 ## Workflow overview
 
-This workflow outlines how to generate a **Platform Landing Zone** from Azure Migrate and then iterate over it and deploy it using Visual Studio Code. The workflow consists of two phases:
+This workflow outlines how to generate a **Platform Landing Zone** from Azure Catalyst and then iterate over it and deploy it using Visual Studio Code. The workflow consists of two phases:
 
-- **Generate the Platform Landing Zone**: Generate the design document and Terraform-based infrastructure as code from Azure Migrate.
+- **Generate the Platform Landing Zone**: Generate the design document and Terraform-based infrastructure as code from Azure Catalyst.
 - **Iterate and deploy the Platform Landing Zone**: Iterate on and deploy the generated landing zone from Visual Studio Code by using the Azure Model Context Protocol (MCP) server.
 
-Generation is initiated from Azure Migrate. Iteration and deployment are performed from Visual Studio Code.
+Generation is initiated from Azure Catalyst. Iteration and deployment are performed from Visual Studio Code.
 
 ## Prerequisites
 
 Before you begin, ensure that you have the following:
 
-- An Azure Migrate project.
+- An Azure Catalyst project.
 - Visual Studio Code installed.
 - GitHub Copilot Chat enabled in Visual Studio Code.
 - An Azure subscription with permissions to create and deploy resources required for the platform landing zone.
@@ -58,14 +58,16 @@ These permissions are required to create resources, assign policies, and configu
 
 ## End-to-end Platform Landing Zone workflow
 
-The following steps show how to generate a **Platform Landing Zone** using Azure Migrate and then iterate and deploy it using **Visual Studio Code** with **GitHub Copilot Chat** and the **Azure MCP Server**.
+The following steps show how to generate a **Platform Landing Zone** using Azure Catalyst and then iterate and deploy it by using **Visual Studio Code** with **GitHub Copilot Chat** and the **Azure MCP Server**.
 
-### Generate the Platform Landing Zone in Azure Migrate
+<a name="generate-the-platform-landing-zone-in-azure-migrate"></a>
 
-This section describes how to generate a Platform Landing Zone in Azure Migrate and review the generated artifacts in Visual Studio Code.
+### Generate the Platform Landing Zone in Azure Catalyst
 
-1. In the Azure portal, open **Azure Migrate** and then go to your Azure Migrate project.
-1. Start the **Azure Migrate Agent** experience.
+This section describes how to generate a Platform Landing Zone in Azure Catalyst and review the generated artifacts in Visual Studio Code.
+
+1. In the Azure portal, open **Azure Catalyst** and then go to your Azure Catalyst project.
+1. Start the **Azure Catalyst Agent** experience.
 1. Ask the agent to create a Platform Landing Zone by entering:
     *I want to create a Platform Landing Zone (or PLZ)*.
 
@@ -143,7 +145,7 @@ A typical deployment workflow includes:
 
 ## Design document generation
 
-The design document included in the platform landing zone package uses a template-based approach. Azure Migrate generates the document based on the selected platform landing zone configuration you select, such as region type, network architecture, firewall type, and region selection. The output is a customized Markdown document that matches your chosen configuration.
+The design document included in the platform landing zone package uses a template-based approach. Azure Catalyst generates the document based on the selected platform landing zone configuration, such as region type, network architecture, firewall type, and region selection. The output is a customized Markdown document that matches your chosen configuration.
 
 ## Next steps
 

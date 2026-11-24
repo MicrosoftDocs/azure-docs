@@ -1,6 +1,6 @@
 ---
-title: Manage Tags in Azure Migrate
-description: Tags in Azure Migrate enable efficient workload organization. Learn how to add and manage tags to improve migration planning and reporting.
+title: Manage Tags in Azure Catalyst
+description: Tags in Azure Catalyst enable efficient workload organization. Learn how to add and manage tags to improve migration planning and reporting.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: how-to
@@ -11,34 +11,34 @@ ms.update-cycle: 365-days
 # Customer intent: As a cloud architect, I want to apply custom tags to workloads so that I can group resources by department, cost center, or compliance needs.
 ---
 
-# Create and manage Tags for Workloads in Azure Migrate
+# Create and manage Tags for Workloads in Azure Catalyst
 
-Tags in Azure Migrate help you add business and operational context to discovered workloads. By creating and managing tags, you can classify, group, and filter workloads based on attributes such as environment, migration intent, department, or ownership. Tagging enables more accurate scoping of assessments, business cases, and reports, and supports effective migration planning across your inventory.
+Tags in Azure Catalyst help you add business and operational context to discovered workloads. By creating and managing tags, you can classify, group, and filter workloads based on attributes such as environment, migration intent, department, or ownership. Tagging enables more accurate scoping of assessments, business cases, and reports, and supports effective migration planning across your inventory.
 
 In this article, you learn how to:
 
-- Understand reserved and custom tags in Azure Migrate
-- After tags are created, you can modify or delete them later to keep discovered workloads up to date in Azure Migrate.
-- Using Azure Migrate tags to scope assessments, business cases, and reports.
+- Understand reserved and custom tags in Azure Catalyst
+- After tags are created, you can modify or delete them later to keep discovered workloads up to date in Azure Catalyst.
+- Using Azure Catalyst tags to scope assessments, business cases, and reports.
 
 ## Prerequisites
 
 Before you begin
 
-- Ensure that you have an Azure Migrate project with discovery completed using one of the following methods:
+- Ensure that you have an Azure Catalyst project with discovery completed using one of the following methods:
     - Azure Migration and modernization center
-    - Azure Migrate appliance
+    - Azure Catalyst appliance
     - CSV import
     - RVTools import
-- Verify that at least one workload has been successfully discovered and is visible in the Azure Migrate inventory.
+- Verify that at least one workload has been successfully discovered and is visible in the Azure Catalyst inventory.
 
 ## Reserved
 
-Use reserved attributes to define the environment and migration intent for workloads so Azure Migrate can apply the correct sizing logic, pricing model, and prioritization during analysis. 
+Use reserved attributes to define the environment and migration intent for workloads so Azure Catalyst can apply the correct sizing logic, pricing model, and prioritization during analysis. 
 
 ### Environment
 
-Use the environment value to classify workloads as Prod, Dev, Test, or UAT. Setting this value allows Azure Migrate to apply appropriate pricing, recommend suitable target SKUs, and prioritize workloads during migration planning.
+Use the environment value to classify workloads as Prod, Dev, Test, or UAT. Setting this value allows Azure Catalyst to apply appropriate pricing, recommend suitable target SKUs, and prioritize workloads during migration planning.
 
 | Value | Effect on downstream analysis |
 |---|---|
@@ -88,12 +88,12 @@ You can add both reserved tags and custom tags to workloads by using one of the 
 
 ### Add tags in the Azure portal
 
-You can use the Azure portal to add reserved and custom tags to discovered workloads directly from the Azure Migrate inventory. 
+You can use the Azure portal to add reserved and custom tags to discovered workloads directly from the Azure Catalyst inventory. 
 
 To add tags, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the **Azure portal**, search for **Azure Migrate**, and then go to **Migrate** dashboard. 
+1. In the **Azure portal**, search for **Catalyst**, and then go to **Catalyst** dashboard. 
 1. Go to **Inventory** pane.
 
     :::image type="content" source="./media/resource-tagging/all-inventory.png" alt-text="Screenshot shows all the tags in the inventory." lightbox="./media/resource-tagging/all-inventory.png":::
@@ -123,7 +123,7 @@ You can use CSV export and import to add or update tags in bulk, which is useful
 
 To add tags, follow these steps:
 
-1. In the Azure Migrate project, go to the **Inventory** pane. 
+1. In the Azure Catalyst project, go to the **Inventory** pane. 
 1. Select **Export** and then select **All inventory**.
 
     :::image type="content" source="./media/resource-tagging/export-all-inventory.png" alt-text="Screenshot shows inventory list with Export Data tab expanded to show All inventory option." lightbox="./media/resource-tagging/export-all-inventory.png":::

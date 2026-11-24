@@ -1,6 +1,6 @@
 ---
 title: Redeploy servers to Azure VMs with scoped data copy
-description: Learn how to redeploy servers to Azure VMs with scoped data copy in Azure catalyst
+description: Learn how to redeploy servers to Azure VMs with scoped data copy in Azure Catalyst
 author: dhananjayanr98
 ms.author: dhananjayanr
 ms.topic: how-to

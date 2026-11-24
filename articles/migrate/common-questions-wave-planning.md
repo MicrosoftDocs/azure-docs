@@ -1,6 +1,6 @@
 ---
-title: Common questions about wave planning in Azure Migrate
-description: Get answers to common questions about wave plan recommendations, configuration, downloads, and commitment in Azure Migrate.
+title: Common questions about wave planning in Azure Catalyst
+description: Get answers to common questions about wave plan recommendations, configuration, downloads, and commitment in Azure Catalyst.
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
@@ -11,15 +11,15 @@ monikerRange: migrate
 # Customer intent: As a migration lead, I want answers to common wave planning questions so that I can review recommendations, update proposed assignments, and commit waves with confidence.
 ---
 
-# Wave planning in Azure Migrate (preview): Common questions
+# Wave planning in Azure Catalyst (preview): Common questions
 
-This article answers common questions about wave planning in Azure Migrate. For concepts and planning logic, see [Wave planning overview](wave-plan-overview.md). For portal instructions, see [Configure a wave plan](how-to-configure-wave-plan.md).
+This article answers common questions about wave planning in Azure Catalyst. For concepts and planning logic, see [Wave planning overview](wave-plan-overview.md). For portal instructions, see [Configure a wave plan](how-to-configure-wave-plan.md).
 
 ## General
 
 ### Is wave planning mandatory for migrations?
 
-No. You can use Azure Migrate migration capabilities without generating a wave plan. Wave planning helps you review and configure recommended migration batches before committing waves.
+No. You can use Azure Catalyst migration capabilities without generating a wave plan. Wave planning helps you review and configure recommended migration batches before committing waves.
 
 ### What is the difference between a wave plan and a committed wave?
 
@@ -125,7 +125,7 @@ Yes. Commit approved waves in the recommended sequence while continuing to revie
 
 ### Where do I go after committing waves?
 
-In your Azure Migrate project, select **Execute** > **Waves**. Migration execution and tracking take place separately from wave planning.
+In your Azure Catalyst project, select **Execute** > **Waves**. Migration execution and tracking take place separately from wave planning.
 
 ## Related content
 
