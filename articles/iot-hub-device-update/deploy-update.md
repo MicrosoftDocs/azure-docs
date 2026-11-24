@@ -1,8 +1,8 @@
 ---
 title: Deploy an update by using Azure Device Update for IoT Hub | Microsoft Docs
 description: Learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 08/07/2026
 ms.topic: how-to
 ms.service: azure-iot-hub

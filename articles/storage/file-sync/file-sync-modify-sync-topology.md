@@ -1,11 +1,11 @@
 ---
 title: Modify Azure File Sync Topology
 description: Guidance on how to modify your Azure File Sync topology and avoid errors or data loss.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 08/04/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As an IT administrator managing Azure File Sync, I want to modify the sync topology of my server endpoints, so that I can ensure data integrity and minimize the risk of errors or data loss during the changes."
 ---
 

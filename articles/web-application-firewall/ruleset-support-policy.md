@@ -2,8 +2,8 @@
 title: Managed Ruleset Support Policy
 titleSuffix: Azure Web Application Firewall
 description: Learn about Azure WAF's managed ruleset support policy, including supported versions, upgrade recommendations, and extended support timelines.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 06/02/2026
@@ -123,7 +123,7 @@ The following tables summarize the current support status and planned end of sup
 | **DRS 2.2** | February 2026 | Supported | Not defined yet | Not defined yet |
 | **DRS 2.1** | October 2023 | Supported | Not defined yet | Not defined yet |
 | **DRS 2.0** | August 2021 | Supported | Not defined yet | Not defined yet. Support ends one year after the release of the **first** DRS version newer than DRS 2.2 |
-| **DRS 1.2** <br> **DRS 1.1** <br> **DRS 1.0** | N/A | Supported | June 1, 2026 | February 26, 2027 |
+| **DRS 1.2** <br> **DRS 1.1** <br> **DRS 1.0** | N/A | Supported | June 1, 2026 | March 26, 2027 |
 
 ::: zone-end
 

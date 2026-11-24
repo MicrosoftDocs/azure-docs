@@ -4,8 +4,8 @@ description: Learn how to monitor Azure File Sync using Azure Monitor, including
 ms.date: 05/07/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: khdownie
-ms.author: kendownie
+author: normesta
+ms.author: normesta
 ms.service: azure-file-storage
 # Customer intent: As an IT administrator, I want to monitor Azure File Sync using Azure Monitor, so that I can ensure the health and performance of the file sync process and receive alerts for potential issues.
 ---

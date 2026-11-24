@@ -3,12 +3,12 @@ title: Work with blob containers from PowerShell
 titleSuffix: Azure Storage
 description: Learn how to manage Azure storage containers using Azure PowerShell
 services: storage
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 10/03/2022
-ms.author: shaas
+ms.author: schoag
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to manage Azure blob storage containers using PowerShell, so that I can efficiently create, list, and manipulate storage resources while maintaining data organization and access control."

@@ -1,8 +1,8 @@
 ---
 title: Web Application Firewall on Front Door Sensitive Data Protection
 description: Learn about sensitive data protection in Azure Web Application Firewall (WAF) for Azure Front Door.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 06/24/2024

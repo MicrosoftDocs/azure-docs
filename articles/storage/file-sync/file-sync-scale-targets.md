@@ -1,11 +1,11 @@
 ---
 title: Azure File Sync Scale Targets
 description: Learn about the scalability and performance targets for Azure File Sync.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 11/03/2025
-ms.author: kendownie
+ms.author: normesta
 ms.custom: references_regions
 ---
 

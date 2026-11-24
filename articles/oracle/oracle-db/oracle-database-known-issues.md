@@ -1,12 +1,12 @@
 ---
 title: Known issues in Oracle AI Database@Azure
 description: Learn about known issues in Oracle AI Database@Azure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: troubleshooting
 ms.date: 08/29/2024
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: As an IT administrator, I want to identify and resolve known issues in Oracle AI Database provisioning on Azure, so that I can ensure efficient setup and management of database resources without encountering errors.
 ---
 

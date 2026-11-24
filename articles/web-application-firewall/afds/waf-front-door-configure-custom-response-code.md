@@ -1,8 +1,8 @@
 ---
 title: Configure custom responses for Azure Front Door WAF policy
 description: Learn how to configure a custom response code and message when Azure Web Application Firewall blocks a request.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 05/08/2025

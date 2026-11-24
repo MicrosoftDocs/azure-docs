@@ -1,10 +1,10 @@
 ---
 title: Understand Azure Container Storage Billing
 description: Understand the billing and pricing model for Azure Container Storage, including backing storage costs and applicable service fees for orchestration.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.date: 10/07/2026
-ms.author: kendownie
+ms.author: schoag
 ms.topic: concept-article
 # Customer intent: "As a cloud solutions architect, I want to understand the billing and pricing model for Azure Container Storage, so that I can accurately estimate costs based on backing storage options and service fees for different deployment scenarios."
 ---

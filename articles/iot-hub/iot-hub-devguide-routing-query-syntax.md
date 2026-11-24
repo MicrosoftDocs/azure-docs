@@ -1,9 +1,9 @@
 ---
 title: Query on Azure IoT Hub message routing
 description: Learn about the IoT Hub message routing query language that you can use to apply rich queries to messages to receive the data that matters to you. 
-author: sethmanheim
+author: dimatx
 
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 11/10/2026

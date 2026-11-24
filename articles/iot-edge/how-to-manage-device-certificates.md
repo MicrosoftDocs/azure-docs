@@ -2,8 +2,8 @@
 title: Manage IoT Edge certificates
 titleSuffix: Azure IoT Edge
 description: How to install and manage certificates on an Azure IoT Edge device to prepare for production deployment. 
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 04/13/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge

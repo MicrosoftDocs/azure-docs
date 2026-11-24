@@ -1,12 +1,12 @@
 ---
 title: Resources for Azure Spring Apps | Microsoft Docs
 description: Azure Spring Apps resource list
-author: KarlErickson
+author: sandeep-sen
 ms.service: azure-spring-apps
 ms.topic: reference
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
-ms.author: karler
+ms.author: sandeepsen
 ms.custom: devx-track-java
 ---
 

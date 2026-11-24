@@ -2,8 +2,8 @@
 title: Enable System-Assigned Managed Identity for Applications in Azure Spring Apps
 titleSuffix: Azure Spring Apps Enterprise plan
 description: How to enable system-assigned managed identity for applications.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to

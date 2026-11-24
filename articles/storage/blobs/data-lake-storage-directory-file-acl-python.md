@@ -2,9 +2,9 @@
 title: Use Python to manage data in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use Python to manage directories and files in a storage account that has hierarchical namespace enabled.
-author: stevenmatthew
+author: schoag-msft
 
-ms.author: shaas
+ms.author: schoag
 ms.service: azure-data-lake-storage
 ms.date: 06/04/2026
 ms.topic: how-to

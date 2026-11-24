@@ -2,8 +2,8 @@
 title: Job diagram and metrics in the Azure portal
 description: Explore the Azure Stream Analytics job diagram in the Azure portal to view query steps, streaming nodes, and metrics so you can troubleshoot and optimize jobs.
 titleSuffix: Azure Stream Analytics
-author: spelluru
-ms.author: spelluru
+author: skommajo
+ms.author: skommajosula
 ms.service: azure-stream-analytics
 ms.topic: concept-article
 ms.date: 08/25/2026

@@ -1,8 +1,8 @@
 ---
 title:  Tutorial - Integrate Azure Spring Apps with Azure Load Balance Solutions
 description: How to integrate Azure Spring Apps with Azure Load Balance Solutions
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/19/2025

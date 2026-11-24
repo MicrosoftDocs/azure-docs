@@ -1,8 +1,8 @@
 ---
 title: Optimize Application Observability for Azure Spring Apps
 description: Learn how to observe the application of Azure Spring Apps.
-author: karlerickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: how-to

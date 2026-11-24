@@ -1,10 +1,10 @@
 ---
 title: Use Grafana Dashboards with Azure Container Storage
 description: Learn how to use the default dashboard for Azure Container Storage in Azure Managed Grafana for monitoring with Azure Monitor.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.date: 12/17/2025
-ms.author: kendownie
+ms.author: schoag
 ms.topic: how-to
 # Customer intent: "As a Kubernetes administrator, I want to understand how to use the default dashboard for Azure Container Storage in Azure Managed Grafana for monitoring with Azure Monitor."
 ---

@@ -1,8 +1,8 @@
 ---
 title: Migrate Azure Spring Apps to Azure Kubernetes Service
 description: Provides an overview of migrating from Azure Spring Apps to Azure Kubernetes Service.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article

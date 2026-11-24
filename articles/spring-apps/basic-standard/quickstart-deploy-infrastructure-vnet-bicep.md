@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Provision Azure Spring Apps Using Bicep
 description: This quickstart shows you how to use Bicep to deploy an Azure Spring Apps cluster into an existing virtual network.
-author: KarlErickson
+author: sandeep-sen
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.custom:
@@ -9,7 +9,7 @@ ms.custom:
   - mode-other
   - devx-track-bicep
   - build-2025
-ms.author: karler
+ms.author: sandeepsen
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ---

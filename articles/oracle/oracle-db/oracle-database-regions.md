@@ -1,13 +1,13 @@
 ---
 title: Region availability for Oracle AI Database@Azure
 description: Learn about region availability for Oracle AI Database@Azure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: concept-article
 ms.date: 9/24/2024
 ms.custom: references-regions
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: As a cloud architect, I want to understand the regional availability of Oracle AI Database services on Azure, so that I can plan the deployment of these databases in the appropriate locations for optimal performance and disaster recovery.
 ---
 

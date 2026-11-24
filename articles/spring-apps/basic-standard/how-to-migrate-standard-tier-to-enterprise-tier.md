@@ -2,8 +2,8 @@
 title: How to Migrate an Azure Spring Apps Basic or Standard Plan Instance to the Enterprise Plan
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to migrate an Azure Spring Apps Basic or Standard plan instance to Enterprise plan.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to

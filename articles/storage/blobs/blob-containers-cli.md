@@ -3,12 +3,12 @@ title: Manage blob containers using Azure CLI
 titleSuffix: Azure Storage
 description: Learn how to manage Azure storage containers using Azure CLI
 services: storage
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 02/05/2022
-ms.author: shaas
+ms.author: schoag
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 # Customer intent: "As a cloud administrator, I want to manage blob storage containers using command-line tools, so that I can automate storage operations and streamline resource management efficiently."

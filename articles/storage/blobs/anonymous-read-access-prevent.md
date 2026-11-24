@@ -2,8 +2,8 @@
 title: Remediate anonymous read access to blob data (Azure Resource Manager deployments)
 titleSuffix: Azure Storage
 description: Learn how to analyze current anonymous requests against a storage account and how to prevent anonymous access for the entire storage account or for an individual container.
-author: stevenmatthew
-ms.author: shaas
+author: schoag-msft
+ms.author: schoag
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 07/15/2026

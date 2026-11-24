@@ -2,8 +2,8 @@
 title: Disable or enable a device in Azure Device Registry
 titleSuffix: Azure IoT Hub
 description: Disable or enable a device in Azure Device Registry so you can pause or resume device activity in Azure IoT Hub deployments.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to

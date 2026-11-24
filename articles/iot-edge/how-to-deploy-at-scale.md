@@ -1,8 +1,8 @@
 ---
 title: Deploy modules at scale in Azure portal - Azure IoT Edge
 description: Use the Azure portal to create automatic deployments for groups of IoT Edge devices
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge

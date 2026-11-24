@@ -4,8 +4,8 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.topic: sample
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.service: azure-spring-apps
 ms.custom: subject-policy-compliancecontrols, devx-track-java
 ---

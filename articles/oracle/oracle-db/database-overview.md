@@ -1,13 +1,13 @@
 ---
 title: Overview - Oracle AI Database@Azure 
 description: Overview - Oracle AI Database@Azure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: overview
 ms.date: 10/01/2024
 ms.custom: engagement-fy23
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: As a database administrator, I want to provision and manage Oracle AI Database services within Azure, so that I can leverage high performance and low latency for my critical workloads while utilizing familiar Azure management tools.
 ---
 

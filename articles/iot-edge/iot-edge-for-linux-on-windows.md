@@ -1,8 +1,8 @@
 ---
 title: What is Azure IoT Edge for Linux on Windows
 description: Overview of running Linux IoT Edge modules with Azure IoT Edge for Linux on Windows. Run containerized Linux workloads alongside Windows applications.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge

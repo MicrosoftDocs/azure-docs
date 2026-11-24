@@ -1,11 +1,11 @@
 ---
 title: Recover an Azure File Sync server
 description: Learn how to perform disaster recovery for an Azure File Sync server after a server-level failure. Set up a replacement server, create a new server endpoint, and perform the changeover.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 08/14/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As an IT administrator, I want to recover an Azure File Sync server after a failure so that I can restore access to my data without significant downtime or loss.
 ---
 

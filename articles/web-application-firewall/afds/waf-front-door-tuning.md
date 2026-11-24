@@ -1,8 +1,8 @@
 ---
 title: Tune Azure Web Application Firewall for Azure Front Door
 description: Learn how to tune Azure Front Door WAF rules, review logs, resolve false positives, and account for policy attachment scope.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.reviewer: mohitku
 ms.service: azure-web-application-firewall
 ms.topic: concept-article

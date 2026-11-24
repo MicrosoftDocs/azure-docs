@@ -1,10 +1,10 @@
 ---
 title: Introduction to Azure Container Storage
 description: An overview of Azure Container Storage persistent-volume orchestration and distributed data acceleration for AI inference and training on Kubernetes.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.date: 10/07/2026
-ms.author: kendownie
+ms.author: schoag
 ms.topic: overview
 ms.custom: references_regions
 # Customer intent: "As a DevOps engineer, I want to use a managed volume orchestration service for my Kubernetes applications, so that I can efficiently provision and manage persistent storage for stateful workloads without the operational overhead of configuring individual storage interfaces."

@@ -1,11 +1,11 @@
 ---
 title: Azure Container Storage Release Notes
 description: Release notes for Azure Container Storage
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.topic: release-notes
 ms.date: 10/30/2026
-ms.author: kendownie
+ms.author: schoag
 # Customer intent: "As a cloud administrator, I want to review the latest release notes for Azure Container Storage so that I can stay informed about new features, bug fixes, and support status for proper planning and management of my storage deployments."
 ---
 # Azure Container Storage release notes

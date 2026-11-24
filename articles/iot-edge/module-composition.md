@@ -1,8 +1,8 @@
 ---
 title: Deploy modules and establish routes in Azure IoT Edge
 description: Learn how to use deployment manifests in Azure IoT Edge to define modules, set desired properties, and establish message routing for efficient device management.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge

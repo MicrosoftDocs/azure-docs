@@ -1,11 +1,11 @@
 ---
 title: Install Azure Container Storage (version 1.x.x) using Azure Arc CLI commands
 description: Learn how to install Azure Container Storage (version 1.x.x) for use with Azure Kubernetes Service (AKS) using Azure Arc CLI commands. Create an AKS cluster, label the node pool, and install Azure Container Storage.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 10/30/2026
-ms.author: kendownie
+ms.author: schoag
 ms.custom: devx-track-azurecli, references_regions
 # Customer intent: As a cloud architect, I want to install Azure Container Storage (version 1.x.x) on an AKS cluster using Azure Arc CLI commands so that I can enable scalable and flexible storage solutions for my containerized applications.
 ---

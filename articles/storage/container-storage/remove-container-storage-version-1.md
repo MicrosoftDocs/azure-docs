@@ -1,10 +1,10 @@
 ---
 title: How to remove Azure Container Storage (version 1.x.x)
 description: Remove Azure Container Storage (version 1.x.x) by deleting the extension instance for Azure Kubernetes Service (AKS).
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.date: 09/03/2025
-ms.author: kendownie
+ms.author: schoag
 ms.topic: how-to
 # Customer intent: "As a cloud administrator, I want to remove Azure Container Storage (version 1.x.x) from my AKS environment, so that I can clean up resources and ensure no unnecessary costs are incurred for unused components."
 ---

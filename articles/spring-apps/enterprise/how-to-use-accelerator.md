@@ -1,12 +1,12 @@
 ---
 title: Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise Plan
 description: Learn how to use VMware Tanzu App Accelerator with the Azure Spring Apps Enterprise plan.
-author: KarlErickson
+author: sandeep-sen
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: caiqing
 ms.custom:
   - devx-track-java

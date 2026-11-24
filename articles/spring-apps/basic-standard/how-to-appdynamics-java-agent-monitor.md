@@ -2,8 +2,8 @@
 title:  "How to Monitor Spring Boot Apps with the AppDynamics Java Agent (Preview)"
 titleSuffix: Azure Spring Apps
 description: How to use the AppDynamics Java agent to monitor Spring Boot applications in Azure Spring Apps.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jiec
 ms.service: azure-spring-apps
 ms.topic: how-to

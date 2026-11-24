@@ -2,8 +2,8 @@
 title: Test Stream Analytics Jobs Locally in VS Code
 description: Test Azure Stream Analytics queries locally with sample data in Visual Studio Code to validate your query logic before you run the job in Azure.
 ms.service: azure-stream-analytics
-author: spelluru
-ms.author: spelluru
+author: skommajo
+ms.author: skommajosula
 ms.date: 08/25/2026
 ms.topic: how-to
 ms.custom: sfi-image-nochange

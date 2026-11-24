@@ -1,8 +1,8 @@
 ---
 title: Geo-filtering on a domain for Azure Front Door
 description: In this article, you learn about the geo-filtering policy for Azure Front Door.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 09/05/2023

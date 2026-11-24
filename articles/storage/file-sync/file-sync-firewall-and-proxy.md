@@ -1,11 +1,11 @@
 ﻿---
 title: Azure File Sync on-premises firewall and proxy settings
 description: Understand Azure File Sync on-premises proxy and firewall settings. Review configuration details for ports, networks, and special connections to Azure.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 11/09/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As an IT admin, I want to configure proxy and firewall settings for Azure File Sync, so that I can ensure secure and reliable connectivity between on-premises servers and Azure cloud services.
 ---
 
