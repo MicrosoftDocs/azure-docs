@@ -1,8 +1,8 @@
 ---
 title: Provision Azure Device Update for IoT Hub agent| Microsoft Docs
 description: Learn how to provision the Azure Device Update for Azure IoT Hub agent.
-author: cwatson-cat
-ms.author: cwatson
+author: dimatx
+ms.author: dimatokar
 ms.date: 5/21/2026
 ms.topic: how-to
 ms.service: azure-iot-hub
