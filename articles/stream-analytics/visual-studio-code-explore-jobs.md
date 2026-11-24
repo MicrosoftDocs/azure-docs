@@ -2,8 +2,8 @@
 title: Manage Stream Analytics in Visual Studio Code
 description: Manage Azure Stream Analytics jobs in Visual Studio Code. Export cloud jobs, list entities, and debug with the Job Diagram and Monitor.
 ms.service: azure-stream-analytics
-author: spelluru
-ms.author: spelluru
+author: skommajo
+ms.author: skommajosula
 ms.date: 08/25/2026
 ms.topic: how-to
 ms.custom: sfi-image-nochange

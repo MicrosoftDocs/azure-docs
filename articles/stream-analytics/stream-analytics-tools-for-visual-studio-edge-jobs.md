@@ -1,8 +1,8 @@
 ---
 title: Azure Stream Analytics Edge jobs in Visual Studio
 description: Author, debug, and create Azure Stream Analytics jobs for IoT Edge by using Stream Analytics tools for Visual Studio, then deploy them to your devices.
-author: spelluru
-ms.author: spelluru
+author: skommajo
+ms.author: skommajosula
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 08/25/2026

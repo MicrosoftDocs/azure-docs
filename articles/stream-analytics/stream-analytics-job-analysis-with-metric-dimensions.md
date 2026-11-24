@@ -1,8 +1,8 @@
 ---
 title: Diagnose Stream Analytics Job Performance
 description: Learn how to use Azure Stream Analytics metrics and dimensions to troubleshoot watermark delay, backlogged events, and other job performance problems.
-author: spelluru
-ms.author: spelluru
+author: skommajo
+ms.author: skommajosula
 ms.service: azure-stream-analytics
 ms.topic: troubleshooting-general
 ms.date: 08/26/2026
