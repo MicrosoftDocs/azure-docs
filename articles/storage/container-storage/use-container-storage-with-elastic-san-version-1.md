@@ -1,11 +1,11 @@
 ---
 title: Use Azure Container Storage (version 1.x.x) with Azure Elastic SAN (preview)
 description: As a preview feature, you can configure Azure Container Storage (version 1.x.x) to use Azure Elastic SAN. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 09/03/2025
-ms.author: kendownie
+ms.author: schoag
 ms.custom:
   - references_regions
   - build-2025
