@@ -765,7 +765,7 @@ This policy rule example uses the `resourceGroup` resource function to get the `
 > IP filtering with `requestContext().clientIpAddress` is currently in PREVIEW and is supported only for the `deny` and `denyAction` effects. Your tenant must be enabled for the preview before you can use it.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Microsoft Entra [Conditional Access](/entra/identity/conditional-access/overview) can [define trusted network locations](/entra/identity/conditional-access/concept-assignment-network) for the whole tenant. When you need this control at a lower scope, such as a single subscription, combine `ipRangeContains()` with `requestContext().clientIpAddress` in a policy rule. Azure Policy then evaluates both the request header content, such as the client IP address, and the resource payload in the request body.
+Azure Policy can allow or block requests based on the IP address they come from, at any scope where you can assign a policy, such as a management group, subscription, or resource group. To filter by IP address, combine `ipRangeContains()` with `requestContext().clientIpAddress` in a policy rule. Azure Policy then evaluates both the request header content, such as the client IP address, and the resource payload in the request body.
 
 **Single allowed IP range**
 
