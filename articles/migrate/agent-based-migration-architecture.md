@@ -1,6 +1,6 @@
 ---
 title: Agent-based Migration in the Migration and Modernization Tool
-description: Provides an overview of agent-based VMware VM migration in Azure Migrate.
+description: Provides an overview of agent-based VMware VM migration in Azure Catalyst.
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.manager: kmadnani
@@ -28,7 +28,7 @@ Learn more about [selecting and comparing](server-migrate-overview.md?context=/a
 
 ## Agent-based migration
 
-Agent-based migration is used to migrate on-premises VMware VMs and physical servers to Azure. It can also be used to migrate other on-premises virtualized servers, as well as private and public cloud VMs, including AWS instances, and GCP VMs. Agent-based migration in Azure Migrate uses some backend functionality from the [Azure Site Recovery](../site-recovery/site-recovery-overview.md) service.
+Agent-based migration is used to migrate on-premises VMware VMs and physical servers to Azure. It can also be used to migrate other on-premises virtualized servers, as well as private and public cloud VMs, including AWS instances, and GCP VMs. Agent-based migration in Azure Catalyst uses some backend functionality from the [Azure Site Recovery](../site-recovery/site-recovery-overview.md) service.
 
 
 ## Architectural components

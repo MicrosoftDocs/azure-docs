@@ -1,6 +1,6 @@
 ---
-title: Create an SQL assessment with Azure Migrate | Microsoft Docs
-description: Describes how to create SQL Azure assessment with the Azure Migrate 
+title: Create an SQL assessment with Azure Catalyst | Microsoft Docs
+description: Describes how to create SQL Azure assessment with the Azure Catalyst 
 author: rashi-ms
 ms.author: v-gajeronika
 ms.manager: abhemraj
@@ -8,22 +8,22 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.custom: engagement-fy23
-# Customer intent: "As a cloud architect, I want to create SQL assessments for migration using Azure Migrate, so that I can evaluate target environments, understand readiness, right-sizing, and cost implications for running SQL applications in the cloud."
+# Customer intent: "As a cloud architect, I want to create SQL assessments for migration using Azure Catalyst, so that I can evaluate target environments, understand readiness, right-sizing, and cost implications for running SQL applications in the cloud."
 ---
 
 # Create SQL assessment
 
-This article to create SQL assessments for migration to Azure, targeting different Azure PaaS and laaS options using Azure Migrate. By creating as assessment for your SQL instances, you'll receive recommended target environments and key insights, such as **readiness**, **target right-sizing**, and monthly **costs** for hosting and running these applications.
+This article to create SQL assessments for migration to Azure, targeting different Azure PaaS and laaS options using Azure Catalyst. By creating as assessment for your SQL instances, you'll receive recommended target environments and key insights, such as **readiness**, **target right-sizing**, and monthly **costs** for hosting and running these applications.
 
 ## Prerequisites
 
-* Deploy and configure the Azure Migrate appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or physical environment.
-* Check the appliance requirement [Azure Migrate appliance](migrate-appliance.md#appliance---vmware) [URL access](migrate-appliance.md#url-access)
+* Deploy and configure the Azure Catalyst appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or physical environment.
+* Check the appliance requirement [Azure Catalyst appliance](migrate-appliance.md#appliance---vmware) [URL access](migrate-appliance.md#url-access)
 * [Migration to App Service Environment v3 using the in-place migration feature](../app-service/environment/migrate.md) to discover web applications running in your environment.
 
 ## Create a workload assessment for webapps
 
-1. On the **Azure Migrate** project overview page, under **Decide and plan**, select **Assessments**.
+1. On the **Azure Catalyst** project overview page, under **Decide and plan**, select **Assessments**.
 
     :::image type="content" source="./media/how-to-create-sql-assessment/assessment.png" alt-text=" Screenshot of assessment page on how to sql create an assessment.":::
 

@@ -23,7 +23,7 @@ Azure DevOps enables you to host, build, plan and test your code with compliment
 
 Before you begin this tutorial, you should:
 
--  Containerize and deploy your ASP.NET or Java web app using Azure Migrate App Containerization.
+-  Containerize and deploy your ASP.NET or Java web app using Azure Catalyst App Containerization.
 -  A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).
 -  An Azure DevOps organization. If you don't have one, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up). (An Azure DevOps organization is different from your GitHub organization. You can give your DevOps organization and your GitHub organization the same name if you want alignment between them.) <br/> If your team already has one, then make sure you're an administrator of the Azure DevOps project that you want to use.
 -  An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/pipelines/licensing/concurrent-jobs) or you can request a free tier. To request a free tier, follow the instructions in [this article](/azure/devops/pipelines/licensing/concurrent-jobs). Please note that it may take us 2-3 business days to grant the free tier.
@@ -31,10 +31,10 @@ Before you begin this tutorial, you should:
 
 ## Locate the artifacts
 
-Azure Migrate App Containerization tool automatically generates artifacts that can be used for configuring a CI/CD workflow for your application using Azure Pipelines. The artifacts are generated once the application deployment is completed through the tool. You can find the artifacts as follows - 
+Azure Catalyst App Containerization tool automatically generates artifacts that can be used for configuring a CI/CD workflow for your application using Azure Pipelines. The artifacts are generated once the application deployment is completed through the tool. You can find the artifacts as follows - 
 
-1. Go to the machine running the Azure Migrate App Containerization tool. 
-2. Navigate to **C:\ProgramData\Microsoft Azure Migrate App Containerization** directory. If you are unable to navigate to C:\ProgramData, make sure to select the option for showing *Hidden items* under *View* in file explorer. 
+1. Go to the machine running the Azure Catalyst App Containerization tool. 
+2. Navigate to **C:\ProgramData\Microsoft Azure Catalyst App Containerization** directory. If you are unable to navigate to C:\ProgramData, make sure to select the option for showing *Hidden items* under *View* in file explorer. 
 3. Select the directory corresponding to the **source machine IP/FQDN**. The source machine is the machine specified in the App Containerization tool running the application that was containerized.
 4. For Java applications 
     - Navigate to **JavaTomcatWebApp\Artifacts**.    

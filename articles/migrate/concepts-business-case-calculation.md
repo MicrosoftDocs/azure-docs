@@ -1,6 +1,6 @@
 ---
-title: Business Case in Azure Migrate 
-description: Learn what a business case in Azure Migrate is, what reports it contains, and the core concepts and formulas that are used.
+title: Business Case in Azure Catalyst 
+description: Learn what a business case in Azure Catalyst is, what reports it contains, and the core concepts and formulas that are used.
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.reviewer: v-gajeronika
@@ -12,7 +12,7 @@ ms.update-cycle: 1825-days
 
 # Business case (preview) overview
 
-Azure Migrate helps you plan and execute migration and modernization to Azure through a centralized hub for discovery, assessment, and migration.
+Azure Catalyst helps you plan and execute migration and modernization to Azure through a centralized hub for discovery, assessment, and migration.
 
 ## What is a business case?
 
@@ -55,7 +55,7 @@ A business case picks Azure recommendations from heterogenous assessments, and y
 
 You can build a business case by using the following options:
 
-- **Azure Migrate appliance discovery or Azure Migrate collector-based discovery**: Use for the most accurate metadata and performance data.
+- **Azure Catalyst appliance discovery or Azure Catalyst Collector-based discovery**: Use for the most accurate metadata and performance data.
 - **Comma-separated value (CSV) import**: Use for a quick estimate when inventory is available as a CSV.
 
 ## Key concepts and formulas (summary)
@@ -151,7 +151,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 
 ## Sustainability insights: Lower emissions with Azure
 
-The sustainability benefits capability is now embedded in the Azure Migrate business case. It empowers IT, finance, and sustainability teams to:
+The sustainability benefits capability is now embedded in the Azure Catalyst business case. It empowers IT, finance, and sustainability teams to:
 
 - Estimate on-premises emissions (in MtCO₂e) by using a standardized methodology considering compute, storage, power usage, and geographic carbon intensity.
 - Compare against Azure emissions calculated by using the Microsoft internally validated carbon rate cards for each product and region.

@@ -1,6 +1,6 @@
 ---
-title: Overview of wave migrations in Azure Migrate
-description: Learn how Azure Migrate coordinates migration steps, dependencies, automation, and approvals for your migration waves.
+title: Overview of wave migrations in Azure Catalyst
+description: Learn how Azure Catalyst coordinates migration steps, dependencies, automation, and approvals for your migration waves.
 author: snehithm
 ms.author: snmuvva 
 ms.service: azure-migrate
@@ -9,16 +9,16 @@ ms.date: 10/28/2026
 
 #CustomerIntent: As a migration lead, I want to understand migration waves and their supported capabilities so that I can decide whether they fit my migration needs.
 ---
-# Overview of wave migrations in Azure Migrate (preview)
+# Overview of wave migrations in Azure Catalyst (preview)
 
-A *wave* in Azure Migrate is a group of resources that you want to migrate together. Azure Migrate brings the steps, dependencies, automation, and approval decisions for that wave together so you can coordinate migration work across applications, workloads, and teams.
+A *wave* in Azure Catalyst is a group of resources that you want to migrate together. Azure Catalyst brings the steps, dependencies, automation, and approval decisions for that wave together so you can coordinate migration work across applications, workloads, and teams.
 
-Azure Migrate generates a *wave execution plan* from the wave's resources, target Azure services, and migration methods. The execution plan defines how that single wave migrates. Review and customize the execution plan, provide required inputs, and start the wave when you're ready to migrate.
+Azure Catalyst generates a *wave execution plan* from the wave's resources, target Azure services, and migration methods. The execution plan defines how that single wave migrates. Review and customize the execution plan, provide required inputs, and start the wave when you're ready to migrate.
 
-This article provides an overview of wave migration capabilities in Azure Migrate so you can decide how they fit your migration needs.
+This article provides an overview of wave migration capabilities in Azure Catalyst so you can decide how they fit your migration needs.
 
 > [!NOTE]
-> Wave planning and execution in Azure Migrate are in preview. This article describes waves created on or after November 11, 2026. Waves created before that date use the classic experience. See [Configure, execute, and track classic waves](configure-execute-track-classic-waves.md).
+> Wave planning and execution in Azure Catalyst are in preview. This article describes waves created on or after November 11, 2026. Waves created before that date use the classic experience. See [Configure, execute, and track classic waves](configure-execute-track-classic-waves.md).
 
 ## Why this capability exists
 
@@ -26,13 +26,13 @@ Managing a wave migration with spreadsheets, work items, and separate tools has 
 
 - **Manual planning takes time and introduces errors.** Teams must list, order, and coordinate every task manually.
 - **Execution puts production workloads at risk.** Missed steps, unforeseen dependencies, and coordination failures can cause migration failures and downtime.
-- **Plans are separate from migration tools.** Teams review a document, then perform the migration in Azure Migrate, Azure Database Migration Service, Azure Storage Mover, and other tools.
+- **Plans are separate from migration tools.** Teams review a document, then perform the migration in Azure Catalyst, Azure Database Migration Service, Azure Storage Mover, and other tools.
 
-Azure Migrate replaces static migration documents with generated wave workflows that orchestrate migration tools directly.
+Azure Catalyst replaces static migration documents with generated wave workflows that orchestrate migration tools directly.
 
 ## Key benefits
 
-Migrating in waves with Azure Migrate provides the following benefits:
+Migrating in waves with Azure Catalyst provides the following benefits:
 
 - **Less manual coordination**:  Replace disconnected task lists and tool handoffs with a workflow your teams can review and execute together. 
 - **Consistent migration workflows**: Apply migration-method-specific best practices instead of assembling each workflow from scratch. 
@@ -61,9 +61,9 @@ The lifecycle connects wave preparation, execution-plan review, and migration ou
 
 ## Supported capabilities
 
-Azure Migrate provides the following capabilities for wave execution:
+Azure Catalyst provides the following capabilities for wave execution:
 
-- **Automatic generation:** Azure Migrate uses a Microsoft-maintained *step library* of reusable migration steps to generate the execution plan. It populates available inputs from assessment, discovery, and other applicable sources. See [Execution plan generation](wave-migrations.md#execution-plan).
+- **Automatic generation:** Azure Catalyst uses a Microsoft-maintained *step library* of reusable migration steps to generate the execution plan. It populates available inputs from assessment, discovery, and other applicable sources. See [Execution plan generation](wave-migrations.md#execution-plan).
 - **Execution plan customization:** Add organization-specific actions, decisions, and scripts. Edit supported properties and grouping. See [what customizations are available](reference-wave-migrations.md#customization-capability-matrix).
 - **Dependency-aware orchestration:** Coordinate migration tools and let independent work progress in parallel without bypassing required ordering. See [how the execution plan is structured and orchestrated](wave-migrations.md#steps-and-step-groups).
 - **Approval steps:** Keep people responsible for critical decisions. See [how approvals and manual steps work](wave-migrations.md#approvals-and-manual-work).
@@ -76,14 +76,14 @@ Azure Migrate provides the following capabilities for wave execution:
 
 The following migrations are supported:
 
-- VMware virtual machines (VMs) to Azure VMs using Azure Migrate Server Migration, with agentless migration.
-- Hyper-V VMs to Azure VMs using Azure Migrate Server Migration, with agentless Hyper-V migration.
-- Any server to an Azure VM using Azure Migrate Server Migration, with agent-based migration.
+- VMware virtual machines (VMs) to Azure VMs using Azure Catalyst Server Migration, with agentless migration.
+- Hyper-V VMs to Azure VMs using Azure Catalyst Server Migration, with agentless Hyper-V migration.
+- Any server to an Azure VM using Azure Catalyst Server Migration, with agent-based migration.
 - File shares to Azure Files using Azure Storage Mover.
 - SQL Server databases to Azure SQL Managed Instance using Azure Database Migration Service in offline mode.
 - Any server to Azure VMs using redeploy and data copy.
 
-For unsupported migrations, you perform the migration outside Azure Migrate. To aid tracking and coordination, the execution plan includes two steps: a manual step at the beginning to acknowledge workloads whose migration isn't supported, and an approval step in the appropriate application's step group to mark migration complete.
+For unsupported migrations, you perform the migration outside Azure Catalyst. To aid tracking and coordination, the execution plan includes two steps: a manual step at the beginning to acknowledge workloads whose migration isn't supported, and an approval step in the appropriate application's step group to mark migration complete.
 
 ## Behaviors to plan for
 

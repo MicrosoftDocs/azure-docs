@@ -1,17 +1,17 @@
 ---
-title: Azure Migrate supported geographies
-description: Provides a list of regions where Azure Migrate is supported
+title: Azure Catalyst supported geographies
+description: Provides a list of regions where Azure Catalyst is supported
 ms.topic: concept-article
 ms.reviewer: v-gajeronika
 ms.date: 04/17/2025
 ms.update-cycle: 1825-days
-# Customer intent: "As a cloud architect, I want to understand the supported geographies for Azure Migrate, so that I can plan and execute migration projects while ensuring compliance with data residency requirements."
+# Customer intent: "As a cloud architect, I want to understand the supported geographies for Azure Catalyst, so that I can plan and execute migration projects while ensuring compliance with data residency requirements."
 ---
 
 # Supported geographies 
 
 <!--#### [Azure Public cloud](#tab/public)-->
-This article provides detailed information on the geographies where Azure Migrate is supported, including the specific regions where metadata is stored for different types of Azure clouds. 
+This article provides detailed information on the geographies where Azure Catalyst is supported, including the specific regions where metadata is stored for different types of Azure clouds. 
 
 ## Public cloud
 
@@ -19,7 +19,7 @@ You can create a project in many geographies in the public cloud.
 
 - Although you can only create projects in these geographies, you can assess or migrate servers for other target locations.
 - The project geography is only used to store the discovered metadata. 
-- When you create a project, you select a geography. The project and related resources are created in one of the regions in the geography. The region is allocated by the Azure Migrate service. Azure Migrate doesn't move or store customer data outside of the region allocated.
+- When you create a project, you select a geography. The project and related resources are created in one of the regions in the geography. The region is allocated by the Azure Catalyst service. Azure Catalyst doesn't move or store customer data outside of the region allocated.
 
 **Geography** | **Metadata storage location**
 --- | ---
@@ -79,4 +79,4 @@ United States | Central US or West US 2
 
 ## Next steps
 
-[Review](migrate-support-matrix.md) the Azure Migrate Support Matrix for more information.
+[Review](migrate-support-matrix.md) the Azure Catalyst Support Matrix for more information.

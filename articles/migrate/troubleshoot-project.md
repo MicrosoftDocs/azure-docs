@@ -7,28 +7,28 @@ ms.topic: troubleshooting
 ms.date: 06/26/2024
 ms.update:cycle: 365-days
 ms.custom: engagement-fy24
-# Customer intent: As an IT administrator, I want to troubleshoot issues with creating and managing Azure Migrate projects, so that I can ensure smooth migration and assessment processes for my organization's workloads.
+# Customer intent: As an IT administrator, I want to troubleshoot issues with creating and managing Azure Catalyst projects, so that I can ensure smooth migration and assessment processes for my organization's workloads.
 ---
 
-# Troubleshoot Azure Migrate projects
+# Troubleshoot Azure Catalyst projects
 
-This article helps you troubleshoot issues when creating and managing [Azure Migrate](migrate-services-overview.md) projects.
+This article helps you troubleshoot issues when creating and managing [Azure Catalyst](migrate-services-overview.md) projects.
 
 ## How to add new project?
 
-You can have multiple Azure Migrate projects in a subscription. Learn how to [create a project](./create-manage-projects.md) for the first time, or [add additional](create-manage-projects.md#create-additional-projects) projects.
+You can have multiple Azure Catalyst projects in a subscription. Learn how to [create a project](./create-manage-projects.md) for the first time, or [add more projects](create-manage-projects.md#create-additional-projects).
 
 ## What Azure permissions are needed?
 
-You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
+You need Contributor or Owner permissions in the subscription to create an Azure Catalyst project.
 
 ## Can't find a project
 
-Finding an existing Azure Migrate project depends upon whether you're using the current or old version of Azure Migrate. [Follow these steps](create-manage-projects.md#find-a-project).
+Finding an existing Azure Catalyst project depends on whether you're using the current or old version of Azure Catalyst. [Follow these steps](create-manage-projects.md#find-a-project).
 
 ## Can't find a geography
 
-You can create an Azure Migrate project in supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
+You can create an Azure Catalyst project in supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 ## What are VM limits?
 
@@ -57,8 +57,8 @@ If you try to create a project and encounter a deployment error:
 
 ## Added tools don't show
 
-Make sure you have the right project selected. In the Azure Migrate hub, select **Servers, databases and web apps**. Select your project and subscription from the **Project** drop-down list. The page refreshes with the selected project and added tools.
+Make sure you have the right project selected. In the Azure Catalyst hub, select **Servers, databases and web apps**. Select your project and subscription from the **Project** drop-down list. The page refreshes with the selected project and added tools.
 
 ## Next steps
 
-Add [assessment](how-to-assess.md) or [migration](how-to-migrate.md) tools to Azure Migrate projects.
+Add [assessment](how-to-assess.md) or [migration](how-to-migrate.md) tools to Azure Catalyst projects.

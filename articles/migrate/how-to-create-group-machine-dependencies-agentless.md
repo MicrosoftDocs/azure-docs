@@ -1,6 +1,6 @@
 ---
-title: Set up Agentless Dependency Analysis in Azure Migrate
-description:  Learn how to set up agentless dependency analysis in Azure Migrate for efficient server discovery and migration.
+title: Set up Agentless Dependency Analysis in Azure Catalyst
+description:  Learn how to set up agentless dependency analysis in Azure Catalyst for efficient server discovery and migration.
 author: vikram1988
 ms.author: vibansa
 ms.manager: ronai
@@ -12,13 +12,13 @@ ms.update-cycle: 1095-days
 ms.custom:
   - engagement-fy25
   - sfi-image-nochange
-# Customer intent: As an IT administrator, I want to set up agentless dependency analysis using Azure Migrate, so that I can automatically identify and visualize server dependencies to facilitate smoother assessment and migration to the cloud.
+# Customer intent: As an IT administrator, I want to set up agentless dependency analysis using Azure Catalyst, so that I can automatically identify and visualize server dependencies to facilitate smoother assessment and migration to the cloud.
 ---
 
 
 # Analyze server dependencies (agentless)
 
-This article describes how to set up agentless dependency analysis using Azure Migrate. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
+This article describes how to set up agentless dependency analysis using Azure Catalyst. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
 
 ::: moniker range="migrate"
  > [!Note]
@@ -36,8 +36,8 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 ## What's New?
 
-- Dependency analysis runs automatically on 3,000 servers discovered by Azure Migrate appliance for VMware VMs that pass the prerequisite checks. You don't need to enable it manually anymore.
-- The enhanced dependency visualization helps you review dependencies gathered across servers discovered from your datacentre by Azure Migrate.
+- Dependency analysis runs automatically on 3,000 servers discovered by Azure Catalyst appliance for VMware VMs that pass the prerequisite checks. You don't need to enable it manually anymore.
+- The enhanced dependency visualization helps you review dependencies gathered across servers discovered from your datacentre by Azure Catalyst.
 - In the new visualization, after identifying key dependencies, you can group servers into an application by tagging them.
 ::: moniker-end
 
@@ -49,7 +49,7 @@ The existing users can follow steps provided [here](how-to-create-group-machine-
 
 The new users need to follow the below steps:
 
-1. Ensure that you've [created a project](./create-manage-projects.md) with the Azure Migrate: Discovery and assessment tool added to it.
+1. Ensure that you've [created a project](./create-manage-projects.md) with the Azure Catalyst: Discovery and assessment tool added to it.
 1. Review the requirements based on your environment and the appliance you're setting up to perform agentless dependency analysis:
 
 
@@ -62,9 +62,11 @@ The new users need to follow the below steps:
 1. Review the Azure URLs that the appliance needs to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 
 
-## Deploy and configure the Azure Migrate appliance
+<a name="deploy-and-configure-the-azure-migrate-appliance"></a>
 
-1. Deploy the Azure Migrate appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
+## Deploy and configure the Azure Catalyst appliance
+
+1. Deploy the Azure Catalyst appliance to start discovery. To deploy the appliance, you can use the [deployment method](migrate-appliance.md#deployment-methods) as per your environment. After deploying the appliance, you need to register it with the project and configure it to initiate the discovery.
 1. When you set up the appliance, you specify the following in the appliance configuration manager:
     - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (nondomain)/ Linux (nondomain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
@@ -104,7 +106,7 @@ After servers are automatically enabled for agentless dependency analysis, appli
 
 ## Review dependency status
 
-After initiating discovery from the appliance, you can come to Migrate project on the Azure portal and review the dependency data. We recommend that you wait for **at least 24 hours** to allow for enough dependency data to be gathered for your servers and show in a visualization. 
+After initiating discovery from the appliance, you can come to Azure Catalyst project on the Azure portal and review the dependency data. We recommend that you wait for **at least 24 hours** to allow for enough dependency data to be gathered for your servers and show in a visualization. 
 
 In the project, you can review dependencies for each server either through the **All inventory** or **Infrastructure inventory** view. 
 
@@ -123,7 +125,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 - **View dependencies:** The server passed the validation checks and dependency analysis is enabled. You can select this to open the new visualization and check the server’s dependencies.
 ::: moniker range="migrate"
 
-- **Not initiated:** Dependency analysis couldn't be enabled because Azure Migrate reached its limit of 3,000 servers per appliance (VMware) and 1,000 servers per appliance (Hyper-V/Physical) for automatic enablement. To run dependency analysis on specific servers, disable it manually on other autoenabled servers and enable it for the required ones by using the PowerShell module.
+- **Not initiated:** Dependency analysis couldn't be enabled because Azure Catalyst reached its limit of 3,000 servers per appliance (VMware) and 1,000 servers per appliance (Hyper-V/Physical) for automatic enablement. To run dependency analysis on specific servers, disable it manually on other autoenabled servers and enable it for the required ones by using the PowerShell module.
 - **Disabled:** You can manually disable dependency analysis on this using the portal or the PowerShell module. You can enable it again anytime using the same module. 
 
 - **Not supported**: Dependency data could not be collected as the server was discovered through CSV import.
@@ -133,13 +135,13 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 
 ### Types of connections 
 
-Dependency analysis captures inbound and outbound network connections for servers that pass validation. However, some connections might represent background traffic generated by the Azure Migrate appliance, vCenter Server, or ESXi hosts. The new dependency analysis experience filters out this noise so you can focus on connections that are relevant to the enabled servers. 
+Dependency analysis captures inbound and outbound network connections for servers that pass validation. However, some connections might represent background traffic generated by the Azure Catalyst appliance, vCenter Server, or ESXi hosts. The new dependency analysis experience filters out this noise so you can focus on connections that are relevant to the enabled servers. 
  
 Connections are classified into three types:
 
-- Resolved connections – Connections between known servers (servers discovered by Azure Migrate), where application and process names are identified at both ends of the connection. 
+- Resolved connections – Connections between known servers (servers discovered by Azure Catalyst), where application and process names are identified at both ends of the connection. 
 
-- Unresolved connections – Connections between unknown servers (servers not discovered by Azure Migrate and identified only by IP address), or between a known server, where the application or process name can't be identified at one end of the connection. 
+- Unresolved connections – Connections between unknown servers (servers not discovered by Azure Catalyst and identified only by IP address), or between a known server, where the application or process name can't be identified at one end of the connection. 
 
 - All connections – Includes all resolved connections between known and unknown servers where the application or process is identified at one end of the connection. It excludes unresolved connections between unknown servers. 
 
@@ -186,13 +188,13 @@ The following table shows what connection data is included in each experience:
 
 ### Visualize dependencies across servers
 
-If dependency data collection is enabled on your servers (up to 3,000 servers per appliance), you can now visualize dependencies across all discovered servers in your Azure Migrate project. The visualization displays logically grouped server nodes and their connections, helping you understand network affinity and identify applications running in your datacenter.
+If dependency data collection is enabled on your servers (up to 3,000 servers per appliance), you can now visualize dependencies across all discovered servers in your Azure Catalyst project. The visualization displays logically grouped server nodes and their connections, helping you understand network affinity and identify applications running in your datacenter.
 
 #### Default visualization
 
 1. In the left menu select **Dependency analysis** and then select **Explore Applications**.
 1. The visualization shows **Resolvable** connections collected from discovered servers with dependency analysis enabled. 
-    Resolvable connections are network connections identified between servers, discovered by Azure Migrate.
+    Resolvable connections are network connections identified between servers, discovered by Azure Catalyst.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/multi-server-default-view.png" alt-text="The screenshot shows the default multi-server dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/multi-server-default-view.png":::
 
@@ -327,7 +329,7 @@ The dependency data is exported and downloaded in a CSV format. The downloaded f
 1. Select **Export dependencies**.
 1. In the **Export dependencies** view, select one or more appliances for their discovered servers.
 1. Select the time interval for which you want to export data. You can choose from last 7, 10, 15, 30 days.
-1. The process type is set to **Resolvable** by default. This exports only resolvable connections between discovered servers. But you can change this to **All** if you want to export all connections gathered (including unresolved connections to servers which were either not discovered by Azure Migrate or errored in dependency data gathering).
+1. The process type is set to **Resolvable** by default. This exports only resolvable connections between discovered servers. But you can change this to **All** if you want to export all connections gathered (including unresolved connections to servers which were either not discovered by Azure Catalyst or errored in dependency data gathering).
 1. Select **Generate** to generate a file with the earliest available dependency data amongst the selected appliance(s) within the chosen time interval.
 
    :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/new-export-dependency.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/new-export-dependency.png":::
@@ -359,7 +361,7 @@ Destination port | Port number on the destination server
 
 ::: moniker range="migrate"
 ## Switch to new visualization
-If you are an existing user, you already set up an Azure Migrate project. You performed discovery and manually enabled dependency analysis on some servers. To get the new enhanced visualization, you need to follow these steps:
+If you are an existing user, you already set up an Azure Catalyst project. You performed discovery and manually enabled dependency analysis on some servers. To get the new enhanced visualization, you need to follow these steps:
 
 1. Go to the inventory view and search for a server, for which you want to review dependencies.
 1. Select on **View dependencies** and you see the old visualization showing dependencies of that server.
@@ -372,7 +374,7 @@ If you are an existing user, you already set up an Azure Migrate project. You pe
 1. Select proceed to create a new resource in the same Resource Group as the project. Ensure that you've at least **Contributor** role on the Subscription else this step isn't complete.
 
 > [!NOTE]
-> Even if the new resource creation goes through, you might not see the new visualization if the discovery agent version on the Azure Migrate appliance isn't up to date. Ensure that autoupdate service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)
+> Even if the new resource creation goes through, you might not see the new visualization if the discovery agent version on the Azure Catalyst appliance isn't up to date. Ensure that autoupdate service on the appliance is enabled. [Learn more](migrate-appliance.md#appliance-upgrades)
 
 After you've performed the required steps to upgrade to the new dependency visualization, there are two ways in which you can see server dependencies in the new visualization.
 
@@ -606,7 +608,7 @@ In the following example, dependency analysis is being enabled on the list of se
 
 ## Visualize network connections in Power BI
 
-Azure Migrate offers a [Power BI template](https://download.microsoft.com/download/1469a653-9b21-4a10-b0a4-152629377889/Azure%20Migrate%20-%20Network%20Connections.pbit) that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the Power BI with dependency data as per the following instructions.
+Azure Catalyst offers a [Power BI template](https://download.microsoft.com/download/1469a653-9b21-4a10-b0a4-152629377889/Azure%20Migrate%20-%20Network%20Connections.pbit) that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the Power BI with dependency data as per the following instructions.
 
 ### Log in to Azure
 

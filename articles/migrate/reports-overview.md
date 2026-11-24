@@ -1,6 +1,6 @@
 ---
-title: Azure Migrate Reports Overview 
-description: Learn how Azure Migrate Reports help you create decision‑ready reports with insights into security, readiness, cost, ROI, and migration strategies for Azure planning
+title: Azure Catalyst Reports Overview 
+description: Learn how Azure Catalyst Reports help you create decision‑ready reports with insights into security, readiness, cost, ROI, and migration strategies for Azure planning
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: how-to
@@ -10,13 +10,15 @@ ms.update-cycle: 365-days
 # Customer intent: As an IT administrator managing migration resources, I want to tag workloads with relevant attributes, so that I can enhance resource organization and visibility during the migration process.
 ---
 
-# Overview of Azure Migrate reports (preview)
+# Overview of Azure Catalyst reports (preview)
 
-Azure Migrate reports provide a summarized view of Migration and modernization opportunities to Azure. They include insights on workload readiness, security, and costs to help you prioritize workloads and make informed migration and modernization decisions. Reports can be generated after successful discovery and inventory enrichment.
+Azure Catalyst reports provide a summarized view of migration and modernization opportunities to Azure. They include insights on workload readiness, security, and costs to help you prioritize workloads and make informed migration and modernization decisions. Generate reports after successful discovery and inventory enrichment.
  
-## What are Azure Migrate reports? 
+<a name="what-are-azure-migrate-reports"></a>
 
-Reports in Azure Migrate provide decision-ready insights by summarizing your discovered estate and highlighting migration and modernization opportunities across applications, infrastructure, and data to support planning and stakeholder decision-making.
+## What are Azure Catalyst reports? 
+
+Reports in Azure Catalyst provide decision-ready insights by summarizing your discovered estate and highlighting migration and modernization opportunities across applications, infrastructure, and data to support planning and stakeholder decision-making.
 
 Depending on the selected report type and scenario, reports can summarize insights such as:
 - Workload and application summary across your discovered estate, including web apps, databases, and file servers.
@@ -31,7 +33,7 @@ Depending on the selected report type and scenario, reports can summarize insigh
  
 ## Types of reports 
 
-Azure Migrate provides the following reports to help you assess your environment and plan your migration and modernization journey:
+Azure Catalyst provides the following reports to help you assess your environment and plan your migration and modernization journey:
 
 - [Azure modernization and migration report](#azure-modernization-and-migration-report).
 - [Security insights report](#security-insights-report).
@@ -59,7 +61,9 @@ This report helps you:
 - Understand your overall security posture
 - Identify vulnerabilities in your on-premises environment
 
-## Migration preferences in Azure Migrate reports
+<a name="migration-preferences-in-azure-migrate-reports"></a>
+
+## Migration preferences in Azure Catalyst reports
 
 When you build a report, choose from two migration preferences:
 
@@ -74,7 +78,7 @@ Reports surface Azure recommendations from heterogeneous assessments and provide
 
 Create a report using either of the following discovery methods:
 
-- **Azure Migrate appliance or Azure Migrate collector–based discovery**: Provides the most accurate inventory, metadata, and performance data.
+- **Azure Catalyst appliance or Azure Catalyst Collector–based discovery**: Provides the most accurate inventory, metadata, and performance data.
 - **CSV import**: Provides a quick estimate when inventory data is available in CSV format.
 
 ### Report configuration

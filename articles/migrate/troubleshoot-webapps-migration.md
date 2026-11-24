@@ -13,7 +13,7 @@ ms.custom: engagement-fy25
 
 # Troubleshooting web apps migration issues
 
-This article describes some common issues and specific errors you might encounter when trying to migrate web apps using Azure Migrate.
+This article describes some common issues and specific errors you might encounter when trying to migrate web apps using Azure Catalyst.
 
 ## Web Apps migration issues
 
@@ -26,7 +26,7 @@ AddConflict | The role assignment already exists. | This might be due to AKS 1.2
 AppContentAlreadyExists | Application content appContent.zip already present on storage before content copy. | Retry the migration using a new storage account. Contact support if this occurs persistently.
 AppZipUploadFailed | Error uploading application content to storage account. | Retry if it's a transient issue and confirm connectivity between the appliance and the Azure storage account specified for the migration.
 CopyAppContentToApplianceFailure | Error occurred copying content from IIS web server to appliance. | Check error details for more information. Confirm connectivity between appliance and web server such as by looking for recently successful web app discovery.
-IISWebAppExceededMaxContentSize | Content size exceeded max content size (2 GB) for migration using this tool. | The deployment method used only supports content up to 2 GB in size. If uncompressed content is larger than 2 GB, Azure Migrate does not attempt migration with this error. This should be flagged in the web app assessment and can indicate file content size changes since the last web app discovery was completed.
+IISWebAppExceededMaxContentSize | Content size exceeded max content size (2 GB) for migration using this tool. | The deployment method used only supports content up to 2 GB in size. If uncompressed content is larger than 2 GB, Azure Catalyst does not attempt migration with this error. This should be flagged in the web app assessment and can indicate file content size changes since the last web app discovery was completed.
 IISWebAppFailureCompressingSiteContent | Exception occurred compressing site content. | Check error details for more information. This could be related to physical file permissions, including, if access is blocked for the Administrator account used for the web app discovery and migration of the site content.
 IISWebAppMigrationError | Error occurred during app content copy operation. | Check the error message for additional details.
 IISWebAppNotFoundOnServer | Web application matching site name not found on web server. | This might be due to changes on the web server since the last web app discovery was completed, such as site delete or rename operations. Confirm that web app discovery was completed recently and that the site still exists on the web server.

@@ -1,6 +1,6 @@
 ---
-title: Built-in policy definitions for Azure Migrate
-description: Lists Azure Policy built-in policy definitions for Azure Migrate. These built-in policy definitions provide common approaches to managing your Azure resources.
+title: Built-in policy definitions for Azure Catalyst
+description: Lists Azure Policy built-in policy definitions for Azure Catalyst. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.date: 02/06/2024
 ms.topic: reference
 ms.service: azure-migrate
@@ -8,19 +8,21 @@ author: MaggiePucciEvans
 ms.reviewer: v-gajeronika
 ms.update-cycle: 365-days
 ms.custom: subject-policy-reference
-# Customer intent: "As a cloud administrator, I want to access built-in policy definitions for Azure Migrate, so that I can effectively manage and govern our Azure resources in compliance with organizational standards."
+# Customer intent: "As a cloud administrator, I want to access built-in policy definitions for Azure Catalyst, so that I can effectively manage and govern our Azure resources in compliance with organizational standards."
 ---
-# Azure Policy built-in definitions for Azure Migrate
+# Azure Policy built-in definitions for Azure Catalyst
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
-definitions for Azure Migrate. For additional Azure Policy built-ins for other services, see
+definitions for Azure Catalyst. For additional Azure Policy built-ins for other services, see
 [Azure Policy built-in definitions](/azure/governance/policy/samples/built-in-policies).
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use
 the link in the **Version** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
-## Azure Migrate
+<a name="azure-migrate"></a>
+
+## Azure Catalyst
 
 [!INCLUDE [azure-policy-reference-cat-migrate](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-migrate.md)]
 

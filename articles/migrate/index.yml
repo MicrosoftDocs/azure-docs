@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Catalyst documentation
-summary: Find articles to help you discover, assess, and migrate your on-premises environment using tools in the Azure Migrate hub.
+summary: Find articles to help you discover, assess, and migrate your on-premises environment using tools in the Azure Catalyst hub.
 
 metadata:
   title: Azure Catalyst documentation
@@ -12,7 +12,7 @@ metadata:
   ms.author: v-gajeronika
   ms.date: 03/15/2024
   ms.custom: seo-azure-migrate
-  keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation, azure catalyst
+  keywords: Azure Catalyst, azure migration, Azure Catalyst assessment tool, Azure Catalyst tool, Azure Catalyst documentation, azure migration documentation, azure catalyst
 
 landingContent:
   - title: About Azure Catalyst
@@ -54,9 +54,9 @@ landingContent:
         links:
           - text: Review best practices for Server Assessment
             url: ./best-practices-assessment.md
-          - text: Learn about Azure Migrate appliance deployment
+          - text: Learn about Azure Catalyst appliance deployment
             url: ./migrate-replication-appliance.md
-          - text: Review the Azure Migrate support matrix
+          - text: Review the Azure Catalyst support matrix
             url: migrate-support-matrix.md
           - text: Review the Hyper-V support matrix
             url: ./migrate-support-matrix-hyper-v.md

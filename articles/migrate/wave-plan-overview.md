@@ -1,6 +1,6 @@
 ---
-title: Wave planning overview in Azure Migrate
-description: Understand migration wave plans in Azure Migrate, including wave composition, sequencing, dependencies, risks, and the planning engine.
+title: Wave planning overview in Azure Catalyst
+description: Understand migration wave plans in Azure Catalyst, including wave composition, sequencing, dependencies, risks, and the planning engine.
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
@@ -11,9 +11,9 @@ monikerRange: migrate
 # Customer intent: As a migration lead, I want to understand the recommended wave plan and its reasoning so that I can review and configure proposed waves before committing them.
 ---
 
-# Wave planning overview in Azure Migrate (preview)
+# Wave planning overview in Azure Catalyst (preview)
 
-Wave planning in Azure Migrate organizes applications and their workloads into manageable migration and modernization batches. Each wave is a group of workloads that you plan to move together. A wave plan recommends the **grouping and sequence** of these workloads.
+Wave planning in Azure Catalyst organizes applications and their workloads into manageable migration and modernization batches. Each wave is a group of workloads that you plan to move together. A wave plan recommends the **grouping and sequence** of these workloads.
 
 Wave planning helps cloud architects and migration and modernization leads:
 
@@ -26,7 +26,7 @@ For general migration planning guidance, see [Migration wave planning in the Clo
 
 ## Key features
 
-Azure Migrate automatically generates wave plans using discovery data, application mappings, dependency analysis, and assessments. You can refine and commit proposed waves before proceeding with migration and modernization. Key features include:
+Azure Catalyst automatically generates wave plans using discovery data, application mappings, dependency analysis, and assessments. You can refine and commit proposed waves before proceeding with migration and modernization. Key features include:
 
 - **Application-centric grouping and sequence.** Use dependency-aware grouping to account for relationships across application components. Plan simpler applications before more complex ones, subject to dependencies and business requirements, to reduce risk.
 - **Explainable plans for review and reporting.** Review grouping and sequence rationale, dependencies, and risks. Download the AI-friendly Markdown (.md) reports for offline review and stakeholder approval. AI tools can use the reports to support review and suggest updates.
@@ -118,7 +118,7 @@ The engine processes the assessed workloads and applications in five phases, the
 
 #### Phase 1: Gather information
 
-The engine gathers the available information from your Azure Migrate project for the selected assessment and migration path. Inputs include workload inventory, size and lifecycle details, assessment readiness and cost recommendations, dependency mappings, application groupings and properties, environment classifications, and existing wave assignments. These inputs define the planning scope and provide the context for grouping and sequencing workloads. For details, see [Data inputs](#data-inputs).
+The engine gathers the available information from your Azure Catalyst project for the selected assessment and migration path. Inputs include workload inventory, size and lifecycle details, assessment readiness and cost recommendations, dependency mappings, application groupings and properties, environment classifications, and existing wave assignments. These inputs define the planning scope and provide the context for grouping and sequencing workloads. For details, see [Data inputs](#data-inputs).
 
 #### Phase 2: Identify groups
 

@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Migrate Application and Code Assessment for Java
-description: Azure Migrate application and code assessment tool - Overview.
+title: Overview of Azure Catalyst Application and Code Assessment for Java
+description: Azure Catalyst application and code assessment tool - Overview.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -13,16 +13,16 @@ ms.date: 06/24/2026
 # Customer intent: As a Java developer, I want to use the application and code assessment tool to evaluate my Java applications, so that I can determine their readiness for migration and modernization in the Azure environment.
 ---
 
-# Overview of Azure Migrate application and code assessment for Java
+# Overview of Azure Catalyst application and code assessment for Java
 
-This article provides an overview of Azure Migrate application and code assessment for Java. This overview helps you understand the suitable scenarios to help you migrate Java applications to Azure.
+This article provides an overview of Azure Catalyst application and code assessment for Java. This overview helps you understand the suitable scenarios to help you migrate Java applications to Azure.
 
 > [!NOTE]
-> This article is for Azure Migrate application and code assessment for Java, version 7.x. This version entered into GA in July 2025.
+> Version 7.x entered GA in July 2025 as Azure Migrate application and code assessment for Java.
 
 ## Overview
 
-Azure Migrate application and code assessment for Java (AppCAT for Java) enables you to evaluate Java application readiness for replatforming and migration to Azure. It can assess Java application binaries and source code to identify replatforming and migration opportunities for Azure.
+Azure Catalyst application and code assessment for Java (AppCAT for Java) enables you to evaluate Java application readiness for replatforming and migration to Azure. It can assess Java application binaries and source code to identify replatforming and migration opportunities for Azure.
 
 The tool uses advanced analysis techniques to understand the structure and dependencies of any Java application. The tool provides insights on how to refactor and migrate the applications to Azure on the following aspects:
 
@@ -36,7 +36,7 @@ The tool is offered in the following two ways:
 
 ## License
 
-Azure Migrate application and code assessment for Java (AppCAT for Java) is a free, open source-based tool. The tool is built based on a set of components in the [Cloud Native Computing Foundation](https://www.cncf.io/) project [Konveyor](https://github.com/konveyor), created and led by Red Hat.
+Azure Catalyst application and code assessment for Java (AppCAT for Java) is a free, open source-based tool. The tool is built based on a set of components in the [Cloud Native Computing Foundation](https://www.cncf.io/) project [Konveyor](https://github.com/konveyor), created and led by Red Hat.
 
 ## Data collection
 

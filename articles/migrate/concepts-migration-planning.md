@@ -1,6 +1,6 @@
 ---
-title: Build a migration plan with Azure Migrate
-description: Provides guidance on building a migration plan with Azure Migrate.
+title: Build a migration plan with Azure Catalyst
+description: Provides guidance on building a migration plan with Azure Catalyst.
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 09/26/2024
@@ -12,9 +12,9 @@ ms.custom:
 # Customer intent: "As a cloud architect, I want to create a detailed migration plan for our on-premises workloads to Azure, so that I can ensure a successful and efficient transition while minimizing downtime and optimizing costs."
 ---
 
-# Build migration plan with Azure Migrate
+# Build migration plan with Azure Catalyst
 
-Follow this article to build your migration plan to Azure with [Azure Migrate](migrate-services-overview.md). 
+Follow this article to build your migration plan to Azure with [Azure Catalyst](migrate-services-overview.md). 
 
 ## Define cloud migration goals
 
@@ -30,7 +30,7 @@ Response to regulatory compliance changes | Preparation for new technical capabi
 New data sovereignty requirements | Scaling to meet market demands
 Reduction in disruptions, and IT stability improvements | Scaling to meet geographic demands
 
-Identifying your motivation helps you to pin down your strategic migration goals. The next step is to identify and plan a migration path that's tailored for your workloads. The [Azure Migrate: Discovery and Assessment](migrate-services-overview.md) tool helps you to assess on-premises workloads, and provides guidance and tools to help you migrate.
+Identifying your motivation helps you to pin down your strategic migration goals. The next step is to identify and plan a migration path that's tailored for your workloads. The [Azure Catalyst: Discovery and Assessment](migrate-services-overview.md) tool helps you to assess on-premises workloads, and provides guidance and tools to help you migrate.
 
 ## Understand your digital estate
 
@@ -38,7 +38,7 @@ Start by identifying your on-premises infrastructure, applications, and dependen
 
 ### Workloads in use
 
-Azure Migrate uses a lightweight Azure Migrate appliance to perform agentless discovery of on-premises VMware VMs, Hyper-V VMs, other virtualized servers, and physical servers. Continuous discovery collects server configuration information, and performance metadata, and application data. Here's what the appliance collects from on-premises servers:
+Azure Catalyst uses a lightweight Azure Catalyst appliance to perform agentless discovery of on-premises VMware VMs, Hyper-V VMs, other virtualized servers, and physical servers. Continuous discovery collects server configuration information, performance metadata, and application data. Here's what the appliance collects from on-premises servers:
 
 - Server, disk, and NIC metadata.
 
@@ -46,7 +46,7 @@ Azure Migrate uses a lightweight Azure Migrate appliance to perform agentless di
 
 - Performance data, including CPU and memory utilization, disk IOPS, and throughput.
 
-After collecting data, you can export the application inventory list to find apps, and SQL Server instances running on your servers. You can use the Azure Migrate: Database Assessment tool to understand SQL Server readiness.
+After collecting data, you can export the application inventory list to find apps and SQL Server instances running on your servers. You can use the Azure Catalyst: Database Assessment tool to understand SQL Server readiness.
 
  ![Application inventory on Portal](./media/concepts-migration-planning/application-inventory-portal.png)
 
@@ -74,7 +74,7 @@ You can export the assessment report, and filter on these categories to understa
 - **Ready for Azure**: Servers can be migrated as-is to Azure, without any changes.
 - **Conditionally ready for Azure**: Servers can be migrated to Azure, but need minor changes, in accordance with the remediation guidance provided in the assessment.
 - **Not ready for Azure**: Servers can't be migrated to Azure as-is. Issues must be fixed in accordance with remediation guidance, before migration.
-- **Readiness unknown**: Azure Migrate can't determine server readiness, because of insufficient metadata.
+- **Readiness unknown**: Azure Catalyst can't determine server readiness because of insufficient metadata.
 
 Using database assessments, you can assess the readiness of your SQL Server data estate for migration to Azure SQL Database, or Azure SQL Managed Instances. The assessment shows migration readiness status percentage for each of your SQL server instances. In addition, for each instance you can see the recommended target in Azure, potential migration blockers, a count of breaking changes, readiness for Azure SQL DB or Azure SQL VM, and a compatibility level. You can dig deeper to understand the impact of migration blockers, and recommendations for fixing them.
 
@@ -86,7 +86,7 @@ After a server is marked as ready for Azure, Discovery and assessment makes sizi
 
 ### Get compute costs
 
-Performance-based sizing option in Azure Migrate assessments helps you to right-size VMs, and should be used as a best practice for optimizing workloads in Azure. In addition to right-sizing, there are a few other options to help save Azure costs:
+Use the performance-based sizing option in Azure Catalyst assessments to right-size VMs. This option helps you optimize workloads in Azure. In addition to right-sizing, use the following options to help save Azure costs:
 
 - **Reserved Instances**: With [reserved instances(RI)](https://azure.microsoft.com/pricing/reserved-vm-instances/), you can significantly reduce costs compared to [pay-as-you-go pricing](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - **Azure Hybrid Benefit**: With [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), you can bring on-premises Windows Server licenses with active Software Assurance, or Linux subscriptions, to Azure, and combine with reserved instances options.
@@ -103,7 +103,7 @@ You can view Discovery and assessment reports (with Azure readiness information,
 
 ### Evaluate gaps/blockers
 
-As you figure out the apps and workloads you want to migrate, identify downtime constraints for them, and look for any operational dependencies between your apps and the underlying infrastructure. This analysis helps you to plan migrations that meet your recovery time objective (RTO), and ensure minimal to zero data loss. Before you migrate, we recommend that you review and mitigate any compatibility issues, or unsupported features that may block server/SQL database migration. The Azure Migrate Discovery and assessment report, and Azure Migrate Database Assessment, can help with this.
+As you identify the apps and workloads you want to migrate, identify downtime constraints for them, and look for any operational dependencies between your apps and the underlying infrastructure. This analysis helps you plan migrations that meet your recovery time objective (RTO) and ensure minimal to zero data loss. Before you migrate, review and mitigate any compatibility issues or unsupported features that might block server or SQL database migration. The Azure Catalyst Discovery and assessment report and Azure Catalyst Database Assessment can help with this task.
 
 ### Prioritize workloads
 
@@ -119,12 +119,12 @@ A few recommendations:
     --- | ---
     **Azure ready VMs** | Export the assessment report, and filter all servers with state *Ready for Azure*. This might be the first group of servers that you lift and shift to Azure, using the [Migration and modernization](migrate-services-overview.md) tool.
     **End-of-support operating systems** | Export the assessment report, and filter all servers running Windows Server 2008 R2/Windows Server 2008. These operating systems are at the end of support, and only Azure provides a free three years of security updates when you migrate them to Azure. If you combine Azure Hybrid Benefit, and use RIs, the savings could be higher.
-    **SQL Server migration** | Use the database assessment recommendations to migrate databases that are ready for Azure SQL Database, using the Azure Migrate: Database Migration tool. Migrate the databases ready for Azure SQL VM using the Migration and modernization tool.
+    **SQL Server migration** | Use the database assessment recommendations to migrate databases that are ready for Azure SQL Database, by using the Azure Catalyst: Database Migration tool. Migrate the databases ready for Azure SQL VM by using the Migration and modernization tool.
     **End-of-support software** | Export your application inventory, and filter for any software/extensions that might be reaching end-of-support. Prioritize these applications for migration.
     **Under-provisioned servers** | Export the assessment report, and filter for servers with low CPU utilization (%) and memory utilization (%).  Migrate to a right-sized Azure VM, and save on costs for underutilized resources.
     **Over-provisioned servers** | Export the assessment report and filter for servers with high CPU utilization (%) and memory utilization (%).  Solve capacity constraints, prevent overstrained servers from breaking, and increase performance by migrating these servers to Azure. In Azure, use autoscaling capabilities to meet demand.<br/><br/> Analyze assessment reports to investigate storage constraints. Analyze disk IOPS and throughput, and the recommended disk type.
 
-- **Start small, then go big**: Start by moving apps and workloads that  present minimal risk and complexity, to build confidence in your migration strategy. Analyze Azure Migrate assessment recommendations together with your CMDB repository, to find and migrate dev/test workloads that might be candidates for pilot migrations. Feedback and learnings from pilot migrations can be helpful as you begin migrating production workloads.
+- **Start small, then go big**: Start by moving apps and workloads that present minimal risk and complexity, to build confidence in your migration strategy. Analyze Azure Catalyst assessment recommendations together with your CMDB repository, to find and migrate dev/test workloads that might be candidates for pilot migrations. Feedback and learnings from pilot migrations can be helpful as you begin migrating production workloads.
 - **Comply**: Azure maintains the largest compliance portfolio in the industry, in terms of breadth and depth of offerings. Use compliance requirements to prioritize migrations, so that apps and workloads comply with your national/regional and industry-specific standards and laws. This is especially true for organizations that deal with business-critical process, hold sensitive information, or are in heavily regulated industries. In these types of organizations, standards and regulations abound, and might change often, being difficult to keep up with.
 
 ## Finalize the migration plan
@@ -146,7 +146,7 @@ Build a migration roadmap, and declare a maintenance window to migrate your apps
 
 ## Migrate
 
-We recommend that you run a test migration in Azure Migrate, before starting a full-scale migration. A test migration helps you to estimate the time involved, and tweak your migration plan. It provides an opportunity to discover any potential issues, and fix them before the full migration.
+We recommend that you run a test migration in Azure Catalyst, before starting a full-scale migration. A test migration helps you to estimate the time involved, and tweak your migration plan. It provides an opportunity to discover any potential issues, and fix them before the full migration.
 
 When you're ready for migration, use the Migration and modernization tool, and the Azure Data Migration Service (DMS), for a seamless and integrated migration experience, with end-to-end tracking.
 
@@ -155,9 +155,9 @@ When you're ready for migration, use the Migration and modernization tool, and t
 
 ### Upgrade Windows OS
 
-Azure Migrate provides an option to customers to upgrade their Windows Server OS seamlessly during the migration. Azure Migrate OS upgrade allows you to move from an older operating system to a newer one while keeping your settings, server roles, and data intact. [Learn more](how-to-upgrade-windows.md).
+Azure Catalyst provides an option for customers to upgrade their Windows Server OS seamlessly during the migration. Azure Catalyst OS upgrade allows you to move from an older operating system to a newer one while keeping your settings, server roles, and data intact. [Learn more](how-to-upgrade-windows.md).
 
-Azure Migrate OS upgrade uses an Azure VM [Custom script extension](/azure/virtual-machines/extensions/custom-script-windows) to perform the following activities for an in-place upgrade experience:
+Azure Catalyst OS upgrade uses an Azure VM [Custom script extension](/azure/virtual-machines/extensions/custom-script-windows) to perform the following activities for an in-place upgrade experience:
 
 - A data disk containing Windows Server setup files is created and attached to the VM.
 - A Custom Script Extension called `InPlaceOsUpgrade` is enabled on the VM, which downloads a script from the storage account and initiates the upgrade in a quiet mode.
@@ -166,5 +166,5 @@ Azure Migrate OS upgrade uses an Azure VM [Custom script extension](/azure/virtu
 ## Next steps
 
 - Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
-- Get a [quick overview](migrate-services-overview.md) of Azure Migrate, and watch a [getting started video](https://youtu.be/wFfq3YPxYHE).
+- Get a [quick overview](migrate-services-overview.md) of Azure Catalyst, and watch a [getting started video](https://youtu.be/wFfq3YPxYHE).
 - Learn more about assessing VMs for migration to [Azure VMs](concepts-assessment-calculation.md).

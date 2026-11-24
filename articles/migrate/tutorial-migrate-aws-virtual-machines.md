@@ -1,6 +1,6 @@
 ---
 title: Discover, assess, and migrate Amazon Web Services (AWS) EC2 VMs to Azure
-description: This article describes how to migrate AWS VMs to Azure with Azure Migrate and Modernize.
+description: This article describes how to migrate AWS VMs to Azure with Azure Catalyst.
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: tutorial
@@ -20,7 +20,7 @@ ms.custom:
 
 # Discover, assess, and migrate Amazon Web Services (AWS) EC2 instances to Azure
 
-This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) EC2 instances to Azure VMs by using Azure Migrate.
+This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) EC2 instances to Azure VMs by using Azure Catalyst.
 
 > [!NOTE]
 > You migrate AWS VMs to Azure by treating them as physical servers.
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Verify prerequisites for migration.
-> * Prepare Azure resources and Set up permissions for your Azure account to work with Azure Migrate.
+> * Prepare Azure resources and Set up permissions for your Azure account to work with Azure Catalyst.
 > * Prepare AWS Elastic Compute Cloud (EC2) instances for discovery, assessment and migration.
 > * Migrate EC2 instances as physical servers to Azure.
 
@@ -44,7 +44,7 @@ To set up an assessment:
 
 1. Follow the [tutorial](./tutorial-discover-physical.md) to set up Azure and prepare your AWS VMs for an assessment. Note that:
 
-    - Azure Migrate and Modernize uses password authentication to discover AWS instances. AWS instances don't support password authentication by default. Before you can discover an instance, you need to enable password authentication.
+    - Azure Catalyst uses password authentication to discover AWS instances. AWS instances don't support password authentication by default. Before you can discover an instance, you need to enable password authentication.
         - For Windows machines, allow WinRM port 5985 (HTTP). This port allows remote WMI calls.
         - For Linux machines:
             1. Sign in to each Linux machine.
@@ -57,7 +57,7 @@ To set up an assessment:
         1. In the file, locate the `PermitRootLogin` line and change the value to `yes`.
         1. Save the file and close it. Restart the ssh service.
 
-1. Then, follow this [tutorial](./tutorial-assess-physical.md) to set up an Azure Migrate project and appliance to discover and assess your AWS VMs.
+1. Then, follow this [tutorial](./tutorial-assess-physical.md) to set up an Azure Catalyst project and appliance to discover and assess your AWS VMs.
 
 Although we recommend that you try out an assessment, performing an assessment isn't a mandatory step to be able to migrate VMs.
 
@@ -69,14 +69,14 @@ To plan to migrate an AWS workload to Azure, see [Migrate compute from Amazon We
 - Make sure your AWS VMs comply with the [supported configurations](./migrate-support-matrix-physical-migration.md#physical-server-requirements) for migration to Azure.
 - Verify that the AWS VMs that you replicate to Azure comply with [Azure VM requirements](./migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 - Some changes are needed on the VMs before you migrate them to Azure:
-    - For some operating systems, Azure Migrate and Modernize makes these changes automatically.
+    - For some operating systems, Azure Catalyst makes these changes automatically.
     - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 Review the [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
 ### Prepare Azure resources for migration
 
 - Verify permissions for your Azure account: Your Azure account needs permissions to create a VM and write to an Azure managed disk.
-- For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
+- For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Catalyst](prepare-azure-accounts.md).
 - Assign permissions to register the Replication Appliance in Microsoft Entra ID. For more information, see [required permissions](../site-recovery/deploy-vmware-azure-replication-appliance-modernized.md#required-permissions).
 - Create an Azure network: [Set up](../virtual-network/manage-virtual-network.yml#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, Azure VMs are created and joined to the Azure virtual network that you specified when you set up migration.
 
@@ -87,14 +87,14 @@ Also,
 
 ## Prepare AWS instances for migration
 
-To prepare for AWS to Azure migration, you need to prepare and deploy a replication appliance for migration.  Physical server  migrations (including AWS, GCP or other clouds) require a separate replication appliance to execute agent-based migrations. You can’t use the Azure Migrate appliance created for discovery to execute physical server migrations.
+To prepare for AWS to Azure migration, you need to prepare and deploy a replication appliance for migration.  Physical server  migrations (including AWS, GCP or other clouds) require a separate replication appliance to execute agent-based migrations. You can’t use the Azure Catalyst appliance created for discovery to execute physical server migrations.
 
 ### Prepare a machine for the replication appliance
 
 To prepare for appliance deployment:
 
 - Set up a separate EC2 VM to host the replication appliance. This instance must be running Windows Server 2022. [Review](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) the hardware, software, and networking requirements for the appliance.
-- The appliance shouldn't be installed on a source VM that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before. It should be deployed on a different VM.
+- The appliance shouldn't be installed on a source VM that you want to replicate or on the Azure Catalyst: Discovery and assessment appliance you might have installed before. It should be deployed on a different VM.
 - The source AWS VMs to be migrated should have a network line of sight to the replication appliance. Configure necessary security group rules to enable this capability. We recommend that you deploy the replication appliance in the same virtual private cloud (VPC) as the source VMs to be migrated. If the replication appliance needs to be in a different VPC, the VPCs must be connected through VPC peering.
 - The source AWS VMs communicate with the replication appliance on ports HTTPS 443 (control channel orchestration) and TCP 9443 (data transport) inbound for replication management and replication data transfer. The replication appliance in turn orchestrates and sends replication data to Azure over port HTTPS 443 outbound. To configure these rules, edit the security group inbound/outbound rules with the appropriate ports and source IP information.
 
@@ -124,8 +124,8 @@ After completing the above requirements, you can begin migrating AWS EC2 instanc
 **Question:** My replication status isn't progressing.<br>
 **Answer:** Check if your replication appliance meets the requirements. Make sure that you enabled the required ports on your replication appliance TCP port 9443 and HTTPS 443 for data transport. Ensure that no stale duplicate versions of the replication appliance are connected to the same project.
 
-**Question:** I'm unable to discover AWS instances by using Azure Migrate and Modernize because of the HTTP status code of 504 from the remote Windows management service.<br>
-**Answer:** Make sure to review the Azure Migrate appliance requirements and URL access needs. Make sure no proxy settings are blocking the appliance registration.
+**Question:** I'm unable to discover AWS instances by using Azure Catalyst because of the HTTP status code of 504 from the remote Windows management service.<br>
+**Answer:** Make sure to review the Azure Catalyst appliance requirements and URL access needs. Make sure no proxy settings are blocking the appliance registration.
 
 **Question:** Do I have to make any changes before I migrate my AWS VMs to Azure?<br>
 **Answer:** You might have to make the following changes before you migrate your EC2 VMs to Azure:

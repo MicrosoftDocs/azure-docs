@@ -1,5 +1,5 @@
 ---
-title: Configure and customize a migration wave in Azure Migrate (preview)
+title: Configure and customize a migration wave in Azure Catalyst (preview)
 description: Configure your wave's workload settings, then review and customize its execution plan and configure inputs before execution.
 author: snehithm
 ms.author: snmuvva
@@ -11,13 +11,13 @@ ms.date: 10/28/2026
 ---
 # Configure and customize a migration wave (preview)
 
-After creating a wave in Azure Migrate, finalize its workloads and properties. Configure the target Azure service and migration method for each workload before reviewing its execution plan.
+After creating a wave in Azure Catalyst, finalize its workloads and properties. Configure the target Azure service and migration method for each workload before reviewing its execution plan.
 
 Then review and customize the execution plan, including its steps, dependencies, approvals, and step group structure. Configure the required inputs before starting the wave.
 
 ## Prerequisites
 
-- Have the **Azure Migrate Owner** or **Azure Migrate Execute Expert** role on the Azure Migrate project. Either role permits changing workload settings, customizing the execution plan, and configuring inputs.
+- Have the **Azure Migrate Owner** or **Azure Migrate Execute Expert** role on the Azure Catalyst project. Either role permits changing workload settings, customizing the execution plan, and configuring inputs.
 - Confirm that workload settings are editable. You can't edit them when the wave's **Execution status** is **In progress**, or **Needs action** (when execution is paused) or **Completed**.
 - Migration tools and the Execution agent don't need to be ready to configure the wave or its execution plan. Preparation depends on the selected migration methods. Review the [execution prerequisites](execute-wave-migration.md#prerequisites) before starting.
 - If you plan to add custom script steps, identify the script's relative path within the host's script store. See [Configure a custom script step](#configure-a-custom-script-step) for the default directories and script preparation.
@@ -28,7 +28,7 @@ Finalize the workloads to include and the wave's properties before customizing i
 
 ### Add applications or workloads
 
-1. In the Azure Migrate project, go to **Execute** > **Waves**, open the wave, and select **Overview**.
+1. In the Azure Catalyst project, go to **Execute** > **Waves**, open the wave, and select **Overview**.
 2. Select **Add**, and then choose **Applications** or **Workloads**.
 
 :::image type="content" source="./media/configure-customize-wave/add-applications-workloads-menu.png" alt-text="Screenshot of the wave Overview with the Add menu expanded to show Applications and Workloads." lightbox="./media/configure-customize-wave/add-applications-workloads-menu.png":::
@@ -66,7 +66,7 @@ If an execution plan already exists, removal makes it out of date. [Regeneration
 
 ### Configure workload settings
 
-1. In the Azure Migrate project, go to **Execute** > **Waves**, open the wave, and select **Overview**.
+1. In the Azure Catalyst project, go to **Execute** > **Waves**, open the wave, and select **Overview**.
 2. Select **Configure settings** > **Configure workload settings**.
 3. Select **Export file** to download a ZIP file the current workload settings in a comma-separated values (CSV) file and a readme file with editing instructions.
 4. Extract the ZIP file. Follow the readme file to update the target and migration-method columns in the CSV for the workloads you need to configure. Keep the file structure unchanged.
@@ -86,15 +86,15 @@ If an execution plan already exists, removal makes it out of date. [Regeneration
 
 Changes to wave properties update the wave's metadata and don't require execution-plan regeneration.
 
-Wave-level dependencies don't block execution. If you start a wave before its predecessor waves complete, Azure Migrate shows a warning but allows execution to proceed.
+Wave-level dependencies don't block execution. If you start a wave before its predecessor waves complete, Azure Catalyst shows a warning but allows execution to proceed.
 
 :::image type="content" source="./media/configure-customize-wave/wave-properties.png" alt-text="Screenshot of the Wave properties pane showing name, description, planned dates, wave dependencies, and save controls." lightbox="./media/configure-customize-wave/wave-properties.png":::
 
 ## Review the execution plan
 
-Waves you create from a wave plan already have target Azure services and migration methods, so Azure Migrate automatically generates their initial execution plans. For a manually created wave, Azure Migrate automatically generates the initial plan once you configure these settings for every workload. For more details, see [When generation happens](wave-migrations.md#execution-plan). The following procedure includes manual generation when automatic generation fails.
+Waves you create from a wave plan already have target Azure services and migration methods, so Azure Catalyst automatically generates their initial execution plans. For a manually created wave, Azure Catalyst automatically generates the initial plan once you configure these settings for every workload. For more details, see [When generation happens](wave-migrations.md#execution-plan). The following procedure includes manual generation when automatic generation fails.
 
-1. In the Azure Migrate project, select **Waves** under **Execute**, open the wave, and select **Execution plan**. Complete **Configure workload settings** if requested.
+1. In the Azure Catalyst project, select **Waves** under **Execute**, open the wave, and select **Execution plan**. Complete **Configure workload settings** if requested.
 2. A banner indicates when generation is in progress; wait for it to finish. If generation fails, a banner indicates the failure. If the execution plan is out of date, a banner indicates the same. Select **Generate execution plan** or **Regenerate plan**, as applicable, to try again.
 4. Once generation completes, review the generated steps. By default, the table shows steps organized per application. Select **View by step group** if you would rather view steps organized by their step group.
 5. Review steps and workloads each step applies to. Use filters to view steps for a particular workload or application.
@@ -104,7 +104,7 @@ Waves you create from a wave plan already have target Azure services and migrati
 
 :::image type="content" source="./media/configure-customize-wave/generated-execution-plan.png" alt-text="Screenshot of a generated execution plan showing steps grouped by application, step groups, dependencies, and associated workloads." lightbox="./media/configure-customize-wave/generated-execution-plan.png":::
 
-For how Azure Migrate builds the workflow, see [Execution plan](wave-migrations.md#execution-plan).
+For how Azure Catalyst builds the workflow, see [Execution plan](wave-migrations.md#execution-plan).
 
 ### Regenerate the execution plan
 
@@ -149,7 +149,7 @@ During execution, you can [approve one, a few, or all of the ready workloads](ex
 
 ### Configure a custom script step
 
-Place the script in the script store folder on Azure Migrate appliance or an execution agent:
+Place the script in the script store folder on Azure Catalyst appliance or an execution agent:
 
 | Host operating system | Script store directory |
 | --- | --- |
@@ -158,7 +158,7 @@ Place the script in the script store folder on Azure Migrate appliance or an exe
 
 You can place scripts directly in the directory or in subfolders. Reference the script by its path relative to the script store, such as `validation\check.ps1` on Windows or `validation/check.sh` on Linux. PowerShell and Bash are supported; you don't need to specify a script type.
 
-Azure Migrate executes the script as provided; you don't need to add status-reporting code. Exit code `0` means success, and every other exit code means failure.
+Azure Catalyst executes the script as provided; you don't need to add status-reporting code. Exit code `0` means success, and every other exit code means failure.
 
 After choosing **Custom script** and completing the common fields:
 
@@ -208,7 +208,7 @@ Review the groups and their dependencies with the teams responsible for the migr
 
 :::image type="content" source="./media/configure-customize-wave/execution-plan-step-groups.png" alt-text="Screenshot of the execution plan grouped by step group, showing initialization, application, and ungrouped-workload steps with dependencies and associated workloads." lightbox="./media/configure-customize-wave/execution-plan-step-groups.png":::
 
-You can split and merge step groups only through Azure CLI and API, not the portal. Azure Migrate preserves dependencies during these operations. For grouping behavior, see [Customization concepts](wave-migrations.md#customization).
+You can split and merge step groups only through Azure CLI and API, not the portal. Azure Catalyst preserves dependencies during these operations. For grouping behavior, see [Customization concepts](wave-migrations.md#customization).
 
 ## Configure inputs on every step
 

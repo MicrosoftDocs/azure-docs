@@ -1,21 +1,21 @@
 ---
-title: Assessment Best Practices in Azure Migrate Discovery and Assessment Tool
-description: Tips for creating assessments with Azure Migrate Discovery and assessment tool.
+title: Assessment Best Practices in Azure Catalyst Discovery and Assessment Tool
+description: Tips for creating assessments with Azure Catalyst Discovery and assessment tool.
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.author: v-gajeronika
 ms.date: 09/19/2025
 ms.custom: engagement-fy23
-# Customer intent: "As an IT administrator, I want to create and recalculate assessments using the Azure Migrate Discovery and assessment tool, so that I can effectively evaluate my on-premises workloads for migration to Azure and optimize resource utilization."
+# Customer intent: "As an IT administrator, I want to create and recalculate assessments using the Azure Catalyst Discovery and assessment tool, so that I can effectively evaluate my on-premises workloads for migration to Azure and optimize resource utilization."
 ---
 
 # Best practices for creating assessments
 
-[Azure Migrate](./migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and non-Microsoft independent software vendor (ISV) offerings.
+[Azure Catalyst](./migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Catalyst tools, and non-Microsoft independent software vendor (ISV) offerings.
 
-This article summarizes the best practices when creating assessments using the Azure Migrate Discovery and assessment tool.
+This article summarizes the best practices when creating assessments using the Azure Catalyst Discovery and assessment tool.
 
-Assessments you can create with Azure Migrate: Discovery and assessment tool are a point-in-time snapshot of data. There are four types of assessments you can create using Azure Migrate: Discovery and assessment:
+Assessments you can create with Azure Catalyst: Discovery and assessment tool are a point-in-time snapshot of data. There are four types of assessments you can create using Azure Catalyst: Discovery and assessment:
 
 **Assessment Type** | **Details**
 --- | ---
@@ -28,15 +28,15 @@ Assessments you can create with Azure Migrate: Discovery and assessment tool are
 > If the number of Azure VM or AVS assessments is incorrect on the Discovery and assessment tool, select the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool shows the correct count for that assessment type. 
 
 ### Sizing criteria
-Sizing criteria options in Azure Migrate assessments:
+Sizing criteria options in Azure Catalyst assessments:
 
 **Sizing criteria** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments that make recommendations based on collected performance data. | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (Standard HDD/SSD, premium-managed or Ultra Disks) is based on the IOPS (Input/output per second) and throughput of the on-premises disks.<br/><br/>**Azure SQL assessment**: The Azure SQL configuration is based on performance data of SQL instances and databases, which includes: CPU utilization, Memory utilization, IOPS (Data and Log files), throughput, and latency of IO operations<br/><br/>**Azure VMware Solution (AVS) assessment**: If the data was imported using an RVTools file, AVS nodes recommendation is based on storage utilization data and provisioned CPU and RAM. If the data was imported using an Azure Migrate CSV file and CPU and RAM utilization data is provided, it's used. Else, the configured CPU, RAM, and storage are used. If the data was successfully imported using an Azure Migrate appliance, the CPU and RAM utilization data is used.
+**Performance-based** | Assessments that make recommendations based on collected performance data. | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (Standard HDD/SSD, premium-managed or Ultra Disks) is based on the IOPS (Input/output per second) and throughput of the on-premises disks.<br/><br/>**Azure SQL assessment**: The Azure SQL configuration is based on performance data of SQL instances and databases, which includes: CPU utilization, Memory utilization, IOPS (Data and Log files), throughput, and latency of IO operations<br/><br/>**Azure VMware Solution (AVS) assessment**: If the data was imported using an RVTools file, AVS nodes recommendation is based on storage utilization data and provisioned CPU and RAM. If the data was imported using an Azure Catalyst CSV file and CPU and RAM utilization data is provided, it's used. Else, the configured CPU, RAM, and storage are used. If the data was successfully imported using an Azure Catalyst appliance, the CPU and RAM utilization data is used.
 **As-is on-premises** | Assessments that don't use performance data to make recommendations. | **Azure VM assessment**: VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is based on what you select in the storage type setting for the assessment.<br/><br/> **Azure App Service assessment**: Assessment recommendation is based on on-premises web apps configuration data.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on the on-premises VM size.
 
 > [!NOTE]
-> If the data is being discovered using an Azure migrate appliance, VMs in disconnected or powered-off hosts are not discovered and considered for assessment.
+> If the data is being discovered using an Azure Catalyst appliance, VMs in disconnected or powered-off hosts are not discovered and considered for assessment.
 
 #### Example
 As an example, if you have an on-premises VM with four cores at 20% utilization, and memory of 8 GB with 10% utilization, the Azure VM assessment is as follows:
@@ -52,17 +52,17 @@ As an example, if you have an on-premises VM with four cores at 20% utilization,
 
 ## Best practices for creating assessments
 
-The Azure Migrate appliance continuously profiles your on-premises environment, and sends metadata and performance data to Azure. Follow these best practices for assessments of servers discovered using an appliance:
+The Azure Catalyst appliance continuously profiles your on-premises environment, and sends metadata and performance data to Azure. Follow these best practices for assessments of servers discovered using an appliance:
 
-- **Create as-is assessments**: You can create as-is assessments immediately once your servers show up in the Azure Migrate portal. You can't create an Azure SQL assessment with sizing criteria "As on-premises". Azure App Service assessment by default is "As on-premises".
+- **Create as-is assessments**: You can create as-is assessments immediately once your servers show up in the Azure Catalyst portal. You can't create an Azure SQL assessment with sizing criteria "As on-premises". Azure App Service assessment by default is "As on-premises".
 - **Create performance-based assessment**: After setting up discovery, we recommend that you wait at least a day before running a performance-based assessment:
     - Collecting performance data takes time. Waiting at least a day ensures that there are enough performance data points before you run the assessment.
     - When you're running performance-based assessments, make sure you profile your environment for the assessment duration. For example, if you create an assessment with a performance duration set to one week, you need to wait for at least a week after you start discovery, for all the data points to be collected. If you don't, the assessment doesn't get a five-star rating.
 - **Recalculate assessments**: Since assessments are point-in-time snapshots, they aren't automatically updated with the latest data. To update an assessment with the latest data, you need to recalculate it.
 
-Follow these best practices for assessments of servers imported into Azure Migrate via .CSV file:
+Follow these best practices for assessments of servers imported into Azure Catalyst via .CSV file:
 
-- **Create as-is assessments**: You can create as-is assessments immediately once your servers show up in the Azure Migrate portal.
+- **Create as-is assessments**: You can create as-is assessments immediately once your servers show up in the Azure Catalyst portal.
 - **Create performance-based assessment**: This helps to get a better cost estimate, especially if you have overprovisioned server capacity on-premises. However, the accuracy of the performance-based assessment depends on the performance data specified by you for the servers. 
 - **Recalculate assessments**: Since assessments are point-in-time snapshots, they aren't automatically updated with the latest data. To update an assessment with the latest imported data, you need to recalculate it.
  
@@ -150,8 +150,8 @@ An assessment might not have all the data points for many reasons:
     - Servers are powered on during the assessment
     - Outbound connections on ports 443 are allowed
     - For Hyper-V servers, dynamic memory is enabled 
-    - The connection status of agents in Azure Migrate is "Connected" and check the last heartbeat
-    - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance tab.
+    - The connection status of agents in Azure Catalyst is "Connected" and check the last heartbeat
+    - For Azure SQL assessments, Azure Catalyst connection status for all SQL instances is "Connected" in the discovered SQL instance tab.
 
     Recalculate the assessment to reflect the latest changes in confidence rating.
 

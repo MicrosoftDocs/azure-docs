@@ -1,5 +1,5 @@
 ---
-title: Review Discovered Inventory (Preview) in Azure Migrate 
+title: Review Discovered Inventory (Preview) in Azure Catalyst 
 description: This article describes how to review discovered inventory across infrastructure, databases, and web applications. 
 author: vikram1988
 ms.author: vibansa
@@ -15,9 +15,9 @@ monikerRange: migrate
 # Customer intent: As a cloud administrator, I want to review the discovered inventory of my datacenter assets in a unified view so that I can efficiently manage and assess the workloads, databases, and web applications for migration planning.
 ---
 
-# Review discovered inventory (preview) in Azure Migrate
+# Review discovered inventory (preview) in Azure Catalyst
 
-This article describes the new experience to review the inventory that you discover by using the Azure Migrate Discovery and Assessment tool. This capability is in preview.
+This article describes the new experience to review the inventory that you discover by using the Azure Catalyst Discovery and Assessment tool. This capability is in preview.
 
 ## What's new?
 
@@ -35,13 +35,13 @@ How you open the new experience depends on whether you're an existing or new use
 
 # [Existing user](#tab/existing)
 
-If you're an existing user who already created an Azure Migrate project and performed discovery of your datacenter assets, you can switch to the new **Overview** tab by using the prompt in your existing project. On the **Overview** tab, select the count of workloads to review the discovered inventory across your datacenter.
+If you're an existing user who already created an Azure Catalyst project and performed discovery of your datacenter assets, you can switch to the new **Overview** tab by using the prompt in your existing project. On the **Overview** tab, select the count of workloads to review the discovered inventory across your datacenter.
 
 # [New user](#tab/new)
 
 Ensure that you meet the following prerequisites:
 
-- [Create a project](./create-manage-projects.md) with the Azure Migrate Discovery and Assessment tool added to it.
+- [Create a project](./create-manage-projects.md) with the Azure Catalyst Discovery and Assessment tool added to it.
 - Review the requirements based on your environment and the appliance that you set up to perform the inventory:
 
   Environment | Requirements
@@ -54,9 +54,11 @@ Ensure that you meet the following prerequisites:
 
 ---
 
-## Deploy and configure the Azure Migrate appliance
+<a name="deploy-and-configure-the-azure-migrate-appliance"></a>
 
-You must deploy the Azure Migrate appliance to start discovery. To deploy the appliance, use the [deployment method](migrate-appliance.md#deployment-methods) that your environment requires. After you deploy the appliance, register it with the project and configure it to initiate the discovery.
+## Deploy and configure the Azure Catalyst appliance
+
+You must deploy the Azure Catalyst appliance to start discovery. To deploy the appliance, use the [deployment method](migrate-appliance.md#deployment-methods) that your environment requires. After you deploy the appliance, register it with the project and configure it to initiate the discovery.
 
 As you configure the appliance, you must specify the following values in the appliance configuration manager:
 
@@ -89,7 +91,7 @@ After the discovery is complete, go to the Azure portal and refresh the **Overvi
 
 ## Review all inventory
 
-You can select the count of workloads on the **Overview** tab of your project. Or, you can select **All inventory** > **Explore inventory** on the left menu to see the list of workloads discovered from your environment through either the [Azure Migrate appliance](migrate-appliance.md) or CSV import.
+You can select the count of workloads on the **Overview** tab of your project. Or, you can select **All inventory** > **Explore inventory** on the left menu to see the list of workloads discovered from your environment through either the [Azure Catalyst appliance](migrate-appliance.md) or CSV import.
 
 The **All Inventory** view helps you review all the workloads discovered from your datacenter. The list includes workloads running on servers (VMware VMs, Hyper-V VMs, physical servers, and servers running on other public clouds), databases, and web applications. You can find these workloads inline by expanding the server.
 
@@ -113,14 +115,14 @@ Attribute name | Details
 **Dependencies** | Network dependencies of the server. <br><br/> Dependency analysis is automatically enabled on up to 1,000 servers per appliance, if the validation checks succeed.
 **Support Status** | Support status for the servers and databases to indicate if they're in mainstream support, end of support, or extended support. [Learn more](tutorial-discover-vmware.md#view-support-status).
 **Discovery source** | Source of discovery of the workload (appliance or import).
-**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Migrate supports custom tags only.
+**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Catalyst supports custom tags only.
 
 # [Optional columns](#tab/optional-col)
 
-To view more attributes that Azure Migrate gathers during the discovery process, select **Columns** on the command bar. Then, select more attributes that you want to review.
+To view more attributes that Azure Catalyst gathers during the discovery process, select **Columns** on the command bar. Then, select more attributes that you want to review.
 
 > [!NOTE]
-> The [details of exported inventory data](#export-all-inventory-data) in this article show a complete list of attributes that Azure Migrate discovers.
+> The [details of exported inventory data](#export-all-inventory-data) in this article show a complete list of attributes that Azure Catalyst discovers.
 
 ---
 
@@ -265,7 +267,7 @@ Attribute name | Details
 **Dependencies** | Network dependencies of the server. <br><br/> This attribute shows the status of the dependency analysis, such as **Enabled**, **Disabled**, or **Failed validation**.
 **Support Status** | Support status for the servers and databases to indicate if they're in mainstream support, end of support, or extended support.
 **Discovery source** | Source of discovery of the workload (appliance or import).
-**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Migrate supports custom tags.
+**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Catalyst supports custom tags.
 **Cores** | Number of processor cores allocated to the server.
 **Memory (MBs)** | Total RAM, in megabytes, allocated to the server.
 **Disks** | Number of disks allocated to the server.
@@ -283,7 +285,7 @@ Attribute name | Details
 
 ## Review the infrastructure inventory
 
-To view the list of infrastructure workloads discovered from your environment through either [the Azure Migrate appliance](migrate-appliance.md) or CSV import, select **Explore inventory** > **Infrastructure inventory** on the left menu.
+To view the list of infrastructure workloads discovered from your environment through either [the Azure Catalyst appliance](migrate-appliance.md) or CSV import, select **Explore inventory** > **Infrastructure inventory** on the left menu.
 
 The **Infrastructure inventory** view helps you review all the servers discovered from your datacenter, including VMware VMs, Hyper-V VMs,  physical servers, or servers running on other public clouds.
 
@@ -301,14 +303,14 @@ Attribute name | Details
 **Web app** | Number of web apps running on the server.
 **Issues** | Number of discovery problems reported on the server.
 **Support Status** | Support status for the servers and databases to indicate if they're in mainstream support, end of support, or extended support. [Learn more](tutorial-discover-vmware.md#view-support-status).
-**Tags** | Tags applied to the server. <br><br/> Currently, Azure Migrate supports custom tags.
+**Tags** | Tags applied to the server. <br><br/> Currently, Azure Catalyst supports custom tags.
 
 # [Optional columns](#tab/optional)
 
-To view more attributes that Azure Migrate gathers during the discovery process, select **Columns** on the command bar. Then, select more attributes that you want to review.
+To view more attributes that Azure Catalyst gathers during the discovery process, select **Columns** on the command bar. Then, select more attributes that you want to review.
 
 > [!NOTE]
-> The [details of exported inventory data](#export-all-inventory-data) in this article show a complete list of attributes that Azure Migrate discovers.
+> The [details of exported inventory data](#export-all-inventory-data) in this article show a complete list of attributes that Azure Catalyst discovers.
 
 ---
 
@@ -378,7 +380,7 @@ Attribute name | Details
 
 ## Review the NAS inventory
 
-After the Azure Migrate appliance discovers your network-attached storage (NAS) systems, the clusters and the shares they host appear as inventory objects in your project. Each cluster is listed with its shares grouped beneath it, so you can see how storage is distributed across platforms, protocols, and administrative boundaries in a single place.
+After the Azure Catalyst appliance discovers your network-attached storage (NAS) systems, the clusters and the shares they host appear as inventory objects in your project. Each cluster is listed with its shares grouped beneath it, so you can see how storage is distributed across platforms, protocols, and administrative boundaries in a single place.
 
 NAS systems and their shares appear in multiple views. Use the view that matches what you want to do:
 
@@ -393,7 +395,7 @@ View | Path | Use it to
 
 The **All inventory** view lists every workload in the project. To focus on storage, filter the view by type:
 
-1. In the Azure Migrate project, select **Explore inventory** > **All inventory**.
+1. In the Azure Catalyst project, select **Explore inventory** > **All inventory**.
 1. Select **Add filter**.
 1. Set **Filter** to **Type** and **Operator** to **Equals**.
 1. In **Value**, select **NAS** and **File share**, and then select **Apply**.
@@ -526,7 +528,7 @@ Attribute name | Details
 **Issues** | Number of discovery problems reported on the database.
 **Instance HADR participants** | Number of database instances nodes that are part of an HADR cluster.
 **Database HADR participants** | Number of databases that are part of an HADR cluster.
-**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Migrate supports custom tags only. [Learn more](resource-tagging.md).
+**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Catalyst supports custom tags only. [Learn more](resource-tagging.md).
 **HADR configuration** | Name of the HADR configuration.
 **Discovery Source** | Method of discovery for the database (appliance or import).
 **Appliance Name** | Name of the appliance.
@@ -542,11 +544,11 @@ Attribute name | Details
 **Edition** | Edition of the database instance.
 **Total DB size (MB)** | Size of the database instance in megabytes.
 **Max server memory (MB)** | Maximum memory of the server on which the database is hosted.
-**Azure Migrate connection status** | Indication of whether the Azure Migrate appliance successfully connected to the SQL Server instance to gather information. If the value is **Not Connected**, the available information is either incomplete or outdated.
+**Azure Catalyst connection status** | Indication of whether the Azure Catalyst appliance successfully connected to the SQL Server instance to gather information. If the value is **Not Connected**, the available information is either incomplete or outdated.
 **DB engine status** | Power status of database engine if it's running or stopped.
 **HADR enabled** | Status of enabling high availability and disaster recovery.
 **First discovery time** | Time stamp of when the database was first discovered.
-**Last updated time** | Time stamp of when Azure Migrate last received the payload for the database.
+**Last updated time** | Time stamp of when Azure Catalyst last received the payload for the database.
 
 ---
 

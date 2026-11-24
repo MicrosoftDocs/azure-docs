@@ -1,28 +1,28 @@
 ---
-title: Azure Networking With Azure Migrate Assessments
-description: Learn how Azure networking works with Azure Migrate assessments.
+title: Azure Networking With Azure Catalyst Assessments
+description: Learn how Azure networking works with Azure Catalyst assessments.
 ms.author: v-gajeronika
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 08/31/2026
 author: habibaum
 ms.custom: engagement-fy25
-# Customer intent: As a cloud migration architect, I want to create a network assessment in Azure Migrate, so that I can map on-premises VMware and NSX-T resources to Azure networking services.
+# Customer intent: As a cloud migration architect, I want to create a network assessment in Azure Catalyst, so that I can map on-premises VMware and NSX-T resources to Azure networking services.
 
 ---
 
-# Assess VMware and NSX-T network resources with Azure Migrate (Preview)
+# Assess VMware and NSX-T network resources with Azure Catalyst (Preview)
 
-Azure Migrate supports network assessments for VMware and NSX-T environments. Network assessment in Azure Migrate evaluates discovered on-premises network resources and recommends equivalent Azure networking components to help plan migration to Azure. The assessment analyzes VMware and NSX-T inventory, maps associated network resources to selected applications or workloads, and provides Azure network recommendations, estimated costs, and sustainability insights.
+Azure Catalyst supports network assessments for VMware and NSX-T environments. Network assessment in Azure Catalyst evaluates discovered on-premises network resources and recommends equivalent Azure networking components to help plan migration to Azure. The assessment analyzes VMware and NSX-T inventory, maps associated network resources to selected applications or workloads, and provides Azure network recommendations, estimated costs, and sustainability insights.
 
 The assessment currently supports VMware and NSX-T environments. Hyper-V and physical server network assessments aren't currently supported.
 
-This article explains how network assessment is automatically included when you create an Azure Migrate assessment for supported VMware and NSX-T environments. This article describes the resulting network recommendations and planning outputs.
+This article explains how network assessment is automatically included when you create an Azure Catalyst assessment for supported VMware and NSX-T environments. This article describes the resulting network recommendations and planning outputs.
 
 > [!NOTE]
 > - Assessment results represent a point-in-time snapshot and can change as discovery data, assessment settings, or the source environment change.
 > - Network recommendations are available only for lift-and-shift migrations to Azure Virtual Machines. Other migration strategies aren't currently supported.
-> - You don't need to create a separate network assessment. When discovery collects network inventory, Azure Migrate automatically evaluates networking requirements and provides network recommendations in the assessment.
+> - You don't need to create a separate network assessment. When discovery collects network inventory, Azure Catalyst automatically evaluates networking requirements and provides network recommendations in the assessment.
  
 ## Assessment scenarios 
 
@@ -48,14 +48,14 @@ Use this scenario when you assess multiple applications together. The **Lift and
 Before you create a network assessment, ensure that:
 - You discovered your VMware data, including vCenter inventory such as VMs, port groups, and switches.
 - You discovered your NSX-T data, including segments, Tier-1 gateways, distributed firewall rules, gateway firewall rules, and L4 load balancers.
-- The applications or workloads you want to assess are available in the discovered inventory. During assessment creation, Azure Migrate automatically includes associated network resources such as load balancers, firewall rules, and segments in the assessment scope.
+- The applications or workloads you want to assess are available in the discovered inventory. During assessment creation, Azure Catalyst automatically includes associated network resources such as load balancers, firewall rules, and segments in the assessment scope.
 - Created assessments before network integration was enabled. Assessments aren't in scope for this experience. [Learn more assessment prerequisites](assessment-prerequisites.md).
 
 ## Create an assessment 
 
 Create a network assessment to evaluate discovered network resources and identify equivalent Azure networking components for migration. To create a network assessment, follow these steps: 
 
-1. In the **Azure Migrate** portal, go to **Decide and plan** > **Assessments**, and select **Create assessment**.
+1. In the **Azure Catalyst** portal, go to **Decide and plan** > **Assessments**, and select **Create assessment**.
 
     :::image type="content" source="./media/network-assessment/create-network-assessment.png" alt-text="Screenshot shows main panel to Create assessment button in the Assessments section." lightbox="./media/network-assessment/create-network-assessment.png":::
 

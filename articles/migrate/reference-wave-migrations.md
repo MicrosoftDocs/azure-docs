@@ -1,6 +1,6 @@
 ---
-title: Wave migration reference for Azure Migrate
-description: Look up migration step properties, dependency scopes, statuses, execution controls, and limits for Azure Migrate waves.
+title: Wave migration reference for Azure Catalyst
+description: Look up migration step properties, dependency scopes, statuses, execution controls, and limits for Azure Catalyst waves.
 author: snehithm
 ms.author: snmuvva
 ms.service: azure-migrate
@@ -9,7 +9,7 @@ ms.date: 10/28/2026
 
 #CustomerIntent: As a migration engineer, I want to look up wave migration properties, statuses, and limits so that I can configure and troubleshoot an execution plan.
 ---
-# Wave migration reference for Azure Migrate (preview)
+# Wave migration reference for Azure Catalyst (preview)
 
 Use this reference to look up execution artifacts, step properties, dependency scopes, statuses, controls, permissions, and limits for migration waves.
 
@@ -25,7 +25,7 @@ Use this reference to look up execution artifacts, step properties, dependency s
 | **Finalization** | The step group for end-of-wave activities. |
 | **Initialization** | The step group for shared setup and validation across applications and workloads. |
 | **Manual step** | A step that records completion of work performed outside the system. |
-| **Migration method** | How a workload migrates, such as Azure Migrate Server Migration, Azure Database Migration Service in offline mode, Azure Storage Mover, or redeploy and data copy. A workload property that determines its step sequence. |
+| **Migration method** | How a workload migrates, such as Azure Catalyst Server Migration, Azure Database Migration Service in offline mode, Azure Storage Mover, or redeploy and data copy. A workload property that determines its step sequence. |
 | **Optional step** | A step that can be deleted from the wave's workflow before execution. |
 | **Parameters file** | The separate file containing step input values; input changes don't modify the execution spec. |
 | **Prerequisite** | A system-owned ordering constraint from the step library. |
@@ -37,7 +37,7 @@ Use this reference to look up execution artifacts, step properties, dependency s
 | **User dependency** | A user-editable ordering constraint between steps. |
 | **Wave** | A group of resources that you want to migrate together. |
 | **Wave plan** | A planning-phase artifact that groups workloads into waves and sequences those waves. |
-| **Workload** | An individual resource to migrate, such as a virtual machine, SQL Server database, or file share. It belongs to one wave but can belong to multiple applications; Azure Migrate places its migration steps in only one application's group to avoid duplicate migration. |
+| **Workload** | An individual resource to migrate, such as a virtual machine, SQL Server database, or file share. It belongs to one wave but can belong to multiple applications; Azure Catalyst places its migration steps in only one application's group to avoid duplicate migration. |
 | **Workload-scoped step** | A step that fans out into one execution per workload. |
 
 Relationships are explained in [Waves, applications, and workloads](wave-migrations.md#waves-applications-and-workloads). Execution limits are listed in [Limits, defaults, and timeouts](#limits-defaults-and-timeouts).
@@ -46,11 +46,11 @@ Relationships are explained in [Waves, applications, and workloads](wave-migrati
 
 ## Execution artifacts
 
-The *execution spec* is the versioned JSON definition of the wave's execution plan, including steps and dependencies. It references workloads and application groups in the Azure Migrate project rather than defining those resources.
+The *execution spec* is the versioned JSON definition of the wave's execution plan, including steps and dependencies. It references workloads and application groups in the Azure Catalyst project rather than defining those resources.
 
 A separate *parameters file* stores all input values. Changing inputs, including during retry, updates that file without changing the execution spec.
 
-In **Execution runs**, **Download** provides a ZIP containing `spec.json`, `parameters.json`, and `status.json` for the run being viewed, including historical runs. **Download** on **Execution plan** provides the latest artifacts. The `status.json` file contains execution information for the associated run, including step attempts, which the portal doesn't currently show. Use **Execution runs** for portal status views; there's no separate audit-log surface. Completed-wave execution views remain available while the wave and its Azure Migrate project exist.
+In **Execution runs**, **Download** provides a ZIP containing `spec.json`, `parameters.json`, and `status.json` for the run being viewed, including historical runs. **Download** on **Execution plan** provides the latest artifacts. The `status.json` file contains execution information for the associated run, including step attempts, which the portal doesn't currently show. Use **Execution runs** for portal status views; there's no separate audit-log surface. Completed-wave execution views remain available while the wave and its Azure Catalyst project exist.
 
 For preparation and execution tasks, see [Configure and customize a wave](configure-customize-wave.md) and [Execute your wave migration](execute-wave-migration.md).
 
@@ -64,9 +64,9 @@ Each step in the step library defines its own type. Migration and tool activitie
 
 | Category | Created by | Scope | Retry granularity |
 | --- | --- | --- | --- |
-| **Migration/tool activity from the step library** | Azure Migrate; each library step has its own type | Workload-scoped or not, depending on the step | Failed workloads only (workload-scoped); whole job (otherwise) |
-| **Manual step** | Azure Migrate and user | Non-workload-scoped gate | Not applicable; waits for a person to complete the work |
-| **Approval step** | Azure Migrate and user | Gates a workload set; approval is per workload | Not applicable |
+| **Migration/tool activity from the step library** | Azure Catalyst; each library step has its own type | Workload-scoped or not, depending on the step | Failed workloads only (workload-scoped); whole job (otherwise) |
+| **Manual step** | Azure Catalyst and user | Non-workload-scoped gate | Not applicable; waits for a person to complete the work |
+| **Approval step** | Azure Catalyst and user | Gates a workload set; approval is per workload | Not applicable |
 | **Custom script step** | User | Once, or once per workload | Failed workloads only (workload-scoped); whole job (otherwise) |
 
 For editing restrictions, see the [customization capability matrix](#customization-capability-matrix). For procedures, see [Add steps](configure-customize-wave.md#add-steps-if-needed).
@@ -100,7 +100,7 @@ Every gate permits approval of any subset of ready workloads, as often as needed
 
 The portal requests **Relative script path**; provide the script path relative to the host's script store. Script settings are input values stored in the parameters file; script content isn't embedded in the execution spec. For portal settings, see [Configure a custom script step](configure-customize-wave.md#configure-a-custom-script-step).
 
-Scripts run as provided. You don't need to modify them to implement status-file reporting; Azure Migrate captures the execution result.
+Scripts run as provided. You don't need to modify them to implement status-file reporting; Azure Catalyst captures the execution result.
 
 Default script store directories:
 
@@ -130,7 +130,7 @@ A step's execution is either **automated** or **manual**.
 | Tier | Source | Editable | Resolution / scope requirement |
 | --- | --- | --- | --- |
 | **Prerequisites** | Step library (method-inherent ordering) | No; locked | System-determined: same-workload when both steps are workload-scoped; whole-step otherwise |
-| **User dependencies** | User, Azure Migrate, or user edits | Yes | Required when the predecessor is workload-scoped and the dependency mode is same-workload or mapped-workloads |
+| **User dependencies** | User, Azure Catalyst, or user edits | Yes | Required when the predecessor is workload-scoped and the dependency mode is same-workload or mapped-workloads |
 
 Both must be satisfied before dependent work can start.
 
@@ -299,8 +299,8 @@ For how concurrency is applied, see [Concurrency and parallelism](wave-migration
 
 | Action | Requirement |
 | --- | --- |
-| **Execution actions** | Azure Migrate Owner or Azure Migrate Execute Expert role on the Azure Migrate project for start, pause/resume, cancel, retry, approval, and manual completion |
-| **Project managed identity** | Both Azure Migrate Execute Expert and Contributor on the Azure Migrate resource group and on every target subscription used by the wave |
+| **Execution actions** | Azure Migrate Owner or Azure Migrate Execute Expert role on the Azure Catalyst project for start, pause/resume, cancel, retry, approval, and manual completion |
+| **Project managed identity** | Both Azure Migrate Execute Expert and Contributor on the Azure Catalyst resource group and on every target subscription used by the wave |
 | **Which gates you can approve** | Any gate in the project if you hold one of these roles; gates don't have individually assigned approvers |
 | **Access model** | Azure role-based access control (Azure RBAC) |
 
@@ -335,7 +335,7 @@ For preparation prerequisites, see [Configure and customize a wave](configure-cu
 
 Edits can't introduce circular dependencies, reference workloads outside the wave, or use unsupported steps. Required steps and system-owned prerequisites remain protected. For available edits, see the [customization capability matrix](#customization-capability-matrix).
 
-Splitting or merging groups relocates whole steps, not subsets of a step's workloads. Azure Migrate preserves dependencies and keeps groups nonempty. Resulting application or ungrouped-workload groups can run in parallel with their peers after initialization, subject to step dependencies; regrouping doesn't increase the wave's concurrency limits.
+Splitting or merging groups relocates whole steps, not subsets of a step's workloads. Azure Catalyst preserves dependencies and keeps groups nonempty. Resulting application or ungrouped-workload groups can run in parallel with their peers after initialization, subject to step dependencies; regrouping doesn't increase the wave's concurrency limits.
 
 ### Versioning rules
 

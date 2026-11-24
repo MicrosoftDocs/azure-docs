@@ -1,6 +1,6 @@
 ---
-title: Support for VMware vSphere migration in Azure Migrate
-description: Learn about support for VMware vSphere VM migration in Azure Migrate.
+title: Support for VMware vSphere migration in Azure Catalyst
+description: Learn about support for VMware vSphere VM migration in Azure Catalyst.
 author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
@@ -24,13 +24,13 @@ This article summarizes support settings and limitations for migrating VMware vS
 
 [!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
-As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
+As a result, Azure Catalyst doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
 
 ## Migration options
 
 You can migrate VMware vSphere VMs in a couple of ways:
 
-- **Using agentless migration**: Migrate VMs without needing to install anything on them. You deploy the [Azure Migrate appliance](migrate-appliance.md) for agentless migration.
+- **Using agentless migration**: Migrate VMs without needing to install anything on them. You deploy the [Azure Catalyst appliance](migrate-appliance.md) for agentless migration.
 - **Using agent-based migration**: Install an agent on the VM for replication. For agent-based migration, you deploy a [replication appliance](migrate-replication-appliance.md).
 
 > [!NOTE]
@@ -49,8 +49,8 @@ This section summarizes requirements for agentless VMware vSphere VM migration t
 [!INCLUDE [vmware-supported-versions-note](includes/vmware-supported-versions-note.md)]
 - **VMware vCenter Server** - [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
 - **VMware vSphere ESXi host** - [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
-- **Multiple vCenter Servers** - A single appliance can connect to up to 10 vCenter Servers. Once a vCenter is added to Azure Migrate appliance using IP or FQDN, it cannot be edited/deleted.
-- **vCenter Server permissions** - The VMware account used to access the vCenter server from the Azure Migrate appliance must have the following permissions assigned at all required levels - datacenter, cluster, host, VM, and datastore. Ensure permissions are applied at each level to avoid replication errors.
+- **Multiple vCenter Servers** - A single appliance can connect to up to 10 vCenter Servers. Once a vCenter is added to Azure Catalyst appliance using IP or FQDN, it cannot be edited/deleted.
+- **vCenter Server permissions** - The VMware account used to access the vCenter server from the Azure Catalyst appliance must have the following permissions assigned at all required levels - datacenter, cluster, host, VM, and datastore. Ensure permissions are applied at each level to avoid replication errors.
 
     **Privilege Name in the vSphere Client** | **The purpose for the privilege** | **Required On** | **Privilege Name in the API**
     --- | --- | --- | --- 
@@ -78,13 +78,13 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 --- | ---
 **Supported operating systems** | Windows Server 2003 and later versions. [Learn more](/troubleshoot/azure/virtual-machines/server-software-support). <br/><br/> You can migrate all the Linux operating systems supported by Azure listed [here](/troubleshoot/azure/cloud-services/support-linux-open-source-technology).
 **Windows VMs in Azure** | You might need to [make some changes](prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration.
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 10.x, 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br> - CentOS  Stream</br> - SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 24.04, 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 13, 12, 11, 10, 9, 8, 7 <br> - Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> - Alma Linux 10.X, 8.x, 9.x <br> - Rocky Linux 10.x, 8.x, 9.x <br> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It causes Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM. The `SELinux Permissive` setting is supported.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Catalyst makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 10.x, 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br> - CentOS  Stream</br> - SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 24.04, 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 13, 12, 11, 10, 9, 8, 7 <br> - Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> - Alma Linux 10.X, 8.x, 9.x <br> - Rocky Linux 10.x, 8.x, 9.x <br> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It causes Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM. The `SELinux Permissive` setting is supported.
 **Boot requirements** | **Windows VMs:**<br/>OS Drive (C:\\) and System Reserved Partition (EFI System Partition for UEFI VMs) should reside on the same disk.<br/>If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks. <br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks. <br/><br/> **Linux VMs:**<br/> If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks.<br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks.
 **UEFI boot** | UEFI-based virtual machines are migrated to Azure's Generation 2 VMs. However, it's important to note that Azure Generation 2 VMs lack the Secure Boot feature. For VMs that utilized Secure Boot in their original configuration, a conversion to Trusted Launch VMs is recommended after migration. This step ensures that Secure Boot, along with other enhanced security functionalities, is re-enabled.
 **Migration from Generation 1 to Generation 2 VMs** | Supported for migration to Confidential Virtual Machines (CVMs) for [CVM eligible OS](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines). Also supported for VMs running NVMe-eligible operating systems when migrating to VM SKU families that require NVMe storage and Generation 2 VMs. For the list of NVMe eligible operating systems, see [Supported OS images](/azure/virtual-machines/enable-nvme-interface).
 **Disk size** | Up to 2TB OS disk for Gen1 VM and up to 4TB OS disk for Gen2 VM; 32 TB for data disks. Changing the size of the source disk after initiating replication is supported and won't impact ongoing replication cycle.ng
 **Dynamic disk** | - An OS disk as a dynamic disk isn't supported. <br/> - If a VM with OS disk as dynamic disk is replicating, convert the disk type from dynamic to basic and allow the new cycle to complete, before triggering test migration or migration. You'll need help from OS support for conversion of dynamic to basic disk type.
-**Ultra Disk** | Ultra Disk migration isn't supported from the Azure Migrate portal. You have to do an out-of-band migration for the disks that are recommended as Ultra Disks. That is, you can migrate selecting it as premium disk type and change it to Ultra Disk after migration.
+**Ultra Disk** | Ultra Disk migration isn't supported from the Azure Catalyst portal. You have to do an out-of-band migration for the disks that are recommended as Ultra Disks. That is, you can migrate selecting it as premium disk type and change it to Ultra Disk after migration.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
 **Independent disks** | Not supported.
@@ -97,7 +97,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **VMware Cloud Director's Fast Provisioning** | Not supported.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
-**NVMe disk controllers** | - Supported for agentless VMware migration to Azure VM sizes that use an NVMe disk controller, provided the source operating system supports NVMe disk controller. Refer [NVMe eligible operating systems](/azure/virtual-machines/enable-nvme-interface). If the source OS version isn't supported for NVMe migration, upgrade it to a supported version, confirm that the required NVMe drivers are present, and retry the migration. <br/> - Both SCSI-to-NVMe and NVMe-to-NVMe migrations are supported. <br/> - NVMe-only Azure VM sizes require Generation 2 and UEFI boot. For a Generation 1 or BIOS-based source VM, Azure Migrate attempts to convert the VM during migration. Automatic conversion can fail due to an unsupported disk layout, insufficient disk space, or boot configuration issues. If the conversion fails, convert the source VM to UEFI in the on-premises environment, verify that the VM boots successfully, and retry the migration. <br/> - Migration to an NVMe-only target is not supported if the following are missing in source VMs. For Windows, the native stornvme.sys driver must be present in the source Windows installation. For Linux, the active kernel must include the required NVMe drivers:  nvme  and  nvme_core.
+**NVMe disk controllers** | - Supported for agentless VMware migration to Azure VM sizes that use an NVMe disk controller, provided the source operating system supports NVMe disk controller. Refer [NVMe eligible operating systems](/azure/virtual-machines/enable-nvme-interface). If the source OS version isn't supported for NVMe migration, upgrade it to a supported version, confirm that the required NVMe drivers are present, and retry the migration. <br/> - Both SCSI-to-NVMe and NVMe-to-NVMe migrations are supported. <br/> - NVMe-only Azure VM sizes require Generation 2 and UEFI boot. For a Generation 1 or BIOS-based source VM, Azure Catalyst attempts to convert the VM during migration. Automatic conversion can fail due to an unsupported disk layout, insufficient disk space, or boot configuration issues. If the conversion fails, convert the source VM to UEFI in the on-premises environment, verify that the VM boots successfully, and retry the migration. <br/> - Migration to an NVMe-only target is not supported if the following are missing in source VMs. For Windows, the native stornvme.sys driver must be present in the source Windows installation. For Linux, the active kernel must include the required NVMe drivers:  nvme  and  nvme_core.
 **Target disk** | VMs can be migrated only to managed disks (Standard HDD, Standard SSD, Premium SSD v2 (preview) for data disks) in Azure.
 **Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with one appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](how-to-scale-out-for-migration.md) is deployed.
 **Automatic installation of Azure VM agent (Windows and Linux Agent)** | Windows: <br/>Supported for Windows Server 2008 R2 onwards. <br/><br/>Linux: <br/>- Red Hat Enterprise Linux 10.X, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br/>- CentOS Stream<br/>- SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3<br/>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br/>- Debian 13, 12, 11, 10, 9, 8, 7<br/>- Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br/>- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)<br/>
@@ -126,11 +126,11 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 >  - Network tools: ip-route
 
 > [!TIP]
->  Using the Azure portal you'll  be able to select up to 10 VMs at a time to configure replication. To replicate more VMs you can use the portal and add the VMs to be replicated in multiple batches of 10 VMs, or use the Azure Migrate PowerShell interface to configure replication. Ensure that you don't configure simultaneous replication on more than the maximum supported number of VMs for simultaneous replications.
+>  Using the Azure portal you'll  be able to select up to 10 VMs at a time to configure replication. To replicate more VMs you can use the portal and add the VMs to be replicated in multiple batches of 10 VMs, or use the Azure Catalyst PowerShell interface to configure replication. Ensure that you don't configure simultaneous replication on more than the maximum supported number of VMs for simultaneous replications.
 
 ### Appliance requirements (agentless)
 
-Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). You can deploy the appliance as a VMware vSphere VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
+Agentless migration uses the [Azure Catalyst appliance](migrate-appliance.md). You can deploy the appliance as a VMware vSphere VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware vSphere.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
@@ -140,7 +140,7 @@ Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). Yo
 
 **Device** | **Connection**
 --- | ---
-Appliance | Outbound connections on port 443 to upload replicated data to Azure, and to communicate with Azure Migrate services orchestrating replication and migration.
+Appliance | Outbound connections on port 443 to upload replicated data to Azure, and to communicate with Azure Catalyst services orchestrating replication and migration.
 vCenter Server | Inbound connections on port 443 to allow the appliance to orchestrate replication - create snapshots, copy data, release snapshots.
 vSphere ESXi host | Inbound on TCP port 902 for the appliance to replicate data from snapshots. Outbound on port 902 from ESXi host is required for sending heartbeat traffic to vCenter 
 
@@ -168,11 +168,11 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 
 **Support** | **Details**
 --- | ---
-**Machine workload** | Azure Migrate supports migration of any workload (say Active Directory, SQL server, etc.) running on a supported machine.
-**Operating systems** | For the latest information, review the [operating system support](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for Site Recovery. Azure Migrate provides identical VM operating system support.
-**Linux file system/guest storage** | For the latest information, review the [Linux file system support](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) for Site Recovery. Azure Migrate has identical Linux file system support.
-**Network/Storage** | For the latest information, review the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate provides identical network/storage requirements.
-**Azure requirements** | For the latest information, review the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate has identical requirements for VMware migration.
+**Machine workload** | Azure Catalyst supports migration of any workload (say Active Directory, SQL server, etc.) running on a supported machine.
+**Operating systems** | For the latest information, review the [operating system support](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for Site Recovery. Azure Catalyst provides identical VM operating system support.
+**Linux file system/guest storage** | For the latest information, review the [Linux file system support](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) for Site Recovery. Azure Catalyst has identical Linux file system support.
+**Network/Storage** | For the latest information, review the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Catalyst provides identical network/storage requirements.
+**Azure requirements** | For the latest information, review the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Catalyst has identical requirements for VMware migration.
 **Mobility service** | The Mobility service agent must be installed on each VM you want to migrate.
 **UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.
 **UEFI - Secure boot**         | Not supported for migration.
@@ -190,7 +190,7 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported
 **Teamed NICs** | Not supported.
-**NVMe disk controllers** | - Supported for agent-based migration of VMware VMs and physical servers to Azure VM sizes that use an NVMe disk controller, provided the source operating system supports NVMe disk controller. Refer [NVMe eligible operating systems](/azure/virtual-machines/enable-nvme-interface). <br/> - For agent-based migration, the source OS kernel must also be supported by the ASR Mobility agent used for replication. If the source OS version isn't supported for NVMe migration, upgrade it to a supported version, confirm that the required NVMe drivers are present, and retry the migration. <br/> - Both SCSI-to-NVMe and NVMe-to-NVMe migrations are supported. <br/> - NVMe-only Azure VM sizes require Generation 2 and UEFI boot. For a Generation 1 or BIOS-based source VM, Azure Migrate attempts to convert the VM during migration. Automatic conversion can fail due to an unsupported disk layout, insufficient disk space, or boot configuration issues. If the conversion fails, convert the source VM to UEFI in the on-premises environment, verify that the VM boots successfully, and retry the migration.  <br/> - Migration to an NVMe-only target isn't supported if the following conditions are missing in source VMs. For Windows, the native stornvme.sys driver must be present in the source Windows installation. For Linux, the active kernel must include the required NVMe drivers:  nvme  and  nvme_core.
+**NVMe disk controllers** | - Supported for agent-based migration of VMware VMs and physical servers to Azure VM sizes that use an NVMe disk controller, provided the source operating system supports NVMe disk controller. Refer [NVMe eligible operating systems](/azure/virtual-machines/enable-nvme-interface). <br/> - For agent-based migration, the source OS kernel must also be supported by the ASR Mobility agent used for replication. If the source OS version isn't supported for NVMe migration, upgrade it to a supported version, confirm that the required NVMe drivers are present, and retry the migration. <br/> - Both SCSI-to-NVMe and NVMe-to-NVMe migrations are supported. <br/> - NVMe-only Azure VM sizes require Generation 2 and UEFI boot. For a Generation 1 or BIOS-based source VM, Azure Catalyst attempts to convert the VM during migration. Automatic conversion can fail due to an unsupported disk layout, insufficient disk space, or boot configuration issues. If the conversion fails, convert the source VM to UEFI in the on-premises environment, verify that the VM boots successfully, and retry the migration.  <br/> - Migration to an NVMe-only target isn't supported if the following conditions are missing in source VMs. For Windows, the native stornvme.sys driver must be present in the source Windows installation. For Linux, the active kernel must include the required NVMe drivers:  nvme  and  nvme_core.
 **IPv6** | Not supported.
 **Guest/server disk with 4K logical and 4k physical sector size** |	Not supported.
 **Guest/server disk with 4K logical and 512-bytes physical sector size** |	Not supported.
@@ -204,7 +204,7 @@ Set up the replication appliance using the OVA template for VMware agent-based m
 If your organization has restrictions, you can manually set up the replication appliance using PowerShell. Ensure you meet all the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. [Learn more](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) on how to set up the appliance.
 
 > [!NOTE]
-> The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before.
+> The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Catalyst: Discovery and assessment appliance you might have installed before.
 
 ### Port requirements (agent-based)
 

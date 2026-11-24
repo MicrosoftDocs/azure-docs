@@ -13,7 +13,7 @@ ms.update-cycle: 1825-days
 
 # Performance-based Performance Coverage
 
-Each performance-based Azure VM assessment in Azure Migrate is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Migrate provides. 
+Each performance-based Azure VM assessment in Azure Catalyst is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Catalyst provides. 
 
 - The performance coverage is assigned to an assessment. The coverage is based on the availability of data points that are needed to compute the assessment. 
 

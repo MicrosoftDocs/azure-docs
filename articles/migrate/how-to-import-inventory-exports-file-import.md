@@ -1,6 +1,6 @@
 ---
 title: Discover servers and workloads by importing inventory exports (preview)
-description: Learn how to use file import in Azure Migrate to upload inventory exports from your CMDB, ServiceNow, Dynatrace, Ansible, or other tools, review and correct the AI-generated proposal, and save it to your project inventory.
+description: Learn how to use file import in Azure Catalyst to upload inventory exports from your CMDB, ServiceNow, Dynatrace, Ansible, or other tools, review and correct the AI-generated proposal, and save it to your project inventory.
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 11/10/2026
@@ -9,9 +9,9 @@ author: anjalimishra
 
 # Discover servers and workloads by importing inventory exports (preview)
 
-This article explains how to discover servers, databases, and web apps in Azure Migrate by using **file import**. If you already have inventory exports from a configuration management database (CMDB) or tools such as ServiceNow, Dynatrace, or Ansible, upload these files in their original structure.
+This article explains how to discover servers, databases, and web apps in Azure Catalyst by using **file import**. If you already have inventory exports from a configuration management database (CMDB) or tools such as ServiceNow, Dynatrace, or Ansible, upload these files in their original structure.
 
-Azure Migrate uses AI to analyze your files and generate a proposed inventory that maps your source data to the Azure Migrate inventory schema. You can upload each file in its original format, without reformatting it to fit a template. Before saving anything to your project, review the proposal, correct values or mapping logic if needed, and then save it to inventory.
+Azure Catalyst uses AI to analyze your files and generate a proposed inventory that maps your source data to the Azure Catalyst inventory schema. You can upload each file in its original format, without reformatting it to fit a template. Before saving anything to your project, review the proposal, correct values or mapping logic if needed, and then save it to inventory.
 
 After you save the inventory, you can use it to build business cases, create assessments, and plan migration waves, in the same way as inventory discovered by other methods.
 
@@ -28,7 +28,7 @@ Use file import with inventory exports when:
 - You want a quick first inventory to start a business case before you decide on a deployed discovery method.
 
 > [!NOTE]
-> If you need continuous discovery, performance history, installed software, or detailed database configuration, use the [Azure Migrate appliance](tutorial-discover-vmware.md) or the [Azure Migrate collector](how-to-discover-using-collector.md). You can add either method to the same project later.
+> If you need continuous discovery, performance history, installed software, or detailed database configuration, use the [Azure Catalyst appliance](tutorial-discover-vmware.md) or the [Azure Catalyst Collector](how-to-discover-using-collector.md). You can add either method to the same project later.
 
 ## How it differs from CSV template and RVTools import
 
@@ -36,9 +36,9 @@ File import offers more than one import type. The following table compares impor
 
 | Capability | CSV template or RVTools import | Inventory exports from ServiceNow, Dynatrace, Ansible, and other tools |
 | --- | --- | --- |
-| Input | Follows the Azure Migrate CSV template or an RVTools XLSX export | Exports from your tools, in their own structure |
+| Input | Follows the Azure Catalyst CSV template or an RVTools XLSX export | Exports from your tools, in their own structure |
 | Preparation | Reformat data manually to fit the template | Upload exports as they are, with an optional context file |
-| Mapping | Fixed columns | AI maps source columns and values to the Azure Migrate inventory schema |
+| Mapping | Fixed columns | AI maps source columns and values to the Azure Catalyst inventory schema |
 | Workload scope | Servers | Servers, databases, and web apps, where the source data contains them |
 | Multiple sources | One file per import | Multiple exports interpreted together in one upload |
 | Review before saving | Data is imported as provided | Review, refine, and confirm the proposal with Copilot, or edit the downloadable review files |
@@ -47,11 +47,11 @@ File import offers more than one import type. The following table compares impor
 
 | Requirement | Details |
 | --- | --- |
-| Azure Migrate project | Create a new Azure Migrate project, or use an existing one. |
-| Azure permissions | An Azure account with permissions to create or update an Azure Migrate project. For details, see [Azure Migrate built-in roles](prepare-azure-accounts.md). |
+| Azure Catalyst project | Create a new Azure Catalyst project, or use an existing one. |
+| Azure permissions | An Azure account with permissions to create or update an Azure Catalyst project. For details, see [Azure Migrate built-in roles](prepare-azure-accounts.md). |
 | Inventory exports | One or more source files that represent the workloads you want to import, in a [supported format](#supported-file-inputs). |
 | Editing tools | A spreadsheet editor or text editor, if you plan to correct the downloadable review files. |
-| Data processing approval | Your organization must allow the exported inventory data to be processed by AI in Azure Migrate. |
+| Data processing approval | Your organization must allow the exported inventory data to be processed by AI in Azure Catalyst. |
 
 Copilot is optional. You can complete the entire import and review flow with or without Copilot.
 
@@ -75,7 +75,7 @@ Each upload can be up to 500 MB.
 1. Optionally, create a context file that explains your data. For details, see the next section.
 
 > [!TIP]
-> Upload all the exports you want Azure Migrate to interpret together in the same upload. Azure Migrate links and merges records from different files when they refer to the same host. If your files identify hosts in different ways, describe how they match in a context file.
+> Upload all the exports you want Azure Catalyst to interpret together in the same upload. Azure Catalyst links and merges records from different files when they refer to the same host. If your files identify hosts in different ways, describe how they match in a context file.
 
 ### Add a context file (optional)
 
@@ -102,18 +102,18 @@ Include the context file in your first upload, along with your exports. After th
 
 ## Step 1: Add your files
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open your Azure Migrate project.
+1. Sign in to the [Azure portal](https://portal.azure.com) and open your Azure Catalyst project.
 1. On **Overview**, in the **Inventory** card, select **Start discovery** > **Using file import**.
 1. In the file import type dropdown, select **Inventory exports from ServiceNow, Dynatrace, Ansible, etc.**
 1. In **Add your files**, select **Browse**, choose your export files and optional context file, or a ZIP file that contains them, and then select **Upload**.
-1. Wait while Azure Migrate analyzes the files and generates the proposed inventory. When the analysis finishes, the proposal appears in **Review and correct your proposal**.
+1. Wait while Azure Catalyst analyzes the files and generates the proposed inventory. When the analysis finishes, the proposal appears in **Review and correct your proposal**.
 
-If you start from Copilot in Azure Migrate, ask Copilot to import inventory files. Copilot opens the same import experience, and you continue with the same steps.
+If you start from Copilot in Azure Catalyst, ask Copilot to import inventory files. Copilot opens the same import experience, and you continue with the same steps.
 
 > [!NOTE]
 > Uploading files creates a proposal that you can review and refine. The inventory is added to your project only when you select **Save to inventory** in Step 3.
 
-To start over with a different set of files at any point before you save, select **Retry with new files**. Azure Migrate clears the current proposal and analyzes the new files.
+To start over with a different set of files at any point before you save, select **Retry with new files**. Azure Catalyst clears the current proposal and analyzes the new files.
 
 ## Step 2: Review and correct your proposal
 
@@ -158,7 +158,7 @@ If the proposal needs changes, use one of the following options. If the proposal
     | Change the mapping logic | To fix a rule that affects many rows, such as a unit conversion, a matching rule, or how an operating system value is interpreted | Edit the rule in `import-logic.txt`. The change applies to every matching row. |
     | Edit values directly | To fix an individual record | Edit the value in the `AllInventory-<timestamp>.csv` file. |
 
-1. In **Add your files**, upload the two edited review files, either individually or in a ZIP file. Azure Migrate regenerates the proposal based on your corrections.
+1. In **Add your files**, upload the two edited review files, either individually or in a ZIP file. Azure Catalyst regenerates the proposal based on your corrections.
 
 When the proposal is regenerated, rule changes are applied consistently across the inventory, values you edited directly in the CSV are kept, and rows that were already correct stay unchanged. You can repeat this download, edit, and upload cycle until the proposal meets your planning needs.
 
@@ -176,7 +176,7 @@ Changes you confirm in Copilot are applied to the proposal and carried into your
 Before you save, make sure the proposal is final. After you save, the imported metadata can't be changed.
 
 1. Review the latest proposal and its review summary.
-1. Select **Save to inventory**. Azure Migrate saves the proposed inventory exactly as shown in the review summary, including any changes you made in Step 2.
+1. Select **Save to inventory**. Azure Catalyst saves the proposed inventory exactly as shown in the review summary, including any changes you made in Step 2.
 1. Wait for validation and record creation to finish.
 1. Open **All inventory** and check that the server, database, and web app counts match the review summary.
 

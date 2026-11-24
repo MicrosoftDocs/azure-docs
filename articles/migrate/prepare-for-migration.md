@@ -1,6 +1,6 @@
 ---
-title: Prepare machines for migration with Azure Migrate
-description: Learn how to prepare on-premises or Azure VMware Solution machines for migration with Azure Migrate.
+title: Prepare machines for migration with Azure Catalyst
+description: Learn how to prepare on-premises or Azure VMware Solution machines for migration with Azure Catalyst.
 author: sunishvohra-ms 
 ms.author: sunishvohra
 ms.manager: vijain
@@ -29,13 +29,13 @@ In this article, you:
 
 ## Verify migration limitations
 
-The table summarizes discovery, assessment, and migration limits for Azure Migrate. We recommend that you assess machines before migration, but you don't have to.
+The table summarizes discovery, assessment, and migration limits for Azure Catalyst. We recommend that you assess machines before migration, but you don't have to.
 
 **Scenario** | **Project** | **Discovery/Assessment** | **Migration**
 --- | --- | --- | ---
-**VMware vSphere VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware vSphere VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware vSphere. <br> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance. | **Agentless migration**: you can simultaneously replicate a maximum of 500 VMs across multiple vCenter Servers (discovered from one appliance) using a scale-out appliance.<br> **Agent-based migration**: you can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
-**Hyper-V VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 5,000 Hyper-V VMs with a single Azure Migrate appliance | An appliance isn't used for Hyper-V migration. Instead, the Hyper-V Replication Provider runs on each Hyper-V host.<br/><br/> Replication capacity is influenced by performance factors such as VM churn, and upload bandwidth for replication data.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
-**Physical machines** | Discover and assess up to 35,000 machines in a single Azure Migrate project. | Discover up to 1000 physical servers with a single Azure Migrate appliance for physical servers. | You can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of servers.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**VMware vSphere VMs** | Discover and assess up to 35,000 VMs in a single Azure Catalyst project. | Discover up to 10,000 VMware vSphere VMs with a single [Azure Catalyst appliance](common-questions-appliance.md) for VMware vSphere. <br> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance. | **Agentless migration**: you can simultaneously replicate a maximum of 500 VMs across multiple vCenter Servers (discovered from one appliance) using a scale-out appliance.<br> **Agent-based migration**: you can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**Hyper-V VMs** | Discover and assess up to 35,000 VMs in a single Azure Catalyst project. | Discover up to 5,000 Hyper-V VMs with a single Azure Catalyst appliance | An appliance isn't used for Hyper-V migration. Instead, the Hyper-V Replication Provider runs on each Hyper-V host.<br/><br/> Replication capacity is influenced by performance factors such as VM churn, and upload bandwidth for replication data.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**Physical machines** | Discover and assess up to 35,000 machines in a single Azure Catalyst project. | Discover up to 1000 physical servers with a single Azure Catalyst appliance for physical servers. | You can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of servers.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 
 ## Select a VMware vSphere migration method
 
@@ -63,7 +63,7 @@ Review which URLs and ports are accessed during migration.
 
 **Scenario** | **Details** |  **URLs** | **Ports**
 --- | --- | --- | ---
-**VMware vSphere agentless migration** | Uses the [Azure Migrate appliance](migrate-appliance-architecture.md) for migration. Nothing is installed on VMware vSphere VMs. | Review the public cloud and government [URLs](migrate-appliance.md#url-access) needed for discovery, assessment, and migration with the appliance. | [Review](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) the port requirements for agentless migration.
+**VMware vSphere agentless migration** | Uses the [Azure Catalyst appliance](migrate-appliance-architecture.md) for migration. Nothing is installed on VMware vSphere VMs. | Review the public cloud and government [URLs](migrate-appliance.md#url-access) needed for discovery, assessment, and migration with the appliance. | [Review](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) the port requirements for agentless migration.
 **VMware vSphere agent-based migration** | Uses the [replication appliance](migrate-replication-appliance.md) for migration. The Mobility service agent is installed on VMs. | Review the [public cloud](migrate-replication-appliance.md#url-access) and [Azure Government](migrate-replication-appliance.md#azure-government-url-access) URLs that the replication appliance needs to access. | [Review](migrate-replication-appliance.md#port-access) the ports used during agent-based migration.
 **Hyper-V migration** | Uses a Provider installed on Hyper-V hosts for migration. Nothing is installed on Hyper-V VMs. | Review the [public cloud](migrate-support-matrix-hyper-v-migration.md#url-access-public-cloud) and [Azure Government](migrate-support-matrix-hyper-v-migration.md#url-access-azure-government) URLs that the Replication Provider running on the hosts needs to access. | The Replication Provider on the Hyper-V host uses outbound connections on HTTPS port 443 to send VM replication data.
 **Physical machines** | Uses the [replication appliance](migrate-replication-appliance.md) for migration. The Mobility service agent is installed on the physical machines. | Review the [public cloud](migrate-replication-appliance.md#url-access) and [Azure Government](migrate-replication-appliance.md#azure-government-url-access) URLs that the replication appliance needs to access. | [Review](migrate-replication-appliance.md#port-access) the ports used during physical migration.
@@ -72,7 +72,7 @@ Review which URLs and ports are accessed during migration.
 
 There are some changes needed on VMs before you migrate them to Azure.
 
-- For some operating systems, Azure Migrate makes changes automatically during the replication/migration process.
+- For some operating systems, Azure Catalyst makes changes automatically during the replication/migration process.
 - For other operating systems, you need to configure settings manually.
 - It's important to configure settings manually before you begin migration. Some of the changes may affect VM boot up, or connectivity to the VM may not be established. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 
@@ -111,7 +111,7 @@ Configure this setting manually as follows:
 
 ### Linux machines
 
-Azure Migrate completes these actions automatically for these versions
+Azure Catalyst completes these actions automatically for these versions
 
 - Red Hat Enterprise Linux  10.x, 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - CentOS Stream (Azure Linux VM agent is also installed automatically during migration)
@@ -156,7 +156,7 @@ The following table summarizes the steps performed automatically for the operati
 
 Learn more about steps for [running a Linux VM on Azure](/azure/virtual-machines/linux/create-upload-generic), and get instructions for some of the popular Linux distributions.
 
-Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 8.x, Ubuntu 20.04, SUSE 15 and Oracle 7 when using the agentless method of VMware migration.
+Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Catalyst installs the Linux VM agent automatically for  RHEL 8.x, Ubuntu 20.04, SUSE 15 and Oracle 7 when using the agentless method of VMware migration.
 
 ## Check Azure VM requirements
 
@@ -212,4 +212,4 @@ For VMware vSphere VMs, Migration and modernization supports [agentless or agent
 
 ## Learn more
 
-- [Prepare for VMware vSphere agentless migration with Azure Migrate.](./prepare-for-agentless-migration.md)
+- [Prepare for VMware vSphere agentless migration with Azure Catalyst.](./prepare-for-agentless-migration.md)

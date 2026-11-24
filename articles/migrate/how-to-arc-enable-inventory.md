@@ -1,6 +1,6 @@
 ---
-title: View and enable Azure Arc for discovered servers in Azure Migrate
-description: Learn how to view Arc status and enable Azure Arc for on-premises servers discovered via Azure Migrate’s appliance-based discovery tool.
+title: View and enable Azure Arc for discovered servers in Azure Catalyst
+description: Learn how to view Arc status and enable Azure Arc for on-premises servers discovered via Azure Catalyst’s appliance-based discovery tool.
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.service: azure-migrate
@@ -12,35 +12,37 @@ ms.custom: sfi-image-nochange
 # Customer intent: As a system administrator tasked with managing on-premises servers, I want to enable Azure Arc on my discovered inventory so that I can achieve unified management and better visibility throughout the migration process.
 ---
 
-# Enable Arc on Migrate inventory 
+# Enable Arc on Azure Catalyst inventory 
 
-This article describes how to view the Arc status of your Migrate discovered inventory and Arc enable your on-premises servers discovered in your datacenter with Azure Migrate: Discovery and assessment tool’s [appliance-based discovery](how-to-set-up-appliance-vmware.md).  
+This article describes how to view the Arc status of your Migrate discovered inventory and Arc enable your on-premises servers discovered in your datacenter with Azure Catalyst: Discovery and assessment tool’s [appliance-based discovery](how-to-set-up-appliance-vmware.md).  
 
-The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure. 
+The [Azure Catalyst appliance](migrate-appliance.md) is a lightweight appliance that the Azure Catalyst: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure. 
 
 ## Prerequisites 
 
-- Make sure you've [created](create-manage-projects.md) an Azure Migrate project. You can also reuse an existing project to use this capability. 
-- Once you've created a project, the Azure Migrate: Discovery and assessment tool is automatically [added](how-to-create-assessment.md) to the project. 
-- Discover your IT estate using Azure Migrate appliance. Follow our tutorials for [VMware](./tutorial-discover-vmware.md) or [Hyper-V](tutorial-discover-hyper-v.md) or [Physical/Bare-metal](tutorial-discover-physical.md) or other clouds to try out these steps. 
+- Make sure you've [created](create-manage-projects.md) an Azure Catalyst project. You can also reuse an existing project to use this capability. 
+- Once you've created a project, the Azure Catalyst: Discovery and assessment tool is automatically [added](how-to-create-assessment.md) to the project. 
+- Discover your IT estate using Azure Catalyst appliance. Follow our tutorials for [VMware](./tutorial-discover-vmware.md) or [Hyper-V](tutorial-discover-hyper-v.md) or [Physical/Bare-metal](tutorial-discover-physical.md) or other clouds to try out these steps. 
 
 ## Overview 
 
-The Arc-enable Migrate Inventory helps you view the Arc status of inventory discovered in Azure Migrate and navigate you to Arc center, if you want to Arc-enable your servers. This integration provides unified management experience, enabling better control and visibility over the migration process along with managing the remaining on-premises inventory. It includes these features:  
+The Arc-enable Azure Catalyst inventory helps you view the Arc status of inventory discovered in Azure Catalyst and navigate you to Arc center, if you want to Arc-enable your servers. This integration provides unified management experience, enabling better control and visibility over the migration process along with managing the remaining on-premises inventory. It includes these features:  
 
 - Allows you to view the Arc status of a server, if it's Arc-enabled or not. 
-- Directs you to download the Arc onboarding script from the Migrate inventory screen and run it on individual machines using your preferred automation method. 
+- Directs you to download the Arc onboarding script from the Azure Catalyst inventory screen and run it on individual machines using your preferred automation method. 
 
-### Arc status in Azure Migrate
+<a name="arc-status-in-azure-migrate"></a>
+
+### Arc status in Azure Catalyst
  
-To view the Arc Status in Azure Migrate, follow these steps:
+To view the Arc Status in Azure Catalyst, follow these steps:
 
 1. In **Servers, databases and web apps**, select **Discovered servers**.
 The **Discovered servers** page lists all the machines discovered. You can see the **Sync Arc Status** option here. 
 
    :::image type="content" source="./media/how-to-arc-enable-inventory/discovered-servers-inline.png" alt-text="Screenshot of the discovered servers." lightbox="./media/how-to-arc-enable-inventory/discovered-servers-expanded.png":::
  
-2. Select **Sync Arc Status**. Azure Migrate refreshes your discovered inventory. It compares this data with the data available in Azure Resource Graph via the Azure Hybrid Connected Resource Provider. Here, the machine’s BIOS ID is used to map machines in Migrate inventory against Azure Arc inventory. Once a unique match is found, this machine ID is saved in the Migrate inventory, providing seamless tracking and further status updates. 
+2. Select **Sync Arc Status**. Azure Catalyst refreshes your discovered inventory. It compares this data with the data available in Azure Resource Graph via the Azure Hybrid Connected Resource Provider. Here, the machine’s BIOS ID is used to map machines in Azure Catalyst inventory against Azure Arc inventory. Once a unique match is found, this machine ID is saved in the Azure Catalyst inventory, providing seamless tracking and further status updates. 
 
    :::image type="content" source="./media/how-to-arc-enable-inventory/discovered-items-arc-inline.png" alt-text="Screenshot of the discovered items with Arc button." lightbox="./media/how-to-arc-enable-inventory/discovered-items-arc-expanded.png":::
 
@@ -53,11 +55,13 @@ The **Discovered servers** page lists all the machines discovered. You can see t
 
 The **Completed** Arc discovery status indicates that the machine was checked against the Arc inventory, but it might or might not be onboarded to Azure Arc. 
 
-The Arc status has two states. If a machine is Arc-enabled, the Migrate inventory syncs with it and the status is updated as **Enabled** else it's marked **Not enabled**.
+The Arc status has two states. If a machine is Arc-enabled, the Azure Catalyst inventory syncs with it and the status is updated as **Enabled** else it's marked **Not enabled**.
 
-### Enable Arc from Azure Migrate
+<a name="enable-arc-from-azure-migrate"></a>
 
-To enable Arc for Azure Migrate discovered inventory, follow these steps:  
+### Enable Arc from Azure Catalyst
+
+To enable Arc for Azure Catalyst discovered inventory, follow these steps:  
 
 1. In **Servers, databases and web apps**, select **Discovered items**.
 

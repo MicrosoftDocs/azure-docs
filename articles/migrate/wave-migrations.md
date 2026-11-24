@@ -1,6 +1,6 @@
 ---
-title: Understand how wave migrations (preview) work in Azure Migrate
-description: Understand migration steps, dependencies, inputs, approvals, and execution behavior for waves in Azure Migrate.
+title: Understand how wave migrations (preview) work in Azure Catalyst
+description: Understand migration steps, dependencies, inputs, approvals, and execution behavior for waves in Azure Catalyst.
 author: snehithm
 ms.author: snmuvva 
 ms.service: azure-migrate
@@ -9,13 +9,13 @@ ms.date: 10/28/2026
 
 #CustomerIntent: As a migration engineer, I want to understand wave execution structure, dependencies, and lifecycle rules so that I can plan safe customizations and migration operations.
 ---
-# How wave migrations (preview) work in Azure Migrate
+# How wave migrations (preview) work in Azure Catalyst
 
-A *migration wave* is a group of applications and workloads that you want to migrate together. Grouping migration work into waves helps you coordinate related resources, whether you use Azure Migrate or other migration tools.
+A *migration wave* is a group of applications and workloads that you want to migrate together. Grouping migration work into waves helps you coordinate related resources, whether you use Azure Catalyst or other migration tools.
 
-This article explains how wave migrations work in Azure Migrate through an example application with two virtual machines (VMs) and a SQL Server database. In this example, the VMs must move to Azure VMs, and the database must move to Azure SQL Managed Instance. Although these workloads use different migration methods, they belong to the same wave.
+This article explains how wave migrations work in Azure Catalyst through an example application with two virtual machines (VMs) and a SQL Server database. In this example, the VMs must move to Azure VMs, and the database must move to Azure SQL Managed Instance. Although these workloads use different migration methods, they belong to the same wave.
 
-In Azure Migrate, an *execution plan* defines the workflow for migrating a wave. Azure Migrate generates the plan from the wave's workloads, target services, and migration methods, bringing together the migration steps, their dependencies, and approval checkpoints. The example shows how these parts fit together, from preparing the workloads to completing the migration.
+In Azure Catalyst, an *execution plan* defines the workflow for migrating a wave. Azure Catalyst generates the plan from the wave's workloads, target services, and migration methods, bringing together the migration steps, their dependencies, and approval checkpoints. The example shows how these parts fit together, from preparing the workloads to completing the migration.
 
 ## Waves, applications, and workloads
 
@@ -25,7 +25,7 @@ The wave defines the scope of execution, but its workloads don't all have to mov
 
 ## Execution plan
 
-You describe where each workload should go and how to migrate it by choosing its target Azure service and migration method respectively. Azure Migrate turns those choices into an execution plan for the wave.
+You describe where each workload should go and how to migrate it by choosing its target Azure service and migration method respectively. Azure Catalyst turns those choices into an execution plan for the wave.
 
 Plan generation is automatic. Waves created from a wave plan already have the target services and migration methods configured. For a manually created wave, generation happens as soon as you configure those settings for every workload. If any workloads in the wave do not yet have a target Azure service and migration method configured, the wave remains in **Pending configuration** state, with no execution plan generated.
 
@@ -43,7 +43,7 @@ A workload-scoped step can apply to several workloads, with a separate execution
 
 ### Step groups
 
-A *step group* organizes related steps. Azure Migrate creates a step group for each application's workloads in the wave. The example's VM and database steps belong to the same application group.
+A *step group* organizes related steps. Azure Catalyst creates a step group for each application's workloads in the wave. The example's VM and database steps belong to the same application group.
 
 | Group | Work it contains |
 | --- | --- |
@@ -66,7 +66,7 @@ A *dependency* makes a step wait for earlier work. It doesn't require every step
 
 In the example, VM replication doesn't need to wait for database preparation. Both can begin after initialization. However, the application team wants the database migrated before authorizing VM migration, so the VM approval also depends on the database migration step.
 
-Azure Migrate uses two kinds of dependencies, and both must be satisfied:
+Azure Catalyst uses two kinds of dependencies, and both must be satisfied:
 
 - **System-owned prerequisites** preserve the ordering required by the migration method. You can't edit them.
 - **User dependencies** add coordination for your migration, including work that you add to the plan.
@@ -81,7 +81,7 @@ The generated plan provides the workflow, but it doesn't replace your environmen
 
 ### Input parameters
 
-Input parameters describe the configuration of source, target, migration tool, or other settings a step needs. Azure Migrate populates available values from discovery and assessment; you review them and provide the rest.
+Input parameters describe the configuration of source, target, migration tool, or other settings a step needs. Azure Catalyst populates available values from discovery and assessment; you review them and provide the rest.
 
 A step-level value is the default for its workloads. A workload-level override takes precedence. For example, the application VMs can share a target-network setting while one VM uses an override for a different network.
 
@@ -95,9 +95,9 @@ Before execution, you can add approval, manual, and custom-script steps, change 
 
 ## Approvals and manual work
 
-An *approval step* asks a person to authorize work to proceed. A *manual step* waits for a person to complete work outside Azure Migrate and record that it is done. Both are part of the execution plan, not separate checklists.
+An *approval step* asks a person to authorize work to proceed. A *manual step* waits for a person to complete work outside Azure Catalyst and record that it is done. Both are part of the execution plan, not separate checklists.
 
-In the example, approving VM migration authorizes the next migration activity. A manual network-change step instead records an action the team performs outside the workflow. Azure Migrate can generate these checkpoints where applicable, and you can add your own before execution.
+In the example, approving VM migration authorizes the next migration activity. A manual network-change step instead records an action the team performs outside the workflow. Azure Catalyst can generate these checkpoints where applicable, and you can add your own before execution.
 
 Approval is granted per ready workload. The team can approve one VM, a subset, or all ready VMs together. Approval can be provided or withheld; it isn't a configurable requirement to approve every workload at once.
 

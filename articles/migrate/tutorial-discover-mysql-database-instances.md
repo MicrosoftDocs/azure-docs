@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Discover MySQL Database Instances in Your Datacenter (preview) Using Azure Migrate
-description: Learn how to discover MySQL database instances running in your datacenter using the Azure Migrate Discovery and Assessment tool. This tutorial provides step-by-step instructions for setting up a Kubernetes-based appliance, configuring the appliance, and reviewing the discovered MySQL databases.
+title: Tutorial - Discover MySQL Database Instances in Your Datacenter (preview) Using Azure Catalyst
+description: Learn how to discover MySQL database instances running in your datacenter using the Azure Catalyst Discovery and Assessment tool. This tutorial provides step-by-step instructions for setting up a Kubernetes-based appliance, configuring the appliance, and reviewing the discovered MySQL databases.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
@@ -14,7 +14,7 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
 # Discover MySQL database instances running in your datacenter (preview)
 
 
-This article describes how to discover MySQL database instances running on servers in your datacenter, using **Azure Migrate appliance**. The discovery process is agentless; no agents are installed on the target servers. 
+This article describes how to discover MySQL database instances running on servers in your datacenter, using **Azure Catalyst appliance**. The discovery process is agentless; no agents are installed on the target servers. 
 
 ## Supported regions
 
@@ -45,7 +45,7 @@ The following table lists the regions that support MySQL Discovery and Assessmen
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/free-trial/).
-- Before you begin to discover MySQL database instances, use the below links to create an Azure Migrate project and deploy an appliance as per your requirements in one of the [supported regions](#supported-regions):
+- Before you begin to discover MySQL database instances, use the below links to create an Azure Catalyst project and deploy an appliance as per your requirements in one of the [supported regions](#supported-regions):
 
    - [Discover servers running in a VMware environment](tutorial-discover-vmware.md)
    - [Discover servers running in Hyper-V environment](tutorial-discover-hyper-v.md)
@@ -53,7 +53,7 @@ The following table lists the regions that support MySQL Discovery and Assessmen
    - [Discover AWS instances](tutorial-discover-aws.md)
    - [Discover GCP instances](tutorial-discover-gcp.md)
    
-- After you create a project, ensure you've completed the server discovery using the Azure Migrate appliance.
+- After you create a project, ensure you've completed the server discovery using the Azure Catalyst appliance.
 - Ensure that you perform the [discovery of software inventory](how-to-discover-applications.md) by providing the server credentials to the appliance configuration manager.
 
 ## Provide MySQL credentials
@@ -84,7 +84,7 @@ To enable Discovery and Assessment in Azure Migrate, you can create a custom MyS
 
 ```
 
--- MySQL Script to Create a Least-Privilege User for Azure Migrate
+-- MySQL Script to Create a Least-Privilege User for Azure Catalyst
 -- Replace @username, @password, and @ip with actual values before execution.
 
 SET @username = 'your_username';
@@ -118,7 +118,7 @@ GRANT SELECT ON performance_schema.* TO @username@'@ip';
 FLUSH PRIVILEGES;
 
 -- Log success
-SELECT CONCAT('Azure Migrate user ', @username, '@', @ip, ' created successfully with least privileges.') AS result;
+SELECT CONCAT('Azure Catalyst user ', @username, '@', @ip, ' created successfully with least privileges.') AS result;
 ```
 Execute the script using the following command through your MySQL client.
 ```

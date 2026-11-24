@@ -1,6 +1,6 @@
 ---
-title: Execute a migration wave in Azure Migrate
-description: Start a migration wave, approve workloads, complete manual steps, and recover from execution failures in Azure Migrate.
+title: Execute a migration wave in Azure Catalyst
+description: Start a migration wave, approve workloads, complete manual steps, and recover from execution failures in Azure Catalyst.
 author: snehithm
 ms.author: snmuvva
 ms.service: azure-migrate
@@ -10,22 +10,22 @@ ms.date: 10/28/2026
 #CustomerIntent: As a migration engineer, I want to execute a wave so that I can migrate its workloads and resolve issues during execution.
 
 ---
-# Execute a migration wave in Azure Migrate (preview)
+# Execute a migration wave in Azure Catalyst (preview)
 
 Start a configured migration wave, respond to approvals and manual work, and recover from failures as migration progresses. This article also covers pausing, canceling, and completing a run.
 
 ## Prerequisites
 
 - Ensure your wave's **Execution status** is **Not Started**, not **Pending configuration**. If it's **Pending configuration**, then [configure and customize your wave](configure-customize-wave.md) first.
-- You have the **Azure Migrate Owner** or **Azure Migrate Execute Expert** role on the Azure Migrate project for execution actions, including starting, pausing, resuming, canceling, retrying, approving, and completing manual work.
-- Ensure the Azure Migrate project's managed identity has both **Azure Migrate Execute Expert** and **Contributor** at each required scope: the Azure Migrate resource group and every target subscription used by the wave. See [Permissions](reference-wave-migrations.md#permissions).
+- You have the **Azure Migrate Owner** or **Azure Migrate Execute Expert** role on the Azure Catalyst project for execution actions, including starting, pausing, resuming, canceling, retrying, approving, and completing manual work.
+- Ensure the Azure Catalyst project's managed identity has both **Azure Migrate Execute Expert** and **Contributor** at each required scope: the Azure Catalyst resource group and every target subscription used by the wave. See [Permissions](reference-wave-migrations.md#permissions).
 - Review the preparation required by your selected migration methods. Tool readiness varies by method: some migration methods set up a tool, while others validate an existing setup.
 
 ## Start the run
 
 Start the wave after completing configuration and stakeholder review.
 
-1. In the Azure Migrate project, go to **Execute** > **Waves**, open the wave, and select **Execution plan**. Start from the individual wave, not the **Waves** list page.
+1. In the Azure Catalyst project, go to **Execute** > **Waves**, open the wave, and select **Execution plan**. Start from the individual wave, not the **Waves** list page.
 2. Complete your review of the current execution plan and inputs, and then select **Start execution** and accept the confirmation.
 3. **Execution runs** opens as execution starts. Monitor shared setup and validation in initialization, and workload-specific validation in application step groups. If validation fails, [recover from the failure](#recover-from-failures) before the affected work can proceed.
 
@@ -55,10 +55,10 @@ If you aren't ready to proceed, **withhold approval**. Fix any issue first, then
 
 ## Complete manual work when requested
 
-Record completion only after finishing the required work outside Azure Migrate.
+Record completion only after finishing the required work outside Azure Catalyst.
 
 1. In **Execution runs**, find a manual step showing **Needs action** and open **Step details**. The status is **Needs action** in both views.
-2. Read its description and complete the work outside Azure Migrate.
+2. Read its description and complete the work outside Azure Catalyst.
 3. Select **Mark as complete** in the **Action** column or **Step details**.
 4. In the **Mark as complete** pane, review the step's name and description, and then select **Complete** to record that the work is done so dependent work can continue.
 

@@ -1,6 +1,6 @@
 ---
-title: Review a file share assessment - Azure Migrate
-description: Learn how to review a file share assessment in Azure Migrate to evaluate readiness, migration paths, recommended target configurations, and cost estimates for discovered file shares.
+title: Review a file share assessment - Azure Catalyst
+description: Learn how to review a file share assessment in Azure Catalyst to evaluate readiness, migration paths, recommended target configurations, and cost estimates for discovered file shares.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
@@ -18,19 +18,19 @@ This article describes the components of a file share assessment and how to read
 
 ## Overview
 
-An Azure Migrate assessment evaluates on‑premises workloads or workloads hosted in other public clouds for migration to Azure by analyzing readiness, right‑sizing, and cost. A file share assessment helps you evaluate discovered file shares and identify a strategy to migrate them to Azure Files, Azure Blob Storage, Azure NetApp Files, or Azure virtual machines.
+An Azure Catalyst assessment evaluates on‑premises workloads or workloads hosted in other public clouds for migration to Azure by analyzing readiness, right‑sizing, and cost. A file share assessment helps you evaluate discovered file shares and identify a strategy to migrate them to Azure Files, Azure Blob Storage, Azure NetApp Files, or Azure virtual machines.
 
 Results are organized as migration paths. Each path represents one way to move the assessed estate: everything to a single service, or a mixed recommendation that sends each share to its best-fit target. You can compare readiness and cost across paths before committing to a plan.
 
 > [!NOTE]
-> Azure Migrate doesn’t support file share discovery and TCO assessment on Windows Server 2008 R2. This limitation exists because the operating system lacks the required PowerShell capabilities and system APIs needed to discover file shares and collect assessment data.  
+> Azure Catalyst doesn’t support file share discovery and TCO assessment on Windows Server 2008 R2. This limitation exists because the operating system lacks the required PowerShell capabilities and system APIs needed to discover file shares and collect assessment data.  
  
 
 ## Review an assessment
 
 To review a file share assessment, follow these steps: 
 
-1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**.
+1. On the Azure Catalyst project **Overview** page, under **Decide and Plan**, select **Assessments**.
    :::image type="content" source="./media/review-application-assessment/overview.png" alt-text="The screenshot that shows where the user can select assessments." lightbox="./media/review-application-assessment/overview.png":::
    
 1. Use the **Workloads** filter to search for the assessment, and then select it.
@@ -101,7 +101,7 @@ Measure | Description
 
 ### Recommended path
 
-A Microsoft‑recommended target minimizes migration effort. When a share qualifies for more than one target, Azure Migrate recommends the most cost‑effective and migration‑ready path. The recommendation includes readiness checks and monthly cost estimates for shares marked **Ready** or **Ready with conditions**. By default, the **Modernize** option is recommended to prioritize PaaS targets.
+A Microsoft‑recommended target minimizes migration effort. When a share qualifies for more than one target, Azure Catalyst recommends the most cost‑effective and migration‑ready path. The recommendation includes readiness checks and monthly cost estimates for shares marked **Ready** or **Ready with conditions**. By default, the **Modernize** option is recommended to prioritize PaaS targets.
 
 You can use this path to: 
 
@@ -111,7 +111,7 @@ You can use this path to:
 
 > [!NOTE]
 > - The recommended deployment strategy is Azure Files when file shares are assessed successfully and meet readiness requirements with cost benefits.
-> - Azure Migrate attempts to provide a successful migration path for all selected file shares.
+> - Azure Catalyst attempts to provide a successful migration path for all selected file shares.
 > - If an error occurs during assessment, such as volume or size estimation issues, the affected file share and all collocated shares on the server are recommended for an Azure virtual machine migration path.
 
 ### Migrate all file shares to Azure Files
@@ -243,7 +243,7 @@ Field | Description
 > [!NOTE]
 > The preceding table details a file share. Similar details exist for Azure Blob and Azure NetApp Files, with their corresponding applicable values.
 
-The page also explains why the recommendation was made. Azure Migrate determines the SKU and access tier by evaluating target region, source protocol, media tier, used size, redundancy type, IOPS, estimated provisioned size, throughput, and workload type suitability against the supported values of each target storage service.
+The page also explains why the recommendation was made. Azure Catalyst determines the SKU and access tier by evaluating target region, source protocol, media tier, used size, redundancy type, IOPS, estimated provisioned size, throughput, and workload type suitability against the supported values of each target storage service.
 
 Two further sections help you act on the recommendation:
 
@@ -251,7 +251,7 @@ Two further sections help you act on the recommendation:
 - **Select the right migration tool** - links to the Azure NetApp Files migration assistant for on-premises ONTAP volumes, Azure Storage Mover for Azure Files and Azure Blob lift-and-shift and repeated cloud migrations, and Azure File Sync for active sync and hybrid storage with Windows file servers.
 
 > [!NOTE]
-> Migration tool guidance is static in this release. Azure Migrate links to the appropriate tool for the recommended target, but it doesn't select a tool dynamically based on your environment.
+> Migration tool guidance is static in this release. Azure Catalyst links to the appropriate tool for the recommended target, but it doesn't select a tool dynamically based on your environment.
 
 :::image type="content" source="./media/review-nas-assessment/target-recommendations.png" alt-text="Screenshot that shows the Target recommendations tab for an assessed file share, with target details, estimated cost, the SKU rationale, and migration tool guidance." lightbox="./media/review-nas-assessment/target-recommendations.png":::
 
@@ -267,9 +267,9 @@ Two further sections help you act on the recommendation:
 
 ## Things to know
 
-- On-premises TCO cost estimates are directional. The NAS on-premises cost assumption uses a default for on-premises TCO, which you can view and change under **Manage** > **Cost assumptions (storage)** in your Azure Migrate project settings. This cost isn't calibrated against individual customer environments.
+- On-premises TCO cost estimates are directional. The NAS on-premises cost assumption uses a default for on-premises TCO, which you can view and change under **Manage** > **Cost assumptions (storage)** in your Azure Catalyst project settings. This cost isn't calibrated against individual customer environments.
 - Blob recommendations aren't performance-validated. There's no scale, performance, or IOPS/throughput validation behind Blob sizing in this release.
 - Performance values might be derived. Where deep-discovery metrics weren't available, performance values are calculated from predefined formulas rather than from measurement.
 - Azure NetApp Files is offered only for NetApp-origin shares, which is why that path can cover fewer workloads than the others.
 - Co-located shares are included. Shares that reside on the same volume as a selected share are added to the assessment scope automatically, so results might cover more shares than you selected.
-- Azure Migrate doesn't move the data. The assessment plans the migration and points to a suitable tool. Data movement is performed by tools such as Azure Storage Mover and Azure NetApp Files migration tooling.
+- Azure Catalyst doesn't move the data. The assessment plans the migration and points to a suitable tool. Data movement is performed by tools such as Azure Storage Mover and Azure NetApp Files migration tooling.

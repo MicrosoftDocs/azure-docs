@@ -1,6 +1,6 @@
 ---
-title: Discover servers on Hyper-V with Azure Migrate Discovery and assessment 
-description: Learn how to discover on-premises servers on Hyper-V with the Azure Migrate Discovery and assessment tool.
+title: Discover servers on Hyper-V with Azure Catalyst Discovery and assessment 
+description: Learn how to discover on-premises servers on Hyper-V with the Azure Catalyst Discovery and assessment tool.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -15,14 +15,14 @@ ms.custom:
   - engagement-fy24
   - sfi-image-nochange
   - sfi-ropc-nochange
-# Customer intent: As a Hyper-V administrator, I want to discover on-premises servers using Azure Migrate, so that I can gather performance data and prepare for migration to the cloud.
+# Customer intent: As a Hyper-V administrator, I want to discover on-premises servers using Azure Catalyst, so that I can gather performance data and prepare for migration to the cloud.
 ---
 
-# Tutorial: Discover servers running on Hyper-V with Azure Migrate: Discovery and assessment
+# Tutorial: Discover servers running on Hyper-V with Azure Catalyst: Discovery and assessment
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to discover the servers that are running in your Hyper-V environment by using the Azure Migrate: Discovery and assessment tool, a lightweight Azure Migrate appliance. You deploy the appliance as a server on Hyper-V host, to continuously discover servers and their performance metadata, applications that are running on servers, server dependencies, web apps, and SQL Server instances and databases.
+This tutorial shows you how to discover the servers that are running in your Hyper-V environment by using the Azure Catalyst: Discovery and assessment tool, a lightweight Azure Catalyst appliance. You deploy the appliance as a server on Hyper-V host, to continuously discover servers and their performance metadata, applications that are running on servers, server dependencies, web apps, and SQL Server instances and databases.
 
 In this tutorial, you learn how to:
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 > * Set up an Azure account
 > * Prepare the Hyper-V environment for discovery.
 > * Create a project.
-> * Set up the Azure Migrate appliance.
+> * Set up the Azure Catalyst appliance.
 > * Start continuous discovery.
 
 > [!NOTE]
@@ -60,7 +60,7 @@ You can prepare Hyper-V hosts manually or using a script. The preparation steps 
 Verify host requirements | Checks that the host is running a supported version of Hyper-V, and the Hyper-V role.<br/><br/>Enables the WinRM service and opens ports 5985 (HTTP) and 5986 (HTTPS) on the host (needed for metadata collection). | The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull server metadata and performance data, using a Common Information Model (CIM) session.<br/><br/> The script isn't currently supported on hosts with a non-English locale.  
 Verify PowerShell version | Checks that you're running the script on a supported PowerShell version. | Check you're running PowerShell version 4.0 or later on the Hyper-V host.
 Create an account | Verifies that you have the correct permissions on the Hyper-V host.<br/><br/> Allows you to create a local user account with the correct permissions. | Option 1: Prepare an account with Administrator access to the Hyper-V host machine.<br/><br/> Option 2: Prepare a Local Admin account, or Domain Admin account, and add the account to these groups: Remote Management Users, Hyper-V Administrators, and Performance Monitor Users.
-Enable PowerShell remoting | Enables PowerShell remoting on the host, so that the Azure Migrate appliance can run PowerShell commands on the host, over a WinRM connection. | To set up, on each host, open a PowerShell console as admin, and run this command: ``` powershell Enable-PSRemoting -force ```
+Enable PowerShell remoting | Enables PowerShell remoting on the host, so that the Azure Catalyst appliance can run PowerShell commands on the host, over a WinRM connection. | To set up, on each host, open a PowerShell console as admin, and run this command: ``` powershell Enable-PSRemoting -force ```
 Set up Hyper-V integration services | Checks that the Hyper-V Integration Services is enabled on all servers managed by the host. | [Enable Hyper-V Integration Services](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) on each server.<br/><br/> If you're running Windows Server 2003, [follow these instructions](prepare-windows-server-2003-migration.md).
 Delegate credentials if server disks are located on remote SMB shares | Delegates credentials | Run this command to enable CredSSP to delegate credentials on hosts running servers with disks on SMB shares: ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> You can run this command remotely on all Hyper-V hosts.<br/><br/> If you add new host nodes on a cluster they're automatically added for discovery, but you need to enable CredSSP manually.<br/><br/> When you set up the appliance, you finish setting up CredSSP by [enabling it on the appliance](#delegate-credentials-for-smb-vhds). 
 
@@ -91,17 +91,17 @@ SHA256 | [!INCLUDE [hyper-v-vhd.md](includes/hyper-v-vhd.md)]
 
 ### Create an account to access servers
 
-You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and SQL Server instances and databases. You can add multiple domains, Windows (non-domain), Linux (non-domain), or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
+You can add multiple server credentials in the Azure Catalyst appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and SQL Server instances and databases. You can add multiple domains, Windows (non-domain), Linux (non-domain), or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
 
 ## Set up a project
 
-To set up a new project, see, [Create and manage Azure Migrate projects](quickstart-create-project.md)
+To set up a new project, see, [Create and manage Azure Catalyst projects](quickstart-create-project.md)
 
 :::image type="content" source="./media/tutorial-discover-hyper-v/added-tool.png" alt-text="Screenshot showing Azure Migrate: Discovery and assessment tool added by default.":::
 
 ## Set up the appliance
 
-Azure Migrate uses a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate. The appliance can be set up by deploying a VHD file that can be downloaded from the project.
+Azure Catalyst uses a lightweight Azure Catalyst appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Catalyst. The appliance can be set up by deploying a VHD file that can be downloaded from the project.
 
 > [!NOTE]
 > - If for some reason you can't set up the appliance using the template, you can set it up using a PowerShell script on an existing Windows Server 2019 or Windows Server 2022. [Learn more](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
@@ -111,21 +111,21 @@ This tutorial sets up the appliance on a server running in Hyper-V environment, 
 
 1. Provide an appliance name and generate a project key in the portal.
 1. Download a compressed Hyper-V VHD from the Azure portal.
-1. Create the appliance, and check that it can connect to Azure Migrate: Discovery and assessment.
+1. Create the appliance, and check that it can connect to Azure Catalyst: Discovery and assessment.
 1. Configure the appliance for the first time and register it with the project using the project key.
 
 ### 1. Generate the project key
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**, select **Discover**.
 2. In **Discover Servers** > **Are your servers virtualized?** select **Yes, with Hyper-V**.
-3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up for discovery of servers. The name should be alphanumeric with 14 characters or fewer.
+3. In **1:Generate project key**, provide a name for the Azure Catalyst appliance that you'll set up for discovery of servers. The name should be alphanumeric with 14 characters or fewer.
 1. Select **Generate key** to start the creation of the required Azure resources. Don't close the Discover server page during the creation of resources.
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you'll need it to complete the registration of the appliance during its configuration.
 
 ### 2. Download the VHD
 
-In **2: Download Azure Migrate appliance**, select the .VHD file and select **Download**.  Verify security by validating the SHA256 values.  
+In **2: Download Azure Catalyst appliance**, select the .VHD file and select **Download**.  Verify security by validating the SHA256 values.  
 
 ### 3. Create an appliance
 
@@ -176,9 +176,9 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
     > [!NOTE]
-    > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
+    > This is a new user experience in Azure Catalyst appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
-1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key and then copy the key that's shown. 
+1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Catalyst: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key and then copy the key that's shown. 
 1. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server. 
 1. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and go to Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
@@ -268,7 +268,7 @@ To add server credentials:
     1. Select **Save**. 
 
     >[!Note]
-    > - Azure Migrate supports SSH private keys created using the ssh-keygen command with RSA, ECDSA, and ed25519 algorithms.
+    > - Azure Catalyst supports SSH private keys created using the ssh-keygen command with RSA, ECDSA, and ed25519 algorithms.
     > - It supports SSH private key files in OpenSSH format.
     > - It doesn't support SSH keys with a passphrase. We recommend using a key without a passphrase
     > - It also doesn't support SSH private key files created by PuTTY.
@@ -294,11 +294,11 @@ Select **Start discovery**, to kick off server discovery from the successfully v
 * If you have provided server credentials, [software inventory](how-to-discover-applications.md) (discovery of installed applications) is automatically initiated when the discovery of servers running on Hyper-V host(s)/cluster(s) is finished.
 * [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. Then, it gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
 * Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself might not need network line of sight.
-* The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
-* [Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server. Web apps configuration data is updated once every 24 hours.
+* The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Catalyst project in the portal.
+* [Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Catalyst will perform web apps discovery on the server. Web apps configuration data is updated once every 24 hours.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
 * SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
-* By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
+* By default, Azure Catalyst uses the most secure way of connecting to SQL instances that is, Azure Catalyst encrypts communication between the Azure Catalyst appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
     :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Screenshot that shows how to edit SQL Server connection properties.":::
 
@@ -306,8 +306,8 @@ Select **Start discovery**, to kick off server discovery from the successfully v
 
 After discovery finishes, you can verify that the servers appear in the portal.
 
-1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Servers** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
+1. Open the Azure Catalyst dashboard.
+2. In **Azure Catalyst - Servers** > **Azure Catalyst: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 
 #### View support status
 
@@ -317,7 +317,7 @@ The **Operating system license support status** column displays the support stat
 
 To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
 
-The **Database instances** display the number of instances discovered by Azure Migrate. Select the number of instances to view the database instance details. The **Database instance license support status** displays the support status of the database instance. Selecting the support status opens a pane on the right, which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+The **Database instances** display the number of instances discovered by Azure Catalyst. Select the number of instances to view the database instance details. The **Database instance license support status** displays the support status of the database instance. Selecting the support status opens a pane on the right, which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
 
 To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
 

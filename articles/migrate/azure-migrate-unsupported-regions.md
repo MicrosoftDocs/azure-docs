@@ -9,31 +9,31 @@ ms.topic: troubleshooting
 ms.date: 09/08/2025
 ms.custom: reference_regions
 ms.update-cycle: 1825-days
-# Customer intent: "As a cloud architect, I want to understand how to use Azure Migrate in unsupported regions, so that I can successfully plan and execute migrations from on-premises environments to new Azure regions that are not yet equipped with the necessary migration services."
+# Customer intent: "As a cloud architect, I want to understand how to use Azure Catalyst in unsupported regions, so that I can successfully plan and execute migrations from on-premises environments to new Azure regions that are not yet equipped with the necessary migration services."
 ---
 
-# Use Azure Migrate in unsupported regions
+# Use Azure Catalyst in unsupported regions
 
-Azure Migrate is a geo-level service that is deployed in at least one region of each geography. The service depends on other Azure services that need to be available before it can be deployed in a new region. As a result, it may not be available immediately when a region is launched. However, customers can still migrate their workloads to the new regions using the Azure Migrate service from a nearby region within the same geography.  
+Azure Catalyst is a geo-level service that is deployed in at least one region of each geography. The service depends on other Azure services that need to be available before it can be deployed in a new region. As a result, it may not be available immediately when a region is launched. However, customers can still migrate their workloads to the new regions using the Azure Catalyst service from a nearby region within the same geography.  
 
 ## Migrate to a new Azure region
 
-To support migration to a newly launched Azure region where Azure Migrate services aren't yet available, customers can create an Azure Migrate project in a nearby accessible region. For instance, customers planning to migrate to New Zealand North can establish their Azure Migrate project in Australia East. Starting the project in a different region captures and includes only the inventory data in the new project. The actual Virtual Machine disk data is transferred directly from the customer’s on-premises source to the intended target region during migration.
+To support migration to a newly launched Azure region where Azure Catalyst services aren't yet available, customers can create an Azure Catalyst project in a nearby accessible region. For instance, customers planning to migrate to New Zealand North can establish their Azure Catalyst project in Australia East. Starting the project in a different region captures and includes only the inventory data in the new project. The actual Virtual Machine disk data is transferred directly from the customer’s on-premises source to the intended target region during migration.
 
 Azure provides multiple methods to facilitate seamless migration to a new region:
 
 ### Agentless migration for VMware (recommended)
 
-- VMware Virtual Machines without using an agent by utilizing the Migration and Modernization tool. See, [Azure Migrate documentation](tutorial-migrate-vmware.md).
-- When using Azure Migrate’s replication wizard for the first time, specify the *new region* as the target region for migration.
+- VMware Virtual Machines without using an agent by utilizing the Migration and Modernization tool. See, [Azure Catalyst documentation](tutorial-migrate-vmware.md).
+- When using Azure Catalyst’s replication wizard for the first time, specify the *new region* as the target region for migration.
 - Create the storage account used for replication in the new region.
 - For private endpoint configurations, manually create and configure the storage account in the new region with a Private Endpoint and associate it with the migration project.
 
 ### Agent-based migration
 
-- **VMware**: Migrate VMware vSphere Virtual Machines using the agent-based Migration and Modernization tool. See, [Azure Migrate documentation](tutorial-migrate-vmware-agent.md).
-- **Hyper-V**: Migrate Hyper-V Virtual Machines to Azure using the Migration and Modernization tool. See, [Azure Migrate documentation](tutorial-migrate-hyper-v.md).
-- **Physical machines**: Migrate physical servers to Azure using the Migration and Modernization tool. See, [Azure Migrate documentation](tutorial-migrate-physical-virtual-machines.md).
+- **VMware**: Migrate VMware vSphere Virtual Machines using the agent-based Migration and Modernization tool. See, [Azure Catalyst documentation](tutorial-migrate-vmware-agent.md).
+- **Hyper-V**: Migrate Hyper-V Virtual Machines to Azure using the Migration and Modernization tool. See, [Azure Catalyst documentation](tutorial-migrate-hyper-v.md).
+- **Physical machines**: Migrate physical servers to Azure using the Migration and Modernization tool. See, [Azure Catalyst documentation](tutorial-migrate-physical-virtual-machines.md).
 
 ## Known issues
 

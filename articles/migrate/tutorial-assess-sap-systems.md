@@ -1,6 +1,6 @@
 ---
 title: Assess SAP systems for the migration 
-description: Learn how to assess SAP systems with Azure Migrate.
+description: Learn how to assess SAP systems with Azure Catalyst.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 Before you get started, ensure that you've:
 
 - An Azure subscription. If not, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-- [Discovered the SAP systems](./tutorial-discover-sap-systems.md) you want to assess using the Azure Migrate.
+- [Discovered the SAP systems](./tutorial-discover-sap-systems.md) you want to assess using the Azure Catalyst.
 
 > [!NOTE]
 > - If you want to try this feature in an existing project, ensure you are currently within the same project.
@@ -44,8 +44,8 @@ Before you get started, ensure that you've:
 
 To create an assessment for the discovered SAP systems, follow these steps:
 
-1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for **Azure Migrate**.
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for **Catalyst**.
+1. On the **Azure Catalyst** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, select **SAP® Systems (Preview)** from the **Assess** dropdown menu.
 
     :::image type="content" source="./media/tutorial-assess-sap-systems/assess-sap-systems.png" alt-text="Screenshot that shows assess option." lightbox="./media/tutorial-assess-sap-systems/assess-sap-systems.png":::

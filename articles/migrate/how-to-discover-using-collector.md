@@ -1,6 +1,6 @@
 ---
-title: Discovery using Azure Migrate Collector
-description: Learn how to use Azure Migrate Collector to discover VMware servers and workloads, upload inventory and performance data to Azure Migrate, and generate business case and assessment reports.
+title: Discovery using Azure Catalyst Collector
+description: Learn how to use Azure Catalyst Collector to discover VMware servers and workloads, upload inventory and performance data to Azure Catalyst, and generate business case and assessment reports.
 author: molishv
 ms.author: molir
 ms.manager: ronai
@@ -10,14 +10,14 @@ ms.reviewer: v-gajeronika
 ms.date: 05/26/2026
 ms.custom: engagement-fy26
 ms.update-cycle: 1095-days
-# Customer intent: As an IT professional, I want to use Azure Migrate Collector to discover my IT estate and generate assessment and business case reports, so that I can plan migration and modernization effectively.
+# Customer intent: As an IT professional, I want to use Azure Catalyst Collector to discover my IT estate and generate assessment and business case reports, so that I can plan migration and modernization effectively.
 ---
 
-# Discover servers and workloads by using Azure Migrate collector
+# Discover servers and workloads by using Azure Catalyst Collector
 
-This article explains how to use Azure Migrate collector to quickly discover servers and workloads across your IT estate without direct Azure connectivity. You can deploy the collector on a Windows Server to scan VMware environments and physical or virtual servers. Use the collected inventory data to generate business case and performance-based assessment reports that support lift-and-shift migration and modernization of your IT estate.
+This article explains how to use Azure Catalyst Collector to quickly discover servers and workloads across your IT estate without direct Azure connectivity. You can deploy the collector on a Windows Server to scan VMware environments and physical or virtual servers. Use the collected inventory data to generate business case and performance-based assessment reports that support lift-and-shift migration and modernization of your IT estate.
 
-Azure Migrate collector can discover your VMware estate or individual Windows and Linux servers running on any hypervisor or public cloud. You can collect server configurations, performance metrics, installed software, SQL Server and PostgreSQL database instances, and web apps (.NET on IIS and Java on Tomcat). With no Azure connectivity required, you can scan the estate locally and upload data securely, saving time and avoiding complex networking or access approval requirements.
+Azure Catalyst Collector can discover your VMware estate or individual Windows and Linux servers running on any hypervisor or public cloud. You can collect server configurations, performance metrics, installed software, SQL Server and PostgreSQL database instances, and web apps (.NET on IIS and Java on Tomcat). With no Azure connectivity required, you can scan the estate locally and upload data securely, saving time and avoiding complex networking or access approval requirements.
 
 ## Collect data from VMware estate
 
@@ -26,7 +26,7 @@ Azure Migrate collector can discover your VMware estate or individual Windows an
 
 ### Prerequisites
 
-Before you set up the collector, [create a new Azure Migrate project](quickstart-create-project.md). If you plan to collect data from an Azure VMware Solution (AVS) private cloud, ensure that the machine where you install the collector has network line-of-sight to the AVS vCenter.
+Before you set up the collector, [create a new Azure Catalyst project](quickstart-create-project.md). If you plan to collect data from an Azure VMware Solution (AVS) private cloud, ensure that the machine where you install the collector has network line-of-sight to the AVS vCenter.
 
 | Requirement | Details |
 |---|---|
@@ -51,11 +51,13 @@ Before you set up the collector, [create a new Azure Migrate project](quickstart
 > [!NOTE]
 > You can set up custom least privileged Windows, Linux, and SQL accounts. For more information, see [Least privileged accounts](best-practices-least-privileged-account.md). 
 
-### Download the Azure Migrate Collector
+<a name="download-the-azure-migrate-collector"></a>
 
-1.	In the Azure Migrate project, select **Discover** > **Using Collector** and then select **Download**.  
-2.	Alternatively, download the Azure Migrate collector installer script from: [here](https://aka.ms/Migrate/DownloadCollector). 
-3.	Extract the installer ZIP file to a folder on the server that hosts the Azure Migrate collector.
+### Download the Azure Catalyst Collector
+
+1.	In the Azure Catalyst project, select **Discover** > **Using Collector** and then select **Download**.  
+2.	Alternatively, download the Azure Catalyst Collector installer script from: [here](https://aka.ms/Migrate/DownloadCollector). 
+3.	Extract the installer ZIP file to a folder on the server that hosts the Azure Catalyst Collector.
 
 ### Run the installer script
 
@@ -71,7 +73,7 @@ Before you set up the collector, [create a new Azure Migrate project](quickstart
 6. The installer script performs the following actions:
    - Installs agents and web applications.
    - Enables Windows features: Windows Activation Service, Web-Server, Web-Mgmt-Service.
-   - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+   - Updates a registry key (HKLM) with persistent setting details for Azure Catalyst.
    - Creates the following files:
      - Config: `%ProgramData%\Microsoft Azure\Config`
      - Logs: `%ProgramData%\Microsoft Azure\OfflineData`
@@ -127,7 +129,7 @@ You can add up to 10 vCenter servers per collector.
 
 ## Collect data from physical servers
 
-You can use the same Azure Migrate collector to discover both VMware machines and physical servers that’s hypervisor agnostic. To collect data about physical servers, switch the fabric type to physical.
+You can use the same Azure Catalyst Collector to discover both VMware machines and physical servers that’s hypervisor agnostic. To collect data about physical servers, switch the fabric type to physical.
 
 To discover physical servers by using an appliance-based approach, see [Discover physical servers](tutorial-discover-physical.md).
 
@@ -151,7 +153,7 @@ To discover physical servers by using an appliance-based approach, see [Discover
     - Select **Save**.
 
 > [!NOTE]
-> - Azure Migrate supports SSH private keys created by using the ssh-keygen command with RSA, DSA, ECDSA, and ed25519 algorithms.
+> - Azure Catalyst supports SSH private keys created by using the ssh-keygen command with RSA, DSA, ECDSA, and ed25519 algorithms.
 > - It doesn't support SSH keys with a passphrase. Use a key without a passphrase.
 > - It doesn't support SSH private key files created by using PuTTY.
 > - It supports SSH private key files in OpenSSH format.
@@ -198,9 +200,11 @@ To discover physical servers by using an appliance-based approach, see [Discover
 1. After successful data collection, export the collected data by generating a ZIP file.
 2. Select **Export**. A ZIP file is created at: `C:\ProgramData\Microsoft Azure\OfflineData\Azure-Migrate-Discovery-YYYY-MM-DD-HH-MM-SS.zip`.
 
-## Upload the collected data to an Azure Migrate project
+<a name="upload-the-collected-data-to-an-azure-migrate-project"></a>
 
-1.	[Create a new Azure Migrate project](quickstart-create-project.md) as Inventory Import from collector is supported only for newly created projects. 
+## Upload the collected data to an Azure Catalyst project
+
+1.	[Create a new Azure Catalyst project](quickstart-create-project.md) as Inventory Import from collector is supported only for newly created projects. 
 2.	After creating the project, select **Start discovery using collector**.
 
 ### Import the ZIP file generated using collector
@@ -219,25 +223,27 @@ To discover physical servers by using an appliance-based approach, see [Discover
 
 ### Import more inventory
 
-1.	To discover more inventory with the Azure Migrate collector after your initial import, follow these steps to add the new data to your Azure Migrate project:
+1.	To discover more inventory with the Azure Catalyst Collector after your initial import, follow these steps to add the new data to your Azure Catalyst project:
 2.	Go to **All inventory** view. You can see your existing discovery data.
 3.	Select **Discover** > **Using collector** and go to import page.
-4.	Select **Azure migrate collector (ZIP)** in the file type dropdown.
+4.	Select **Azure Catalyst Collector (ZIP)** in the file type dropdown.
 5.	Select **Browse** and select the **ZIP** file exported from your collector.
 6.	After you select the right file, select **Import** to ingest the file. 
 
 > [!NOTE]
 > You can import multiple ZIP files of different hypervisor types (VMware, physical) to the same project. 
 
-## Upgrade the collector to an Azure Migrate appliance
+<a name="upgrade-the-collector-to-an-azure-migrate-appliance"></a>
 
-After you finish planning your migration by using collector discovery, you can upgrade the collector to an Azure Migrate appliance to execute migrations in the same project. After the upgrade, you can use your existing assessment reports and wave plans to execute migrations.
+## Upgrade the collector to an Azure Catalyst appliance
+
+After you finish planning your migration by using collector discovery, you can upgrade the collector to an Azure Catalyst appliance to execute migrations in the same project. After the upgrade, you can use your existing assessment reports and wave plans to execute migrations.
 
 You can set up the appliance on the machine that hosts the collector or on a different machine. If you use the same machine, you can reuse the credentials that you added during collector discovery.
 
 ### Download the installer and copy the project key
 
-1. In your Azure Migrate project, go to **Manage** > **Appliances**.
+1. In your Azure Catalyst project, go to **Manage** > **Appliances**.
 1. For the collector that you want to upgrade, select **Upgrade to appliance**.
 1. In the **Upgrade the collector to appliance** pane, copy the **Project key**. You use this key to register the appliance with the same project.
 1. Under **Download and run the appliance installer script**, select **Download** to download the ZIP file that contains the PowerShell installer script.

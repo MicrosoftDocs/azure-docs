@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Migrate appliance diagnostic
-description: Get help to diagnose and troubleshoot problems that might occur with the Azure Migrate appliance.
+title: Troubleshoot Azure Catalyst appliance diagnostic
+description: Get help to diagnose and troubleshoot problems that might occur with the Azure Catalyst appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -10,17 +10,17 @@ ms.topic: troubleshooting
 ms.date: 02/06/2025
 ms.update-cycle: 365-days
 ms.custom: engagement-fy24
-# Customer intent: As a cloud administrator, I want to run diagnostics on my Azure Migrate appliance, so that I can identify and resolve any configuration issues that may impede migration operations.
+# Customer intent: As a cloud administrator, I want to run diagnostics on my Azure Catalyst appliance, so that I can identify and resolve any configuration issues that may impede migration operations.
 ---
 
-# Diagnose and solve issues with Azure Migrate appliance
+# Diagnose and solve issues with Azure Catalyst appliance
 
-The **Diagnose and solve** capability on Azure Migrate appliance helps users identify and self-assess any issues with the appliance configuration that might be blocking the initiation of discovery or issues with an ongoing Migrate operation like discovery, assessment and/or replication (*in case of VMware appliance*) from the appliance. 
+The **Diagnose and solve** capability on Azure Catalyst appliance helps users identify and self-assess any issues with the appliance configuration that might be blocking the initiation of discovery or issues with an ongoing Migrate operation like discovery, assessment and/or replication (*in case of VMware appliance*) from the appliance. 
 
 You can run **Diagnose and solve** at any time from the appliance configuration manager to generate a diagnostics report. The report provides information about the checks performed, their status, the issues identified, and recommendation steps to solve the issues. 
 
 > [!IMPORTANT]
-> **Diagnose and solve** capability is currently in preview for Azure Migrate appliance.
+> **Diagnose and solve** capability is currently in preview for Azure Catalyst appliance.
 > This preview is covered by customer support and can be used for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -38,11 +38,11 @@ You can run **Diagnose and solve** at any time from the appliance configuration 
 **Service health checks** |Operational status |Checks if the agents on the appliance are in running state. <br>*If not, appliance auto-resolves by restarting the agents.* 
 ||Service endpoint connectivity |Checks if the agents can communicate to their respective services on Azure either directly or via proxy.
 **Azure-specific checks** |Microsoft Entra App availability* | Checks if the Microsoft Entra App created during the appliance registration is available and is accessible from the appliance.
-||Migrate project availability* | It checks if the Migrate project that the appliance is registered still exists and can be accessible from the appliance.
+||Azure Catalyst project availability* | It checks if the Azure Catalyst project that the appliance is registered still exists and can be accessible from the appliance.
 ||Essential resources availability*| Checks if the Migrate resources created during appliance registration still exist and are accessible from the appliance.
 **Appliance-specific checks** | Key Vault certificate availability* | Checks if the certificate downloaded from Key Vault during appliance registration is still available on the appliance server. <br> *If not, appliance auto-resolves by downloading the certificate again, provided the Key Vault is available and accessible*.
 || Credential store availability | Checks if the Credential store resources on the appliance server are moved/deleted/edited.
-|| Replication appliance/ASR components | Checks if the same server is used to install any ASR/replication appliance components. *It's currently not supported to install both Azure Migrate and replication appliance (for agent-based migration) on the same server.*
+|| Replication appliance/ASR components | Checks if the same server is used to install any ASR/replication appliance components. *It's currently not supported to install both Azure Catalyst and replication appliance (for agent-based migration) on the same server.*
 || OS license availability | Checks if the evaluation license on the appliance server created from OVA/VHD is still valid. *The Windows Server 2022 evaluation license is valid for 180 days.*
 || CPU & memory utilization | Checks the CPU and memory utilized by the Migrate agents on the appliance server.  
 
@@ -75,4 +75,4 @@ If you're getting any issues with the appliance during its configuration or seei
 1. You can follow the remediation steps on the report to solve an issue. If you're unable to resolve the issue, we recommend you to attach the diagnostics report while creating a Microsoft support case so that it helps expedite the resolution.
 
 ## Next steps
-If you're getting issues not covered under **Diagnose and solve**, you can go to [troubleshoot  the Azure Migrate appliance](./troubleshoot-appliance.md) to find the remediation steps.
+If you're getting issues not covered under **Diagnose and solve**, you can go to [troubleshoot  the Azure Catalyst appliance](./troubleshoot-appliance.md) to find the remediation steps.
