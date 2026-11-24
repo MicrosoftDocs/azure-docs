@@ -1,8 +1,8 @@
 ---
 title: "Azure CLI example: Deploy custom domain in Azure Front Door"
 description: Use this Azure CLI example script to deploy a Custom Domain name and TLS certificate on an Azure Front Door front-end.
-author: halkazwini
-ms.author: halkazwini
+author: dburkhardtmsft
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: sample
 ms.date: 05/04/2026
