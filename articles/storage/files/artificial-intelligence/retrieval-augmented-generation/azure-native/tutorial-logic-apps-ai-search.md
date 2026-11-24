@@ -1,11 +1,11 @@
 ---
 title: Build a RAG pipeline using Azure Files with Logic Apps and AI Search
 description: Learn how to build a no-code retrieval-augmented generation (RAG) pipeline that indexes documents from Azure Files using Azure Logic Apps, Azure OpenAI, and Azure AI Search.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: tutorial
 ms.date: 04/15/2026
-ms.author: kendownie
+ms.author: normesta
 ---
 
 # Tutorial: Build a RAG pipeline using Azure Files with Logic Apps and AI Search
