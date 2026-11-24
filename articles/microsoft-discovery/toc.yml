@@ -518,9 +518,9 @@ items:
           - name: REST API
             href: /rest/api/discovery/
           - name: Azure CLI
-            href: https://learn.microsoft.com/cli/azure/discovery?view=azure-cli-latest
+            href: /cli/azure/discovery
           - name: Azure PowerShell
-            href: https://learn.microsoft.com/powershell/module/az.discovery/?view=azps-16.5.0&viewFallbackFrom=azps-16.3.0
+            href: /powershell/module/az.discovery/?view=azps-16.5.0&viewFallbackFrom=azps-16.3.0&preserve-view=true
           - name: .NET SDKs
             href: reference-dotnet-sdks.md
           - name: Java SDKs
