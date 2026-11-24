@@ -2,8 +2,8 @@
 title: Key Concepts for Certificate Management
 titleSuffix: Azure Device Registry
 description: This article discusses the basic concepts of certificate management in Azure IoT Hub.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-device-registry
 ms.topic: overview
 ms.date: 09/17/2026

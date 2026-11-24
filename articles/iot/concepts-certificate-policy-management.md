@@ -2,8 +2,8 @@
 title: Certificate revocation
 titleSuffix: Azure Device Registry
 description: Learn about certificate revocation and policy management, and how to revoke certificates and delete policies and credentials in Azure Device Registry for IoT Hub.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-device-registry
 ms.topic: concept-article
 ai-usage: ai-generated

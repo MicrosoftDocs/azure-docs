@@ -2,8 +2,8 @@
 title: Certificate management in Azure Device Registry
 titleSuffix: Azure Device Registry
 description: This article discusses the basic concepts of how certificate management in Azure IoT Hub helps users manage device certificates.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-device-registry
 ms.topic: overview
 ms.date: 09/17/2026
