@@ -6,10 +6,11 @@ description: Learn about routing appliances, a high-performance routing solution
 author: asudbring
 ms.author: allensu
 ms.reviewer: allensu
-ms.date: 08/27/2026
+ms.date: 11/23/2026
 ms.topic: concept-article
 ms.service: azure-virtual-network
 ms.custom: references_regions
+ai-usage: ai-assisted
 ---
 
 # Overview of Azure Virtual Network routing appliances
@@ -90,6 +91,30 @@ A routing appliance is purpose built for horizontal scaling, accelerated east-to
 
 Because a routing appliance is a top-level Azure resource, you can manage and govern it like other Azure networking resources. In addition, it provides native support for virtual network features such as network security groups, admin rules, user-defined routes, and Azure NAT Gateway.
 
+## Routing appliance shared capacity
+
+Routing appliance shared capacity lets multiple Azure Virtual Network routing appliances share bandwidth capacity in the same Azure region. Routing appliance instances in different virtual networks draw from a common capacity allocation instead of reserving bandwidth separately.
+
+Shared capacity is useful when workloads in different virtual networks have different traffic patterns or peak at different times. Rather than sizing each appliance independently, you size the shared capacity for their combined demand. This approach helps you use capacity that might otherwise remain unused in separate appliance instance reservations. When each appliance needs its own capacity reservation, use dedicated appliances instead.
+
+![Diagram comparing six appliances with dedicated capacity to six consumers sharing one illustrative 200-Gbps capacity provider. Dashed lines indicate capacity associations, not traffic.](media/virtual-network-routing-appliance-overview/routing-appliance-capacity-comparison.png)
+
+To configure shared capacity, create a routing appliance instance as the capacity provider with a supported nonzero bandwidth. Then create consumer appliance instances that reference the provider's Azure resource ID. Each consumer uses bandwidth `0` to select shared capacity rather than reserve its own bandwidth tier. This value doesn't disable traffic forwarding.
+
+Deploy each provider and consumer into a subnet named `VirtualNetworkApplianceSubnet` in its virtual network. The association determines where consumers obtain capacity; it doesn't require their traffic to pass through the provider as an additional routing hop.
+
+| Deployment model | Capacity allocation | Appliance configuration |
+| --- | --- | --- |
+| Standalone appliance | Dedicated to that appliance | Supported nonzero bandwidth tier, without a provider reference |
+| Shared capacity provider | Shared by associated consumers | Supported nonzero bandwidth tier |
+| Shared capacity consumer | Drawn from the associated provider | Bandwidth `0` and the provider's full resource ID |
+
+For example, consumers associated with a 200-Gbps provider share 200 Gbps. Adding consumers doesn't increase the shared capacity or reserve 200 Gbps for each consumer. Plan for simultaneous traffic peaks and leave headroom for growth. As with standalone appliances, you still need to plan routing and high availability, and test connectivity and throughput.
+
+Before deployment, confirm subscription, region, and bandwidth support, register the required feature and resource provider, and use a supported tool version. For prerequisites, permissions, and deployment steps, see [Configure routing appliance shared capacity](how-to-create-virtual-network-routing-appliance.md#configure-routing-appliance-shared-capacity).
+
+For a PowerShell example, see [New-AzVirtualNetworkAppliance](/powershell/module/az.network/new-azvirtualnetworkappliance#example-3-create-a-virtual-network-appliance-that-uses-another-vna-as-a-capacity-provider).
+
 ## Monitoring and metrics
 
 A routing appliance sends platform metrics to Azure Monitor without needing any diagnostic configuration. You can view these metrics on the **Metrics** page of the appliance in the Azure portal, chart them in dashboards, query them through the Azure Monitor REST API, and set alerts on throughput or flow thresholds.
@@ -138,7 +163,7 @@ Routing appliances are generally available in the following Azure regions. Micro
 
 ## Limitations
 
-- Each subscription can have up to two routing appliances per region.
+- Each subscription can have up to two routing appliances per region. To request a higher limit, submit the [Azure Virtual Network Routing Appliance Limit Increase Request Form](https://forms.cloud.microsoft/r/9K83vbf58A).
 
 - Each routing appliance supports up to 200 Gbps of configurable bandwidth.
 
@@ -148,7 +173,7 @@ Routing appliances are generally available in the following Azure regions. Micro
 
 - For Terraform, use the AzAPI provider; the AzureRM provider doesn't support routing appliances currently.
 
-- VNet flow logs isn't supported yet.
+- VNet flow logs aren't supported.
 
 - Traffic that traverses the appliance isn't encrypted by virtual network encryption.
 
@@ -157,6 +182,8 @@ Routing appliances are generally available in the following Azure regions. Micro
 - Service endpoints and service tunneling through a routing appliance require a network security group on the appliance subnet. The network security group must allow inbound traffic from the VirtualNetwork service tag and outbound traffic to the VirtualNetwork tag and to the service tag of the destination service.
 
 - Azure Private Link over IPv6 requires a user-defined route that sends the private endpoint prefix to the routing appliance. Without that route, IPv6 private endpoint traffic doesn't traverse the appliance.
+
+- A shared capacity provider and its consumers must be in the same Azure region. Each consumer can reference only one provider. Shared capacity supports only 200-Gbps providers, with a maximum of 31 consumers per provider and two providers per subscription per Azure region.
 
 ## Get started
 
