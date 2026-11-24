@@ -32,7 +32,7 @@ Autopurge is enabled by default with a 30 day policy, but it can be customized. 
 - `Canceled`
 - `Terminated`
 
-The orchestration instances eligible for autopurge match those targeted by [the Durable SDK PurgeInstancesAsync API](/dotnet/api/microsoft.durabletask.client.durabletaskclientextensions.purgeinstancesasync?view=durabletask-dotnet-1.x&preserve-view=true).
+The orchestration instances eligible for autopurge match those targeted by [the Durable SDK PurgeInstancesAsync API](/dotnet/api/microsoft.durabletask.client.durabletaskclientextensions.purgeinstancesasync).
 
 Autopurge ignores orchestration data associated with non-terminal statuses. Non-terminal statuses indicate that the orchestration instance is either actively executing, paused, or in a state where it may resume in the future (waiting for external events or timers). Non-terminal statuses include:
 
@@ -309,7 +309,11 @@ DELETE https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups
 
 # [Bicep](#tab/bicep)  
 
-Remove `retentionPolicies` from your Bicep file.
+Removing the `retentionPolicies/default` child resource from your Bicep file doesn't delete the deployed resource in an incremental deployment. Remove its declaration to prevent future deployments from recreating it, then explicitly delete the existing policy using the CLI command or REST API shown in the other tabs.
+
+```azurecli
+az durabletask retention-policy delete --scheduler-name SCHEDULER_NAME --resource-group RESOURCE_GROUP
+```
 
 ---
 

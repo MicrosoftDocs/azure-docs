@@ -57,10 +57,10 @@ Export history supports two modes:
 
 ## Enable orchestration history export
 
-1. Install the export history package.
+1. Install a preview version of the export history package.
 
    ```bash
-   dotnet add package Microsoft.DurableTask.ExportHistory
+   dotnet add package Microsoft.DurableTask.ExportHistory --prerelease
    ```
 
 1. Install the Azure Managed client and worker packages for Durable Task Scheduler.

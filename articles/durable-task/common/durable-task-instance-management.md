@@ -334,9 +334,9 @@ After you start new orchestration instances, you most likely need to query their
 
 The *get-status* method on the orchestration client returns the status of an orchestration instance.
 
-It takes an `instanceId` (required), `showHistory` (optional), `showHistoryOutput` (optional), and `showInput` (optional) as parameters.
-
 ::: zone pivot="durable-functions"
+
+It takes an `instanceId` (required), `showHistory` (optional), `showHistoryOutput` (optional), and `showInput` (optional) as parameters.
 
 * **`showHistory`**: If set to `true`, the response contains the execution history.
 * **`showHistoryOutput`**: If set to `true`, the execution history contains activity outputs.
@@ -366,38 +366,16 @@ The method returns an object with the following properties:
 
 ::: zone pivot="durable-task-sdks"
 
-| Parameter | Description |
-| --- | --- |
-| **`showHistory`** | If set to `true`, the response contains the execution history. |
-| **`showHistoryOutput`** | If set to `true`, the execution history contains activity outputs. |
-| **`showInput`** | If set to `false`, the response doesn't contain the input of the orchestration. The default value is `true`. |
+The portable SDKs expose language-specific metadata APIs. The Functions options `showHistory`, `showHistoryOutput`, and `showInput` aren't portable SDK query parameters.
 
-The method returns an object with the following properties:
+These results describe the instance's name, ID, creation and last-update times, runtime status, and custom status. Property names and types differ by SDK. Input and output are serialized payloads. Use the SDK's payload option when you need these values.
 
-| Property | Description |
-| --- | --- |
-| **Name** | The name of the orchestration. |
-| **InstanceId** | The instance ID of the orchestration (should be the same as the `instanceId` input). |
-| **CreatedTime** | The time at which the orchestration starts running. |
-| **LastUpdatedTime** | The time at which the orchestration last checkpoints. |
-| **Input** | The input of the orchestration as a JSON value. This field isn't populated if `showInput` is `false`. |
-| **CustomStatus** | Custom orchestration status in JSON format. |
-| **Output** | The output of the orchestration as a JSON value (if the orchestration completes). If the orchestration fails, this property includes the failure details. If the orchestration is suspended or terminated, this property includes the reason for the suspension or termination (if any). |
-| **RuntimeStatus: Pending** | The instance is scheduled but hasn't yet started running. |
-| **RuntimeStatus: Running** | The instance is running. |
-| **RuntimeStatus: Completed** | The instance completed normally. |
-| **RuntimeStatus: ContinuedAsNew** | The instance restarted itself with a new history. This state is a transient state. |
-| **RuntimeStatus: Failed** | The instance failed with an error. |
-| **RuntimeStatus: Terminated** | The instance stopped abruptly. |
-| **RuntimeStatus: Suspended** | The instance is suspended and can be resumed at a later point in time. |
-| **History** | The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`. |
+Failures have separate failure details; don't assume that output contains a failure or suspension reason. These metadata queries don't return execution history through `showHistory`. For history export, see [Export orchestration history](../scheduler/durable-task-scheduler-export-history.md). For Go's metadata APIs, see [Go instance management](../sdks/durable-task-go.md#read-completion-results).
 
 ::: zone-end
 
 > [!NOTE]
 > An orchestrator isn't marked as `Completed` until all of its scheduled tasks finish *and* the orchestrator returns. In other words, it isn't sufficient for an orchestrator to reach its `return` statement for it to be marked as `Completed`. This is particularly relevant for cases where `WhenAny` is used; those orchestrators often `return` before all the scheduled tasks execute.
-
-This method returns `null` (.NET and Java), `undefined` (JavaScript), or `None` (Python) if the instance doesn't exist.
 
 ::: zone pivot="durable-functions"
 
@@ -405,6 +383,8 @@ This method returns `null` (.NET and Java), `undefined` (JavaScript), or `None` 
 
 <details>
 <summary><b>Isolated worker model</b></summary>
+
+`GetInstanceAsync` returns `OrchestrationMetadata`, or `null` if the instance doesn't exist. Set `getInputsAndOutputs: true` to include input and output payloads.
 
 ```csharp
 [Function("GetStatus")]
@@ -426,6 +406,8 @@ public static async Task Run(
 <details>
 <summary><b>In-process model</b></summary>
 
+`GetStatusAsync` returns `null` if the instance doesn't exist.
+
 ```csharp
 [FunctionName("GetStatus")]
 public static async Task Run(
@@ -443,6 +425,8 @@ public static async Task Run(
 
 # [JavaScript](#tab/javascript)
 
+`getStatus` returns `undefined` if the instance doesn't exist.
+
 ```javascript
 const df = require("durable-functions");
 
@@ -458,6 +442,8 @@ module.exports = async function(context, instanceId) {
 For the *function.json* configuration, see [Start instances](#javascript-function-json).
 
 # [Python](#tab/python)
+
+`get_status` returns `None` if the instance doesn't exist.
 
 ```python
 import azure.functions as func
@@ -488,6 +474,8 @@ Write-Host "Status: $($Status | ConvertTo-Json)"
 
 # [Java](#tab/java)
 
+`getInstanceMetadata` returns `OrchestrationMetadata`. Check `metadata.isInstanceFound()` before reading its state; a non-null result doesn't establish that the instance exists. The example passes `false` for the input and output payload option.
+
 ```java
 @FunctionName("GetStatus")
 public void getStatus(
@@ -496,7 +484,7 @@ public void getStatus(
         final ExecutionContext context) {
     DurableTaskClient client = durableContext.getClient();        
     OrchestrationMetadata metadata = client.getInstanceMetadata(instanceID, false);
-    if (metadata != null) {
+    if (metadata.isInstanceFound()) {
         OrchestrationRuntimeStatus status = metadata.getRuntimeStatus();
         switch (status) {
             // do something based on the current status
@@ -513,6 +501,8 @@ public void getStatus(
 
 # [C#](#tab/csharp)
 
+Use `GetInstanceAsync(instanceId, getInputsAndOutputs: true)` to include input and output payloads. It returns `OrchestrationMetadata`, or `null` if the instance doesn't exist. Read payloads from `SerializedInput` and `SerializedOutput`, and failures from `FailureDetails`.
+
 ```csharp
 using Microsoft.DurableTask.Client;
 
@@ -527,6 +517,8 @@ if (metadata != null)
 
 # [Python](#tab/python)
 
+Use `get_orchestration_state(instance_id, fetch_payloads=True)` to include input and output payloads. It returns `OrchestrationState`, or `None` if the instance doesn't exist. Read payloads from `serialized_input` and `serialized_output`, and failures from `failure_details`.
+
 ```python
 from durabletask.azuremanaged.client import DurableTaskSchedulerClient
 
@@ -539,19 +531,23 @@ if state is not None:
 
 # [Java](#tab/java)
 
+Use `getInstanceMetadata(instanceId, true)` to request input and output. It returns `OrchestrationMetadata`. Check `isInstanceFound()` before reading its state; a non-null result doesn't establish that the instance exists.
+
 ```java
 import com.microsoft.durabletask.DurableTaskClient;
 import com.microsoft.durabletask.OrchestrationMetadata;
 
 // Get the status of an orchestration instance
 OrchestrationMetadata metadata = client.getInstanceMetadata(instanceId, true);
-if (metadata != null) {
+if (metadata.isInstanceFound()) {
     OrchestrationRuntimeStatus status = metadata.getRuntimeStatus();
     // do something based on the current status
 }
 ```
 
 # [JavaScript](#tab/javascript)
+
+Use `getOrchestrationState(instanceId, true)` to request payloads. It returns orchestration state, or `undefined` if the instance doesn't exist.
 
 ```typescript
 import { createAzureManagedClient } from "@microsoft/durabletask-js-azuremanaged";
@@ -1699,6 +1695,7 @@ if (metadata.RuntimeStatus == OrchestrationRuntimeStatus.Completed)
 
 ```python
 from durabletask.azuremanaged.client import DurableTaskSchedulerClient
+from durabletask.client import OrchestrationStatus
 
 # Wait for orchestration to complete with a timeout
 state = client.wait_for_orchestration_completion(
@@ -1706,7 +1703,7 @@ state = client.wait_for_orchestration_completion(
     timeout=30,
     fetch_payloads=True)
 
-if state.runtime_status == 'COMPLETED':
+if state.runtime_status == OrchestrationStatus.COMPLETED:
     print(f"Output: {state.serialized_output}")
 ```
 
@@ -2379,7 +2376,7 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 ::: zone-end
 
-The following example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it removes data for all instances completed 30 or more days ago. This example function is scheduled to run once per day, at 12:00 PM UTC:
+The following example shows a timer-triggered function that purges history for completed orchestration instances created at least 30 days ago. The filter uses creation time, not completion time. This example function is scheduled to run once per day, at 12:00 PM UTC:
 
 ::: zone pivot="durable-functions"
 
@@ -2466,7 +2463,8 @@ const df = require("durable-functions");
 module.exports = async function (context, myTimer) {
     const client = df.getClient(context);
     const createdTimeFrom = new Date(0);
-    const createdTimeTo = new Date().setDate(today.getDate() - 30);
+    const createdTimeTo = new Date();
+    createdTimeTo.setDate(createdTimeTo.getDate() - 30);
     const runtimeStatuses = [ df.OrchestrationRuntimeStatus.Completed ];
     return client.purgeInstanceHistoryBy(createdTimeFrom, createdTimeTo, runtimeStatuses);
 };

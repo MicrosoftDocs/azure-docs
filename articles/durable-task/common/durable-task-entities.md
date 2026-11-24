@@ -35,7 +35,7 @@ Entities define operations that read and update small pieces of state, called *d
 
 ::: zone pivot="durable-functions"
 
-Entity functions and related features are available in [Durable Functions 2.0](../durable-functions/durable-functions-versions.md#migrate-from-1x-to-2x) and later.
+Entity functions and related features are available in [Durable Functions 2.0](../durable-functions/durable-functions-versions.md#migrate-from-1x-to-2x) and later. Use a storage backend that supports Durable Entities, such as Durable Task Scheduler or Azure Storage. For supported providers and configuration requirements, see the [storage-provider comparison](durable-task-storage-providers.md#compare-storage-providers).
 
 | Programming language | Support for durable entities |
 | -------------------- | ---------------------------- |
@@ -323,7 +323,7 @@ PowerShell doesn't currently support entity functions.
 
 # [Java](#tab/java)
 
-Starting with version 1.9.0, Durable Functions for Java supports defining entities by using a class-based syntax. You can extend the `AbstractTaskEntity<TState>` base class to define your entity.
+Starting with version 1.9.0, Durable Functions for Java supports defining entities by using a class-based syntax. You can extend the `AbstractTaskEntity<TState>` base class to define your entity. Use a compatible Functions host and storage provider with out-of-process entity support.
 
 The following example shows a `Counter` entity implemented as a durable function in Java.
 
@@ -1459,7 +1459,7 @@ In the preceding example, an orchestrator function transfers funds from a source
 # [Java](#tab/java)
 
 > [!NOTE]
-> Java doesn't currently support critical sections.
+> Acquire entity locks with `ctx.getEntities().lockEntities(...)`. Await the durable task to acquire the locks, and close the returned `AutoCloseable` to release them. Entity critical sections require out-of-process entity support in both the Functions host and storage provider.
 
 # [Go](#tab/go)
 
@@ -1490,7 +1490,7 @@ Unlike transactions, critical sections don't automatically roll back changes whe
 The `context.df.lock` method creates a critical section in an orchestration. These critical sections prevent other orchestrations from making overlapping changes to a specified set of entities. Internally, the `lock` API sends "lock" operations to the entities and returns a `DurableLock` after it receives a "lock acquired" response from each entity. Both lock and unlock are built-in operations supported by all entities.
 
 > [!NOTE]
-> The `context.df.lock` API requires version `3.4.0` or later of the `durable-functions` npm package and version `3.13.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension. Until v3.13.0 is available in extension bundles, [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version). 
+> The `context.df.lock` API requires version `3.4.0` or later of the `durable-functions` npm package and version `3.13.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension. [Update the SDK and extension or bundle](../durable-functions/durable-functions-extension-upgrade.md) together. If your supported bundle doesn't include the required extension version, [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version).
 >
 > [See when version releases are available for the extension bundle.](https://github.com/Azure/azure-functions-extension-bundles/releases) 
 
@@ -1528,7 +1528,7 @@ Unlike transactions, critical sections don't automatically roll back changes whe
 # [Java](#tab/java)
 
 > [!NOTE]
-> Java doesn't currently support critical sections.
+> Critical sections don't automatically roll back entity changes when an operation fails; implement application-specific error handling.
 
 # [Go](#tab/go)
 
@@ -1567,7 +1567,7 @@ If you violate any of these rules, the runtime throws an error. The error messag
 # [Java](#tab/java)
 
 > [!NOTE]
-> Java doesn't currently support critical sections.
+> Use `ctx.getEntities().isInCriticalSection()` to check whether the orchestration holds locks. The critical section rules in this section also apply to Java.
 
 # [Go](#tab/go)
 

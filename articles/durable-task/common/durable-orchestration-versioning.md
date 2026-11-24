@@ -231,7 +231,7 @@ When the `Strict` or `CurrentOrOlder` match strategy is selected (see [Version m
 
 - **.NET**: The SDK tries to parse the version as `System.Version`. If both parse successfully, comparison uses `CompareTo`. Otherwise, the SDK uses string comparison.
 - **Python**: The SDK uses `packaging.version` for semantic versioning comparison.
-- **Java**: The SDK compares the version as a simple string.
+- **Java**: `VersionUtils.compareVersions` compares dotted numeric versions component by component, treating missing trailing components as zero. If either non-null version isn't numeric, it falls back to lexical string comparison. A `null` version is older than a non-null version, and two `null` versions compare equal. For example, `"10.0"` is newer than `"2.0"`.
 
 ::: zone-end
 
@@ -270,7 +270,7 @@ public static async Task<string> RunOrchestrator(
 ```javascript
 const df = require("durable-functions");
 
-df.app.orchestrator(function* (context) {
+df.app.orchestration("MyOrchestrator", function* (context) {
     if (context.df.version === "1.0") {
         // Original logic for version 1.0
         // ...
@@ -486,7 +486,7 @@ public static async Task<string> ProcessOrder(
 ```javascript
 const df = require("durable-functions");
 
-df.app.orchestrator(function* (context) {
+df.app.orchestration("ProcessOrderOrchestrator", function* (context) {
     const orderId = context.df.getInput();
     
     yield context.df.callActivity("ValidateOrder", orderId);
@@ -601,12 +601,13 @@ public static async Task<string> ProcessOrder(
 const df = require("durable-functions");
 const semver = require('semver'); // Requires: npm install semver
 
-df.app.orchestrator(function* (context) {
+df.app.orchestration("ProcessOrderOrchestrator", function* (context) {
     const orderId = context.df.getInput();
 
     yield context.df.callActivity("ValidateOrder", orderId);
 
-    if (compareVersions(context.df.version, "1.0") <= 0) {
+    // Instances started before versioning was enabled must follow the original execution path.
+    if (!context.df.version || compareVersions(context.df.version, "1.0") <= 0) {
         // Preserve original logic for existing instances
         yield context.df.callActivity("ProcessPayment", orderId);
     } else {
@@ -659,6 +660,11 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     return "Order processed successfully"
 
 def compare_versions(version1, version2):
+    missing1 = version1 is None or version1 == ""
+    missing2 = version2 is None or version2 == ""
+    if missing1 or missing2:
+        return 0 if missing1 == missing2 else (-1 if missing1 else 1)
+
     v1 = version.parse(version1)
     v2 = version.parse(version2)
 
@@ -1178,7 +1184,5 @@ To check for running instances, use the `DurableTaskClient` to list orchestratio
 - [Durable Task SDK for Python](https://github.com/microsoft/durabletask-python/tree/main)
 - [Durable Task SDK for Java](https://github.com/microsoft/durabletask-java/tree/main)
 - [Troubleshoot Durable Task SDK issues](../sdks/durable-task-sdk-troubleshooting.md)
-
-::: zone-end
 
 ::: zone-end

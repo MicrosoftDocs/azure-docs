@@ -154,7 +154,7 @@ For more information, see [Managed HSM role management](/azure/key-vault/managed
 
 ## Configure customer-managed keys
 
-Use the `transparentDataEncryptions/default` child resource to configure the scheduler to use your key.
+Use the `transparentDataEncryptions/default` child resource to configure the scheduler to use your key. The following examples use API version `2026-07-01-preview`, which supports `autoRotationEnabled`.
 
 The Azure CLI examples in this article use the following Bash variables:
 
@@ -164,7 +164,7 @@ RESOURCE_GROUP_NAME="<resource-group-name>"
 SCHEDULER_NAME="<scheduler-name>"
 KEY_VAULT_KEY_URI="https://<vault-name>.vault.azure.net/keys/<key-name>"
 
-TDE_RESOURCE_URI="https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${RESOURCE_GROUP_NAME}/providers/Microsoft.DurableTask/schedulers/${SCHEDULER_NAME}/transparentDataEncryptions/default?api-version=2026-05-01-preview"
+TDE_RESOURCE_URI="https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${RESOURCE_GROUP_NAME}/providers/Microsoft.DurableTask/schedulers/${SCHEDULER_NAME}/transparentDataEncryptions/default?api-version=2026-07-01-preview"
 ```
 
 ### Azure CLI
@@ -198,11 +198,11 @@ param keyVaultKeyUri string
 @description('Whether Durable Task Scheduler should automatically use the latest key version when one is available.')
 param autoRotationEnabled bool = true
 
-resource scheduler 'Microsoft.DurableTask/schedulers@2026-05-01-preview' existing = {
+resource scheduler 'Microsoft.DurableTask/schedulers@2026-07-01-preview' existing = {
   name: schedulerName
 }
 
-resource transparentDataEncryption 'Microsoft.DurableTask/schedulers/transparentDataEncryptions@2026-05-01-preview' = {
+resource transparentDataEncryption 'Microsoft.DurableTask/schedulers/transparentDataEncryptions@2026-07-01-preview' = {
   parent: scheduler
   name: 'default'
   properties: {

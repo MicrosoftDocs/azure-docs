@@ -78,20 +78,6 @@ ErGwScale has the following limitations:
 
 <sup>1</sup> Maximum VM connections scale differently beyond 10 scale units. The first 10 scale units provide capacity for 2,000 VMs per scale unit. Scale units 11 and above provide 1,000 more VM capacity per scale unit.
 
-## Region availability
-
-ErGwScale is available in most Azure regions except:
-
-* Belgium Central
-* Japan East
-* Qatar Central
-* Southeast Asia
-* West Europe
-* West India
-* West US 2
-* South Central US
-* East US 2
-
 ## Pricing
 
 For more information about ExpressRoute pricing, see [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/). Select the **ExpressRoute Gateway** tab to view pricing for the ErGwScale SKU.

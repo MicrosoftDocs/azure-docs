@@ -279,7 +279,7 @@ You can see all the task hubs created in a scheduler on the **Overview** of the 
 1. Delete the scheduler:
 
     ```azurecli
-    az durabletask scheduler delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER
+    az durabletask scheduler delete --resource-group YOUR_RESOURCE_GROUP --name YOUR_SCHEDULER
     ```
 ::: zone-end
 
@@ -304,7 +304,7 @@ To grant your app access, assign the **Durable Task Data Contributor** role to t
 
 ## Access the Durable Task Scheduler dashboard
 
-To access the Durable Task Scheduler dashboard, assign the **Durable Task Dashboard Viewer** role to your developer identity. For details, see [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
+To use the documented dashboard management experience, assign the **Durable Task Data Contributor** role to your developer identity at the scope of the task hub you need to manage. Assign the role at scheduler scope only if you need access to all task hubs in that scheduler. For details, see [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md#assign-dashboard-access-roles-azure).
 
 ## Related content
 

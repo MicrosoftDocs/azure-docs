@@ -23,13 +23,13 @@ Before using these HTTP APIs, make sure you have:
 
 All HTTP APIs share the same base URL as your function app. When you develop locally using the [Azure Functions Core Tools](../../azure-functions/functions-run-local.md), the base URL is typically `http://localhost:7071`. In the Azure Functions hosted service, the base URL is typically `https://{appName}.azurewebsites.net`. The extension also supports custom hostnames if configured on your App Service app.
 
-All HTTP APIs implemented by the extension require the following parameters. The data type of all parameters is `string`.
+HTTP APIs implemented by the extension use the following common parameters. `taskHub` and `connection` are optional overrides. The data type of all parameters is `string`.
 
 | Parameter        | Parameter Type  | Description |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Query string    | The name of the [task hub](../common/durable-task-hubs.md). If not specified, the current function app's task hub name is assumed. |
 | **`connection`** | Query string    | The **name** of the connection app setting for the backend storage provider. If not specified, the default connection configuration for the function app is assumed. |
-| **`systemKey`**  | Query string    | The authorization key required to invoke the API. |
+| **`code`**       | Query string    | The Durable extension system key required to authorize the API request in Azure. The `{systemKey}` placeholder in the example URLs represents this value, not the query parameter name. |
 
 ### How to obtain parameter values
 
@@ -46,7 +46,7 @@ Generate complete URLs automatically using [orchestration client binding](durabl
   - Can also be configured via app settings using `%AppSettingName%` syntax
 
 - **`connection`**: Name of the app setting containing the storage connection. Retrieved from `host.json`:
-  - **v2.x**: `extensions.durableTask.storageProvider.connectionStringName` (defaults to `AzureWebJobsStorage` if not specified)
+  - **v2.x**: `extensions.durableTask.storageProvider.connectionName` (defaults to `AzureWebJobsStorage` if not specified; `connectionStringName` is a legacy alias)
   - **v1.x**: `durableTask.azureStorageConnectionStringName` (defaults to `AzureWebJobsStorage` if not specified)
   - Can use connection strings or [identity-based connections](durable-functions-azure-storage-provider.md#identity-based-connections) (Microsoft Entra authentication)
 
@@ -213,9 +213,9 @@ Request parameters for this API include the default set mentioned previously and
 
 Several possible status code values can be returned.
 
-- **HTTP 200 (OK)**: The specified instance is in a completed or failed state.
-- **HTTP 202 (Accepted)**: The specified instance is in progress.
-- **HTTP 400 (Bad Request)**: The specified instance failed or was terminated.
+- **HTTP 200 (OK)**: The specified instance is `Completed`, `Terminated`, or `Canceled`, or is `Failed` when `returnInternalServerErrorOnFailure` is omitted or `false`.
+- **HTTP 202 (Accepted)**: The specified instance is in progress, including `Pending`, `Running`, or `Suspended`.
+- **HTTP 400 (Bad Request)**: The request is malformed or contains invalid parameters, not merely because the instance failed or was terminated.
 - **HTTP 404 (Not Found)**: The specified instance doesn't exist or hasn't started running.
 - **HTTP 500 (Internal Server Error)**: Returned only when the `returnInternalServerErrorOnFailure` is set to `true` and the specified instance failed with an unhandled exception.
 
@@ -334,7 +334,7 @@ Request parameters for this API include the default set mentioned previously and
 | **`createdTimeFrom`**   | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or after the given ISO8601 timestamp.|
 | **`createdTimeTo`**     | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or before the given ISO8601 timestamp.|
 | **`runtimeStatus`**     | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](../common/durable-task-instance-management.md) article. |
-| **`instanceIdPrefix`**  | Query string    | Optional parameter. When specified, filters the list of returned instances to include only instances whose instance ID starts with the specified prefix string.  Available starting with [version 2.7.2](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.7.2) of the extension. |
+| **`instanceIdPrefix`**  | Query string    | Optional parameter. When specified, filters the list of returned instances to include only instances whose instance ID starts with the specified prefix string. Available starting with [version 2.7.2](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.7.2) of the extension. |
 | **`top`**               | Query string    | Optional parameter. When specified, limits the number of instances returned by the query. |
 
 ### Response
@@ -776,7 +776,7 @@ The responses for this API don't contain any content.
 Sends a one-way operation message to a [Durable Entity](../common/programming-model-overview.md#entities). If the entity doesn't exist, it's created automatically. Entity operations are processed sequentially and durably persisted.
 
 > [!NOTE]
-> Durable entities are available starting in Durable Functions 2.0.
+> Durable entities are available starting in Durable Functions 2.0. Use a compatible storage provider with durable entity support.
 
 ### Request
 

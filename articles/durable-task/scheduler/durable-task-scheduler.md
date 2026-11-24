@@ -7,7 +7,7 @@ description: "Discover how the Durable Task Scheduler provides durable execution
 ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 10/13/2026
+ms.date: 11/10/2026
 ---
 
 # Durable Task Scheduler
@@ -85,6 +85,8 @@ The scheduler streams work items to the app by using a push model, which improve
 ### State management
 
 The Durable Task Scheduler manages the state of orchestrations and entities internally, without a separate storage account for state management. The internal state store is highly optimized for use with Durable Functions and the Durable Task SDKs, resulting in better durability and reliability and reduced latency.
+
+This durability covers workflow state, not cross-service ACID transactions or isolation for external business data. Recording an activity result doesn't itself reserve external resources. See [Coordinate changes to external business data](../common/durable-task-orchestrations.md#coordinate-changes-to-external-business-data).
 
 The scheduler uses a combination of in-memory and persistent internal storage to manage state. 
 - The in-memory store is used for short-lived state.

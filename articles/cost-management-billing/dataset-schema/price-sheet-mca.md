@@ -6,12 +6,15 @@ ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/10/2026
+ms.date: 11/16/2026
 ms.author: vikdesai
 ---
 # Microsoft Customer Agreement price sheet schema
 
 This article lists the data fields in each version of the Microsoft Customer Agreement price sheet. The latest version is 2026-10-01.
+
+> [!NOTE]
+> Exports let you select a dataset version, and version 2026-10-01 is available only in exports. Price sheets that you download from the Azure portal, or by using the download APIs, don't use version 2026-10-01. Instead, they include the `priceFactors` column at the end of the file. For more information, see [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md).
 
 ## Version 2026-10-01
 
@@ -35,17 +38,17 @@ Here's the list of all of the data fields found in your price sheet.
 | 14  | meterSubCategory | Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or unassigned. |
 | 15  | meterType | Name of the meter type. |
 | 16  | meterRegion | The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter. The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated. |
-| 17  | priceType | Price type for a product. For example, an Azure resource has its pay-as-you-go rate with priceType as _Consumption_. If the resource is eligible for a savings plan, it also has its savings plan rate with another priceType as _SavingsPlan_. Other priceTypes include _ReservedInstance_. |
+| 17  | priceType | Price type for a product. For example, an Azure resource has its pay-as-you-go rate with priceType as _Consumption_. If the resource is eligible for a savings plan, it also has its savings plan rate with another priceType as _SavingsPlan_. If the product is covered by a Flex Plan offer, it also has a Flex Plan rate with priceType as _FlexPlan_. Other priceTypes include _ReservedInstance_. |
 | 18  | Product | Name of the product accruing the charges. For example, Basic SQL DB vs Standard SQL DB. |
 | 19  | productId | Unique identifier for the product. |
 | 20  | productOrderName| Name of the purchased product plan. Indicates if this pricing is standard Azure Plan pricing, Dev/Test pricing etc. |
 | 21  | serviceFamily |Service family that the service belongs to. |
 | 22  | SkuId | Unique identifier of the SKU. |
-| 23  | Term | Duration associated with priceType. For example, SavingsPlan priceType has two commitment options: one year and three years. The Term is _P1Y_ for a one-year commitment and _P3Y_ for a three-year commitment. |
+| 23  | Term | Duration of the term for reservation, savings plan, and Flex Plan prices, in ISO 8601 format. Terms can be any length that the offer defines, such as _P1M_ (one month), _P2M_ (two months), _P1Y_ (one year), or _P3Y_ (three years). |
 | 24  | tierMinimumUnits | Defines the lower bound of the tier range for which prices are defined. For example, if the range is 0 to 100, tierMinimumUnits would be 0. |
 | 25  | unitOfMeasure |The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 26  | unitPrice | The per-unit price at the time of billing for a given product or service. It includes any negotiated discounts on top of the market price. For PriceType _ReservedInstance_, unitPrice reflects the total cost of the one or three-year commitment including discounts. **Note**: The unit price isn't the same as the effective price in usage details downloads when services have differential prices across tiers. If services have multi-tiered pricing, the effective price is a blended rate across the tiers and doesn't show a tier-specific unit price. The blended price or effective price is the net price for the consumed quantity spanning across the multiple tiers, where each tier has a specific unit price. |
-| 27  | priceFactors | JSON array listing the factors affecting the price, such as benefits applied. When multiple factors apply, factors in the same group are combined while factors in separate groups are applied in sequence. Each factor includes a product code, which can be joined to product data to identify the benefit. Empty when standard market price applies. |
+| 27  | priceFactors | JSON array listing the factors affecting the price, such as benefits applied. When multiple factors apply, factors in the same group are combined while factors in separate groups are applied in sequence. Each factor includes a product code, which can be joined to product data to identify the benefit. Empty when standard market price applies. For a FlexPlan price, priceFactors includes the product code of the Flex Plan offer. For more information, see [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md). |
 
 ## Version 2024-08-01
 
@@ -69,13 +72,13 @@ Heres the list of all of the data fields found in your price sheet.
 | 14  | meterSubCategory | Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or unassigned. |
 | 15  | meterType | Name of the meter type. |
 | 16  | meterRegion | The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter. The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated. |
-| 17  | priceType | Price type for a product. For example, an Azure resource has its pay-as-you-go rate with priceType as _Consumption_. If the resource is eligible for a savings plan, it also has its savings plan rate with another priceType as _SavingsPlan_. Other priceTypes include _ReservedInstance_. |
+| 17  | priceType | Price type for a product. For example, an Azure resource has its pay-as-you-go rate with priceType as _Consumption_. If the resource is eligible for a savings plan, it also has its savings plan rate with another priceType as _SavingsPlan_. If the product is covered by a Flex Plan offer, it also has a Flex Plan rate with priceType as _FlexPlan_. Other priceTypes include _ReservedInstance_. |
 | 18  | Product | Name of the product accruing the charges. For example, Basic SQL DB vs Standard SQL DB. |
 | 19  | productId | Unique identifier for the product. |
 | 20  | productOrderName| Name of the purchased product plan. Indicates if this pricing is standard Azure Plan pricing, Dev/Test pricing etc. |
 | 21  | serviceFamily |Service family that the service belongs to. |
 | 22  | SkuId | Unique identifier of the SKU. |
-| 23  | Term | Duration associated with priceType. For example, SavingsPlan priceType has two commitment options: one year and three years. The Term is _P1Y_ for a one-year commitment and _P3Y_ for a three-year commitment. |
+| 23  | Term | Duration of the term for reservation, savings plan, and Flex Plan prices, in ISO 8601 format. Terms can be any length that the offer defines, such as _P1M_ (one month), _P2M_ (two months), _P1Y_ (one year), or _P3Y_ (three years). |
 | 24  | tierMinimumUnits | Defines the lower bound of the tier range for which prices are defined. For example, if the range is 0 to 100, tierMinimumUnits would be 0. |
 | 25  | unitOfMeasure |The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 26  | unitPrice | The per-unit price at the time of billing for a given product or service. It includes any negotiated discounts on top of the market price. For PriceType _ReservedInstance_, unitPrice reflects the total cost of the one or three-year commitment including discounts. **Note**: The unit price isn't the same as the effective price in usage details downloads when services have differential prices across tiers. If services have multi-tiered pricing, the effective price is a blended rate across the tiers and doesn't show a tier-specific unit price. The blended price or effective price is the net price for the consumed quantity spanning across the multiple tiers, where each tier has a specific unit price. |
@@ -104,12 +107,12 @@ Heres the list of all of the data fields found in your price sheet.
 | 16  | meterSubCategory | Name of the meter subclassification category. Purchases and Marketplace usage might be shown as blank or unassigned. |
 | 17  | meterType | Name of the meter type. |
 | 18  | meterRegion | The name of the Azure region associated with the meter. It generally aligns with the resource location, except for certain global meters that are shared across regions. In such cases, the meter region indicates the primary region of the meter. The meter is used to track the usage of specific services or resources, mainly for billing purposes. Each Azure service, resource, and region have its own billing meter ID that precisely reflects how its consumption and price are calculated. |
-| 19  | priceType | Price type for a product. For example, an Azure resource has its pay-as-you-go rate with priceType as _Consumption_. If the resource is eligible for a savings plan, it also has its savings plan rate with another priceType as _SavingsPlan_. Other priceTypes include _ReservedInstance_. |
+| 19  | priceType | Price type for a product. For example, an Azure resource has its pay-as-you-go rate with priceType as _Consumption_. If the resource is eligible for a savings plan, it also has its savings plan rate with another priceType as _SavingsPlan_. If the product is covered by a Flex Plan offer, it also has a Flex Plan rate with priceType as _FlexPlan_. Other priceTypes include _ReservedInstance_. |
 | 20  | Product | Name of the product accruing the charges. For example, Basic SQL DB vs Standard SQL DB. |
 | 21  | productId | Unique identifier for the product. |
 | 22  | serviceFamily |Service family that the service belongs to. |
 | 23  | SkuId | Unique identifier of the SKU. |
-| 24  | Term | Duration associated with priceType. For example, SavingsPlan priceType has two commitment options: one year and three years. The Term is _P1Y_ for a one-year commitment and _P3Y_ for a three-year commitment. |
+| 24  | Term | Duration of the term for reservation, savings plan, and Flex Plan prices, in ISO 8601 format. Terms can be any length that the offer defines, such as _P1M_ (one month), _P2M_ (two months), _P1Y_ (one year), or _P3Y_ (three years). |
 | 25  | tierMinimumUnits | Defines the lower bound of the tier range for which prices are defined. For example, if the range is 0 to 100, tierMinimumUnits would be 0. |
 | 26  | unitOfMeasure |The unit of measure for billing for the service. For example, compute services are billed per hour.|
 | 27  | unitPrice | The per-unit price at the time of billing for a given product or service. It includes any negotiated discounts on top of the market price. For PriceType _ReservedInstance_, unitPrice reflects the total cost of the one or three-year commitment including discounts. **Note**: The unit price isn't the same as the effective price in usage details downloads when services have differential prices across tiers. If services have multi-tiered pricing, the effective price is a blended rate across the tiers and doesn't show a tier-specific unit price. The blended price or effective price is the net price for the consumed quantity spanning across the multiple tiers, where each tier has a specific unit price. |

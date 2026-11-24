@@ -37,9 +37,9 @@ For example, if it's determined that a subscriber signed code that was malware o
 
 ### Certificate profile EKU
 
-Artifact Signing certificates renew daily, so pinning trust to an individual certificate's public key, thumbprint, or other certificate attributes isn't durable.
-To support durable identification across certificate renewals, Artifact Signing assigns a custom Extended Key Usage (EKU) value to each certificate profile. Certificates issued from the same certificate profile contain the same profile-specific EKU for the lifetime of that profile.
-The EKU is associated with the certificate profile, not with the subscriber or identity validation resource.
+Artifact Signing certificates renew daily, so pinning trust to an individual certificate’s public key or thumbprint isn’t durable. Custom Extended Key Usage (EKU) values provide durable identification across certificate renewals. Each Public Trust certificate profile has a profile-specific EKU. Certificates issued from the same profile contain the same profile-specific EKU for the lifetime of that profile.
+
+Private Trust certificates also contain a subscriber-level EKU associated with the Private Trust identity validation. This EKU is distinct from the profile-specific EKU and can be shared across certificate profiles that use the same identity validation.
 
 - **Deleting and recreating a certificate profile**
 The certificate profile EKU stays the same for certificates issued from an existing certificate profile. If you delete the certificate profile and create a new one, Artifact Signing assigns a new EKU to the new profile. This change applies even when the new profile belongs to the same subscriber or uses the same identity validation resource.
@@ -53,7 +53,7 @@ Artifact Signing provides a durable identity value in each certificate that's as
 
 - **Private Trust identity validation example**
 
-   A  value of `1.3.6.1.4.1.311.97.1.3.1.29433.35007.34545.16815.37291.11644.53265.56135` indicates an Artifact Signing subscriber that uses Private Trust identity validation. The `1.3.6.1.4.1.311.97.1.3.1.` prefix is the Artifact Signing Private Trust code signing type. The `29433.35007.34545.16815.37291.11644.53265.56135` value is unique to the subscriber's identity validation for Private Trust.
+   A  value of `1.3.6.1.4.1.311.97.1.3.1.29433.35007.34545.16815.37291.11644.53265.56135` indicates an Artifact Signing subscriber that uses Private Trust identity validation. The `1.3.6.1.4.1.311.97.1.3.1.` prefix is the Artifact Signing Private Trust code signing type. The `29433.35007.34545.16815.37291.11644.53265.56135` value is unique to the subscriber's identity validation for Private Trust and the certificate profile specific EKU is also derived from the same prefix.
   
    Because you can use Private Trust identity validations for Windows Defender Application Control (WDAC) code integrity (CI) policy signing, they have a different EKU prefix: `1.3.6.1.4.1.311.97.1.4.1.`. But the suffix values match the durable identity value for the subscriber's identity validation for Private Trust.  
 

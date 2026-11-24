@@ -38,7 +38,7 @@ public async Task MyOrchestrator_CallsActivity()
 }
 ```
 
-The rest of this article covers this pattern in detail for C# and Python.
+The rest of this article covers this pattern in detail for C#, Python, and JavaScript.
 
 ::: zone-end
 
@@ -87,7 +87,10 @@ The rest of this article covers this pattern in detail for C#, Python, and JavaS
 
 # [JavaScript](#tab/javascript)
 
-JavaScript unit testing for Durable Functions requires the standalone Durable Task SDK. Switch to the **Durable Task SDKs** tab at the top of this page for JavaScript testing examples with built-in test infrastructure.
+- The `durable-functions` package used by your Functions app.
+- Node.js 22 or 24, with the built-in `node:test` runner and `node:assert/strict` assertions used in these examples. Run the tests with `node --test`.
+
+Test exported Functions handlers with context/client doubles. You don't need the standalone Durable Task SDK. The **Durable Task SDKs** pivot tests applications built with that different SDK; its test-worker examples aren't drop-in tests for Functions handlers.
 
 ---
 
@@ -98,7 +101,7 @@ JavaScript unit testing for Durable Functions requires the standalone Durable Ta
 # [C#](#tab/csharp)
 
 - [xUnit](https://xunit.net/) — test framework
-- The [`Microsoft.DurableTask.InProcessTestHost`](https://www.nuget.org/packages/Microsoft.DurableTask.InProcessTestHost) NuGet package (v1.0.0 or later)
+- The [`Microsoft.DurableTask.InProcessTestHost`](https://www.nuget.org/packages/Microsoft.DurableTask.InProcessTestHost/0.2.3-preview.1) NuGet package (v0.2.3-preview.1) and its declared NuGet dependencies
 
 # [Python](#tab/python)
 
@@ -213,13 +216,10 @@ def mock_activity(activity_name, input_value):
 
 class TestOrchestrator(unittest.TestCase):
     def test_chaining_orchestrator(self):
-        # Extract the raw orchestrator function from the Azure Functions decorator wrapper
-        func_call = my_orchestrator.build().get_user_function().orchestrator_function
-
         context = Mock()
         context.call_activity = Mock(side_effect=mock_activity)
 
-        user_orchestrator = func_call(context)
+        user_orchestrator = my_orchestrator(context)
         values = list(orchestrator_generator_wrapper(user_orchestrator))
 
         expected_calls = [
@@ -233,7 +233,49 @@ class TestOrchestrator(unittest.TestCase):
 
 # [JavaScript](#tab/javascript)
 
-For JavaScript unit testing, switch to the **Durable Task SDKs** tab at the top of this page.
+Keep the generator handler separate from its registration. For example, export the following function from `orchestrator.js`, then register it with `df.app.orchestration("helloCities", helloCities)` in your Node.js v4 app:
+
+```javascript
+function* helloCities(context) {
+    const outputs = [];
+    for (const city of ["Tokyo", "Seattle", "London"]) {
+        outputs.push(yield context.df.callActivity("sayHello", city));
+    }
+    return outputs;
+}
+
+module.exports = { helloCities };
+```
+
+In `orchestrator.test.js`, provide a context double and inject each activity result with `next()`. This tests the generator's decisions, not the Durable Functions replay engine:
+
+```javascript
+const { test, mock } = require("node:test");
+const assert = require("node:assert/strict");
+const { helloCities } = require("./orchestrator");
+
+test("helloCities chains activity results", () => {
+    const callActivity = mock.fn((name, input) => ({ name, input }));
+    const gen = helloCities({ df: { callActivity } });
+
+    assert.deepEqual(gen.next().value, { name: "sayHello", input: "Tokyo" });
+    assert.deepEqual(gen.next("Hello Tokyo!").value, {
+        name: "sayHello", input: "Seattle",
+    });
+    assert.deepEqual(gen.next("Hello Seattle!").value, {
+        name: "sayHello", input: "London",
+    });
+    assert.deepEqual(gen.next("Hello London!"), {
+        value: ["Hello Tokyo!", "Hello Seattle!", "Hello London!"],
+        done: true,
+    });
+    assert.deepEqual(callActivity.mock.calls.map((call) => call.arguments), [
+        ["sayHello", "Tokyo"],
+        ["sayHello", "Seattle"],
+        ["sayHello", "London"],
+    ]);
+});
+```
 
 ---
 
@@ -450,7 +492,27 @@ def test_say_hello():
 
 # [JavaScript](#tab/javascript)
 
-For JavaScript activity testing, switch to the **Durable Task SDKs** tab at the top of this page.
+Export your activity handler from `activity.js` and register it separately with `df.app.activity("sayHello", { handler: sayHello })`:
+
+```javascript
+async function sayHello(name) {
+    return `Hello ${name}!`;
+}
+
+module.exports = { sayHello };
+```
+
+Call the handler directly from `activity.test.js`:
+
+```javascript
+const { test } = require("node:test");
+const assert = require("node:assert/strict");
+const { sayHello } = require("./activity");
+
+test("sayHello returns a greeting", async () => {
+    assert.equal(await sayHello("Tokyo"), "Hello Tokyo!");
+});
+```
 
 ---
 
@@ -537,15 +599,37 @@ public static async Task<HttpResponseData> HttpStart(
 }
 ```
 
-Mock `DurableTaskClient` to return a known instance ID:
+Mock the virtual scheduling method on `DurableTaskClient` to return a known instance ID. `CreateCheckStatusResponseAsync` is a static extension method, so don't configure it with Moq. Let the real helper run with a request URL, response body and headers, and the worker serializer registered in `FunctionContext.InstanceServices`. With this mock client, the helper produces local management URLs without an authorization key.
 
 ```csharp
+using System;
+using System.IO;
+using System.Net;
+using System.Threading;
+using System.Threading.Tasks;
+using Azure.Core.Serialization;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
+using Microsoft.DurableTask;
+using Microsoft.DurableTask.Client;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Moq;
+using Xunit;
+
 [Fact]
 public async Task HttpStart_ReturnsAccepted()
 {
     var durableClientMock = new Mock<DurableTaskClient>("testClient");
     var functionContextMock = new Mock<FunctionContext>();
     var instanceId = "test-instance-id";
+    using var services = new ServiceCollection()
+        .AddSingleton<IOptions<WorkerOptions>>(Options.Create(new WorkerOptions
+        {
+            Serializer = new JsonObjectSerializer()
+        }))
+        .BuildServiceProvider();
+    functionContextMock.SetupGet(c => c.InstanceServices).Returns(services);
 
     durableClientMock
         .Setup(x => x.ScheduleNewOrchestrationInstanceAsync(
@@ -555,22 +639,32 @@ public async Task HttpStart_ReturnsAccepted()
             It.IsAny<CancellationToken>()))
         .ReturnsAsync(instanceId);
 
-    var mockRequest = CreateMockHttpRequest(functionContextMock.Object);
-
+    using var body = new MemoryStream();
     var responseMock = new Mock<HttpResponseData>(functionContextMock.Object);
-    responseMock.SetupGet(r => r.StatusCode).Returns(HttpStatusCode.Accepted);
+    responseMock.SetupProperty(r => r.StatusCode);
+    responseMock.SetupProperty(r => r.Body, body);
+    responseMock.SetupGet(r => r.Headers).Returns(new HttpHeadersCollection());
 
-    durableClientMock
-        .Setup(x => x.CreateCheckStatusResponseAsync(
-            It.IsAny<HttpRequestData>(),
-            It.IsAny<string>(),
-            It.IsAny<CancellationToken>()))
-        .ReturnsAsync(responseMock.Object);
+    var requestMock = new Mock<HttpRequestData>(functionContextMock.Object);
+    requestMock.SetupGet(r => r.Url).Returns(new Uri("http://localhost:7071/api/start"));
+    requestMock.SetupGet(r => r.Headers).Returns(new HttpHeadersCollection());
+    requestMock.Setup(r => r.CreateResponse()).Returns(responseMock.Object);
 
     var result = await HelloCitiesOrchestration.HttpStart(
-        mockRequest, durableClientMock.Object, functionContextMock.Object);
+        requestMock.Object, durableClientMock.Object, functionContextMock.Object);
 
     Assert.Equal(HttpStatusCode.Accepted, result.StatusCode);
+    Assert.Contains(
+        "http://localhost:7071/runtime/webhooks/durabletask/instances/test-instance-id",
+        result.Headers.GetValues("Location"));
+    body.Position = 0;
+    using var reader = new StreamReader(body);
+    Assert.Contains(instanceId, await reader.ReadToEndAsync());
+    durableClientMock.Verify(x => x.ScheduleNewOrchestrationInstanceAsync(
+        It.Is<TaskName>(n => n.Name == nameof(HelloCitiesOrchestration)),
+        It.IsAny<object>(),
+        It.IsAny<StartOrchestrationOptions>(),
+        It.IsAny<CancellationToken>()), Times.Once);
 }
 ```
 
@@ -620,7 +714,39 @@ class TestClientFunction(unittest.TestCase):
 
 # [JavaScript](#tab/javascript)
 
-For JavaScript client testing, switch to the **Durable Task SDKs** tab at the top of this page.
+Separate the client-dependent logic from binding lookup. Export this helper from `starter.js`; your Node.js v4 HTTP handler can call `startOrchestration(df.getClient(context), request)`:
+
+```javascript
+async function startOrchestration(client, request) {
+    const instanceId = await client.startNew("helloCities");
+    return client.createCheckStatusResponse(request, instanceId);
+}
+
+module.exports = { startOrchestration };
+```
+
+In `starter.test.js`, mock the Functions client's methods:
+
+```javascript
+const { test, mock } = require("node:test");
+const assert = require("node:assert/strict");
+const { startOrchestration } = require("./starter");
+
+test("starter returns the management response", async () => {
+    const request = {};
+    const response = { status: 202 };
+    const client = {
+        startNew: mock.fn(async () => "test-instance-id"),
+        createCheckStatusResponse: mock.fn(() => response),
+    };
+
+    assert.equal(await startOrchestration(client, request), response);
+    assert.deepEqual(client.startNew.mock.calls[0].arguments, ["helloCities"]);
+    assert.deepEqual(client.createCheckStatusResponse.mock.calls[0].arguments, [
+        request, "test-instance-id",
+    ]);
+});
+```
 
 ---
 

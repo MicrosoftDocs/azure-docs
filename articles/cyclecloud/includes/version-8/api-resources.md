@@ -3,7 +3,7 @@ title: CycleCloud API resources
 description: Reference for Azure CycleCloud REST API resource models, including cluster status, node arrays, and related objects returned by the API.
 ms.service: cyclecloud
 ms.topic: reference
-ms.date: 06/19/2026
+ms.date: 11/24/2026
 author: emilylo
 ms.custom: include-file
 
@@ -11,6 +11,9 @@ ms.custom: include-file
 ---
 
 Azure CycleCloud defines a set of resource models that describe clusters, node arrays, nodes, and allocation state. These resources are returned by the REST API and provide details such as capacity limits, usage, and cluster state. Use this reference to understand the structure and properties of API responses when managing and monitoring CycleCloud clusters programmatically.
+
+<!-- BEGIN AUTO-GENERATED CONTENT: do not edit between markers -->
+
 
 <a name="clusterstatus"></a>
 ## ClusterStatus
@@ -147,7 +150,7 @@ Usage and optional cost information for the cluster
 ## Node
 A node record
 
-*Type*: object
+*Type* : object
 
 
 <a name="nodecreationrequest"></a>
@@ -157,7 +160,7 @@ Specifies how to add nodes to a cluster
 
 |Name|Description|Schema|
 |---|---|---|
-|**requestId**  <br>*optional*|Optional user-supplied unique token to prevent duplicate operations if there are network communication errors. If this value is included and matches an earlier request ID, the server ignores this request and returns a 409 error.  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
+|**requestId**  <br>*optional*|Optional user-supplied unique token to prevent duplicate operations if there are network communication errors. If this value is included and matches an earlier request ID in the same cluster, the server ignores this request and returns a 409 error. Request IDs are unique per cluster, and only for as long as the operation is kept (at most 30 days, and never longer than the cluster).  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
 |**sets**  <br>*required*|A list of node definitions to create. The request must contain at least one set. Each set can specify a different set of properties.  <br>**Example** : `[ "object" ]`|< [sets](#nodecreationrequest-sets) > array|
 
 <a name="nodecreationrequest-sets"></a>
@@ -206,7 +209,7 @@ Results of a node search
 |Name|Description|Schema|
 |---|---|---|
 |**nodes**  <br>*required*|The nodes returned  <br>**Example** : `[ "[node](#node)" ]`|< [Node](#node) > array|
-|**operation**  <br>*optional*| The status of an operation if the query includes an operation ID  <br>**Example** : `"[operationstatus](#operationstatus)"`|[OperationStatus](#operationstatus)|
+|**operation**  <br>*optional*|The status of an operation if the query includes an operation ID  <br>**Example** : `"[operationstatus](#operationstatus)"`|[OperationStatus](#operationstatus)|
 
 
 <a name="nodemanagementrequest"></a>
@@ -221,7 +224,7 @@ Specifies how to perform actions on nodes in a cluster. There are multiple ways 
 |**ids**  <br>*optional*|A list of node IDs to manage  <br>**Example** : `[ "id1", "id2" ]`|< string > array|
 |**ip_addresses**  <br>*optional*|A list of IP addresses to manage  <br>**Example** : `[ "10.0.1.1", "10.1.1.2" ]`|< string > array|
 |**names**  <br>*optional*|A list of node names to manage  <br>**Example** : `[ "name1", "name2" ]`|< string > array|
-|**requestId**  <br>*optional*|Optional user-supplied unique token to prevent duplicate operations if there are network communication errors. If this value is included and matches an earlier request ID, the server ignores this request and returns a 409 error.  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
+|**requestId**  <br>*optional*|Optional user-supplied unique token to prevent duplicate operations if there are network communication errors. If this value is included and matches an earlier request ID in the same cluster, the server ignores this request and returns a 409 error. Request IDs are unique per cluster, and only for as long as the operation is kept (at most 30 days, and never longer than the cluster).  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
 
 
 <a name="nodemanagementresult"></a>
@@ -250,8 +253,9 @@ The status of this node operation
 
 |Name|Description|Schema|
 |---|---|---|
-|**action**  <br>*required*|**Example** : `"string"`|enum (create)|
+|**action**  <br>*required*|The action that started this operation. Removing nodes is recorded as `terminate`, and shutting down nodes with an explicit deallocate or terminate command is recorded as that command.  <br>**Example** : `"string"`|enum (create, start, terminate, deallocate, shutdown, restart, reimage, repair)|
 |**startTime**  <br>*required*|When this operation was submitted  <br>**Example** : `"2020-01-01T12:34:56Z"`|string (date-time)|
 
 
 
+<!-- END AUTO-GENERATED CONTENT -->
