@@ -1,8 +1,8 @@
 ---
 title: Policy Settings for Web Application Firewall in Azure Front Door
 description: Learn how to configure Azure Front Door WAF policy scope, state, mode, blocked-request responses, and redirect URIs.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 09/01/2026

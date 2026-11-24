@@ -1,8 +1,8 @@
 ---
 title: Front Door WAF DRS rule groups and rules
 description: Learn about the Azure Web Application Firewall Default Rule Set (DRS) rule groups and rules on Azure Front Door.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 09/10/2026

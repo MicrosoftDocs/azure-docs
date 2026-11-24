@@ -2,8 +2,8 @@
 metadata:
   title: Azure Web Application Firewall on Azure Front Door - Frequently Asked Questions
   description: Find answers to common questions about Azure Front Door WAF policies, attachment scopes, managed rules, rate limiting, and supported features.
-  author: halkazwini
-  ms.author: halkazwini
+  author: gunjanj
+  ms.author: gunjanj
   ms.service: azure-web-application-firewall
   ms.topic: faq
   ms.date: 10/22/2026
