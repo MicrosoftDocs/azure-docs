@@ -1,5 +1,5 @@
 items:
-  - name: Azure Migrate application and code assessment
+  - name: Azure Catalyst application and code assessment
     href: index.yml
   - name: Overview
     href: overview.md

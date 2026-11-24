@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create a MySQL Assessment for Migration to Azure Database for MySQL (Preview)
-description: Learn how to create a MySQL assessment using Azure Migrate to evaluate your on-premises MySQL database instances for migration to Azure Database for MySQL. This tutorial provides step-by-step instructions for running assessments, reviewing results, and understanding readiness and cost estimates.
+description: Learn how to create a MySQL assessment using Azure Catalyst to evaluate your on-premises MySQL database instances for migration to Azure Database for MySQL. This tutorial provides step-by-step instructions for running assessments, reviewing results, and understanding readiness and cost estimates.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
@@ -14,19 +14,19 @@ ms.update-cycle: 1095-days
 # Assess MySQL databases for migration to Azure Database for MySQL (preview)
 
 
-As part of your Azure migration journey, you assess your workloads to evaluate cloud readiness, identify potential risks, and estimate costs and migration complexity. This article explains how to assess discovered MySQL and MariaDB database instances by using Azure Migrate: Discovery and assessment before migrating them to Azure Database for MySQL.
+As part of your Azure migration journey, you assess your workloads to evaluate cloud readiness, identify potential risks, and estimate costs and migration complexity. This article explains how to assess discovered MySQL and MariaDB database instances by using Azure Catalyst: Discovery and assessment before migrating them to Azure Database for MySQL.
 
 ## Prerequisites
 
  - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/free-trial/). 
- - Before you assess your MySQL database instance migration to Azure Database for MySQL, ensure you've [discovered the MySQL instances](tutorial-discover-mysql-database-instances.md) that you want to assess using the Azure Migrate appliances.
+ - Before you assess your MySQL database instance migration to Azure Database for MySQL, ensure you've [discovered the MySQL instances](tutorial-discover-mysql-database-instances.md) that you want to assess using the Azure Catalyst appliances.
 
 
 ## Run an assessment
 
 To create and run a MySQL assessment, follow these steps:
 
-1. In the **Azure Migrate** portal, select **Database** under **Explore inventory**
+1. In the **Azure Catalyst** portal, select **Database** under **Explore inventory**
 1. Select **MySQL/MariaDB** to view MySQL and MariaDB databases. Select the MySQL instances to be assessed for Azure Database for MySQL. 1. On command bar select **Create Assessment** on task bar. 
 
    :::image type="content" source="./media/create-mysql-assessment/mysql-scope-addition.png" alt-text="Screenshot on how to get started with creating scope for MySQL databases.":::
@@ -56,7 +56,7 @@ To create and run a MySQL assessment, follow these steps:
 
    | **Setting** | **Details** |
    | --- | --- |
-   | **Sizing criteria**  | Set to *Performance-based* by default, which means Azure Migrate collects performance metrics pertaining to MySQL instances to recommend an optimal-sized Azure Database for MySQL instance configuration.
+   | **Sizing criteria**  | Set to *Performance-based* by default, which means Azure Catalyst collects performance metrics pertaining to MySQL instances to recommend an optimal-sized Azure Database for MySQL instance configuration.
    | **Performance history** | Indicate the data duration on which you want to base the assessment. (Default is one day)
    | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
    | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.
@@ -117,7 +117,7 @@ To view readiness of MySQL instance for migration to Azure Database for MySQL, a
     - **Ready**: The instance is ready to be migrated to Azure Database for MySQL without any migration issues or warnings.
     - **Ready with conditions**: The instance has one or more non-critical compatibility issues or migration warnings for migrating to Azure Database for MySQL. You can select the hyperlink and review the migration warnings and the recommended remediation guidance.
     - **Not ready**: The instance has compatibility issues that may block the migration to Azure Database for MySQL, or the assessment couldn't find an Azure Database for MySQL configuration meeting the desired configuration and performance characteristics. Select the hyperlink to review the migration issues and recommendation to make the instance ready for the desired target deployment type.
-    - **Unknown**: Azure Migrate can't assess readiness, because the discovery is in progress or there are issues during discovery that need to be fixed from the notifications blade. 
+    - **Unknown**: Azure Catalyst can't assess readiness, because the discovery is in progress or there are issues during discovery that need to be fixed from the notifications blade. 
     
 - Select the instance name to drill down to a detailed summary of the instance, including readiness, source instance properties, recommended Azure configuration and a monthly cost estimate breakdown between compute, storage, and IO. 
 

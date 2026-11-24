@@ -1,6 +1,6 @@
 ---
-title: Review SQL assessment with Azure Migrate | Microsoft Docs
-description: Describes how to review SQL Azure assessment with the Azure Migrate 
+title: Review SQL assessment with Azure Catalyst | Microsoft Docs
+description: Describes how to review SQL Azure assessment with the Azure Catalyst 
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.manager: abhemraj
@@ -59,7 +59,7 @@ Performance-based   | The Azure SQL configuration is based on performance data o
 
 **As on-premises sizing calculation**
 
-The assessment computes and identifies a service tier and Azure SQL configuration (SKU sizes) that can meet or exceed the on-premises SQL instance configuration. Azure Migrate collects the following SQL instance configuration datapoints from on-premises servers:
+The assessment computes and identifies a service tier and Azure SQL configuration (SKU sizes) that can meet or exceed the on-premises SQL instance configuration. Azure Catalyst collects the following SQL instance configuration datapoints from on-premises servers:
 
 * vCores (allocated)
 * Memory (allocated)
@@ -111,7 +111,7 @@ For storage sizing, the assessment maps each disk on the on-premises instance to
 After identifying storage disks, the assessment considers CPU and memory requirements of the instance to find a suitable VM SKU in Azure:
 
 * The assessment uses allocated cores and memory to determine an appropriate Azure VM size.
-* If a suitable size is found, Azure Migrate applies the storage calculations to verify disk-VM compatibility. 
+* If a suitable size is found, Azure Catalyst applies the storage calculations to verify disk-VM compatibility. 
 * If multiple eligible Azure VM sizes are available, the assessment recommends the one with the lowest cost.
 
 > [!NOTE]

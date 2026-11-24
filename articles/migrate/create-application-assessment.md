@@ -1,6 +1,6 @@
 ---
 title: Create an application assessment
-description: Learn how to create an application assessment using Azure Migrate.
+description: Learn how to create an application assessment using Azure Catalyst.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
@@ -8,18 +8,18 @@ ms.topic: concept-article
 ms.reviewer: v-gajeronika
 ms.date: 11/05/2024
 ms.update-cycle: 1825-days
-# Customer intent: As a cloud architect, I want to create an application assessment using Azure Migrate, so that I can evaluate migration strategies, identify optimal targets, and understand the cost and readiness of my application workloads for the cloud transition.
+# Customer intent: As a cloud architect, I want to create an application assessment using Azure Catalyst, so that I can evaluate migration strategies, identify optimal targets, and understand the cost and readiness of my application workloads for the cloud transition.
 ---
 
 # Create an application assessment
 
-This article shows you how to create an application assessment to migrate or modernize your application workloads using Azure Migrate. Creating an application assessment for your application provides you with multiple migration strategies that you can use to migrate your workloads identify the recommended as well as alternative targets and key insights such as **readiness**, **target right-sizing**, and **cost** to host and run these workloads on Azure month over month.  
+This article shows you how to create an application assessment to migrate or modernize your application workloads using Azure Catalyst. Creating an application assessment for your application provides you with multiple migration strategies that you can use to migrate your workloads identify the recommended as well as alternative targets and key insights such as **readiness**, **target right-sizing**, and **cost** to host and run these workloads on Azure month over month.  
 
 You can also create a cross-workload assessment using the following steps. A cross-workload assessment can constitute multiple workloads that do not necessarily combine to form just one application, it can be a group of multiple applications or it can be just a group of heterogeneous workloads in your datacenter.  
 
 In this article, you’ll learn how to:  
 
-- Set up your Azure Migrate environment to assess applications.
+- Set up your Azure Catalyst environment to assess applications.
 
 - Choose a set of related workloads from the inventory.  
 
@@ -42,7 +42,7 @@ Learn about the assessment prerequisites and how to implement them.
     
     1. If you're exploring the inventory of workloads from the **All inventory** blade, you can start by selecting the desired workloads and selecting **Create assessment**.
 
-    1.	On the Azure Migrate project overview page, under **Decide and Plan** > **Assessments** > **Create assessment**.
+    1.	On the Azure Catalyst project overview page, under **Decide and Plan** > **Assessments** > **Create assessment**.
 
 2. Provide a suitable name for the assessment and select **Add workloads** to add workloads to the assessment scope.
 

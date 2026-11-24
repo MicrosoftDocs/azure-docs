@@ -1,6 +1,6 @@
 ---
 title: Create a file share assessment
-description: Learn how to create an Azure Migrate assessment for discovered file shares—hosted on servers or NAS systems—to evaluate readiness, right-sized targets, and cost for Azure Files, Azure Blob, and Azure NetApp Files.
+description: Learn how to create an Azure Catalyst assessment for discovered file shares—hosted on servers or NAS systems—to evaluate readiness, right-sized targets, and cost for Azure Files, Azure Blob, and Azure NetApp Files.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
@@ -8,18 +8,18 @@ ms.topic: concept-article
 ms.reviewer: v-gajeronika
 ms.date: 11/05/2025
 ms.update-cycle: 365-days
-# Customer intent: As a cloud architect, I want to create an application assessment using Azure Migrate, so that I can evaluate migration strategies, identify optimal targets, and understand the cost and readiness of my application workloads for the cloud transition.
+# Customer intent: As a cloud architect, I want to create an application assessment using Azure Catalyst, so that I can evaluate migration strategies, identify optimal targets, and understand the cost and readiness of my application workloads for the cloud transition.
 ---
 
 # Assessment of file shares to Azure Files, Azure Blob, and Azure NetApp Files
 
-A file share assessment in Azure Migrate helps you evaluate the readiness, right-sized target configuration, and cost of migrating on-premises file shares to Azure Files, Azure Blob Storage, and Azure NetApp Files. The assessment analyzes discovered file shares and provides recommendations to support your migration planning.
+A file share assessment in Azure Catalyst helps you evaluate the readiness, right-sized target configuration, and cost of migrating on-premises file shares to Azure Files, Azure Blob Storage, and Azure NetApp Files. The assessment analyzes discovered file shares and provides recommendations to support your migration planning.
 
-This article explains how to create assessments for file shares hosted on Windows and Linux servers, and for file shares hosted on network-attached storage (NAS) systems. The share is the unit of assessment: each SMB, NFS, or S3 share is evaluated individually and receives its own readiness verdict, target recommendation, and cost estimate. For general Azure Migrate assessment concepts, see [Assessment overview](concepts-assessment-overview.md).
+This article explains how to create assessments for file shares hosted on Windows and Linux servers, and for file shares hosted on network-attached storage (NAS) systems. The share is the unit of assessment: each SMB, NFS, or S3 share is evaluated individually and receives its own readiness verdict, target recommendation, and cost estimate. For general Azure Catalyst assessment concepts, see [Assessment overview](concepts-assessment-overview.md).
 
 > [!Note]
->  All assessments created with Azure Migrate are point‑in‑time snapshots. Assessment results can change based on aggregated server performance data or changes in the source environment configuration.  
-> Azure Migrate supports assessment of file shares hosted on Windows Server with version greater than Windows Server 2012 R2. It's supported on all Linux distros.
+>  All assessments created with Azure Catalyst are point‑in‑time snapshots. Assessment results can change based on aggregated server performance data or changes in the source environment configuration.  
+> Azure Catalyst supports assessment of file shares hosted on Windows Server with version greater than Windows Server 2012 R2. It's supported on all Linux distros.
 
 ## Prerequisites 
 
@@ -41,10 +41,10 @@ Sizing criteria | What it uses | When to choose it
 For more details, see [Performance vs. As-is on-premises assessments](target-right-sizing.md).
 
 > [!IMPORTANT]
-> Where deep-discovery metrics aren't available for a share, Azure Migrate calculates performance values from predefined formulas rather than from measurement. A performance-based assessment still returns a result in that case, so confirm whether the underlying values were measured or derived before you rely on the sizing.
+> Where deep-discovery metrics aren't available for a share, Azure Catalyst calculates performance values from predefined formulas rather than from measurement. A performance-based assessment still returns a result in that case, so confirm whether the underlying values were measured or derived before you rely on the sizing.
 
 > [!NOTE]
-> Azure Migrate doesn’t support file share discovery and TCO assessment on Windows Server 2008 R2. This limitation exists because the operating system lacks the required PowerShell capabilities and system APIs needed to discover file shares and collect assessment data.  
+> Azure Catalyst doesn’t support file share discovery and TCO assessment on Windows Server 2008 R2. This limitation exists because the operating system lacks the required PowerShell capabilities and system APIs needed to discover file shares and collect assessment data.  
 
 ## Create an assessment
 
@@ -52,7 +52,7 @@ To create a file share assessment, follow these steps.
 
 ### Select the file shares to assess
 
-1. In the **Azure Migrate** project, select **Explore inventory** > **All inventory**, or select **Infrastructure** and then the **File share** tile.
+1. In the **Azure Catalyst** project, select **Explore inventory** > **All inventory**, or select **Infrastructure** and then the **File share** tile.
 1. Narrow the list to storage. In **All inventory**, select **Add filter**, set **Filter** to **Type**, and select **NAS** and **File share**.
 1. (Optional) Apply column-based filters or custom tag–based filters to narrow the list further, for example to a single business unit or cost center.
 1. Select the file shares you want to assess. You can also select a NAS cluster to include the shares it hosts.
@@ -101,17 +101,17 @@ The **Advanced** tab lists the workload types in the assessment. For file shares
 
 **Target services**
 
-Select which Azure storage services Azure Migrate evaluates each share against.
+Select which Azure storage services Azure Catalyst evaluates each share against.
 
 Target service | Notes
 --- | ---
 **Azure Files** | Evaluated for discovered file shares. Supports SSD and HDD media.
 **Azure Blob** | Evaluated for discovered file shares and buckets.
-**Azure NetApp Files** | Selected by default and can't be changed. A share is assessed against Azure NetApp Files only when Azure Migrate detects that the source share is on NetApp NAS; it isn't offered for other platforms.
+**Azure NetApp Files** | Selected by default and can't be changed. A share is assessed against Azure NetApp Files only when Azure Catalyst detects that the source share is on NetApp NAS; it isn't offered for other platforms.
 
 **Workload type**
 
-Workload type tells Azure Migrate what kind of data the shares hold, so that it can recommend an appropriate performance level and access tier.
+Workload type tells Azure Catalyst what kind of data the shares hold, so that it can recommend an appropriate performance level and access tier.
 
 Workload type | Use it for
 --- | ---
@@ -127,7 +127,7 @@ Setting | Description
 --- | ---
 **Azure Files redundancy type** | The redundancy applied to Azure Files recommendations, for example zone-redundant storage (ZRS). Redundancy affects both availability and price.
 **Azure Blob redundancy type** | The redundancy applied to Azure Blob recommendations.
-**Azure Files media preferences** | The media types Azure Migrate might recommend, for example Premium SSD, Standard HDD, or both.
+**Azure Files media preferences** | The media types Azure Catalyst might recommend, for example Premium SSD, Standard HDD, or both.
 **Azure Blob access frequency** | How often the data is read, for example Frequently - Data accessed regularly. This drives the recommended access tier.
 
 Select **Save** to apply the settings, and then select **Next**.
@@ -151,7 +151,7 @@ A notification confirms that creation is in progress. Recommendations typically 
 - The share is the unit of assessment. Clusters provide context, but readiness, target recommendation, and cost are produced per share.
 - Azure NetApp Files is offered only where the source share is NetApp-origin. A Dell PowerScale estate never receives an Azure NetApp Files recommendation.
 - Blob sizing isn't performance-validated. Blob recommendations are based on capacity and access frequency inputs. There's no scale, performance, or IOPS/throughput validation.
-- On-premises cost estimates are directional. The NAS on-premises cost assumption uses a default for on-premises TCO, which you can view and change under **Manage** > **Cost assumptions (storage)** in your Azure Migrate project settings. This cost hasn't been calibrated against individual customer environments.
+- On-premises cost estimates are directional. The NAS on-premises cost assumption uses a default for on-premises TCO, which you can view and change under **Manage** > **Cost assumptions (storage)** in your Azure Catalyst project settings. This cost hasn't been calibrated against individual customer environments.
 - Settings can be edited after creation. You can change the file share assessment settings and recalculate rather than creating a new assessment.
 
 ## Next steps

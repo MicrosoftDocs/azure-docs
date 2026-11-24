@@ -1,6 +1,6 @@
 ---
-title: Create an AVS assessment with Azure Migrate | Microsoft Docs
-description: Describes how to create an AVS assessment with Azure Migrate
+title: Create an AVS assessment with Azure Catalyst | Microsoft Docs
+description: Describes how to create an AVS assessment with Azure Catalyst
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 11/07/2024
@@ -12,17 +12,17 @@ ms.update-cycle: 365-days
 
 # Create an Azure VMware Solution assessment
 
-This article describes how to create an Azure VMware Solution assessment for on-premises VMs in a VMware vSphere environment with Azure Migrate: Discovery and assessment.
+This article describes how to create an Azure VMware Solution assessment for on-premises VMs in a VMware vSphere environment with Azure Catalyst: Discovery and assessment.
 
-[Azure Migrate](migrate-services-overview.md) helps you to migrate to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub offers Azure Migrate tools for assessment and migration, along with partner independent software vendor (ISV) offerings.
+[Azure Catalyst](migrate-services-overview.md) helps you to migrate to Azure. Azure Catalyst provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub offers Azure Catalyst tools for assessment and migration, along with partner independent software vendor (ISV) offerings.
 
 ## Before you start
 
-- [Create](./create-manage-projects.md) an Azure Migrate project.
+- [Create](./create-manage-projects.md) an Azure Catalyst project.
 - Discover your on-premises inventory data using any of the following approaches:
     - [Import your RVTools XLSX file](tutorial-import-vmware-using-rvtools-xlsx.md) OR
     - [Import the server metadata in comma-separated values (CSV) format](./tutorial-discover-import.md) OR
-    - Set up an Azure Migrate appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. [Learn more](migrate-appliance.md).
+    - Set up an Azure Catalyst appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Catalyst: Discovery and assessment. [Learn more](migrate-appliance.md).
 
 
 ## Azure VMware Solution (AVS) Assessment overview
@@ -77,8 +77,8 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
     - In **SDDC type**, specify "New SDDC" if you are creating a new private cloud. Use "AVS SDDC expansion" if you already have an AVS private cloud with hosts deployed and want to add more VMs to the existing SDDC. When assessing for expanding a private cloud, it will not consider the available capacity in the AVS private cloud but will consider the capacity requirements for management appliances.
     - The **Storage type** is defaulted to consider three supported storage solutions in AVS: **vSAN**, **Elastic SAN** and **Azure NetApp Files (ANF)** (Standard, Premium and Ultra tiers). Elastic SAN and ANF are external storage types in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. **Elastic SAN** can be selected if assessment needs to be performed using vSAN & Elastic SAN as the storage datastores.
-        - When performance metrics are provided (IOPS and throughput) in settings or via data discovered using the Azure migrate appliance or in the imported CSV file, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks.
-        - If the assessment is performed using data from an RVTools file or if the Azure Migrate appliance is unable to discover performance metrics like throughput and IOPS, the most cost-effective storage solution and tier among **Elastic SAN** and **ANF - Standard** is considered for assessment.
+        - When performance metrics are provided (IOPS and throughput) in settings or via data discovered using the Azure Catalyst appliance or in the imported CSV file, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks.
+        - If the assessment is performed using data from an RVTools file or if the Azure Catalyst appliance is unable to discover performance metrics like throughput and IOPS, the most cost-effective storage solution and tier among **Elastic SAN** and **ANF - Standard** is considered for assessment.
 
 1. In **Storage Settings**:
     - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination. **FTT 1, RAID 1 & FTT 2, RAID 6** are selected by default. The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
@@ -86,15 +86,15 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/vmware-deduplication-compression.png" alt-text="Screenshot of page showing vCenter UI to get deduplication and compression reference." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/vmware-deduplication-compression.png" :::
 
-    - In **IOPS per GiB**, select the expected average read and write speed per gibibyte of the external storage device. This, along with the disk capacity requirement, helps Azure Migrate determine the external storage capacity needs.
-    - In **Throughput per GiB**, select the expected average amount of data transfer speed per gibibyte of the storage device. This, along with the disk capacity requirement would help Azure Migrate determine the external storage capacity requirements.
+    - In **IOPS per GiB**, select the expected average read and write speed per gibibyte of the external storage device. This, along with the disk capacity requirement, helps Azure Catalyst determine the external storage capacity needs.
+    - In **Throughput per GiB**, select the expected average amount of data transfer speed per gibibyte of the storage device. This, along with the disk capacity requirement would help Azure Catalyst determine the external storage capacity requirements.
 1. In **Elastic SAN Settings**:
     - The **Networking ingress/egress cost** is used to determine the networking cost of attaching the Elastic SAN datastore to the AVS private cloud. It's defaulted to **15%**.
 1. In **CPU Settings**:
     - In **CPU Oversubscription**, specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
     - In **CPU headroom**, specify the CPU headroom you want to reserve for planned & unplanned management operations.
 1. In **VM Size**:
-    - The **Node type** is defaulted to use all the SKUs available in the given region. SKUs supported for assessment are AV36, AV36P, AV48, AV52 & AV64 (both Gen 1 & [Gen 2](/azure/azure-vmware/native-introduction)). Azure Migrate attempts to get the minimum number of nodes needed to host the VMs on the Azure VMware Solution private cloud. However, availability of the SKU will depend upon capacity availability.
+    - The **Node type** is defaulted to use all the SKUs available in the given region. SKUs supported for assessment are AV36, AV36P, AV48, AV52 & AV64 (both Gen 1 & [Gen 2](/azure/azure-vmware/native-introduction)). Azure Catalyst attempts to get the minimum number of nodes needed to host the VMs on the Azure VMware Solution private cloud. However, availability of the SKU will depend upon capacity availability.
     - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
     - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
 
@@ -109,7 +109,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 1. In **Review + create assessment**, review the assessment details, and select **Create** to run the assessment.
 
     > [!NOTE]
-    > For discovering data using the Azure migrate appliance for creating assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high performance coverage.
+    > For discovering data using the Azure Catalyst appliance for creating assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high performance coverage.
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" alt-text="Screenshot showing an overview of an Azure VMware Solution assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" :::
 

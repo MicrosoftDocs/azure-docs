@@ -1,6 +1,6 @@
 ---
 title: Rules Development Guide for AppCAT 7
-description: Learn how to write and run custom rules for Azure Migrate application and code assessment tool.
+description: Learn how to write and run custom rules for Azure Catalyst application and code assessment tool.
 author: KarlErickson
 ms.author: karler
 ms.reviewer: seal
@@ -14,9 +14,9 @@ ms.date: 06/24/2026
 
 # Rules development guide for AppCAT 7
 
-This guide is for engineers, consultants, and others who want to create custom YAML-based rules for Azure Migrate application and code assessment for Java version 7 (AppCAT) tools.
+This guide is for engineers, consultants, and others who want to create custom YAML-based rules for Azure Catalyst application and code assessment for Java version 7 (AppCAT) tools.
 
-For an overview, see [Overview of Azure Migrate Application and Code Assessment for Java](./java.md) and for details, see the [CLI command guide for AppCAT 7](./appcat-7-cli-guide.md).
+For an overview, see [Overview of Azure Catalyst Application and Code Assessment for Java](./java.md) and for details, see the [CLI command guide for AppCAT 7](./appcat-7-cli-guide.md).
 
 AppCAT contains rule-based migration tools that analyze the APIs, technologies, and architectures used by the applications you plan to migrate. In fact, the AppCAT analysis process is implemented using AppCAT rules. AppCAT uses rules internally to extract files from archives, decompile files, scan and classify file types, analyze XML and other file content, analyze the application code, and build the reports.
 
