@@ -1,8 +1,8 @@
 ---
 title: FAQ for Oracle AI Database@Azure
 description: Learn answers to frequently asked questions about Oracle AI Database@Azure.
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: vaidehikher18
+ms.author: vaidehikher
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024

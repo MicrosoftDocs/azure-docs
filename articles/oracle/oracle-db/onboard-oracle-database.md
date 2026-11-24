@@ -1,13 +1,13 @@
 ---
 title: "Onboard Oracle AI Database@Azure"
 description: Learn about purchase and configuration steps to onboard Oracle AI Database@Azure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: concept-article
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: "As a database administrator, I want to complete the onboarding steps for Oracle AI Database@Azure, so that I can efficiently provision and manage my database resources in the Azure environment."
 ---
 

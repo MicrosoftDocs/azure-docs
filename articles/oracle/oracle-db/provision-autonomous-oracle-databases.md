@@ -1,13 +1,13 @@
 ---
 title: Provision Oracle Autonomous AI Databases
 description: Provision Oracle Autonomous AI Databases.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: how-to
 ms.date: 06/3/2024
 ms.custom: engagement-fy24
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: As a database administrator, I want to provision an Oracle Autonomous AI Database instance from the Azure portal, so that I can efficiently manage and scale my database resources according to my project requirements.
 ---
 

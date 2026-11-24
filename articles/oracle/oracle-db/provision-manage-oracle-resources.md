@@ -1,13 +1,13 @@
 ---
 title: Manage resources for Oracle AI Database@Azure
 description: Manage resources for Oracle AI Database@Azure
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: how-to
 ms.date: 6/07/2024
 ms.custom: engagement-fy23
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: "As a database administrator managing Oracle AI Database resources on Azure, I want to access and utilize management functions for my databases, so that I can efficiently provision, monitor, and allocate resources while ensuring optimal performance and scalability."
 ---
 # Manage resources for Oracle AI Database@Azure

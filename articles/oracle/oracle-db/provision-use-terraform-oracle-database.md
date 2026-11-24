@@ -1,13 +1,13 @@
 ---
 title: Use HashiCorp Terraform to provision Oracle AI Database@Azure
 description: Use HashiCorp Terraform to provision Oracle AI Database@Azure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: how-to
 ms.date: 6/07/2024
 ms.custom: engagement-fy23, devx-track-terraform
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: As a cloud engineer, I want to use HashiCorp Terraform to provision and manage Oracle AI Database resources on Azure, so that I can automate infrastructure deployment and streamline configuration management efficiently.
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Oracle AI Database@Azure
 description: Learn how to troubleshoot problems in Oracle AI Database@Azure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: troubleshooting
 ms.date: 08/29/2024
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: "As a database administrator, I want troubleshooting guidance for Oracle AI Database@Azure, so that I can quickly resolve common issues related to DNS, tags, and network configurations."
 ---
 

@@ -1,13 +1,13 @@
 ---
 title: Overview of provisioning
 description: Learn the overview of provisioning.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: concept-article
 ms.date: 6/07/2024
 ms.custom: engagement-fy23
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: "As a cloud administrator, I want to understand the provisioning requirements for OracleDB@Azure, so that I can effectively integrate and manage Oracle resources within the Azure environment."
 ---
 
