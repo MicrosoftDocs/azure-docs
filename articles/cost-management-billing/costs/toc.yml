@@ -19,6 +19,10 @@
       href: cost-mgt-best-practices.md
     - name: Understand Cost Management data
       href: understand-cost-mgt-data.md
+    - name: Understand price factors and supplemental charge details
+      href: ../automate/understand-price-factors-supplemental-charge-details.md
+    - name: Compare downloads and exports
+      href: ../understand/compare-downloads-exports.md
     - name: Understand and work with scopes
       href: understand-work-scopes.md
     - name: Cost Management for partners
@@ -87,6 +91,14 @@
     items:
     - name: Estimate costs with the Azure pricing calculator
       href: pricing-calculator.md
+  - name: How-to guides
+    items:
+    - name: View and download your organization's Azure pricing
+      href: ../manage/ea-pricing.md
+    - name: Terms in your Microsoft Customer Agreement price sheet
+      href: ../manage/mca-understand-pricesheet.md
+    - name: Review Flex Plan prices in your price sheet
+      href: ../benefits/flex-plan/review-flex-plan-prices.md
   - name: Reference
     items:
     - name: Azure Retail Prices REST API
@@ -127,6 +139,14 @@
         href: /power-bi/connect-data/desktop-connect-azure-cost-management
       - name: Analyze Azure costs with the Power BI template app
         href: analyze-cost-data-azure-cost-management-power-bi-template-app.md
+  - name: How-to guides
+    items:
+    - name: View reservation and savings plan amortized costs
+      href: ../reservations/view-amortized-costs.md
+    - name: View Flex Plan costs and usage
+      href: ../benefits/flex-plan/view-flex-plan-costs.md
+    - name: Reconcile Flex Plan charges and calculate savings
+      href: ../benefits/flex-plan/reconcile-flex-plan-charges.md
   - name: Concepts
     items:
     - name: Group and filter options in Cost analysis
