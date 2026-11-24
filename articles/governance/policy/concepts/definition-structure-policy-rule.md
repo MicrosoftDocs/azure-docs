@@ -679,9 +679,6 @@ The following functions are only available in policy rules:
        "in": ['userId']
     ```
     
-> [!WARNING]
-> When you use the `requestContext().identity` function, the policy engine marks the policy as `NotApplicable` for compliance evaluation/scans. As a result, compliance results for that policy show as `NotApplicable`, but enforcement of effects such as `Deny`, `DeployIfNotExists`, and `Modify` still occurs at request time.
-
 - `requestContext().clientIpAddress` (preview)
   - Returns the IP address of the client that sent the request that triggered policy evaluation. This value is usually the client's public IP address (example: `203.0.113.10`).
   - Use it with `ipRangeContains()` to allow or block requests based on where they come from, at any scope where you can assign a policy, such as a management group, subscription, or resource group. Pass your allowed or disallowed IP range as the _range_ argument and `requestContext().clientIpAddress` as the _targetRange_ argument. The existing syntax and input requirements of `ipRangeContains()` apply.
@@ -704,16 +701,7 @@ The following functions are only available in policy rules:
     }
     ```
 
-  - To check more than one distinct range, such as an IPv4 range and an IPv6 range, add one condition per range. The IP address conditions can stand alone or be combined with other conditions in the policy rule to narrow enforcement to a specific set of resources. For complete policy rules, see [IP filtering policy rule examples (preview)](#ip-filtering-policy-rule-examples-preview). For an end-to-end walkthrough, see [Tutorial: Block resource deletion from specific IP addresses](../tutorials/block-requests-by-ip-address.md).
-
-> [!IMPORTANT]
-> `requestContext().clientIpAddress` is currently in PREVIEW, and your tenant must be enabled for the preview before you can use it.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-> [!WARNING]
-> Compliance scans, such as the daily scan, don't have an incoming request, so there's no client IP address to evaluate. During a compliance scan, only the other conditions in the policy rule determine whether a resource is applicable. The IP address condition is enforced at request time.
->
-> In some scenarios, the IP address changes as the original request is forwarded on the user's behalf. This change happens for some batch API calls, some managed resource scenarios, and some Azure portal experiences. In these scenarios, the evaluated IP address might not match the IP address of the original request, so requests might be blocked unexpectedly.
+    - To check more than one distinct range, such as an IPv4 range and an IPv6 range, add one condition per range. The IP address conditions can stand alone or be combined with other conditions in the policy rule to narrow enforcement to a specific set of resources. For complete policy rules, see [IP filtering policy rule examples (preview)](#ip-filtering-policy-rule-examples-preview).
 
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be accessed from the returned object (example: `[policy().assignmentId]`).
@@ -914,5 +902,4 @@ The length of the string created by the `concat()` function depends on the value
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Learn how to [block resource deletion from specific IP addresses (preview)](../tutorials/block-requests-by-ip-address.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
