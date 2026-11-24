@@ -39,7 +39,7 @@ Publishing orchestration lifecycle events to [Azure Event Grid](../../event-grid
        dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask
        ```
 
-   For other languages, check your `package.json`, `requirements.txt`, `pom.xml`, or `requirements.psd1`.
+   For other languages, [update the extension bundle](durable-functions-extension-upgrade.md#upgrade-the-extension-bundle) to include Event Grid publishing support.
 
 - Managed identity [enabled](../../app-service/overview-managed-identity.md) and [configured](./durable-functions-configure-managed-identity.md) on your function app.
 - A [running storage provider](../common/durable-task-storage-providers.md) or the local [Azurite storage emulator](../../storage/common/storage-use-azurite.md).
@@ -89,22 +89,7 @@ Managed identities in Azure allow resources to authenticate to Azure services wi
 
 ### Configure the Durable Functions publisher app
 
-Although your Durable Functions app automatically publishes orchestration lifecycle events to Event Grid, you need to configure the connection settings. Add the following to the `extensions.durableTask` section in your `host.json`:
-
-```json
-{
-  "version": "2.0",
-  "extensions": {
-    "durableTask": {
-      "eventGridTopicEndpoint": "%EventGrid__topicEndpoint%",
-      "eventGridKeySettingName": "EventGrid__credential"
-    }
-  }
-}
-```
-
-> [!NOTE]
-> The `eventGridTopicEndpoint` setting references the Event Grid custom topic endpoint you saved earlier. The credential setting handles both managed identity and connection string scenarios.
+Configure the Event Grid application settings described in [Configure app settings](#configure-app-settings). No additional Event Grid configuration in `host.json` is required for managed identity.
 
 ### Assign Event Grid Data Sender role
 
@@ -252,7 +237,7 @@ When an orchestration state changes, the Durable Functions runtime publishes an 
 | `data.runtimeStatus` | `Running`, `Completed`, `Failed`, or `Canceled`. |
 | `data.reason` | Additional tracking data. For more information, see [Diagnostics in Durable Functions](durable-functions-diagnostics.md). |
 
-Event Grid ensures at-least-once delivery, so you may receive duplicate events in rare failure scenarios. Consider adding deduplication logic using the `instanceId` if needed.
+Event Grid ensures at-least-once delivery, so you may receive duplicate events in rare failure scenarios. Deduplicate redeliveries by the Event Grid event `id` within the relevant topic/subscription scope. Use `instanceId` to correlate events, not as the sole deduplication key: one instance can legitimately produce multiple lifecycle transitions. If you also need application-level idempotency for separately generated notifications, design an execution- and transition-aware key; event-ID deduplication alone doesn't cover those notifications.
 
 ## Verify event delivery
 

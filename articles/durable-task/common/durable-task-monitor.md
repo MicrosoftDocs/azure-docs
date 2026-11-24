@@ -84,7 +84,7 @@ Java samples for Durable Functions aren't yet available for this scenario. See t
 
 # [Python](#tab/python)
 
-* Python 3.9 or later
+* Python 3.11 or later
 * Access to Azure Durable Task Scheduler or the local emulator
 
 # [PowerShell](#tab/powershell)
@@ -1118,11 +1118,23 @@ To run the sample, you need:
 
 # [C#](#tab/csharp)
 
+This client setup requires the `Microsoft.DurableTask.Client.AzureManaged`, `Microsoft.Extensions.DependencyInjection`, and `Microsoft.Extensions.Logging` NuGet packages.
+
 ```csharp
 using System;
 using System.Threading.Tasks;
+using Microsoft.DurableTask;
+using Microsoft.DurableTask.Client;
+using Microsoft.DurableTask.Client.AzureManaged;
+using Microsoft.Extensions.DependencyInjection;
 
-var client = DurableTaskClientBuilder.UseDurableTaskScheduler(connectionString).Build();
+string connectionString = Environment.GetEnvironmentVariable("DTS_CONNECTION_STRING")
+    ?? "Endpoint=http://localhost:8080;TaskHub=default;Authentication=None";
+var services = new ServiceCollection();
+services.AddLogging();
+services.AddDurableTaskClient(builder => builder.UseDurableTaskScheduler(connectionString));
+await using ServiceProvider serviceProvider = services.BuildServiceProvider();
+DurableTaskClient client = serviceProvider.GetRequiredService<DurableTaskClient>();
 
 // Schedule the monitoring orchestration
 var input = new JobMonitorInput
@@ -1140,16 +1152,34 @@ Console.WriteLine($"Started monitoring orchestration: {instanceId}");
 // Wait for completion while checking status
 while (true)
 {
-    var state = await client.GetInstanceMetadataAsync(instanceId, getInputsAndOutputs: true);
+    var state = await client.GetInstanceAsync(instanceId, getInputsAndOutputs: true);
 
-    if (state.RuntimeStatus == OrchestrationRuntimeStatus.Completed ||
-        state.RuntimeStatus == OrchestrationRuntimeStatus.Failed)
+    if (state is null)
     {
-        Console.WriteLine($"Monitoring completed: {state.ReadOutputAs<JobMonitorResult>().FinalStatus}");
+        Console.WriteLine($"Orchestration {instanceId} was not found.");
         break;
     }
 
-    Console.WriteLine($"Current status: {state.ReadCustomStatusAs<JobStatus>()?.Status}");
+    if (state.RuntimeStatus == OrchestrationRuntimeStatus.Completed)
+    {
+        var result = state.ReadOutputAs<JobMonitorResult>();
+        Console.WriteLine($"Monitoring completed: {result?.FinalStatus ?? "No result returned"}");
+        break;
+    }
+
+    if (state.RuntimeStatus == OrchestrationRuntimeStatus.Failed)
+    {
+        Console.WriteLine($"Monitoring failed: {state.FailureDetails?.ErrorMessage}");
+        break;
+    }
+
+    if (state.RuntimeStatus == OrchestrationRuntimeStatus.Terminated)
+    {
+        Console.WriteLine("Monitoring was terminated.");
+        break;
+    }
+
+    Console.WriteLine($"Runtime status: {state.RuntimeStatus}; job status: {state.ReadCustomStatusAs<JobStatus>()?.Status}");
     await Task.Delay(2000);
 }
 ```

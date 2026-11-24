@@ -26,14 +26,16 @@ Choose the upgrade method that matches your app type:
 
 ## Reference the latest NuGet packages for .NET apps
 
-Update the Durable Functions NuGet package reference in your project. The correct package depends on your hosting model and [storage provider](../common/durable-task-storage-providers.md):
+Update the Durable Functions extension package for your execution model regardless of your [storage provider](../common/durable-task-storage-providers.md): `Microsoft.Azure.WebJobs.Extensions.DurableTask` for in-process, or `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` for isolated. If you use a provider other than Azure Storage, also update its model-specific provider extension:
 
 | Storage provider | In-process worker | Isolated worker |
 | --- | --- | --- |
-| Durable Task Scheduler (recommended) | [Microsoft.DurableTask.Client.Grpc](https://www.nuget.org/packages/Microsoft.DurableTask.Client.Grpc) | [Microsoft.DurableTask.Client.Grpc](https://www.nuget.org/packages/Microsoft.DurableTask.Client.Grpc) |
+| Durable Task Scheduler (recommended) | `Microsoft.Azure.WebJobs.Extensions.DurableTask` plus `Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged` | `Microsoft.Azure.Functions.Worker.Extensions.DurableTask` plus `Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged` |
 | Azure Storage | [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) | [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask) |
 | Netherite | [Microsoft.Azure.DurableTask.Netherite.AzureFunctions](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) | [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite) |
 | MSSQL | [Microsoft.DurableTask.SqlServer.AzureFunctions](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) | [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer) |
+
+The AzureManaged provider is available for both models. Use the provider and Durable Functions extension packages listed above for your execution model, with the provider's declared NuGet dependencies. For isolated apps, install both worker extension packages so that the matching host-side dependencies are loaded. `Microsoft.DurableTask.Client.Grpc` is a portable SDK dependency, not a replacement for either Functions extension.
 
 For example, to upgrade the Azure Storage extension in an isolated worker app:
 
@@ -55,7 +57,7 @@ Non-.NET apps (JavaScript, Python, Java, PowerShell) use [extension bundles](../
 }
 ```
 
-Update the version range if needed, then redeploy your app.
+Update the version range if needed, then redeploy your app. Keep the complete `extensionBundle` configuration when changing the version range.
 
 ## Manually upgrade the Durable Functions extension version
 
@@ -80,7 +82,7 @@ If upgrading the extension bundle didn't resolve your issue and a newer Durable 
    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v <version>
    ```
 
-   Replace `<version>` with the target version from the [releases page](https://github.com/Azure/azure-functions-durable-extension/releases).
+   Replace `<version>` with the target version from the [releases page](https://github.com/Azure/azure-functions-durable-extension/releases). Review the package's dependencies to confirm compatibility with your Functions host and other extensions.
 
 ## Next steps
 

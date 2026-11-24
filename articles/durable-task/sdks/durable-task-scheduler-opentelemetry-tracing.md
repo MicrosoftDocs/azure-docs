@@ -44,7 +44,7 @@ You don't need to add custom instrumentation to your orchestrator or activity co
 
 ::: zone pivot="durable-functions"
 
-- An Azure Functions project with the [Durable Functions extension](../durable-functions/durable-functions-versions.md) version 2.13.0 or later.
+- An Azure Functions project with the [Durable Functions extension](../durable-functions/durable-functions-versions.md). For manual installation, use version 3.17.0 and the AzureManaged provider extension for your execution model; see [extension package setup](../durable-functions/durable-functions-extension-upgrade.md#reference-the-latest-nuget-packages-for-net-apps). For extension bundles, use version 4.32.0 or later, which includes the AzureManaged provider.
 - [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) configured as the storage back end for your function app.
 - An OpenTelemetry-compatible back end for viewing traces (Application Insights, Jaeger, or another OTLP collector).
 
@@ -66,7 +66,7 @@ You don't need to add custom instrumentation to your orchestrator or activity co
 
 # [Python](#tab/python)
 
-- [Python 3.9](https://www.python.org/downloads/) or later.
+- [Python 3.11](https://www.python.org/downloads/) or later.
 - The `durabletask` pip package.
 - The `opentelemetry-sdk`, `opentelemetry-exporter-otlp-proto-grpc`, and `opentelemetry-api` pip packages.
 
@@ -262,12 +262,15 @@ import {
 const connectionString = process.env.DTS_CONNECTION_STRING
   || "Endpoint=http://localhost:8080;Authentication=None";
 
-const worker = new DurableTaskAzureManagedWorkerBuilder(connectionString)
+const worker = new DurableTaskAzureManagedWorkerBuilder()
+  .connectionString(connectionString)
   .addOrchestrator(myOrchestrator)
   .addActivity(myActivity)
   .build();
 
-const client = new DurableTaskAzureManagedClientBuilder(connectionString).build();
+const client = new DurableTaskAzureManagedClientBuilder()
+  .connectionString(connectionString)
+  .build();
 ```
 
 The Durable Task JS SDK automatically emits spans when you register a `TracerProvider` globally.
@@ -278,6 +281,8 @@ Configure the OpenTelemetry `TracerProvider` before you create the Durable Task 
 
 ```python
 import os
+import signal
+import threading
 from opentelemetry import trace
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
@@ -319,6 +324,9 @@ def order_processing(ctx: task.OrchestrationContext, order_id: str):
 if __name__ == "__main__":
     endpoint = os.environ.get("ENDPOINT", "http://localhost:8080")
     taskhub = os.environ.get("TASKHUB", "default")
+    shutdown = threading.Event()
+    signal.signal(signal.SIGINT, lambda *_: shutdown.set())
+    signal.signal(signal.SIGTERM, lambda *_: shutdown.set())
 
     with DurableTaskSchedulerWorker(
         host_address=endpoint,
@@ -332,27 +340,30 @@ if __name__ == "__main__":
         w.add_activity(ship_order)
         w.add_activity(send_notification)
         w.start()
+        shutdown.wait()
 ```
 
-The Durable Task Python SDK automatically instruments orchestrations and activities when you configure a `TracerProvider`.
+The Durable Task Python SDK automatically instruments orchestrations and activities when you configure a `TracerProvider`. Keep the worker context open until shutdown; leaving the context stops its background thread. Register the signal handlers on the main thread.
 
 # [Java](#tab/java)
 
-The Java Durable Task SDK automatically instruments orchestrations and activities with OpenTelemetry spans when you register the `OpenTelemetrySdk` globally. The SDK uses the `Microsoft.DurableTask` tracer name (matching the .NET activity source) and creates `Server`-kind spans for orchestration and activity execution. It also propagates W3C trace context (`traceparent`/`tracestate`) across client, orchestration, activity, and sub-orchestration boundaries.
+Registering the `OpenTelemetrySdk` globally enables automatic orchestration and activity spans. The SDK uses the `Microsoft.DurableTask` tracer name (matching the .NET activity source) and creates `Server`-kind spans for orchestration and activity execution. It also propagates W3C trace context (`traceparent`/`tracestate`) across client, orchestration, activity, and sub-orchestration boundaries.
 
 Add the OpenTelemetry dependencies to your *build.gradle*:
 
 ```groovy
-def openTelemetryVersion = '1.58.0'
+def openTelemetryVersion = '1.67.0'
 
 dependencies {
-    implementation "com.microsoft:durabletask-client:1.7.0"
-    implementation "com.microsoft:durabletask-azuremanaged:1.7.0"
+    implementation "com.microsoft:durabletask-client:1.10.0"
+    implementation "com.microsoft:durabletask-azuremanaged:1.10.0"
     implementation "io.opentelemetry:opentelemetry-api:${openTelemetryVersion}"
     implementation "io.opentelemetry:opentelemetry-sdk:${openTelemetryVersion}"
     implementation "io.opentelemetry:opentelemetry-exporter-otlp:${openTelemetryVersion}"
 }
 ```
+
+Keep the OpenTelemetry dependencies aligned using the [OpenTelemetry Java dependency management guidance](https://opentelemetry.io/docs/languages/java/intro/). For a complete application build configuration, start with the [Durable Task Java samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/java).
 
 Configure the OpenTelemetry SDK with an OTLP exporter in your application:
 

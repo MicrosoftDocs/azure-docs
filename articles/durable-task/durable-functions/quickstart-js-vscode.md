@@ -31,7 +31,7 @@ By the end, you'll have both orchestrations running locally with the [Durable Ta
 
 ## Prerequisites
 
-- [Node.js 18+](https://nodejs.org/) installed.
+- [Node.js 22 or 24](https://nodejs.org/) installed. For deployment to Azure, select a GA version in the [Azure Functions supported language matrix](../../azure-functions/supported-languages.md).
 - [Azure Functions Core Tools](../../azure-functions/functions-run-local.md) v4 or later.
 - [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator and Azurite.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
@@ -211,7 +211,7 @@ app.http("StartChaining", {
 
 ### Configuration
 
-The sample uses the Durable Task Scheduler emulator as its storage backend. This is configured in `host.json`:
+The sample uses the Durable Task Scheduler emulator as its storage backend. This is configured in `host.json`. The bundle range starts at version 4.32.0, which includes the AzureManaged provider:
 
 ```json
 {
@@ -232,7 +232,7 @@ The sample uses the Durable Task Scheduler emulator as its storage backend. This
   },
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
+    "version": "[4.32.0, 5.0.0)"
   }
 }
 ```

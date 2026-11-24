@@ -421,9 +421,11 @@ For more information and for examples, see [Handling errors in Durable Functions
 
 ::: zone pivot="durable-functions"
 
-### Critical sections (Durable Functions 2.x)
+<a id="critical-sections-durable-functions-2x"></a>
 
-Orchestration instances are single-threaded, so race conditions aren't a concern *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* by using a lock. .NET and JavaScript support critical sections.
+### Critical sections
+
+Orchestration instances are single-threaded, so race conditions aren't a concern *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* by using a lock. .NET, JavaScript, and Java support critical sections when using compatible SDKs, a Functions host, and a storage provider with the required entity locking support.
 
 The following sample code shows an orchestrator function that defines a critical section. Entering the critical section requires passing one or more references to a [durable entity](durable-task-entities.md), which durably manages the lock state. Only a single instance of this orchestration can execute the code in the critical section at a time.
 
@@ -484,16 +486,18 @@ The `context.df.lock` method acquires the durable locks and returns a `DurableLo
 # [Java](#tab/java)
 
 > [!NOTE]
-> Java doesn't currently support critical sections.
+> Acquire entity locks with `ctx.getEntities().lockEntities(...)`. Await the returned durable task and close the returned `AutoCloseable` to release the locks. Entity critical sections require out-of-process entity support in both the Functions host and storage provider.
 
 ---
 
 The critical section feature is also useful for coordinating changes to durable entities. For more information about critical sections, see [Entity coordination](durable-task-entities.md#entity-coordination).
 
 > [!NOTE]
-> Critical sections are available in Durable Functions 2.x for .NET and JavaScript orchestrations. For .NET, the API differs by model: in-process uses `IDurableOrchestrationContext.LockAsync`, while isolated uses `TaskOrchestrationContext.Entities.LockEntitiesAsync`.
+> Critical sections require compatible SDKs, a Functions host, and a provider with entity locking support for your language. For .NET, the API differs by model: in-process uses `IDurableOrchestrationContext.LockAsync`, while isolated uses `TaskOrchestrationContext.Entities.LockEntitiesAsync`.
 
-### Calls to HTTP endpoints (Durable Functions 2.x)
+<a id="calls-to-http-endpoints-durable-functions-2x"></a>
+
+### Calls to HTTP endpoints
 
 Orchestrator functions can't perform I/O operations, as described in [Orchestrator function code constraints](durable-task-code-constraints.md). To work around this limitation, wrap any code that needs to perform I/O operations in an activity function. Orchestrations that interact with external systems frequently use activity functions to make HTTP calls and return the results to the orchestration.
 
@@ -588,7 +592,7 @@ PowerShell doesn't currently support this feature.
 
 # [Java](#tab/java)
 
-Java doesn't currently support this feature.
+Use `ctx.callHttp(...)` for durable HTTP calls executed by the Durable Functions host. See the [Java HTTP API](https://github.com/microsoft/durabletask-java/blob/main/client/src/main/java/com/microsoft/durabletask/TaskOrchestrationContext.java) for overloads; HTTP options and authentication support differ by SDK.
 
 ---
 
