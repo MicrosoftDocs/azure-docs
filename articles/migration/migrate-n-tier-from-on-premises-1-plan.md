@@ -64,7 +64,7 @@ You need to fully understand your current system to be able to build a comparabl
 
 ### Use discovery tooling and owner evidence
 
-- **Use discovery tooling:** You can use [Azure Catalyst](/azure/migrate/migrate-services-overview) to collect configuration, performance, installed software, and observed dependency data. Review [metadata that an Azure Catalyst appliance discovers](/azure/migrate/discovered-metadata) to see what the inventory can show.
+- **Use discovery tools:** Use [Azure Catalyst](/azure/migrate/migrate-services-overview) to collect configuration, performance, installed software, and observed dependency data. Review [metadata that an Azure Catalyst appliance discovers](/azure/migrate/discovered-metadata) to see what the inventory shows.
 
 - **Collect owner evidence:** Discovery tools and observed traffic show only activity captured and retained during the observation. Quarterly, annual, and rarely used jobs or listeners can be overlooked. An ignored monthly process or disconnected recovery appliance can block the migration. Use owner interviews and business-cycle evidence to find and validate all data.
 
