@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: quickstart
-ms.date: 11/18/2026
+ms.date: 11/23/2026
 ms.custom:
   - template-quickstart
   - subject-armqs
@@ -25,7 +25,12 @@ In this quickstart, you set up your Microsoft Discovery environment so that you 
 
 Both paths provision the same core resources: networking, identity, storage, a supercomputer with a node pool, a workspace with a chat model deployment, a storage container, and a project.
 
-The [onboarding tool](how-to-set-up-deployment-tool.md) provides a separate scripts-based deployment path. Its stages and configuration don't replace the portal or Bicep steps in this quickstart.
+> [!IMPORTANT]
+> If you're onboarding a new Microsoft Discovery customer environment, start with [Onboarding User Guide](how-to-set-up-deployment-tool.md). It provides a staged experience for planning and configuring your environment, preparing the landing zone, validating readiness, deploying the platform, and verifying your deployment.
+>
+> This quickstart provides a separate, direct deployment experience by using the Azure portal or Bicep. Use it when you want to deploy infrastructure through either of these methods.
+>
+> Both experiences are documented separately. Choose the path that best matches your deployment needs.
 
 Select the tab that matches your preferred experience under [Deploy Microsoft Discovery infrastructure](#deploy-microsoft-discovery-infrastructure).
 

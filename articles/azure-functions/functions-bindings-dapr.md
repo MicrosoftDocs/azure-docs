@@ -2,7 +2,7 @@
 title: Dapr Extension for Azure Functions
 description: Learn to use the Dapr triggers and bindings in Azure Functions.
 ms.topic: reference
-ms.date: 10/14/2026
+ms.date: 11/23/2026
 ms.author: nigreenf
 ms.reviewer: hannahhunter
 ms.subservice: dapr
@@ -70,34 +70,34 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr
 
 ## Install bundle
 
-For existing apps that use the Dapr extension, which retires on April 20, 2027, select the bundle your app uses and add or replace the following code in your `host.json` file. These version ranges exclude the versions scheduled to remove the Dapr extension.
+For existing apps that use the retired Dapr extension, select the bundle your app uses and add or replace the following code in your `host.json` file. These version ranges exclude the versions that don't include the Dapr extension.
 
-The selected older bundle must be available to your app. Setting a version range doesn't change the contents of the bundles preinstalled in Linux images or available on disk on Windows SKUs. Continuing to pin an older bundle doesn't extend support beyond April 20, 2027, or change the removal date.
+The selected older bundle must be available to your app. Setting a version range doesn't change the contents of the bundles preinstalled in Linux images or available on disk on Windows SKUs. Continuing to pin an older bundle doesn't extend support or restore the extension to newer bundle versions.
 
 # [Main bundle](#tab/main-bundle)
 
-The Dapr extension is scheduled for removal on April 20, 2027, starting with main extension bundle version 4.42.0.
+The Dapr extension is removed from main extension bundle version 4.43.0 and later.
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 4.42.0)"
+    "version": "[4.*, 4.43.0)"
   }
 }
 ```
 
 # [Preview bundle](#tab/preview-bundle)
 
-The Dapr extension is scheduled for removal on April 20, 2027, starting with preview extension bundle version 4.60.0.
+The Dapr extension is removed from preview extension bundle version 4.51.0 and later.
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 4.60.0)"
+    "version": "[4.*, 4.51.0)"
   }
 }
 ```
@@ -107,6 +107,8 @@ The Dapr extension is scheduled for removal on April 20, 2027, starting with pre
 ::: zone-end
 
 ## Migrate from the Dapr extension
+
+The Dapr extension is no longer supported, whether you use it through NuGet packages or an earlier extension bundle. Microsoft no longer provides technical support or releases new features, updates, or security fixes for the extension. Migrate as soon as possible.
 
 You can continue using Dapr in Azure Container Apps without the Azure Functions Dapr extension. This migration requires changes to your function code and Dapr callback configuration; installing a client SDK alone doesn't replace Dapr triggers.
 
@@ -124,7 +126,7 @@ You can continue using Dapr in Azure Container Apps without the Azure Functions 
 
 1. Verify state and secret access, service invocation, publishing, callback payloads, acknowledgments, retries, and duplicate-event handling before switching traffic. After all extension-specific bindings and triggers are replaced, remove the Dapr extension package or registration and the temporary bundle pin. Use the normal bundle configuration required by your remaining bindings.
 
-The following sections describe configuration for existing apps that still use the Dapr extension before its retirement on April 20, 2027.
+The following sections describe configuration for existing apps that still use the retired Dapr extension.
 
 ## Dapr enablement
 

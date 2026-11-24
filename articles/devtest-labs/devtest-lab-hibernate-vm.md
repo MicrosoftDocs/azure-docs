@@ -2,8 +2,8 @@
 title: Hibernation for virtual machines
 description: Learn how to hibernate individual virtual machines (VMs) in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 01/20/2025
 ms.custom: UpdateFrequency2
 ---

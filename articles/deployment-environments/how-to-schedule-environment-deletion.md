@@ -1,8 +1,8 @@
 ---
 title: Schedule an Environment for Automatic Deletion
 description: Learn how to schedule a deletion date and time for an environment. Set an expiration date to specify when the environment and its resources are deleted.  
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.service: azure-deployment-environments
 ms.topic: how-to 
 ms.date: 05/19/2026

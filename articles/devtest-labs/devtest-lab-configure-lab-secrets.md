@@ -4,8 +4,8 @@ ms.service: azure-devtest-labs
 ms.reviewer: rosemalcolm
 description: Learn how to configure lab secrets in Azure DevTest Labs to centralize sensitive values, improve security, and streamline automation workflows.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 09/26/2025
 ms.custom:
 

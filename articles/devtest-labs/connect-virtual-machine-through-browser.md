@@ -2,8 +2,8 @@
 title: Connect to lab VMs via Azure Bastion
 description: Learn how to connect to Azure DevTest Labs virtual machines (VMs) through an internet browser if Azure Bastion is enabled for the lab.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 12/04/2025
 ms.custom:
   - UpdateFrequency2

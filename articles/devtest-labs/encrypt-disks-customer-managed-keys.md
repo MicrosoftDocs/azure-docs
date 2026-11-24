@@ -2,8 +2,8 @@
 title: Encrypt Disks with Customer-Managed Keys
 description: Learn how to manage disk encryption by using customer-managed keys in Azure DevTest Labs. 
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 07/15/2025
 ms.custom:
   - subject-rbac-steps

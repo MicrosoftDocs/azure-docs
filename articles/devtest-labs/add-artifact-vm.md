@@ -2,8 +2,8 @@
 title: Add artifacts to VMs
 description: Learn how to add or configure artifacts on lab virtual machines (VM) in Azure DevTest Labs by using the Azure portal or Azure PowerShell.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/26/2025
 ms.custom:
   - devx-track-azurepowershell

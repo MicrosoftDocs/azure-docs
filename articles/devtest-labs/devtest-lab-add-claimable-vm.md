@@ -3,8 +3,8 @@ title: Create and manage claimable VMs
 titleSuffix: Azure DevTest Labs
 description: Learn how to add a claimable virtual machine in Azure DevTest Labs, including claiming and unclaiming a VM and attached data disks.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 06/04/2024
 ms.custom:
   - UpdateFrequency2

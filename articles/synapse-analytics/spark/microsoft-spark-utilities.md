@@ -1650,6 +1650,20 @@ If you want to develop notebooks or jobs locally and need to reference the relev
 [Maven dependencies](https://mvnrepository.com/artifact/com.microsoft.azure.synapse/synapseutils)
 ::: zone-end
 
+## Multiprocessing limitation
+
+Concurrent import or use of Spark-backed MSSparkUtils APIs from multiple independent Python
+processes within the same Spark driver application isn't supported. This limitation includes
+concurrent imports from `pytest-xdist` worker processes. Importing the package can initialize
+Spark runtime dependencies, even if you don't subsequently call a utility API.
+
+For tests that require the actual utility APIs, run the tests in the original Spark driver
+process with process-based parallelism disabled. For business-logic unit tests, use mocks or
+fakes to isolate these dependencies and avoid importing the actual package in worker processes.
+
+This limitation applies to access to the Spark-backed utilities, not to the general use of
+Python subprocesses.
+
 ## Next steps
 
 - [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)

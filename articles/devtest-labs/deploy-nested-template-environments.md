@@ -3,8 +3,8 @@ title: Nested ARM templates for lab environments
 description: Learn about using nested Azure Resource Manager (ARM) templates to deploy Azure DevTest Labs environments.
 ms.topic: how-to
 ms.custom: devx-track-arm-template, UpdateFrequency2
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 04/02/2025
 
 #customer intent: As a DevTest labs user, I want to learn about using nested templates to deploy environments so I can take advantage of their testing, reuse, and readability benefits.

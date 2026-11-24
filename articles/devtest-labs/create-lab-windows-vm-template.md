@@ -3,8 +3,8 @@ title: Create labs from ARM templates
 titleSuffix: Azure DevTest Labs
 description: Create labs with virtual machines in Azure DevTest Labs by using Azure Resource Manager (ARM) templates.
 ms.topic: quickstart
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 06/19/2024
 ms.custom:
   - subject-armqs

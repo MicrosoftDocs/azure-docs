@@ -2,8 +2,8 @@
 title: Create a custom image from a lab VM
 description: Learn how to create a custom image from an Azure DevTest Labs virtual machine (VM) by using the Azure portal.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 04/02/2025
 ms.custom:
   - UpdateFrequency2

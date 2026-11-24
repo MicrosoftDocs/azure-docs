@@ -3,8 +3,8 @@ title: Add and configure virtual network
 titleSuffix: Azure DevTest Labs
 description: Learn how to add and configure an existing virtual network and subnet to use for creating virtual machines in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 06/02/2024
 ms.custom:
   - UpdateFrequency2

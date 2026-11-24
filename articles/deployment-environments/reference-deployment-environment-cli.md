@@ -3,8 +3,8 @@ title: ADE CLI reference
 titleSuffix: Azure Deployment Environments
 description: Learn about the commands available for building custom images using Azure Deployment Environments (ADE) base images.
 ms.service: azure-deployment-environments
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.date: 04/13/2024
 ms.topic: reference
 
