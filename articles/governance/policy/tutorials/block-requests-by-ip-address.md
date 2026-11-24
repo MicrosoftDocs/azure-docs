@@ -7,7 +7,7 @@ ms.topic: tutorial
 
 # Tutorial: Block resource deletion from specific IP addresses with Azure Policy (preview)
 
-Microsoft Entra [Conditional Access](/entra/identity/conditional-access/overview) can [define trusted network locations](/entra/identity/conditional-access/concept-assignment-network) for the whole tenant. Some scenarios need this control at a lower scope, such as a single subscription or resource group. Azure Policy IP filtering covers these scenarios: it evaluates both the request header content, such as the client IP address, and the resource payload in the request body, so you can block requests from disallowed IP addresses at any scope where you can assign a policy.
+Azure Policy can block requests based on the IP address they come from. With IP filtering, Azure Policy evaluates both the request header content, such as the client IP address, and the resource payload in the request body. You can use it to block requests from disallowed IP addresses at any scope where you can assign a policy, such as a management group, subscription, or resource group.
 
 > [!IMPORTANT]
 > IP filtering with the `requestContext().clientIpAddress` function is currently in PREVIEW. It's supported only in policy definitions that use the `deny` or `denyAction` effect, and your tenant must be enabled for the preview before you can use it.
@@ -121,13 +121,9 @@ az policy assignment create \
 
 In **Policy** > **Assignments**, select your assignment. The **Parameters** tab shows the parameter value that specifies the disallowed IP range.
 
-:::image type="content" source="../media/block-requests-by-ip-address/assignment-parameters.png" alt-text="Screenshot of the policy assignment page in the Azure portal. The Parameters tab shows the disallowedIPAddressRange parameter and its value." lightbox="../media/block-requests-by-ip-address/assignment-parameters.png":::
-
 ## Review compliance
 
 Select **View compliance** to open the compliance page for the assignment. The page lists the applicable resources, in this case the SQL databases in the scope. Because the assignment uses the `denyAction` effect, these resources show a compliance state of **Protected**: they can't be deleted by a request that comes from the disallowed IP range.
-
-:::image type="content" source="../media/block-requests-by-ip-address/assignment-compliance.png" alt-text="Screenshot of the policy compliance page in the Azure portal. The SQL database in scope shows a compliance state of Protected, and the effect type is DenyAction." lightbox="../media/block-requests-by-ip-address/assignment-compliance.png":::
 
 > [!NOTE]
 > Compliance scans, such as the daily scan, don't have an incoming request, so there's no client IP address to evaluate. During a compliance scan, only the other conditions in the policy rule, such as the resource type, determine which resources are applicable. The IP address condition is enforced when a request arrives.
@@ -149,8 +145,6 @@ az sql db delete --resource-group "<resourceGroupName>" --server "<serverName>" 
 ```
 
 The request is blocked. The error message says that deletion of the resource was disallowed by policy and lists the policy assignment and policy definition that blocked it.
-
-:::image type="content" source="../media/block-requests-by-ip-address/blocked-deletion-error.png" alt-text="Screenshot of a PowerShell window. Remove-AzSqlDatabase returns an error that says deletion of the resource was disallowed by policy, followed by the policy assignment and policy definition identifiers." lightbox="../media/block-requests-by-ip-address/blocked-deletion-error.png":::
 
 A delete request for the same database that comes from an IP address outside the disallowed range isn't blocked by this assignment.
 
