@@ -32,7 +32,7 @@ Edge Actions support both **client request** and **client response** invocations
 - JSON Web Token (JWT) validation
 
 > [!IMPORTANT]
-> Client response invocations are temporarily unavailable due to a known issue. Existing edge actions configured for this invocation phase will not execute until the issue is resolved. A fix is targeted for December 11, 2026.
+> Client response invocations are temporarily unavailable due to a known issue. Existing edge actions configured for this invocation phase won't execute until the issue is resolved. A fix is targeted for December 11, 2026.
 
 ### JavaScript samples for supported scenarios
 
