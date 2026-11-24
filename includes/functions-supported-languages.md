@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/09/2026
+ms.date: 11/24/2026
 ms.author: glenga
 ms.custom:
   - include file
@@ -12,63 +12,28 @@ Make sure to select your preferred development language at the [top of the artic
 ::: zone pivot="programming-language-csharp"
 The following table shows the .NET versions supported by Azure Functions.
 
-The supported version of .NET depends on both your Functions runtime version and your selected execution model.
-
-### [Isolated worker model](#tab/isolated-process)
-
 Your function app code runs in a separate .NET worker process. Use with [supported versions of .NET and .NET Framework](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions). For more information, see [Guide for running C# Azure Functions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md).
-
-### [In-process model](#tab/in-process)
 
 [!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
 
-Your function app code runs in the same process as the Functions host process. This model supports only [Long Term Support (LTS) versions of .NET](../articles/azure-functions/functions-dotnet-class-library.md#supported-versions). For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md).  
-
----
-
-### [v4.x](#tab/v4/in-process)
-
-| Supported version | Support level | Expected end-of-support date |
-| ---- | ---- |--- |
-| [.NET 8 (LTS)][dotnet-policy] | GA | November 10, 2026 |
-
-Support for .NET 6 reached the end of official support on [November 12, 2024][dotnet-policy].
-
-> [!IMPORTANT]
-> The in-process model currently only supports .NET 8. To be able to update your function app to use a later .NET version, you must [migrate to the isolated worker model](../articles/azure-functions/migrate-dotnet-to-isolated-model.md).
-
-For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md) and [Azure Functions legacy C# script (.csx) developer reference](../articles/azure-functions/functions-reference-csharp.md).
-
-### [v4.x](#tab/v4/isolated-process)
-
 | Supported version    | Support level | Expected end-of-support date                                  |
 |----------------------|---------------|---------------------------------------------------------------|
-| .NET 11              | GA            | [See policy][dotnet-policy]                                  |
+| .NET 11              | GA            | [November 14, 2028][dotnet-policy]                            |
 | .NET 10              | GA            | [November 14, 2028][dotnet-policy]                            |
-| .NET 9               | GA            | [November 10, 2026][dotnet-policy]<sup>1</sup>                |
-| .NET 8               | GA            | [November 10, 2026][dotnet-policy]                            |
 | .NET Framework 4.8.1 | GA            | See [.NET Framework Support Policy][dotnet-framework-policy]  |
-
-<sup>1</sup> .NET 9 previously had an expected end-of-support date of May 12, 2026. During the .NET 9 service window, the .NET team extended support for STS versions to 24 months, starting with .NET 9. For more information, see [the blog post](https://devblogs.microsoft.com/dotnet/dotnet-sts-releases-supported-for-24-months/).
 
 Projects that target .NET 11 require `Azure.Functions.Sdk` version 1.0.1 or later as the project SDK and an explicit `Microsoft.Azure.Functions.Worker` package reference. For configuration and tooling guidance, see [.NET 11 in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#net-11).
 
 > [!NOTE]
-> .NET 9 is the last .NET version supported for Linux Consumption plan apps. Newer .NET versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
+> To use .NET 10 or later, Linux Consumption plan apps must first [migrate to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
 
 [dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 [dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
 
-.NET 6 reached the end of official support on [November 12, 2024][dotnet-policy].
-
-.NET 7 reached the end of official support on [May 14, 2024][dotnet-policy].
-
 For more information, see [Guide for running C# Azure Functions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
----
-
 ::: zone-end
-::: zone pivot="programming-language-java"  
+::: zone pivot="programming-language-java"
 The following table shows the language versions supported for Java function apps:
 
 | Supported version | Support level | Supported until |
@@ -85,7 +50,7 @@ The following table shows the language versions supported for Java function apps
 For more information on developing and running Java function apps, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 The following table shows the language versions supported for Node.js function apps:
 
 | Supported version | Support level | Expected end-of-support date |
@@ -101,14 +66,13 @@ TypeScript is supported through transpiling to JavaScript. For more information,
 > [!NOTE]
 > Node.js 22 is the last Node.js version supported for Linux Consumption plan apps. Newer Node.js versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
 
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+::: zone-end
+::: zone pivot="programming-language-powershell"
 The following table shows the language versions supported for PowerShell function apps:
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
 | [PowerShell 7.6](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 14, 2028 |
-| [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
 
 PowerShell 7.6 is supported on all Azure Functions hosting plans except Linux Consumption, including Premium and Dedicated on Windows and Linux, Windows Consumption, and Flex Consumption.
 
@@ -117,7 +81,7 @@ PowerShell 7.6 is supported on all Azure Functions hosting plans except Linux Co
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
 ::: zone-end
 ::: zone pivot="programming-language-python"
-The following table shows the language versions supported for Python function apps: 
+The following table shows the language versions supported for Python function apps:
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
@@ -126,7 +90,6 @@ The following table shows the language versions supported for Python function ap
 | Python 3.13 | GA | October 2029 |
 | Python 3.12 | GA | October 2028 |
 | Python 3.11 | GA | October 2027 |
-
 
 > [!NOTE]
 > Python 3.12 is the last Python version supported for Linux Consumption plan apps. Newer Python versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
