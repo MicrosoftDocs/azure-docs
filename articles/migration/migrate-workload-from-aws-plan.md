@@ -34,7 +34,7 @@ To build a comparable system in Azure, you first need to fully understand your c
 
 1. **Document the existing workload architecture:** Fully document and verify your workload architecture. Include all workload dependencies, like network configurations, data flows, and external integrations.
 1. **Document authentication and authorization:** Include identity and access management (IAM) configurations in your assessment. Comprehensive documentation about how AWS handles authentication and authorization is critical to designing a secure and functional Azure equivalent.
-1. **Use discovery tooling:** Use AWS-specific tooling, like [Workload Discovery on AWS](https://aws.amazon.com/solutions/implementations/workload-discovery-on-aws/), to visualize your AWS workload. This tool uses AWS Config and AWS Systems Manager data to help identify your workload's components, dependencies, and relationships. Use Azure tooling, like [Azure Migrate](/azure/migrate/tutorial-assess-aws), to help you discover more AWS workload components and make Azure-specific recommendations.
+1. **Use discovery tooling:** Use AWS-specific tooling, like [Workload Discovery on AWS](https://aws.amazon.com/solutions/implementations/workload-discovery-on-aws/), to visualize your AWS workload. This tool uses AWS Config and AWS Systems Manager data to help identify your workload's components, dependencies, and relationships. Use Azure tooling, like [Azure Catalyst](/azure/migrate/tutorial-assess-aws), to help you discover more AWS workload components and make Azure-specific recommendations.
 1. **Identify critical flows:** Map out essential user and system interactions and [workflows](/azure/well-architected/reliability/identify-flows). When you design the target architecture in the next section, this information helps you prioritize reliability efforts and protect the most important and impactful components against failure.
 1. **Create a detailed inventory:** Make a list of what your current AWS environment needs to run the workload, including all servers, storage components, databases, and services. Also include usage patterns, performance metrics, and licensing requirements.
 1. **Involve subject matter experts (SMEs):** In addition to automated discovery tools, engage experts throughout the workload team to uncover hidden dependencies, complex component relationships, and sensitive state. Tooling often misses critical components, like scheduled scripts, undocumented integrations, or legacy configurations. A conversation with SMEs can reveal these nuances and prevent unexpected behavior during migration. Include their input in the migration plan and runbook.
@@ -78,7 +78,7 @@ After you plan your networking, follow these steps:
 
 1. **Check availability.** Check Azure service availability and capacity in your preferred region, especially if you plan to use specialized resource types. When you select your target region, align it closely with your current AWS region. Migrating to a geographically similar Azure region helps maintain consistent latency.
 
-1. **Validate requirements.** If you decide to use Azure Migrate, review the [Azure Migrate support matrix](/azure/migrate/migrate-support-matrix-physical) to ensure that your AWS instances meet operating system (OS) and configuration requirements. If you don't use Azure Migrate, manually check your workload's compatibility with Azure services. This check includes verifying supported OS versions, VM sizes, disk configurations, and network dependencies.
+1. **Validate requirements.** If you decide to use Azure Catalyst, review the [Azure Catalyst support matrix](/azure/migrate/migrate-support-matrix-physical) to ensure that your AWS instances meet operating system (OS) and configuration requirements. If you don't use Azure Catalyst, manually check your workload's compatibility with Azure services. This check includes verifying supported OS versions, VM sizes, disk configurations, and network dependencies.
 
 1. **Meet compliance and security requirements.** Maintain an identical security posture in your workload. Ensure that your Azure implementation matches security expectations like OS security patching, network isolation, ingress and egress inspection, least-privileged access, static code analysis, and penetration testing schedules.
 
@@ -203,7 +203,7 @@ At the end of the planning phase, you should have the following items in place:
 | &#9744; | Document migration decisions                          |
 | &#9744; | Reduce risks                                          |
 | &#9744; | Check resource availability                           |
-| &#9744; | Validate requirements if you use Azure Migrate     |
+| &#9744; | Validate requirements if you use Azure Catalyst     |
 | &#9744; | Address compliance and security requirements          |
 | &#9744; | Choose cutover strategy                               |
 | &#9744; | Choose database migration strategy                    |

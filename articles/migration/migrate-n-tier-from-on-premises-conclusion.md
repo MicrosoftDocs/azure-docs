@@ -40,4 +40,4 @@ Migration requires effort, coordination, and cooperation across teams. After you
 
 ## Related content
 
-- [Azure Migrate documentation](/azure/migrate/)
+- [Azure Catalyst documentation](/azure/migrate/)

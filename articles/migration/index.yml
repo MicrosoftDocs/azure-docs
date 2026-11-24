@@ -86,7 +86,7 @@ coreWorkflows:
       title: Use migration tools
       description: Discover and assess workloads, estimate costs, and run migrations with dedicated Azure tools.
       links:
-        - text: Azure Migrate
+        - text: Azure Catalyst
           url: /azure/migrate/
         - text: Azure Resource Inventory (ARI)
           url: https://github.com/microsoft/ARI
