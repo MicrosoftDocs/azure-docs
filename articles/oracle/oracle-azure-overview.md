@@ -1,8 +1,8 @@
 ---
 title: Oracle on Azure
 description: Oracle on Azure offerings 
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: vaidehikher18
+ms.author: vaidehikher
 ms.service: oracle-on-azure
 ms.topic: overview
 ms.custom: engagement-fy23
