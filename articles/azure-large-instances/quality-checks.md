@@ -4,8 +4,8 @@ titleSuffix: Azure Large Instances
 description: Provides an overview of Azure Large Instances for Epic quality checks.
 ms.topic: concept-article
 ms.title: Quality checks
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: mattmcinnes
+ms.author: mattmcinnes
 ms.service: azure-large-instances
 ms.date: 06/01/2023
 # Customer intent: As a cloud administrator, I want to conduct thorough quality checks on Azure Large Instances before handover, so that I can ensure optimal performance and reliability of the infrastructure provided for Epic applications.

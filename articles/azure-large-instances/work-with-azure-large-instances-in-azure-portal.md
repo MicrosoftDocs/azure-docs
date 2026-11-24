@@ -3,9 +3,9 @@ title: Work with Azure Large Instances in the Azure portal
 titleSuffix: Azure Large Instances
 description: Shows how to what you can do in the Azure portal with Azure Large Instances.
 ms.topic: how-to
-author: jjaygbay1
+author: mattmcinnes
 ms.title: Work with Azure Large Instances in the Azure portal
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 ms.service: azure-large-instances
 ms.custom: devx-track-azurecli
 ms.date: 06/01/2023
