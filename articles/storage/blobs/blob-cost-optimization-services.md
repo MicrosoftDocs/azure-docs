@@ -44,7 +44,7 @@ Key benefits include:
 
 By default, new objects start in the hot tier. As data ages without access, it moves to cooler tiers and automatically returns to hot when accessed again. Tier-specific performance and service-level characteristics still apply.
 
-Smart tiering includes a monitoring fee per 10,000 monitored objects per month for objects larger than 128KiB. 
+Smart tiering includes a monitoring fee per 10,000 monitored objects per month for objects larger than 128 KiB. 
 
 ## Azure Blob Storage lifecycle management: Rule-based tiering and retention
 
