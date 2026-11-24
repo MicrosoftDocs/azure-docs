@@ -14,20 +14,16 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## November 2026
 
-**VMSA-2026-0011 remediation**
+**VMSA-2026-0009 & VMSA-2026-0011 remediation**
 
-To address the vulnerabilities (CVE-2026-123903, CVE-2026-123904, CVE-2026-123905, CVE-2026-123906, CVE-2026-123907, CVE-2026-123908, CVE-2026-123909, CVE-2026-123910, CVE-2026-123911, CVE-2026-123912, CVE-2026-123913, CVE-2026-123914, CVE-2026-123915, CVE-2026-123916, CVE-2026-123919, CVE-2026-123920, CVE-2026-123921, CVE-2026-123922, CVE-2026-123923, CVE-2026-123924, CVE-2026-123925) reported in Broadcom security advisory [VMSA-2026-0011](), all vCenter Server and ESXi hosts will be upgraded to [vCenter Server 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3m-release-notes.html) and [ESXi 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3m-release-notes.html). [Learn more](azure-vmware-solution-known-issues.md)
+To address the vulnerabilities (CVE-2026-123890, CVE-2026-123891, CVE-2026-123892, CVE-2026-123893, CVE-2026-123894) reported in Broadcom security advisory [VMSA-2026-0009](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495) and vulnerabilities (CVE-2026-123903, CVE-2026-123904, CVE-2026-123905, CVE-2026-123906, CVE-2026-123907, CVE-2026-123908, CVE-2026-123909, CVE-2026-123910, CVE-2026-123911, CVE-2026-123912, CVE-2026-123913, CVE-2026-123914, CVE-2026-123915, CVE-2026-123916, CVE-2026-123919, CVE-2026-123920, CVE-2026-123921, CVE-2026-123922, CVE-2026-123923, CVE-2026-123924, CVE-2026-123925) reported in Broadcom security advisory [VMSA-2026-0011](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39626), all vCenter Server and ESXi hosts will be upgraded to [vCenter Server 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3m-release-notes.html) and [ESXi 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3m-release-notes.html). [Learn more](azure-vmware-solution-known-issues.md)
 
-**VMSA-2026-0009 remediation**
-
-To address the vulnerabilities (CVE-2026-123890, CVE-2026-123891, CVE-2026-123892, CVE-2026-123893, CVE-2026-123894) reported in Broadcom security advisory [VMSA-2026-0009](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/39495), all vCenter Server and ESXi hosts will be upgraded to [vCenter Server 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3m-release-notes.html) and [ESXi 8.0_U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3m-release-notes.html), once vSphere 8.0 U3m has been fully qualified and tested with Azure VMware Solution (estimate November 2026). Even though VMSA-2026-0009 does not explicitly mention ESXi 8.0 U3m, we are including for operational consistency. [Learn more](azure-vmware-solution-known-issues.md)
+**Preflight validation for Remove Host operations**
+Azure VMware Solution now supports preflight validation for customer-initiated Remove Host operations in the Azure portal. Customers can identify and resolve supported maintenance mode blockers before initiating host removal, helping prevent avoidable failures.
 
 **Introduction to VMware Cloud Foundation 9.1**
 
 As we approach the completion of the VMware Cloud Foundation 9.1 (VCF) integration with Azure VMware Solution, we have created a page explaining how VCF 9.1 will work with Azure VMware Solution, including an FAQ section. [Learn more](architecture-vmware-cloud-foundation.md)
-
-**Preflight validation for Remove Host operations**
-Azure VMware Solution now supports preflight validation for customer-initiated Remove Host operations in the Azure portal. Customers can identify and resolve supported maintenance mode blockers before initiating host removal, helping prevent avoidable failures.
 
 ## August 2026
 
