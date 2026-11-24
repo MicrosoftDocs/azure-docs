@@ -2,8 +2,8 @@
 title: Managed Ruleset Support Policy
 titleSuffix: Azure Web Application Firewall
 description: Learn about Azure WAF's managed ruleset support policy, including supported versions, upgrade recommendations, and extended support timelines.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 06/02/2026

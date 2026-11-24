@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 04/08/2025
 ms.custom: devx-track-terraform
 ms.service: azure-web-application-firewall
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 #customer intent: As a Terraform user, I want to learn how to configure Azure Web Application Firewall v2 on Azure Application Gateway.
 content_well_notification: 
   - AI-contribution

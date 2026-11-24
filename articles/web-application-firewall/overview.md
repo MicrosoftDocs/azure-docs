@@ -2,8 +2,8 @@
 title: Introduction to Azure Web Application Firewall 
 description: This article provides an overview of the Azure Web Application Firewall service.
 services: web-application-firewall
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.date: 11/10/2025
 ms.topic: overview

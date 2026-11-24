@@ -1,8 +1,8 @@
 ---
 title: Web Application Firewall JavaScript Challenge
 description: Learn about Azure Web Application Firewall JavaScript challenge on Azure Front Door and Azure Application Gateway.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 11/12/2025
