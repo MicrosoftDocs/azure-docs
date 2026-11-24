@@ -2,8 +2,8 @@
 title: Debug Azure IoT Edge modules using Visual Studio Code
 description: Debug Azure IoT Edge modules in Visual Studio Code with step-by-step guidance for multiple programming languages and device architectures.
 services: iot-edge
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge

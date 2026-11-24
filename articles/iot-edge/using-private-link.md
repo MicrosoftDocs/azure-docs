@@ -1,8 +1,8 @@
 ---
 title: Use Azure Private Link and Private Endpoints to secure Azure IoT traffic - Azure IoT Edge
 description: Learn how to use IoT Edge while completely isolating your network from the internet traffic using various Azure services such as Azure ExpressRoute, Private Link, and DNS Private Resolver
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 01/29/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge

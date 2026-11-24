@@ -1,8 +1,8 @@
 ---
 title: Connect a downstream device to an Azure IoT Edge gateway
 description: How to configure downstream devices to connect to Azure IoT Edge gateway devices. 
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 02/27/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge

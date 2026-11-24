@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Edge for Linux on Windows networking
 description: Overview of Azure IoT Edge for Linux on Windows networking between the Windows host OS and the IoT Edge for Linux on Windows (EFLOW) virtual machine.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: concept-article

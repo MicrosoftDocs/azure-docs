@@ -1,8 +1,8 @@
 ---
 title: Explore curated visualizations in Azure IoT Edge
 description: Use Azure workbooks to visualize and explore IoT Edge built-in metrics
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 09/15/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge

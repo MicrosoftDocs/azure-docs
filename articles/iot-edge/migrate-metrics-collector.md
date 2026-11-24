@@ -1,8 +1,8 @@
 ---
 title: Migrate the metrics collector to Logs Ingestion - Azure IoT Edge
 description: Upgrade to Metrics Collector 2.0 and migrate authentication, module configuration, queries, saved workbooks, and alert rules.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 09/16/2026
 ms.topic: how-to
 ms.service: azure-iot-edge

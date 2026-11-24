@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Azure Monitor workbooks for IoT Edge
 description: Learn how to monitor IoT Edge modules and devices using Azure Monitor Workbooks for IoT. Monitor the health and performance of your IoT Edge deployments.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 09/15/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge

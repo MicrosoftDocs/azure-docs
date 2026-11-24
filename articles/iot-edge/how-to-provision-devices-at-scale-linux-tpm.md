@@ -1,8 +1,8 @@
 ---
 title: Create and provision devices with a virtual TPM on Linux - Azure IoT Edge
 description: Use a simulated TPM on a Linux device to test the Azure IoT Hub device provisioning service for Azure IoT Edge.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 manager: lizross
 ms.date: 03/02/2026
 ms.topic: concept-article

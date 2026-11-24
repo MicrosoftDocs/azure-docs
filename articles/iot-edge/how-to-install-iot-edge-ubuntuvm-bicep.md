@@ -1,8 +1,8 @@
 ---
 title: Run Azure IoT Edge on Ubuntu VMs by using Bicep
 description: Learn how to run Azure IoT Edge on Ubuntu virtual machines by deploying and provisioning using Bicep.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: how-to
