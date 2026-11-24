@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table.
 author: asudbring
 ms.service: azure-virtual-network
-ms.date: 11/11/2026
+ms.date: 11/24/2026
 ms.author: allensu
 ms.topic: tutorial
 ms.custom: 
@@ -974,7 +974,7 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
 
 ## Configure ECMP routing (optional)
 
-Equal-cost multipath (ECMP) routing lets you route traffic through multiple network virtual appliances (NVAs). An ECMP route uses the `VirtualApplianceEcmp` next hop type and supports 2 to 64 next hop IP addresses.
+Equal-cost multipath (ECMP) routing lets you route traffic through multiple network virtual appliances (NVAs). An ECMP route uses the `VirtualApplianceEcmp` next hop type and supports 2 to 16 next hop IP addresses.
 
 In this section, you update the **to-private-subnet** route in **route-table-public** to use two NVAs. The destination address prefix remains **10.0.2.0/24**, and the route table remains associated with **subnet-1**.
 
