@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure CSP billing issues with usage file pivot tables
 description: This article helps you troubleshoot Azure Cloud Solution Provider (CSP) billing issues using pivot tables created from your CSV usage files.
-author: jkinma39
+author: diberry
 ms.author: jkinma
 ms.reviewer: jkinma
 ms.service: cost-management-billing
