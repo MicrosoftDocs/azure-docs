@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-application-gateway-containers
 ms.topic: how-to
-ms.date: 10/27/2025
+ms.date: 11/25/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to implement header rewriting in the Ingress API for Application Gateway for Containers, so that I can modify request and response headers for backend services to meet application requirements and facilitate better control over traffic management."
 ---
@@ -17,6 +17,9 @@ Application Gateway for Containers allows you to rewrite HTTP headers of client 
 ## Usage details
 
 Header rewrites take advantage of Application Gateway for Container's IngressExtension custom resource.
+
+> [!NOTE]
+> Response-header names are returned in lowercase for both HTTP/1.1 and HTTP/2, including headers configured through rewrite rules. Header-value casing is preserved. For more information, see [Response header casing](application-gateway-for-containers-components.md#response-header-casing).
 
 ## Background
 
@@ -173,6 +176,8 @@ In this example, we set a static user-agent with a value of `rewritten-user-agen
 
 This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `AGC-value` and removes a request header called `client-custom-header`.
 
+A `ResponseHeaderModifier` rewrite sets the response header `X-AGC-Response` to `MiXeD-Case-Value`. Response-header rewrites support `set`, `add`, and `remove` operations.
+
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: alb.networking.azure.io/v1
@@ -194,6 +199,11 @@ spec:
                 value: "AGC-value"
             remove:
               - "client-custom-header"
+        - type: ResponseHeaderModifier
+          responseHeaderModifier:
+            set:
+              - name: "X-AGC-Response"
+                value: "MiXeD-Case-Value"
 EOF
 ```
 
@@ -294,6 +304,26 @@ Via the response we should see:
 }
 ```
 
+### Verify the response header
+
+Use `-D -` to display the response headers and `-o /dev/null` to discard the response body:
+
+```bash
+curl --http1.1 -sS -D - -o /dev/null \
+  -H "Host: contoso.com" \
+  "http://$fqdn/"
+```
+
+The response headers include:
+
+```http
+x-agc-response: MiXeD-Case-Value
+```
+
+The response-header name is lowercase, even though the rewrite specifies `X-AGC-Response`. The value retains its configured casing.
+
+### Verify request header removal
+
 Specifying a `client-custom-header` header with the value `moo` should be stripped from the request when Application Gateway for Containers initiates the connection to the backend service:
 
 ```bash
@@ -333,4 +363,4 @@ Via the response we should see:
 }
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application and modified header values via Ingress API on Application Gateway for Containers.
+Congratulations, you installed ALB Controller, deployed a backend application, and modified request and response headers through the Ingress API on Application Gateway for Containers.
