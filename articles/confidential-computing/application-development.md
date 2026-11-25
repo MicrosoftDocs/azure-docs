@@ -2,7 +2,7 @@
 title: Azure confidential computing development tools
 description: Specialized tools and libraries for enclave-aware application development on Intel SGX.
 services: virtual-machines
-author: iamwilliew
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/30/2026

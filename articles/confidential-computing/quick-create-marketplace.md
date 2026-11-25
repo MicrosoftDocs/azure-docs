@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create Intel SGX VM in the Azure Marketplace (specialized)
 description: Specialized quickstart for creating Intel SGX VMs from Azure Marketplace templates.
-author: iamwilliew
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 06/30/2026

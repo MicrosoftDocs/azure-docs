@@ -2,7 +2,7 @@
 title: Confidential containers on Azure
 description: Learn how confidential containers on Azure protect data in use and container integrity.
 services: container-service
-author: angarg05
+author: vinfnet
 ms.topic: overview
 ms.date: 06/30/2026
 ms.author: akhandavilli

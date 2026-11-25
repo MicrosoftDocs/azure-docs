@@ -1,7 +1,7 @@
 ---
 title: Enclave aware containers on Azure
 description: Advanced enclave-aware container development guidance for Azure Kubernetes Service (AKS).
-author: angarg05
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: overview
 ms.date: 06/30/2026

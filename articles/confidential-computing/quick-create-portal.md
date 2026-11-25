@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create Intel SGX VM in the Azure Portal (specialized)
 description: Specialized quickstart for creating an Intel SGX VM in the Azure portal.
-author: iamwilliew
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 06/30/2026

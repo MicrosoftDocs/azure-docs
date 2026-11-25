@@ -2,7 +2,7 @@
 title: Attestation for SGX enclaves
 description: You can use attestation to verify that your Azure confidential computing SGX enclave is secure.
 services: virtual-machines
-author: iamwilliew
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 12/20/2021

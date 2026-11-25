@@ -6,7 +6,7 @@ description: Migrate nested confidential VMs from one region to another
 
 services: virtual-machines
 
-author: ananyagarg
+author: vinfnet
 
 ms.service: azure-confidential-computing
 

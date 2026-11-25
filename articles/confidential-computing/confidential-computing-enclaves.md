@@ -1,7 +1,7 @@
 ---
 title: Build with SGX enclaves (specialized) - Azure Virtual Machines
 description: Specialized guidance for Intel SGX enclave workloads in Azure confidential computing.
-author: iamwilliew
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/30/2026

@@ -2,7 +2,7 @@
 title: Confidential containers with Intel SGX enclaves on Azure
 description: Specialized guidance for confidential containers on Intel SGX through OSS and partner solutions.
 services: container-service
-author: angarg05
+author: vinfnet
 ms.topic: concept-article
 ms.date: 06/30/2026
 ms.author: akhandavilli
