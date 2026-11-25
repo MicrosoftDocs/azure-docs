@@ -3,7 +3,7 @@ metadata:
   title: Azure Migration and Modernization Hub
   description: Step-by-step guidance for migrating workloads to Azure from on-premises environments, Amazon Web Services (AWS), or Google Cloud.
   ms.topic: hub-page
-  ms.service: azure-migrate
+  ms.service: azure
   ms.subservice: azure-mig
   ms.date: 09/09/2026
   ms.collection:

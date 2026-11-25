@@ -6,7 +6,7 @@ metadata:
   title: Migrate Amazon Web Services (AWS) to Microsoft Azure
   description: Step-by-step guides and service comparisons for migrating compute, databases, storage, networking, and security workloads from AWS to Azure.
   ms.topic: landing-page
-  ms.service: azure-migrate
+  ms.service: azure
   ms.subservice: azure-mig
   author: reginahack
   ms.author: rhackenberg
