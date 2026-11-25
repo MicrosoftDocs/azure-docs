@@ -1,7 +1,7 @@
 ---
 title: "Durable Functions in-process to isolated worker API mapping (.NET)"
 description: Complete API reference mapping between the in-process 2.x SDK and the isolated worker SDK for Durable Functions, including client, orchestration, entity, and behavioral changes.
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 ms.reviewer: azfuncdf
 ms.date: 05/20/2026
