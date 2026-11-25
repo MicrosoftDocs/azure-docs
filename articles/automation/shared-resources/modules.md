@@ -11,7 +11,7 @@ ms.custom:
   - build-2025
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Manage modules in Azure Automation
