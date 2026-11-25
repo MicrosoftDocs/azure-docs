@@ -2,7 +2,7 @@
 title: Migrate a Slurm cluster to a newer template
 description: Migrate an Azure CycleCloud Slurm cluster to a newer project and template by using a side-by-side deployment and validation process.
 author: padmalathas
-ms.author: padmalathas
+ms.author: mattmcinnes
 ms.date: 08/27/2026
 ms.topic: how-to
 ms.service: azure-cyclecloud
