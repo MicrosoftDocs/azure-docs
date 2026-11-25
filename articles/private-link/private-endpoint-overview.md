@@ -114,7 +114,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Managed Disks | Microsoft.Compute/diskAccesses | managed disk |
 | Azure Managed Redis | Microsoft.Cache/redisEnterprise | redisEnterprise |
 | Azure Media Services | Microsoft.Media/mediaservices | keydelivery, liveevent, streamingendpoint |
-| Azure Migrate | Microsoft.Migrate/assessmentProjects | project |
+| Azure Catalyst | Microsoft.Migrate/assessmentProjects | project |
 | Azure Monitor Private Link Scope | Microsoft.Insights/privatelinkscopes | azuremonitor |
 | Azure Relay | Microsoft.Relay/namespaces | namespace |
 | Azure Service Bus | Microsoft.ServiceBus/namespaces | namespace |

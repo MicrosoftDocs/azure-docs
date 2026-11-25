@@ -249,8 +249,8 @@ The resource providers for migration services are:
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |
 | Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft.DataMigration | [Azure Database Migration Service](/azure/dms/) |
-| Microsoft.OffAzure | [Azure Migrate](../../migrate/migrate-services-overview.md) |
-| Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
+| Microsoft.OffAzure | [Azure Catalyst](../../migrate/migrate-services-overview.md) |
+| Microsoft.Migrate | [Azure Catalyst](../../migrate/migrate-services-overview.md) |
 
 ## Monitoring resource providers
 

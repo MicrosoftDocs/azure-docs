@@ -212,7 +212,7 @@ Azure service: [Azure Database Migration Service](/azure/dms/)
 
 Easily discover, assess, right-size, and migrate your on-premises VMs to Azure.
 
-Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
+Azure service: [Azure Catalyst](/azure/migrate/migrate-services-overview)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -567,7 +567,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 
 ## Microsoft.OffAzure
 
-Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
+Azure service: [Azure Catalyst](/azure/migrate/migrate-services-overview)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

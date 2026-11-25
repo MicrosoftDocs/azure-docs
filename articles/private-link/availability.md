@@ -103,7 +103,7 @@ The following tables list the Private Link services and the regions where they'r
 | Azure Automation  | All public regions<br/> All Government regions |  | GA </br> [Learn how to create a private endpoint for Azure Automation.](../automation/how-to/private-link-security.md)|
 |Azure Backup | All public regions<br/> All Government regions   |  | GA <br/> [Learn how to create a private endpoint for Azure Backup.](../backup/private-endpoints.md)   |
 | Microsoft Purview | Southeast Asia, Australia East, Brazil South, North Europe, West Europe, Canada Central, East US, East US 2, EAST US 2 EUAP, South Central US, West Central US, West US 2, Central India, UK South   | [Select for known limitations](../purview/catalog-private-link-troubleshoot.md#known-limitations) | GA <br/> [Learn how to create a private endpoint for Microsoft Purview.](../purview/catalog-private-link.md)   |
-| Azure Migrate | All public regions<br/> All Government regions |  | GA </br> [Discover and assess servers for migration using Private Link.](../migrate/discover-and-assess-using-private-endpoints.md) |
+| Azure Catalyst | All public regions<br/> All Government regions |  | GA </br> [Discover and assess servers for migration using Private Link.](../migrate/discover-and-assess-using-private-endpoints.md) |
 
 ### Security
 

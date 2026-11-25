@@ -42,4 +42,4 @@ For Linux container access, the preview [`az webapp exec`](/cli/azure/webapp#az-
 | Web hooks | Basic authentication | [Web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) |
 | App Service migration assistant | Basic authentication | [Azure App Service migration tools](https://azure.microsoft.com/products/app-service/) |
 | App Service migration assistant for PowerShell scripts | Basic authentication | [Azure App Service migration tools](https://azure.microsoft.com/products/app-service/) |
-| Azure Migrate discovery/assessment/migration for App Service | Microsoft Entra | [Tutorial: Assess web apps for migration to Azure App Service](/previous-versions/azure/migrate/tutorial-assess-webapps)<br/><br/>[Modernize ASP.NET web apps to Azure App Service code](../migrate/tutorial-modernize-asp-net-appservice-code.md) |
+| Azure Catalyst discovery/assessment/migration for App Service | Microsoft Entra | [Tutorial: Assess web apps for migration to Azure App Service](/previous-versions/azure/migrate/tutorial-assess-webapps)<br/><br/>[Modernize ASP.NET web apps to Azure App Service code](../migrate/tutorial-modernize-asp-net-appservice-code.md) |

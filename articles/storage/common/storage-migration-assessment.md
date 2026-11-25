@@ -66,6 +66,6 @@ At the end of the Assessment phase, you should have a document that clearly outl
 
 ## See also
 
-- [Azure Migrate documentation](../../migrate/migrate-services-overview.md)
+- [Azure Catalyst documentation](../../migrate/migrate-services-overview.md)
 - [Partner Assessment Tools](../solution-integration/validated-partners/data-management/azure-file-migration-program-solutions.md)
 - [Offline Data Transfers using Azure Data Box](../../databox/data-box-overview.md)
