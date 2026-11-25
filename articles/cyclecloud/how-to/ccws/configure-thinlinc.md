@@ -2,7 +2,7 @@
 title: Configure ThinLinc with Open OnDemand in CycleCloud Workspace for Slurm
 description: Learn how to deploy and validate the Cendio ThinLinc integration with Open OnDemand in CycleCloud Workspace for Slurm.
 ai-usage: ai-assisted
-author: abatallas
+author: mattmcinnes
 ms.date: 08/24/2026
 ms.topic: how-to
 ms.author: mattmcinnes
