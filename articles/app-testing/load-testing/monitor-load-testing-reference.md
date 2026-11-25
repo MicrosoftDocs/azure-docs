@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Load Testing data reference
 description: Important reference material needed when you monitor Azure Load Testing
-author: Sachid26
+author: ramiMSFT
 ms.topic: reference
 ms.author: rabououn
 ms.service: azure-app-testing
