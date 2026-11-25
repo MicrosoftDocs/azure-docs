@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to set up a lab in Azure Lab Services with graphics processing unit (GPU) virtual machines.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: how-to
 ms.date: 11/13/2024

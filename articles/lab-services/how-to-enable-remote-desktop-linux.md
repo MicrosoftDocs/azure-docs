@@ -5,7 +5,7 @@ description: Learn how to enable remote desktop for Linux virtual machines in a 
 services: lab-services
 ms.service: azure-lab-services
 ms.custom: linux-related-content
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: how-to
 ms.date: 03/12/2024

@@ -3,7 +3,7 @@ title: Migrate lab accounts to lab plans
 titleSuffix: Azure Lab Services
 description: 'Learn how to migrate lab accounts to lab plans in Azure Lab Services.'
 ms.topic: how-to
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 11/25/2024
 

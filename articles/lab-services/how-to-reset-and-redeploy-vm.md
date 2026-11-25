@@ -4,7 +4,7 @@ description: Learn how you can troubleshoot your lab VM in Azure Lab Services by
 services: lab-services
 ms.service: azure-lab-services
 ms.topic: how-to
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 09/28/2023
 ms.custom: sfi-image-nochange

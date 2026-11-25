@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn about the supported networking scenarios and architectures for lab plans in Azure Lab Services.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: concept-article
 ms.date: 06/20/2023

@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: In this quickstart, you learn how to create a lab plan in the Azure portal to get started with Azure Lab Services and grant permission to create labs for users.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: quickstart
 ms.date: 03/13/2024

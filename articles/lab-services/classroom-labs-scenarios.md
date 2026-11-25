@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: This article describes how to use Azure DevTest Labs for creating labs on Azure for training scenarios.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: concept-article
 ms.date: 03/07/2024

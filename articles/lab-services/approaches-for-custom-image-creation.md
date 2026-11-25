@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Describes approaches for creating custom virtual machine images for labs in Azure Lab Services.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 04/24/2023
 ms.topic: best-practice

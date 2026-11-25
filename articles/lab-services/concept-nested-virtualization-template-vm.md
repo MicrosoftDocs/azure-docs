@@ -3,7 +3,7 @@ title: Nested virtualization in Azure Lab Services
 description: Learn about considerations and recommendations for configuring nested virtualization in Azure Lab Services.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: concept-article
 ms.date: 03/07/2024

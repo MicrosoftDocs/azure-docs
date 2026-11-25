@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to connect a lab plan to a virtual network with Azure Lab Services advanced networking. Advanced networking uses VNET injection to add lab virtual machines in your virtual network.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: how-to
 ms.date: 06/20/2023
