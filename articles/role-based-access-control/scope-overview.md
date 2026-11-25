@@ -1,7 +1,7 @@
 ---
 title: Understand scope for Azure RBAC
 description: Learn about scope for Azure role-based access control (Azure RBAC) and how to determine the scope for a resource.
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to

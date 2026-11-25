@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create an Azure custom role with Azure CLI - Azure RBAC"
 description: Get started creating an Azure custom role using Azure CLI and Azure role-based access control (Azure RBAC) in this tutorial.
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: tutorial

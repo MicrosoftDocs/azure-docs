@@ -1,7 +1,7 @@
 ---
 title: Assign Azure roles using Azure Resource Manager templates - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure Resource Manager templates and Azure role-based access control (Azure RBAC).
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to

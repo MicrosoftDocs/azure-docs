@@ -4,7 +4,7 @@ description: This article describes the Azure built-in roles for Azure role-base
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.author: diberry
 ms.date: 09/10/2026
