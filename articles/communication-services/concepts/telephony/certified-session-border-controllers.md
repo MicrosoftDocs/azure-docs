@@ -1,7 +1,7 @@
 ---
 title: Azure direct routing certified Session Border Controllers - Azure Communication Services
 description: The list of Session Border Controllers certified for Azure Communication Services direct routing, and known limitations
-author: boris-bazilevskiy
+author: diberry
 manager: nmurav
 services: azure-communication-services
 

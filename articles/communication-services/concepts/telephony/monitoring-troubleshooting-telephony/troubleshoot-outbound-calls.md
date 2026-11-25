@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Communication Services direct routing outbound calls issues
 description: Learn how to troubleshoot Azure Communication Services direct routing potential issues that affect outbound calls.
 ms.date: 06/22/2023
-author: boris-bazilevskiy
+author: diberry
 ms.author: bobazile
 manager: rcole
 audience: ITPro

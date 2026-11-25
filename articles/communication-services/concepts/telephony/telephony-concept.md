@@ -1,7 +1,7 @@
 ---
 title: Public Switched Telephone Network (PSTN) integration concepts for Azure Communication Services
 description: Learn how to integrate PSTN calling capabilities in your Azure Communication Services application.
-author: boris-bazilevskiy
+author: diberry
 manager: nmurav
 services: azure-communication-services
 

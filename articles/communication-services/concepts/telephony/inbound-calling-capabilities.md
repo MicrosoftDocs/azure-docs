@@ -1,7 +1,7 @@
 ---
 title: Inbound calling capabilities - Azure Communication Services
 description: Enable inbound PSTN and direct routing calling for different endpoints in Azure Communication Services.
-author: boris-bazilevskiy
+author: diberry
 manager: rcole
 services: azure-communication-services
 

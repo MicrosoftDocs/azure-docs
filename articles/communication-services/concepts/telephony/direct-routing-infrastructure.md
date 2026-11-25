@@ -1,7 +1,7 @@
 ---
 title: Azure direct routing infrastructure requirements—Azure Communication Services
 description: Familiarize yourself with the infrastructure requirements for Azure Communication Services direct routing configuration
-author: boris-bazilevskiy
+author: diberry
 manager: nmurav
 services: azure-communication-services
 ms.author: bobazile

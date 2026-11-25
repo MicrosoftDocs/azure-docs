@@ -1,7 +1,7 @@
 ---
 title: Try Phone Calling - Azure Communication Services
 description: Confirm a phone number can connect without an app or other code.
-author: boris-bazilevskiy
+author: diberry
 manager: dacarte
 services: azure-communication-services
 
