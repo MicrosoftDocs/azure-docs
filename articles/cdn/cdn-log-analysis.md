@@ -3,8 +3,8 @@ ROBOTS: NOINDEX
 title: Analyze Azure CDN usage patterns
 description: This article describes the different types of analysis reports available for Azure CDN products.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: KumudD
 ms.service: azure-content-delivery-network
 ms.topic: how-to

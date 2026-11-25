@@ -3,8 +3,8 @@ title: Migrate between content delivery network providers
 titleSuffix: Azure Content Delivery Network
 description: Best practices of migrating between content delivery network providers
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: kumudd
 ms.service: azure-content-delivery-network
 ms.topic: how-to

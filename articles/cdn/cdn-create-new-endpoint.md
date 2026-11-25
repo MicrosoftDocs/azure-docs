@@ -2,8 +2,8 @@
 title: Quickstart - Create an Azure Content Delivery Network profile and endpoint
 titleSuffix: Azure Content Delivery Network
 description: This quickstart shows how to enable Azure Content Delivery Network by creating a new content delivery network profile and content delivery network endpoint.
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-content-delivery-network
 ms.topic: quickstart

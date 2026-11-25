@@ -2,8 +2,8 @@
 title: Create an Azure Content Delivery Network endpoint
 description: This article shows how to create a new Azure Content Delivery Network endpoint, including advanced settings.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: kumudd
 ms.service: azure-content-delivery-network
 ms.topic: how-to

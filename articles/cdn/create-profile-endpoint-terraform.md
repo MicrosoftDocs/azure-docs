@@ -8,8 +8,8 @@ ms.service: azure-content-delivery-network
 ms.topic: quickstart
 ms.date: 02/28/2026
 ms.custom: devx-track-terraform
-author: TomArcherMsft
-ms.author: tarcher
+author: diberry
+ms.author: diberry
 content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
