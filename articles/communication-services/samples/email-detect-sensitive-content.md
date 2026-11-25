@@ -2,7 +2,7 @@
 title: Detect sensitive data using Azure AI
 titleSuffix: An Azure Communication Services sample
 description: How to detect sensitive data and inappropriate content in email messages before sending, using Azure AI in Azure Communication Services.
-author: MsftPMACS
+author: diberry
 manager: darmour
 services: azure-communication-services
 
