@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 05/03/2026
 author: spelluru
 ms.subservice: kafka
-ms.author: spelluru
+ms.author: aschhabria
 ms.custom:
   - mode-other
   - passwordless-java

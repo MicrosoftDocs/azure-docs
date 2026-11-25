@@ -3,7 +3,7 @@ title: Authorize access to Azure Event Hubs
 description: This article provides information about different options for authorizing access to Azure Event Hubs resources.
 ms.topic: concept-article
 ms.date: 08/25/2026
-ms.author: spelluru
+ms.author: aschhabria
 ai-usage: ai-assisted
 #customer intent: As an Azure Event Hubs user, I want to know how to authorize requests to event hubs.
 ---

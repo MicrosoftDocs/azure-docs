@@ -6,7 +6,7 @@ ms.devlang: csharp
 ms.topic: article
 ms.custom: devx-track-dotnet
 ms.date: 09/23/2021
-ms.author: spelluru
+ms.author: aschhabria
 ---
 
 # EventHubsException - .NET

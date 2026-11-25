@@ -4,7 +4,7 @@ description: This article explains concepts for using Schema Registry in Azure E
 ms.topic: concept-article
 ms.date: 08/25/2026
 author: spelluru
-ms.author: spelluru
+ms.author: aschhabria
 ai-usage: ai-assisted
 
 #customer intent: As a developer, I want to understand how Schema Registry in Azure Event Hubs works so that I can manage and evolve schemas safely across producer and consumer applications.
