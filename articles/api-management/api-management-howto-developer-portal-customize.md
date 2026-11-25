@@ -40,7 +40,7 @@ For more information about developer portal features and options, see [Azure API
 Follow these steps to access the managed version of the developer portal.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. Once you have created your instance, first enable the developer portal. 
+1. Once you create your instance, enable the developer portal. 
     1. In the left menu, under **Developer portal**, select **Portal settings**. 
     1. In the **Portal settings** window, select **Enabled**. Select **Save**. 
     
