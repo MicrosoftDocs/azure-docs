@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 09/04/2026
+ms.date: 11/25/2026
 ms.author: cshoe
 ---
 
@@ -36,7 +36,7 @@ The following table helps you compare the features of Functions on Container App
 | Max scale-out | 1,000 (default 10, configurable) | 1,000 |
 | Always-on instances | ✅ Yes (via `minReplicas`) | ✅ Yes (via always-ready instances) |
 | VNet integration | ✅ Yes | ✅ Yes |
-| Custom container support | ✅ Yes (bring your own image) | ❌ Limited (no bring your own container) |
+| Custom container support | ✅ Yes (complete Functions container image) | ✅ Yes ([worker-only container model](../azure-functions/flex-consumption-os-level-dependencies.md)) |
 | GPU support | ✅ Yes (via serverless GPU dedicated workload profile) | ❌ No |
 | Built-in features | Container Apps feature support. For instance, KEDA, Dapr, multi-revisions, mTLS, sidecars, ingress control and more | Functions-only features |
 | Billing model | Container Apps pricing: Consumption plan (vCPU, memory, requests) & Dedicated plan (workload profile based) | Execution-time + always-ready instances |
