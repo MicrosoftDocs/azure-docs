@@ -4,7 +4,7 @@ description: This tutorial provides step-by-step instructions for handling Servi
 author: spelluru
 ms.topic: tutorial
 ms.date: 12/06/2024
-ms.author: spelluru
+ms.author: egrootenboer
 ms.custom:
   - devx-track-csharp
   - sfi-image-nochange

@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure CLI to create a 
 author: spelluru
 ms.topic: quickstart
 ms.date: 01/24/2024
-ms.author: spelluru
+ms.author: egrootenboer
 ms.devlang: azurecli
 ms.custom:
   - mode-api
