@@ -6,7 +6,7 @@ ms.subservice: change-inventory-management
 ms.topic: how-to
 ms.date: 11/17/2025
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ms.custom:
 ms.service: azure-automation
 ---
