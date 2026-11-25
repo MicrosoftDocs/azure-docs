@@ -2,7 +2,7 @@
 title: What's new in Azure Resource Mover
 description: Provides a summary of new features and the latest updates in the Azure Resource Mover service.
 author: RochakSingh-blr
-ms.author: v-rochak2
+ms.author: bhappayy
 ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: whats-new 
