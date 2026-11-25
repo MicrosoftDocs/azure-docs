@@ -2,7 +2,7 @@
 title: Teams meeting interoperability
 titleSuffix: An Azure Communication Services concept document
 description: Join Teams meetings
-author: tomkau
+author: diberry
 ms.author: diberry
 ms.date: 10/15/2021
 ms.topic: concept-article
