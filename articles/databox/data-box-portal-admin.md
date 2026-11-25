@@ -2,12 +2,12 @@
 title: Manage Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy via Azure portal | Microsoft Docs 
 description: Describes how to use the Azure portal to administer your Azure Data Box, Data Box Next Gen, and Azure Data Box Heavy.
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box
 ms.topic: how-to
 ms.date: 03/06/2025
-ms.author: shaas
+ms.author: diberry
 ms.custom: sfi-image-nochange
 # Customer intent: As a data administrator, I want to manage Data Box orders through the Azure portal, so that I can efficiently handle tasks such as canceling, cloning, and tracking orders during data transfer processes.
 ---

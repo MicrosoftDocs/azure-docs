@@ -2,12 +2,12 @@
 title: Tutorial to copy data to Azure Data Box Heavy via NFS| Microsoft Docs
 description: In this tutorial, learn how to connect to and copy data from your host computer to Azure Data Box Heavy by using NFS with the local web UI.
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
-ms.author: shaas
+ms.author: diberry
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 # Customer intent: As an IT admin, I want to copy data to Azure Data Box Heavy via NFS using the local web UI, so that I can upload on-premises data efficiently to Azure for further processing and storage.
 ---

@@ -2,12 +2,12 @@
 title: Tutorial to export data from Azure Data Box | Microsoft Docs
 description: Learn the deployment prerequisites and how to export data from an Azure Data Box
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box
 ms.topic: how-to
 ms.date: 04/17/2025
-ms.author: shaas
+ms.author: diberry
 zone_pivot_groups: data-box-sku
 ms.custom: sfi-image-nochange
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.

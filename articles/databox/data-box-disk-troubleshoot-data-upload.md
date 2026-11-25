@@ -2,12 +2,12 @@
 title: Review upload errors from Azure Data Box Disk
 description: Describes review and follow-up for errors during uploads from an Azure Data Box Disk device to the Azure cloud.
 services: databox
-author: sipastak
+author: diberry
 
 ms.service: azure-data-box
 ms.topic: troubleshooting
 ms.date: 01/24/2023
-ms.author: shaas
+ms.author: diberry
 ms.custom: sfi-image-nochange
 # Customer intent: "As a data administrator, I want to review and resolve upload errors from Azure Data Box Disk, so that I can ensure successful data transfer to the Azure cloud."
 ---

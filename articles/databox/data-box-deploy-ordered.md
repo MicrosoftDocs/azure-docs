@@ -2,11 +2,11 @@
 title: Tutorial to order Azure Data Box | Microsoft Docs
 description: In this tutorial, learn about Azure Data Box, a hybrid solution that allows you to import on-premises data into Azure, and how to order Azure Data Box.
 services: databox
-author: stevenmatthew
+author: diberry
 ms.service: azure-data-box
 ms.topic: tutorial
 ms.date: 03/25/2024
-ms.author: shaas
+ms.author: diberry
 zone_pivot_groups: data-box-sku
 ms.custom:
   - devx-track-azurepowershell

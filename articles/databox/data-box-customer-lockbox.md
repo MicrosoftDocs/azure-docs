@@ -2,11 +2,11 @@
 title: Configure Lockbox for Azure Data Box
 description: Learn how to use Customer Lockbox with Azure Data Box.
 services: databox
-author: stevenmatthew
+author: diberry
 ms.service: azure-data-box
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.author: shaas
+ms.author: diberry
 ms.custom: sfi-image-nochange
 # Customer intent: As a data administrator, I want to configure Customer Lockbox for Azure Data Box, so that I can control and approve access to my data during support requests and ensure compliance with data privacy requirements.
 ---
