@@ -2,7 +2,7 @@
 title: Overview of tokens - Azure Active Directory B2C
 description: Understand the different types of tokens used in Azure AD B2C, including ID tokens, access tokens, and refresh tokens, for secure user authentication.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

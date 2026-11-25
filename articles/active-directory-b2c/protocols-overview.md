@@ -2,7 +2,7 @@
 title: Authentication protocols in Azure Active Directory B2C  
 description: How to build apps directly by using the protocols that are supported by Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

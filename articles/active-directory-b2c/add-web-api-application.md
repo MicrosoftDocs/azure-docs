@@ -2,7 +2,7 @@
 title: Add a web API application - Azure Active Directory B2C  
 description: Learn how to add a web API application to your Active Directory B2C tenant.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.author: diberry

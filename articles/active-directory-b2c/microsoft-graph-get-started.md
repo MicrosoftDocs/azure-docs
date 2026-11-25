@@ -3,7 +3,7 @@ title: Register a Microsoft Graph application
 titleSuffix: Azure AD B2C
 description: Prepare for managing Azure AD B2C resources with Microsoft Graph by registering an application that's granted the required Graph API permissions.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

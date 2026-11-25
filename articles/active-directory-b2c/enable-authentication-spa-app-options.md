@@ -2,7 +2,7 @@
 title: Enable SPA application options by using Azure Active Directory B2C
 description:  This article discusses several ways to enable the use of SPA applications.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

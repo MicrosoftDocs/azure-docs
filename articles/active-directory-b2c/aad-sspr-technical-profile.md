@@ -3,7 +3,7 @@ title: Microsoft Entra ID SSPR technical profiles in custom policies
 titleSuffix: Azure AD B2C
 description: Custom policy reference for Microsoft Entra ID SSPR technical profiles in Azure AD B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

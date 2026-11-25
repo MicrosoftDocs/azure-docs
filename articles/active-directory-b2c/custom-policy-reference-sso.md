@@ -3,7 +3,7 @@ title: Single sign-on session providers using custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to manage single sign-on sessions using custom policies in Azure AD B2C. Customize SSO behavior and control the flow of your custom policy.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

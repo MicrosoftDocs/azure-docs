@@ -3,7 +3,7 @@ title: Configure SAML service provider options
 title-suffix: Azure Active Directory B2C
 description: Learn how to configure Azure Active Directory B2C SAML service provider options.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

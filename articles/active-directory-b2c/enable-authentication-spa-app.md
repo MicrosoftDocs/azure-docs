@@ -2,7 +2,7 @@
 title: Enable authentication in a SPA application by using Azure Active Directory B2C building blocks
 description:  This article discusses the building blocks of Azure Active Directory B2C for signing in and signing up users in a SPA application.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

@@ -3,7 +3,7 @@ title: Enable authentication in your own Node.js web API by using Azure Active D
 description: Follow this article to learn how to call your own web API protected by Azure AD B2C from your own node js web app. The web app acquires an access token and uses it to call a protected endpoint in the web API. The web app adds the access token as a bearer in the Authorization header, and the web API needs to validate it. 
 titleSuffix: Azure AD B2C
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

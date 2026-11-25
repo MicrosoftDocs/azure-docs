@@ -2,7 +2,7 @@
 title: Manage custom policies with Microsoft Graph PowerShell
 titleSuffix: Azure AD B2C
 description: Use the Microsoft Graph PowerShell cmdlets for programmatic management of your Azure AD B2C custom policies. Create, read, update, and delete custom policies with PowerShell.
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

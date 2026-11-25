@@ -3,7 +3,7 @@ title: Set up a sign-up and sign-in flow for a local account
 titleSuffix: Azure AD B2C
 description: Learn how to configure a sign-up and sign-in flow for a local account, using email and password, by using Azure Active Directory B2C custom policy.  
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

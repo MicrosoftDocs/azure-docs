@@ -7,7 +7,7 @@ ms.subservice: b2c
 ms.topic: overview
 ms.date: 06/12/2025
 ms.author: diberry
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
 ms.custom:

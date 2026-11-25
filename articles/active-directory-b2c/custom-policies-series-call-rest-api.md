@@ -3,7 +3,7 @@ title: Call a REST API by using Azure AD B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to call a REST API using Azure AD B2C custom policy. Make HTTP calls to external APIs to send and receive data from external services.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

@@ -3,7 +3,7 @@ title: Configure password complexity requirements
 titleSuffix: Azure AD B2C
 description: How to configure complexity requirements for passwords supplied by consumers in Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

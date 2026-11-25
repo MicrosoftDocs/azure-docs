@@ -2,7 +2,7 @@
 title: Enable authentication in a web API by using Azure AD B2C
 description:  Learn how to use Azure AD B2C to protect a web API. Enable authentication to authorize access to API endpoints with valid access tokens.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

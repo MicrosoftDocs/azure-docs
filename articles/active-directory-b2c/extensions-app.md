@@ -3,7 +3,7 @@ title: Extensions app in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Restoring the b2c-extensions-app.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

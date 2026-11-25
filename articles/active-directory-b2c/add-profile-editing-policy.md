@@ -3,7 +3,7 @@ title: Set up a profile editing flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up a profile editing flow in Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

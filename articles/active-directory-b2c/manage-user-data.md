@@ -2,7 +2,7 @@
 title: Manage user data in Azure Active Directory B2C  
 description: Learn how to delete or export user data in Azure AD B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

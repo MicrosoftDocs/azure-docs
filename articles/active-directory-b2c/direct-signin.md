@@ -2,7 +2,7 @@
 title: Set up direct sign-in using Azure Active Directory B2C  
 description: Learn how to prepopulate the sign-in name or redirect straight to a social identity provider.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

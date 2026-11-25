@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 01/11/2024
 
 ms.author: diberry
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
 ms.custom:

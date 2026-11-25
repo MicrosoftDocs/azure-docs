@@ -1,7 +1,7 @@
 ---
 title: Enable CAPTCHA in Azure Active Directory B2C  
 description: Learn how to enable CAPTCHA in Azure AD B2C for user flows and custom policies to protect sign-in and sign-up flows from automated attacks.
-author: kengaderdus
+author: diberry
 manager: mwongerapk
 ms.service: entra-id
 ms.topic: how-to

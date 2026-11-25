@@ -2,7 +2,7 @@
 title: Date claims transformation examples for custom policies
 description: Date claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

@@ -3,7 +3,7 @@ title: Find help and open a support ticket for Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to find technical, pre-sales, billing, and subscription help and open a support ticket for Azure Active Directory B2C 
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

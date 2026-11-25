@@ -2,7 +2,7 @@
 title: Enable React application options by using Azure Active Directory B2C
 description:  Enable the use of React application options in several ways.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

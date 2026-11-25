@@ -3,7 +3,7 @@ title: Claim resolvers in custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to use claim resolvers in Azure AD B2C custom policies to provide context information and populate claims with dynamic values.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

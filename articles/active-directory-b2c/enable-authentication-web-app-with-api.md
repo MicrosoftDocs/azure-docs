@@ -2,7 +2,7 @@
 title: Enable authentication in web apps that call a web API by using Azure Active Directory B2C building blocks
 description: This article discusses the building blocks of an ASP.NET web app that calls a web API by using Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

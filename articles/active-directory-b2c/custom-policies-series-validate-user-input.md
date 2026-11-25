@@ -3,7 +3,7 @@ title: Validate user inputs by using Azure AD B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to validate user inputs using Azure AD B2C custom policies. Ensure data accuracy with options, predicates, regex, and validation technical profiles.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

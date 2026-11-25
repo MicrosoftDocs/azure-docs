@@ -2,7 +2,7 @@
 title: Enable Node.js web app authentication options using Azure Active Directory B2C
 description:  This article discusses several ways to enable Node.js web app authentication options.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

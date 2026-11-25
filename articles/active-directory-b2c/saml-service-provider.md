@@ -3,7 +3,7 @@ title: Configure Azure AD B2C as a SAML IdP to your applications
 title-suffix: Azure Active Directory B2C
 description: Learn how to configure Azure Active Directory B2C to provide SAML protocol assertions to your applications (service providers).
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

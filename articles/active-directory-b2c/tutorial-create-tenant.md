@@ -2,7 +2,7 @@
 title: Tutorial - Create an Azure Active Directory B2C tenant
 description: Follow this tutorial to learn how to prepare for registering your applications by creating an Azure Active Directory B2C tenant using the Azure portal.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

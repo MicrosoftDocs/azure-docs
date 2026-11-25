@@ -3,7 +3,7 @@ title: Disable email verification during customer sign-up
 titleSuffix: Azure AD B2C
 description: Learn how to disable email verification during customer sign-up in Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

@@ -3,7 +3,7 @@ title: Define an OpenID Connect technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OpenID Connect technical profile in a custom policy in Azure AD B2C. Integrate with OpenID Connect identity providers for social or enterprise sign-in.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

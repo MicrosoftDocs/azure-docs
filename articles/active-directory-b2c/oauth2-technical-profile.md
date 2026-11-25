@@ -3,7 +3,7 @@ title: Define an OAuth2 technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OAuth2 technical profile in a custom policy in Azure AD B2C. Integrate with OAuth2 identity providers for social or enterprise sign-in.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

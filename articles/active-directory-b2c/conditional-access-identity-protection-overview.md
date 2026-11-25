@@ -6,7 +6,7 @@ ms.subservice: b2c
 ms.topic: overview
 ms.date: 06/12/2025
 ms.author: diberry
-author: kengaderdus
+author: diberry
 manager: mwongerapk
 ms.collection: M365-identity-device-management
 ms.custom: sfi-ropc-nochange

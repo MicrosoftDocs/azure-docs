@@ -3,7 +3,7 @@ title: TOTP display controls
 titleSuffix: Azure AD B2C
 description: Learn how to use Azure AD B2C TOTP display controls in the user journeys provided by your custom policies.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

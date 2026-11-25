@@ -2,7 +2,7 @@
 title: Enable Python web application options by using Azure Active Directory B2C
 description:  This article shows you how to enable the use of Python web application options.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

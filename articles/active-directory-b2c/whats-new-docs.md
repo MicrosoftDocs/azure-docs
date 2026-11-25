@@ -7,7 +7,7 @@ ms.subservice: b2c
 ms.topic: whats-new
 
 ms.author: diberry
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.custom: sfi-ropc-nochange
 

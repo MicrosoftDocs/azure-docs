@@ -2,7 +2,7 @@
 title: Enable Android mobile application options by using Azure Active Directory B2C
 description:  This article discusses several ways to enable Android mobile application options by using Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

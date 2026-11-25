@@ -2,7 +2,7 @@
 title: RelyingParty - Azure Active Directory B2C  
 description: Specify the RelyingParty element of a custom policy in Azure AD B2C. Configure user journeys and claims for issued tokens in your application.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

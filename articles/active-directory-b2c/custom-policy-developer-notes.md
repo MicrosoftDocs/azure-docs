@@ -3,7 +3,7 @@ title: Developer notes for user flows and custom policies
 titleSuffix: Azure AD B2C
 description: Notes for developers on configuring and maintaining Azure AD B2C with user flows and custom policies.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

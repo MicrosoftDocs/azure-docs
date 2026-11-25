@@ -3,7 +3,7 @@ title: "Azure AD B2C: Region availability & data residency"
 titleSuffix: Azure AD B2C
 description: Region availability, data residency, high availability, SLA, and information about Azure Active Directory B2C preview tenants.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

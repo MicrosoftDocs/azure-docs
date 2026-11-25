@@ -2,7 +2,7 @@
 title: Request an access token in Azure Active Directory B2C
 description: Learn how to request an access token from Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

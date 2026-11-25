@@ -3,7 +3,7 @@ title: TLS and cipher suite requirements - Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Notes for developers on HTTPS cipher suite and TLS requirements when interacting with web API endpoints.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

@@ -3,7 +3,7 @@ title: JSON claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: JSON claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

@@ -3,7 +3,7 @@ title: Set up a sign-in flow with a social account in Azure AD B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to configure a sign-up and sign-in flow for a social account, Facebook, by using Azure Active Directory B2C custom policy.  
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

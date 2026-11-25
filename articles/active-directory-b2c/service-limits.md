@@ -2,7 +2,7 @@
 title: Azure Active Directory B2C service limits and restrictions
 description: Reference for service limits and restrictions for Azure Active Directory B2C service.
 
-author: kengaderdus
+author: diberry
 ms.author: diberry
 manager: CelesteDG
 ms.service: entra-id
