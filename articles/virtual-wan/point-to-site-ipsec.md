@@ -7,7 +7,7 @@ author: wellee
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 08/24/2023
-ms.author: wellee
+ms.author: ajitbhu
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to know the IPsec policies for point-to-site VPN
 ---
 

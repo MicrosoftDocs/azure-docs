@@ -6,7 +6,7 @@ author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 08/27/2026
-ms.author: wellee
+ms.author: ajitbhu
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
 ---
