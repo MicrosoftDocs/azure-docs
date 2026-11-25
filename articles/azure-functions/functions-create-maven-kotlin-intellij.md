@@ -5,7 +5,7 @@ author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 01/07/2024
-ms.author: dglover
+ms.author: thalme
 ms.devlang: kotlin
 ms.custom: mode-other
 ---

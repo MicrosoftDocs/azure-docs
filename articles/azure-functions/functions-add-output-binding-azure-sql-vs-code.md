@@ -4,7 +4,7 @@ description: Learn how to connect Azure Functions to Azure SQL Database by addin
 ms.date: 02/26/2026
 ms.topic: quickstart
 author: dzsquared
-ms.author: drskwier
+ms.author: thalme
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp
