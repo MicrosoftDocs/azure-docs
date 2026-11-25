@@ -1,6 +1,6 @@
 ---
 title: Enable unlimited virtualization with Azure Hybrid Benefit for SQL Server in Azure VMware Solution
-author: jjaygbay1
+author: mattmcinnes
 ms.author: mattmcinnes
 description: Learn how to enable unlimited virtualization with Azure Hybrid Benefit for SQL Server in Azure VMware Solution. A VM-Host placement policy is configured to register the licenses to hosts and VMs.
 ms.topic: how-to

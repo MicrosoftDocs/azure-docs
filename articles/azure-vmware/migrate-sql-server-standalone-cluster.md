@@ -1,6 +1,6 @@
 ---
 title: Migrate Microsoft SQL Server Standalone to Azure VMware Solution
-author: jjaygbay1
+author: mattmcinnes
 ms.author: mattmcinnes
 description: Learn how to migrate Microsoft SQL Server Standalone to Azure VMware Solution.
 ms.topic: how-to

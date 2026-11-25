@@ -1,7 +1,7 @@
 ---
 title: Configure VMware Cloud Director Service in Azure VMware Solution
 description: How to configure VMware Cloud Director Service in Azure VMware Solution
-author: jjaygbay1
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.service: azure-vmware
 ms.topic: how-to

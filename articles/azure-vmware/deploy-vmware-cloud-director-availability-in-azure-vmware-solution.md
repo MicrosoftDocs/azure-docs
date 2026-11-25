@@ -1,7 +1,7 @@
 ---
 title: Deploy VMware Cloud Director Availability in Azure VMware Solution
 description: Learn how to install and configure VMware Cloud Director Availability in Azure VMware Solution
-author: suzuber
+author: mattmcinnes
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 05/26/2026

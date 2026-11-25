@@ -3,7 +3,7 @@ title: Use Azure VMware Solution with Azure Elastic SAN
 description: Learn how to use Elastic SAN  with Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-author: jjaygbay1 
+author: mattmcinnes 
 ms.author: mattmcinnes
 ms.date: 4/08/2026
 ms.custom:

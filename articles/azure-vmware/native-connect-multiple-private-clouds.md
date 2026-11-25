@@ -3,7 +3,7 @@ title: Connect multiple Azure VMware Solution Generation 2 private clouds
 description: Learn about connecting multiple Azure VMware Solution Generation 2 private clouds.
 ms.topic: how-to
 ms.service: azure-vmware
-author: jjaygbay1
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.date: 4/20/2026
 ms.custom: engagement-fy25

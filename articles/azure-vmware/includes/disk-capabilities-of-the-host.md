@@ -4,7 +4,7 @@ description: Hosts used to build or scale clusters come from an isolated pool of
 ms.topic: include
 ms.service: azure-vmware
 ms.date: 4/16/2026
-author: suzizuber
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: "As a cloud architect, I want to understand the hardware specifications of different host types in Azure VMware Solution, so that I can select the appropriate resources for building or scaling my private cloud clusters."

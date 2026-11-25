@@ -4,7 +4,7 @@ description: Steps to request an authorization key for ExpressRoute.
 ms.topic: include
 ms.service: azure-vmware
 ms.date: 01/04/2024
-author: jjaygbay1 
+author: mattmcinnes 
 ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: As a network administrator, I want to request an authorization key for ExpressRoute, so that I can establish secure connectivity for my Azure VMware Solution private cloud.

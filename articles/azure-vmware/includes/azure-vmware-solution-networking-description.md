@@ -5,7 +5,7 @@ ms.topic: include
 ms.service: azure-vmware
 ms.custom: engagement-fy23
 ms.date: 5/15/2024
-author: suzizuber
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: "As a network administrator, I want to configure and manage connectivity between my on-premises environment and Azure VMware Solution, so that I can ensure seamless operation of our virtual machines and efficient resource management."
