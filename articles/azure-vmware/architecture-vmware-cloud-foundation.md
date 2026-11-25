@@ -5,7 +5,7 @@ ms.topic: concept-article
 author: rvandenbedem
 ms.author: rvandenbedem
 ms.service: azure-vmware
-ms.date: 11/20/2026
+ms.date: 11/25/2026
 # Customer intent: As a cloud architect, I want to understand how VMware Cloud Foundation 9.1 has been designed and implemented with Azure VMware Solution.
 ---
 
@@ -59,11 +59,11 @@ The following table lists the Azure VMware Solution features and VCF 9.1 capabil
 
 | Azure VMware Solution feature | Customer enabled |
 | --- | --- |
-| Generation 1 Architecture | Yes |
-| Generation 2 Architecture | Yes |
-| Stretched Clusters (Generation 1) | Yes |
-| AV36P, AV52, AV48, AV64 SKUs | Yes |
-| AV36 SKU | No |
+| [Generation 1 Architecture](architecture-private-clouds.md) | Yes |
+| [Generation 2 Architecture](native-introduction.md) | Yes |
+| [Stretched Clusters (Generation 1)](architecture-stretched-clusters.md) | Yes |
+| [AV36P, AV52, AV48, AV64 SKUs](introduction.md) | Yes |
+| [AV36 SKU](introduction.md) | No |
 | Microsoft Azure Government | Yes |
 | VCF License Included | No (VCF BYOL only) |
 | VCF Operations | License Management only (VCF BYOL) |
@@ -71,26 +71,27 @@ The following table lists the Azure VMware Solution features and VCF 9.1 capabil
 | VMware SDDC Manager | No |
 | VMware vSphere Supervisor | No |
 | VMware vSphere Kubernetes Service | No |
-| VCF Log Management | No (use Azure VMware Solution diagnostics instead) |
+| [VCF Log Management](configure-vmware-syslogs.md) | No (use Azure VMware Solution diagnostics instead) |
 | VCF Operations for Networks | No |
 | VCF Operations Orchestrator | No |
 | VMware Identity Broker | No |
 | VCF Automation | No |
-| VCF Operations HCX | Yes |
-| VCF Protection & Recovery Live Recovery | Yes |
-| HPE Zerto Software | Yes |
-| NetApp Jetstream DR software | Yes |
-| Azure NetApp Files | Yes |
-| Azure Elastic SAN | Yes |
-| Everpure Cloud Azure Native for Azure VMware Solution | Yes |
-| VMware NSX Public IP Address (PIP - Generation 1) | Yes |
+| [VCF Operations HCX](architecture-migrate.md) | Yes |
+| [VCF Protection & Recovery Live Recovery](disaster-recovery-using-vmware-site-recovery-manager.md) | Yes |
+| [HPE Zerto Software](deploy-zerto-disaster-recovery.md) | Yes |
+| [NetApp Jetstream DR software](deploy-disaster-recovery-using-jetstream.md) | Yes |
+| [Azure NetApp Files](architecture-storage.md) | Yes |
+| [Azure Elastic SAN](architecture-storage.md) | Yes |
+| [Everpure Cloud Azure Native for Azure VMware Solution](configure-azure-native-pure-storage-cloud.md) | Yes |
+| [VMware NSX Public IP Address (PIP - Generation 1)](enable-public-ip-nsx-edge.md) | Yes |
 | VMware NSX Virtual Private Cloud (VPC) | No |
+| VMware NSX Projects | No |
 | VMware vSphere/NSX Enhanced Data Path (EDP) | Yes |
 | VMware vDefend | Yes |
 | VMware Application Networking and Security (ANS) Shared Services Platform (SSP) | No |
-| VMware vCD/vCDA (self-managed) | Yes (custom patch with Broadcom EoS date) |
-| Azure Arc | Yes |
-| Run Commands | Yes |
+| [VMware vCD/vCDA (self-managed)](enable-vmware-vcd-with-azure.md) | Yes (custom patch with Broadcom EoS date) |
+| [Azure Arc](deploy-arc-for-azure-vmware-solution.md) | Yes |
+| [Run Command](using-run-command.md) | Yes |
 
 > [!NOTE]
 > Microsoft is assessing how to support all of the VCF 9.1 features in the Azure VMware Solution platform in the future.
