@@ -9,7 +9,7 @@ ms.custom: mvc, mode-ui, engagement-fy24
 #Customer intent: As an administrator, I want to create an Automation account so that I can further use the Automation services.
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Quickstart: Create an Automation account using the Azure portal

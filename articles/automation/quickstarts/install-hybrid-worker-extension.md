@@ -7,7 +7,7 @@ keywords: hybrid worker extension, automation
 ms.date: 03/05/2024
 ms.topic: quickstart
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Quickstart: Install Hybrid Worker extension on Virtual Machines using the Azure portal

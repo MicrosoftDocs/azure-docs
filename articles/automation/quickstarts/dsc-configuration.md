@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.custom: mvc, mode-other
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Configure a VM with Desired State Configuration
