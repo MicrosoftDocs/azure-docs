@@ -2,7 +2,7 @@
 title: Country/region availability of telephone numbers and subscription eligibility
 titleSuffix: An Azure Communication Services article
 description: Learn about Country/Region Availability, Subscription Eligibility, and Number Capabilities for PSTN and SMS Numbers in Communication Services.
-author: krkutser
+author: diberry
 manager: rcole
 services: azure-communication-services
 

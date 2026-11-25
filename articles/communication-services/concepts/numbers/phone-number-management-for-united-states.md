@@ -2,7 +2,7 @@
 title: Phone Number Management for United States
 titleSuffix: An Azure Communication Services article
 description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in United States.
-author: krkutser
+author: diberry
 manager: rcole
 services: azure-communication-services
 

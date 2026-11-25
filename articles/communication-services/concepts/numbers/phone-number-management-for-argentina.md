@@ -2,7 +2,7 @@
 title: Phone Number Management for Argentina
 titleSuffix: An Azure Communication Services concept document
 description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Argentina.
-author: krkutser
+author: diberry
 manager: rcole
 services: azure-communication-services
 

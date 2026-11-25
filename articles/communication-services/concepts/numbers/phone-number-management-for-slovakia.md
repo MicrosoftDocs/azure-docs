@@ -2,7 +2,7 @@
 title: Phone Number Management for Slovakia
 titleSuffix: An Azure Communication Services concept document
 description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Slovakia.
-author: krkutser
+author: diberry
 manager: rcole
 services: azure-communication-services
 

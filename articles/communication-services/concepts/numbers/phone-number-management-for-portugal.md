@@ -2,7 +2,7 @@
 title: Phone Number Management for Portugal
 titleSuffix: An Azure Communication Services concept document
 description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Portugal.
-author: krkutser
+author: diberry
 manager: rcole
 services: azure-communication-services
 
