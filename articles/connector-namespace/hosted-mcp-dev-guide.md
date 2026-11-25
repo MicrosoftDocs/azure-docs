@@ -2,7 +2,7 @@
 title: Developer Guide for Hosted MCP Servers
 titleSuffix: Connector Namespace
 description: Learn how to configure server deployments, authentication, observability, and access policies for hosted MCP servers in Connector Namespace.
-author: lilyjma
+author: diberry
 ms.author: jiayma
 ms.reviewer: glenga
 ms.date: 06/02/2026

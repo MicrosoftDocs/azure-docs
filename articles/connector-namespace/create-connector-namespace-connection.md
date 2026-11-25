@@ -2,7 +2,7 @@
 title: Create reusable connections for connector namespaces
 titleSuffix: Connector Namespace
 description: Create and organize reusable connections in connector namespaces so your solutions can access other services, systems, apps, and data without needing custom API client code or tool wrappers by using Connector Namespace.
-author: wsilveiranz
+author: diberry
 ms.author: wsilveira
 ms.reviewers: ecfan, azla
 ms.service: connector-namespace

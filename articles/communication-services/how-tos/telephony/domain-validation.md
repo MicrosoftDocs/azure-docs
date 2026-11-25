@@ -2,7 +2,7 @@
 title: Azure Communication Services direct routing domain validation
 description: Learn how to validate a domain for direct routing.
 services: azure-communication-services
-author: boris-bazilevskiy
+author: diberry
 
 ms.service: azure-communication-services
 ms.subservice: pstn

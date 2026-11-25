@@ -1,5 +1,5 @@
 ---
-author: boris-bazilevskiy
+author: diberry
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 11/27/2023

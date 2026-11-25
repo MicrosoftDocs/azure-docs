@@ -1,7 +1,7 @@
 ---
 title: Understand your detailed usage and charges
 description: Learn how to read and understand your detailed usage and charges file. View a list of terms and descriptions used in the file.
-author: Jkinma39
+author: diberry
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing

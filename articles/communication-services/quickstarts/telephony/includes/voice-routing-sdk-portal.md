@@ -2,7 +2,7 @@
 title: include file
 description: Learn how to use the Azure portal to configure direct routing.
 services: azure-communication-services
-author: boris-bazilevskiy
+author: diberry
 ms.service: azure-communication-services
 ms.subservice: pstn
 ms.date: 06/01/2023

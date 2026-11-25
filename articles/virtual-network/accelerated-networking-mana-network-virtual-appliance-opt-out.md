@@ -2,7 +2,7 @@
 title: MANA support for Network Virtual Appliances (NVAs)
 titleSuffix: Microsoft Azure Network Adapter
 description: Learn about MANA support for Network Virtual Appliances (NVAs) using existing VM sizes, including how to use Azure Policy to manage MANA deployments and ensure optimal performance.
-author: mattmcinnes
+author: diberry
 ms.author: mattmcinnes
 ms.service: azure-virtual-network
 ms.topic: faq

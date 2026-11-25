@@ -2,7 +2,7 @@
 title: "Quickstart: Create a Hosted MCP Server in Connector Namespace"
 titleSuffix: Connector Namespace
 description: Learn how to create a hosted MCP server in Connector Namespace and connect it to AI agents and MCP-aware clients.
-author: lilyjma
+author: diberry
 ms.author: jiayma
 ms.reviewer: glenga
 ms.date: 05/21/2026

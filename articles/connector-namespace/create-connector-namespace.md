@@ -2,7 +2,7 @@
 title: Create and manage connector namespaces for integration
 titleSuffix: Connector Namespace
 description: Create connector namespaces so your solutions can easily work with other services, systems, apps, and data. Create, organize, and manage reusable connections, triggers, actions, and MCP servers that your solutions need for integration by using Connector Namespace.
-author: wsilveiranz
+author: diberry
 ms.author: wsilveira
 ms.reviewers: ecfan, azla
 ms.service: connector-namespace

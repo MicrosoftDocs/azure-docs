@@ -2,7 +2,7 @@
 title: View and download your Azure invoice
 description: Learn how to view and download your Azure invoice. You can download your invoice in the Azure portal or get it sent in an email.
 keywords: billing invoice,invoice download,azure invoice,azure usage
-author: jkinma39
+author: diberry
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing

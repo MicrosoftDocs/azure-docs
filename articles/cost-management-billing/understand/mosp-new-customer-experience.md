@@ -1,7 +1,7 @@
 ---
 title: Get started with your updated Azure billing account
 description: Get started with your updated Azure billing account to understand changes in the new billing and cost management experience
-author: jkinma39
+author: diberry
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
