@@ -2,7 +2,7 @@
 title: Blue-Green Deployment in Azure Container Apps
 description: Minimize downtime and reduce the risks associated with new releases by using Blue/Green deployment in Azure Container Apps.
 services: container-apps
-author: ruslany
+author: vyomnagrani
 ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli

@@ -7,7 +7,7 @@ services: container-apps
 ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 02/03/2025
-author: KarlErickson
+author: vyomnagrani
 ms.author: vyomnagrani
 ms.reviewer: kuzhong
 ms.custom:
