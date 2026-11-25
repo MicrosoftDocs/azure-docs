@@ -665,7 +665,7 @@
         "articles/china/**/*.yml": "mkwang",
         "articles/cloud-shell/**/*.md": "mbifeld",
         "articles/communications-gateway/**/*.yml": "jroth",
-        "articles/connectors/*.md": "estfan",
+        "articles/connectors/*.md": "divswa",
         "articles/deployment-environments/**/*.md": "rosemalcolm",
         "articles/dev-box/**/*.md": "rosemalcolm",
         "articles/devtest-labs/**/*.md": "rosemalcolm",
