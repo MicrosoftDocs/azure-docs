@@ -4,7 +4,7 @@ description: Learn what needs to be done to migrate from Azure App Service on Ar
 ms.topic: how-to
 ms.date: 09/02/2025
 ms.author: anwestg
-author: apwestgarth
+author: btardif
 ms.service: azure-app-service
 ---
 # Migrate from Azure App Service on Arc-enabled Kubernetes to Azure Container Apps on Arc-enabled Kubernetes

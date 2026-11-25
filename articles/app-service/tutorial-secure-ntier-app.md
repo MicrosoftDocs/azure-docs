@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Create Secure N-tier Web App'
 description: Securely deploy your N-tier web app to Azure App Service. Create a virtual network and subnets, private DNS zones, and private endpoints, and configure virtual network integration.
-author: seligj95
+author: btardif
 ms.topic: tutorial
 ms.date: 10/08/2026
 ms.author: jordanselig

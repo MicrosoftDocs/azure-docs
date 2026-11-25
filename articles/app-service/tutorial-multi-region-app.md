@@ -2,7 +2,7 @@
 title: 'Tutorial: Create Multi-Region App'
 description: Build a multi-region app on Azure App Service that can be used for high availability and fault tolerance.
 keywords: azure app service, web app, multiregion, multi-region, multiple regions
-author: seligj95
+author: btardif
 ms.topic: tutorial
 ms.date: 04/13/2026
 ms.author: jordanselig

@@ -1,7 +1,7 @@
 ---
 title: Restore Deleted Apps
 description: Restore a deleted app in Azure App Service to another similar app created in the same region.
-author: seligj95
+author: btardif
 ms.author: jordanselig
 ms.date: 03/23/2026
 ms.topic: how-to

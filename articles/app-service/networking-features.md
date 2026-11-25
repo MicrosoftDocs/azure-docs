@@ -1,7 +1,7 @@
 ---
 title: Networking Features
 description: Learn about the networking features in Azure App Service, and learn which features you need for security or other functionality.
-author: seligj95
+author: btardif
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: concept-article
 ms.date: 08/24/2026

@@ -2,7 +2,7 @@
 title: Configure Azure NAT Gateway Integration
 description: Configure Azure NAT Gateway integration with Azure App Service and Azure Virtual Network by following steps for the Azure portal or by using the Azure CLI.
 services: app-service
-author: seligj95
+author: btardif
 ms.assetid: 0a84734e-b5c1-4264-8d1f-77e781b28426
 ms.service: azure-app-service
 ms.topic: how-to

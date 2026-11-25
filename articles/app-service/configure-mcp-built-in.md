@@ -1,7 +1,7 @@
 ---
 title: Configure App Service built-in MCP (Preview)
 description: Turn an existing REST API hosted on Azure App Service into a Model Context Protocol (MCP) server without writing or deploying any MCP code.
-author: seligj95
+author: btardif
 ms.author: jordanselig
 ms.service: azure-app-service
 ms.topic: how-to

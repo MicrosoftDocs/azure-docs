@@ -1,7 +1,7 @@
 ---
 title: Create an App by Using a Terraform Template
 description: Follow this quickstart to learn how to create your first app in Azure App Service in seconds by using a Terraform template.
-author: seligj95
+author: btardif
 ms.author: byvinyal
 ms.topic: quickstart
 ms.date: 04/29/2025

@@ -1,6 +1,6 @@
 ---
-author: alexwolfmsft
-ms.author: alexwolf
+author: btardif
+ms.author: byvinyal
 ms.topic: include
 ms.date: 02/03/2022
 ms.service: azure-app-service

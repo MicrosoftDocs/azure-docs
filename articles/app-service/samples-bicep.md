@@ -1,7 +1,7 @@
 ---
 title: Bicep Samples
 description: Find Bicep samples for some of the common Azure App Service scenarios. Learn how to automate your App Service deployment or management tasks.
-author: seligj95
+author: btardif
 tags: azure-service-management
 
 ms.topic: sample
