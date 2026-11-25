@@ -6,7 +6,7 @@ ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.update-cycle: 1095-days
 ms.author: gurkisingh
-author: RochakSingh-blr
+author: gurkiratsingh2021
 #customer intent: As a customer, I want to understand the supported operating systems and identify the supported regions for Azure Change Tracking and Inventory so that I can ensure compatibility with my environment.
 ---
 

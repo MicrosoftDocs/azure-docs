@@ -6,7 +6,7 @@ ms.date: 07/07/2026
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: gurkisingh
-author: RochakSingh-blr
+author: gurkiratsingh2021
 ---
 
 # What is Azure Change Tracking and Inventory?
