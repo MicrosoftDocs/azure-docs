@@ -8,7 +8,7 @@ ms.subservice: desired-state-config
 ms.topic: release-notes
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Work with Azure Desired State Configuration extension version history

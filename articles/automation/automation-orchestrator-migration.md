@@ -7,7 +7,7 @@ ms.date: 11/17/2025
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 # Migrate from Orchestrator to Azure Automation (Beta)
 

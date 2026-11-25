@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.custom: devx-track-python
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Manage Python 2 packages in Azure Automation

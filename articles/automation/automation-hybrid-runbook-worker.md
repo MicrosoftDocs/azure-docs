@@ -7,7 +7,7 @@ ms.date: 07/08/2025
 ms.topic: overview 
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Automation Hybrid Runbook Worker overview

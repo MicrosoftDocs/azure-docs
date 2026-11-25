@@ -8,7 +8,7 @@ ms.topic: overview
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 # Learn PowerShell Workflow for Azure Automation
 

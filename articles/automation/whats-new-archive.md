@@ -6,7 +6,7 @@ ms.topic: overview
 ms.date: 04/24/2026
 ms.custom: references_regions
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Archive for What's new in Azure Automation?

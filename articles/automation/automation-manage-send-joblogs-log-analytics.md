@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.custom: engagement-fy24
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Forward Azure Automation diagnostic logs to Azure Monitor

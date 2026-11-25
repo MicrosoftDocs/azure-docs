@@ -8,7 +8,7 @@ ms.date: 11/17/2025
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Configure data based on Security Technical Information Guide (STIG)

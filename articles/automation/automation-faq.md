@@ -5,7 +5,7 @@ services: automation
 ms.topic: faq
 ms.custom: devx-track-python, linux-related-content
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ms.date: 08/20/2024
 #Customer intent: As an implementer, I want answers to various questions.
 ---

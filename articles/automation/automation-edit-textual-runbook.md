@@ -7,7 +7,7 @@ ms.subservice: process-automation
 ms.date: 11/17/2025
 ms.topic: how-to 
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Edit textual runbooks in Azure Automation

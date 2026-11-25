@@ -9,7 +9,7 @@ ms.custom: engagement-fy23
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Create configurations from existing servers

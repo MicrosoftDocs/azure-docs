@@ -7,7 +7,7 @@ ms.date: 01/20/2025
 ms.topic: how-to 
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ms.custom:
   - devx-track-azurepowershell
   - sfi-ropc-nochange

@@ -2,7 +2,7 @@
 ms.assetid: 
 title: Include file
 description: Include file with notes on end of life information for Windows Server 2008 and 2008 R2.
-author: RochakSingh-blr
+author: preranaprajapat
 ms.author: pprajapat
 ms.date: 04/24/2026
 ms.topic:  Include

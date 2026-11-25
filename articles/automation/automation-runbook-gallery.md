@@ -7,7 +7,7 @@ ms.date: 04/15/2026
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 # Use existing runbooks and modules
 
