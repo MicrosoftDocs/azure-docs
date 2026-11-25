@@ -3,7 +3,7 @@ title: Copy data from and to Salesforce V1
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Salesforce V1 to supported sink data stores or from supported source data stores to Salesforce V1 by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: tinglee
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 06/22/2026

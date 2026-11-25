@@ -1,7 +1,7 @@
 ---
 title: Stringify data transformation in mapping data flow
 description: Stringify complex data types
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.subservice: data-flows
 ms.topic: how-to

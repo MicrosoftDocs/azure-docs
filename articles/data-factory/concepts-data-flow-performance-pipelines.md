@@ -2,7 +2,7 @@
 title: Optimizing pipeline performance in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about optimizing data flow execution in pipelines in Azure Data Factory and Azure Synapse Analytics pipelines.
-author: kromerm
+author: dcstwh
 ms.topic: best-practice
 ms.author: weetok
 ms.subservice: data-flows

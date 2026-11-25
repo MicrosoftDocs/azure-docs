@@ -2,7 +2,7 @@
 title: Troubleshoot the Microsoft Fabric Lakehouse connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Microsoft Fabric Lakehouse connector in Azure Data Factory and Azure Synapse Analytics. 
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 12/16/2025

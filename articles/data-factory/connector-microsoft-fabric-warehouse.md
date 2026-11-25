@@ -3,7 +3,7 @@ title: Copy and transform data in Microsoft Fabric Warehouse
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data to and from Microsoft Fabric Warehouse using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: tinglee
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 08/25/2025

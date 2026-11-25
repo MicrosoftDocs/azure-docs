@@ -4,7 +4,7 @@ description: "This article provides troubleshooting guidance for SSIS package ex
 ms.subservice: integration-services
 ms.topic: faq
 ms.author: weetok
-author: kromerm
+author: dcstwh
 ms.reviewer: chugugrace
 ms.date: 05/15/2024
 ---

@@ -3,7 +3,7 @@ title: Copy data from and to Salesforce Service Cloud V2
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Salesforce Service Cloud V2 to supported sink data stores or from supported source data stores to Salesforce Service Cloud V2 by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 ms.author: tinglee
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: how-to
 ms.custom: synapse

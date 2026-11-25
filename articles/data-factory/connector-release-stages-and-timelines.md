@@ -1,7 +1,7 @@
 ---
 title: Connector release stages and timelines
 description: This article describes release stages and timelines for some connectors of Azure Data Factory.
-author: simplywilson
+author: dcstwh
 ms.author: tinglee
 ms.service: azure-data-factory
 ms.subservice: data-movement

@@ -4,7 +4,7 @@ description: Learn how to configure a virtual network for injection of Azure-SSI
 ms.subservice: integration-services
 ms.topic: how-to
 ms.date: 01/05/2024
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.custom: sfi-image-nochange
 ---

@@ -5,7 +5,7 @@ description: Learn how to parameterize linked services in Azure Data Factory and
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 11/18/2024
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.custom:
   - synapse

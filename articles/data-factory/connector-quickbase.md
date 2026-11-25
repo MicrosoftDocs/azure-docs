@@ -3,7 +3,7 @@ title: Transform data in Quickbase (Preview)
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to transform data in Quickbase (Preview) by using Data Factory or Azure Synapse Analytics.
 ms.author: tinglee
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 01/05/2024

@@ -1,7 +1,7 @@
 ---
 title: Replicate multiple objects from SAP via SAP CDC
 description: Learn how to use a solution template to replicate multiple objects from SAP via SAP CDC in Azure Data Factory.
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.topic: how-to
 ms.date: 10/03/2024

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 06/22/2026
 ms.update-cycle: 1095-days
 ms.author: weetok
-author: kromerm
+author: dcstwh
 ms.custom:
   - synapse
   - sfi-image-nochange

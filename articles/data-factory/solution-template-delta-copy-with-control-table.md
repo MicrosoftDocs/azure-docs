@@ -1,7 +1,7 @@
 ---
 title: Delta copy from a database using a control table
 description: Learn how to use a solution template to incrementally copy new or updated rows only from a database with Azure Data Factory.
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.topic: how-to
 ms.date: 10/03/2024

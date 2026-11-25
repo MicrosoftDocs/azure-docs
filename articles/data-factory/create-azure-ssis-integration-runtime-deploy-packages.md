@@ -4,7 +4,7 @@ description: Learn how to deploy and run SSIS packages in Azure Data Factory wit
 ms.subservice: integration-services
 ms.topic: how-to
 ms.date: 10/20/2023
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.custom:
 ---

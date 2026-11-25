@@ -1,7 +1,7 @@
 ---
 title: Azure Data Factory known issues
 description: Learn about the currently known issues with Azure Data Factory and their possible workarounds or resolutions.
-author: simplywilson
+author: dcstwh
 ms.author: tinglee
 ms.reviewer: brianwan
 ms.date: 10/02/2024

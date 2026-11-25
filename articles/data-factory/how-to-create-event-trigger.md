@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse Analytics
 description: Learn how to create a trigger in Azure Data Factory or Azure Synapse Analytics that runs a pipeline in response to an event.
 ms.subservice: orchestration
 ms.custom: synapse
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.reviewer: whhender
 ms.topic: how-to

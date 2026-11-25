@@ -2,7 +2,7 @@
 title: Cast transformation in mapping data flow 
 description: Learn how to use a mapping data flow cast transformation to easily change column data types in Azure Data Factory or Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.reviewer: makromer
 ms.subservice: data-flows

@@ -1,7 +1,7 @@
 ---
 title: Migrate on-premises SQL Server Integration Services (SSIS) workloads to SSIS in Azure Data Factory (ADF)
 description: Migrate on-premises SSIS workloads to SSIS in ADF.
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.subservice: integration-services
 ms.topic: upgrade-and-migration-article

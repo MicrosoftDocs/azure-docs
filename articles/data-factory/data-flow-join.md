@@ -2,7 +2,7 @@
 title: Join transformation in mapping data flow 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Combine data from two data sources using the join transformation in a mapping data flow in Azure Data Factory or Synapse Analytics
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.reviewer: daperlov
 ms.subservice: data-flows

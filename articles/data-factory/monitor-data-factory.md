@@ -5,7 +5,7 @@ ms.date: 08/06/2026
 ms.subservice: monitoring
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: whhender
+author: dcstwh
 ms.author: weetok
 ---
 

@@ -5,7 +5,7 @@ ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: how-to
 ms.author: weetok
-author: kromerm
+author: dcstwh
 ms.custom: devx-track-azurepowershell
 ms.date: 05/15/2024
 ---

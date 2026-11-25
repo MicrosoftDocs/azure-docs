@@ -3,7 +3,7 @@ title: Copy data from Amazon RDS for SQL Server
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to copy data from Amazon RDS for SQL Server database that is on-premises or in an Azure VM by using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: tinglee
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 12/31/2025

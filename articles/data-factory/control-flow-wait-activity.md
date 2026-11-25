@@ -2,7 +2,7 @@
 title: Wait activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: The Wait activity in Azure Data Factory and Synapse Analytics pauses the execution of a pipeline for a specified period. 
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.subservice: orchestration
 ms.custom: synapse

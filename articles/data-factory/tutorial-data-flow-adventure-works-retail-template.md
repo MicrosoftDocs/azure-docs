@@ -1,7 +1,7 @@
 ---
 title: ETL template for retail industry data model
 description: This tutorial provides steps for using the industry data model template for retail using the Adventure Works sample data
-author: kromerm
+author: dcstwh
 ms.author: aamerril
 ms.service: azure-synapse-analytics
 ms.topic: how-to

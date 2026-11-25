@@ -4,7 +4,7 @@ description: Learn how to join Azure-SSIS integration runtime to a virtual netwo
 ms.subservice: integration-services
 ms.topic: how-to
 ms.date: 05/15/2024
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.custom:
   - devx-track-arm-template

@@ -2,7 +2,7 @@
 title: Execute a Fail activity in Azure Data Factory and Synapse Analytics
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This article discusses how a Fail activity in Azure Data Factory and Synapse Analytics intentionally throws an error in a pipeline.
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.subservice: orchestration
 ms.custom: synapse

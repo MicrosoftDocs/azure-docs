@@ -2,7 +2,7 @@
 title: Copy data from MongoDB using legacy
 description: Learn how to copy data from Mongo DB to supported sink data stores using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: simplywilson
+author: dcstwh
 ms.author: tinglee
 ms.subservice: data-movement
 ms.topic: how-to

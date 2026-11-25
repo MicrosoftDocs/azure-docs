@@ -1,7 +1,7 @@
 ---
 title: 'Use the Azure portal to create a data factory pipeline'
 description: This tutorial provides instructions to create a data factory with a pipeline with a copy activity to copy data from Azure Blob storage to Azure SQL Database.
-author: simplywilson
+author: dcstwh
 ms.topic: tutorial
 ms.date: 04/25/2025
 ms.subservice: data-movement

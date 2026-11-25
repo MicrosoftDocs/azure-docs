@@ -2,7 +2,7 @@
 title: Configure the self-hosted integration runtime for log analytics collection
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This article describes how to instrument the self-hosted integration runtime for log analytics collection.
-author: whhender
+author: dcstwh
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 10/03/2024

@@ -3,7 +3,7 @@ title: Copy and transform data in Azure Cosmos DB for NoSQL
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to and from Azure Cosmos DB for NoSQL, and transform data in Azure Cosmos DB for NoSQL using Azure Data Factory and Azure Synapse Analytics.
 ms.author: tinglee
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.date: 08/06/2026

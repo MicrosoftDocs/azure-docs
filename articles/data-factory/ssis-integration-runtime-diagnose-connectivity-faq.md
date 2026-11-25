@@ -4,7 +4,7 @@ description: Troubleshoot connection issues in the SSIS integration runtime by u
 ms.subservice: integration-services
 ms.topic: troubleshooting
 ms.author: weetok
-author: kromerm
+author: dcstwh
 ms.reviewer: chugugrace
 ms.date: 05/15/2024
 ms.custom: sfi-image-nochange
