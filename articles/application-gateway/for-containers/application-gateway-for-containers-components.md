@@ -150,7 +150,7 @@ Communication between Application Gateway for Containers and the backend target 
 
 Application Gateway for Containers returns response-header names in lowercase for both HTTP/1.1 and HTTP/2 and preserves the casing of response-header values. For example, a backend response header of `X-Custom-Header: AbCd123` is returned to the client as `x-custom-header: AbCd123`. There's no setting to preserve response-header name casing.
 
-Header names are case-insensitive, as defined in [RFC 9110, section 5.1](https://www.rfc-editor.org/rfc/rfc9110.html#section-5.1). HTTP/2 additionally requires lowercase header names, as defined in [RFC 9113, section 8.2.1](https://www.rfc-editor.org/rfc/rfc9113.html#section-8.2.1).
+HTTP/2 requires lowercase header names, as defined in [RFC 9113, section 8.2.1](https://www.rfc-editor.org/rfc/rfc9113.html#section-8.2.1).
 
 ### Modifications to the request
 
