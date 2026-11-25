@@ -8,7 +8,7 @@ metadata:
   description: Data Box Gateway Documentation for high-performance over-the-network data transfer to Azure. # v-dalc: Should "high-performance" go? Required; article description that is displayed in search results. < 160 chars.
   ms.service: azure-data-box-gateway
   ms.topic: landing-page 
-  author: stevenmatthew 
+  author: Bapic 
   ms.author: bchakra
   ms.date: 10/29/2020
 

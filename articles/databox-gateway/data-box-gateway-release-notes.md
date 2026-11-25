@@ -2,7 +2,7 @@
 title: Azure Data Box Gateway General Availability release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Data Box Gateway running general availability release.
 services: databox
-author: stevenmatthew
+author: Bapic
  
 ms.service: azure-data-box-gateway
 ms.topic: release-notes

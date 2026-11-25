@@ -2,7 +2,7 @@
 title: Tutorial to provision Azure Data Box Gateway in VMware | Microsoft Docs
 description: Second tutorial to deploy Azure Data Box Gateway involves provisioning a virtual device in VMware.
 services: databox
-author: stevenmatthew
+author: Bapic
 
 ms.service: azure-data-box-gateway
 ms.topic: tutorial

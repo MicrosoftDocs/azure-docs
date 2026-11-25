@@ -2,7 +2,7 @@
 title: Tutorial on provision Azure Data Box Gateway in Hyper-V | Microsoft Docs
 description: Second tutorial to deploy Azure Data Box Gateway involves provisioning a virtual device in Hyper-V.
 services: databox
-author: stevenmatthew
+author: Bapic
 
 ms.service: azure-data-box-gateway
 ms.topic: tutorial

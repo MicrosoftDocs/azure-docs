@@ -2,7 +2,7 @@
 title: Azure Stack Edge & Azure Data Box Gateway 1911 release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Stack Edge and Data Box Gateway running 1911 release.
 services: databox
-author: stevenmatthew
+author: Bapic
  
 ms.service: azure-data-box-gateway
 ms.topic: release-notes
