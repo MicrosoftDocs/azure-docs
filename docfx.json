@@ -695,7 +695,7 @@
         "articles/operator-insights/**/*.yml": "rdunstan",
         "articles/security/**/*.md": "mbaldwin",
         "articles/security/**/*.yml": "mbaldwin",
-        "articles/service-bus-messaging/*.md": "spelluru",
+        "articles/service-bus-messaging/*.md": "egrootenboer",
         "articles/service-connector/*.md": "malev",
         "articles/site-recovery/*.md": "v-gajeronika",
         "articles/stream-analytics/*.md": "ali"
