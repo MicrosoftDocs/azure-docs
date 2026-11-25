@@ -2,7 +2,7 @@
 title: WAF Exclusion Lists in Azure Application Gateway
 description: This article provides information on Web Application Firewall exclusion lists configuration in Application Gateway with the Azure portal.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 02/25/2026

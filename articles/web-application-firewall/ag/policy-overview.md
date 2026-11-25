@@ -2,7 +2,7 @@
 title: WAF Policy Overview
 description: This article is an overview of Web Application Firewall (WAF) global, per-site, and per-URI policies.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 02/25/2026
