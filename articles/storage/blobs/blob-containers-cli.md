@@ -88,7 +88,7 @@ The `--num-results` parameter can be used to limit the number of containers retu
 
 You can also use the `--query` parameter to execute a [JMESPath query](/cli/azure/query-azure-cli) on the results of commands. JMESPath is a query language for JSON that allows you to select and modify data returned from CLI output. Queries are executed on the JSON output before it can be formatted. For more information, see [How to query Azure CLI command output using a JMESPath query](/cli/azure/query-azure-cli).
 
-The following example first lists the maximum number of containers (subject to the service limit). Next, it lists three containers whose names begin with the prefix *container-* by supplying values for the `--num-results` and `--prefix` parameters. Finally, a single container is listed by supplying a known container name to the `--prefix` parameter.
+The following example first lists the maximum number of containers (subject to the service limit). Next, it lists three containers whose names begin with the prefix *demo-container-* by supplying values for the `--num-results` and `--prefix` parameters. Finally, a single container is listed by supplying a known container name to the `--prefix` parameter.
 
 Read more about the [az storage container list](/cli/azure/storage/container#az-storage-container-list).
 
@@ -162,7 +162,7 @@ done
 
 Users that have many thousands of objects within their storage account can quickly locate specific containers based on their metadata. To read the metadata, you'll use the `az storage container metadata show` command. To update metadata, you'll need to call the `az storage container metadata update` command. The method only accepts space-separated key-value pairs. For more information, see the [az storage container metadata](/cli/azure/storage/container/metadata) documentation.
 
-The first example below updates and then retrieves a named container's metadata. The second example iterates the list of containers matching the `-prefix` value. Containers with names containing even numbers have their metadata set with values contained in the *metadata* variable.
+The first example below updates and then retrieves a named container's metadata. The second example iterates the list of containers matching the `--prefix` value. Containers with names containing even numbers have their metadata set with values contained in the *metadata* variable.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -351,7 +351,7 @@ accountKey=$( echo $accountKey | cut -d' ' -f1 )
 az storage container generate-sas \
     --name $containerName \
     --https-only \
-    --permissions dlrw \
+    --permissions $permissions \
     --expiry $expiry \
     --account-key $accountKey \
     --account-name $storageAccount
