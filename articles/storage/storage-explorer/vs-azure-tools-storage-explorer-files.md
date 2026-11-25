@@ -6,7 +6,7 @@ author: jinglouMSFT
 ms.service: azure-storage
 ms.topic: concept-article
 ms.date: 03/09/2017
-ms.author: jinglou
+ms.author: normesta
 ms.reviewer: cralvord,richardgao
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to use Storage Explorer to manage file shares on Azure, so that I can efficiently organize, access, and control my file-based data in the cloud.
