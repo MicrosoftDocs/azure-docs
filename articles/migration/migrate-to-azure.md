@@ -6,6 +6,7 @@ ms.author: rhackenberg
 ms.date: 04/23/2026
 ms.topic: concept-article
 ms.service: azure
+ms.subservice: azure-mig
 ms.custom: migration-hub
 ms.collection:
  - migration

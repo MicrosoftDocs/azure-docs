@@ -3,10 +3,11 @@ title: Migrate security services from Amazon Web Services (AWS)
 description: Learn about replatforming security services from AWS to Microsoft Cloud to support the security requirements of the workload. Discover key similarities and differences between AWS and Microsoft.
 ms.author: rhackenberg
 author: reginahack
-ms.reviewer: rhackenberg, chkittel
+ms.reviewer: rhackenberg
 ms.date: 07/08/2026
 ms.topic: concept-article
 ms.service: azure
+ms.subservice: azure-mig
 ms.collection:
   - migration
   - aws-to-azure

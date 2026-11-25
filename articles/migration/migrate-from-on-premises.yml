@@ -7,9 +7,10 @@ metadata:
   description: Learn about resources that can help you transition your workload components from on-premises to Azure.
   ms.topic: landing-page
   ms.service: azure-migrate
+  ms.subservice: azure-mig
   author: reginahack
   ms.author: rhackenberg
-  ms.reviewr: rhackenberg, chkittel
+  ms.reviewer: rhackenberg
   ms.date: 08/20/2026
   ms.collection:
    - migration

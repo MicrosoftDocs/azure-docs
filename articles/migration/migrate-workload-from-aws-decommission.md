@@ -8,6 +8,7 @@ ms.date: 02/13/2026
 ms.topic: concept-article
 ms.custom: migration-hub
 ms.service: azure
+ms.subservice: azure-mig
 ms.collection:
   - migration
   - aws-to-azure
