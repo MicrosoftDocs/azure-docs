@@ -661,6 +661,8 @@ The deny setting only applies to the [control plane operations](../management/co
 
 The deny setting only applies to explicitly created resources, not implicitly created ones. For example, a managed AKS cluster creates multiple other services to support it, such as a virtual machine. In this case, since the virtual machine isn't defined in the Bicep file and is an implicitly created resource, it isn't subject to the deployment stack deny settings.
 
+By default, the deny settings don't apply to child resources that the stack doesn't manage, such as a security rule that someone adds to a managed network security group. To learn how deny settings apply to child resources and how to protect them, see [Manage child resources with deployment stacks](./deployment-stacks-child-resources.md).
+
 > [!NOTE]
 > The latest release requires specific permissions at the stack scope to:
 >
