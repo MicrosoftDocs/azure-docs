@@ -4,7 +4,7 @@ description: This article provides step-by-step instructions to publish to Azure
 ms.topic: quickstart
 ms.custom:
   - build-2024
-ms.author: spelluru
+ms.author: seshanmugam
 author: spelluru
 ms.date: 02/20/2024
 ---

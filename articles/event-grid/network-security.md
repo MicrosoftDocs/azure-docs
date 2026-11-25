@@ -4,7 +4,7 @@ description: This article describes how to use service tags for egress, IP firew
 author: VidyaKukke
 ms.topic: how-to
 ms.date: 01/31/2024
-ms.author: vkukke
+ms.author: seshanmugam
 ---
 
 # Network security for Azure Event Grid resources

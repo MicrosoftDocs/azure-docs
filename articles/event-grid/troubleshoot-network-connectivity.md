@@ -4,7 +4,7 @@ description: This article provides information on troubleshooting network connec
 author: spelluru
 ms.topic: article
 ms.date: 09/28/2021
-ms.author: spelluru
+ms.author: seshanmugam
 ---
 
 # Troubleshoot connectivity issues - Azure Event Grid

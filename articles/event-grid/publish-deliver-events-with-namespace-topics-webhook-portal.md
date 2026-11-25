@@ -2,7 +2,7 @@
 title: Deliver events to webhooks using push model (portal)
 description: This article provides step-by-step instructions to use the Azure portal to create a WebHook subscription for a namespace topic. 
 ms.topic: quickstart
-ms.author: spelluru
+ms.author: seshanmugam
 author: spelluru
 ms.date: 05/21/2024
 ---

@@ -4,7 +4,7 @@ description: This article describes WebHook event delivery and endpoint validati
 ms.topic: concept-article
 ms.date: 03/27/2026
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ms.reviewer: spelluru
 ms.custom: FY25Q1-Linter
 #customer intent: As a developer, I want to know how to validate a Webhook endpoint using the Event Grid event schema.
