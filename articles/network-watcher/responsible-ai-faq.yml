@@ -3,7 +3,7 @@ metadata:
   title: "Azure Network Watcher Responsible AI Frequently Asked Questions (FAQ)"
   description: "Learn how Azure Network Watcher features use AI, their intended uses, and the safeguards, privacy controls, and limitations to consider."
   author: chrai
-  ms.author: chrai-ms
+  ms.author: hufurnit
   ms.service: azure-network-watcher
   ms.topic: faq
   ms.date: 11/04/2026

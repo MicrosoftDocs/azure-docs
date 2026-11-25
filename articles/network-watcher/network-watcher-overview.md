@@ -2,7 +2,7 @@
 title: Azure Network Watcher Overview
 description: Learn about Azure Network Watcher's monitoring, diagnostics, logging, and metrics capabilities in a virtual network.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: overview
 ms.date: 02/25/2026

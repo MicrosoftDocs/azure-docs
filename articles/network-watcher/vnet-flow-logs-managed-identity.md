@@ -3,7 +3,7 @@ title: Managed Identity for Virtual Network Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn how managed identity simplifies authentication for virtual network flow logs by eliminating manual credential management and enabling secure access to Azure resources.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 11/18/2025
