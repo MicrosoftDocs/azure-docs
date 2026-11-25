@@ -4,7 +4,7 @@ description: This article describes how to Access your EA billing account in the
 services: azure-government
 cloud: gov
 ms.service: azure-government
-author: KennyDay
+author: diberry
 ms.author: diberry
 ms.reviewer: sapnakeshari
 ms.topic: article

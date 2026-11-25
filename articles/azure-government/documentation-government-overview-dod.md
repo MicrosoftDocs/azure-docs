@@ -1,7 +1,7 @@
 ---
 title: Azure Government DoD Overview | Microsoft Docs
 description: Features and guidance for using Azure Government DoD regions
-author: EliotSeattle
+author: diberry
 ms.author: diberry
 ms.service: azure-government
 ms.topic: article
