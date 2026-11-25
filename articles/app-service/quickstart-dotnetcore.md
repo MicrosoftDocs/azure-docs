@@ -10,8 +10,8 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a .NET developer, I want to deploy a web app to Azure App Services by using my preferred development process.

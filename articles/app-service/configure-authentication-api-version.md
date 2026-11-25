@@ -4,8 +4,8 @@ description: Learn how to upgrade your Azure App Service authentication API to V
 ms.topic: how-to
 ms.date: 03/19/2026
 ms.custom: devx-track-azurecli, AppServiceIdentity
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 # customer intent: As an app developer, I want to customize the API and runtime versions of the built-in authentication and authorization in App Service.
 

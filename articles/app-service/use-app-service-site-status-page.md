@@ -3,8 +3,8 @@ title: Use the App Service site status page
 description: Learn how to use the App Service site status page to understand app runtime state, troubleshoot startup and availability issues, and decide when to use other monitoring or support tools.
 ms.topic: how-to
 ms.date: 07/27/2026
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ---
 

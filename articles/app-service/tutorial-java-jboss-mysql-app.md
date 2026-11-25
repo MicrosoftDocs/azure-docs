@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Linux Java app with JBoss and MySQL'
 description: Learn how to get a data-driven Linux JBoss app working in Azure App Service, with connection to a MySQL running in Azure.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/25/2026

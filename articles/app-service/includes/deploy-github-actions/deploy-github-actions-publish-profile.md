@@ -1,6 +1,6 @@
 ---
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.topic: include
 ms.date: 01/16/2025
 ms.service: azure-app-service

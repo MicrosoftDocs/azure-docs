@@ -1,8 +1,8 @@
 ---
 title: Secure AI applications in Azure App Service
 description: Secure your AI-powered applications with Microsoft Entra authentication and authorization. Protect your OpenAPI tools and MCP servers in Azure App Service so only authorized users and agents can access them.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.topic: how-to
 ms.date: 01/29/2026

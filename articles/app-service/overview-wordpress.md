@@ -2,14 +2,14 @@
 title: 'An overview of WordPress'
 description: Learn how WordPress on Azure App Service combines a managed hosting platform with customer-managed WordPress updates and security.
 keywords: app service, azure app service, wordpress, preview, app service on linux, plugins, mysql flexible server, wordpress on linux, php
-author: msangapu-msft
+author: btardif
 ai-usage: ai-assisted
 ms.service: azure-app-service
 ms.topic: overview
 ms.date: 11/02/2026
 ms.update-cycle: 1095-days
 # ms.devlang: wordpress
-ms.author: msangapu
+ms.author: byvinyal
 ms.custom: mvc, linux-related-content
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a new Azure customer, I want to learn more about WordPress on App Service so that I can build an effective WP site.

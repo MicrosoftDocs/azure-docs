@@ -1,9 +1,9 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 03/03/2026
-ms.author: cephalin
+ms.author: byvinyal
 ms.custom:
   - build-2025
 ---

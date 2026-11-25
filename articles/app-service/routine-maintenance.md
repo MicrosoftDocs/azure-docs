@@ -1,13 +1,13 @@
 ---
 title: Routine Maintenance for Azure App Service
 description: Learn more about routine, planned maintenance to help keep the App Service platform up to date and secure.
-author: msangapu-msft
+author: btardif
 tags: app-service
 
 ms.topic: concept-article
 ms.date: 08/24/2026
 ms.update-cycle: 180-days
-ms.author: msangapu
+ms.author: byvinyal
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-app-service
 ms.custom:

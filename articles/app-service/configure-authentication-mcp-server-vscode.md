@@ -3,8 +3,8 @@ title: Secure MCP servers with Microsoft Entra authentication
 description: Configure Microsoft Entra authentication to secure your MCP server on Azure App Service and access it from Visual Studio Code.
 ms.topic: how-to
 ms.date: 11/18/2025
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days

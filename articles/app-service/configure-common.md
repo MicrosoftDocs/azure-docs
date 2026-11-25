@@ -6,8 +6,8 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: how-to
 ms.date: 11/06/2026
 ms.devlang: azurecli
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 #customer intent: As an app developer, I want to understand how to configure settings in Azure App Service, including command line options.
 ms.service: azure-app-service
 ms.custom:

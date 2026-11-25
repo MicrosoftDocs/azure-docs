@@ -1,8 +1,8 @@
 ---
 title: Overview of using custom domain names
 description: Learn how to configure and manage custom domain names in Azure App Service, including mapping, buying, migrating, securing, and traffic routing.
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.date: 03/10/2025
 ms.topic: overview
 ms.service: azure-app-service

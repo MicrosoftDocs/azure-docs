@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Deploy Managed Instance on Azure App Service"
 description: Learn how to configure Managed Instance on Azure App Service
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.reviewer: maghan
 ms.date: 08/28/2026
 ms.service: azure-app-service

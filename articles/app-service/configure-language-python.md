@@ -4,8 +4,8 @@ description: Learn how to configure the Python container in which web apps are r
 ms.topic: quickstart
 ms.date: 10/08/2026
 ms.reviewer: astay
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.devlang: python
 adobe-target: true
 ms.service: azure-app-service

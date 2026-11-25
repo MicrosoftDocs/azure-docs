@@ -1,9 +1,9 @@
 ---
-author: msangapu-msft
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 02/09/2026
-ms.author: msangapu
+ms.author: byvinyal
 ---
 
 Azure Storage is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for data objects in the cloud. This guide shows how to mount Azure Storage Files as a network share in a Windows container in App Service.

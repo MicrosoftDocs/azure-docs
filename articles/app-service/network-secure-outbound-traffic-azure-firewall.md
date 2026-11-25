@@ -1,8 +1,8 @@
 ---
 title: 'Control App Service outbound traffic using Azure Firewall'
 description: Learn how to control App Service outbound traffic to internet, private IP addresses, and Azure services by using virtual network integration and Azure Firewall.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.topic: how-to
 ms.date: 07/22/2025
 ms.service: azure-app-service

@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Linux Java app with Quarkus and PostgreSQL'
 description: Learn how to get a data-driven Linux Quarkus app working in Azure App Service, with connection to a PostgreSQL running in Azure.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/18/2026

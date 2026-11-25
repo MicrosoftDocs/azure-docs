@@ -1,8 +1,8 @@
 ---
 title: Use App Service as a Model Context Protocol (MCP) server
 description: Integrate your web app as a Model Context Protocol (MCP) server to extend the capabilities of leading personal AI agents such as GitHub Copilot Chat, Cursor, and Winsurf.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.topic: how-to
 ms.date: 05/08/2026

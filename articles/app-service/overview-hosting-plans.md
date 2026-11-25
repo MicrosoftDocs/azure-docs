@@ -6,8 +6,8 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: overview
 ms.date: 11/06/2026
 ms.update-cycle: 1095-days
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.custom: UpdateFrequency3
 #customer intent: As an app developer, I want to understand which service plan is right for apps in my organization in Azure App Service.
 ms.service: azure-app-service

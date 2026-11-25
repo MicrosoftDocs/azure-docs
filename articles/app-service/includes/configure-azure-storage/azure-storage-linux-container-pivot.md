@@ -1,9 +1,9 @@
 ---
-author: msangapu-msft
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 02/09/2026
-ms.author: msangapu
+ms.author: byvinyal
 ms.custom:
   - linux-related-content
   - sfi-image-nochange

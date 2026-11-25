@@ -6,8 +6,8 @@ ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: concept-article
 ms.service: azure-app-service
 ms.date: 4/17/2025
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.reviewer: glenga;suwatch;pbatum;naren.soni;
 
 #Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.

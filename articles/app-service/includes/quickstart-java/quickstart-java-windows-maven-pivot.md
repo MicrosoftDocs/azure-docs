@@ -1,10 +1,10 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/30/2022
-ms.author: cephalin
+ms.author: byvinyal
 ---
 
 [Azure App Service](../../overview.md) provides a highly scalable, self-patching web app hosting service. This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file or .war file. Use the tabs to switch between Java SE and Tomcat instructions.

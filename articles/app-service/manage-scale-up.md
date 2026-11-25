@@ -4,8 +4,8 @@ description: Learn how to scale up an app in Azure App Service. Get more CPU, me
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: how-to
 ms.date: 08/29/2025
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ms.custom:
   - build-2025

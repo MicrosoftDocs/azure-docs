@@ -1,8 +1,8 @@
 ---
 title: Get Started with Azure App Service
 description: Take the first steps toward working with Azure App Service. Decide on a stack and choose from various actions to get your app running.
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.topic: get-started
 ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
 ms.date: 10/27/2026

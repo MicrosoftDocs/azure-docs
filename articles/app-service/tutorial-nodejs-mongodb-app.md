@@ -7,8 +7,8 @@ ms.update-cycle: 180-days
 ms.service: azure-app-service
 ms.role: developer
 ms.devlang: javascript
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
 ms.custom:

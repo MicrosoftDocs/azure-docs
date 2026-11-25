@@ -1,8 +1,8 @@
 ---
 title: Create a Foundry agent with managed identity
 description: Steps to create a Foundry agent and configure its OpenAPI tool to use managed identity.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.topic: include
 ms.date: 08/27/2026
 ms.service: azure-app-service

@@ -1,8 +1,8 @@
 ---
 title: 'Create an App Service app using an Azure Resource Manager template'
 description: Create your first app to Azure App Service in seconds using an Azure Resource Manager template (ARM template), which is one of many ways to deploy to App Service.
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/18/2025

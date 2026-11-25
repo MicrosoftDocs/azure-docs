@@ -6,8 +6,8 @@ ms.custom: devx-track-azurecli
 ms.date: 04/07/2026
 
 ms.reviewer: jordanselig
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ---
 

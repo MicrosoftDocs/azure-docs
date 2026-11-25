@@ -4,8 +4,8 @@ description: Managed Instance on Azure App Service is a specialized hosting opti
 keywords: app service, azure app service, managed instance, isolation, vnet integration, registry, COM, RDP, installation scripts, key vault, pv4, pmv4, windows services, GAC, third-party dependencies
 ms.topic: overview
 ms.date: 08/28/2026
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ms.custom: references_regions
 ---
