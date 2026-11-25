@@ -5,8 +5,8 @@ summary: Learn how to use Nutanix Cloud Clusters to create, deploy, and manage v
 
 metadata:
   title: Nutanix Cloud Clusters documentation 
-  author: jjaygbay1
-  ms.author: jacobjaygbay
+  author: diberry
+  ms.author: diberry
   description: Learn how to use Nutanix Cloud Clusters to create, deploy, and manage virtual machines in Microsoft Azure.
   ms.topic: landing-page
   ms.date: 05/5/2026

@@ -1,7 +1,7 @@
 ---
 title: Get started with NC2 on Azure
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: diberry
+ms.author: diberry
 description: Learn how to sign up, set up, and use Nutanix Cloud Clusters on Azure.
 ms.topic: get-started
 ms.custom: engagement-fy23
