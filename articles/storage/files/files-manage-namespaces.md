@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 08/26/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As an IT administrator managing file shares, I want to implement DFS Namespaces with Azure Files so that I can simplify access and management of SMB file shares across various storage locations while ensuring seamless migration and user-friendly paths.
 ---
 

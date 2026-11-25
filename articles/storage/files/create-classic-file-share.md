@@ -7,7 +7,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 11/17/2026
 ai-usage: ai-assisted
-ms.author: kendownie
+ms.author: normesta
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
 ---
 

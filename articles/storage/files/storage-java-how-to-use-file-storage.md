@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 08/04/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom:
   - devx-track-java
   - devx-track-extended-java

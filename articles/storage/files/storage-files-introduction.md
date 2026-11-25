@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 08/17/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As a cloud architect, I want to implement Azure Files for shared network storage, so that I can simplify file management and enhance accessibility across various operating systems in both cloud and hybrid environments.
 ---
 

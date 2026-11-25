@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/28/2026
-ms.author: kendownie
+ms.author: normesta
 recommendations: false
 # Customer intent: "As an IT administrator managing on-premises NAS solutions, I want to migrate our file storage to Azure file shares using Data Box, so that I can ensure data integrity, maintain accessibility during the transition, and eliminate reliance on local storage infrastructure."
 ---

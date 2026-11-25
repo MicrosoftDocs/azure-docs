@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 11/17/2026
 ai-usage: ai-assisted
-ms.author: kendownie
+ms.author: normesta
 ms.custom: references_regions
 # Customer intent: "As a DevOps engineer, I want to deploy and manage NFS file shares in Azure Files, so that I can support Linux-based applications and workloads that require POSIX compliance and efficient data access."
 ---

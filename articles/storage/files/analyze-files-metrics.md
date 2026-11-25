@@ -6,7 +6,7 @@ services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/06/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: monitoring, devx-track-azurepowershell
 # Customer intent: "As a storage administrator, I want to analyze Azure Files metrics using Azure Monitor, so that I can optimize workload performance by monitoring availability, latency, and utilization of file shares."
 ---

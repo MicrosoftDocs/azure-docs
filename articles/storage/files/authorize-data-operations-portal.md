@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/27/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As a cloud administrator, I want to configure authorization access for Azure file share data so that I can securely manage user permissions and control data access through the Azure portal."
 ---
 

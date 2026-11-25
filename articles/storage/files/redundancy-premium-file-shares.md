@@ -6,7 +6,7 @@ services: storage
 ms.service: azure-file-storage
 ms.topic: reference
 ms.date: 06/23/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: references_regions
 # Customer intent: "As a cloud storage administrator, I want to identify Azure regions that support locally redundant storage (LRS) and zone redundant storage (ZRS) for SSD file shares, so that I can ensure optimal data redundancy and availability for my organization's storage needs."
 ---

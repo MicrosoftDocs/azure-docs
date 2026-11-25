@@ -7,7 +7,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 07/29/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As a finance manager, I want to understand Azure Files Reservations so that I can optimize our storage costs by committing to a discount plan that aligns with our long-term data storage needs.
 ---
 

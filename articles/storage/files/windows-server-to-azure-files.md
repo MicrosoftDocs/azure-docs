@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 10/28/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As an IT manager planning to modernize file storage, I want to replace or extend on-premises Windows file servers with Azure Files and Azure File Sync, so that I can enhance flexibility, reduce total cost of ownership, and simplify data protection.
 ---
 

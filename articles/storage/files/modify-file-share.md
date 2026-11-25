@@ -6,7 +6,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/26/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to adjust the size, cost, or performance characteristics my Azure file share, or delete the file share."
 ---
