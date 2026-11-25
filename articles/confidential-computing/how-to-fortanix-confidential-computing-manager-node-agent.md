@@ -6,7 +6,7 @@ author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: how-to
 ms.date: 03/24/2021
-ms.author: wwilliams
+ms.author: sgallagher
 ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to configure and run applications using Fortanix Confidential Computing Manager, so that I can securely handle sensitive data in a containerized environment on Azure's infrastructure."
 ---

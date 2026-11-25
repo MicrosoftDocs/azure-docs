@@ -6,7 +6,7 @@ author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: overview
 ms.date: 06/30/2026
-ms.author: wwilliams
+ms.author: sgallagher
 # Customer intent: As a cloud architect, I want to implement confidential computing in my applications, so that I can ensure data privacy and security while meeting regulatory compliance amidst multiparty collaboration and sensitive data processing needs.
 ---
 # Confidential computing use cases

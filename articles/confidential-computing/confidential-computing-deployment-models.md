@@ -5,7 +5,7 @@ author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/30/2026
-ms.author: wwilliams
+ms.author: sgallagher
 # Customer intent: "As an IT manager, I want to compare deployment models for confidential computing, so that I can choose the most suitable option for my organization's security and operational requirements."
 ---
 

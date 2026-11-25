@@ -5,7 +5,7 @@ author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 11/01/2021
-ms.author: wwilliams #, raginjup, ananyagarg
+ms.author: sgallagher #, raginjup, ananyagarg
 ms.custom: Inspire 2022
 # Customer intent: As a developer, I want to use open-source tools to build applications with application enclaves, so that I can leverage secure execution environments for both trusted and untrusted code in Azure Confidential Computing.
 ---

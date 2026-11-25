@@ -5,7 +5,7 @@ author: simranparkhe
 ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
-ms.author: simranparkhe
+ms.author: sgallagher
 ms.custom:
   - devx-track-azurecli
   - sfi-ga-nochange

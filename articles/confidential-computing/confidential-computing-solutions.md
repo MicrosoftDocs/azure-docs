@@ -5,7 +5,7 @@ author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/30/2026
-ms.author: wwilliams
+ms.author: sgallagher
 # Customer intent: "As a cloud architect, I want to design confidential computing solutions on Azure, so that I can ensure data protection and security for sensitive workloads while leveraging the capabilities of secure enclaves and confidential virtual machines."
 ---
 
