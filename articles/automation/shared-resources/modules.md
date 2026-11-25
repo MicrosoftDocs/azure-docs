@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-python
   - build-2025
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 
