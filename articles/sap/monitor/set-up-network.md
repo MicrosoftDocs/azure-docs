@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to
 ms.date: 03/16/2026
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 #Customer intent: As a developer, I want to set up an Azure virtual network so that I can use Azure Monitor for SAP solutions.
 # Customer intent: As an IT administrator, I want to configure an Azure virtual network for Azure Monitor for SAP solutions, so that I can ensure proper data collection and monitoring of my SAP environment.
 ---
