@@ -1,7 +1,7 @@
 ---
 ms.service: azure-logic-apps
 ms.author: divswa
-author: ecfan
+author: divyaswarnkar
 ms.date: 09/08/2025
 ms.topic: include
 ---

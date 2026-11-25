@@ -3,7 +3,7 @@ title: TestIterationItem class
 description: The item from a loop iteration for a Standard workflow during unit text execution.
 services: logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 06/10/2025

@@ -3,7 +3,7 @@ title: Export Standard Workflows to Visual Studio Code
 description: Download and export Standard logic app workflows from the Azure portal to Visual Studio Code.
 ms.suite: integration
 services: logic-apps
-author: wsilveiranz
+author: divyaswarnkar
 ms.author: wsilveira
 ms.reviewers: estfan, azla
 ms.topic: how-to

@@ -3,7 +3,7 @@ title: ActionMock class
 description: Creates a mock instance for an action in a Standard logic app workflow for unit testing.
 services: logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 06/10/2025

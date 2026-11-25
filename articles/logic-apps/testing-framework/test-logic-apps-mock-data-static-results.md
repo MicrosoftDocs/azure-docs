@@ -3,7 +3,7 @@ title: Test Workflows with Mock Outputs
 description: Set up static results to test workflows with mock outputs in Azure Logic Apps without touching production environments.
 services: azure-logic-apps
 ms.suite: integration
-author: ecfan
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.update-cycle: 1095-days

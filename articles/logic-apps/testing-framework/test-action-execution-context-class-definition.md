@@ -3,7 +3,7 @@ title: TestActionExecutionContext class
 description: The execution context for a unit test action that contains action details and iteration information.
 services: logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 06/10/2025

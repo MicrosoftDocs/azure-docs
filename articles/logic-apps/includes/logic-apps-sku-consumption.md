@@ -1,7 +1,7 @@
 ---
 ms.service: azure-logic-apps
 ms.topic: include
-author: ecfan
+author: divyaswarnkar
 ms.author: divswa
 ms.update-cycle: 1095-days
 ms.date: 03/11/2026

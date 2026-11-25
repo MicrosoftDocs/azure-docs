@@ -8,7 +8,7 @@ metadata:
   description: Build automated scalable workflows for business processes and enterprise orchestrations to integrate apps and data across cloud services and on-premises systems.
   ms.service: azure-logic-apps
   ms.topic: landing-page
-  author: ecfan
+  author: divyaswarnkar
   ms.author: divswa
   ms.date: 09/11/2026
   ms.update-cycle: 1095-days

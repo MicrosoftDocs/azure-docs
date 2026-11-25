@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: The supported Liquid transformation kinds for unit testing data map operations in Azure Logic Apps.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 06/05/2026

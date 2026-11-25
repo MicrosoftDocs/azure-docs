@@ -1,7 +1,7 @@
 ---
 title: What are AI Agentic Workflows?
 description: Learn how workflows benefit from using AI agents with models to complete tasks in Azure Logic Apps.
-author: ecfan
+author: divyaswarnkar
 services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, divswa, karansin, krmitta, azla
