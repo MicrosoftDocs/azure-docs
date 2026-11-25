@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure Bastion?
 description: Learn what's new with Azure Bastion, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
-author: aatsang
+author: mialdrid
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 03/13/2025
