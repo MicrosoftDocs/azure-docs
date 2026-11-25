@@ -1,7 +1,7 @@
 ---
 title: Configure cost accounting and budget tracking for Azure HPC
 description: Set up cost management and accounting to track HPC resource usage, project costs, and budget forecasting on Azure.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to

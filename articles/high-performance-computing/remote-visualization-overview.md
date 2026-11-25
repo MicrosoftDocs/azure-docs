@@ -2,7 +2,7 @@
 title: Remote visualization for high-performance computing on Azure
 description: Learn how remote visualization keeps interactive HPC graphics and data close to Azure compute and storage resources.
 ai-usage: ai-generated
-author: padmalathas
+author: mdosterjr
 ms.author: mdoster
 ms.date: 08/24/2026
 ms.topic: concept-article

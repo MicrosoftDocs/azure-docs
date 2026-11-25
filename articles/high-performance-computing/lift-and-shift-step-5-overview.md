@@ -1,7 +1,7 @@
 ---
 title: Enable user access and job submission for Azure HPC
 description: Configure end-user entry points including VPN, Bastion, web portals, and remote visualization for HPC job submission on Azure.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to

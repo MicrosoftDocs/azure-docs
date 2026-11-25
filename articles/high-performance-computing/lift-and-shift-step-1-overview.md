@@ -1,7 +1,7 @@
 ---
 title: Production HPC environment on Azure - deployment overview
 description: Get a high level idea of the steps involved when migrating basic infrastructure components during a migration of high performance computing architecture.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to

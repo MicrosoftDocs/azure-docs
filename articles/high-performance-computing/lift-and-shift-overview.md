@@ -1,7 +1,7 @@
 ---
 title: Plan your on-premises HPC migration to cloud
 description: Learn how to plan and execute a lift-and-shift migration of HPC workloads from on-premises to cloud, including personas, architecture components, and best practices.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/12/2026
 ms.topic: how-to
