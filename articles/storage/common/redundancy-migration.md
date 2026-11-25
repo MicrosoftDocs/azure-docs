@@ -8,7 +8,7 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/10/2025
-ms.author: shaas
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to change the replication settings of my storage account, so that I can optimize cost and availability based on my organization's data protection requirements."

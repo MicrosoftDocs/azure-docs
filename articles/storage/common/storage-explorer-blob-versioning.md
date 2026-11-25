@@ -7,7 +7,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: concept-article
 ms.date: 08/19/2020
-ms.author: jinglou
+ms.author: normesta
 ms.reviewer: cralvord,richardgao
 # Customer intent: As a cloud storage user, I want to manage and view different versions of my blobs using a user-friendly interface, so that I can easily access, restore, and delete specific blob versions as needed for effective data management.
 ---

@@ -8,7 +8,7 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: shaas
+ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: storage-common-concepts
 ms.devlang: python

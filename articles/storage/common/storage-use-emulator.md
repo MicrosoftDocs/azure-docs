@@ -2,7 +2,7 @@
 title: "Use the Azure Storage Emulator (Deprecated)"
 description: The Azure Storage Emulator (deprecated) provides a free local development environment for developing and testing your Azure Storage applications.
 author: stevenmatthew
-ms.author: shaas
+ms.author: normesta
 ms.reviewer: normesta
 ms.date: 08/11/2026
 ms.service: azure-storage

@@ -5,7 +5,7 @@ description: Get started developing a .NET application to manage a storage accou
 services: storage
 author: stevenmatthew
 
-ms.author: shaas
+ms.author: normesta
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 02/12/2025
