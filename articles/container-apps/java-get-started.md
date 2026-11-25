@@ -3,7 +3,7 @@ title: Launch Your First Java Application in Azure Container Apps using a WAR or
 description: Shows how to deploy a Java project in Azure Container Apps using a WAR or JAR file.
 services: container-apps
 author: KarlErickson
-ms.author: karler
+ms.author: vyomnagrani
 ms.reviewer: cshoe
 ms.service: azure-container-apps
 ms.custom: devx-track-java, devx-track-extended-java

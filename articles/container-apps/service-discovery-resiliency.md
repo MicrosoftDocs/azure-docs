@@ -8,7 +8,7 @@ ms.service: azure-container-apps
 ms.subservice: dapr
 ms.topic: how-to
 ms.date: 11/07/2025
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.custom:
   - ignite-fall-2023
   - ignite-2023
