@@ -363,4 +363,4 @@ Via the response we should see:
 }
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application and modified request and response headers via Ingress API on Application Gateway for Containers.
+Congratulations, you installed ALB Controller, deployed a backend application, and modified request and response headers through the Ingress API on Application Gateway for Containers.
