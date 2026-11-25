@@ -3,7 +3,7 @@ title: "Durable Task Programming Model: Orchestrators, Activities, and Entities"
 description: Explore the Durable Task programming model, including orchestrators, activities, entities, and client APIs. Build stateful, fault-tolerant workflows with Durable Functions or Durable Task SDKs. Get started today.
 author: cgillum
 ms.topic: concept-article
-ms.date: 11/10/2026
+ms.date: 11/23/2026
 ms.author: azfuncdf
 ms.reviewer: hannahhunter
 ms.service: durable-task
@@ -134,7 +134,7 @@ You define an entity function by using the [entity trigger binding](../durable-f
 You define an entity by implementing a class or function and registering it with the Durable Task worker. The Go SDK supports function-based entities through `task.EntityContext`.
 
 > [!NOTE]
-> Entity support is available in the .NET, JavaScript/TypeScript, Python, Java, and Go (beta) SDKs.
+> Entity support is available in the .NET, JavaScript/TypeScript, Python, Java, and Go (preview) SDKs.
 
 ::: zone-end
 

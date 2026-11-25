@@ -139,6 +139,9 @@ var configurationClient = new ConfigurationClient(
 ### [Java](#tab/java)
 #### Spring configuration provider
 
+> [!NOTE]
+> If you're using version **7.5.0** or later, the audience is auto detected, unless you manually provide one by using the following method.
+
 If your application uses any of the following packages, configure the audience by customizing the `ConfigurationClientBuilder` through the `ConfigurationClientCustomizer` interface, then adding it to the bootstrap registry. Use version **5.22.0** or later of the following packages to configure the audience.
  - `spring-cloud-azure-appconfiguration-config`
  - `spring-cloud-azure-appconfiguration-config-web`
@@ -186,7 +189,10 @@ public class Application {
 }
 ```
 
-#### Azure SDK for Java
+#### Azure SDK for Java 
+
+> [!NOTE]
+> If you're using version **1.12.0** or later, the audience is auto detected, unless you manually provide one by using the following method.
 
 If your application uses the following package, configure the audience by passing the `audience` option to the `ConfigurationClientBuilder` when building a `ConfigurationClient`. Use version **1.8.0** or later of the following package.
  - `azure-data-appconfiguration`
