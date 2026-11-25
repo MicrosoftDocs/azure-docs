@@ -60,6 +60,9 @@ The following example shows the rules that you can configure.
         "no-conflicting-metadata" : {
           "level": "warning"
         },
+        "no-conflicting-version-constraints" : {
+          "level": "error"
+        },
         "no-deployments-resources" : {
           "level": "warning"
         },
@@ -74,6 +77,9 @@ The following example shows the rules that you can configure.
         },
         "no-hardcoded-outputs": {
           "level": "off"
+        },
+        "no-incompatible-entrypoint-version": {
+          "level": "warning"
         },
         "no-loc-expr-outside-params": {
           "level": "off"
