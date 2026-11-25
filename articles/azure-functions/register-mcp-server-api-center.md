@@ -1,7 +1,7 @@
 ---
 title: Register MCP servers hosted in Azure Functions in Azure API Center
 description: "Learn how to register MCP server on Azure API Center"
-author: lilyjma
+author: nzthiago
 ms.author: jiayma
 ms.topic: how-to
 ms.date: 11/12/2025

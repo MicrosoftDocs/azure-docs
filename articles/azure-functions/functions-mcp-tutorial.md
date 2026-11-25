@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Host an MCP server on Azure Functions"
-author: lilyjma
+author: nzthiago
 description: Host your MCP server on Azure Functions with ease. Learn to configure endpoints, enable authentication, and deploy scalable serverless solutions.
 #customer intent: As a developer, I want to enable Microsoft Entra ID authentication for my MCP server so that I can ensure secure access for authorized users.
 ms.author: jiayma
