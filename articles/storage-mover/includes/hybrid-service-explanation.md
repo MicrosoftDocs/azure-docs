@@ -1,6 +1,6 @@
 ---
 author: stevenmatthew
-ms.author: shaas
+ms.author: singra
 ms.topic: include
 ms.date: 06/23/2026
 ms.service: azure-storage-mover

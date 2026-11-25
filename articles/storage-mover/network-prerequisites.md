@@ -2,7 +2,7 @@
 title: Azure Storage Mover networking Requirements
 description: Learn about the network prerequisites for using Azure Storage Mover, including the implementation of private networking.
 author: stevenmatthew
-ms.author: shaas
+ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: concept-article
 ms.date: 10/22/2025
