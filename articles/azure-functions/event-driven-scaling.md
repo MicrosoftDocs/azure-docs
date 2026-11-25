@@ -98,7 +98,7 @@ Scaling can vary based on several factors. Apps scale differently based on the t
 
 ::: zone pivot="consumption-plan,premium-plan"
 
-* **New instance rate:** For HTTP triggers, the platform allocates new instances at most once per second. For non-HTTP triggers, the platform allocates new instances at most once every 30 seconds. Scaling is faster when running in a [Premium plan](functions-premium-plan.md).
+* **New instance rate:** For HTTP triggers, the platform allocates new instances at most once per second. For non-HTTP triggers, the platform allocates new instances at most once every 30 seconds.
 
 ::: zone-end
 
@@ -186,7 +186,7 @@ In the [Flex Consumption plan](flex-consumption-plan.md), the platform also mana
 
 ## Scale-out rate
 
-In the Consumption and Premium plans, the scale controller manages the rate at which new instances are added. For HTTP triggers, new instances are allocated at most once per second. For non-HTTP triggers, new instances are allocated at most once every 30 seconds. Scaling is faster when running in a [Premium plan](functions-premium-plan.md).
+In the Consumption and Premium plans, the scale controller manages the rate at which new instances are added. For HTTP triggers, new instances are allocated at most once per second. For non-HTTP triggers, new instances are allocated at most once every 30 seconds. 
 
 ::: zone-end
 
