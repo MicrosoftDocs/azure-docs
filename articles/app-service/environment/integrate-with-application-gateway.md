@@ -1,7 +1,7 @@
 ---
 title: Integrate with Azure Application Gateway
 description: Integrate an app in your internal load balancer (ILB) App Service Environment with Azure Application Gateway in this end-to-end walk-through.
-author: seligj95
+author: btardif
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
 ms.topic: how-to
 ms.date: 04/06/2026

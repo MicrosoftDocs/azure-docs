@@ -1,7 +1,7 @@
 ---
 title: Create App Service Environment Using ARM Template
 description: Learn how to create an external or internal load balancer (ILB) App Service Environment v3 by using a customized Azure Resource Manager template.
-author: seligj95
+author: btardif
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 ms.date: 10/06/2026

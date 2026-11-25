@@ -1,7 +1,7 @@
 ---
 title: App Service Environment networking
 description: App Service Environment networking details
-author: seligj95
+author: btardif
 ms.topic: overview
 ms.date: 03/30/2026
 ms.author: jordanselig

@@ -4,7 +4,7 @@ description: Learn how to configure zone redundancy for App Service Environments
 ms.topic: how-to
 ms.service: azure-app-service
 ms.date: 10/24/2025
-author: anaharris
+author: btardif
 ms.author: byvinyal
 
 ---

@@ -5,7 +5,7 @@ keywords: app service, azure app service, scale, scalable, app service plan, app
 ms.topic: how-to
 ms.date: 07/10/2026
 ms.author: jordanselig
-author: seligj95
+author: btardif
 ms.custom:
   - references_regions
   - devx-track-azurecli

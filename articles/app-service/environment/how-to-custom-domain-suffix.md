@@ -1,7 +1,7 @@
 ---
 title: Configure Custom Domain Suffix for App Service Environment
 description: Configure a custom domain suffix for App Service Environment in the Azure portal or use an Azure Resource Manager template (ARM template).
-author: seligj95
+author: btardif
 ms.topic: how-to
 ms.date: 03/31/2026
 ms.author: jordanselig

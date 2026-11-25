@@ -1,7 +1,7 @@
 ---
 title: Create an App Service Environment
 description: Learn how to create an App Service Environment, which integrates with an Azure virtual network and supports internal or external virtual IP types.
-author: seligj95
+author: btardif
 ms.topic: quickstart
 ms.date: 10/06/2026
 ms.author: jordanselig

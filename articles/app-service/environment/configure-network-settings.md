@@ -1,7 +1,7 @@
 ---
 title: Configure App Service Environment Networking Settings
 description: Configure networking settings for an Azure App Service environment, including FTP access, private endpoint creation, and remote debugging. Use the Azure CLI, Azure Resource Manager templates, or the Azure portal.
-author: seligj95
+author: btardif
 keywords: ASE, ASEv3, ftp, remote debug
 ms.topic: how-to
 ms.custom: devx-track-arm-template, devx-track-azurecli
