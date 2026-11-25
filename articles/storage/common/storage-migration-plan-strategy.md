@@ -77,7 +77,7 @@ These decisions—cloud-only versus hybrid storage, one-time versus repetitive t
 
 In certain scenarios, data migration can be effectively managed using replication tools. These tools continuously copy data from a source environment to Azure, ensuring that the destination remains synchronized throughout the migration process. 
 
-For example, Azure Migrate supports replication of on-premises physical and virtual machines, including their disks and embedded data, to Azure virtual machines. It offers a comprehensive solution that includes planning, monitoring replication health, managing cutover, and orchestrating the entire migration workflow. During the process, on-premises disks are converted into Azure managed disks, streamlining integration with cloud infrastructure.
+For example, Azure Catalyst supports replication of on-premises physical and virtual machines, including their disks and embedded data, to Azure virtual machines. It offers a comprehensive solution that includes planning, monitoring replication health, managing cutover, and orchestrating the entire migration workflow. During the process, on-premises disks are converted into Azure managed disks, streamlining integration with cloud infrastructure.
 
 Independent software vendor (ISV) solutions such as *Carbonite Migrate* and *Veeam Backup and Replication* also rely on replication technologies to transfer large volumes of data. These tools often require separate deployment and configuration but offer advanced capabilities such as premigration testing, real-time synchronization, and reduced downtime during cutover.
 
@@ -102,7 +102,7 @@ Review the following resources for more information on this subject.
 - [Introduction to Azure Storage Mover](../../storage-mover/service-overview.md)
 - [Combine Azure Storage Mover and Azure Data Box](https://techcommunity.microsoft.com/blog/azurestorageblog/storage-migration-combine-azure-storage-mover-and-azure-data-box/4143354)
 - [Copy or move data to Azure Storage by using AzCopy v10](storage-use-azcopy-v10.md)
-- [Migration and modernization tool - Azure Migrate](../../migrate/tutorial-migrate-vmware.md)
+- [Migration and modernization tool - Azure Catalyst](../../migrate/tutorial-migrate-vmware.md)
 - [Azure Storage Migration Program Details](../solution-integration/validated-partners/data-management/azure-file-migration-program-solutions.md)
 - [Introduction to Azure File Sync](../file-sync/file-sync-introduction.md)
 - [Azure Data Factory quickstart](../../data-factory/quickstart-get-started.md)

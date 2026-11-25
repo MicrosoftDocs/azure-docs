@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 09/04/2026
+ms.date: 11/23/2026
 ms.author: cshoe
 ---
 
@@ -100,7 +100,7 @@ Your choice of plan determines how billing calculations are made. Different appl
 Billing details:
 
 - No extra charges for using the Azure Functions programming model within Container Apps.
-- Durable Functions and other advanced patterns are supported and billed under the same Container Apps pricing model.
+- Durable Functions and other advanced patterns are supported and billed under the same Azure Container Apps pricing model. When you use Durable Task Scheduler, Scheduler charges are separate from Azure Container Apps compute. For details, see [Durable Task Scheduler billing](../durable-task/scheduler/durable-task-scheduler-billing.md).
 For detailed billing mechanics and examples, refer to the [Billing in Azure Container Apps](../container-apps/billing.md) documentation.
 
 ## Event-driven scaling
@@ -115,7 +115,7 @@ The platform automatically translates your Functions trigger parameters (from `h
 
 **All standard Azure Functions triggers and bindings are supported** in Container Apps with following **exceptions**:
 - Blob Storage Trigger auto scaling: Only works when using Event Grid as the source. Learn more about [Triggering Azure Functions on blob containers using an event subscription](../azure-functions/functions-event-grid-blob-trigger.md)
-- Durable Functions autoscaling: Supports only Microsoft SQL Server and Durable Task Scheduler storage providers. For more information, see [Deploy Durable Functions with SQL Server](../durable-task/durable-functions/durable-functions-mssql-container-apps-hosting.md).
+- Durable Functions autoscaling: Supports Microsoft SQL Server and Durable Task Scheduler storage providers. For Scheduler-backed apps, include the provider configuration in the deployed `host.json` and configure the scale rules as described in [Configure autoscaling for Durable Task apps in Container Apps](../durable-task/sdks/durable-task-scheduler-auto-scaling.md). For SQL Server, see [Deploy Durable Functions with SQL Server](../durable-task/durable-functions/durable-functions-mssql-container-apps-hosting.md).
 - Autoscaling isn't supported for:
   - Azure Cache for Redis  
   - Azure SQL

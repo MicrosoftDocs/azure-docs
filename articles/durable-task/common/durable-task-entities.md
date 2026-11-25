@@ -4,7 +4,7 @@ description: "Discover what durable entities are and how to use them to manage s
 author: cgillum
 ms.topic: overview
 ms.service: durable-task
-ms.date: 10/12/2026
+ms.date: 11/23/2026
 ai-usage: ai-assisted
 ms.author: azfuncdf
 ms.devlang: csharp
@@ -57,7 +57,7 @@ Entity functions and related features are available in [Durable Functions 2.0](.
 | Java | ✅ |
 | Python | ✅ |
 | JavaScript | ✅ |
-| Go (beta) | ✅ |
+| Go (preview) | ✅ |
 | PowerShell | ❌ |
 
 ::: zone-end

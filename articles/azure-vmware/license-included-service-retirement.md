@@ -52,5 +52,5 @@ Allow plenty of time to purchase VCF licenses from Broadcom and complete the tra
 - [How to use portable VCF subscriptions with Azure VMware Solution](/azure/azure-vmware/vmware-cloud-foundations-license-portability)
 - [Self-service exchanges and refunds for Azure Reservations](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations)
 - [Explore VMware destinations in Azure](https://azure.microsoft.com/solutions/migrate-and-modernize-vmware-in-azure)
-- Leverage [Azure Migrate](https://portal.azure.com/#view/Microsoft_Azure_Migrate/AmhResourceMenuBlade/~/getStarted) to assess your current Azure VMware Solution environment.
+- Leverage [Azure Catalyst](https://portal.azure.com/#view/Microsoft_Azure_Migrate/AmhResourceMenuBlade/~/getStarted) to assess your current Azure VMware Solution environment.
 - To purchase portable VCF subscriptions contact Broadcom or leverage one of the [Broadcom channel partners here](https://www.broadcom.com/how-to-buy/partner-distributor-lookup).

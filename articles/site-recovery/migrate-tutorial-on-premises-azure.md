@@ -1,7 +1,7 @@
 ---
-title: Migrate on-premises machines to Azure with Azure Migrate
+title: Migrate on-premises machines to Azure with Azure Catalyst
 ms.reviewer: v-gajeronika
-description: This article summarizes how to migrate on-premises machines to Azure, and recommends Azure Migrate.
+description: This article summarizes how to migrate on-premises machines to Azure, and recommends Azure Catalyst.
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 10/31/2025
@@ -14,11 +14,13 @@ author: Jeronika-MS
 
 This article describes options for migrating on-premises machines to Azure. 
 
-## Migrate with Azure Migrate
+<a name="migrate-with-azure-migrate"></a>
 
-We recommend that you migrate machines to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. Azure Migrate is purpose-built for server migration. Azure Migrate provides a centralized hub for discovery, assessment, and migration of on-premises machines to Azure.
+## Migrate with Azure Catalyst
 
-Follow these links to migrate with Azure Migrate:
+We recommend that you migrate machines to Azure using the [Azure Catalyst](../migrate/migrate-services-overview.md) service. Azure Catalyst is purpose-built for server migration. Azure Catalyst provides a centralized hub for discovery, assessment, and migration of on-premises machines to Azure.
+
+Follow these links to migrate with Azure Catalyst:
 
 - [Learn about](../migrate/server-migrate-overview.md) migration options for VMware VMs, then migrate VMs to Azure with [agentless](../migrate/tutorial-migrate-vmware.md) or [agent-based](../migrate/tutorial-migrate-vmware-agent.md) migration.
 - [Migrate Hyper-V VMs](../migrate/tutorial-migrate-hyper-v.md) to Azure.
@@ -39,4 +41,4 @@ If you're already using Azure Site Recovery, and you want to continue using it f
 
 ## Next steps
 
-- [Review common questions](../migrate/resources-faq.md) about Azure Migrate.
+- [Review common questions](../migrate/resources-faq.md) about Azure Catalyst.

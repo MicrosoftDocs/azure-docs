@@ -1,6 +1,6 @@
 ---
-title: Migrate Windows Server 2008 servers to Azure with Azure Migrate/Site Recovery
-description: This article describes how to migrate on-premises Windows Server 2008 machines to Azure, and recommends Azure Migrate.
+title: Migrate Windows Server 2008 servers to Azure with Azure Catalyst/Site Recovery
+description: This article describes how to migrate on-premises Windows Server 2008 machines to Azure, and recommends Azure Catalyst.
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 10/15/2026
@@ -27,13 +27,15 @@ In this tutorial, you learn how to:
 > * Run a test migration to make sure everything's working as expected.
 > * Fail over to Azure and complete the migration.
 
-## Migrate with Azure Migrate
+<a name="migrate-with-azure-migrate"></a>
 
-We recommend that you migrate machines to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. 
+## Migrate with Azure Catalyst
 
-- Azure Migrate is purpose-built for server migration.
-- Azure Migrate provides a centralized hub for discovery, assessment and migration of on-premises machines to Azure. Azure Site Recovery should be used for disaster recovery only, and not migration.
-- Azure Migrate supports migration of servers running Windows Server 2008.
+We recommend that you migrate machines to Azure using the [Azure Catalyst](../migrate/migrate-services-overview.md) service. 
+
+- Azure Catalyst is purpose-built for server migration.
+- Azure Catalyst provides a centralized hub for discovery, assessment and migration of on-premises machines to Azure. Azure Site Recovery should be used for disaster recovery only, and not migration.
+- Azure Catalyst supports migration of servers running Windows Server 2008.
 
 
 ## Migrate with Site Recovery
@@ -175,4 +177,4 @@ Run a failover for the machines you want to migrate.
 
 ## Next steps
 
-- [Review common questions](../migrate/resources-faq.md) about Azure Migrate.
+- [Review common questions](../migrate/resources-faq.md) about Azure Catalyst.

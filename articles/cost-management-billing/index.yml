@@ -54,7 +54,7 @@ productDirectory:
         - url: https://aka.ms/tco-blog
           text: TCO calculator
         - url: ../migrate/index.yml
-          text: Azure Migrate
+          text: Azure Catalyst
     - title: Reporting + analytics
       imageSrc: ./media/cost-analysis.svg
       links:

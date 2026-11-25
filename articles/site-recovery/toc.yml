@@ -577,7 +577,7 @@
     href: ../automation/index.yml
   - name: Azure Resource Mover
     href: ../resource-mover/index.yml
-  - name: Azure Migrate
+  - name: Azure Catalyst
     href: ../migrate/index.yml
 - name: Resources
   items:

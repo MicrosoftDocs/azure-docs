@@ -301,7 +301,7 @@ items:
       items:
         - name: Overview
           href: migrate-overview.md
-        - name: Migrate to Azure Container Apps with Azure Migrate
+        - name: Migrate to Azure Container Apps with Azure Catalyst
           href: migrate-azure-migrate.md
         - name: Heroku migration overview
           href: migrate-heroku-overview.md

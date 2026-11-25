@@ -67,7 +67,7 @@ Read this article if you:
 
 Read this article if you:
 
-- Are using Azure Migrate with Private Endpoint support during the migration process.
+- Are using Azure Catalyst with Private Endpoint support during the migration process.
 - Plan to adopt Azure PaaS services as part of the post-migration target architecture.
 - Need to understand how Private Endpoints work before integrating them with your cross-cloud design.
 
@@ -164,9 +164,9 @@ Create a dedicated Private Link subnet in each spoke VNet. App teams use this su
 
 ::: zone pivot="cross-cloud"
 
-Azure Migrate appliance supports Private Endpoint connectivity, which secures the migration control plane traffic. Beyond that, defer Private Link planning to post-migration optimization:
+Azure Catalyst appliance supports Private Endpoint connectivity, which secures the migration control plane traffic. Beyond that, defer Private Link planning to post-migration optimization:
 
-- **Azure Migrate with Private Endpoint:** During the migration process, the Azure Migrate appliance can use a Private Endpoint to communicate with the Azure Migrate project. This approach keeps migration control traffic off the public internet.
+- **Azure Catalyst with Private Endpoint:** During the migration process, the Azure Catalyst appliance can use a Private Endpoint to communicate with the Azure Catalyst project. This approach keeps migration control traffic off the public internet.
 - **Defer broad Private Link adoption:** Focus on cross-cloud transit connectivity first. Once you migrate and stabilize workloads in Azure, plan Private Endpoints for PaaS services as a separate optimization pass.
 - **Reserve subnet space:** Even if you skip Private Link now, reserve a subnet in each spoke for future Private Endpoints. Cross-cloud workloads that later adopt Azure PaaS services need this capacity.
 
