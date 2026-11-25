@@ -1,7 +1,7 @@
 ---
 title: Embed Azure Communication Services Chat in a custom Microsoft Teams app
 description: Learn how to use an Azure Communication Services Chat app from within Teams, without using interoperability linkage.
-author: emlynmac
+author: diberry
 manager: kperla97
 services: azure-communication-services
 
