@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 04/08/2025
 ms.custom: devx-track-terraform
 ms.service: azure-app-service
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 #customer intent: As a Terraform user, I want to learn how to configure an Azure App Service Environment v3.
 content_well_notification: 
   - AI-contribution
