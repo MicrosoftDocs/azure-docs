@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 title: Durable Task Scheduler billing
 titleSuffix: Durable Task
 description: "Learn how Durable Task Scheduler billing works, including Dedicated and Consumption SKU pricing, actions calculation, and compute costs. Explore pricing examples to estimate your costs."

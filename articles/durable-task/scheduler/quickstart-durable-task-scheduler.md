@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: "Quickstart: Configure a Durable Functions app to use Durable Task Scheduler"
 titleSuffix: Durable Task

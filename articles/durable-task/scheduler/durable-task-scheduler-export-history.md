@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 title: "Export Orchestration History with Durable Task Scheduler (Preview)"
 titleSuffix: Durable Task
 description: Learn about exporting Durable Task Scheduler orchestration histories to Azure Blob Storage with the .NET SDK, Java SDK, and Go SDK preview.

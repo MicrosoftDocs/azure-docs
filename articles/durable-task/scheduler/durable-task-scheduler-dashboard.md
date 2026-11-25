@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: "Durable Task Scheduler Dashboard: Debug and Manage Orchestrations"
 titleSuffix: Durable Task
