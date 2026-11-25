@@ -3,7 +3,7 @@ title: Validate Webhook Endpoints with Event Grid Schema
 description: This article describes WebHook event delivery and endpoint validation when using webhooks and the Event Grid event schema.
 ms.topic: concept-article
 ms.date: 03/27/2026
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ms.reviewer: spelluru
 ms.custom: FY25Q1-Linter

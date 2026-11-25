@@ -4,7 +4,7 @@ description: Azure Event Grid security controls access to resources using Azure 
 #customer intent: As an IT admin, I want to understand how to control access to Azure Event Grid resources using role-based access control so that I can ensure only authorized users can perform management operations.
 ms.topic: concept-article
 ms.date: 03/26/2026
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ms.reviewer: spelluru
 # Customer intent: I want to know how to secure access to Azure Event Grid resources. 

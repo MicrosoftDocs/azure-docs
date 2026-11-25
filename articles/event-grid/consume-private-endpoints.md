@@ -4,7 +4,7 @@ description: Private link event delivery in Azure Event Grid supports pull deliv
 #customer intent: As a solutions architect, I want to know if Azure Event Grid push delivery supports private link so that I can determine the right event delivery approach for my secure network environment.
 ms.topic: how-to
 ms.date: 03/27/2026
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ms.reviewer: spelluru
 # Customer intent: I would like to know if delivering events using private link service is supported in the Push model.

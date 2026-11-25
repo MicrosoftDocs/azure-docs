@@ -5,7 +5,7 @@ description: Learn how Azure Event Grids Partner Events enables seamless event-d
 ms.topic: overview
 ms.date: 03/31/2026
 ms.service: azure-event-grid
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ms.reviewer: spelluru
 ms.custom:

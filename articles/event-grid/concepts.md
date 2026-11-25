@@ -2,7 +2,7 @@
 title: Concepts (push delivery) in Event Grid basic
 ms.reviewer: spelluru
 ms.author: seshanmugam
-author: spelluru
+author: Connected-Seth
 description: Understand Azure Event Grid's push delivery model, including event handlers, retry mechanisms, and supported formats like CloudEvents.
 #customer intent: As a developer, I want to understand the key concepts of Azure Event Grid push delivery so that I can design event-driven applications effectively.
 ms.topic: concept-article

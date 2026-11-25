@@ -2,7 +2,7 @@
 title: HTTP Publish of MQTT Messages with Azure Event Grid
 description: Publish MQTT messages via HTTP with Azure Event Grid for scalable server-to-device communication. Learn how to use the HTTP Publish API effectively.
 #customer intent: As a back-end developer, I want to publish MQTT messages via HTTP so that I can integrate with Azure Event Grid without maintaining persistent MQTT sessions.
-author: spelluru
+author: Connected-Seth
 contributors: null
 ms.topic: concept-article
 ms.date: 07/30/2025

@@ -4,7 +4,7 @@ description: "Azure Event Grid HTTP endpoint events - validate your endpoint, th
 #customer intent: As a developer, I want to set up an HTTP endpoint to receive events from Azure Event Grid so that my application can react to events in real time.
 ms.topic: how-to
 ms.date: 03/27/2026
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ms.reviewer: spelluru
 ms.devlang: csharp
