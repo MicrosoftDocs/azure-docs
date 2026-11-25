@@ -2,7 +2,7 @@
 title: Overview of Azure Catalyst Application and Code Assessment for Java
 description: Azure Catalyst application and code assessment tool - Overview.
 author: KarlErickson
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.service: azure-java
 ms.subservice: java-fundamentals

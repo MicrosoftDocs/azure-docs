@@ -6,7 +6,7 @@ metadata:
   ms.service: azure-migrate
   ms.topic: faq
   ms.date: 11/15/2023
-  ms.author: yenchiho
+  ms.author: sandeepsen
 title: Frequently asked questions about Azure Catalyst application and code assessment
 summary: |
   This article provides answers to some of the most common questions about [Azure Catalyst application and code assessment](overview.md).
