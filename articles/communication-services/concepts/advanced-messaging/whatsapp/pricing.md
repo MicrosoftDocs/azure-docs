@@ -2,7 +2,7 @@
 title: Pricing for Advanced Messaging
 titleSuffix: An Azure Communication Services article
 description: Learn about pricing for Advanced Messaging in Azure Communication Services.
-author: darmour
+author: diberry
 manager: sundraman
 services: azure-communication-services
 ms.author: diberry
