@@ -2,7 +2,7 @@
 title: REST API for Teams Phone extensibility
 titleSuffix: An Azure Communication Services article
 description: This article describes the REST API structure for Teams Phone Extensibility.
-author: sofiar
+author: diberry
 manager: miguelher
 services: azure-communication-services
 ms.author: diberry

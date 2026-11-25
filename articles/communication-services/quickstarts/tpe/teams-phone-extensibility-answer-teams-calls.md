@@ -2,7 +2,7 @@
 title: Answer Teams Phone calls from Call Automation
 titleSuffix: An Azure Communication Services article
 description: This article describes how to receive and answer incoming Teams Phone Extensibility calls on Azure Communication Services.
-author: sofiar
+author: diberry
 manager: miguelher
 services: azure-communication-services
 ms.author: diberry
