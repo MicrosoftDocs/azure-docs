@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 01/08/2026
-ms.author: rogarana
+ms.author: normesta
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: As a cloud architect, I want to understand networking options for Azure Elastic SAN, so that I can configure secure and efficient access to Elastic SAN volumes from my applications and enterprise environments.
 ---

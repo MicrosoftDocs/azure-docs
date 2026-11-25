@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 11/05/2026
-ms.author: rogarana
+ms.author: normesta
 ---
 
 # How performance works when VMs connect to Elastic SAN Next Generation volumes

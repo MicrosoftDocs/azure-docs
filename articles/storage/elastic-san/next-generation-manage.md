@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 11/06/2026
-ms.author: rogarana
+ms.author: normesta
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: "As a storage administrator, I want to manage capacity and performance and safely delete Elastic SAN Next Generation resources that I no longer need."
 ---

@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: sample
 ms.date: 01/09/2026
-ms.author: rogarana
+ms.author: normesta
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud architect, I want to create multiple Elastic SAN volumes in a batch using a CSV file, so that I can streamline the volume provisioning process and improve efficiency in managing storage resources."
 ---
