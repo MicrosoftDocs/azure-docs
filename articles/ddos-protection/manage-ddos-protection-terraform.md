@@ -1,7 +1,7 @@
 ---
 title: 'QuickStart: Create and configure Azure DDoS Network Protection using Terraform'
 description: In this article, you create and configure Azure DDoS Network Protection using Terraform
-author: TomArcherMsft
+author: amirdahan72
 ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: devx-track-terraform
