@@ -6,7 +6,7 @@ ms.custom: devx-track-js, devx-track-python
 ms.date: 11/23/2026
 ai-usage: ai-assisted
 ms.author: vyomnagrani
-author: hhunter-ms
+author: diberry
 ms.service: durable-task
 zone_pivot_groups: azure-durable-approach
 ---

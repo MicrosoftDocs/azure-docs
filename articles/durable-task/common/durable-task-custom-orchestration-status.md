@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 title: "Custom Orchestration Status: Configure and Query"
 description: "Learn how to set, query, and display custom orchestration status values to track progress and share metadata with external clients in your workflows."
 ms.topic: how-to

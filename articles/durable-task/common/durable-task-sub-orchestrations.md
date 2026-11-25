@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 title: "Sub-orchestrations in Durable Task"
 description: Learn how to use sub-orchestrations to call orchestrator functions from parent orchestrators in Durable Functions and Durable Task SDKs. Get started now.
 ms.topic: concept-article
