@@ -6,7 +6,7 @@ services: storage
 ms.service: azure-import-export
 ms.topic: how-to
 ms.date: 03/14/2022
-ms.author: shaas
+ms.author: jeevanm
 # Customer intent: "As a data engineer, I want to repair an Azure Import/Export job by identifying and re-uploading missing files, so that I can ensure successful data transfer to the cloud storage without having to recreate the entire import job."
 ---
 
