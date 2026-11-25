@@ -1,7 +1,7 @@
 ---
 title: Using Scheduled Events
 description: Learn how to use Azure Scheduled Events in Azure CycleCloud to run scripts automatically when VM maintenance events occur on a node.
-author: dougclayton
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: mattmcinnes

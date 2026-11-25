@@ -1,7 +1,7 @@
 ---
 title: Run Multiple Installs on the Same Machine
 description: How to install multiple instances of Azure CycleCloud on the same machine.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: adjohnso

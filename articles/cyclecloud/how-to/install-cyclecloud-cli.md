@@ -1,7 +1,7 @@
 ---
 title: Install the Command Line Interface
 description: Install the CycleCloud CLI, which provides console access to the CycleCloud application, making functions seen in the GUI available from the command line.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: adjohnso

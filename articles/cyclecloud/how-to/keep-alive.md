@@ -1,7 +1,7 @@
 ---
 title: Prevent Node Termination
 description: Learn how to prevent Azure CycleCloud from terminating cluster nodes, including how to keep specific nodes alive during autoscale.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: adjohnso

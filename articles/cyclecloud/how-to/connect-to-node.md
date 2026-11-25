@@ -1,7 +1,7 @@
 ---
 title: Connecting to a Cluster Node
 description: Use the CycleCloud web interface or CycleCloud CLI to log into a cluster node
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: mattmcinnes
