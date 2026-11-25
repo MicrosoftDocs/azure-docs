@@ -2,7 +2,7 @@
 title: Use Queries in Traffic Analytics
 titleSuffix: Azure Network Watcher
 description: Explore sample KQL queries for Azure Traffic Analytics to identify top talkers, analyze traffic flows, and monitor security scenarios effectively.
-author: halkazwini
+author: huzefafw
 ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to

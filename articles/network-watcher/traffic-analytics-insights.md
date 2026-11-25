@@ -1,7 +1,7 @@
 ---
 title: Get Security Insights from Azure Traffic Analytics Using Natural Language
 description: Learn how to use natural language prompts with Azure Traffic Analytics to investigate public exposure, risky ports, denied traffic trends, and cross-virtual network communication without writing KQL queries.
-author: srijanch
+author: huzefafw
 ms.author: srijanch
 ms.reviewer: mbender
 reviewer: mbender-ms

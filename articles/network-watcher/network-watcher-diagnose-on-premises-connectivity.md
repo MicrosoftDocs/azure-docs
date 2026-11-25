@@ -3,7 +3,7 @@ title: Diagnose On-premises VPN Connectivity with Azure
 titleSuffix: Azure Network Watcher
 description: Learn how to diagnose on-premises VPN connectivity with Azure using Azure Network Watcher VPN troubleshoot tool.
 ms.author: hufurnit
-author: halkazwini
+author: huzefafw
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 02/25/2026

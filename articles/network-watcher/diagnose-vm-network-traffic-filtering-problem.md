@@ -2,7 +2,7 @@
 title: 'Quickstart: Diagnose a VM Traffic Filter Problem - Azure Portal'
 titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using Azure Network Watcher IP flow verify in the Azure portal.
-author: halkazwini
+author: huzefafw
 ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: quickstart

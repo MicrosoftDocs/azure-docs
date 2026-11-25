@@ -2,7 +2,7 @@
 title: IP Flow Verify Overview
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher IP flow verify to check if traffic is allowed or denied to and from your Azure virtual machines (VMs).
-author: halkazwini
+author: huzefafw
 ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: concept-article

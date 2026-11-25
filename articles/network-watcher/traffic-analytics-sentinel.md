@@ -1,7 +1,7 @@
 ---
 title: Integrate Microsoft Sentinel with Traffic Analytics
 description: Discover how you can integrate Azure Traffic Analytics with Microsoft Sentinel to detect network threats and anomalies.
-author: halkazwini
+author: huzefafw
 ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to

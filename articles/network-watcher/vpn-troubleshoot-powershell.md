@@ -2,7 +2,7 @@
 title: Troubleshoot VPN Gateways and Connections - PowerShell
 titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Network Watcher VPN troubleshoot capability to troubleshoot VPN virtual network gateways and their connections using PowerShell.
-author: halkazwini
+author: huzefafw
 ms.author: hufurnit 
 ms.service: azure-network-watcher
 ms.topic: how-to
