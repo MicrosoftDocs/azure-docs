@@ -5,7 +5,7 @@ ms.topic: include
 ms.service: azure-vmware
 ms.date: 11/23/2026
 author: jjaygbay1 
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: As a cloud architect, I want to access the supported VMware software version details for Azure VMware Solution, so that I can ensure compatibility and optimize configurations for new deployments in our private cloud environment.
 ---
