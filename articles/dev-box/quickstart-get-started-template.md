@@ -13,7 +13,7 @@ ms.custom:
   - ai-gen-description
 ms.topic: quickstart
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 11/21/2025
 ---
 

@@ -6,7 +6,7 @@ author: krkutser
 manager: rcole
 services: azure-communication-services
 
-ms.author: krkutser
+ms.author: diberry
 ms.date: 03/04/2025
 ms.topic: feature-availability
 ms.service: azure-communication-services

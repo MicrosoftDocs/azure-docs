@@ -6,7 +6,7 @@ services: storage
 ms.service: azure-import-export
 ms.topic: tutorial
 ms.date: 02/13/2023
-ms.author: shaas
+ms.author: jeevanm
 ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As a data manager, I want to import large datasets to Azure Files using the Import/Export service, so that I can securely transfer storage media to Azure for efficient data management.
 ---

@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
 ms.date: 07/01/2026
-ms.author: rolyon
+ms.author: diberry
 
 ---
 

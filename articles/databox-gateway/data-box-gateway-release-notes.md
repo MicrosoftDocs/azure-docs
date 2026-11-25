@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: azure-data-box-gateway
 ms.topic: release-notes
 ms.date: 11/11/2020
-ms.author: shaas
+ms.author: bchakra
 # Customer intent: As a data administrator, I want to review the release notes for Azure Data Box Gateway, so that I can stay informed about critical issues and new features before deploying the device.
 ---
 

@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 10/15/2025
-ms.author: rolyon
+ms.author: diberry
 ms.custom: sfi-image-nochange
 ---
 

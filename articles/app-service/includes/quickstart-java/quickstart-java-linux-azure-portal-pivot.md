@@ -1,10 +1,10 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/21/2023
-ms.author: cephalin
+ms.author: byvinyal
 ms.custom:
   - linux-related-content
   - sfi-image-nochange

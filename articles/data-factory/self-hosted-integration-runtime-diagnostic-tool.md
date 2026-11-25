@@ -1,7 +1,7 @@
 ---
 title: Self-hosted integration runtime diagnostic tool
 description: Diagnostic tool for self-hosted integration runtime
-ms.author: makromer
+ms.author: weetok
 author: kromerm
 ms.subservice: integration-runtime
 ms.topic: feature-guide

@@ -14,7 +14,7 @@ ms.topic: concept-article
 
 ms.date: 07/07/2025
 
-ms.author: ananyagarg
+ms.author: sgallagher
 ---
 # How to move a Nested Confidential VM from one region to another
 

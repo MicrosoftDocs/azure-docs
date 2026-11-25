@@ -5,7 +5,7 @@ description: This article gives you links to solution and training information t
 author: kengaderdus
 manager: CelesteDG
 
-ms.author: kengaderdus
+ms.author: diberry
 ms.date: 01/11/2024
 ms.topic: concept-article
 ms.service: entra-id

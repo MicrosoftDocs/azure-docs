@@ -6,7 +6,7 @@ author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 04/30/2026
-ms.author: wellee
+ms.author: ajitbhu
 ms.custom:
 ---
 

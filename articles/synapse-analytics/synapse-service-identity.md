@@ -7,7 +7,7 @@ ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: how-to
 ms.date: 11/11/2024
-ms.author: mesrivas 
+ms.author: rakrish 
 ms.custom: devx-track-azurepowershell, synapse, subject-rbac-steps
 ---
 

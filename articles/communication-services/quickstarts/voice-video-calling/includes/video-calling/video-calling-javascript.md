@@ -3,7 +3,7 @@ author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/13/2023
-ms.author: rifox
+ms.author: diberry
 ms.custom: sfi-ropc-nochange
 ---
 

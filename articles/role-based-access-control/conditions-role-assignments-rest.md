@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.date: 10/24/2022
-ms.author: rolyon
+ms.author: diberry
 ---
 
 # Add or edit Azure role assignment conditions using the REST API

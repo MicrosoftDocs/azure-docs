@@ -5,7 +5,7 @@ ms.custom:
   - build-2024
 ms.topic: include
 ms.date: 05/09/2024
-ms.author: patricka
+ms.author: srthirth
 ---
 The following example shows how to use the `azure-openai-semantic-cache-lookup` policy along with the `azure-openai-semantic-cache-store` policy to retrieve semantically similar cached responses with a similarity score threshold of 0.05. Cached values are partitioned by the subscription ID of the caller. 
 

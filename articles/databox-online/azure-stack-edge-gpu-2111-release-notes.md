@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: release-notes
 ms.date: 01/31/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge 2111 release notes

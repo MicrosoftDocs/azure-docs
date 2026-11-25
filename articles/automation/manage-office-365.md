@@ -6,7 +6,7 @@ ms.date: 09/15/2024
 ms.update-cycle: 1095-days
 ms.topic: how-to
 ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

@@ -6,7 +6,7 @@ ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 02/25/2025
-ms.author: mesrivas
+ms.author: rakrish
 
 ---
 

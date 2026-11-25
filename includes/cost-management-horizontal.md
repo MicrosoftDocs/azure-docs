@@ -1,6 +1,6 @@
 ---
 author: KennyDay
-ms.author: kenday
+ms.author: diberry
 ms.service: cost-management-billing
 ms.topic: include
 ms.date: 07/05/2020

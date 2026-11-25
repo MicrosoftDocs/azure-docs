@@ -2,7 +2,7 @@
 title: Migrate data from AWS FSx for Windows File Server to Azure Files with Azure Storage Mover
 description: Learn how to migrate SMB file data from AWS FSx for Windows File Server to Azure Files (SMB) shares by using the cloud-to-cloud migration capability in Azure Storage Mover.
 author: stevenmatthew
-ms.author: shaas
+ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 07/14/2026

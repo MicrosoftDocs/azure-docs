@@ -7,7 +7,7 @@ ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 10/29/2025
-ms.author: makromer
+ms.author: weetok
 ---
 #  Data consistency verification in copy activity
 

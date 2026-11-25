@@ -2,7 +2,7 @@
 title: "Optimizing Performance for Azure HPC and AI Virtual Machines"
 description: Learn about enhancing the performance of HPC and AI workloads on Azure VM using Azure offered suite of tools and techniques.
 author: padmalathas
-ms.author: padmalathas
+ms.author: mdoster
 ms.date: 03/25/2025
 ms.topic: concept-article
 ms.service: azure-virtual-machines

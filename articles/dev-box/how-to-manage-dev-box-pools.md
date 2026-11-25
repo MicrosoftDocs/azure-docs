@@ -6,7 +6,7 @@ description: Manage dev box pools in Microsoft Dev Box with step-by-step guidanc
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.date: 12/29/2025
 ms.topic: how-to

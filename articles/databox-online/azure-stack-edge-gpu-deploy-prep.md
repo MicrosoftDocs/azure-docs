@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 06/02/2023
-ms.author: sipastak
+ms.author: scompton
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro GPU so I can use it to compute at the edge and to transfer data to Azure. 
 ---
 

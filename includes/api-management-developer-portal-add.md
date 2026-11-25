@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 08/16/2023
-ms.author: patricka
+ms.author: srthirth
 ---
 
 * Select existing text and heading elements to edit and format content.

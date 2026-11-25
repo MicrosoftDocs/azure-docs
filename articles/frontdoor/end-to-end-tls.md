@@ -3,7 +3,7 @@ title: TLS encryption
 titleSuffix: Azure Front Door
 description: Learn about end-to-end TLS encryption, supported TLS versions, and supported cipher suites with Azure Front Door.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 10/19/2026

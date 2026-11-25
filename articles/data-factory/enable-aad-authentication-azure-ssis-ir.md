@@ -5,7 +5,7 @@ ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: how-to
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.custom: no-azure-ad-ps-ref
 ms.date: 02/17/2025
 ---

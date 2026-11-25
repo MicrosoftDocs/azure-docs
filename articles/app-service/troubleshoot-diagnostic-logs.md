@@ -4,8 +4,8 @@ description: Learn how to enable diagnostic logs and add instrumentation to your
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: how-to
 ms.date: 10/08/2026
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.custom: devx-track-csharp, ai-video-demo, linux-related-content
 ai-usage: ai-assisted
 #customer intent: As an app developer, I want to understand troubleshooting in Azure App Service to fix issues with my app and make improvements.

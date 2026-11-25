@@ -3,7 +3,7 @@ author: alkohli
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 11/17/2020
-ms.author: alkohli
+ms.author: scompton
 ---
 
 Download the service tags from the Azure to your local client and save as a *json* file in the same folder that contains the scripts: https://www.microsoft.com/download/details.aspx?id=56519. 

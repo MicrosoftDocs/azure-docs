@@ -10,7 +10,7 @@ ms.service: entra-id
 
 ms.topic: troubleshooting
 ms.date: 05/20/2025
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 ms.custom: sfi-image-nochange
 

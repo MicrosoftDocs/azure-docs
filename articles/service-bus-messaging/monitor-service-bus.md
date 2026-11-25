@@ -5,7 +5,7 @@ ms.date: 07/22/2024
 ms.custom: horz-monitor
 ms.topic: how-to
 author: spelluru
-ms.author: spelluru 
+ms.author: egrootenboer 
 ---
 
 # Monitor Azure Service Bus

@@ -5,7 +5,7 @@ author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/30/2026
-ms.author: wwilliams
+ms.author: sgallagher
 ms.custom: devx-track-arm-template
 # Customer intent: As a cloud architect, I want to deploy Intel SGX virtual machines in Azure, so that I can meet compliance and security requirements for sensitive workloads with enhanced isolation and control over my computing environment.
 ---

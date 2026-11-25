@@ -5,7 +5,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: release-notes
 ms.date: 03/08/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge 2101 release notes

@@ -6,7 +6,7 @@ ms.topic: tutorial
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 03/13/2024
 ms.custom:
   - subject-rbac-steps

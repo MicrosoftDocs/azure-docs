@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/20/2025
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge power cord specifications

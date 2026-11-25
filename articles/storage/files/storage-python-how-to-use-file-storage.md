@@ -6,7 +6,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 08/04/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: devx-track-python, py-fresh-zinc
 # Customer intent: As a Python developer, I want to integrate Azure Files into my applications so that I can store and manage file data efficiently using various programming approaches and APIs.
 ---

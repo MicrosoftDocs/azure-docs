@@ -4,7 +4,7 @@ description: This article describes how to configure Azure-SSIS integration runt
 ms.subservice: integration-services
 ms.devlang: powershell
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 manager: mflasko
 ms.reviewer: douglasl
 ms.topic: how-to

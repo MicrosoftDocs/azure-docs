@@ -5,7 +5,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 03/26/2026
 author: KarlErickson
-ms.author: karler
+ms.author: byvinyal
 ms.reviewer: edburns
 ms.service: azure-app-service
 ms.custom:

@@ -3,7 +3,7 @@ title: Create a Virtual Network Flow Log by Using Bicep
 titleSuffix: Azure Network Watcher
 description: Learn how to use Bicep to create a virtual network flow log for an existing Azure virtual network.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 08/03/2026

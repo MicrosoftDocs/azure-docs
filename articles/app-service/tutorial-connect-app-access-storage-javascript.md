@@ -2,11 +2,11 @@
 title: Tutorial - JavaScript Web app accesses storage by using managed identities | Azure
 description: In this tutorial, you learn how to access Azure Storage for a JavaScript app by using managed identities.
 services: storage, app-service-web
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: tutorial
 ms.date: 04/02/2026
-ms.author: cephalin
+ms.author: byvinyal
 ms.devlang: javascript
 # ms.devlang: javascript, azurecli
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, devx-track-dotnet, devx-track-js, AppServiceConnectivity

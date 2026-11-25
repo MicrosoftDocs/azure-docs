@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 11/04/2026
-ms.author: rogarana
+ms.author: normesta
 # Customer intent: As a cloud storage administrator, I want to monitor the performance metrics of my Azure Elastic SAN, so that I can optimize its availability and manage resource usage effectively.
 ---
 

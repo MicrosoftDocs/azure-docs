@@ -4,7 +4,7 @@ description: Use the CycleCloud web interface or CycleCloud CLI to log into a cl
 author: adriankjohnson
 ms.date: 06/19/2026
 ms.topic: how-to
-ms.author: jechia
+ms.author: mattmcinnes
 ---
 
 # Connecting to cluster nodes

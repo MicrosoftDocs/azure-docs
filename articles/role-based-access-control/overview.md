@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: overview
 ms.date: 03/12/2024
-ms.author: rolyon
+ms.author: diberry
 ms.custom:
   - azuread-video-2020
   - sfi-image-nochange

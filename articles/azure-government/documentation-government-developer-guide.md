@@ -3,7 +3,7 @@ title: Azure Government developer guide
 description: Provides guidance on developing applications for Azure Government
 ms.service: azure-government
 ms.topic: article
-ms.author: eliotgra
+ms.author: diberry
 author: EliotSeattle
 recommendations: false
 ms.date: 03/07/2022

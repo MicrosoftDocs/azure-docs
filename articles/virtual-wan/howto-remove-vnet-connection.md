@@ -6,7 +6,7 @@ author: flapinski
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/20/2026
-ms.author: flapinski
+ms.author: ajitbhu
 
 ---
 # Remove a virtual network connection from a Virtual WAN hub - portal

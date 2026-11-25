@@ -5,7 +5,7 @@ ms.custom:
   - build-2024
 ms.topic: include
 ms.date: 05/19/2026
-ms.author: patricka
+ms.author: srthirth
 ---
 
 ## Supported model APIs

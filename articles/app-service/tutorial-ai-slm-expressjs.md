@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Express.js chatbot with SLM extension"
 description: "Learn how to deploy a Express.js application integrated with a Phi-4 sidecar extension on Azure App Service."
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.date: 11/18/2025
 ms.topic: tutorial
 ms.custom:

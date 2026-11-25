@@ -6,7 +6,7 @@ ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: azure-stack-edge
 author: sipastak
-ms.author: sipastak
+ms.author: scompton
 ---
 # Azure Policy built-in definitions for Azure Stack Edge
 

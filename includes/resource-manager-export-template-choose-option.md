@@ -3,7 +3,7 @@ author: mumian
 ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/14/2025
-ms.author: jgao
+ms.author: ashishj
 ---
 
 ## Choose the right export option

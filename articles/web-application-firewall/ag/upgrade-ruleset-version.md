@@ -3,7 +3,7 @@ title: Upgrade CRS or DRS Ruleset Version
 titleSuffix: Azure Web Application Firewall
 description: Learn how to upgrade CRS or DRS ruleset version on Application Gateway Web Application Firewall.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to 
 ms.date: 06/27/2026

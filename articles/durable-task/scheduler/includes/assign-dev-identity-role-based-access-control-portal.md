@@ -3,7 +3,7 @@ ms.service: durable-task
 ms.subservice: durable-task-scheduler
 ms.topic: include
 ms.date: 10/29/2025
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.reviewer: azfuncdf
 author: hhunter-ms
 ---

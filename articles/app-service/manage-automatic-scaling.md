@@ -1,8 +1,8 @@
 ---
 title: How to Enable Automatic Scaling
 description: Learn how to scale automatically in Azure App Service with no configuration.
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.topic: how-to
 ms.date: 04/16/2026
 ms.custom: devx-track-azurecli

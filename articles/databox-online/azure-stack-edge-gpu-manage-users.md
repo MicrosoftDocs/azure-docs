@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/21/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 # Use the Azure portal to manage users on your Azure Stack Edge Pro
 

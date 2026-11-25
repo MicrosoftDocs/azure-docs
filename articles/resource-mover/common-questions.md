@@ -2,7 +2,7 @@
 title: Common questions about Azure Resource Mover
 description: Get answers to common questions about  Azure Resource Mover.
 author: RochakSingh-blr
-ms.author: v-rochak2
+ms.author: bhappayy
 ms.service: azure-resource-mover
 ms.custom: engagement-fy23, UpdateFrequency.5
 ms.topic: faq

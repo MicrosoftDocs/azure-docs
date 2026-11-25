@@ -3,7 +3,7 @@ title: What is a rule set?
 titleSuffix: Azure Front Door
 description: This article provides an overview of the Azure Front Door Rule sets feature.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 04/09/2025

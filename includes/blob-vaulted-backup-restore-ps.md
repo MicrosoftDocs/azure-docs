@@ -4,7 +4,7 @@ ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 07/01/2024
-ms.author: v-abhmallick
+ms.author: diberry
 ---
 
 To  restore from vaulted blob backup, run the following commands:

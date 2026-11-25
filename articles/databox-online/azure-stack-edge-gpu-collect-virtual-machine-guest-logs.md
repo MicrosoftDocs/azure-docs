@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 07/30/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 # Collect VM guest logs on an Azure Stack Edge Pro GPU device
 

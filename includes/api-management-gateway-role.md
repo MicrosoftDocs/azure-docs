@@ -2,7 +2,7 @@
 ms.service: azure-api-management
 ms.topic: include
 author: PatAltimore
-ms.author: patricka
+ms.author: srthirth
 ms.date: 08/04/2022
 ---
 

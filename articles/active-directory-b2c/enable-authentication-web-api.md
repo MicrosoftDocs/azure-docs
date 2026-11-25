@@ -8,7 +8,7 @@ ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 02/19/2025
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 ms.custom: "b2c-support"
 

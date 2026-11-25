@@ -5,7 +5,7 @@ description: In this tutorial, learn how to register for a lab in Azure Lab Serv
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: tutorial
 ms.date: 06/29/2023
 ---

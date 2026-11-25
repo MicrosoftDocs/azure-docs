@@ -1,11 +1,11 @@
 ---
 title: Migrate Java Apps to Azure App Service
 description: Discover Java migration resources available to Azure App Service.
-author: msangapu-msft
+author: btardif
 
 ms.topic: concept-article
 ms.date: 11/17/2025
-ms.author: msangapu
+ms.author: byvinyal
 ms.devlang: java
 ms.custom: devx-track-extended-java, linux-related-content
 ms.service: azure-app-service

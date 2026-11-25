@@ -10,7 +10,7 @@ ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
 ms.date: 08/23/2021
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-java, devx-track-extended-java

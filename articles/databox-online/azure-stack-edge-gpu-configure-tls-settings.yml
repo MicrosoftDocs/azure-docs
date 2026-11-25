@@ -10,7 +10,7 @@ metadata:
   ms.service: azure-stack-edge
   ms.topic: how-to
   ms.date: 04/28/2025
-  ms.author: sipastak
+  ms.author: scompton
 title: |
   Configure TLS 1.2 on Windows clients that access Azure Stack Edge Pro device
 introduction: |

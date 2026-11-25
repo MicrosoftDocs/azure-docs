@@ -2,7 +2,7 @@
 title: "PowerShell script: Create an Azure Data Share invitation"
 description: This PowerShell script sends a data share invitation.
 author: chvukosw
-ms.author: chvukosw
+ms.author: diberry
 ms.service: azure-data-share
 ms.topic: article
 ms.date: 10/13/2026

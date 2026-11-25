@@ -2,7 +2,7 @@
 title: Microsoft Planetary Computer Service Usage Metrics
 description: This article explains the usage metrics for Microsoft Planetary Computer Pro.
 author: jglixon
-ms.author: jglixon
+ms.author: diberry
 ms.service: planetary-computer-pro
 ms.topic: article
 ms.date: 02/11/2026

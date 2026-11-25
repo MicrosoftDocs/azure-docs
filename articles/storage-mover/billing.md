@@ -2,7 +2,7 @@
 title: Understanding Azure Storage Mover billing
 description: Understanding Azure Storage Mover billing 
 author: stevenmatthew
-ms.author: shaas
+ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: concept-article
 ms.date: 03/22/2023

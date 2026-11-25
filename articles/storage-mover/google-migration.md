@@ -2,7 +2,7 @@
 title: Get started with Google-to-Azure migrations in Azure Storage Mover
 description: The GCS-to-Azure Migration feature in Azure Storage mover allows you to securely transfer data from a Google Cloud Storage to an Azure storage container in any storage account in a global Azure region.
 author: stevenmatthew
-ms.author: shaas
+ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: quickstart
 ms.date: 07/10/2026

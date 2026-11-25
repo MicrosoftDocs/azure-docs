@@ -2,7 +2,7 @@
 title: Azure Storage Mover scale and performance targets.
 description: Baseline migration performance test results for Azure Storage Mover.
 author: stevenmatthew
-ms.author: shaas
+ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: reference
 ms.date: 05/29/2025

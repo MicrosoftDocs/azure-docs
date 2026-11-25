@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/13/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As a system administrator, I want to migrate files from a Linux server to a Windows Server with Azure File Sync, so that I can establish a hybrid cloud deployment while ensuring data integrity and minimizing downtime."
 ---
 

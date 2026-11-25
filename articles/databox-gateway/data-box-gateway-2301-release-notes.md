@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: azure-data-box-gateway
 ms.topic: release-notes
 ms.date: 02/15/2023
-ms.author: shaas
+ms.author: bchakra
 # Customer intent: As a system administrator managing data transfer solutions, I want to review the release notes for Azure Data Box Gateway 2301, so that I can understand the critical issues, resolved bugs, and necessary updates before deploying the software.
 ---
 

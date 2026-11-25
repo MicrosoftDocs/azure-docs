@@ -3,7 +3,7 @@ title: Continuous integration and delivery
 description: Learn how to use continuous integration and delivery to move Azure Data Factory pipelines from one environment (development, test, production) to another.
 ms.subservice: ci-cd
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.topic: concept-article
 ms.date: 07/29/2026

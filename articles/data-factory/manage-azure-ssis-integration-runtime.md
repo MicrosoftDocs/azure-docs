@@ -6,7 +6,7 @@ ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 05/15/2024
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ---
 
 # Reconfigure the Azure-SSIS integration runtime

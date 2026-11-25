@@ -4,7 +4,7 @@ description: This quickstart shows how to create a Batch account by using a Bice
 author: FuzziWumpus
 ms.date: 06/16/2026
 ms.topic: quickstart
-ms.author: padmalathas
+ms.author: mattmcinnes
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 tags: azure-resource-manager, bicep
 # Customer intent: As a cloud developer, I want to create a Batch account using a Bicep file, so that I can deploy compute resources and manage workloads efficiently.

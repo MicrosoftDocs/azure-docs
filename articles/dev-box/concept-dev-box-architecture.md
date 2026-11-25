@@ -4,7 +4,7 @@ description: Learn about the architecture, key concepts, and terminology for Mic
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: concept-article
 ms.date: 10/24/2025
 ms.update-cycle: 180-days

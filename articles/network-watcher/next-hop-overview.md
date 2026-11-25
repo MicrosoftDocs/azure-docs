@@ -3,7 +3,7 @@ title: Next Hop Overview
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher next hop capability that you can use to diagnose virtual machine routing problems.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 02/25/2026

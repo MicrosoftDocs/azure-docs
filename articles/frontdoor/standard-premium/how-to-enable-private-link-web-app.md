@@ -3,7 +3,7 @@ title: Connect Azure Front Door to an App Service Origin
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a web app or function app privately.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 07/31/2025

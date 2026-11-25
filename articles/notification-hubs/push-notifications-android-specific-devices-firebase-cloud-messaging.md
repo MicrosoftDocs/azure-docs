@@ -9,7 +9,7 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/08/2024
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: heathertian
 ms.lastreviewed: 02/06/2024
 ms.custom:

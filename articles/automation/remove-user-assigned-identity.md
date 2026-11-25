@@ -7,7 +7,7 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.date: 11/17/2025
 ms.topic: how-to
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

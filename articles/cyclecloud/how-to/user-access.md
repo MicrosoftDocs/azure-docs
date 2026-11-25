@@ -4,7 +4,7 @@ description: Learn how to manage user access to cluster nodes in Azure CycleClou
 author: jermth
 ms.date: 06/19/2026
 ms.update-cycle: 3650-days
-ms.author: jechia
+ms.author: mattmcinnes
 ms.topic: how-to
 ms.service: azure-cyclecloud
 ms.custom: compute-evergreen

@@ -2,7 +2,7 @@
 title: Application Gateway WAF CRS and DRS rule groups and rules
 description: Learn about Azure Application Gateway web application firewall (WAF) CRS and DRS rule groups and rules.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 09/10/2026

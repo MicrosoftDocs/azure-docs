@@ -7,8 +7,8 @@ tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 10/15/2026
 ms.reviewer: yutlin
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ms.custom: sfi-image-nochange
 ---

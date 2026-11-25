@@ -4,7 +4,7 @@ description: Learn how to manage packages with Azure-SSIS Integration Runtime pa
 ms.subservice: integration-services
 ms.topic: how-to
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.date: 10/20/2023
 ms.custom: sfi-image-nochange
 ---

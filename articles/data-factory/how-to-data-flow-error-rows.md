@@ -5,7 +5,7 @@ author: kromerm
 ms.topic: how-to
 ms.subservice: data-flows
 ms.date: 10/03/2024
-ms.author: makromer
+ms.author: weetok
 ---
 
 # Handle SQL truncation error rows in Data Factory mapping data flows

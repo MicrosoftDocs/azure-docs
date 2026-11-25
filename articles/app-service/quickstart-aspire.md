@@ -3,8 +3,8 @@ title: "Quickstart: Deploy an Aspire app"
 description: Learn how to deploy your first Aspire app to Azure App Service using GitHub Codespaces and the Aspire CLI.
 ms.topic: quickstart
 ms.date: 09/04/2026
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 #customer intent: As a developer, I want to quickly deploy an Aspire app to Azure App Service using a browser-based development environment.
 ms.service: azure-app-service
 ms.custom:

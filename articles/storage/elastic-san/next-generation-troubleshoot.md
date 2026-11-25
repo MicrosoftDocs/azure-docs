@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 11/06/2026
-ms.author: rogarana
+ms.author: normesta
 # Customer intent: As a cloud storage administrator, I want to troubleshoot Azure Elastic SAN Next Generation issues, so that I can resolve provisioning, connectivity, performance, and data protection problems.
 ---
 

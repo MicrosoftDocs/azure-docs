@@ -3,7 +3,7 @@ title: Create a Virtual Network Flow Log by Using an ARM Template
 titleSuffix: Azure Network Watcher
 description: Learn how to use an Azure Resource Manager template (ARM) to create a virtual network flow log for an existing Azure virtual network.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 08/04/2026

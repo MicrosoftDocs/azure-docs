@@ -4,7 +4,7 @@ description: UI experience for parameterizing linked services
 author: whhender
 ms.topic: include
 ms.date: 01/16/2026
-ms.author: whhender
+ms.author: weetok
 ms.custom: include file
 ---
 

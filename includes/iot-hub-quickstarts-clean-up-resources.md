@@ -6,7 +6,7 @@ author: sethmanheim
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 03/28/2025
-ms.author: sethm
+ms.author: dimatokar
 ms.custom: include file
 ---
 

@@ -5,7 +5,7 @@ description: This article shows how to add a user to the Lab Creator role for a 
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 07/04/2023
 ms.custom: subject-rbac-steps

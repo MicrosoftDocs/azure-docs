@@ -10,7 +10,7 @@ ms.assetid: 91188310-307a-11e9-b210-d663bd873d93
 ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 02/14/2019
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
 ---

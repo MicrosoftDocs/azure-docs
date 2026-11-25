@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 10/26/2022
-ms.author: sipastak
+ms.author: scompton
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I need to understand how to set up device name, update server and time server via the local web UI of Azure Stack Edge Pro 2 so I can use the device to transfer data to Azure. 
 ---

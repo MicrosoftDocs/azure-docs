@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/18/2023
-ms.author: sipastak
+ms.author: scompton
 ---
 # Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge Pro GPU device
 

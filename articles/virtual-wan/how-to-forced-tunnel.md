@@ -6,7 +6,7 @@ author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 08/27/2026
-ms.author: wellee
+ms.author: ajitbhu
 
 ---
 # Configure forced tunneling for Virtual WAN Point-to-site VPN

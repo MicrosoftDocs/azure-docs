@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: "Configure Durable Functions Publishing to Azure Event Grid"
 description: "Learn how to configure automatic Azure Event Grid publishing for Durable Functions orchestration lifecycle events. Set up managed identity, create custom topics, and verify event delivery in this step-by-step guide."
 ms.topic: how-to

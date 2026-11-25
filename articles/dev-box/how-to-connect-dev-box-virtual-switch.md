@@ -2,7 +2,7 @@
 title: Configure virtual switches for dev boxes
 description: Learn to configure virtual switches for dev boxes, enabling communication between dev boxes, VMs, and physical devices.
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.service: dev-box
 ms.topic: how-to
 ms.date: 12/05/2024

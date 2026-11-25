@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a model in Microsoft Foundry
 description: Steps to create a Microsoft Foundry project and deploy a model for use with your agent.
-ms.author: cephalin
+ms.author: byvinyal
 ms.topic: include
 ms.date: 08/25/2026
 ms.service: azure-app-service

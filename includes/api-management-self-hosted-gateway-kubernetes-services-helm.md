@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 02/17/2026
-ms.author: patricka
+ms.author: srthirth
 ---
 ### Confirm that the gateway is running
 

@@ -6,7 +6,7 @@ ms.custom:
   - build-2025
 ms.topic: include
 ms.date: 11/20/2026
-ms.author: patricka
+ms.author: srthirth
 ---
 
 ## Limitation for custom domain name in Standard v2 tier

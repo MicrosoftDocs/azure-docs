@@ -90,6 +90,8 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
+  - name: Partitioned DNS
+    href: ../event-hubs/partitioned-dns.md?toc=/azure/service-bus-messaging/toc.json
   - name: Queues, topics, and subscriptions
     href: service-bus-queues-topics-subscriptions.md
   - name: Premium messaging

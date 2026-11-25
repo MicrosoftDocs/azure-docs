@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 06/17/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As a system administrator managing NFS Azure file shares, I want to configure root squash settings so that I can enhance security by preventing unauthorized root-level access from client machines.
 ---
 

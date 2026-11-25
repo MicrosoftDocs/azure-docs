@@ -3,7 +3,7 @@ title: Effective Security Rules Overview
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher's effective security rules feature, which provides visibility into security and admin rules applied to a network interface.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 09/23/2025

@@ -2,7 +2,7 @@
 title: Get support for Microsoft Dev Box
 description: Learn how to choose the appropriate channel to get support for Microsoft Dev Box, and what options you should try before opening a support request.  
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.service: dev-box
 ms.topic: troubleshooting 
 ms.date: 01/31/2025

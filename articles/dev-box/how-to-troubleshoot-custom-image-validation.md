@@ -5,7 +5,7 @@ description: Learn how to troubleshoot custom image validation failures in Micro
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 03/18/2026
 ms.topic: troubleshooting
 ai-usage: ai-assisted

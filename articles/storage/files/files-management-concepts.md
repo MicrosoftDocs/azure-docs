@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 10/27/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: references_regions
 # Customer intent: As a system architect, I want to understand the Azure Files resource providers and management models so that I can choose the right approach for deploying file shares.
 ---

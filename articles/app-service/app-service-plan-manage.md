@@ -4,8 +4,8 @@ description: Learn how to perform different tasks to manage an App Service plan,
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: how-to
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.date: 10/06/2026
 ms.update-cycle: 1095-days
 ms.custom: "UpdateFrequency3"

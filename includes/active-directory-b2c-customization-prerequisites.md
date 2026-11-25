@@ -3,7 +3,7 @@ author: kengaderdus
 ms.service: active-directory-b2c
 ms.topic: include
 ms.date: 12/11/2023
-ms.author: kengaderdus
+ms.author: diberry
 ---
 ::: zone pivot="b2c-user-flow"
 

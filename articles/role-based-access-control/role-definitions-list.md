@@ -2,7 +2,7 @@
 title: List Azure role definitions - Azure RBAC
 description: Learn how to list Azure built-in and custom roles using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 author: rolyon
-ms.author: rolyon
+ms.author: diberry
 manager: pmwongera
 ms.date: 10/23/2025
 ms.service: role-based-access-control

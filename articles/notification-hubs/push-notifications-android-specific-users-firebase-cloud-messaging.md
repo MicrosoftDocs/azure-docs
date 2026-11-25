@@ -10,7 +10,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc, devx-track-java, devx-track-dotnet
 ms.date: 02/06/2024
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: heathertian
 ms.lastreviewed: 02/06/2024
 ---

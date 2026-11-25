@@ -10,7 +10,7 @@ ms.service: entra-id
 
 ms.topic: reference
 ms.date: 02/19/2025
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 
 

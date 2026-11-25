@@ -2,7 +2,7 @@
 title: Delta lake ETL with data flows
 description: This tutorial provides step-by-step instructions for using data flows to transform and analyze data in delta lake
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 06/24/2024

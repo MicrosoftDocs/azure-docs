@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: reference
 ms.date: 01/19/2024
-ms.author: sipastak
+ms.author: scompton
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device by using APIs, so that I can efficiently manage my VMs. 
 ---
 

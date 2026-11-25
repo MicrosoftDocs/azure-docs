@@ -5,7 +5,7 @@ description: Learn about the differences between lab accounts and lab plans in A
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: concept-article
 ms.date: 08/07/2023
 ---

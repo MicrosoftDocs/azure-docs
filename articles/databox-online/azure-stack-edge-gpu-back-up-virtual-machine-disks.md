@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/25/2021
-ms.author: sipastak
+ms.author: scompton
 ms.custom:
   - devx-track-azurepowershell
   - devx-track-arm-template

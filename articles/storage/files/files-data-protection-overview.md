@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 07/25/2025
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As a systems administrator, I want to implement data protection for Azure file shares, so that I can ensure recovery from accidental loss, protect against ransomware, and maintain business continuity."
 ---
 

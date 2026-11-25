@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 11/17/2026
 ai-usage: ai-assisted
-ms.author: kendownie
+ms.author: normesta
 ms.custom: references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud storage administrator, I want to change the redundancy configuration for Azure Files so that I can optimize data protection and cost based on my organization’s specific availability and disaster recovery needs."
 ---

@@ -7,7 +7,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 11/17/2026
 ai-usage: ai-assisted
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As a cloud architect, I want to compare Azure Files and Azure NetApp Files, so that I can choose the best cloud file storage solution to meet my workload scalability and performance requirements."
 ---
 

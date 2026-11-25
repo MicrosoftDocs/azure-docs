@@ -4,7 +4,7 @@ description: Learn how to use the Azure Automation extension for Visual Studio C
 ms.date: 01/10/2023
 ms.update-cycle: 1095-days
 ms.topic: how-to
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

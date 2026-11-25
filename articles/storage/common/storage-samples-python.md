@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Python storage client libraries.
 author: stevenmatthew
 
-ms.author: shaas
+ms.author: normesta
 ms.date: 05/23/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts

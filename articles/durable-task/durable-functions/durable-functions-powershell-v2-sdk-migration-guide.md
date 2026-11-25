@@ -2,7 +2,7 @@
 title: "Standalone Durable Functions PowerShell SDK: Setup and Migration Guide"
 description: "Learn how to install and migrate to the standalone Durable Functions PowerShell SDK for faster, more reliable orchestrations. Get started with this step-by-step guide."
 author: davidmrdavid
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.topic: feature-guide
 ms.service: durable-task
 ms.subservice: durable-functions

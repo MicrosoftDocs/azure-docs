@@ -2,7 +2,7 @@
 title: Azure Application Gateway WAF Exceptions List
 description: This article provides an overview of Web Application Firewall (WAF) exceptions on Azure Application Gateway.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 11/11/2026

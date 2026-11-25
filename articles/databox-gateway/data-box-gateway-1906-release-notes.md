@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: azure-data-box-gateway
 ms.topic: release-notes
 ms.date: 11/11/2020
-ms.author: shaas
+ms.author: bchakra
 # Customer intent: As a data administrator, I want to review the 1906 release notes for Azure Data Box Gateway and Edge, so that I can understand critical issues and enhancements before deploying updates to ensure optimal performance and data recovery.
 ---
 

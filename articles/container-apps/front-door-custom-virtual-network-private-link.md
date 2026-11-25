@@ -3,7 +3,7 @@ title: Use Azure Front Door Premium with a custom virtual network and Private Li
 description: Learn how to deploy an Azure Container Apps environment in a custom virtual network with internal ingress and expose it securely through Azure Front Door Premium with Private Link.
 #customer intent: As a cloud architect, I want to deploy Azure Container Apps in a secure custom virtual network so that I can route inbound traffic privately through Azure Front Door Premium with Private Link.
 author: kkaushal24011982
-ms.author: kkaushal
+ms.author: vyomnagrani
 ms.reviewer: cshoe
 ms.service: azure-container-apps
 ms.custom:

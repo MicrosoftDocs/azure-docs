@@ -5,7 +5,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/01/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Create certificates for your Azure Stack Edge Pro GPU using Azure Stack Hub Readiness Checker tool 

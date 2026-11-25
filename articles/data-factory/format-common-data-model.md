@@ -7,7 +7,7 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: reference
 ms.date: 08/04/2025
-ms.author: makromer
+ms.author: weetok
 ---
 
 # Common Data Model format in Azure Data Factory and Synapse Analytics

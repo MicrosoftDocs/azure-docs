@@ -4,8 +4,8 @@ description: Learn how to better performance for your web, mobile, and API app i
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 ms.topic: how-to
 ms.date: 10/19/2026
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.custom:
   - references_regions
   - devx-track-azurecli

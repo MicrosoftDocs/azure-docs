@@ -6,7 +6,7 @@ description: Learn how to connect Azure SQL bindings through managed identity.
 ms.topic: tutorial
 ms.date: 07/22/2026
 author: dzsquared
-ms.author: drskwier
+ms.author: thalme
 ms.reviewer: cachai
 ms.custom: sfi-ropc-nochange
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid having to handle connection strings in my application settings.

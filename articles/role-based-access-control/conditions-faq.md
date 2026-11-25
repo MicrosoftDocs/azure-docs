@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: faq
 ms.date: 02/26/2025
-ms.author: rolyon
+ms.author: diberry
 ---
 
 # FAQ for Azure role assignment conditions

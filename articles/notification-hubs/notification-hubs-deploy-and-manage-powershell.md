@@ -11,7 +11,7 @@ ms.service: azure-notification-hubs
 ms.tgt_pltfrm: powershell
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom:

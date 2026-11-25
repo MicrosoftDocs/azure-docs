@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 10/25/2021
-ms.author: sipastak
+ms.author: scompton
 ms.custom: sfi-image-nochange
 ---
 # Kubernetes storage management on your Azure Stack Edge Pro GPU device

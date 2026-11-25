@@ -1,9 +1,9 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 04/14/2020
-ms.author: cephalin
+ms.author: byvinyal
 ms.subservice: web-apps
 ---
 

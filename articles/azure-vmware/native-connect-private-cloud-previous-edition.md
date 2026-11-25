@@ -4,7 +4,7 @@ description: Learn about connecting Azure VMware Solution Generation 2 private c
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 4/13/2026
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 #customer intent: As a cloud administrator, I want to connect Azure VMware Solution Generation 2 private clouds to Azure VMware Solution Generation 1 private clouds so that I can enable seamless communication between private clouds.
 ---
 

@@ -5,7 +5,7 @@ ms.topic: include
 ms.service: azure-vmware
 ms.date: 4/2/2025
 author: suzizuber
-ms.author: v-szuber
+ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: As a cloud architect, I want to understand the limits of Azure VMware Solution resources, so that I can effectively plan and optimize the deployment of my virtualization infrastructure in the cloud.
 ---

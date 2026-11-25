@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: azure-app-service
 ms.date: 08/24/2026
 author: anaharris
-ms.author: anaharris
+ms.author: byvinyal
 
 ---
 # Configure App Service plans for zone redundancy

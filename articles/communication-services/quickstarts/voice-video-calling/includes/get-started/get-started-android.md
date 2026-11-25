@@ -2,7 +2,7 @@
 title: Add VOIP calling to an Android app
 description: This article describes how to add VOIP calling to an Android app using Azure Communication Services Calling SDK for Android.
 author: tophpalmer
-ms.author: rifox
+ms.author: diberry
 ms.date: 05/10/2025
 ms.topic: include
 ms.service: azure-communication-services

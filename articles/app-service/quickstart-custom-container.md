@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Run a Custom Container on App Service'
 description: Learn how to run custom containers by using Azure App Service.
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.date: 04/20/2026
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other, devdivchpfy22, linux-related-content

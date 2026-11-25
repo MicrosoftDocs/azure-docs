@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: build-2024
 ms.date: 05/08/2024
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ---
 
 # Subscribe to events published by Microsoft Entra ID using the Azure portal

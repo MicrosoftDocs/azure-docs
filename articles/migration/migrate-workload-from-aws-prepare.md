@@ -33,7 +33,7 @@ During this phase, you build your Azure environment, refactor any code if needed
 
 - **Provision application landing zones.** Give your Azure workload design to your Azure platform team so that they can provision the [Azure application landing zones](/azure/cloud-adoption-framework/ready/landing-zone/implementation-options) for your preproduction and production workload environments.
 
-- **Set up migration tools.** If you plan to use Azure Migrate for the execution phase, deploy the Azure Migrate appliance and configure your Azure Migrate project. This approach ensures that all target Azure resources and discovery processes are ready before you cut over.
+- **Set up migration tools.** If you plan to use Azure Catalyst for the execution phase, deploy the Azure Catalyst appliance and configure your Azure Catalyst project. This approach ensures that all target Azure resources and discovery processes are ready before you cut over.
 
 - **Deploy and configure Azure infrastructure.** Use infrastructure as code (IaC) to deploy your resources. This approach ensures consistency and repeatability. If your teams want to continue to use Terraform to write deployment scripts, they must write new scripts and modules for your Azure resources. If your existing deployment scripts use [AWS CloudFormation](https://docs.aws.amazon.com/cloudformation/), then use [Bicep](/azure/azure-resource-manager/bicep/) to deploy on Azure. Focus on nonproduction environments first and validate everything before you move on to production environments.
 

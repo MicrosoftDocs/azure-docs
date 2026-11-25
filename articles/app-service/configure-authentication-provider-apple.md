@@ -4,8 +4,8 @@ description: Learn how to configure Sign in with Apple as an identity provider f
 ms.topic: how-to
 ms.date: 03/31/2026
 ms.reviewer: mikarmar
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.custom:
   - AppServiceIdentity

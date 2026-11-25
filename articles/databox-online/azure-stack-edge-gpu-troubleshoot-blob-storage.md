@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 06/10/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 # Troubleshoot Blob storage issues for an Azure Stack Edge device 
 

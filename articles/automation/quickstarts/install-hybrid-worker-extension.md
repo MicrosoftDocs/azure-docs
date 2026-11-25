@@ -6,7 +6,7 @@ services: automation
 keywords: hybrid worker extension, automation
 ms.date: 03/05/2024
 ms.topic: quickstart
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

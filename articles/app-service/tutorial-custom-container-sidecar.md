@@ -3,8 +3,8 @@ title: 'Tutorial: Configure a sidecar for a custom container app'
 description: Add sidecar containers to your custom container in Azure App Service to add or update application services without changing your main container.
 ms.topic: tutorial
 ms.date: 06/18/2025
-ms.author: cephalin
-author: cephalin
+ms.author: byvinyal
+author: btardif
 keywords: azure app service, web app, linux, windows, docker, container, sidecar
 ms.service: azure-app-service
 ms.custom:

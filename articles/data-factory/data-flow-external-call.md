@@ -2,7 +2,7 @@
 title: External call data transformation in mapping data flows
 description: Call external custom endpoints for mapping data flows
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.topic: concept-article
 ms.date: 04/27/2026

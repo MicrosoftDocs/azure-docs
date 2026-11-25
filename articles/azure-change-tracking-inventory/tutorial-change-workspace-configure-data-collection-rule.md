@@ -5,7 +5,7 @@ ms.custom: linux-related-content
 ms.date: 11/06/2025
 ms.topic: tutorial
 ms.service: azure-change-tracking-inventory
-ms.author: v-rochak2
+ms.author: gurkisingh
 author: RochakSingh-blr
 #Customer intent: As a customer, I want to change a workspace for my virtual machine so that I can manage data collection more effectively.
 ---

@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 04/08/2025
-ms.author: patricka
+ms.author: srthirth
 ---
 ## Get Copilot assistance
 

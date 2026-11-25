@@ -5,7 +5,7 @@ description: Learn about the Change Tracking and Inventory feature by using the 
 ms.date: 07/07/2026
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
-ms.author: v-rochak2
+ms.author: gurkisingh
 author: RochakSingh-blr
 ---
 

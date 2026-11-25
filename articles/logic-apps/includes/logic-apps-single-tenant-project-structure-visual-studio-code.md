@@ -2,7 +2,7 @@
 ms.service: azure-logic-apps
 ms.topic: include
 author: ecfan
-ms.author: estfan
+ms.author: divswa
 ms.date: 03/14/2025
 ---
 

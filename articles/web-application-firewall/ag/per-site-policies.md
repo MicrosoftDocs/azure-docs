@@ -3,7 +3,7 @@ title: Configure per-site WAF policies using PowerShell
 titleSuffix: Azure Web Application Firewall
 description: Learn how to configure per-site Web Application Firewall policies on an application gateway using Azure PowerShell.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to 
 ms.date: 12/09/2020

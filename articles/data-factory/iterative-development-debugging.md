@@ -6,7 +6,7 @@ ms.date: 05/15/2024
 ms.topic: how-to
 ms.subservice: authoring
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.custom:
   - synapse
   - sfi-image-nochange

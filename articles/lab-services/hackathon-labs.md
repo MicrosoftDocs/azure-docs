@@ -4,7 +4,7 @@ description: Learn how to use Azure Lab Services for creating labs that you can 
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 05/22/2023
 ---

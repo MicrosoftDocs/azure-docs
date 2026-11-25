@@ -3,7 +3,7 @@ title: Multi-site and multi-region federation - Azure Event Hubs | Microsoft Doc
 description: This article provides an overview of multi-site and multi-region federation with Azure Event Hubs.
 ms.topic: article
 ms.date: 09/28/2021
-ms.author: spelluru
+ms.author: aschhabria
 ---
 # Multi-site and multi-region federation
 

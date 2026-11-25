@@ -1,9 +1,9 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 06/12/2019
-ms.author: cephalin
+ms.author: byvinyal
 ms.custom: "include file"
 ---
 

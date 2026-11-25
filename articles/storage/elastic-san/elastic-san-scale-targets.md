@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 04/22/2026
-ms.author: rogarana
+ms.author: normesta
 ms.custom: references_regions
 # Customer intent: "As a storage administrator, I want to understand the scalability and performance targets of Elastic SAN, so that I can optimize capacity, IOPS, and throughput for my deployment requirements in different regions."
 ---

@@ -2,7 +2,7 @@
 title: "PowerShell script: List existing shares in Azure Data Share"
 description: This PowerShell script lists and displays details of shares.
 author: chvukosw
-ms.author: chvukosw
+ms.author: diberry
 ms.service: azure-data-share
 ms.topic: article
 ms.date: 10/13/2026

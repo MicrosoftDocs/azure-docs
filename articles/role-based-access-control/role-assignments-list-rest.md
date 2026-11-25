@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
 ms.date: 03/30/2025
-ms.author: rolyon
+ms.author: diberry
 ---
 # List Azure role assignments using the REST API
 

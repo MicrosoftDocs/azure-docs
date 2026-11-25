@@ -4,8 +4,8 @@ description: Learn how to deploy apps to a nonproduction slot and automatically 
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: how-to
 ms.date: 11/28/2025
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ai-usage: ai-assisted
 #customer intent: As a web app developer, I want to understand deployment slots and how to swap and automatically swap into production in Azure App Service.
 ms.service: azure-app-service

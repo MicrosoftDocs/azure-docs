@@ -2,7 +2,7 @@
 title: Delete an invitation in Azure Data Share 
 description: Learn how to delete an invitation to a data share recipient in Azure Data Share.
 author: chvukosw
-ms.author: chvukosw
+ms.author: diberry
 ms.service: azure-data-share
 ms.topic: how-to
 ms.date: 10/13/2026

@@ -1,8 +1,8 @@
 ---
 title: Industry-wide certificate changes impacting Azure App Service
 description: Describes industry-wide TLS certificate changes that affect Azure App Service Managed Certificates and App Service Certificates, including scope, timelines, and required actions.
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.date: 10/15/2026
 ms.topic: concept-article
 ms.service: azure-app-service

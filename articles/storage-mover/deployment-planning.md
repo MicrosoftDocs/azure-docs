@@ -4,7 +4,7 @@ description: Considerations and best-practices for achieving your migration goal
 services: storage-mover
 author: stevenmatthew
 ms.service: azure-storage-mover
-ms.author: shaas
+ms.author: singra
 ms.topic: best-practice
 ms.date: 03/27/2023
 ---

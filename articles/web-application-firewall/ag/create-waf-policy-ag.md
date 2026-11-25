@@ -3,7 +3,7 @@ title: Create WAF Policies for Application Gateway
 titleSuffix: Azure Web Application Firewall
 description: Learn how to create Web Application Firewall policies for Application Gateway.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 02/25/2026

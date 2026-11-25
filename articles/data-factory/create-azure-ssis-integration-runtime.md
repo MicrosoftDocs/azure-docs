@@ -5,7 +5,7 @@ ms.subservice: integration-services
 ms.topic: concept-article
 ms.date: 03/31/2025
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ---
 
 # Create an Azure-SSIS integration runtime

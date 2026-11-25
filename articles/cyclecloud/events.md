@@ -4,7 +4,7 @@ description: Use the CycleCloud Events integration to get notified on state chan
 author: dougclayton
 ms.date: 06/19/2026
 ms.topic: concept-article
-ms.author: doclayto
+ms.author: mattmcinnes
 monikerRange: '>= cyclecloud-8'
 ---
 

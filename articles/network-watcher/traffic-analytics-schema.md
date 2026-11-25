@@ -3,7 +3,7 @@ title: Traffic Analytics Schema and Data Aggregation
 titleSuffix: Azure Network Watcher
 description: Learn about schema and data aggregation in Azure Network Watcher traffic analytics to analyze flow logs.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 08/20/2025

@@ -5,7 +5,7 @@ description: Learn how to import a Windows custom image from your physical lab e
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 04/24/2023
 ms.topic: how-to
 ---

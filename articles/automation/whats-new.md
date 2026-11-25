@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: overview
 ms.date: 07/27/2026
 ms.custom: references_regions
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

@@ -3,7 +3,7 @@ author: sipastak
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 02/15/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 
 ## Safety icon conventions

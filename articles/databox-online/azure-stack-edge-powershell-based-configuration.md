@@ -6,7 +6,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 12/21/2023
-ms.author: sipastak
+ms.author: scompton
 ---
 # Use a config file to deploy an Azure Stack Edge device
 

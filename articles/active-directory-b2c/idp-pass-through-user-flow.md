@@ -10,7 +10,7 @@ ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 09/11/2024
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 ms.custom: sfi-image-nochange

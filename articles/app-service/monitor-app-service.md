@@ -4,8 +4,8 @@ description: Learn about options in Azure App Service for monitoring resources f
 ms.date: 03/11/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ---
 

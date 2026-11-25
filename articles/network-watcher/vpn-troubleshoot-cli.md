@@ -3,7 +3,7 @@ title: Troubleshoot VPN Gateways and Connections - Azure CLI
 titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Network Watcher VPN troubleshoot capability to troubleshoot VPN virtual network gateways and their connections using the Azure CLI.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 02/25/2026

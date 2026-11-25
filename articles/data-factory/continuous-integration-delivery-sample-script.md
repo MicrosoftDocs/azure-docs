@@ -3,7 +3,7 @@ title: Continuous integration and delivery pre- and post-deployment scripts
 description: Learn how to use a pre- and post-deployment script with continuous integration and delivery in Azure Data Factory from this sample.
 ms.subservice: ci-cd
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 01/29/2025

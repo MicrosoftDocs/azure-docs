@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 05/13/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 # Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU
 

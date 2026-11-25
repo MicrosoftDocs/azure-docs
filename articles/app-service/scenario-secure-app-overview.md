@@ -1,8 +1,8 @@
 ---
 title: Secure access patterns for web apps on Azure App Service | Azure
 description: Learn about secure access patterns for a web app on Azure App Service, including enabling authentication, accessing Azure data plane services, and calling Microsoft Graph.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.topic: concept-article
 ms.date: 03/27/2026

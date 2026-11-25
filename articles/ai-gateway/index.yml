@@ -8,7 +8,7 @@ metadata:
   description: Understand AI Gateway, plan migration from Azure API Management, and find portal and command-line guidance in the in-product documentation.
   ms.service: azure
   ms.topic: landing-page
-  ms.author: patricka
+  ms.author: srthirth
   ms.date: 10/23/2026
 
 landingContent:

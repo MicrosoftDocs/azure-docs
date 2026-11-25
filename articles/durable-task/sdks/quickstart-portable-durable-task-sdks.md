@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: "Quickstart: Create an App with Durable Task SDKs"
 titleSuffix: Durable Task
 description: Create orchestrations using Durable Task SDKs and the Durable Task Scheduler emulator with the fan-out/fan-in pattern for parallel processing. Get started now.

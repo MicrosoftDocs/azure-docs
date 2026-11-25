@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: limits-and-quotas
 ms.date: 10/13/2020
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge Pro R limits

@@ -3,7 +3,7 @@ title: Execute SSIS packages from SSDT
 description: Learn how to execute SSIS packages in Azure from SSDT.
 ms.subservice: integration-services
 ms.topic: concept-article
-ms.author: makromer
+ms.author: weetok
 author: kromerm
 ms.date: 05/15/2024
 ms.custom: sfi-image-nochange

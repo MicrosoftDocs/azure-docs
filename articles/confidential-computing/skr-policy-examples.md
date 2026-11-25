@@ -5,7 +5,7 @@ author: angarg05
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 09/09/2026
-ms.author: ananyagarg
+ms.author: sgallagher
 # Customer intent: As a security architect, I want to define secure key release policies for Azure Confidential Computing environments, so that I can ensure the integrity and compliance of encrypted data management across different trusted execution environments.
 ---
 

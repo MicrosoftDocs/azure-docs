@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 02/21/2025
-ms.author: patricka
+ms.author: srthirth
 ---   
 [!INCLUDE [api-management-key-vault-access](api-management-key-vault-access.md)]
     

@@ -2,7 +2,7 @@
 title: Disaster recovery for Azure Data Share
 description: Disaster recovery for Azure Data Share
 author: chvukosw
-ms.author: chvukosw
+ms.author: diberry
 ms.service: azure-data-share
 ms.topic: how-to
 ms.date: 10/13/2026

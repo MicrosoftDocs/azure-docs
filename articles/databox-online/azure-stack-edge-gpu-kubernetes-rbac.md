@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 02/22/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 # Kubernetes role-based access control on your Azure Stack Edge Pro GPU device
 

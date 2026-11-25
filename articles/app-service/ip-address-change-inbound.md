@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 11/17/2025
 ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 
 #Customer intent: As a developer, I want to learn what to do if my inbound IP address is going to change so that I can ensure that my app works after the change. 

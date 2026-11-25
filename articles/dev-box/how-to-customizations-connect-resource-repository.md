@@ -3,7 +3,7 @@ title: Use Customizations to Connect to Azure Resources or Clone Private Reposit
 description: Learn how to fetch Azure Key Vault secrets in Dev Box team and user customizations to access private repositories and Azure resources.
 #customer intent: As a platform engineer, I want to configure Azure Key Vault secrets so that my development teams can securely access private repositories during Dev Box customization.
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.service: dev-box
 ms.custom:
   - ignite-2024

@@ -3,7 +3,7 @@ title: Choose a remote visualization deployment model for Azure HPC
 description: Compare standalone, cluster-integrated, and alternative approaches for remote visualization in Azure HPC environments.
 ai-usage: ai-generated
 author: padmalathas
-ms.author: padmalathas
+ms.author: mdoster
 ms.date: 08/24/2026
 ms.topic: concept-article
 ms.service: azure-virtual-machines

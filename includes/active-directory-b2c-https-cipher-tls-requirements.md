@@ -4,7 +4,7 @@ ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 04/30/2021
-ms.author: kengaderdus
+ms.author: diberry
 # Used by the API connectors and external identity provides.
 ---
 

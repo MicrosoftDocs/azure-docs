@@ -5,7 +5,7 @@ ms.topic: include
 ms.service: azure-vmware
 ms.date: 03/30/2026
 author: suzizuber
-ms.author: v-szuber
+ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: As a cloud administrator, I want to verify the specific NSX version I am using, so that I can ensure compatibility with my VMware setup and plan for any needed updates or features.
 ---

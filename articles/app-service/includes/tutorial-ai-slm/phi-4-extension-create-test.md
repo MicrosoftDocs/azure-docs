@@ -1,9 +1,9 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 11/18/2025
-ms.author: cephalin
+ms.author: byvinyal
 ---
 
 ## Add the Phi-4 sidecar extension

@@ -6,7 +6,7 @@ ms.topic: concept-article
 ms.custom: devx-track-extended-java
 ms.date: 10/06/2026
 author: spelluru
-ms.author: spelluru
+ms.author: egrootenboer
 ai-usage: ai-assisted
 ---
 

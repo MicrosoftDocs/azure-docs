@@ -7,7 +7,7 @@ manager: lizross
 ms.service: azure-notification-hubs
 ms.topic: quickstart
 ms.date: 05/01/2025
-ms.author: sethm
+ms.author: dimatokar
 ms.custom:
   - mode-ui
   - devx-track-azurecli

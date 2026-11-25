@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 07/03/2025
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge 2506 release notes

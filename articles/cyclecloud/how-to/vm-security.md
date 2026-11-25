@@ -4,7 +4,7 @@ description: Review Azure CycleCloud VM security options. See options for Confid
 author: dougclayton
 ms.date: 06/19/2026
 ms.topic: how-to
-ms.author: doclayto
+ms.author: mattmcinnes
 ---
 
 # Virtual machine security configuration

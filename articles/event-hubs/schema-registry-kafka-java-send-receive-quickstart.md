@@ -7,7 +7,7 @@ ms.devlang: java
 ms.custom: devx-track-extended-java
 ms.subservice: kafka
 author: spelluru
-ms.author: spelluru
+ms.author: aschhabria
 ---
 
 # Validate schemas for Apache Kafka applications using Avro (Java)

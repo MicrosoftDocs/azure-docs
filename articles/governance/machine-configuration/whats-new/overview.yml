@@ -12,8 +12,8 @@ metadata:
     to Azure machine configuration.
   ms.service: azure-machine-configuration
   ms.topic:      landing-page
-  author:        michaeltlombardi
-  ms.author:     mlombardi
+  author:        mgreenegit
+  ms.author:     migreene
   ms.date:       02/01/2024
 
 landingContent:

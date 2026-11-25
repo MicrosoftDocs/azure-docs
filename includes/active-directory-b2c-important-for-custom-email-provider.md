@@ -3,7 +3,7 @@ author: kengaderdus
 ms.service: active-directory-b2c
 ms.topic: include
 ms.date: 10/11/2021
-ms.author: kengaderdus
+ms.author: diberry
 ---
 
 > [!IMPORTANT]

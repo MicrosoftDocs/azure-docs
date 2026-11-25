@@ -1,10 +1,10 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/30/2022
-ms.author: cephalin
+ms.author: byvinyal
 ---
 
 [Azure App Service](../../overview.md) provides a highly scalable, self-patching web app hosting service. This quickstart tutorial shows how to deploy a Java SE app to Azure App Service on Windows using the Azure portal. To follow a quickstart that deploys to Tomcat or JBoss EAP, select one of the Maven options above.

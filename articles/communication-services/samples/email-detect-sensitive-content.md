@@ -6,7 +6,7 @@ author: MsftPMACS
 manager: darmour
 services: azure-communication-services
 
-ms.author: maniss
+ms.author: diberry
 ms.date: 10/30/2024
 ms.topic: tutorial
 ms.service: azure-communication-services

@@ -5,8 +5,8 @@ ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: how-to
 ms.date: 03/23/2026
 ms.custom: fasttrack-edit, AppServiceIdentity
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 # customer intent: As a developer, I want to configure X authentication so that I can use it as an identity provider for an App Service or Azure Functions app.
 

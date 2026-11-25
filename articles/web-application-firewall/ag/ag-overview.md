@@ -2,7 +2,7 @@
 title: What Is Azure Web Application Firewall on Azure Application Gateway?
 description: Learn about deploying Azure Web Application Firewall on Azure Application Gateway.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: overview
 ms.date: 04/30/2026

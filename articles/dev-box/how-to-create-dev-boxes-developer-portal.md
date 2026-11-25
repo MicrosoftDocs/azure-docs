@@ -5,7 +5,7 @@ description: Learn how to create, connect, manage, and get information about a d
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.update-cycle: 180-days
 ms.date: 11/17/2025
 ms.topic: how-to

@@ -1,8 +1,8 @@
 ---
 title: Tutorial - .NET Web app accesses Microsoft Graph as the user | Azure
 description: In this tutorial, you learn how to access data in Microsoft Graph for a signed-in user from a .NET web app.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.topic: tutorial
 ms.date: 03/17/2026

@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
 ms.date: 12/01/2023
-ms.author: rolyon
+ms.author: diberry
 ms.reviewer: bagovind
 ---
 # Create or update Azure custom roles using the REST API

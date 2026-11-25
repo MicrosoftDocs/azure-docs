@@ -5,7 +5,7 @@ author: aatsang
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 03/13/2025
-ms.author: aarontsang
+ms.author: mialdridge
 # Customer intent: As a cloud administrator, I want to review the latest updates and features of Azure Bastion, so that I can effectively implement and manage secure remote access solutions for my organization.
 ---
 

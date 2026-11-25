@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.service: azure-traffic-manager
 author: TomArcherMsft
-ms.author: tarcher
+ms.author: rohink
 ms.date: 6/8/2023
 content_well_notification: 
   - AI-contribution

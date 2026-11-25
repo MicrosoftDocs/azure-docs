@@ -4,8 +4,8 @@ description: Learn how to encrypt your application data in Azure Storage and dep
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 03/31/2026
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 # customer intent: As a developer, I want to encrypt my application data in Azure Storage to help protect it from unauthorized access. 
 

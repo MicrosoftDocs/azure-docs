@@ -3,7 +3,7 @@ author: spelluru
 ms.service: azure-service-bus
 ms.topic: include
 ms.date: 10/06/2026
-ms.author: spelluru
+ms.author: egrootenboer
 ---
 
 

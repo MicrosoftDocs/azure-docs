@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Front Door using Azure CLI'
 description: Learn how to create an Azure Front Door using Azure CLI. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: quickstart
 ms.date: 11/18/2024

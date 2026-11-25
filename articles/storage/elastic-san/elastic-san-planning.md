@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 01/08/2026
-ms.author: rogarana
+ms.author: normesta
 ms.custom:
   - ignite-2023-elastic-SAN
 # Customer intent: As a cloud architect, I want to plan and deploy an Azure Elastic SAN, so that I can optimize storage capacity, performance, redundancy, and encryption to meet my organization's data management needs.

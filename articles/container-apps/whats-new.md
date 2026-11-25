@@ -2,7 +2,7 @@
 title: What's new in Azure Container Apps
 titleSuffix: Azure Container Apps
 description: Learn more about what's new in Azure Container Apps.
-ms.author: hannahhunter
+ms.author: vyomnagrani
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom:

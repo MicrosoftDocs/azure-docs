@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: reference
 ms.date: 05/21/2024
-ms.author: sipastak
+ms.author: scompton
 ---
 # Azure Stack Edge Mini R technical specifications
 

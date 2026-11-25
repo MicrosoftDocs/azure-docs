@@ -6,8 +6,8 @@ ms.update-cycle: 1095-days
 ms.topic: sample
 ms.service: azure-app-service
 ms.custom: "UpdateFrequency3, subject-policy-compliancecontrols"
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ---
 # Azure Policy Regulatory Compliance controls for Azure App Service
 

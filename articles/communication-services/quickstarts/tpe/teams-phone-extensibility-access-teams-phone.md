@@ -5,7 +5,7 @@ description: This article describes how to use Teams Phone Extensibility feature
 author: sofiar
 manager: miguelher
 services: azure-communication-services
-ms.author: sofiar
+ms.author: diberry
 ms.date: 09/01/2025
 ms.topic: tutorial
 ms.service: azure-communication-services

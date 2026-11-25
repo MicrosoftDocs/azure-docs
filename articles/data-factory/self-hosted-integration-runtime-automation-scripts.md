@@ -4,7 +4,7 @@ description: To automate installation of Self-hosted Integration Runtime on loca
 ms.subservice: integration-runtime
 ms.topic: how-to
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.date: 05/15/2024
 ---
 

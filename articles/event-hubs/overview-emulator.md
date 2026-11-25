@@ -4,7 +4,7 @@ description: Learn about the Azure Event Hubs emulator, a local development tool
 #customer intent: As a developer, I want to understand the Azure Event Hubs emulator so that I can test Event Hubs applications locally.  
 ms.topic: concept-article
 author: spelluru
-ms.author: spelluru
+ms.author: aschhabria
 ms.date: 08/25/2026
 ai-usage: ai-assisted
 ms.custom:

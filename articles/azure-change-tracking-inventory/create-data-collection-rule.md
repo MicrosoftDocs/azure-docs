@@ -5,7 +5,7 @@ description: Learn how to create a data collection rule (DCR) for Azure Change T
 ms.date: 12/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
-ms.author: v-rochak2
+ms.author: gurkisingh
 author: RochakSingh-blr
 ms.custom: sfi-image-nochange
 ---

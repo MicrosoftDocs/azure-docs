@@ -7,7 +7,7 @@ ms.custom: synapse
 ms.topic: how-to
 ms.date: 10/03/2024
 ms.subservice: integration-runtime
-ms.author: whhender
+ms.author: weetok
 ---
 
 # Configure the self-hosted integration runtime (SHIR) for log analytics collection

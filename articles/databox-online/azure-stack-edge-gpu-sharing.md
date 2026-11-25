@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 07/01/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # GPU sharing on your Azure Stack Edge Pro GPU device

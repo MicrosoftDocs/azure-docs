@@ -3,7 +3,7 @@ author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
 ms.date: 05/30/2024
-ms.author: v-abhmallick
+ms.author: diberry
 ---
 
 [Azure Backup](../articles/backup/backup-overview.md) now allows you to configure both [operational](../articles/backup/blob-backup-overview.md?tabs=operational-backup) and [vaulted](../articles/backup/blob-backup-overview.md?tabs=vaulted-backup) backups to protect block blobs in your storage accounts.

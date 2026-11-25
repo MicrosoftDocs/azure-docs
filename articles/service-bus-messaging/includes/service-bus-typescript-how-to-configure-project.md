@@ -5,7 +5,7 @@ author: spelluru
 ms.service: azure-service-bus
 ms.topic: include
 ms.date: 07/17/2024
-ms.author: spelluru
+ms.author: egrootenboer
 ms.custom: "include file"
 
 ---

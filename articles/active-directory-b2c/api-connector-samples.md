@@ -5,7 +5,7 @@ description: Code samples for modifying user flows with API connectors
 author: kengaderdus
 manager: CelesteDG
 
-ms.author: kengaderdus
+ms.author: diberry
 ms.date: 01/11/2024
 ms.custom: mvc
 ms.topic: sample

@@ -6,7 +6,7 @@ ms.devlang: powershell
 ms.topic: tutorial
 ms.date: 05/15/2024
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.custom:
   - devx-track-azurepowershell
   - sfi-ropc-nochange

@@ -5,7 +5,7 @@ author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 04/21/2025
-ms.author: wellee
+ms.author: ajitbhu
 # Customer intent: As someone with a networking background, I want to manage IP configurations to a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ---
 # How to manage IP configurations for NVAs in the hub

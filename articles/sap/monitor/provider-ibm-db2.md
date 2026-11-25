@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to
 ms.date: 03/30/2026
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 #Customer intent: As a system administrator, I want to configure an IBM Db2 provider for Azure Monitor for SAP solutions so that I can monitor database performance and ensure seamless integration within the Azure ecosystem.
 ---
 

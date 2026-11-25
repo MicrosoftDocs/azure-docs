@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 06/26/2025
 ms.reviewer: dariac
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ---
 # Deploy to Azure App Service by using local Git

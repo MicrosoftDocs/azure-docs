@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 11/18/2026
 ai-usage: ai-assisted
-ms.author: kendownie
+ms.author: normesta
 ms.custom: references_regions
 # Customer intent: "As a data engineer, I want to select the appropriate data redundancy option for Azure file shares, so that I can ensure optimal availability and disaster recovery tailored to my organization's needs."
 ---

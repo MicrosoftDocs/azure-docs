@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 10/23/2025
-ms.author: rolyon
+ms.author: diberry
 ---
 
 # Azure custom roles

@@ -5,7 +5,7 @@ services: azure-government
 cloud: gov
 ms.service: azure-government
 author: KennyDay
-ms.author: kenday
+ms.author: diberry
 ms.reviewer: sapnakeshari
 ms.topic: article
 ms.date: 11/18/2024

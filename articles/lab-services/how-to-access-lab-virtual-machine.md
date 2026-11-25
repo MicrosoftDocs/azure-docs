@@ -5,7 +5,7 @@ description: Learn how to access a lab in Azure Lab Services. Use Teams, Canvas,
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 03/06/2024
 #customer intent: As a student, I want to connect to a virtual machine in Azure Lab Services to use the learning resources.

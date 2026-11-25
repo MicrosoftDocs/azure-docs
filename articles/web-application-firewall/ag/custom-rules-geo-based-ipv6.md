@@ -3,7 +3,7 @@ title: IPv6 Geo-Based Custom Rules (Preview)
 titleSuffix: Azure Web Application Firewall
 description: Learn about IPv6 geo-based custom rules in Application Gateway WAF, including preview feature registration, dual-stack requirements, and validation behavior.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 09/17/2026

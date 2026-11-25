@@ -8,7 +8,7 @@ ms.date: 11/17/2025
 ms.custom: engagement-fy23
 ms.topic: how-to
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 # Authenticate runbooks with Amazon Web Services

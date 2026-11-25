@@ -3,7 +3,7 @@ author: mumian
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 08/27/2025
-ms.author: jgao
+ms.author: ashishj
 ---
 | Resource | Limit | Comment |
 | --- | --- | ---|

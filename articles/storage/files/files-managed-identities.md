@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/23/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom:
   - devx-track-azurepowershell
 zone_pivot_groups: azure-files-windows-linux

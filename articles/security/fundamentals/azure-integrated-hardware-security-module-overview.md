@@ -7,7 +7,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 04/30/2026
-ms.author: simranparkhe
+ms.author: sgallagher
 ai-usage: ai-assisted
 ---
 

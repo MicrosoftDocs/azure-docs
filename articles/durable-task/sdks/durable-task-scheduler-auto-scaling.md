@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: "Configure Autoscaling for Durable Task SDK in Azure Container Apps"
 titleSuffix: Durable Task
 description: Learn how to configure autoscaling for Durable Task Scheduler apps in Azure Container Apps. Set replica ranges and scale rules to handle workload spikes automatically.

@@ -7,7 +7,7 @@ ms.date: 05/05/2026
 ms.topic: overview
 ms.custom:
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

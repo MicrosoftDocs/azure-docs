@@ -8,7 +8,7 @@ ms.subservice: conditions
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 ms.date: 10/24/2022
-ms.author: rolyon
+ms.author: diberry
 ---
 
 # Add Azure role assignment conditions using Azure Resource Manager templates

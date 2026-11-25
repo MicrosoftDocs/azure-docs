@@ -5,7 +5,7 @@ author: spelluru
 ms.service: azure-stream-analytics
 ms.topic: include
 ms.date: 02/19/2026
-ms.author: spelluru
+ms.author: skommajosula
 ---
 
 ## Sign in to Azure

@@ -1,11 +1,11 @@
 ---
 title: Migrate .NET Apps to Azure App Service
 description: Learn about tools for assessing and migrating .NET web apps to Azure App Service, including Managed Instance and GitHub Copilot modernization.
-author: msangapu-msft
+author: btardif
 
 ms.topic: concept-article
 ms.date: 08/28/2026
-ms.author: msangapu
+ms.author: byvinyal
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.service: azure-app-service

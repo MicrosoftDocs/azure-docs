@@ -2,7 +2,7 @@
 title: Transform data using a mapping data flow
 description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flow
 author: whhender
-ms.author: whhender
+ms.author: weetok
 ms.reviewer: makromer
 ms.subservice: data-flows
 ms.topic: tutorial

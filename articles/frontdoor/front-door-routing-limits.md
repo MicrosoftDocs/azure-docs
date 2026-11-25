@@ -3,7 +3,7 @@ title: Routing limits
 titleSuffix: Azure Front Door
 description: This article helps you understand the composite limits around routing for Azure Front Door.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 09/25/2025

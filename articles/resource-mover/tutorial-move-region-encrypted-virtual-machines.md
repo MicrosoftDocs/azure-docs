@@ -4,7 +4,7 @@ description: Learn how to move encrypted Azure VMs to another region by using Az
 ms.service: azure-resource-mover
 ms.topic: tutorial
 author: RochakSingh-blr
-ms.author: v-rochak2
+ms.author: bhappayy
 ms.date: 07/31/2025
 ms.update-cycle: 1095-days
 ms.custom:

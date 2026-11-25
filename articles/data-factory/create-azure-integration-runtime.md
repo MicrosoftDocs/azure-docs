@@ -6,7 +6,7 @@ ms.subservice: integration-runtime
 ms.topic: how-to
 ms.date: 02/13/2025
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.custom:
   - synapse
   - sfi-ropc-nochange

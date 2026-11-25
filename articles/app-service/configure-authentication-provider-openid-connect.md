@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 07/10/2025
 ms.reviewer: mahender
 ms.custom: AppServiceIdentity
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 #customer intent: As an app developer, I want to use a custom authentication provider that uses the OpenID Connect specification in Azure App Service.
 ms.service: azure-app-service
 ---

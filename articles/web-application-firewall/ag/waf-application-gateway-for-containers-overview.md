@@ -2,7 +2,7 @@
 title: Web Application Firewall on Application Gateway for Containers
 description: Help protect your containerized applications with a web application firewall (WAF) on Azure Application Gateway.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: overview
 ms.date: 08/21/2026

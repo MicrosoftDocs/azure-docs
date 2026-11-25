@@ -7,7 +7,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/21/2026
-ms.author: clodwigdocs
+ms.author: diberry
 ms.custom:
 - sfi-image-nochange
 - build-2025

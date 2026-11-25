@@ -7,8 +7,8 @@ ms.topic: concept-article
 ms.date: 08/28/2025
 ms.update-cycle: 180-days 
 ms.custom: UpdateFrequency3
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-app-service
