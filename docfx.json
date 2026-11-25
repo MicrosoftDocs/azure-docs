@@ -658,7 +658,7 @@
         "articles/azure-vmware/**/*.md": "mattmcinnes",
         "articles/backup/**/*.md": "v-mallicka",
         "articles/backup/**/*.yml": "v-mallicka",
-        "articles/batch/**/*.md": "padmalathas",
+        "articles/batch/**/*.md": "mattmcinnes",
         "articles/business-process-tracking/*.md": "estfan",
         "articles/business-process-tracking/*.yml": "estfan",
         "articles/china/**/*.md": "mkwang",
