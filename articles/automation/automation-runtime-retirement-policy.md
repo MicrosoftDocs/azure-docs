@@ -6,7 +6,7 @@ ms.subservice: process-automation
 ms.date: 06/24/2026
 ms.topic: concept-article
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 # customer intent: As an Azure Automation user, I want to understand the support lifecycle and retirement policy for language runtimes so that I can plan upgrades and keep my runbooks supported.
 ---

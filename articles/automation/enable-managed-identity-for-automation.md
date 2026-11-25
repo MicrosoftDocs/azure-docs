@@ -6,7 +6,7 @@ ms.subservice: process-automation
 ms.date: 01/20/2025
 ms.topic: how-to 
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ms.custom:
   - devx-track-azurepowershell

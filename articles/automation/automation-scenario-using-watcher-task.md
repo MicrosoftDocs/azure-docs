@@ -6,7 +6,7 @@ ms.subservice: process-automation
 ms.topic: how-to
 ms.date: 11/17/2025
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

@@ -4,7 +4,7 @@ description: This article provides details of network information required by Az
 ms.topic: overview
 ms.date: 11/29/2024
 ms.update-cycle: 1095-days
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

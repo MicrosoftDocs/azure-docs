@@ -6,7 +6,7 @@ services: automation
 ms.date: 06/27/2025
 ms.topic: quickstart
 ms.custom: references_regions
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

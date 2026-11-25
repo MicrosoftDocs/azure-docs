@@ -7,7 +7,7 @@ ms.date: 11/17/2025
 ms.topic: overview 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 # Learn PowerShell Workflow for Azure Automation

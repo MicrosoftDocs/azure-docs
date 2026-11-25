@@ -7,7 +7,7 @@ ms.subservice: desired-state-config
 ms.date: 11/17/2025
 ms.topic: how-to
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

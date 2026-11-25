@@ -4,7 +4,7 @@ description: This article gives answers to frequently asked questions about Azur
 services: automation
 ms.topic: faq
 ms.custom: devx-track-python, linux-related-content
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ms.date: 08/20/2024
 #Customer intent: As an implementer, I want answers to various questions.
