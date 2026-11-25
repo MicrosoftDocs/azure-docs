@@ -668,7 +668,7 @@
         "articles/connectors/*.md": "divswa",
         "articles/deployment-environments/**/*.md": "rosemalcolm",
         "articles/dev-box/**/*.md": "rosemalcolm",
-        "articles/devtest-labs/**/*.md": "rosemalcolm",
+        "articles/devtest-labs/**/*.md": "rabououn",
         "articles/event-grid/**/*.md": "spelluru",
         "articles/event-hubs/*.md": "spelluru",
         "articles/governance/blueprints/**/*.md": "kgremban",
