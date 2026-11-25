@@ -112,7 +112,7 @@ sudo AZNFS_NONINTERACTIVE_INSTALL=1 DEBIAN_FRONTEND=noninteractive apt-get insta
 > A noninteractive install sets `AUTO_UPDATE_AZNFS=true` by default.
 
 > [!NOTE]
-> Starting with version 3.0.21, AzNFS writes NFSv4 logs to syslog by default, as described in [Troubleshoot AzNFS mounts](#troubleshoot-aznfs-mounts). Earlier versions write them to `/opt/microsoft/aznfs/data/aznfs.log` and `/etc/stunnel/microsoft/aznfs/nfsv4_fileShare/logs`. After an upgrade, existing mounts keep logging to the old locations. To make sure that the new logging takes effect:
+> Starting with version 3.0.21, AzNFS writes NFSv4 logs to syslog by default, as described in [Troubleshoot AzNFS mounts](#troubleshoot-aznfs-mounts). Earlier versions write them to `/opt/microsoft/aznfs/data/aznfs.log` and `/etc/stunnel/microsoft/aznfs/nfsv4_fileShare/logs`. After an upgrade, existing mounts keep logging to the old locations. To ensure that the new logging takes effect:
 >
 > 1. Unmount all the shares from the storage account.
 > 1. Wait about 30 seconds.
