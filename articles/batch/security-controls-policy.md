@@ -3,7 +3,7 @@ title: Azure Policy Regulatory Compliance controls for Azure Batch
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Batch. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
 ms.date: 06/16/2026
 ms.topic: sample
-author: padmalathas
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.service: azure-batch
 ms.custom: subject-policy-compliancecontrols

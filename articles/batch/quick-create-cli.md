@@ -4,7 +4,7 @@ description: Follow this quickstart to use the Azure CLI to create a Batch accou
 ms.topic: quickstart
 ms.date: 06/16/2026
 ms.custom: mvc, devx-track-azurecli, mode-api, linux-related-content, innovation-engine
-author: padmalathas
+author: mattmcinnes
 ms.author: mattmcinnes
 # Customer intent: As a cloud user, I want to create and manage a Batch account using command-line tools, so that I can efficiently run jobs and tasks on virtual machines for large-scale processing workflows.
 ---

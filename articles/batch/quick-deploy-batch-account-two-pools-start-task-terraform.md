@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 06/16/2026
 ms.custom: devx-track-terraform
 ms.service: azure-batch
-author: Padmalathas
+author: mattmcinnes
 ms.author: mattmcinnes
 content_well_notification: 
   - AI-contribution
