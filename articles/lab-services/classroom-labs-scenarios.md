@@ -5,7 +5,7 @@ description: This article describes how to use Azure DevTest Labs for creating l
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: concept-article
 ms.date: 03/07/2024
 #customer intent: As a training specialist, I want to learn how organizational roles map to permissions, so that I can determine the roles and responsibilities for setting up a training environment for my enterprise.

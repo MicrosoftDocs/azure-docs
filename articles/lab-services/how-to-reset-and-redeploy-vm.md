@@ -5,7 +5,7 @@ services: lab-services
 ms.service: azure-lab-services
 ms.topic: how-to
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 09/28/2023
 ms.custom: sfi-image-nochange
 ---

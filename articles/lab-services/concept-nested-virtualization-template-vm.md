@@ -4,7 +4,7 @@ description: Learn about considerations and recommendations for configuring nest
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: concept-article
 ms.date: 03/07/2024
 #customer intent: As a lab administrator, I want to create networks within a virtual lab in order to cover scenarios where multiple virtual machines interact within or across networks.

@@ -4,7 +4,7 @@ description: Learn how to create a lab in Azure Lab Services from an existing Wi
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 05/17/2023
 ms.topic: how-to
 ---

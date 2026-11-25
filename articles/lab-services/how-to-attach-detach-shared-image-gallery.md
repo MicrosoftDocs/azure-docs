@@ -5,7 +5,7 @@ description: This article describes how to attach or detach an Azure compute gal
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 03/01/2023
 ms.custom: sfi-image-nochange

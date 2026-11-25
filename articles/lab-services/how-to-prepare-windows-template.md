@@ -5,7 +5,7 @@ services: lab-services
 ms.service: azure-lab-services
 ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 05/17/2023
 ---

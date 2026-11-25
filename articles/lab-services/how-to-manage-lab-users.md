@@ -5,7 +5,7 @@ description: Learn how to manage lab users in Azure Lab Services. Configure the 
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.custom: sfi-image-nochange

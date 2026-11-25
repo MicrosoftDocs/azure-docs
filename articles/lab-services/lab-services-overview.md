@@ -4,7 +4,7 @@ description: Learn how Azure Lab Services can make it easy to create, manage, an
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: overview
 ms.date: 03/12/2024
 #customer intent: As an administrator or educator, I want to understand Azure Lab Services in order to plan and create labs for education and training.

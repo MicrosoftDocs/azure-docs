@@ -5,7 +5,7 @@ description: Learn how to connect from your Chromebook system to a virtual machi
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 05/22/2024
 ms.custom: sfi-image-nochange

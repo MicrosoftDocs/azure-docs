@@ -6,7 +6,7 @@ services: lab-services
 ms.service: azure-lab-services
 ms.custom: linux-related-content
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 03/12/2024
 #customer intent: As an educator and lab creator, I want to provide access to linux virtual machines by RDP so that students can use a GUI.

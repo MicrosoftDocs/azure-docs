@@ -5,7 +5,7 @@ description: Learn how to enable nested virtualization on a template VM in Azure
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 03/04/2024
 #customer intent: As an administrator or educator, I want to set up labs in Azure Lab Services that include multiple embedded virtual machines because some learning tasks require multiple computers interacting on a network.
