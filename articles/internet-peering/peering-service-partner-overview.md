@@ -1,8 +1,8 @@
 ---
 title: Azure Peering Service Partner Overview
 description: Learn how to become an Azure Peering Service partner.
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: internet-peering
 ms.topic: concept-article
 ms.date: 02/25/2026

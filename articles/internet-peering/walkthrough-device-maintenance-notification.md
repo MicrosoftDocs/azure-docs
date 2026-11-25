@@ -2,8 +2,8 @@
 title: View and Monitor Maintenance Events
 titleSuffix: Internet Peering
 description: Learn how to view current and past peering device maintenance events in Azure Peering Service, and how to create alerts to receive notifications for future events.
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 02/25/2026

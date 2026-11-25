@@ -2,8 +2,8 @@
 title: Peering Policy
 titleSuffix: Internet Peering
 description: Learn about Microsoft's peering policy.
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: internet-peering
 ms.topic: concept-article
 ms.date: 02/25/2026
