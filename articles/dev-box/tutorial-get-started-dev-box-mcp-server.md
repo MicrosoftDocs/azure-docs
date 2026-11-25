@@ -9,7 +9,7 @@ ms.ai-usage: ai-generated
 ms.update-cycle: 90-days
 ms.topic: tutorial
 ms.author: rabououn
-author: RoseHJM
+author: ramiMSFT
 ms.date: 12/05/2025
 
 #Customer intent: As a developer, I want to learn how to use the Dev Box MCP Server through a hands-on tutorial so that I can efficiently manage my dev boxes using natural language commands.

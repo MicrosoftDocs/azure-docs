@@ -4,7 +4,7 @@ description: Learn about serverless GPU compute in Microsoft Dev Box, how it wor
 ms.service: dev-box
 ms.topic: how-to
 ms.date: 05/05/2025
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ai-usage: ai-generated
 

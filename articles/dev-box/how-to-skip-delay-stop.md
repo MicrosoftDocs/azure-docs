@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to delay the scheduled automatic shutdown of your dev box, or skip the shutdown entirely, to manage your work and resources more effectively.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 09/23/2025
 ms.topic: how-to

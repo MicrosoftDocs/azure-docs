@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to create, connect, manage, and get information about a dev box by using the Microsoft Dev Box developer portal.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.update-cycle: 180-days
 ms.date: 11/17/2025

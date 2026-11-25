@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to prepare a custom Windows image that meets all Microsoft Dev Box requirements, including image definition configuration, OS requirements, disk configuration, and sysprep settings.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 03/18/2026
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: Secure Dev Tunnel Access with Conditional Policies
 description: Learn how to configure conditional access policies for the Dev Tunnels service in Microsoft Entra ID to secure remote development environments and restrict access based on device management and IP ranges.
-author: RoseHJM
+author: ramiMSFT
 contributors:
 ms.topic: how-to
 ms.date: 10/31/2025

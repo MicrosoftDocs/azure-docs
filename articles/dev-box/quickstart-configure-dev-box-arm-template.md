@@ -5,7 +5,7 @@ services: dev-box
 ms.service: dev-box
 ms.topic: quickstart-arm
 ms.custom: subject-armqs, devx-track-arm-template
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 02/23/2025
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components with an ARM template so that I can provide dev box projects for my users.

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to configure Intune Conditional Access policies to manage access to dev boxes to ensure that your organization's devices remain secure.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 05/29/2025
 ms.topic: how-to

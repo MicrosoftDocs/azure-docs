@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom:
   - devx-track-azurecli
   - build-2025
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 03/20/2025
 ms.topic: how-to

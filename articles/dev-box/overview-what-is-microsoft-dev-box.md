@@ -5,7 +5,7 @@ services: dev-box
 ms.service: dev-box
 ms.topic: overview
 ms.author: rabououn
-author: RoseHJM
+author: ramiMSFT
 ms.date: 10/31/2025
 adobe-target: true
 

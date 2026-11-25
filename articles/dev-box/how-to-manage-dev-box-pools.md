@@ -5,7 +5,7 @@ description: Manage dev box pools in Microsoft Dev Box with step-by-step guidanc
 #customer intent: As an IT admin, I want to configure dev box pools so that developers can access resources securely.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.date: 12/29/2025

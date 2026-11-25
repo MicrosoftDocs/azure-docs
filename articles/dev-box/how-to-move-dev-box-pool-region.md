@@ -1,7 +1,7 @@
 ---
 title: Move Dev Box Pools and Dev Boxes to Another Region
 description: Learn how to move Dev Box pools and individual dev boxes to a different region, align dev boxes with pool regions, and manage network connections in Microsoft Dev Box.
-author: RoseHJM
+author: ramiMSFT
 contributors: null
 ms.topic: how-to
 ms.date: 05/20/2025

@@ -1,7 +1,7 @@
 ---
 title: Configure Imaging for Dev Box Team Customizations
 description: Configure dev box pools to use image definition files so that you can optimize customizations and create reusable images for your team.
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.service: dev-box

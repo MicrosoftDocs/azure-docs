@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to enable single sign-on for dev boxes and edit an existing pool to configure single sign-on for new dev boxes.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 08/29/2025
 ms.topic: how-to

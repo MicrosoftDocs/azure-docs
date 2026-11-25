@@ -1,7 +1,7 @@
 ---
 title: Configure Intune Endpoint Privilege Management
 description: Learn how to configure Intune Endpoint Privilege Management (EPM) for dev boxes so that users can manage their dev boxes without needing administrative privileges.
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.service: dev-box
 ms.topic: how-to

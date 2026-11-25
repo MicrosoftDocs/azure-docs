@@ -4,7 +4,7 @@ description: Learn how to prepare for Microsoft Dev Box retirement, evaluate Win
 ms.service: dev-box
 ms.topic: concept-article
 ms.custom: doc-kit-assisted
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 09/08/2026
 
