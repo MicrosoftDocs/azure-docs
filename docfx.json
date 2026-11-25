@@ -634,7 +634,7 @@
       },
       "ms.author": {
         "articles/api-center/**/*.md": "patricka",
-        "articles/api-management/**/*.md": "patricka",
+        "articles/api-management/**/*.md": "srthirth",
         "articles/ai-gateway/**/*.md": "patricka",
         "articles/ai-gateway/**/*.yml": "patricka",
         "articles/app-service/environment/*.md": "jordanselig",
