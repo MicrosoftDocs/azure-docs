@@ -2,7 +2,7 @@
 title: Domains
 titleSuffix: Azure Front Door
 description: Learn about custom domains in Azure Front Door, including subdomains, apex domains, and wildcard domains.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

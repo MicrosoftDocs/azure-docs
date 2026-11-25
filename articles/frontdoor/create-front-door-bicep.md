@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create an Azure Front Door using Bicep'
 description: This quickstart describes how to create an Azure Front Door using Bicep.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: quickstart

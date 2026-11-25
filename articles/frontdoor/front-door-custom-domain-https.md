@@ -1,7 +1,7 @@
 ---
 title: Configure HTTPS on an Azure Front Door Custom Domain
 description: Learn how to enable and disable HTTPS on an existing Azure Front Door (classic) custom domain by using your own certificate.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to

@@ -2,7 +2,7 @@
 title: Support and Troubleshooting
 titleSuffix: Azure Front Door
 description: How to obtain help and support for questions or problems when you create solutions using Azure Front Door. 
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: troubleshooting

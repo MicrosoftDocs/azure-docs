@@ -1,7 +1,7 @@
 ---
 title: Front Door manager
 description: This article is about how Front Door manager can help you manage your routing and security policy for an endpoint.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

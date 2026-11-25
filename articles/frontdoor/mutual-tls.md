@@ -2,7 +2,7 @@
 title: Mutual TLS authentication
 titleSuffix: Azure Front Door
 description: Learn how to configure mutual TLS (mTLS) authentication in Azure Front Door Premium to authenticate clients at the edge using client certificates and trusted certificate authorities.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

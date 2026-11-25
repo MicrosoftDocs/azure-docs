@@ -2,7 +2,7 @@
 title: Caching
 titleSuffix: Azure Front Door
 description: This article helps you understand Front Door behavior when enabling caching in routing rules.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
