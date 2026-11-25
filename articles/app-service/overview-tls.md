@@ -5,8 +5,8 @@ keywords: Azure App Service, SSL, TLS, HTTPS, certificate management, TLS mutual
 ms.topic: overview
 ms.date: 09/08/2025
 ms.update-cycle: 180-days
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ms.custom: UpdateFrequency3
 ms.collection: ce-skilling-ai-copilot

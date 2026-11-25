@@ -5,7 +5,7 @@ ms.topic: include
 ms.service: azure-vmware
 ms.date: 1/03/2024
 author: suzizuber
-ms.author: v-szuber
+ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: "As a cloud administrator, I want to set up activity log alerts for service notifications, so that I can stay informed about service issues and maintenance and take timely actions to ensure system reliability."
 ---

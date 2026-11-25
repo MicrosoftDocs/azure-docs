@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: "Durable Task Scheduler Action Throughput Benchmarks"
 titleSuffix: Durable Task
 description: "Explore Durable Task Scheduler action throughput benchmarks compared to Azure Storage, MSSQL, and Netherite providers. See how it delivers up to 5x faster performance for your orchestrations."

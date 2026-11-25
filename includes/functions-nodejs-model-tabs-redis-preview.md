@@ -1,6 +1,6 @@
 ---
 author: flang-msft
-ms.author: franlanglois
+ms.author: diberry
 ms.service: azure-functions
 ms.topic: include
 ms.date: 01/26/2024

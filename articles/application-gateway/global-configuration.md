@@ -47,14 +47,14 @@ You can control whether Application Gateway identifies itself in the `Server` re
 
 Configure this setting on the gateway by using the Azure portal, Azure PowerShell, or the REST API.
 
-## Azure portal
+### Azure portal
 
 1. In the Azure portal, open your Application Gateway resource.
 2. Under **Settings**, select **Configuration**.
 3. Set **Application Gateway server information** to **False** to prevent Application Gateway from identifying itself in responses. Set it to **True** to include the information.
 4. Select **Save**.
 
-## Azure PowerShell
+### Azure PowerShell
 
 To disable Application Gateway server information on an existing gateway, set the `DisableDefaultServerHeaderInResponse` property to `$true` and update the gateway:
 

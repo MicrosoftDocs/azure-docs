@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/09/2026
-ms.author: rogarana
+ms.author: normesta
 ms.custom: references_regions
 ---
 # Connect to Elastic SAN volumes - Windows

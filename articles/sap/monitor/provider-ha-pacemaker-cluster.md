@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to
 ms.date: 03/18/2026
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 ms.custom: sfi-image-nochange
 # Customer intent: As a system administrator, I want to configure a high-availability Pacemaker cluster for Azure Monitor for SAP solutions, so that I can ensure reliable and continuous monitoring of my SAP systems.
 ---

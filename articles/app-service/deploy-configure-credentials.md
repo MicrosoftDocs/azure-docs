@@ -1,8 +1,8 @@
 ---
 title: Manage Deployment Credentials
 description: Learn about the types of deployment credentials for deploying local apps to Azure App Service and how to configure and use them.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.reviewer: byvinyal
 ms.topic: how-to
 ms.date: 07/01/2025

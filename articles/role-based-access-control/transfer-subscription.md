@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 06/16/2026
-ms.author: rolyon
+ms.author: diberry
 ---
 
 # Transfer an Azure subscription to a different Microsoft Entra directory

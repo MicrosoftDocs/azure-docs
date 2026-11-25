@@ -6,7 +6,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/26/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 

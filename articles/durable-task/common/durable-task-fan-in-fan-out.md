@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.custom: devx-track-js, devx-track-python
 ms.date: 10/12/2026
 ai-usage: ai-assisted
-ms.author: hannahhunter
+ms.author: vyomnagrani
 author: hhunter-ms
 ms.service: durable-task
 zone_pivot_groups: azure-durable-approach

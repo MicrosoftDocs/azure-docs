@@ -5,7 +5,7 @@ description: Learn how to connect using remote desktop (RDP) from Windows to a v
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 03/06/2024
 #customer intent: As a student, I want to connect to virtual machines in a lab by using RDP in order to use the lab resources. 

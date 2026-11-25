@@ -5,7 +5,7 @@ author: whhender
 ms.topic: quickstart
 ms.subservice: authoring
 ms.date: 07/29/2026
-ms.author: whhender
+ms.author: weetok
 ms.reviewer: xupzhou
 ms.custom: sfi-image-nochange
 

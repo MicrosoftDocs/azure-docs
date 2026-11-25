@@ -6,7 +6,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: include
 ms.date: 02/09/2021
-ms.author: kenday
+ms.author: diberry
 ms.reviewer: isvargas
 ms.custom:
   - include file

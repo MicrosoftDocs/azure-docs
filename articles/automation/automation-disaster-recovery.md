@@ -4,7 +4,7 @@ description: Learn about disaster recovery strategies to handle service outages 
 keywords: automation disaster recovery
 services: automation
 ms.subservice: process-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ms.date: 11/17/2025
 ms.topic: how-to 

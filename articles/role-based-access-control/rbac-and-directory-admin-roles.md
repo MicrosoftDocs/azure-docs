@@ -7,7 +7,7 @@ ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.topic: overview
 ms.date: 05/06/2026
-ms.author: rolyon
+ms.author: diberry
 ms.custom:
   - it-pro;
   - sfi-image-nochange

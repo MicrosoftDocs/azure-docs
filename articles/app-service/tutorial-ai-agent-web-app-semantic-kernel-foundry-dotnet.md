@@ -2,8 +2,8 @@
 title: Agentic app with Microsoft Agent Framework or Foundry Agent Service (.NET)
 description: Learn how to quickly deploy a production-ready, agentic web application using .NET with Azure App Service, Microsoft Agent Framework, and Foundry Agent Service.
 ms.service: azure-app-service
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 08/27/2026

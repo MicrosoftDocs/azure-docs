@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 11/17/2026
 ai-usage: ai-assisted
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As a system architect, I want to evaluate deployment options for Azure Files, so that I can determine the best approach for directly mounting or caching file shares while considering performance, compatibility, and organizational needs.
 ---
 

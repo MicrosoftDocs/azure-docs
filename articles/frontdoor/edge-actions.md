@@ -3,7 +3,7 @@ title: Edge Actions
 titleSuffix: Azure Front Door
 description: Enhance security and performance with Azure Front Door edge actions. Learn how to create, manage, and attach custom JavaScript logic to your routes.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 11/05/2026

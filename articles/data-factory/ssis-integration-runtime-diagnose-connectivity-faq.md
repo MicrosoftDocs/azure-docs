@@ -3,7 +3,7 @@ title: Use the diagnose connectivity feature in the SSIS integration runtime
 description: Troubleshoot connection issues in the SSIS integration runtime by using the diagnose connectivity feature. 
 ms.subservice: integration-services
 ms.topic: troubleshooting
-ms.author: makromer
+ms.author: weetok
 author: kromerm
 ms.reviewer: chugugrace
 ms.date: 05/15/2024

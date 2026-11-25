@@ -7,7 +7,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 11/18/2026
 ai-usage: ai-assisted
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As an IT admin, I want to learn how to deploy an NFS file share with Microsoft.FileShares resource provider."
 ---
 

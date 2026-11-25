@@ -4,7 +4,7 @@ description: Comprehensive list of all the authorized Azure Government cloud sol
 ms.service: azure-government
 ms.topic: article
 author: todorgb
-ms.author: eliotgra
+ms.author: diberry
 ms.date: 10/31/2023
 ---
 

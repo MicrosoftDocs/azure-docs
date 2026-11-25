@@ -4,7 +4,7 @@ ms.service: azure-communication-services
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: rifox
+ms.author: diberry
 ---
 
 ## Prerequisites

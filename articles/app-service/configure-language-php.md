@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 09/14/2025
 ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 #customer intent: As an app developer who uses PHP, I want to understand how to configure my PHP web apps in Azure App Service.
 ms.service: azure-app-service
 ---

@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: overview
 ms.date: 03/30/2025
-ms.author: rolyon
+ms.author: diberry
 ms.custom:
 ---
 # Understand Azure role definitions

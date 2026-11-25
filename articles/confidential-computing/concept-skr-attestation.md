@@ -5,7 +5,7 @@ author: angarg05
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 09/09/2026
-ms.author: ananyagarg
+ms.author: sgallagher
 # Customer intent: "As a security architect, I want to implement Secure Key Release with Azure Key Vault and Trusted Execution Environments, so that I can enhance the protection and access control for sensitive encryption keys during their use in cloud applications."
 ---
 

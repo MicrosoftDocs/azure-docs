@@ -4,7 +4,7 @@ description: Learn how to create a lab, configure a lab, view all the labs, or d
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 07/04/2023
 ---

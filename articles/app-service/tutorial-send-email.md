@@ -6,8 +6,8 @@ ms.date: 07/14/2025
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, php, python
 ms.custom: devx-track-csharp, mvc, AppServiceConnectivity
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Join a Teams meeting
 author: eboltonmaggs
-ms.author: eboltonmaggs
+ms.author: diberry
 ms.date: 04/30/2024
 ms.topic: include
 ms.service: azure-communication-services

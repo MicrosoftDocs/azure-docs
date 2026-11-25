@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/06/2024
-ms.author: sipastak
+ms.author: scompton
 # Customer intent: As an IT admin, I need to understand how to update a VM with custom number of cores, memory, and GPU count.
 ---
 # Update custom VM size

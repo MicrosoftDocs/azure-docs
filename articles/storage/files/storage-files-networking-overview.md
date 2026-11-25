@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 10/22/2026
-ms.author: kendownie
+ms.author: normesta
 ---
 
 # Azure Files networking considerations

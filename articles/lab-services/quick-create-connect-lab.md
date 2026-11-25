@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to create a Windows-based lab in 
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: quickstart
 ms.date: 03/13/2024
 ms.custom:

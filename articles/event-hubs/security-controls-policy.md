@@ -4,7 +4,7 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.date: 02/06/2024
 ms.topic: sample
 author: spelluru
-ms.author: spelluru
+ms.author: aschhabria
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Event Hubs

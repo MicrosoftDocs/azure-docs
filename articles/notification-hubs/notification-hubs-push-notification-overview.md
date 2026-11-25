@@ -7,7 +7,7 @@ ms.service: azure-notification-hubs
 ms.tgt_pltfrm: multiple
 ms.topic: overview
 ms.date: 05/01/2025
-ms.author: sethm
+ms.author: dimatokar
 
 ---
 

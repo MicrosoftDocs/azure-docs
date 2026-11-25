@@ -3,7 +3,7 @@ title: 'Deploy to Azure Container Apps using Visual Studio'
 description: Learn how to deploy your containerized .NET applications to Azure Container Apps using Visual Studio.
 services: container-apps
 author: alexwolfmsft
-ms.author: alexwolf
+ms.author: vyomnagrani
 ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 06/15/2026

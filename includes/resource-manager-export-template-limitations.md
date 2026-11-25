@@ -3,7 +3,7 @@ author: mumian
 ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 10/25/2024
-ms.author: jgao
+ms.author: ashishj
 ---
 
 ## Limitations

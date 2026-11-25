@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/31/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As a Linux administrator, I want to configure Linux clients to use Microsoft Entra Domain Services authentication for Azure file shares, so that users can access shares with their domain credentials."
 ---
 

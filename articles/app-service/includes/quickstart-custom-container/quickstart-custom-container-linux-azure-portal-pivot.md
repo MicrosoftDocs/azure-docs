@@ -1,10 +1,10 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.custom: linux-related-content
 ms.topic: quickstart
 ms.date: 04/20/2026
-ms.author: cephalin
+ms.author: byvinyal
 ---
 
 In this quickstart, you learn how to deploy an image from Azure Container Registry to Azure App Service.

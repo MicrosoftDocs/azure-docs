@@ -5,7 +5,7 @@ description: Learn about Communication Service WhatsApp Business Accounts concep
 author: darmour
 manager: sundraman
 services: azure-communication-services
-ms.author: darmour
+ms.author: diberry
 ms.date: 06/26/2023
 ms.topic: include
 ms.service: azure-communication-services

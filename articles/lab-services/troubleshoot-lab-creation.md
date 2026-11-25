@@ -5,7 +5,7 @@ description: Learn how to resolve common issues with creating a lab in Azure Lab
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: troubleshooting
 ms.date: 01/19/2023
 ---

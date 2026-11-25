@@ -3,7 +3,7 @@ title: Quickstart - Create an event hub using Azure CLI
 description: This quickstart describes how to create an event hub using Azure CLI and then send and receive events using Java.
 ms.topic: quickstart
 ms.date: 03/13/2023
-ms.author: spelluru
+ms.author: aschhabria
 ms.custom: devx-track-azurecli, mode-api, devx-track-extended-java
 ---
 

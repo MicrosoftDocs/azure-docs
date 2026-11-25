@@ -13,8 +13,8 @@ ms.custom:
   - build-2025
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ---
 

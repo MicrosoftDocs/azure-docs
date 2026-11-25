@@ -5,8 +5,8 @@ keywords: app service, azure app service, diagnostics, support, web app, trouble
 ms.topic: overview
 ms.date: 04/23/2025
 ms.update-cycle: 1095-days
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 #customer intent: As an app developer, I want to understand the diagnostic tools that I can use with Azure App Service.
 ms.service: azure-app-service
 ms.custom:

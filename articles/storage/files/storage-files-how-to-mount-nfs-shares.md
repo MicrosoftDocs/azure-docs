@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to
 ms.date: 10/24/2026
-ms.author: kendownie
+ms.author: normesta
 ---
 
 # Mount NFS Azure file shares on Linux

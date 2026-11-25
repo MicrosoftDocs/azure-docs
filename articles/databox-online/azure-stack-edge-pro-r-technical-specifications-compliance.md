@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 04/12/2023
-ms.author: sipastak
+ms.author: scompton
 ---
 # Azure Stack Edge Pro R technical specifications
 

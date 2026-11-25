@@ -6,7 +6,7 @@ author: flapinski
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 02/02/2026
-ms.author: flapinski
+ms.author: jonor
 
 # Customer intent: As a network administrator, I want to configure an Always On VPN device tunnel, so that I can maintain persistent, secure connections for remote users without manual intervention.
 ---

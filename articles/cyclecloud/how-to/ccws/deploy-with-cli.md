@@ -4,7 +4,7 @@ description: How to deploy a CycleCloud Workspace for Slurm environment using th
 author: xpillons
 ms.date: 06/19/2026
 ms.topic: how-to
-ms.author: padmalathas
+ms.author: mattmcinnes
 ---
 
 # How to deploy a CycleCloud Workspace for Slurm environment using the CLI

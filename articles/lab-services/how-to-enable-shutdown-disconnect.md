@@ -6,7 +6,7 @@ services: lab-services
 ms.service: azure-lab-services
 ms.custom: linux-related-content
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 03/01/2023
 ---

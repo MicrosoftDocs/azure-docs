@@ -4,7 +4,7 @@ description: Create an Azure Service Bus topic and subscriptions with message fi
 ms.date: 04/06/2026
 ms.topic: quickstart
 author: spelluru
-ms.author: spelluru
+ms.author: egrootenboer
 ms.devlang: azurepowershell
 ms.custom:
   - mode-api

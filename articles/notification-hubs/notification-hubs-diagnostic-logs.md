@@ -2,7 +2,7 @@
 title: Azure Notification Hubs resource logs
 description: Learn about the operational and diagnostics logs that are available for Azure Notification Hubs, and how to enable diagnostic settings.
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 03/12/2024

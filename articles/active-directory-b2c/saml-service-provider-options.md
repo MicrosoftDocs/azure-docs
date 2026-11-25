@@ -10,7 +10,7 @@ ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 01/11/2024
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type

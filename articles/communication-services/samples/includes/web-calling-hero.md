@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 09/13/2023
 ms.topic: include
-ms.author: rifox
+ms.author: diberry
 ms.custom:
   - include file
   - sfi-ropc-nochange

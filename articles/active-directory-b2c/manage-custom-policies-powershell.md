@@ -9,7 +9,7 @@ ms.service: entra-id
 ms.custom: no-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 01/11/2024
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 #Customer intent: As an Azure AD B2C administrator, I want to manage custom policies using Microsoft Graph PowerShell, so that I can review, update, and delete policies in my Azure AD B2C tenant.
 ---

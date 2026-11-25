@@ -8,7 +8,7 @@ ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Tag VMs on Azure Stack Edge via Azure PowerShell

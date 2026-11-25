@@ -2,7 +2,7 @@
 title: Troubleshooting network issues with the Azure Storage Mover Agent
 description: Learn how to troubleshoot network issues with the Azure Storage Mover Agent.
 author: stevenmatthew
-ms.author: shaas
+ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 10/22/2025

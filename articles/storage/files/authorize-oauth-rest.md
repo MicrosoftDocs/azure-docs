@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 02/27/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom:
   - devx-track-azurepowershell
   - build-2025

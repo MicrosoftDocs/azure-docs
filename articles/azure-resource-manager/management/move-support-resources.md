@@ -818,9 +818,9 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | mongoClusters | No | No | No |
 > | cassandraClusters | No | No | No |
 
-Moves between resource groups and subscriptions are supported for APIs that use the RU architecture (Microsoft.DocumentDB/databaseAccounts) but not for those based on the vCore architecture, including:
+Moves between resource groups and subscriptions are supported for Azure Cosmos DB accounts that use request units (RUs) (Microsoft.DocumentDB/databaseAccounts), but not for the following services:
 
-- MongoDB vCore (Microsoft.DocumentDB/mongoClusters)
+- Azure DocumentDB (Microsoft.DocumentDB/mongoClusters)
 - Azure Managed Instance for Apache Cassandra (Microsoft.DocumentDB/cassandraClusters)
 
 ## Microsoft.DomainRegistration

@@ -2,7 +2,7 @@
 title: Associate a Web Application Firewall policy with an existing Azure Application Gateway
 description: Learn how to associate a Web Application Firewall policy with an existing Azure Application Gateway.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 10/25/2019

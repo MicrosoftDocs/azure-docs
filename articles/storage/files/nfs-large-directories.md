@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 07/25/2025
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As a Linux administrator, I want to optimize performance when accessing large directories in Azure file shares, so that I can reduce latency and improve efficiency in file enumeration and management tasks."
 ---
 

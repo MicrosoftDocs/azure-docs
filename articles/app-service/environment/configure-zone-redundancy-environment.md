@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: azure-app-service
 ms.date: 10/24/2025
 author: anaharris
-ms.author: anaharris
+ms.author: byvinyal
 
 ---
 # Configure App Service Environments and Isolated v2 App Service plans for zone redundancy

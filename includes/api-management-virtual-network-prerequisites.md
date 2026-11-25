@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 04/17/2025
-ms.author: patricka
+ms.author: srthirth
 ---
 
 ## Prerequisites

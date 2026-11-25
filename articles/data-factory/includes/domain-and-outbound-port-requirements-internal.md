@@ -5,7 +5,7 @@ author: kromerm
 ms.subservice: integration-runtime
 ms.topic: include
 ms.date: 10/09/2019
-ms.author: makromer
+ms.author: weetok
 ---
 | Domain names                                          | Outbound ports | Description                |
 | ----------------------------------------------------- | -------------- | ---------------------------|

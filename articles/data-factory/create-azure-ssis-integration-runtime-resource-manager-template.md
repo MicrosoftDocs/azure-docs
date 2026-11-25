@@ -6,7 +6,7 @@ ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 01/05/2024
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ---
 
 # Use an Azure Resource Manager template to create an integration runtime

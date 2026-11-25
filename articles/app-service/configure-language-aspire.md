@@ -4,8 +4,8 @@ description: Learn how to configure Aspire apps deployed to Azure App Service, i
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 09/04/2026
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 #customer intent: As a .NET developer, I want to configure my Aspire app deployment to Azure App Service so that I can customize the hosting infrastructure and app behavior.
 ms.service: azure-app-service
 ms.custom:

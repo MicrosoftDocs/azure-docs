@@ -3,7 +3,7 @@ title: Operationalize Data Pipelines
 description: Learn about how to deliver service level agreements for data pipelines
 ms.subservice: orchestration
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.topic: tutorial
 ms.date: 05/15/2024

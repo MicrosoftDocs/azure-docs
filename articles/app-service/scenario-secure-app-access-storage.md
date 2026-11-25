@@ -1,8 +1,8 @@
 ---
 title: "Tutorial - .NET Web app accesses storage by using managed identities | Azure"
 description: In this tutorial, you learn how to access Azure Storage for a .NET app by using managed identities.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.topic: tutorial
 ms.date: 03/17/2026

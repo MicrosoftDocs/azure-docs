@@ -7,7 +7,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: quickstart
 ms.date: 12/12/2024
-ms.author: rolyon
+ms.author: diberry
 ms.custom:
   - mode-other
   - sfi-image-nochange

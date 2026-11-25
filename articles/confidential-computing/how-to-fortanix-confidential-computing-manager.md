@@ -5,7 +5,7 @@ author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.author: wwilliams
+ms.author: sgallagher
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to deploy Fortanix Confidential Computing Manager in an Azure managed application, so that I can secure and manage confidential workloads effectively in the cloud environment.
 ---

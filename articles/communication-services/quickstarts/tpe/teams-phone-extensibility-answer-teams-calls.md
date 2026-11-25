@@ -5,7 +5,7 @@ description: This article describes how to receive and answer incoming Teams Pho
 author: sofiar
 manager: miguelher
 services: azure-communication-services
-ms.author: sofiar
+ms.author: diberry
 ms.date: 09/01/2025
 ms.topic: quickstart
 ms.service: azure-communication-services

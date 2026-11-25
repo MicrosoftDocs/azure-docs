@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
 ms.date: 12/01/2023
-ms.author: rolyon
+ms.author: diberry
 ms.custom:
   - devx-track-azurecli
   - devx-track-azurepowershell

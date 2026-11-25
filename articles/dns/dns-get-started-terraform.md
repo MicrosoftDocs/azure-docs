@@ -6,7 +6,7 @@ ms.service: azure-dns
 ms.date: 4/14/2023
 ms.custom: devx-track-terraform
 author: TomArcherMsft
-ms.author: tarcher
+ms.author: rohink
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

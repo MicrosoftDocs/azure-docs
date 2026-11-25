@@ -3,7 +3,7 @@ title: Rate Limiting on Application Gateway
 titleSuffix: Azure Web Application Firewall
 description: Learn how Azure Web Application Firewall (WAF) rate limiting works on Azure Application Gateway.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: overview
 ms.date: 10/30/2026

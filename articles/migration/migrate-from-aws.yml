@@ -8,7 +8,7 @@ metadata:
   ms.topic: landing-page
   ms.service: azure-migrate
   author: markingmyname
-  ms.author: maghan
+  ms.author: diberry
   ms.reviewer: rhackenberg, chkittel
   ms.date: 04/29/2026
   ms.collection:
@@ -96,7 +96,7 @@ landingContent:
         links:
           - text: Azure for AWS professionals
             url: /azure/architecture/aws-professional/
-          - text: Azure Migrate documentation
+          - text: Azure Catalyst documentation
             url: /azure/migrate/
           - text: Discover, assess, and migrate Amazon Web Services (AWS) VMs to Microsoft Azure
             url: /azure/migrate/tutorial-migrate-aws-virtual-machines

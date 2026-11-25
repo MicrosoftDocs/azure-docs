@@ -3,7 +3,7 @@ title: 'Tutorial: Log Network Traffic'
 titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to log network traffic flow to and from a virtual network (VNet) using Network Watcher virtual network flow logs.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 02/25/2026

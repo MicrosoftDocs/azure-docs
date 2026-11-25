@@ -9,7 +9,7 @@ ms.service: entra-id
 ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 02/21/2025
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 #Customer intent: As a Python web application developer, I want to enable Azure Active Directory B2C authentication in my application, so that users can sign in, sign out, update their profile, and reset their password using Azure AD B2C user flows.
 ---

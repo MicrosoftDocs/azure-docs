@@ -6,7 +6,7 @@ author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/25/2026
-ms.author: wellee
+ms.author: ajitbhu
 ms.custom: references_regions
 ---
 

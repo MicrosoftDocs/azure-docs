@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 03/01/2021
-ms.author: rolyon
+ms.author: diberry
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---

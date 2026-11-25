@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 10/29/2026
-ms.author: rogarana
+ms.author: normesta
 # Customer intent: "As a cloud architect, I want to deploy Azure Elastic SAN Next Generation so that I can provision scalable storage and performance for my workloads."
 ---
 

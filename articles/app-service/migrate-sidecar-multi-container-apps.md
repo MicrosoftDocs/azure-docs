@@ -3,8 +3,8 @@ title: Migrate Docker Compose to sidecars
 description: Guidance for migrating from Docker Compose or custom multi-container apps to the sidecar model in Azure App Service.
 ms.topic: how-to
 ms.date: 07/02/2025
-ms.author: cephalin
-author: cephalin
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ---
 

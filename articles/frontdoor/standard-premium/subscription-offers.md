@@ -3,7 +3,7 @@ title: Standard/Premium Subscription Offers and Bandwidth Throttling
 titleSuffix: Azure Front Door
 description: Learn about Azure Front Door Standard/Premium availability for a specific subscription type.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 manager: kumud
 ms.service: azure-frontdoor
 ms.topic: troubleshooting-general

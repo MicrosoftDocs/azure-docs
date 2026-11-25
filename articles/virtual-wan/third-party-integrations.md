@@ -6,7 +6,7 @@ author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 04/26/2024
-ms.author: wellee
+ms.author: ajitbhu
 # Customer intent: As someone with a networking background, I want to learn about third-party integrations in a Virtual WAN hub.
 ---
 # Third-party integrations with Virtual WAN Hub

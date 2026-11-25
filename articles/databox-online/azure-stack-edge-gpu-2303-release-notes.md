@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/31/2023
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge 2303 release notes

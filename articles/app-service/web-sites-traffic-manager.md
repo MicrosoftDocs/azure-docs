@@ -5,8 +5,8 @@ description: Find best practices for configuring Azure Traffic Manager when you 
 ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
 ms.topic: concept-article
 ms.date: 03/19/2026
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 
 # Customer intent: As a network engineer, I want to get an overview of how to use Traffic Manager with App Service so that I can control how requests from web clients are distributed to apps in App Service. 

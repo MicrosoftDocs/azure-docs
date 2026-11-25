@@ -5,7 +5,7 @@ author: vinil-v
 ai-usage: ai-assisted
 ms.date: 08/10/2026
 ms.topic: how-to
-ms.author: padmalathas
+ms.author: mattmcinnes
 ---
 
 # What is cloud bursting?

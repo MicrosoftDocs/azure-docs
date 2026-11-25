@@ -5,7 +5,7 @@ ms.date: 06/04/2026
 ms.topic: quickstart
 #Customer intent: As a customer, I want to enable Azure Change Tracking and Inventory so that I can further use Azure Change Tracking and Inventory.
 ms.service: azure-change-tracking-inventory
-ms.author: v-rochak2
+ms.author: gurkisingh
 author: RochakSingh-blr
 ms.custom: sfi-image-nochange
 ---

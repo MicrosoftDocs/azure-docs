@@ -3,8 +3,8 @@ title: 'Create a scheduled WebJob with prebuilt samples'
 description: Quickly schedule a time-based WebJob in Azure App Service using prebuilt samples in multiple languages including .NET, Python, Node.js, Java, and PHP.
 ms.topic: quickstart
 ms.date: 10/29/2025
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.reviewer: glenga
 #Customer intent: As a web developer, I want to quickly run a background script that prints the current time in my preferred language.
 ms.service: azure-app-service

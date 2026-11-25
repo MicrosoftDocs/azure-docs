@@ -3,7 +3,7 @@ author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
 ms.date: 05/30/2024
-ms.author: v-abhmallick
+ms.author: diberry
 ---
 
 Once the vault and policy are created, there are two critical points that you need to consider to protect all the Azure Blobs within a storage account.

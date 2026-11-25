@@ -6,7 +6,7 @@ author: varunkalyana
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 07/01/2025
-ms.author: varunkalyana
+ms.author: ashishj
 ---
 
 # Configure customer-controlled maintenance for Azure Firewall

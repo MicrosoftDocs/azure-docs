@@ -5,7 +5,7 @@ author: spelluru
 ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 06/11/2021
-ms.author: spelluru
+ms.author: aschhabria
 ms.custom: "include file"
 
 ---

@@ -4,7 +4,7 @@ description: Reference for the Azure CycleCloud command-line interface (CLI), in
 author: rokeptne
 ms.date: 06/19/2026
 ms.topic: reference
-ms.author: padmalathas
+ms.author: mattmcinnes
 ---
 
 # CycleCloud CLI

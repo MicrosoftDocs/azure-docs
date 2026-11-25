@@ -3,7 +3,7 @@ title: Configure Pure Cloud Block Store
 description: Learn about Pure Cloud Block Store for Azure VMware Solution.
 ms.topic: how-to
 author: jjaygbay1 
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 ms.service: azure-vmware
 ms.date: 2/12/2026
 # Customer intent: "As a cloud architect, I want to configure Pure Cloud Block Store for Azure VMware Solution, so that I can efficiently manage external block storage and support the migration of on-premises workloads to Azure."

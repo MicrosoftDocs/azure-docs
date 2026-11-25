@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 10/14/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As an IT administrator managing virtual desktop environments, I want to use Azure Files to store user profiles and disk images, so that I can ensure high availability, performance, and scalability for our users across multiple sessions."
 ---
 

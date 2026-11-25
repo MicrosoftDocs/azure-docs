@@ -5,7 +5,7 @@ author: kromerm
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 01/05/2024
-ms.author: makromer
+ms.author: weetok
 ms.custom: sfi-image-nochange
 ---
 #  Session log in a Copy activity

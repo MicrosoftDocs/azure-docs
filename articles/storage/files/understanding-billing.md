@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 11/17/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom:
   - references_regions
   - build-2025

@@ -5,7 +5,7 @@ description: Learn how to create and attach an Azure compute gallery to a dev ce
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 04/03/2025
 ms.topic: how-to
 

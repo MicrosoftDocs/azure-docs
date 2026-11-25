@@ -8,7 +8,7 @@ ms.subservice: conditions
 ms.topic: reference
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 12/01/2023
-ms.author: rolyon
+ms.author: diberry
 ---
 
 # Prerequisites for Azure role assignment conditions

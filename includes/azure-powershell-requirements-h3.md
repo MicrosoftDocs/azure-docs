@@ -2,7 +2,7 @@
 ms.topic: include
 ms.date: 09/11/2023
 author: mikefrobbins
-ms.author: mirobb
+ms.author: diberry
 ms.manager: jasongroce
 ms.technology: azure-powershell
 ms.service: azure-powershell

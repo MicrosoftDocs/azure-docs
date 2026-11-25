@@ -2,8 +2,8 @@
 title: Agentic app with Semantic Kernel or Foundry Agent Service (Java)
 description: Learn how to quickly deploy a production-ready, agentic web application using Java with Azure App Service and Microsoft Semantic Kernel.
 ms.service: azure-app-service
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 08/11/2026

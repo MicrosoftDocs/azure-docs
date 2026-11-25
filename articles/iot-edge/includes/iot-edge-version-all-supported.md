@@ -3,7 +3,7 @@ title: IoT Edge all versions supported
 description: include file
 services: iot-edge
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-iot-edge
 ms.topic: include
 ms.date: 07/16/2026

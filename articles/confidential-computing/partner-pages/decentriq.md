@@ -6,7 +6,7 @@ author: ananyagarg
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 03/29/2023
-ms.author: ananyagarg
+ms.author: sgallagher
 # Customer intent: "As a data scientist, I want to use Decentriq's Data Clean Rooms to analyze sensitive data securely, so that I can gain insights while ensuring compliance with privacy regulations."
 ---
 

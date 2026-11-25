@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.date: 04/02/2026
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.custom:
   - devx-track-java

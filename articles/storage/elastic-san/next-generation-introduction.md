@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: overview
 ms.date: 09/15/2026
-ms.author: rogarana
+ms.author: normesta
 # Customer intent: "As a cloud architect, I want to understand Azure Elastic SAN Next Generation so that I can evaluate it for enterprise-scale workloads."
 ---
 

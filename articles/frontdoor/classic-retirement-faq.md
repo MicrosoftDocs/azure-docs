@@ -2,7 +2,7 @@
 title: Azure Front Door (classic) retirement FAQ
 description: Common questions about the retirement of Azure Front Door (classic).
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: faq
 ms.date: 05/04/2026

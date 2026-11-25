@@ -10,7 +10,7 @@ ms.devlang: objective-c
 ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 08/07/2020
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ---

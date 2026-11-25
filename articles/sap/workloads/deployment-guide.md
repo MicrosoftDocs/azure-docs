@@ -9,7 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/04/2026
-ms.author: bentrin
+ms.author: mattmcinnes
 # Customer intent: "As an IT administrator, I want to deploy SAP NetWeaver on Azure virtual machines, so that I can leverage cloud resources for improved reliability and integration with my existing on-premises infrastructure."
 ---
 # Azure Virtual Machines deployment for SAP NetWeaver

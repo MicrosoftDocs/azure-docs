@@ -1,6 +1,6 @@
 ---
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.topic: include
 ms.date: 08/04/2025
 ms.service: azure-app-service

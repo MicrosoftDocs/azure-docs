@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/10/2023
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Use the local web UI to manage wireless connectivity on your Azure Stack Edge Mini R

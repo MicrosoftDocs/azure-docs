@@ -3,7 +3,7 @@ title: Choose an Azure platform for AI model training and fine-tuning
 description: Architecture guidance for selecting the right Azure platform for AI model training, fine-tuning, and inference based on customer requirements.
 ai-usage: ai-assisted
 author: padmalathas
-ms.author: padmalathas
+ms.author: mdoster
 ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: hpc

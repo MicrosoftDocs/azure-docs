@@ -1,6 +1,6 @@
 ---
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.service: azure-lab-services
 ms.topic: include
 ms.date: 10/11/2022

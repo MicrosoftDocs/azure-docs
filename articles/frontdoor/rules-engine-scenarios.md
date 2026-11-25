@@ -3,7 +3,7 @@ title: Rules Engine Scenarios and Configurations
 titleSuffix: Azure Front Door 
 description: Learn about the scenarios and configurations for Azure Front Door Rules Engine.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 06/12/2025

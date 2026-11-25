@@ -3,7 +3,7 @@ author: alkohli
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 06/30/2021
-ms.author: alkohli
+ms.author: scompton
 ---
 
 Make sure that the following steps can be used to access the device from your client.

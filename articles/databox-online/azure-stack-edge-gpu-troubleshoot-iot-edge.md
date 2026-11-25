@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 04/06/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 # Troubleshoot IoT Edge issues on your Azure Stack Edge Pro GPU device 
 

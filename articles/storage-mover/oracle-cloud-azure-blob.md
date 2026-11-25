@@ -2,7 +2,7 @@
 title: Migrate data from Oracle Cloud Infrastructure to Azure Blob Storage with Azure Storage Mover
 description:  Learn how to migrate S3-compatible Oracle Cloud Infrastructure (OCI) Object Storage data to Azure Blob Storage by using Azure Storage Mover.
 author: stevenmatthew
-ms.author: shaas
+ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 08/17/2026

@@ -3,7 +3,7 @@ ms.service: azure-notification-hubs
 ms.topic: include
 ms.date: 08/13/2024
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ---
 > [!div class="op_single_selector"]
 > * [Android](../articles/notification-hubs/notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)

@@ -4,7 +4,7 @@ description: Learn how to migrate on-premises SMB or NFS file shares to Azure fi
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/28/2026
-ms.author: kendownie
+ms.author: normesta
 author: khdownie
 # Customer intent: "As an IT administrator, I want to migrate on-premises file shares to Azure file shares using a managed service, so that I can ensure full fidelity transfer and streamline my data management in the cloud."
 ---

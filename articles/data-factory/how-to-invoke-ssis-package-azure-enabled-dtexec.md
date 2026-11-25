@@ -5,7 +5,7 @@ ms.subservice: integration-services
 ms.topic: concept-article
 ms.date: 05/15/2024
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange

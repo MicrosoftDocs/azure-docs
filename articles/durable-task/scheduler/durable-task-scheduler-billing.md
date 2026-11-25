@@ -7,7 +7,7 @@ ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
 ms.date: 11/23/2026
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ---
 # Durable Task Scheduler billing
 

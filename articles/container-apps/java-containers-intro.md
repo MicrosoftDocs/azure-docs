@@ -6,7 +6,7 @@ ms.reviewer: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: get-started
 ms.date: 04/23/2025
-ms.author: karler
+ms.author: vyomnagrani
 ms.custom: devx-track-java
 ai-usage: ai-generated
 ---

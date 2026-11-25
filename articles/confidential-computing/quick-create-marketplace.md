@@ -5,7 +5,7 @@ author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 06/30/2026
-ms.author: wwilliams
+ms.author: sgallagher
 ms.custom:
   - mode-other
   - linux-related-content

@@ -80,7 +80,7 @@ landingContent:
         links:
           - text: Azure for Google Cloud Professionals
             url: /azure/architecture/gcp-professional/
-          - text: Azure Migrate documentation
+          - text: Azure Catalyst documentation
             url: /azure/migrate/
           - text: Discover physical servers and servers running in GCP
             url: /azure/migrate/tutorial-discover-physical?view=migrate-classic

@@ -6,7 +6,7 @@ author: spelluru
 contributors: null
 ms.topic: how-to
 ms.date: 07/30/2025
-ms.author: spelluru
+ms.author: seshanmugam
 ms.reviewer: spelluru
 ms.custom:
   - ai-gen-docs-bap

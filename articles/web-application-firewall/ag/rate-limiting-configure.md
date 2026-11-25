@@ -3,7 +3,7 @@ title: Create rate limiting custom rules for Application Gateway WAF v2
 titleSuffix: Azure Web Application Firewall
 description: Learn how to configure rate limit custom rules for Application Gateway WAF v2.
 author: joeolerich
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to 
 ms.date: 01/22/2025

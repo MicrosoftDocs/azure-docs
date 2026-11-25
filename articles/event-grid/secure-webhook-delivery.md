@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.date: 03/26/2026
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ms.reviewer: spelluru
 # Customer intent: As an architect or a developer, I want to learn how to delivering events to a webhook using Microsoft Entra ID. 
 ---

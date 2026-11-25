@@ -1,11 +1,11 @@
 ---
 title: Assess .NET Apps
 description: Assess .NET web apps before migrating to Azure App Service
-author: msangapu-msft
+author: btardif
 
 ms.topic: concept-article
 ms.date: 12/03/2025
-ms.author: msangapu
+ms.author: byvinyal
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.service: azure-app-service

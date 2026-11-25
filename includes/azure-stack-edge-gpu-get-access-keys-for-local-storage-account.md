@@ -3,7 +3,7 @@ author: alkohli
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/15/2022
-ms.author: alkohli
+ms.author: scompton
 ---
 
 To get the access keys for an existing local storage account that you have created, provide the associated resource group name and the local storage account name. 

@@ -5,7 +5,7 @@ ms.date: 05/15/2024
 ms.topic: how-to
 ms.subservice: integration-services
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.custom: sfi-ropc-nochange
 ---

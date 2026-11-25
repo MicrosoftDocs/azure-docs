@@ -4,7 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Azure Lab Servic
 ms.date: 02/06/2024
 ms.topic: reference
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.service: azure-lab-services
 ms.custom: subject-policy-reference
 ---

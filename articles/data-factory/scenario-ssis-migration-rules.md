@@ -2,7 +2,7 @@
 title: On-premises SQL Server Integration Services (SSIS) workloads to SSIS in Azure Data Factory (ADF) or Synapse Pipelines migration rules
 description: SSIS workloads migration assessment rules.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: integration-services
 ms.topic: reference
 ms.date: 05/15/2024

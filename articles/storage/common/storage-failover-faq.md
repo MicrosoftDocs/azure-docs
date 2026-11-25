@@ -9,7 +9,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: concept-article
 ms.date: 09/25/2025
-ms.author: shaas
+ms.author: normesta
 
 # Customer intent: "As a cloud architect, I want to understand Azure storage failover mechanisms and geo-redundant options so that I can ensure continuous accessibility and resilience of data across regions during service interruptions."
 ---

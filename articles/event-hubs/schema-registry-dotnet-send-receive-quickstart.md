@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 08/25/2026
 ms.devlang: csharp
 author: spelluru
-ms.author: spelluru
+ms.author: aschhabria
 ai-usage: ai-assisted
 ms.custom:
   - devx-track-dotnet

@@ -2,7 +2,7 @@
 title: Configure networking and security for Azure HPC clusters
 description: Set up virtual networks, subnets, NSGs, Azure Bastion, and VPN Gateway for secure HPC cluster access on Azure.
 author: tomvcassidy
-ms.author: tomcassidy
+ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines

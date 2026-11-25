@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/16/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: sfi-ga-nochange
 # Customer intent: As an IT administrator, I want to configure a cloud trust between on-premises Active Directory and Microsoft Entra ID, so that users can access SMB Azure file shares using their existing credentials in a hybrid environment.
 ---

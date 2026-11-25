@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.date: 04/24/2026
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

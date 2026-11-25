@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 04/23/2026
-ms.author: rogarana
+ms.author: normesta
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud infrastructure administrator, I want to implement best practices for configuring an Elastic SAN, so that I can achieve optimal performance and resource efficiency for my storage solutions in a cloud environment.
 ---

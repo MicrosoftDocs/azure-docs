@@ -2,7 +2,7 @@
 title: Upgrade to Azure Application Gateway WAF Policy
 description: Learn how to upgrade Azure Application Gateway WAF policy.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 06/30/2026

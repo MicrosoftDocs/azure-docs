@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: Durable Task Scheduler
 titleSuffix: Durable Task
 description: "Discover how the Durable Task Scheduler provides durable execution in Azure with fault-tolerant orchestrations, automatic retries, and state persistence. Get started today."

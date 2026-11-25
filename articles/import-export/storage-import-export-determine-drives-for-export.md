@@ -6,7 +6,7 @@ services: storage
 ms.service: azure-import-export
 ms.topic: how-to
 ms.date: 03/15/2022
-ms.author: shaas
+ms.author: jeevanm
 # Customer intent: As a cloud storage administrator, I want to determine the number of drives needed for an export, so that I can ensure all required data is efficiently packed and transmitted using the Azure Import/Export service.
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: Build chatbots and RAG applications in Azure App Service
 description: Learn how to build grounded agent applications in Azure App Service by using Foundry Agent Service and a Foundry IQ knowledge base.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.topic: how-to
 ms.date: 08/11/2026

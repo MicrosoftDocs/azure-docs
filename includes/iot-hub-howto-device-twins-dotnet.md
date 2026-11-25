@@ -3,7 +3,7 @@ title: Get started with Azure IoT Hub device twins (.NET)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for .NET to create device and backend service application code for device twins.
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-iot-hub
 ms.devlang: csharp
 ms.topic: include

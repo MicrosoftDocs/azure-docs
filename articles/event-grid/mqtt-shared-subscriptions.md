@@ -3,7 +3,7 @@ title: MQTT Shared Subscriptions in Event Grid
 description: Azure Event Grid MQTT Broker shared subscriptions enable load-balanced message delivery across consumer groups. Discover how to improve scalability and throughput.
 #customer intent: As an IoT solution architect, I want to understand how shared subscriptions work in Event Grid MQTT Broker so that I can design scalable message processing for my telemetry data
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ms.date: 05/07/2026
 ms.topic: concept-article
 ---

@@ -5,7 +5,7 @@ author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/30/2026
-ms.author: wwilliams
+ms.author: sgallagher
 # Customer intent: As a cloud developer, I want to utilize Intel SGX enclaves for my applications, so that I can ensure my sensitive data remains secure and protected from unauthorized access during processing.
 ---
 

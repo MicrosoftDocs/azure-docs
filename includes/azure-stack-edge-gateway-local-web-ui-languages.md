@@ -3,7 +3,7 @@ author: alkohli
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/19/2021
-ms.author: alkohli
+ms.author: scompton
 ---
 
 The local web UI on the device currently supports the following languages with their corresponding language codes:

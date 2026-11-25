@@ -5,7 +5,7 @@ description: Learn how to connect your lab network with another network as a pee
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 03/28/2023
 ms.custom: sfi-image-nochange

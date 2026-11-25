@@ -4,7 +4,7 @@ description: List all built-in and preinstalled components, such as clients, dri
 ms.subservice: integration-services
 ms.topic: glossary
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.custom: devx-track-dotnet
 ms.date: 01/05/2024
 ---

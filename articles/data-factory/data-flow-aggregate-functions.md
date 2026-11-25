@@ -3,7 +3,7 @@ title: Aggregate Functions in the Mapping Data Flow
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about aggregate functions in mapping data flows.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: concept-article

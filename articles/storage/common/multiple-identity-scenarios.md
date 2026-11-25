@@ -7,7 +7,7 @@ author: alexwolfmsft
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 11/26/2024
-ms.author: alexwolf
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom:

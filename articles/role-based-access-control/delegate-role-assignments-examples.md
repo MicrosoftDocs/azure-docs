@@ -8,7 +8,7 @@ ms.subservice: conditions
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.date: 04/15/2024
-ms.author: rolyon
+ms.author: diberry
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 

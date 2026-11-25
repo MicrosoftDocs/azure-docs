@@ -1,7 +1,7 @@
 ---
-author: cephalin
+author: btardif
 ms.date: 04/01/2026
-ms.author: cephalin
+ms.author: byvinyal
 ms.reviewer: stsoneff
 ms.topic: include
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.

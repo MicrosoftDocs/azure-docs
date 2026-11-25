@@ -4,7 +4,7 @@ description: Read the product release notes for the current Azure CycleCloud Wor
 author: abatallas
 ms.date: 10/28/2026
 ms.topic: release-notes
-ms.author: padmalathas
+ms.author: mattmcinnes
 ---
 
 # Azure CycleCloud Workspace for Slurm

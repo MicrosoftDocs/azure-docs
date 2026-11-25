@@ -6,7 +6,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 06/01/2026
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge 2604 release notes

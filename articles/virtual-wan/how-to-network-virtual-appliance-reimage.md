@@ -5,7 +5,7 @@ author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 1/28/2025
-ms.author: wellee
+ms.author: ajitbhu
 # Customer intent: As someone who has deployed a Network Virtual Appliance (NVA) in Virtual WAN, I want to reimage the NVAs running in Virtual WAN.
 ---
 

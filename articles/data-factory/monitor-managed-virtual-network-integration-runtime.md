@@ -5,7 +5,7 @@ ms.subservice: monitoring
 ms.topic: how-to
 ms.date: 05/15/2024
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.custom:
 ---
 

@@ -5,8 +5,8 @@ description: Learn how to deploy an ASP.NET Core web app to Azure App Service an
 ms.topic: tutorial
 ms.date: 10/08/2026
 ms.update-cycle: 180-days
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.devlang: csharp
 ms.service: azure-app-service
 zone_pivot_groups: app-service-portal-azd

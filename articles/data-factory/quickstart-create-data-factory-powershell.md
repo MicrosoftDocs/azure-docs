@@ -6,7 +6,7 @@ ms.subservice: data-movement
 ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 06/06/2025
-ms.author: whhender
+ms.author: weetok
 ms.reviewer: jianleishen
 ms.custom:
   - devx-track-azurepowershell

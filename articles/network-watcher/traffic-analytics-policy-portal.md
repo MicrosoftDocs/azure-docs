@@ -3,7 +3,7 @@ title: Manage Traffic Analytics Using Azure Policy
 titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Policy built-in policies to audit Azure Network Watcher NSG flow logs and manage the deployment of traffic analytics.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 12/15/2025

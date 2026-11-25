@@ -6,8 +6,8 @@ ms.devlang: javascript
 # ms.devlang: javascript, devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/06/2026
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 zone_pivot_groups: app-service-platform-windows-linux
 ms.service: azure-app-service
 ---

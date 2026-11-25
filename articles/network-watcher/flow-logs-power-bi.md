@@ -3,7 +3,7 @@ title: Visualize Flow Logs with Power BI
 titleSuffix: Azure Network Watcher
 description: Learn how to use Power BI to visualize flow logs to view information about your IP traffic.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 07/30/2026

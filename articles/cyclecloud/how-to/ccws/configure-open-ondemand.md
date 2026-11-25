@@ -5,7 +5,7 @@ ai-usage: ai-assisted
 author: abatallas
 ms.date: 08/24/2026
 ms.topic: how-to
-ms.author: padmalathas
+ms.author: mattmcinnes
 ---
 
 # Configure Open OnDemand with CycleCloud

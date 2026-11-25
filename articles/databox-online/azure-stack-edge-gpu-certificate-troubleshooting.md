@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 06/01/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Troubleshooting certificate errors

@@ -6,7 +6,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 04/08/2025
-ms.author: kendownie
+ms.author: normesta
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 # Customer intent: "As a .NET developer, I want to learn how to integrate Azure Files into my applications, so that I can efficiently store and manage data in the cloud using various programming approaches and APIs."

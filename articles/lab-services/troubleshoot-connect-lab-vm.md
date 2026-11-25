@@ -5,7 +5,7 @@ description: Learn how to troubleshoot common connectivity issues with Azure Lab
 services: lab-services
 ms.service: azure-lab-services
 author: modularity
-ms.author: ladunlap
+ms.author: rabououn
 ms.topic: troubleshooting
 ms.date: 02/07/2024
 #customer intent: As an Azure Lab Services user, I want to troubleshoot connectivity issues so that I can access my virtual machines.

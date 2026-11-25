@@ -7,7 +7,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 12/01/2023
-ms.author: rolyon
+ms.author: diberry
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 #Customer intent: As an IT admin, I want to create custom roles by using an Azure Resource Manager template so that I can start automating custom role processes.
 ---

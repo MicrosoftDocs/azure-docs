@@ -5,7 +5,7 @@ author: varunkalyana
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 03/23/2026
-ms.author: varunkalyana
+ms.author: ashishj
 # Customer intent: "As a network administrator, I want to configure Azure Firewall rules and understand their processing logic, so that I can effectively manage traffic flow and maintain network security."
 ---
 

@@ -6,7 +6,7 @@ ms.service: azure-elastic-san
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.date: 08/31/2026
-ms.author: rogarana
+ms.author: normesta
 # Customer intent: "As a cloud administrator, I want to create and manage snapshots of Azure Elastic SAN Next Generation volumes so that I can quickly restore data when needed."
 ---
 

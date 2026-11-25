@@ -3,7 +3,7 @@ title: Include file
 description: Include file
 services: iot-edge
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-iot-edge
 ms.topic: include
 ms.date: 02/27/2026

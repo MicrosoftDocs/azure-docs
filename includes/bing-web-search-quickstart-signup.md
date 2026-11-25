@@ -1,6 +1,6 @@
 ---
 author: aahill
-ms.author: aahi
+ms.author: diberry
 ms.service: cognitiveservices
 ms.topic: include
 ms.date: 05/20/2020

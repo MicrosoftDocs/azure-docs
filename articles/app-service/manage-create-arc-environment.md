@@ -1,8 +1,8 @@
 ---
 title: 'Set Up Azure Arc for App Service, Functions, and Logic Apps'
 description: For your Azure Arc-enabled Kubernetes clusters, learn how to enable App Service apps, function apps, and logic apps.
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 10/07/2025

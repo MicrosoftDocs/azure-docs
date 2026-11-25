@@ -1,10 +1,10 @@
 ---
 services: app-service
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 06/11/2025
-ms.author: cephalin
+ms.author: byvinyal
 ms.custom: "include file"
 ---
 

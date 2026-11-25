@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 11/06/2026
-ms.author: rogarana
+ms.author: normesta
 ---
 
 # Optimize the performance of your Azure Elastic SAN Next Generation

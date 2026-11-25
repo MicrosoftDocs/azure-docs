@@ -6,7 +6,7 @@ author: ananyagarg
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 03/29/2023
-ms.author: ananyagarg
+ms.author: sgallagher
 # Customer intent: As a developer, I want to implement Edgeless Systems' confidential computing solutions using Azure services, so that I can ensure secure data processing and scalable application deployment without compromising data privacy.
 ---
 

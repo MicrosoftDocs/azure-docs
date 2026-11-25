@@ -6,7 +6,7 @@ author: spelluru
 ms.topic: article
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 10/06/2026
-ms.author: spelluru
+ms.author: egrootenboer
 ---
 
 # Service Bus messaging samples or examples

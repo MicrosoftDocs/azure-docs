@@ -9,7 +9,7 @@ ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 ms.custom: sfi-ropc-nochange
 

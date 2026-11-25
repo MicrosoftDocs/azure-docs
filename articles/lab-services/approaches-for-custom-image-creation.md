@@ -5,7 +5,7 @@ description: Describes approaches for creating custom virtual machine images for
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 04/24/2023
 ms.topic: best-practice
 ---

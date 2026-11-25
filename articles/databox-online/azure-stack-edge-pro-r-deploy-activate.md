@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 11/07/2022
-ms.author: sipastak
+ms.author: scompton
 # Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro R device so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Activate Azure Stack Edge Pro R device

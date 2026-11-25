@@ -2,7 +2,7 @@
 title: Plan to manage costs for Azure Batch
 description: Learn how to plan for and manage costs for Azure Batch workloads by using cost analysis in the Azure portal.
 ms.topic: how-to
-ms.author: tomcassidy
+ms.author: mattmcinnes
 author: tomvcassidy
 ms.service: azure-batch
 ms.date: 06/16/2026

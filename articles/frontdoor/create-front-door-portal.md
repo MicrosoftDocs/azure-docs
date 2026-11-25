@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Front Door using the Azure portal'
 description: This quickstart shows how to use Azure Front Door service for your highly available and high-performance global web application by using the Azure portal.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: quickstart
 ms.date: 04/30/2026

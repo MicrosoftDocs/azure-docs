@@ -2,7 +2,7 @@
 title: 'Apex domains in Azure Front Door'
 description: Learn about apex domains when using Azure Front Door.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 03/31/2024

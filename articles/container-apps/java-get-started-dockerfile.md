@@ -3,7 +3,7 @@ title: Launch Your First Java application in Azure Container Apps Using a Docker
 description: Learn how to deploy a Java project in Azure Container Apps using a Dockerfile.
 services: container-apps
 author: KarlErickson
-ms.author: karler
+ms.author: vyomnagrani
 ms.reviewer: hangwan
 ms.service: azure-container-apps
 ms.custom: devx-track-java, devx-track-extended-java 

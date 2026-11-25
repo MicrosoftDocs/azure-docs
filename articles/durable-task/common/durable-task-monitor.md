@@ -5,7 +5,7 @@ ms.topic: concept-article
 ms.service: durable-task
 ms.custom: devx-track-js, devx-track-python
 ms.date: 10/12/2026
-ms.author: hannahhunter
+ms.author: vyomnagrani
 author: hhunter-ms
 zone_pivot_groups: azure-durable-approach
 ---

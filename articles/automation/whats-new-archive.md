@@ -5,7 +5,7 @@ services: automation
 ms.topic: overview
 ms.date: 04/24/2026
 ms.custom: references_regions
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

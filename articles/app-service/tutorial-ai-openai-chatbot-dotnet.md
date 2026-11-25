@@ -1,8 +1,8 @@
 ---
 title: Chatbot with Azure OpenAI (.NET)
 description: Learn how to build and deploy a Blazor web app to Azure App Service that connects to Azure OpenAI using managed identity.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.date: 11/18/2025
 ms.update-cycle: 180-days
 ms.topic: tutorial

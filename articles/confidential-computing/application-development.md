@@ -6,7 +6,7 @@ author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/30/2026
-ms.author: wwilliams
+ms.author: sgallagher
 # Customer intent: "As a developer working on confidential computing applications, I want to utilize appropriate SDKs and frameworks for creating enclaves, so that I can ensure the security of sensitive data and computations within my software."
 ---
 

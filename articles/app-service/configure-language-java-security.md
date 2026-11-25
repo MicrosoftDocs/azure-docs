@@ -8,8 +8,8 @@ ms.date: 03/27/2026
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 
 # customer intent: As a developer, I want to configure security for Tomcat, JBoss, or Java SE apps.

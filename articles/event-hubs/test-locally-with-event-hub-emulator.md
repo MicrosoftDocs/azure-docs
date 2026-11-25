@@ -4,7 +4,7 @@ description: Learn how to test your applications locally using the Azure Event H
 #customer intent: As a developer, I want to test my application locally using the Azure Event Hubs emulator so that I can validate its functionality without connecting to the cloud.  
 ms.topic: how-to
 author: spelluru
-ms.author: spelluru
+ms.author: aschhabria
 ms.date: 08/25/2026
 ai-usage: ai-assisted
 ms.custom:

@@ -7,7 +7,7 @@ services: automation
 ms.subservice: desired-state-config
 ms.topic: release-notes
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

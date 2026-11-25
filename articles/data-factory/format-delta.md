@@ -5,7 +5,7 @@ author: kromerm
 ms.subservice: data-flows
 ms.topic: reference
 ms.date: 02/13/2025
-ms.author: makromer
+ms.author: weetok
 ---
 
 # Delta format in Azure Data Factory

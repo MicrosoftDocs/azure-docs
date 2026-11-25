@@ -4,7 +4,7 @@ description: Learn how to process Azure CycleCloud cluster and node events throu
 author: dougclayton
 ms.date: 06/19/2026
 ms.topic: how-to
-ms.author: doclayto
+ms.author: mattmcinnes
 monikerRange: '>= cyclecloud-8'
 ---
 

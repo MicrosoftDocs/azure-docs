@@ -3,7 +3,7 @@ title: Manage NSG Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn how to change, enable, disable, or delete Azure Network Watcher network security group (NSG) flow logs.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 07/31/2026

@@ -146,7 +146,7 @@ For the complete shared responsibility matrix across IaaS, PaaS, and SaaS, see [
 
 ### Assessment responsibility
 
-You own the dependency mapping before any migration planning begins. Azure Migrate can assess individual VMs and their configurations. It doesn't know which applications depend on each other across your estate.
+You own the dependency mapping before any migration planning begins. Azure Catalyst can assess individual VMs and their configurations. It doesn't know which applications depend on each other across your estate.
 
 If you don't map dependencies, the first migration wave breaks the second wave. Applications that share a database, a service account, or a network dependency must move together. This knowledge is organizational; it doesn't come from tools. Assign a team member to own dependency discovery before migration planning begins.
 
@@ -155,7 +155,7 @@ Treat your configuration management database (CMDB) as a starting point instead 
 > [!NOTE]
 > Don't trust workload criticality classifications without verification. A database labeled *non-production* might have had production workloads silently added to it over time without any CMDB update. 
 
-To learn more about how to use Azure Migrate for assessment, see [Overview of assessment](../migrate/concepts-overview.md).
+To learn more about how to use Azure Catalyst for assessment, see [Overview of assessment](../migrate/concepts-overview.md).
 
 ## Rethink your approach to servers
 

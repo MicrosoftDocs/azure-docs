@@ -3,7 +3,7 @@ author: alkohli
 ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: alkohli
+ms.author: scompton
 ---
 
 | Limit identifier | Limit | Comments |

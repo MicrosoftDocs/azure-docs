@@ -3,7 +3,7 @@ title: WAF on Azure Application Gateway bot protection overview
 titleSuffix: Azure Web Application Firewall
 description: This article provides an overview of web application firewall (WAF) on Application Gateway bot protection
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 10/12/2023

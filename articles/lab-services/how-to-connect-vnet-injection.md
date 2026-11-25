@@ -5,7 +5,7 @@ description: Learn how to connect a lab plan to a virtual network with Azure Lab
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 06/20/2023
 ms.custom: sfi-image-nochange

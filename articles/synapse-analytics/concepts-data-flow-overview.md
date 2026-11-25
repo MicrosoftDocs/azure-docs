@@ -2,7 +2,7 @@
 title: Data flows
 description: An overview of data flows in Azure Synapse Analytics
 author: kromerm
-ms.author: makromer
+ms.author: rakrish
 ms.reviewer: daperlov
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline

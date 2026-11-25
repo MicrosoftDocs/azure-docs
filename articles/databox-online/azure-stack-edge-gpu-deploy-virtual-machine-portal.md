@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/12/2025
-ms.author: sipastak
+ms.author: scompton
 ms.custom:
   - linux-related-content
   - sfi-image-nochange

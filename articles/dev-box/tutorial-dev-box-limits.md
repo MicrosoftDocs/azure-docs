@@ -2,7 +2,7 @@
 title: "Tutorial: Limit Number of Dev Boxes, Control Costs"
 description: Control compute and storage costs incurred by dev boxes by setting a limit on the number of dev boxes users can create in a project.
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.service: dev-box
 ms.topic: tutorial
 ms.date: 09/24/2025

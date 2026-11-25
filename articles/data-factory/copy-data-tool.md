@@ -6,7 +6,7 @@ author: kromerm
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: makromer
+ms.author: weetok
 ms.custom:
   - synapse
   - sfi-image-nochange

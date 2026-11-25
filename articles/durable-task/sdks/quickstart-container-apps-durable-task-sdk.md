@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: "Quickstart: Host a Durable Task SDK App on Azure Container Apps"
 titleSuffix: Durable Task
 description: Learn how to configure and deploy a Durable Task SDK app on Azure Container Apps using Azure Developer CLI. Follow this quickstart to get started.

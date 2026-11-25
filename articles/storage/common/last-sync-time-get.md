@@ -8,7 +8,7 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 07/20/2023
-ms.author: shaas
+ms.author: normesta
 ms.reviewer: artek
 ms.subservice: storage-common-concepts
 # Customer intent: As a cloud storage administrator, I want to check the Last Sync Time property for a geo-replicated storage account so that I can assess data consistency and evaluate potential data loss during an outage.

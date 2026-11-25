@@ -5,7 +5,7 @@ author: kromerm
 ms.subservice: data-flows
 ms.topic: concept-article
 ms.date: 05/15/2024
-ms.author: makromer
+ms.author: weetok
 ---
 
 # How a reservation discount is applied to Azure Data Factory data flows

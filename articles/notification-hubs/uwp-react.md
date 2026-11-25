@@ -2,7 +2,7 @@
 title: Send Azure Notification Hubs notifications to Android and iOS applications
 description: Learn about the cross-platform capabilities of Azure Notification Hubs. 
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-notification-hubs
 ms.topic: sample
 ms.date: 06/14/2021

@@ -1,7 +1,7 @@
 ---
 ai-usage: ai-assisted
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: Work item filtering in the Durable Task Scheduler
 titleSuffix: Durable Task
 description: "Learn how work item filtering connects distributed application components running across different Azure compute environments in a single workflow."

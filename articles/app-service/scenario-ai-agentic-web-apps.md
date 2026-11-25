@@ -1,8 +1,8 @@
 ---
 title: Build agentic web applications in Azure App Service
 description: Transform traditional CRUD web applications for the AI era by adding agentic capabilities with frameworks like Microsoft Semantic Kernel, LangGraph, or Foundry Agent Service.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.topic: how-to
 ms.date: 01/29/2026

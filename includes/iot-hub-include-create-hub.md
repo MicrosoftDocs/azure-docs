@@ -6,7 +6,7 @@ ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 06/25/2025
-ms.author: sethm
+ms.author: dimatokar
 ms.custom: include file
 ---
 

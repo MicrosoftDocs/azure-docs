@@ -1,8 +1,8 @@
 ---
 title: Kudu service overview
 description: Learn about the engine that powers continuous deployment in App Service and its features.
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.date: 10/08/2026
 ms.topic: reference
 ms.service: azure-app-service

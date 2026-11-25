@@ -4,7 +4,7 @@ description: This article explains on how to use Azure SQL server database using
 services: automation
 ms.date: 09/15/2024
 ms.topic: how-to
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

@@ -4,7 +4,7 @@ ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 05/20/2025
-ms.author: kengaderdus
+ms.author: diberry
 ---
 
 > [!NOTE]

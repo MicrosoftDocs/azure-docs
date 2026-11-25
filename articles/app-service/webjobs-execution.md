@@ -3,8 +3,8 @@ title: How WebJobs run in Azure App Service
 description: Learn how the Kudu engine discovers, triggers, and manages WebJobs in Azure App Service. Azure WebJobs can run background tasks in your app.
 ms.topic: article
 ms.service: azure-app-service
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.date: 12/02/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot

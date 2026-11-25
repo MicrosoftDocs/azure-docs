@@ -5,7 +5,7 @@ ms.subservice: integration-services
 ms.topic: how-to
 ms.date: 05/15/2024
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ---
 # Provision Enterprise Edition for the Azure-SSIS Integration Runtime
 

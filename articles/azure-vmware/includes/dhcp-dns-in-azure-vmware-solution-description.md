@@ -5,7 +5,7 @@ ms.topic: include
 ms.service: azure-vmware
 ms.date: 1/03/2024
 author: suzizuber
-ms.author: v-szuber
+ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: "As a cloud administrator, I want to configure DHCP and DNS services in Azure VMware Solution, so that I can ensure proper name resolution and IP address assignments for applications and workloads in the private cloud environment."
 ---

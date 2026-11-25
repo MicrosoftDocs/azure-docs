@@ -11,7 +11,7 @@ ms.service: entra-id
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
 ms.date: 01/11/2024
-ms.author: kengaderdus
+ms.author: diberry
 ms.reviewer: yoelh
 ms.subservice: b2c
 

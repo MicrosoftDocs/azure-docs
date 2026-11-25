@@ -5,7 +5,7 @@ description: Learn about Azure Communication Services Advanced Messaging for Wha
 author: darmour
 manager: sundraman
 services: azure-communication-services
-ms.author: darmour
+ms.author: diberry
 ms.date: 02/12/2024
 ms.topic: overview
 ms.service: azure-communication-services

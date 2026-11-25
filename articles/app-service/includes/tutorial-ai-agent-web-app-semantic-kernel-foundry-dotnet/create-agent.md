@@ -1,7 +1,7 @@
 ---
 title: Create a Foundry agent with OpenAPI tool
 description: Steps to create a Foundry agent in the portal and configure it with an OpenAPI tool to call your web app.
-ms.author: cephalin
+ms.author: byvinyal
 ms.topic: include
 ms.date: 08/25/2026
 ms.service: azure-app-service

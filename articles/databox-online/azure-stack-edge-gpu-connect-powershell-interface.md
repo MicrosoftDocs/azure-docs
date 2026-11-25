@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 11/05/2025
-ms.author: sipastak
+ms.author: scompton
 ms.custom: sfi-ropc-nochange
 ---
 # Manage an Azure Stack Edge Pro GPU device via Windows PowerShell

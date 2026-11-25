@@ -6,7 +6,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/26/2026
-ms.author: sipastak
+ms.author: scompton
 ---
 # Update your Azure Stack Edge Pro GPU
 

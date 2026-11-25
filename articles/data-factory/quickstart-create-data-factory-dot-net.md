@@ -6,7 +6,7 @@ ms.subservice: data-movement
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 03/31/2025
-ms.author: whhender
+ms.author: weetok
 ms.reviewer: binluwang
 ms.custom:
   - mode-api

@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/17/2020
-ms.author: sipastak
+ms.author: scompton
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange

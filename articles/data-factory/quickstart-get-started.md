@@ -6,7 +6,7 @@ ms.subservice: data-movement
 ms.devlang: bicep
 ms.topic: get-started
 ms.date: 07/29/2026
-ms.author: whhender
+ms.author: weetok
 ms.reviewer: xupzhou
 ms.custom:
   - subject-armqs

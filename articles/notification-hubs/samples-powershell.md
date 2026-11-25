@@ -10,7 +10,7 @@ ms.service: azure-notification-hubs
 ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ---

@@ -4,7 +4,7 @@ titleSuffix: Azure Container Apps
 description: Learn how to deploy a Java microservice project in Azure Container Apps with managed Java components.
 services: container-apps
 author: KarlErickson
-ms.author: karler
+ms.author: vyomnagrani
 ms.reviewer: yiliu6
 ms.service: azure-container-apps
 ms.topic: quickstart

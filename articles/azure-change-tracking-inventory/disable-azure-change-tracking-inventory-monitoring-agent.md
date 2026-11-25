@@ -6,7 +6,7 @@ ms.custom: linux-related-content
 ms.date: 12/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
-ms.author: v-rochak2
+ms.author: gurkisingh
 author: RochakSingh-blr
 ---
 

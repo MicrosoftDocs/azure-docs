@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Use kubectl to run a Kubernetes stateful application with StorageClass on your Azure Stack Edge Pro GPU device

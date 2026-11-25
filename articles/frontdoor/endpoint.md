@@ -2,7 +2,7 @@
 title: Endpoints in Azure Front Door
 description: Learn about endpoints when using Azure Front Door.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 04/30/2026

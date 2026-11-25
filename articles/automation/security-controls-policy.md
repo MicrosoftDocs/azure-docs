@@ -6,7 +6,7 @@ ms.update-cycle: 1825-days
 ms.topic: sample
 ms.service: azure-automation
 ms.custom: subject-policy-compliancecontrols
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

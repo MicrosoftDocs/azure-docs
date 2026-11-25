@@ -3,7 +3,7 @@ title: Use Azure Private Link to securely connect networks to Azure Automation
 description: Use Azure Private Link to securely connect networks to Azure Automation
 ms.topic: overview
 ms.date: 09/10/2024
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ms.custom: sfi-image-nochange
 ---
