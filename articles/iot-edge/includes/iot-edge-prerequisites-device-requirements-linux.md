@@ -2,7 +2,7 @@
 ms.topic: include
 ms.date: 02/19/2026
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
