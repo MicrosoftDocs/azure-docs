@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: "Quickstart: Host a Durable Task SDK App on Azure Container Apps"
 titleSuffix: Durable Task

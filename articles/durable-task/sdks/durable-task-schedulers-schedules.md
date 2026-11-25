@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 title: "Automate Recurring Orchestrations with Schedules"
 description: Learn how to create, manage, and monitor recurring orchestrations using schedules in the Durable Task Scheduler. Automate interval-based workflows with built-in pause, resume, and update support.
 ms.topic: concept-article

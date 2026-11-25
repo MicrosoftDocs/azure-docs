@@ -1,7 +1,7 @@
 ---
 title: "Durable Task SDKs Overview: Portable Orchestration Libraries"
 description: "Learn about the portable Durable Task SDKs for .NET, Python, Java, JavaScript/TypeScript, and Go. Build durable orchestrations on any compute platform."
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 ms.reviewer: azfuncdf
 ms.date: 11/23/2026
