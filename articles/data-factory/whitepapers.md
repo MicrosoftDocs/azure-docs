@@ -2,7 +2,7 @@
 title: Whitepapers that describe Azure Data Factory
 description: These whitepapers describe Azure Data Factory in depth.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.topic: reference
 ms.date: 05/15/2024
 ---

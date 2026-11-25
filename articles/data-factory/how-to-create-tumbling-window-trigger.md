@@ -3,7 +3,7 @@ title: Create tumbling window triggers
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a trigger in Azure Data Factory or Azure Synapse Analytics that runs a pipeline on a tumbling window.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse, devx-track-azurecli, devx-track-azurepowershell

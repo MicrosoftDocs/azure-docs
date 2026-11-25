@@ -5,7 +5,7 @@ description: Learn how to deploy linked ARM templates with Azure DevOps Services
 author: whhender
 ms.topic: how-to
 ms.date: 06/06/2025
-ms.author: whhender
+ms.author: weetok
 ms.subservice: authoring
 ms.custom:
   - synapse

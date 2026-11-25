@@ -2,7 +2,7 @@
 title: Parse data transformations in mapping data flow
 description: Parse embedded column documents
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.topic: concept-article
 ms.date: 04/27/2026

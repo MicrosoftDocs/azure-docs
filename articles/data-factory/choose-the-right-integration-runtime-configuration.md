@@ -4,7 +4,7 @@ description: Some recommended architectures for each integration runtime.
 ms.subservice: integration-runtime
 ms.topic: how-to
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.date: 09/25/2024
 ---
 

@@ -3,7 +3,7 @@ title: Conversion Functions in the Mapping Data Flow
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about conversion functions in mapping data flows.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: reference

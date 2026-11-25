@@ -4,7 +4,7 @@ description: Learn about introductory training modules that can help you quickly
 author: whhender
 ms.topic: concept-article
 ms.date: 02/13/2025
-ms.author: whhender
+ms.author: weetok
 ms.subservice: data-movement
 ---
 

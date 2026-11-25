@@ -6,7 +6,7 @@ ms.subservice: monitoring
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: whhender
-ms.author: whhender
+ms.author: weetok
 ---
 
 # Monitor Azure Data Factory

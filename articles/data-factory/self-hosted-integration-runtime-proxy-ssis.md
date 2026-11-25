@@ -4,7 +4,7 @@ description: Learn how to configure a self-hosted integration runtime as a proxy
 ms.subservice: integration-services
 ms.topic: how-to
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.date: 01/05/2024
 ms.custom: sfi-image-nochange
 ---

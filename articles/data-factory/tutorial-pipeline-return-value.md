@@ -7,7 +7,7 @@ ms.custom: synapse
 ms.topic: how-to
 ms.date: 09/26/2024
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ---
 

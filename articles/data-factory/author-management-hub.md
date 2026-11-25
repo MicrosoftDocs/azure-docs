@@ -4,7 +4,7 @@ description: Manage your connections, source control configuration and global au
 ms.subservice: authoring
 ms.topic: concept-article
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.date: 10/20/2023
 ---
 

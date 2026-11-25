@@ -2,7 +2,7 @@
 title: Migrate Azure SQL Database tables to Azure Cosmos DB with Azure Data Factory
 description: Take an existing normalized database schema from Azure SQL Database and migrate to an Azure Cosmos DB denormalized container with Azure Data Factory.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.topic: how-to
 ms.date: 10/03/2024
 ms.subservice: data-flows

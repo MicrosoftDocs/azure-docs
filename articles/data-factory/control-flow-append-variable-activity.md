@@ -6,7 +6,7 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: concept-article
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.date: 09/26/2024
 ---

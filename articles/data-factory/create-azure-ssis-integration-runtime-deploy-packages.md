@@ -5,7 +5,7 @@ ms.subservice: integration-services
 ms.topic: how-to
 ms.date: 10/20/2023
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.custom:
 ---
 # Deploy SSIS packages

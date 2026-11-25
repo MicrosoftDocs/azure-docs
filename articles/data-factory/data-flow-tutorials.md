@@ -2,7 +2,7 @@
 title: Mapping data flow video tutorials
 description: A list of video tutorials explaining mapping data flow concepts
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 05/15/2024
