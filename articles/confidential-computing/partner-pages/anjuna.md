@@ -6,7 +6,7 @@ author: ananyagarg
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 03/29/2023
-ms.author: ananyagarg
+ms.author: sgallagher
 # Customer intent: As a cloud security professional, I want to implement Anjuna's Confidential Computing solutions, so that I can ensure data protection and privacy while running applications in a secure environment on Azure.
 ---
 
