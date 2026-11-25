@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/05/2021
-ms.author: sipastak
+ms.author: scompton
 ms.custom: sfi-image-nochange
 ---
 

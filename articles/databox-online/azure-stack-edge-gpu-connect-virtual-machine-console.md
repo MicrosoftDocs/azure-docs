@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/04/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 # Connect to a virtual machine console on an Azure Stack Edge Pro GPU device
 

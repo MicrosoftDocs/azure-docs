@@ -7,7 +7,7 @@ author:   sipastak
 ms.service: azure-stack-edge
 ms.topic: reference
 ms.date: 04/10/2025
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Safety instructions for your Azure Stack Edge Pro 2

@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 09/08/2021
-ms.author: sipastak
+ms.author: scompton
 ms.custom: sfi-image-nochange
 ---
 

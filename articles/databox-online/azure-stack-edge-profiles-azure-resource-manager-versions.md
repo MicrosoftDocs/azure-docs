@@ -7,7 +7,7 @@ ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template
 ms.topic: article
 ms.date: 05/17/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Resource provider API profile versions for Azure Stack Edge

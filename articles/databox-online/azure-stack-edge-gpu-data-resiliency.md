@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 04/18/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Data resiliency for Azure Stack Edge 

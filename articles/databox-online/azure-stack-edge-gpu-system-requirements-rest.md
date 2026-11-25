@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: reference
 ms.date: 10/21/2020
-ms.author: sipastak
+ms.author: scompton
 ms.custom: sfi-ropc-nochange
 ---
 # Azure Stack Edge Blob storage requirements

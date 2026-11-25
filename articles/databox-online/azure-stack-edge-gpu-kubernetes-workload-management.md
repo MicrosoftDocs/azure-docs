@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 03/01/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Kubernetes workload management on your Azure Stack Edge Pro device

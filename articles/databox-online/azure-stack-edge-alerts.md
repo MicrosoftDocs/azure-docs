@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/04/2025
-ms.author: sipastak
+ms.author: scompton
 ms.custom:
   - devx-track-arm-template
   - sfi-image-nochange

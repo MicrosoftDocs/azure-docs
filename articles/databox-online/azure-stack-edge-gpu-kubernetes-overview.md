@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 04/01/2024
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Kubernetes on your Azure Stack Edge Pro GPU device

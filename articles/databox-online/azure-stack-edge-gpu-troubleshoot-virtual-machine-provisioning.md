@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 08/16/2024
-ms.author: sipastak
+ms.author: scompton
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
 

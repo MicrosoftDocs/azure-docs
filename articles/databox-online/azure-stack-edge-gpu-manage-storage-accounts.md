@@ -8,7 +8,7 @@ ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/05/2025
-ms.author: sipastak
+ms.author: scompton
 ---
 # Use the Azure portal to manage Edge storage accounts on your Azure Stack Edge Pro GPU
 

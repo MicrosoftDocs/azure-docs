@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/26/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Use compute acceleration on Azure Stack Edge Pro GPU for Kubernetes deployment

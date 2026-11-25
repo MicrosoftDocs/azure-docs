@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 01/10/2025
-ms.author: sipastak
+ms.author: scompton
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending it to Azure.
 ---
 # What is Azure Stack Edge Pro with GPU?

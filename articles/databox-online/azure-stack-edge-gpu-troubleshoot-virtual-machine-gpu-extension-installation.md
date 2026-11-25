@@ -8,7 +8,7 @@ ms.service: azure-stack-edge
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 06/28/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 # Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU
 

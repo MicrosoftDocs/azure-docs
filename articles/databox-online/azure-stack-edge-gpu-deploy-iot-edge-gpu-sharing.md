@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/12/2021
-ms.author: sipastak
+ms.author: scompton
 ms.custom: sfi-image-nochange
 ---
 # Deploy an IoT Edge workload using GPU sharing on your Azure Stack Edge Pro
