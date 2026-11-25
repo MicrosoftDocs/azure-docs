@@ -16,6 +16,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Send interactive WhatsApp messages using Advanced Messages
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services enables you to send and receive WhatsApp messages. In this quickstart, get started integrating your app with Azure Communication Advanced Messages SDK and start sending/receiving WhatsApp interactive messages. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ::: zone pivot="programming-language-csharp"

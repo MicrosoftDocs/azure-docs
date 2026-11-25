@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Troubleshoot with Azure Monitor'
 description: Learn how Azure Monitor and Log Analytics help you monitor your App Service web app. Azure Monitor maximizes the availability by delivery a comprehensive solution for monitoring your environments.
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.topic: tutorial
 ms.date: 12/03/2025
 ms.service: azure-app-service

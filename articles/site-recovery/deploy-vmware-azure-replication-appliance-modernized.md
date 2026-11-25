@@ -3,7 +3,7 @@ title: Deploy Azure Site Recovery Replication Appliance - Modernized
 description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized.
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 04/06/2026
+ms.date: 09/21/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom:
@@ -15,9 +15,7 @@ ms.custom:
 # Deploy Azure Site Recovery replication appliance - Modernized
 
 >[!NOTE]
-> The information in this article applies to Azure Site Recovery - Modernized. For information about configuration server requirements in Classic releases, [see this article](vmware-azure-configuration-server-requirements.md).
->
-> Ensure you create a new and exclusive Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault.
+>Ensure you create a new and exclusive Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault.
 
 > [!IMPORTANT]
 > Microsoft recommends that you use roles with the fewest permissions. This helps improve security for your organization. Global Administrator is a highly privileged role that should be limited to emergency scenarios when you can't use an existing role. 
@@ -26,8 +24,6 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - [Learn more](vmware-azure-architecture-modernized.md) about the Azure Site Recovery replication appliance components and processes.
-
-[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 ## Prepare Azure account
 

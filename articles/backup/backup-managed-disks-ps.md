@@ -151,6 +151,8 @@ The Backup vaults require permissions on disk and the snapshot resource group to
 
 The user needs to assign few permissions via RBAC to vault (represented by vault MSI) and the relevant disk and/or the disk RG. These can be performed via Portal or PowerShell.
 
+The identity running the backup configuration needs read permission on the source disk (`Microsoft.Compute/disks/read`), such as through the **Reader** role on that disk. This permission is separate from the permissions assigned to the Backup vault's managed identity. If the source disk is in an AKS node resource group, ensure the identity has read permission on the disk in that group, not just access to the AKS cluster.
+
 Backup vault uses managed identity to access other Azure resources. To configure backup of managed disks, Backup vault’s managed identity requires a set of permissions on the source disks and resource groups, where snapshots are created and managed.
 
 A system-assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [managed identities](../active-directory/managed-identities-azure-resources/overview.md).

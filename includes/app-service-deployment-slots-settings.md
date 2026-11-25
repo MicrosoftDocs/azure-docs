@@ -1,9 +1,9 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 11/28/2025
-ms.author: cephalin
+ms.author: byvinyal
 ---
 
 When you clone a configuration from another deployment slot, the cloned configuration is editable. Some configuration elements follow the content across a swap (they're *not slot specific*). Other configuration elements stay in the same slot after a swap (they're *slot specific*).

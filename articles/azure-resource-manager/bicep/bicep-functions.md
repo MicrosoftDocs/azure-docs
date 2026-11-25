@@ -2,7 +2,7 @@
 title: Bicep functions overview
 description: Learn about the functions that can be used in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
-ms.date: 06/26/2026
+ms.date: 10/26/2026
 ms.custom:
   - devx-track-bicep
   - build-2025
@@ -153,6 +153,7 @@ The following functions are available for getting resource values. Most of these
 * [exists](./bicep-functions-resource.md#exists)
 * [existingResource](./bicep-functions-resource.md#existingresource)
 * [extensionResourceId](./bicep-functions-resource.md#extensionresourceid)
+* [getRoleAssignmentName](./bicep-functions-resource.md#getroleassignmentname)
 * [getSecret](./bicep-functions-resource.md#getsecret)
 * [listAccountSas](./bicep-functions-resource.md#list)
 * [listKeys](./bicep-functions-resource.md#listkeys)

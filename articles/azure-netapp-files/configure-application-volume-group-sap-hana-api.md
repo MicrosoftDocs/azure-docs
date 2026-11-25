@@ -130,8 +130,8 @@ In the following examples, selected placeholders are specified. You should repla
 2.	`<ResourceGroup>`: Resource group. Example: `TestResourceGroup`
 3.	`<NtapAccount>`: NetApp account, for example: `TestAccount`
 4.	`<VolumeGroupName>`: Volume group name, for example: `SH9-Test-00001`
-5.	`<SubnetId>`: Subnet resource ID, for example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/SH9_Subnet`
-6. `<CapacityPoolResourceId>`: Capacity pool resource ID, for example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/SH9_Pool`
+5.	`<SubnetId>`: Subnet resource ID, for example: `/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/SH9_Subnet`
+6. `<CapacityPoolResourceId>`: Capacity pool resource ID, for example: `/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/SH9_Pool`
 7.	`<ProximityPlacementGroupResourceId>`: Proximity placement group, for example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/test/providers/Microsoft.Compute/proximityPlacementGroups/SH9_PPG`
 8.	`<PartnerVolumeId>`: Partner volume ID (for HSR volumes).
 9.	`<ExampleJson>`: JSON Request from one of the examples in the API request tables below.

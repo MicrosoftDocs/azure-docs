@@ -1,11 +1,11 @@
 ---
 title: Use volume snapshots with Azure Container Storage (version 2.x.x) with Azure Elastic SAN
 description: Take a snapshot of a persistent volume and restore it.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 01/28/2026
-ms.author: kendownie
+ms.author: schoag
 # Customer intent: As a Kubernetes operator, I want to create and restore volume snapshots in Azure Container Storage, so that I can recover from potential data loss.
 ---
 

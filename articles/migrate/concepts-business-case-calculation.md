@@ -1,9 +1,9 @@
 ---
-title: Business Case in Azure Migrate 
-description: Learn what a business case in Azure Migrate is, what reports it contains, and the core concepts and formulas that are used.
+title: Business Case in Azure Catalyst 
+description: Learn what a business case in Azure Catalyst is, what reports it contains, and the core concepts and formulas that are used.
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 10/29/2024
 ms.custom: engagement-fy25
 ms.update-cycle: 1825-days
@@ -12,7 +12,7 @@ ms.update-cycle: 1825-days
 
 # Business case (preview) overview
 
-Azure Migrate helps you plan and execute migration and modernization to Azure through a centralized hub for discovery, assessment, and migration.
+Azure Catalyst helps you plan and execute migration and modernization to Azure through a centralized hub for discovery, assessment, and migration.
 
 ## What is a business case?
 
@@ -46,7 +46,7 @@ There are two types of migration preferences that you can choose when you build 
 
 | Migration strategy | Details | Assessment insights |
 | --- | --- | --- |
-| Modernize with platform as a service (PaaS) | You can get a PaaS preferred recommendation, which means that the logic identifies workloads best fit for PaaS targets. <br/><br/>General servers are recommended with a quick lift-and-shift recommendation to Azure infrastructure as a service (IaaS). | For SQL servers, sizing and cost comes from the *Recommended report with optimization strategy - Modernize to PaaS* from the Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service and Azure Kubernetes Service assessments, with a preference to Azure App Service. For general servers, sizing and cost comes from Azure virtual machine (VM) assessment.<br/><br/> All the recommendations are aggregated by using the heterogenous assessments.
+| Modernize with platform as a service (PaaS) | You can get a PaaS preferred recommendation, which means that the logic identifies workloads best fit for PaaS targets. <br/><br/>General servers are recommended with a quick lift-and-shift recommendation to Azure infrastructure as a service (IaaS). | For SQL servers, sizing and cost comes from the *Recommended report with optimization strategy - Modernize to PaaS* from the Azure SQL assessment.<br/><br/> For web apps, sizing and cost comes from Azure App Service, Azure Container apps and Azure Kubernetes Service assessments. For general servers, sizing and cost comes from Azure virtual machine (VM) assessment.<br/><br/> All the recommendations are aggregated by using the heterogenous assessments.
 | Migrate to all IaaS | You can get a quick lift-and-shift recommendation to Azure IaaS. | For SQL servers, sizing and cost comes from the *Instance to SQL Server on Azure VM* report. <br/><br/>For general servers and servers that host web apps, sizing and cost comes from an Azure VM assessment. <br/><br/> All the recommendations are aggregated by using the heterogenous assessments. |
 
 A business case picks Azure recommendations from heterogenous assessments, and you can access the assessments directly. For more information on sizing, readiness, and Azure cost estimates, you can open the respective assessment for the applications or workloads.
@@ -55,7 +55,7 @@ A business case picks Azure recommendations from heterogenous assessments, and y
 
 You can build a business case by using the following options:
 
-- **Azure Migrate appliance discovery or Azure Migrate collector-based discovery**: Use for the most accurate metadata and performance data.
+- **Azure Catalyst appliance discovery or Azure Catalyst Collector-based discovery**: Use for the most accurate metadata and performance data.
 - **Comma-separated value (CSV) import**: Use for a quick estimate when inventory is available as a CSV.
 
 ## Key concepts and formulas (summary)
@@ -94,7 +94,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | --- | --- | --- | --- |
 |Compute | Compute (IaaS) | Azure VMs, SQL Server on Azure VMs | Compute cost (with Azure Hybrid Benefit) from Azure VM assessment. Compute cost (with Azure Hybrid Benefit) from Azure SQL assessment. |
 |     | Compute (PaaS) | Azure SQL Managed Instance or Azure SQL Database | Compute cost (with Azure Hybrid Benefit) from Azure SQL assessment. |
-|     | Compute (PaaS) | Azure App Service or Azure Kubernetes Service | Plan cost from Azure App Service or node pool cost from Azure Kubernetes Service. |
+|     | Compute (PaaS) | Azure App Service, Azure Container apps or Azure Kubernetes Service | Plan cost from Azure App Service, Plan cost from Azure Container Apps or node pool cost from Azure Kubernetes Service. |
 | Storage | Storage (IaaS) | Azure VM - Managed disks, Server on Azure VM - Managed disks | Storage cost from Azure VM assessment/Azure SQL assessment. |
 |     | Storage (PaaS) | Azure SQL Managed Instance or Azure SQL Database - Managed disks | Storage cost from Azure SQL assessment. |
 |     | Storage (PaaS) | N/A | N/A |
@@ -103,6 +103,8 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 | Security | Server security cost | Defender for Servers | For servers recommended for Azure VM, if they're ready to run Defender for Servers, the Defender for Servers (Plan 2) cost per server for that region is added. |
 |     | SQL security cost | Defender for SQL | If SQL Server instances and databases that are recommended for SQL Server on Azure VMs, Azure SQL Managed Instance, or Azure SQL Database are ready to run Defender for SQL, the Defender for SQL per SQL Server instance for that region is added. For databases recommended to Azure SQL Database, cost is rolled up at instance level. |
 |     | Azure App Service security cost | Defender for App Service | For web apps recommended for App Service or App Service containers, the Defender for App Service cost for that region is added. |
+|     | Azure Kubernetes Service security cost | Defender for Containers | For web apps recommended for AKS, the Defender for Containers cost for that region is added. |
+|     | Azure Container Apps security cost | Defender for Containers | For web apps recommended for ACA, the Defender for Containers cost for that region is added. |
 | Facilities | Facilities & infrastructure | DC facilities - Lease and power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = number of VMs/average number of VMs that a full-time administrator can manage * 730 * 12. |
 | Management | Azure management services | Azure Monitor, Azure Backup, and Azure Update Manager | Azure Monitor costs for each server are according to the listed price in the region. The costs also assume log ingestion for the guest operating system and that one custom application is enabled for the server. The total for logs data is 3 GB per month. <br/><br/> Azure Backup cost for each server per month is dynamically estimated based on the [Azure Backup Pricing](/azure/backup/azure-backup-pricing), which includes a protected instance fee, snapshot storage, and recovery services vault storage. <br/><br/> Azure Update Manager is free for Azure servers. |
@@ -149,7 +151,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 
 ## Sustainability insights: Lower emissions with Azure
 
-The sustainability benefits capability is now embedded in the Azure Migrate business case. It empowers IT, finance, and sustainability teams to:
+The sustainability benefits capability is now embedded in the Azure Catalyst business case. It empowers IT, finance, and sustainability teams to:
 
 - Estimate on-premises emissions (in MtCO₂e) by using a standardized methodology considering compute, storage, power usage, and geographic carbon intensity.
 - Compare against Azure emissions calculated by using the Microsoft internally validated carbon rate cards for each product and region.

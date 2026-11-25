@@ -23,6 +23,9 @@ This FAQ addresses common questions about upgrading from general-purpose v1 (GPv
 > Microsoft will retire GPv1 storage accounts on **October 13, 2026**. All GPv1 accounts must be upgraded to GPv2 before this date to avoid service disruption.  
 > See: [storage account upgrade](storage-account-upgrade.md) and [general purpose v1 (GPv1) storage account retirement](general-purpose-version-1-account-migration-overview.md) for more information.
 
+> [!IMPORTANT]
+> GPv1 storage accounts are expected to transition to GPv2 pricing shortly after the retirement date, regardless of when the backend update of your storage accounts from GPv1 to GPv2 is completed. To maintain control over your update timeline, proactively update your GPv1 accounts to GPv2 before the Microsoft-initiated conversion begins.
+
 A GPv1 account is the original **general-purpose** Azure Storage account type. It supports all four core storage services (**Blobs**, **Files**, **Queues**, **Tables**) and the classic redundancy SKUs (**LRS**, **GRS**, **RA-GRS**). It predates blob tiering and many newer management features.
 
 ### Can I still create a new GPv1 account?
@@ -141,6 +144,14 @@ If you don't upgrade your GPv1 storage account to GPv2 by the deadline, **all ex
 ### Why is GPv2 more expensive than GPv1?
 
 GPv2 introduces new features and pricing models that may result in **higher costs for certain workloads**. However, it offers improved **performance**, **scalability**, and **management** capabilities that can lead to **overall cost savings**. Evaluate your **specific use case** and **access patterns** to understand the impact. 
+
+### I manage GPv1 storage accounts with infrastructure as code. Is there anything else I should check?
+
+As part of your migration planning, review any infrastructure-as-code artifacts, deployment pipelines, templates, modules, scripts, or policies that define or validate your storage account configuration.
+
+Make sure those artifacts reflect the post-migration GPv2 configuration and continue to preserve your existing account settings, including networking, security, redundancy, access tier, encryption, identity, data protection, and tags.
+
+Before applying updates in production, use your normal validation process, such as reviewing deployment plans, testing in a non-production environment, or following your organization’s change-management process. Review deployment plans or change output carefully, and investigate any unexpected replacement, downgrade, or account-setting change before applying updates.
 
 ### See also 
 - [General purpose v1 (GPv1) storage account retirement](general-purpose-version-1-account-migration-overview.md)  

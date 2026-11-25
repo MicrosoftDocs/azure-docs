@@ -6,13 +6,15 @@ author: kromerm
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: how-to
-ms.author: makromer
+ms.author: weetok
 ms.date: 09/25/2024
 ---
 
 # Data Flow activity in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Use the Data Flow activity to transform and move data via mapping data flows. If you're new to data flows, see [Mapping Data Flow overview](concepts-data-flow-overview.md)
 
@@ -70,7 +72,7 @@ dataflow | The reference to the Data Flow being executed | DataFlowReference | Y
 integrationRuntime | The compute environment the data flow runs on. If not specified, the autoresolve Azure integration runtime is used. | IntegrationRuntimeReference | No
 compute.coreCount | The number of cores used in the spark cluster. Can only be specified if the autoresolve Azure Integration runtime is used | 8, 16, 32, 48, 80, 144, 272 | No
 compute.computeType | The type of compute used in the spark cluster. Can only be specified if the autoresolve Azure Integration runtime is used | "General" | No
-staging.linkedService | If you're using an Azure Synapse Analytics source or sink, specify the storage account used for PolyBase staging.<br/><br/>If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Also learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.<br/> | LinkedServiceReference | Only if the data flow reads or writes to an Azure Synapse Analytics
+staging.linkedService | If you're using an Azure Synapse Analytics source or sink, specify the storage account used for PolyBase staging.<br/><br/>If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/synapse-analytics/sql/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Also learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.<br/> | LinkedServiceReference | Only if the data flow reads or writes to an Azure Synapse Analytics
 staging.folderPath | If you're using an Azure Synapse Analytics source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to Azure Synapse Analytics
 traceLevel | Set logging level of your data flow activity execution | Fine, Coarse, None | No
 

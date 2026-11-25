@@ -2,7 +2,7 @@
 title: Projects
 description: Learn about projects in Azure CycleCloud. A project is a collection of resources that define node configurations. Projects contain specs.
 author: dougclayton
-ms.author: doclayto
+ms.author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ---

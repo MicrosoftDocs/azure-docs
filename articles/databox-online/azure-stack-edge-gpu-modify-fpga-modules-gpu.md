@@ -6,7 +6,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Run existing IoT Edge modules from Azure Stack Edge Pro FPGA devices on Azure Stack Edge Pro GPU device

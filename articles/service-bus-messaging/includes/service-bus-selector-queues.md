@@ -3,7 +3,7 @@ author: spelluru
 ms.service: azure-service-bus
 ms.topic: include
 ms.date: 11/09/2018	
-ms.author: spelluru
+ms.author: egrootenboer
 ---
 > [!div class="op_single_selector"]
 > * [NET](../service-bus-dotnet-get-started-with-queues.md)

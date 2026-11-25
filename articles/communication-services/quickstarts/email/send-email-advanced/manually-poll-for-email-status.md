@@ -14,6 +14,8 @@ ms.custom: devx-track-dotnet
 
 # Manually poll for email status when sending email
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to manually poll for email status while sending email using Email SDKs.
 
 [!INCLUDE [prepend-net](./includes/prepend-net.md)]

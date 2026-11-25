@@ -6,8 +6,9 @@ ms.author: ajaypar
 ms.manager: roopesh.nair
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 02/06/2025
+ms.update-cycle: 1095-days
 ms.custom:
   - engagement-fy23
   - sfi-ropc-nochange
@@ -18,7 +19,7 @@ ms.custom:
 
 This article describes how to create a custom account with minimal permissions for Discovery and assessment.
 
-In preparation for discovery, the Azure Migrate appliance needs to be configured with the accounts for establishing connections with the SQL Server instances. If you prefer to avoid using accounts with sysadmin privileges, a custom account with [minimal set of permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) required to obtain the necessary metadata for discovery and assessment can be created. Add this custom account in the Appliance configuration for SQL Discovery and Assessment. The least privileged account provisioning utility can help provision these custom accounts.
+In preparation for discovery, the Azure Catalyst appliance needs to be configured with the accounts for establishing connections with the SQL Server instances. If you prefer to avoid using accounts with sysadmin privileges, a custom account with [minimal set of permissions](migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) required to obtain the necessary metadata for discovery and assessment can be created. Add this custom account in the Appliance configuration for SQL Discovery and Assessment. The least privileged account provisioning utility can help provision these custom accounts.
 
 ## Prerequisites
 - A prepared CSV with the list of SQL Server instances. Ensure all SQL Servers listed have [TCP/IP protocol enabled](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol). 
@@ -55,7 +56,7 @@ The utility requires the SQL Server instances list created as a CSV with the fol
 1.	If there are more admin-level credentials to be used, start again with the same CSV file. The utility skips instances that are successfully configured. 
 
 > [!Note]
-> We recommend using the same least privileged account credentials to simplify the configuration of the Azure Migrate Appliance.
+> We recommend using the same least privileged account credentials to simplify the configuration of the Azure Catalyst Appliance.
 
 ### Use custom account for discovery and assessment
 Now that the custom account is provisioned, provide this credential in the Appliance configuration.

@@ -16,6 +16,8 @@ ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track
 
 # Create and manage access tokens for end users
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Access tokens enable Azure Communication Services SDKs to [authenticate](../../concepts/authentication.md) directly against Azure Communication Services as a particular identity. You need to create access tokens for end users if you want them to join a call or chat thread within your application. 
 
 This article describes how to use the Azure Communication Services SDKs to create identities and manage your access tokens. For production use cases, we recommend that you generate access tokens on a server-side service as described in [Client and server architecture](../../concepts/identity-model.md#client-server-architecture-for-the-bring-your-own-identity-byoi-model).

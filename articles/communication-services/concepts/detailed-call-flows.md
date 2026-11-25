@@ -13,6 +13,8 @@ ms.subservice: calling
 
 # Call flow topologies
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes Azure Communication Services call flow topologies and details how calling traffic is encrypted. For an introduction to Azure Communication Services call flows, see [Call networking internals](./call-flows.md).
 
 ## Background

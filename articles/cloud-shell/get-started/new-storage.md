@@ -1,7 +1,7 @@
 ---
 description: Learn how to start using Azure Cloud Shell with persistent storage.
 ms.contributor: jahelmic
-ms.date: 01/22/2024
+ms.date: 08/07/2026
 ms.topic: how-to
 tags: azure-resource-manager
 title: Get started with Azure Cloud Shell using persistent storage
@@ -123,5 +123,5 @@ Get-AzCommand
 [05]: media/new-storage/choose-shell.png
 [06]: media/new-storage/getting-started.png
 [07]: media/new-storage/shell-icon.png
-[08]: media/new-storage/create-new-storage.png
+[08]: media/new-storage/create-storage.png
 [09]: ../persisting-shell-storage.md

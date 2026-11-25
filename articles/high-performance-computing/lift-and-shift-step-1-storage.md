@@ -2,7 +2,7 @@
 title: Set up foundational storage accounts for HPC on Azure
 description: Create and configure basic Azure Storage accounts for logs, backups, and general data management in HPC environments.
 author: tomvcassidy
-ms.author: tomcassidy
+ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines

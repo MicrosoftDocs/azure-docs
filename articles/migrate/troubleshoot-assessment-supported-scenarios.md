@@ -1,12 +1,13 @@
 ---
 title: Troubleshooting supported scenarios for Assessments
-description: Get help for resolving issues with assessments in supported scenarios using Azure Migrate.
+description: Get help for resolving issues with assessments in supported scenarios using Azure Catalyst.
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 08/20/2024
+ms.update-cycle: 365-days
 ms.custom: engagement-fy24, linux-related-content
-# Customer intent: "As a cloud architect, I want to troubleshoot issues with VM assessments in Azure Migrate, so that I can ensure accurate migration planning and effective resource allocation."
+# Customer intent: "As a cloud architect, I want to troubleshoot issues with VM assessments in Azure Catalyst, so that I can ensure accurate migration planning and effective resource allocation."
 ---
 
 # Troubleshoot assessment - supported scenarios
@@ -43,7 +44,7 @@ This gap can be addressed by enabling [application discovery](./how-to-discover-
 
 ### Cause
 
-For physical servers, the operating system minor version information should be available. If it isn't available, contact Microsoft Support. For servers in a VMware environment, Azure Migrate uses the operating system information specified for the VM in the vCenter Server. But vCenter Server doesn't provide the minor version for operating systems.
+For physical servers, the operating system minor version information should be available. If it isn't available, contact Microsoft Support. For servers in a VMware environment, Azure Catalyst uses the operating system information specified for the VM in the vCenter Server. But vCenter Server doesn't provide the minor version for operating systems.
 
 ### Resolution
 

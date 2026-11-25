@@ -4,11 +4,11 @@ description: Learn how Azure App Service helps you develop and host web applicat
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 04/24/2025
+ms.date: 08/18/2026
 ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3, linux-related-content
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 #customer intent: As a developer or IT decision maker, I want a clear overview of Azure App Service features and supported workloads so that I can evaluate its fit for hosting my web applications, APIs, and back ends with minimal infrastructure management.
 ---
@@ -18,6 +18,13 @@ ms.service: azure-app-service
 Azure App Service is a platform that lets you run web applications, mobile back ends, and RESTful APIs without worrying about managing the underlying infrastructure. Think of it as a powerful web hosting service that takes care of all the heavy lifting for you, so you can focus on creating great applications.
 
 App Service supports a variety of web stacks: .NET, Java (in Java SE, Tomcat, and JBoss flavors), Node.js, Python, and PHP, and can run them on both Windows and Linux. Or, if your app is containerized, you can just deploy it as a custom container.
+
+## App Service Builder (preview)
+
+For an introduction to App Service Builder, see the [App Service Builder overview](app-service-builder-overview.md).
+
+> [!IMPORTANT]
+> App Service Builder public preview is for development and test workloads. It has no financially backed SLA and isn't recommended for production workloads. The standard App Service capabilities and service guarantees that this article describes don't automatically apply to Builder.
 
 ## Why Use Azure App Service?
 
@@ -51,18 +58,18 @@ Whether you're a student, a small business, a startup, or an enterprise, App Ser
 
 For information about which Azure compute services best fit your scenario, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
-## Managed Instance on App Service (preview)
+## Managed Instance on App Service
 
 > [!NOTE]
-> Managed Instance (preview) adds customization with plan-scoped isolation for legacy or infrastructure-bound web apps requiring Component Object Model (COM), registry access, Windows/Microsoft Installers (MSI), drive mapping, or stricter network boundaries.
+> Managed Instance adds customization with plan-scoped isolation for legacy or infrastructure-bound web apps requiring Component Object Model (COM), registry access, Windows/Microsoft Installers (MSI), drive mapping, or stricter network boundaries.
 
 Key points:
-- Startup PowerShell install scripts enable COM, registry, IIS, ACL updates, MSI execution.
+- Optional startup PowerShell install scripts enable COM, registry, IIS, ACL updates, and MSI execution when an app requires dependency installation or operating system-level feature configuration.
 - Registry adapters: Plan-level registry key definitions with secret values stored in Azure Key Vault.
 - Drive letter access: Configure access to SMB/UNC paths for legacy components (map or reference as supported).
 - RDP (via Azure Bastion): Diagnostics only—script persistent configuration.
 - Supports: Windows workloads (.NET, Java), COM/registry/MSI, drive mapping, managed identity, VNet integration, MSMQ client, CI/CD, Entra ID auth.
-- Not supported: Linux, containers, ASE, remote debugging (preview), non-PV4/PMV4 SKUs.
+- Not supported: Linux, containers, ASE, remote debugging, non-PV4/PMV4 SKUs.
 
 > [!IMPORTANT]
 > Validate telemetry (Application Insights/logging), certificate automation, and operational processes before production adoption. Persistent changes must be scripted using configuration (install) scripts; Changes made during RDP sessions are not persisted.

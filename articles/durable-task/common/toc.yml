@@ -1,3 +1,4 @@
+items:
 - name: Durable Task Documentation
   href: index.yml
 - name: Overview
@@ -16,6 +17,10 @@
     href: ../sdks/durable-agents-patterns.md
   - name: Microsoft Agent Framework extension (Preview)
     href: ../sdks/durable-agents-microsoft-agent-framework.md
+  - name: Pydantic AI integration
+    href: ../sdks/durable-agents-pydantic-ai.md
+  - name: LangGraph integration (Preview)
+    href: ../sdks/durable-agents-langgraph.md
 - name: Get started
   items:
   - name: Durable Task SDKs
@@ -64,12 +69,6 @@
       href: durable-task-timers.md
     - name: Orchestrator code constraints
       href: durable-task-code-constraints.md
-    - name: Performance and scale
-      href: ../durable-functions/durable-functions-perf-and-scale.md
-    - name: Data persistence and serialization
-      href: ../durable-functions/durable-functions-serialization-and-persistence.md
-    - name: Migrate to type-safe serialization (Python)
-      href: ../durable-functions/durable-functions-python-type-safe-serialization-migrate.md
   - name: Features
     items:
     - name: Instance management
@@ -110,6 +109,8 @@
     items:
     - name: Develop
       items:
+      - name: Go SDK (beta)
+        href: ../sdks/durable-task-go.md
       - name: Unit testing
         href: ../durable-functions/durable-functions-unit-testing.md
       - name: Schedules
@@ -154,6 +155,10 @@
       href: ../durable-functions/durable-functions-disaster-recovery-geo-distribution.md
     - name: Versioning
       href: ../durable-functions/durable-functions-versioning.md
+    - name: Performance and scale
+      href: ../durable-functions/durable-functions-perf-and-scale.md
+    - name: Data persistence and serialization
+      href: ../durable-functions/durable-functions-serialization-and-persistence.md
   - name: Tutorials
     items:
     - name: Configure Durable Functions with managed identity
@@ -188,6 +193,8 @@
         href: ../durable-functions/durable-functions-node-model-upgrade.md
       - name: Migrate to the standalone PowerShell SDK
         href: ../durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md
+      - name: Migrate to type-safe serialization (Python)
+        href: ../durable-functions/durable-functions-python-type-safe-serialization-migrate.md
       - name: Migrate from In-Process to Isolated model (.NET)
         href: ../durable-functions/durable-functions-migrate.md
       - name: Isolated API mapping reference
@@ -199,7 +206,7 @@
       - name: Zip deployment
         href: ../../azure-functions/deployment-zip-push.md
       - name: Run from package
-        href: ../../azure-functions/run-functions-from-deployment-package.md
+        href: ../../azure-functions/deployment-zip-push.md#run-functions-from-the-deployment-package
       - name: Zero downtime deployment
         href: ../durable-functions/durable-functions-zero-downtime-deployment.md
     - name: Monitor
@@ -230,20 +237,18 @@
       href: ../scheduler/durable-task-scheduler.md
     - name: How it works
       href: ../scheduler/develop-with-durable-task-scheduler.md
+    - name: Work item filtering
+      href: ../scheduler/work-item-filtering.md
     - name: Develop
       items:
-      - name: On-demand sandboxes
-        items:
-        - name: On-demand sandboxes overview
-          href: ../scheduler/durable-task-scheduler-on-demand-sandboxes.md
-        - name: Configure on-demand sandboxes
-          href: ../scheduler/durable-task-scheduler-configure-on-demand-sandboxes.md
       - name: Configure autoscale for Container Apps
         href: ../sdks/durable-task-scheduler-auto-scaling.md
       - name: Auto-purge
         href: ../scheduler/durable-task-scheduler-auto-purge.md
       - name: Add tags to orchestrations and activities
         href: ../scheduler/durable-task-scheduler-tags.md
+      - name: Task queues (preview)
+        href: ../scheduler/durable-task-scheduler-task-queues.md
     - name: Secure
       items:
       - name: Identity-based access
@@ -252,13 +257,17 @@
         href: ../scheduler/durable-task-scheduler-customer-managed-keys.md
       - name: Private endpoints
         href: ../scheduler/durable-task-scheduler-private-endpoints.md
+    - name: Disaster recovery overview
+      href: ../scheduler/disaster-recovery.md
+    - name: Configure disaster recovery
+      href: ../scheduler/disaster-recovery-configure.md
     - name: Monitor
       items:
       - name: Monitoring dashboard
         href: ../scheduler/durable-task-scheduler-dashboard.md
       - name: OpenTelemetry and distributed tracing
         href: ../sdks/durable-task-scheduler-opentelemetry-tracing.md
-      - name: Action metrics
+      - name: Metrics
         href: durable-task-metrics.md
     - name: Debug
       items:
@@ -288,6 +297,8 @@
       href: /python/api/overview/azure/durable-task
     - name: Java API
       href: /java/api/com.microsoft.durabletask
+    - name: Go API (beta)
+      href: https://pkg.go.dev/github.com/microsoft/durabletask-go@v1.0.0-beta3
   - name: Durable Functions
     items:
     - name: Host.json settings

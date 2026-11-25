@@ -6,11 +6,11 @@ ms.reviewer: shrshett
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/10/2026
+ms.date: 09/11/2026
 ms.author: shrshett
 ---
 
-# Track Your Azure credit balance for a Microsoft Customer Agreement
+# Track your Azure credit balance for a Microsoft Customer Agreement
 
 You can check the Azure credit balance for your billing account for a Microsoft Customer Agreement in the Azure portal or through REST APIs.
 
@@ -341,5 +341,6 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 
 ## Related content
 
+- [View credit transactions](manage-azure-credits.md#view-credit-transactions)
 - [Get started with your Microsoft Customer Agreement billing account](../../../cost-management-billing/understand/mca-overview.md)
 - [Terms in your Microsoft Customer Agreement invoice](../../../cost-management-billing/understand/mca-understand-your-invoice.md)

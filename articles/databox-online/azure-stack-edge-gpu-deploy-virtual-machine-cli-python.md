@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/30/2021
-ms.author: sipastak
+ms.author: scompton
 ms.devlang: azurecli
 ms.custom:
   - has-adal-ref

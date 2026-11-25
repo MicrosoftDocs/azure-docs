@@ -5,7 +5,7 @@ services: firewall
 author: sujamiya
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 7/01/2025
+ms.date: 08/27/2026
 ms.author: sujamiya
 ms.custom: ai-usage
 ---
@@ -29,6 +29,9 @@ When DNS resolution is used, Azure Firewall:
 - Refreshes FQDN-to-IP mappings every 15 seconds.
 - Removes IP addresses that are no longer resolved or utilized after 15 minutes.  
 
+> [!NOTE]
+> This refresh behavior applies to the FQDN-to-IP mappings that Azure Firewall maintains for rule processing. It's separate from the Azure Firewall DNS proxy cache, which stores DNS responses according to their TTL and doesn't prefetch records before the TTL expires. For DNS proxy caching behavior, see [Azure Firewall DNS settings](dns-settings.md) and [Azure Firewall DNS proxy details](dns-details.md).
+
 ## Differences between FQDN filtering in DNAT rules, and network rules, and application rules
 
 ### DNAT rules
@@ -46,14 +49,19 @@ DNAT (Destination Network Address Translation) rules are used to route inbound t
 
 Network rules are used for filtering traffic based on any TCP or UDP protocol, such as Network Time Protocol (NTP), Secure Shell (SSH), and Remote Desktop Protocol (RDP). Unlike application rules, network rules don't depend on an application-level proxy or the SNI header.
 
-> [!NOTE]  
-> Network rules with FQDN filtering don't support the use of wildcard characters. This limitation is intentional by design.
+Network rules with FQDN filtering support wildcard FQDNs, such as `*.contoso.com`. Wildcard FQDN filtering requires DNS proxy. For more information, see [Use FQDN filtering in network rules](fqdn-filtering-network-rules.md).
 
 **Key characteristics:**
 
 - Applicable to all TCP and UDP protocols.
 - Ideal for non-HTTP/S or MSSQL traffic.
+- Support wildcard destination FQDNs when DNS proxy is enabled.
 - Operate at the network layer without protocol-specific inspection.
+
+> [!NOTE]
+> - Wildcards are supported everywhere within the domain name, but consecutive wildcards aren't allowed.  
+> - For best results, use prefix and suffix wildcards as they're more efficient than complex wildcards, which can affect performance.  
+> - Azure Firewall currently supports wildcard domains in network rules in the following regions: West Central US, East Asia, and UK South.
 
 ### Application rules
 

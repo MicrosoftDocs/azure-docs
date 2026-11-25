@@ -2,10 +2,10 @@
 title: Create and deploy an Azure Elastic SAN
 description: Learn how to deploy and configure an Azure Elastic SAN with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/09/2026
-ms.author: rogarana
+ms.author: normesta
 ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As a cloud architect, I want to deploy an Azure Elastic SAN using the portal, PowerShell, or CLI, so that I can use a single source of storage for my environments and workloads. Simplifying storage management and making scalability easy.
 ---

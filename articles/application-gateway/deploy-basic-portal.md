@@ -5,7 +5,7 @@ description: Learn how to deploy Application Gateway Basic.
 services: application-gateway
 author: mbender-ms
 ms.topic: how-to
-ms.date: 02/26/2026
+ms.date: 08/04/2026
 ms.author: mbender
 ms.service: azure-application-gateway
 ms.custom:
@@ -71,7 +71,7 @@ You create the application gateway using the tabs on the **Create application ga
 2. For Azure to communicate between the resources that you create, a virtual network is needed. You can either create a new virtual network or use an existing one. In this example, you create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: One for the application gateway, and another for the backend servers.
 
     > [!NOTE]
-    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
     Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
 

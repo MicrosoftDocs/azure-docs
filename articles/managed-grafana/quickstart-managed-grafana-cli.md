@@ -72,7 +72,7 @@ Run the following code to create an Azure Managed Grafana workspace.
 Once the deployment is complete, you see a note in the output of the command line stating that the workspace was successfully created, alongside with additional information about the deployment.
 
    > [!NOTE]
-   > Azure Managed Grafana has a system-assigned managed identity enabled by default. You can use a user-assigned managed identity or a service principal instead. To learn more, go to [Set up Azure Managed Grafana authentication and permissions (preview)](how-to-authentication-permissions.md).
+   > Azure Managed Grafana enables a system-assigned managed identity by default. To authenticate to data sources, you can use this identity, assign a user-assigned managed identity to the workspace instead, or configure service principal authentication separately for each data source by using an app registration. For more information, see [Configure authentication for Azure Managed Grafana](how-to-authentication-permissions.md) and [Configure a data source](how-to-data-source-plugins-managed-identity.md).
 
 ## Access your new Azure Managed Grafana workspace
 

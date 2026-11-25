@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/16/2019
-ms.author: alkohli
+ms.author: scompton
 ---
 
 The activation key that you use:

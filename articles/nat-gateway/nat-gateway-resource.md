@@ -5,7 +5,7 @@ author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: concept-article
 ms.custom: FY23 content-maintenance
-ms.date: 11/04/2025
+ms.date: 10/29/2026
 ms.author: alittleton
 #customer intent: As a network administrator, I want to configure and manage a NAT gateway so that I can provide secure and scalable outbound connectivity for my subnets without requiring complex routing configurations.
 ---
@@ -66,6 +66,32 @@ These conditions apply:
 | --- | --- | --- |
 | StandardV2 | Yes, supports IPv4 public IP addresses and prefixes. | Yes, supports IPv6 public IP addresses and prefixes. |
 | Standard | Yes, supports IPv4 public IP addresses and prefixes. | No, does not support IPv6 public IP addresses and prefixes. |
+
+## NAT64
+
+:::image type="content" source="./media/nat-gateway-resource/nat64.png" alt-text="Diagram of IPv6 traffic to IPv4 destination with NAT64 enabled on StandardV2 NAT Gateway." lightbox="./media/nat-gateway-resource/nat64.png":::
+
+StandardV2 NAT gateways support NAT64 to enable IPv6 workloads to communicate with IPv4-only internet destinations by translating outbound IPv6 traffic destined for the [Well-Known Prefix](https://www.rfc-editor.org/info/rfc6052/#page-5)`64:ff9b::/96` into IPv4 traffic.
+
+### How to enable NAT64
+
+To enable NAT64, go to your StandardV2 NAT Gateway resource in the Azure portal, go to **Configuration**, set **NAT64** to **Enabled**, and save. Alternatively, set the `nat64` property to `Enabled` on the NAT gateway resource via ARM/REST API. For PowerShell and CLI support, visit [az network nat gateway | Microsoft Learn](/cli/azure/network/nat/gateway/#az-network-nat-gateway-create) and [New-AzNatGateway (Az.Network) | Microsoft Learn](/powershell/module/az.network/new-aznatgateway#-nat64).
+
+NAT64 requires at least one StandardV2 IPv4 public IP address attached to the NAT gateway for outbound translation.
+
+### DNS64 requirement
+
+> [!NOTE]
+> NAT64 requires a third-party DNS64 solution to synthesize AAAA records for IPv4-only destinations.
+
+DNS64 synthesizes AAAA (IPv6) records for domains that only have A (IPv4) records. Without DNS64, IPv6 clients can't resolve IPv4-only destinations to the NAT64 well-known prefix.
+
+### How NAT64 works
+
+1. A client resolves a hostname via a DNS64 resolver. If only an A (IPv4) record exists, the resolver synthesizes an AAAA record by embedding the IPv4 address into the `64:ff9b::/96` prefix.
+2. The client sends an IPv6 packet to the synthesized address, treating it as a normal IPv6 destination.
+3. NAT Gateway recognizes the `64:ff9b::/96` prefix, extracts the embedded IPv4 address from the last 32 bits, and translates the packet from IPv6 to IPv4 using SNAT with its configured public IPv4 address.
+4. The IPv4 response is translated back to IPv6 and returned to the client.
 
 ## SNAT ports
 
@@ -158,9 +184,13 @@ For UDP traffic, after a connection closes, the port is in hold-down for 65 seco
 
 Each SKU of Azure NAT Gateway has bandwidth limits:
 
-* A StandardV2 NAT gateway supports up to 100 Gbps of data throughput per NAT gateway resource.
+* A StandardV2 NAT gateway supports up to 100 Gbps of total data throughput per NAT gateway resource.
+
+* A StandardV2 NAT gateway supports up to 10 million packets per second (PPS) per NAT gateway resource. The PPS limit is aggregated across all traffic processed by the NAT gateway, including outbound traffic and inbound response traffic.
 
 * A Standard NAT gateway provides 50 Gbps of throughput, which is split between outbound and inbound (response) data. Data throughput is rate limited at 25 Gbps for outbound and 25 Gbps for inbound (response) data per Standard NAT gateway resource.
+
+* A Standard NAT gateway supports up to 5 million packets per second (PPS) per NAT gateway resource. The PPS limit is aggregated across all traffic processed by the NAT gateway, including outbound traffic and inbound response traffic. Packet processing is rate limited at 2.5 million PPS for outbound traffic and 2.5 million PPS for inbound response traffic.
 
 ## Performance
 
@@ -190,13 +220,16 @@ A StandardV2 NAT gateway can process up to 10 million packets per second. A Stan
 
 * Azure NAT Gateway doesn't support public IP addresses with a routing configuration type of **Internet**. To see a list of Azure services that do support the **Internet** routing configuration on public IPs, see [Supported services for routing over the public internet](/azure/virtual-network/ip-services/routing-preference-overview#supported-services).
 
-* Azure NAT Gateway doesn't support public IPs with DDoS protection enabled. For more information, see [DDoS limitations](/azure/ddos-protection/ddos-protection-sku-comparison#limitations).
+* Standard SKU NAT Gateway doesn't support public IP addresses with DDoS protection enabled. DDoS Protection for StandardV2 IPv4 and IPv6 public IP addresses associated with NAT Gateway StandardV2 is in preview. Custom policies for NAT Gateway aren't supported in this DDoS preview. For protection models and prerequisites, see [DDoS protection for NAT Gateway StandardV2](../ddos-protection/ddos-protection-nat-gateway-standardv2.md).
   
 * Azure NAT Gateway isn't supported in a secured virtual hub network (vWAN) architecture.
 
 * You can't upgrade a Standard NAT gateway to a StandardV2 NAT gateway. To achieve zone resiliency for architectures that use zonal NAT gateways, you must deploy a StandardV2 NAT gateway to replace the Standard SKU NAT gateway.
 
-* You can't use Standard public IPs with a StandardV2 NAT gateway. You must re-IP to new StandardV2 public IPs to use a StandardV2 NAT gateway.
+* You can't attach a public IP address that still uses the Standard SKU to a StandardV2 NAT gateway. Use a compatible StandardV2 public IP address.
+
+* NAT Gateway doesn't support connection continuity for existing flows when a virtual machine undergoes live migration. Existing connections through the NAT gateway might be disrupted and need to be reestablished after the migration completes.
+
 
 For more known limitations of StandardV2 NAT gateways, see [Azure NAT Gateway SKUs](nat-sku.md).
 

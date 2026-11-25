@@ -5,7 +5,7 @@ description: Learn how to access a VM (student view) in Azure Lab Services from 
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: tutorial
 ms.date: 07/04/2023
 ---

@@ -1,8 +1,8 @@
 ---
 title: Networking for Azure IoT Edge for Linux on Windows
 description: Learn about how to configure custom networking for Azure IoT Edge for Linux on Windows virtual machine.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 02/20/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge

@@ -8,7 +8,7 @@ ms.custom: devx-track-csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 07/18/2025
+ms.date: 08/21/2026
 # customer intent: As a developer, I want to find out how to use feature filters in Azure App Configuration conditional feature flags so that I can specify conditions for turning features on and off in my application.
 
 ---
@@ -41,31 +41,30 @@ You can create custom feature filters that turn on features based on specific cr
 
 1. Create a feature flag named **Beta** in your App Configuration store and open it for editing. For more information about how to add and edit a feature flag, see [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag) and [Edit feature flags](./manage-feature-flags.md#edit-feature-flags).
 
-1. In the **Edit feature flag** dialog, select **Enable feature flag** if it isn't already selected. Select **Use feature filter**, and then select **Create**.
+1. In the **Edit feature flag** dialog, select **Enable feature flag** if it isn't already selected.
 
-   :::image type="content" source="./media/feature-filters/edit-feature-flag.png" alt-text="Screenshot of the Azure portal Edit feature flag dialog. The Create button and the Enable feature flag and Use feature filter options are highlighted." lightbox="./media/feature-filters/edit-feature-flag.png":::
+   :::image type="content" source="./media/feature-filters/edit-feature-flag-beta.png" alt-text="Screenshot of the Azure portal Edit feature flag dialog for the Beta feature flag, showing the Switch option selected and the Basics tab with feature flag details." lightbox="./media/feature-filters/edit-feature-flag-beta.png":::
+
+1. Select **Rollout** (or **Experiment**, depending on the purpose of feature flag).
+   1. Under **Rollout**, select **Conditions**.
+   1. Under **Condition**, select **Add custom condition**.
+   1. Select **Create**.
+
+   :::image type="content" source="./media/feature-filters/rollout-conditions-select-create.png" alt-text="Screenshot of the Azure portal Conditions tab, showing Add custom condition selected and the Create button highlighted." lightbox="./media/feature-filters/rollout-conditions-select-create.png":::
 
 1. In the **Create a new filter** dialog, enter the following information:
-   - Under **Filter type**, select **Custom filter**.
-   - Under **Custom filter name**, enter **Random**.
+   1. Under **Custom filter name**, enter **Random**.
+   1. Under **Parameter name**, enter **Percentage**.
+   1. Under **Value**, enter **50**.
+   1. Select **Add** at the bottom to save filter.
 
-   :::image type="content" source="./media/feature-filters/add-custom-filter.png" alt-text="Screenshot of the Create a new filter dialog. The Custom filter type is selected, and the Custom filter name box contains Random." lightbox="./media/feature-filters/add-custom-filter.png":::
-
-1. Add a parameter by taking the following steps:
-   - Under **Parameter name**, enter **Percentage**.
-   - Under **Value**, enter **50**.
+   :::image type="content" source="./media/feature-filters/create-new-filter-random.png" alt-text="Screenshot of the Create a new filter dialog. The Custom filter name box contains Random, and the Parameter name and Value boxes contain Percentage and 50." lightbox="./media/feature-filters/create-new-filter-random.png":::
 
    Feature filters can optionally use parameters for configurable conditions. In this example, you configure the filter to turn on the feature flag with a 50 percent chance. When you implement the filter in your code, you use the specified percentage and a random number to evaluate the state of the feature flag.
 
-   :::image type="content" source="./media/feature-filters/add-custom-filter-parameter.png" alt-text="Screenshot of the Create a new filter dialog. A parameter named Percentage is visible. It has a value of 50." lightbox="./media/feature-filters/add-custom-filter-parameter.png":::
+1. To save the feature flag, select **Review + update** at the bottom. After validation passes, select **Update**. 
 
-1. To save the new feature filter, select **Add**. In the **Edit feature flag** dialog, the **Random** filter is now listed in the **Feature filters** section. 
-
-1. To save the feature flag, select **Apply**.
-
-   :::image type="content" source="./media/feature-filters/feature-flag-edit-apply-filter.png" alt-text="Screenshot of the Edit feature flag dialog. The Random filter is listed in the Feature filters section, and an Apply button is available." lightbox="./media/feature-filters/feature-flag-edit-apply-filter.png":::
-
-   The **Edit feature flag** dialog closes, and your custom filter is added to your feature flag.
+   :::image type="content" source="./media/feature-filters/review-create-beta.png" alt-text="Screenshot of the Azure portal Edit feature flag dialog on the Review + create tab, showing validation passed and a summary of the Beta feature flag's details, audience, conditions, and telemetry." lightbox="./media/feature-filters/review-create-beta.png":::
 
 1. To implement the feature filter in your application, see the instructions that are appropriate for your language or platform:
 

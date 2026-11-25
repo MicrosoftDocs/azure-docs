@@ -1,5 +1,5 @@
 ---
-title: Restore SQL Instance or Database in Azure Virtual Machine (VM) from Snapshot Backup using Azure portal (Preview)
+title: Restore SQL Instance or Database in Azure Virtual Machine (VM) from Snapshot Backup using Azure portal
 description: Learn how to restore SQL instances or individual databases in Azure VMs using snapshot backups.
 #customer intent: As a database administrator, I want to restore an entire SQL instance from a snapshot so that I can recover all databases after a failure.
 author: AbhishekMallick-MS
@@ -9,15 +9,11 @@ ms.date: 04/06/2026
 ms.topic: how-to
 ---
 
-# Restore SQL Server instance or database in Azure VM from snapshot backup by using Azure portal (preview)
+# Restore SQL Server instance or database in Azure VM from snapshot backup by using Azure portal
 
-This article describes how to restore a [SQL Server instance or an individual database in an Azure virtual machine (VM) by using snapshot backups (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview). It provides step‑by‑step guidance for instance‑level and database‑level restores.
+This article describes how to restore a [SQL Server instance or an individual database in an Azure virtual machine (VM) by using snapshot backups](backup-azure-sql-database.md#snapshot-based-backup-for-sql-instances-in-azure-vms). It provides step‑by‑step guidance for instance‑level and database‑level restores.
 
->[!NOTE]
->- This preview feature supports the Alternate Location Restore (ALR) only.
->- Integration with the **Resiliency** experience is currently not supported for snapshot backup of SQL Server instances (preview).
-
-[Learn about the supported scenarios and limitations for SQL Server instance snapshot backup (preview)](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios-preview).
+[Learn about the supported scenarios and limitations for SQL Server instance snapshot backup](sql-support-matrix.md#sql-server-instance-snapshot-backups-supported-scenarios).
 
 ## Prerequisites
 
@@ -25,6 +21,14 @@ Before you restore from a SQL instance snapshot recovery point, review the follo
 
 - The SQL instance is backed up using snapshot backup, and the backup is available in the Recovery Services vault.
 - The required permissions to perform restore operations in Azure are available.
+
+## Restore types
+
+The following types of SQL instance or database restore are available:
+
+   - **Alternate location restore**: Restores the SQL instance or databases to a different location on another virtual machine (VM).
+   - **Original location restore**: Restores the SQL databases to their original SQL instance on the same virtual machine (VM).
+   - **Restore as disk**: Restores individual disks and attaches them to the virtual machine of your choice.
 
 ## Restore the entire SQL instance
 
@@ -34,9 +38,9 @@ To restore the entire SQL instance, follow these steps:
 
 1. Go to the **Recovery Services vault** and select  **Protected items** \> **Backup items**.
 
-1. On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup) (Preview)**.  
+1. On the **Backup items** pane, select **SQL Server in Azure VM (Snapshot backup)**.
       
-   :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/sql-backup-items-overview.png" alt-text="Screenshot that shows the selection of SQL Server in Azure VM (Snapshot backup) (Preview) datasource type." lightbox="media/back-up-sql-server-instance-snapshot-restore/sql-backup-items-overview.png":::
+   :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/sql-backup-items-overview.png" alt-text="Screenshot that shows the selection of SQL Server in Azure VM (Snapshot backup) datasource type." lightbox="media/back-up-sql-server-instance-snapshot-restore/sql-backup-items-overview.png":::
 
 1. On the **Backup Items** pane, for the required backup instance, select **View details**.
 
@@ -44,10 +48,7 @@ To restore the entire SQL instance, follow these steps:
 
 1. On the **Restore** pane, on the **Basics** tab, select **Next > Restore point**.
 
-1. On the **Restore point** tab, for **Select restore type**, choose **Alternate location restore (ALR)** or **Restore as disk**.
-
-   - **Alternate location restore**: Restores the SQL instance or database to a different location on another virtual machine (VM).
-   - **Restore as disk**: Restores individual disks and attach them to the virtual machine of your choice.
+1. On the **Restore point** tab, choose the **Select restore type**.
 
    :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/select-snapshot-restore-point.png" alt-text="Screenshot that shows the selection of a snapshot restore point." lightbox="media/back-up-sql-server-instance-snapshot-restore/select-snapshot-restore-point.png":::
 
@@ -65,7 +66,7 @@ To restore the entire SQL instance, follow these steps:
 
 1. Select **Next > Restore parameters**.
 
-1. On the **Restore parameters** tab, select the **Target Server** and **Target Instance** where you want to restore.  
+1. On the **Restore parameters** tab, fill in the **Target location details** where you want to restore.  
 
    :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/select-target-server-instance.png" alt-text="Screenshot that shows the selection of the target server and instance for the restore operation." lightbox="media/back-up-sql-server-instance-snapshot-restore/select-target-server-instance.png":::
 
@@ -78,6 +79,14 @@ To restore the entire SQL instance, follow these steps:
 1. After validation, select **Next > Review + restore**.
 
 1. On the **Review + restore** tab, review the restore settings, and select **Restore**.
+
+> [!NOTE] 
+>**Disk conflict handling during original location restore (OLR)**
+>
+> During an original location restore, Azure Backup checks whether the disks being restored conflict with disks currently attached to the target VM. If a conflict is detected, you're prompted to provide consent to detach the conflicting disks before the restore proceeds. The restored disks are then attached and the disk identity conflict is resolved. If you don't provide consent, the restore doesn't proceed. If the restore encounters a failure after the original disks are detached, the workflow attempts to remove the restored disks and reattach the original disks.
+>
+> :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/disk-conflict-handling.png" alt-text="Screenshot that shows the disk conflict error and the Conflicting disks pane during an original location restore." lightbox="media/back-up-sql-server-instance-snapshot-restore/disk-conflict-handling.png":::
+
 
 ## Restore an individual SQL database
 
@@ -114,7 +123,7 @@ To restore an individual SQL database in an instance, follow these steps:
 
 1. On the **Restore** pane, on the **Restore point** tab, select **Next > Restore parameters**.
 
-1. On the **Restore parameters** tab, select the **Target Server** and **Target Instance**, and **Target resource group** where you want to restore.  
+1. On the **Restore parameters** tab, fill in the **Target location details** where you want to restore.  
 
 1. For **Restored DB Name**, enter the restored database name along with the target path.
 
@@ -128,7 +137,7 @@ To restore an individual SQL database in an instance, follow these steps:
 
 ## Next step
 
-[Manage and monitor SQL Server database and instance snapshot (preview) backups](manage-monitor-sql-database-backup.md).
+[Manage and monitor SQL Server database and instance snapshot backups](manage-monitor-sql-database-backup.md).
 
 
 

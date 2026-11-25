@@ -1,7 +1,7 @@
 ---
 title: Azure Functions custom handlers
 description: Learn to use Azure Functions with any language or runtime version.
-ms.date: 11/12/2025
+ms.date: 10/12/2026
 ms.topic: concept-article
 ms.custom: 
   - sfi-ropc-nochange
@@ -12,7 +12,7 @@ ms.collection:
 # Azure Functions custom handlers
 
 > [!TIP]
-> **Looking for Go?** Go is now supported as a first-class language on Azure Functions (public preview). See the [Go developer reference](functions-reference-go.md) and [Go quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go) to get started.
+> **Looking for Go?** Go is supported as a first-class language on Azure Functions in the Flex Consumption plan. See the [Go developer reference](functions-reference-go.md) and [Go quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go) to get started.
 
 Azure Functions executes your app code by using language-specific handlers. These language-specific handlers allow Functions to support [most key languages](./supported-languages.md) by default. However, you might need to run code in another language or package.
 
@@ -416,7 +416,7 @@ For HTTP-triggered functions with no additional bindings or outputs, you might w
 > [!IMPORTANT]
 > The primary purpose of the custom handlers feature is to enable languages and runtimes that don't currently have first-class support on Azure Functions. While you might be able to run web applications by using custom handlers, Azure Functions isn't a standard reverse proxy. Some components of the HTTP request, such as certain headers and routes, might be restricted. Your application might also experience excessive [cold start](event-driven-scaling.md#cold-start).
 >
-> To address these circumstances, consider running your web apps on [Azure App Service](../app-service/overview.md).
+> To address these circumstances, consider running your web apps on [Azure Container Apps](../container-apps/overview.md) or [Azure App Service](../app-service/overview.md).
 
 The following example demonstrates how to configure an HTTP-triggered function with no additional bindings or outputs. The scenario implemented in this example features a function named `hello` that accepts a `GET` or `POST` .
 

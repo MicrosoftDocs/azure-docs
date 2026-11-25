@@ -4,7 +4,7 @@ metadata:
   description: Find answers to common questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching.
   author: rymend
   ms.author: rymend	
-  ms.service: azure-education
+  ms.service: azure-education-hub
   ms.topic: faq
   ms.date:  08/31/2021	
 title: Frequently asked questions about the Azure Education Hub

@@ -2,7 +2,7 @@
 title: Azure Data Factory Tutorials
 description: A list of top tutorials and guides for developing pipelines, data flows, and managing your Azure Data Factory.
 author: whhender
-ms.author: whhender
+ms.author: weetok
 ms.reviewer: makromer
 ms.topic: get-started
 ms.subservice: authoring
@@ -12,6 +12,8 @@ ms.date: 06/17/2026
 # Azure Data Factory tutorials
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This is a list of our top tutorials to help explain and walk through a series of Data Factory concepts and scenarios.
 

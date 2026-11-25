@@ -1,8 +1,8 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.reviewer: wangbill
-title: "Configure customer-managed keys for Durable Task Scheduler (preview)"
+title: "Configure customer-managed keys for Durable Task Scheduler"
 titleSuffix: Durable Task
 description: Learn how to configure customer-managed keys for Durable Task Scheduler data encryption by using Azure Key Vault or Azure Managed HSM.
 ms.topic: how-to
@@ -11,14 +11,11 @@ ms.subservice: durable-task-scheduler
 ms.date: 06/08/2026
 ---
 
-# Configure customer-managed keys for Durable Task Scheduler (preview)
+# Configure customer-managed keys for Durable Task Scheduler
 
 Durable Task Scheduler encrypts data at rest by default. Customer-managed keys let you use a key that you own in Azure Key Vault or Azure Managed HSM for Durable Task Scheduler data encryption. Use customer-managed keys when your organization requires separation of duties, control over key lifecycle operations, or centralized auditing of key access.
 
 When you use customer-managed keys, you're responsible for creating, protecting, rotating, and preserving the key. For detailed key lifecycle requirements and operational guidance, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview).
-
-> [!NOTE]
-> Customer-managed keys for Durable Task Scheduler are currently in preview and require a [Dedicated SKU](durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) scheduler in a supported region.
 
 ## Prerequisites
 
@@ -157,7 +154,7 @@ For more information, see [Managed HSM role management](/azure/key-vault/managed
 
 ## Configure customer-managed keys
 
-Use the `transparentDataEncryptions/default` child resource to configure the scheduler to use your key.
+Use the `transparentDataEncryptions/default` child resource to configure the scheduler to use your key. The following examples use API version `2026-07-01-preview`, which supports `autoRotationEnabled`.
 
 The Azure CLI examples in this article use the following Bash variables:
 
@@ -167,7 +164,7 @@ RESOURCE_GROUP_NAME="<resource-group-name>"
 SCHEDULER_NAME="<scheduler-name>"
 KEY_VAULT_KEY_URI="https://<vault-name>.vault.azure.net/keys/<key-name>"
 
-TDE_RESOURCE_URI="https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${RESOURCE_GROUP_NAME}/providers/Microsoft.DurableTask/schedulers/${SCHEDULER_NAME}/transparentDataEncryptions/default?api-version=2026-05-01-preview"
+TDE_RESOURCE_URI="https://management.azure.com/subscriptions/${SUBSCRIPTION_ID}/resourceGroups/${RESOURCE_GROUP_NAME}/providers/Microsoft.DurableTask/schedulers/${SCHEDULER_NAME}/transparentDataEncryptions/default?api-version=2026-07-01-preview"
 ```
 
 ### Azure CLI
@@ -201,11 +198,11 @@ param keyVaultKeyUri string
 @description('Whether Durable Task Scheduler should automatically use the latest key version when one is available.')
 param autoRotationEnabled bool = true
 
-resource scheduler 'Microsoft.DurableTask/schedulers@2026-05-01-preview' existing = {
+resource scheduler 'Microsoft.DurableTask/schedulers@2026-07-01-preview' existing = {
   name: schedulerName
 }
 
-resource transparentDataEncryption 'Microsoft.DurableTask/schedulers/transparentDataEncryptions@2026-05-01-preview' = {
+resource transparentDataEncryption 'Microsoft.DurableTask/schedulers/transparentDataEncryptions@2026-07-01-preview' = {
   parent: scheduler
   name: 'default'
   properties: {

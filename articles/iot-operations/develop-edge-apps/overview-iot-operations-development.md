@@ -32,6 +32,11 @@ You can develop custom solutions to address various scenarios with Azure IoT Ope
     - [Enrich data by using data flows](../connect-to-cloud/concept-dataflow-enrich.md)
     - [Create stateful WASM graphs with the state store](howto-wasm-state-store.md)
 
+- Run predictive inference through the inference connector (preview), either from a data flow graph, from your own WASM module, or over MQTT. To learn more, see:
+    - [What is the inference connector?](../ai/inference-connector/overview-inference-connector.md)
+    - [Run inference in a data flow graph](../ai/inference-connector/howto-inference-connector-dataflow-graph.md)
+    - [Call the inference connector from a WASM module](../ai/inference-connector/howto-inference-connector-webassembly-module.md)
+
 - Build highly available applications that programmatically interact with the MQTT broker for reliable communication with Azure IoT Operations services. For example, the OPC UA connector enables you to control connected OPC UA servers by sending commands through the MQTT broker. The protocol compiler tool in the SDK lets you generate client code from models to simplify the development of such applications. The v2 version of the protocol compiler uses [Web of Things (WoT)](https://www.w3.org/TR/wot-thing-description11/) model files as input. To learn more, see:
     - [Protocol compiler v2](https://github.com/Azure/iot-operations-sdks/blob/main/wot-codegen/README.md)
     - [Protocol compiler](https://github.com/Azure/iot-operations-sdks/blob/main/codegen/README.md)

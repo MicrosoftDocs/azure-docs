@@ -1,7 +1,8 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 05/19/2026
+ai-usage: ai-assisted
+ms.date: 09/16/2026
 ms.topic: concept-article
 # Customer intent: As a cloud solution architect, I want to implement best practices for Azure Batch services, so that I can optimize performance, ensure reliability, and enhance security for my batch processing workloads.
 ---
@@ -12,6 +13,20 @@ This article discusses best practices and useful tips for using the Azure Batch 
 
 > [!TIP]
 > For guidance about security in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md).
+
+## Evaluate your Batch design
+
+Before you implement a production workload, review the decisions that most affect scale, reliability, security, and cost:
+
+| Decision | Evaluate | Guidance |
+| --- | --- | --- |
+| Capacity and quota | Peak concurrency, task duration, cores per VM, regional quota, and fallback capacity | [Capacity planning for Azure Batch](batch-capacity-planning.md) |
+| VM and image selection | CPU, memory, GPU, interconnect, operating system, and regional availability | [Choose VM sizes and images for pools](batch-pool-vm-sizes.md) |
+| Cost and availability | Whether tasks tolerate interruption and can use a mix of dedicated and Spot VMs | [Use Spot VMs with Batch workloads](batch-spot-vms.md) |
+| Resilience | Task retries, durable outputs, alternate pools, and multi-region recovery | [Prepare for unplanned downtime](#unplanned-downtime) |
+| Security | Identity, network isolation, pool boundaries, and secrets management | [Batch security and compliance best practices](security-best-practices.md) |
+
+Use the recommendations in this article after you choose the initial design. Reevaluate these decisions when workload scale, deadlines, or compliance requirements change.
 
 ## Pools
 
@@ -45,6 +60,12 @@ derived or aligned with. An image without a specified `batchSupportEndOfLife` da
 determined yet by the Batch service. Absence of a date doesn't indicate that the respective image will be supported
 indefinitely. An EOL date may be added or updated in the future at any time.
 
+- **Image verification status:** An image's `verificationType` reflects current Batch validation test coverage and can change
+over time. An image that's `verified` today might be reported as `unverified` later, for example when it's removed from the
+Batch validation test suite or as it reaches its Batch support end of life (EOL) date. A `verified` designation doesn't
+indicate that the image remains verified indefinitely. Verification status might be updated at any time, so periodically
+refresh your view of the `verificationType` values pertinent to your pools.
+
 - **VM SKUs with impending end-of-life (EOL) dates:** As with VM images, VM SKUs or families may also reach Batch support
 end of life (EOL). These dates can be discovered via the
 [`ListSupportedVirtualMachineSkus` API](/rest/api/batchmanagement/location/list-supported-virtual-machine-skus),
@@ -59,6 +80,8 @@ supported indefinitely. An EOL date may be added or updated in the future at any
 - **Continuity during pool maintenance and failure:** It's best to have your jobs use pools dynamically. If your jobs use the same pool for everything, there's a chance that jobs won't run if something goes wrong with the pool. This principle is especially important for time-sensitive workloads. For example, select or create a pool dynamically when you schedule each job, or have a way to override the pool name so that you can bypass an unhealthy pool.
 
 - **Business continuity during pool maintenance and failure:** There are many reasons why a pool may not grow to the size you desire, such as internal errors or capacity constraints. Make sure you can retarget jobs at a different pool (possibly with a different VM size using [BatchClient.UpdateJob](/dotnet/api/azure.compute.batch.batchclient)) if necessary. Avoid relying on a static pool ID with the expectation that it will never be deleted and never change.
+
+- **Monitor compute node health:** For Batch accounts that use user subscription pool allocation mode, use Azure Monitor Agent to collect guest operating system performance data and logs from pool compute nodes. Select only the counters and sampling frequency needed for your workload to control ingestion cost. For more information, see [Monitor Azure Batch pool compute nodes with Azure Monitor Agent](monitor-batch-pool-nodes.md).
 
 ### Pool security
 
@@ -342,7 +365,7 @@ When provisioning [Batch pools in a virtual network](batch-virtual-network.md), 
 
 For User Defined Routes (UDRs), it's recommended to use BatchNodeManagement.*region* [service tags](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) instead of Batch service IP addresses as they can change over time.
 
-### Honoring DNS
+### Honor DNS
 
 Ensure that your systems honor DNS Time-to-Live (TTL) for your Batch account service URL. Additionally, ensure that your Batch service clients and other connectivity mechanisms to the Batch service don't rely on IP addresses.
 

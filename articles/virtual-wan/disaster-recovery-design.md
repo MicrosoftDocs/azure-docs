@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 12/10/2024
+ms.date: 08/27/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -28,7 +28,7 @@ For each of these connectivity options, Virtual WAN deploys separate set of gate
 
 Inherently, Virtual WAN is designed to offer carrier-grade high-available network aggregation solution. For high availability, Virtual WAN instantiates multiple instances when each of these different types of gateways is deployed with in a Virtual WAN hub. To learn more about ExpressRoute high availability, see [Designing for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md).
 
-With the point-to-site VPN gateway, the minimum number of instances deployed is two. With the point-to-site VPN gateway, you choose the aggregate throughput capacity of point to site gateways and multiple instances are automatically provisioned for you. You choose the aggregate capacity according to the number of clients or users you intend to connect to the virtual hub. From the client connectivity perspective, the point-to-site VPN gateway instances are hidden behind the Fully Qualified Domain Name (FQDN) of the gateway.
+With the point-to-site VPN gateway, the number of gateway instances deployed depends on the scale unit you choose. Scale units 1 through 20 deploy a single gateway instance, and scale unit 40 and above deploy two or more. For the full scale unit to instance mapping, see [About client address pools](about-client-address-pools.md). With the point-to-site VPN gateway, you choose the aggregate throughput capacity of point-to-site gateways and multiple instances are automatically provisioned for you. You choose the aggregate capacity according to the number of clients or users you intend to connect to the virtual hub. From the client connectivity perspective, the point-to-site VPN gateway instances are hidden behind the Fully Qualified Domain Name (FQDN) of the gateway.
 
 For the site-to-site VPN gateway, two instances of the gateway are deployed within a virtual hub. Each of the gateway instance is deployed with its own set of public and private IP addresses. The two instances provide two independent tunnel endpoints for establishing site-to-site VPN connectivity from your branches. To maximize high-availability, see [Azure path selection across multiple ISP links](path-selection-multiple-links.md).
 

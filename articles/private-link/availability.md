@@ -38,7 +38,7 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure Synapse Analytics| All public regions <br/> All Government regions |  Supported for Proxy [connection policy](/azure/azure-sql/database/connectivity-architecture#connection-policy) |GA <br/> [Learn how to create a private endpoint for Azure Synapse Analytics.](/azure/azure-sql/database/private-endpoint-overview)|
+|Azure Synapse Analytics| All public regions <br/> All Government regions |  Supported for Proxy [connection policy](/azure/azure-sql/database/connectivity-architecture#connection-policy) |GA <br/> [Learn how to create a private endpoint for Azure Synapse Analytics.](/azure/synapse-analytics/sql/private-endpoint-overview)|
 |Azure Event Hubs | All public regions<br/>All Government regions      |   | GA   <br/> [Learn how to create a private endpoint for Azure Event Hubs.](../event-hubs/private-link-service.md)  |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Monitor.](/azure/azure-monitor/logs/private-link-security)   |
 |Azure Data Factory | All public regions<br/> All Government regions<br/>All China regions    | Credentials need to be stored in an Azure key vault| GA   <br/> [Learn how to create a private endpoint for Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
@@ -73,7 +73,7 @@ The following tables list the Private Link services and the regions where they'r
 |  Azure Database for PostgreSQL - Flexible server         | All public regions <br/> All Government regions<br/>All China regions     |   | GA <br/> [Learn how to create a private endpoint for Azure Database for PostgreSQL Flexible Server.](/azure/postgresql/flexible-server/concepts-networking-private-link)      |
 |  Azure Database for MySQL         | All public regions<br/> All Government regions<br/>All China regions      |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MySQL.](/azure/mysql/concepts-data-access-security-private-link)     |
 |  Azure Database for MariaDB         | All public regions<br/> All Government regions<br/>All China regions     |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MariaDB.](/azure/mariadb/concepts-data-access-security-private-link)      |
-| Azure Cache for Redis | All public regions<br/> All Government regions<br/>All China regions |  | GA <br/> [Learn how to create a private endpoint for Azure Cache for Redis.](../azure-cache-for-redis/cache-private-link.md) |
+| Azure Cache for Redis | All public regions<br/> All Government regions<br/>All China regions |  | GA <br/> [Learn how to create a private endpoint for Azure Cache for Redis.](/azure/azure-cache-for-redis/cache-private-link) |
 
 > [!NOTE]
 > Azure Cache for Redis is being retired in September 2028. New cache creation will be unavailable starting April 2026. We recommend migrating to [Azure Managed Redis](/azure/azure-cache-for-redis/retirement-faq).

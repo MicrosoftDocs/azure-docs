@@ -5,7 +5,7 @@ author: spelluru
 ms.service: azure-stream-analytics
 ms.topic: include
 ms.date: 03/09/2026
-ms.author: spelluru
+ms.author: skommajosula
 ms.custom: "include file"
 ---
 

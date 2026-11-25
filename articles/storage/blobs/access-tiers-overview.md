@@ -21,10 +21,14 @@ Data stored in the cloud grows at an exponential pace. To manage costs for your 
 - **Archive tier** - An offline tier optimized for storing data that is rarely accessed, and that has flexible latency requirements, on the order of hours. Data in the archive tier should be stored for a minimum of **180** days.
 - **Smart tier** - Smart tier automatically moves your data between the hot, cool, and cold access tiers based on usage patterns, optimizing your costs for these access tiers automatically. To learn more, see [Optimize costs with smart tier](access-tiers-smart.md).
 
+- **Turbo tier (Preview)** adds SSD-backed performance for workloads that need low latency and high throughput, including AI, machine learning, and interactive analytics. Within a general-purpose storage account, Turbo accelerates reads and writes for performance-demanding data while less frequently accessed data remains in lower-cost access tiers. You can select the tier that best fits each blob’s performance and cost requirements, all within the same storage account and through standard Blob Storage APIs and tools. This feature lets you apply SSD performance where it matters most without managing a separate high-performance storage account or relocating the entire dataset.
+
+  Eligible Preview customers can access additional documentation and onboarding guidance. [Apply for the Preview here](https://aka.ms/BlobTurboTier).
+
 Azure storage capacity limits are set at the account level, rather than according to access tier. You can choose to maximize your capacity usage in one tier, or to distribute capacity across two or more tiers.
 
 > [!NOTE]
-> Setting the access tier is only allowed on Block Blobs. They are not supported for Append and Page Blobs.
+> You can set the access tier only on block blobs, including versions and snapshots. Tier changes aren't supported for append and page blobs.
 
 ## Online access tiers
 
@@ -188,7 +192,7 @@ Changing the account access tier results in tier change charges for all blobs th
 
 ### Changing a blob's access tier
 
-Keep in mind the following billing impacts when changing a blob's tier:
+Keep in mind the following billing impacts when changing the access tier of a blob (including versions and snapshots):
 
 - When a blob is uploaded or moved between tiers, it's charged at the corresponding rate immediately upon upload or tier change.
 - When a blob is moved to a cooler tier, the operation is billed as a write operation (per 10,000) to the destination tier. An additional data write (per GB) charge applies when moving blobs to a cooler tier within a legacy Blob Storage account.
@@ -226,6 +230,10 @@ The cold tier requires the following minimum versions of REST, SDKs, and tools
 ## Next steps
 
 - [Set a blob's access tier](access-tiers-online-manage.md)
+
 - [Archive a blob](archive-blob.md)
+
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
+
 - [Best practices for using blob access tiers](access-tiers-best-practices.md)
+

@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.service: azure-iot-hub
 ms.topic: tutorial
 ms.date: 08/08/2025
-ms.author: cwatson
+ms.author: seshanmugam
 ms.custom: devx-track-azurecli
 ---
 

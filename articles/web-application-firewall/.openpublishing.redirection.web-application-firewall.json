@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/web-application-firewall/shared/application-ddos-protection.md",
+            "redirect_url": "/azure/web-application-firewall/application-ddos-protection",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/web-application-firewall/ag/web-application-firewall-troubleshoot.md",
             "redirect_url": "/troubleshoot/azure/web-application-firewall/web-application-firewall-troubleshoot",
             "redirect_document_id": false

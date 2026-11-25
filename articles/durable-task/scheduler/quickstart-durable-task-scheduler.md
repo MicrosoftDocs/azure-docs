@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: "Quickstart: Configure a Durable Functions app to use Durable Task Scheduler"
 titleSuffix: Durable Task
 description: Configure an existing Durable Functions app to use the Durable Task Scheduler backend and run locally with the emulator. Get started now.
@@ -13,7 +13,7 @@ zone_pivot_groups: df-languages
 
 # Quickstart: Configure a Durable Functions app to use Durable Task Scheduler
 
-Use the [Durable Task Scheduler](./durable-task-scheduler.md) as a backend for your [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md) apps to store orchestration and entity runtime state. In this quickstart, you clone a Hello Cities sample that's already configured to use the Durable Task Scheduler, run it locally with the emulator, and then deploy it to Azure.
+Use the [Durable Task Scheduler](./durable-task-scheduler.md) as a backend for your [Durable Functions](../durable-functions/durable-functions-overview.md) apps to store orchestration and entity runtime state. In this quickstart, you clone a Hello Cities sample that's already configured to use the Durable Task Scheduler, run it locally with the emulator, and then deploy it to Azure.
 
 > [!div class="checklist"]
 >
@@ -70,11 +70,11 @@ Use the [Durable Task Scheduler](./durable-task-scheduler.md) as a backend for y
 Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) package by using the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command:
 
    ```bash
-   dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged --prerelease
+   dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged
    ```
 
 > [!NOTE] 
-> The Durable Task Scheduler extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
+> Install **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.21.0` alongside `Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged` and its declared NuGet dependencies.
 
 1. Build and start the function app:
 
@@ -197,7 +197,7 @@ The connection string points to the local emulator for development:
 ```
 
 > [!NOTE]
-> To migrate an existing Durable Functions app, update these two files and add the appropriate extension package for your language. For .NET, install the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) NuGet package. For other languages, update the extension bundle in `host.json` to version `[4.32.0, 5.0.0)`.
+> To migrate an existing Durable Functions app, update these two files and add the appropriate extension package for your language. For .NET, install the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) NuGet package alongside `Microsoft.Azure.Functions.Worker.Extensions.DurableTask`, as shown above. For other languages, update the extension bundle in `host.json` to version `[4.32.0, 5.0.0)`.
 
 ::: zone-end
 

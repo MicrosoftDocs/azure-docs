@@ -20,7 +20,7 @@ To begin, familiarize yourself with the term mappings between Web PubSub and MQT
 
 ## Operation mappings
 
-For a comprehensive list of available operations, refer to the [REST API reference](/rest/api/webpubsub/dataplane/web-pub-sub).
+For a comprehensive list of available operations, refer to the [REST API reference](/rest/api/webpubsub).
 
 The REST API operations are categorized into the following groups:
 

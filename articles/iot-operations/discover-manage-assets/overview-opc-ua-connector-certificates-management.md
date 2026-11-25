@@ -136,5 +136,5 @@ The following table shows the feature support level for authentication in the cu
 | Handling of OPC UA trusted certificates list                                  | Supported   |   ✅     |
 | Handling of OPC UA issuer certificates lists                                  | Supported   |   ✅     |
 | Configuration of OPC UA enterprise grade application instance certificate     | Supported   |   ✅     |
-| Handling of OPC UA untrusted certificates                                     | Unsupported |   ❌     |
-| Handling of OPC UA Global Discovery Service                             | Unsupported |   ❌     |
+| Handling of OPC UA untrusted certificates                                     | Supported   |   ✅     |
+| Handling of OPC UA Global Discovery Service                                   | Unsupported |   ❌     |

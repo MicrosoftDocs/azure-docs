@@ -2,12 +2,11 @@
 title: Register and connect an IoT device
 titleSuffix: Azure IoT Hub
 description: How to create, manage, and delete Azure IoT devices and how to retrieve the device connection string.
-author: sethmanheim
-
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 05/20/2025
+ms.date: 09/29/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -43,7 +42,7 @@ For more information about IoT Hub's recommended certificate practices, see [Tra
 
 If you use X.509 certificate authentication for your devices, make sure your certificates are ready before registering a device:
 
-* For CA-signed certificates, the tutorial [Create and upload certificates for testing](./tutorial-x509-test-certs.md) provides a good introduction for how to create CA-signed certificates and upload them to IoT Hub. After completing that tutorial, you're ready to register a device with **X.509 CA signed** authentication.
+* For CA-signed certificates, the tutorial [Create and upload certificates for testing](../iot-hub/tutorial-x509-test-certs.md) provides a good introduction for how to create CA-signed certificates and upload them to IoT Hub. After completing that tutorial, you're ready to register a device with **X.509 CA signed** authentication.
 
 * For self-signed certificates, you need two device certificates (a primary and a secondary certificate) on the device and thumbprints for both to upload to IoT Hub. One way to retrieve the thumbprint from a certificate is with the following OpenSSL command:
 
@@ -65,11 +64,11 @@ When you register a device, you choose its authentication method. IoT Hub suppor
 
 * **X.509 self-signed**
 
-  If your device has a self-signed X.509 certificate, then you need to give IoT Hub a version of the certificate for authentication. When you register a device, you upload a certificate *thumbprint*, which is a hash of the device's X.509 certificate. When the device connects, it presents its certificate and the IoT hub can validate it against the hash it knows. For more information, see [Authenticate identities with X.509 certificates](./authenticate-authorize-x509.md).
+  If your device has a self-signed X.509 certificate, then you need to give IoT Hub a version of the certificate for authentication. When you register a device, you upload a certificate *thumbprint*, which is a hash of the device's X.509 certificate. When the device connects, it presents its certificate and the IoT hub can validate it against the hash it knows. For more information, see [Authenticate identities with X.509 certificates](../iot-hub/authenticate-authorize-x509.md).
 
 * **X.509 CA signed** - *This option is recommended for production scenarios.*
 
-  If your device has a CA-signed X.509 certificate, then you upload a root or intermediate certificate authority (CA) certificate in the signing chain to IoT Hub before you register the device. The device has an X.509 certificate with the verified X.509 CA in its certificate chain of trust. When the device connects, it presents its full certificate chain and the IoT hub can validate it because it knows the X.509 CA. Multiple devices can authenticate against the same verified X.509 CA. For more information, see [Authenticate identities with X.509 certificates](./authenticate-authorize-x509.md).
+  If your device has a CA-signed X.509 certificate, then you upload a root or intermediate certificate authority (CA) certificate in the signing chain to IoT Hub before you register the device. The device has an X.509 certificate with the verified X.509 CA in its certificate chain of trust. When the device connects, it presents its full certificate chain and the IoT hub can validate it because it knows the X.509 CA. Multiple devices can authenticate against the same verified X.509 CA. For more information, see [Authenticate identities with X.509 certificates](../iot-hub/authenticate-authorize-x509.md).
 
 ### Add a device
 
@@ -83,8 +82,6 @@ Create a device identity in your IoT hub.
 
 1. Select **Add Device** to add a device in your IoT hub.
 
-   :::image type="content" source="./media/create-connect-device/add-device.png" alt-text="Screenshot that shows adding a new device in the Azure portal." lightbox="./media/create-connect-device/add-device.png":::
-
 1. In **Create a device**, provide the information for your new device identity:
 
    | Parameter | Dependent parameter | Value |
@@ -96,7 +93,14 @@ Create a device identity in your IoT hub.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
-1. Select **Save**.
+1. Select **Save**. After the device is created, its details page opens.
+
+   For symmetric-key devices, you can copy the connection information from this page for immediate use in samples and test scenarios. Store keys and connection strings securely.
+
+   > [!NOTE]
+   > The default **Devices** list displays up to 15 devices, not the complete device inventory. To find another device, search by device ID, apply a filter, or use **Queries** under **Device management**. Search, filter, and query results are eventually consistent, so a newly created device might not appear immediately. A missing result doesn't necessarily mean that registration failed.
+   >
+   > To check the registration of a known device ID, use [Get Identity](/rest/api/iothub/service/devices/get-identity). Newly created identities can also take a few seconds to become available through a direct read. For more information, see [Identity registry operations](./iot-hub-devguide-identity-registry.md#identity-registry-operations) and [Twin query limitations](./iot-hub-devguide-query-language.md#twin-query-limitations).
 
 ### [Azure CLI](#tab/cli)
 
@@ -132,11 +136,11 @@ The Azure portal provides device connection strings only for devices that use sy
 
 1. Select **Device management** > **Devices**.
 
-1. Select your device from the list in the **Devices** pane.
+1. Find your device in the **Devices** pane and select its device ID. If it isn't displayed, enter its device ID in the search box.
+
+   The default list isn't the complete inventory, and search results can lag recent changes. For more information about finding devices and viewing their twins, see [View and update device twins](./manage-device-twins.md#view-and-update-device-twins).
 
 1. Copy the value of **Primary connection string**.
-
-   :::image type="content" source="./media/create-connect-device/copy-connection-string.png" alt-text="Screenshot that shows copying the value of the primary connection string from the Azure portal.":::
 
    By default, the keys and connection strings are masked because they're sensitive information. If you select the eye icon, they're revealed. It's not necessary to reveal them to copy them with the copy button.
 
@@ -168,17 +172,15 @@ If you want to keep a device in your IoT hub's identity registry, but want to pr
 
 1. Select **Device management** > **Devices**.
 
-1. Select your device from the list in the **Devices** pane.
+1. Find your device in the **Devices** pane and select its device ID. If it isn't displayed, enter its device ID in the search box.
+
+   The default list isn't the complete inventory, and search results can lag recent changes. For more information about finding devices and viewing their twins, see [View and update device twins](./manage-device-twins.md#view-and-update-device-twins).
 
 1. On the device details page, you can disable or delete the device registration.
 
    * To prevent a device from connecting, set the **Enable connection to IoT Hub** parameter to **Disable**.
 
-     :::image type="content" source="./media/create-connect-device/disable-device.png" alt-text="Screenshot that shows disabling a device in the Azure portal.":::
-
    * To completely remove a device from your IoT hub's identity registry, select **Delete**.
-
-     :::image type="content" source="./media/create-connect-device/delete-device.png" alt-text="Screenshot that shows deleting a device in the Azure portal.":::
 
 ### [Azure CLI](#tab/cli)
 

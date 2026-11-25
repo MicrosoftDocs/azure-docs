@@ -4,8 +4,8 @@ description: Learn how to authenticate managed identities to allow applications 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/20/2026
-ms.author: kendownie
+ms.date: 07/23/2026
+ms.author: normesta
 ms.custom:
   - devx-track-azurepowershell
 zone_pivot_groups: azure-files-windows-linux
@@ -18,13 +18,13 @@ zone_pivot_groups: azure-files-windows-linux
 
 This article explains how you can use [managed identities](/entra/identity/managed-identities-azure-resources/overview) to allow Windows and Linux virtual machines (VMs) to access SMB Azure file shares by using identity-based authentication with Microsoft Entra ID.
 
-A managed identity is an identity in Microsoft Entra ID that Azure automatically manages. Typically, you use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. Azure Files now supports both application managed identities and end‑user identity-based access on the same storage account. Applications and users are independently authenticated via Microsoft Entra ID and authorized through a shared permissions model.
+A managed identity is an identity in Microsoft Entra ID that Azure automatically manages. Typically, you use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. Azure Files supports both application managed identities and end‑user identity-based access on the same storage account. Applications and users are independently authenticated via Microsoft Entra ID and authorized through a shared permissions model.
 
-By the end of this guide, you create a storage account that's ready to access with a managed identity. You also learn how to create a managed identity for a VM and generate an OAuth token for it. Then you mount a file share by using managed identity-based authentication and authorization. Using a managed identity eliminates the need to use a storage account key.
+By the end of this article, you create a storage account that's ready to access with a managed identity. You also learn how to create a managed identity for a VM and generate an OAuth token for it. Then you mount a file share by using managed identity-based authentication and authorization. Using a managed identity eliminates the need to use a storage account key.
 
 ## Why authenticate by using a managed identity?
 
-For security reasons, we don't recommend that you use storage account keys to access a file share. When you assign a managed identity to a VM or use an application identity, you can use that identity to authenticate to Azure Files.
+For security reasons, avoid using storage account keys to access a file share. When you assign a managed identity to a VM or use an application identity, you can use that identity to authenticate to Azure Files.
 
 Benefits include:
 
@@ -54,11 +54,13 @@ This article assumes that you have an Azure subscription with permissions to cre
 
 The clients that need to authenticate by using a managed identity shouldn't be joined to any domain.
 
+The storage account's SMB security settings must allow Kerberos authentication. If you use a custom SMB security profile, verify that **Kerberos** is selected under **Authentication methods**. Enabling Managed Identity for SMB (`SMBOAuth`) doesn't enable or validate this separate setting. For instructions, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
+
 ## Configure the managed identity's access property on your storage account
 
 To authenticate a managed identity, you must enable the `SMBOAuth` property on the storage account that contains the Azure file share you want to access. We recommend creating a new storage account for this purpose, although you can use an existing storage account.
 
-To enable the `SMBOAuth` property on your storage account, use either the Azure portal or Azure PowerShell. For instructions, select the appropriate tab.
+To enable the `SMBOAuth` property on your storage account, use the Azure portal, Azure PowerShell, or Azure CLI. For instructions, select the appropriate tab.
 
 ### [Portal](#tab/portal)
 
@@ -216,6 +218,9 @@ After you enable a managed identity, grant all necessary permissions through Azu
 
 Follow these steps to assign the built-in Azure RBAC role [Storage File Data SMB MI Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-mi-admin). This role gives admin-level access for managed identities on files and directories in Azure Files.
 
+> [!NOTE]
+> Managed-identity SMB mounts require the built-in administrator RBAC permission. Azure Files uses the built-in administrator SID for the access check; managed identities don't currently have individual SIDs and don't support per-identity file-level ACL permissions.
+
 1. Go to the storage account that contains the file share you want to mount by using a managed identity. On the service menu, select **Access Control (IAM)**.
 
 1. Under **Grant access to this resource**, select **Add role assignment**.
@@ -266,6 +271,9 @@ The managed identity can be either [system assigned or user assigned](/entra/ide
 
 ### Assign a built-in RBAC role to the managed identity
 
+> [!NOTE]
+> Managed-identity SMB mounts require the built-in administrator RBAC permission. Azure Files uses the built-in administrator SID for the access check; managed identities don't currently have individual SIDs and don't support per-identity file-level ACL permissions.
+
 1. Go to the storage account that contains the file share you want to mount by using a managed identity. On the service menu, select **Access Control (IAM)**.
 
 1. Under **Grant access to this resource**, select **Add role assignment**.
@@ -294,11 +302,11 @@ If you created a user-assigned managed identity, follow these steps to add it to
 
 ## Prepare your client to authenticate by using a managed identity
 
-The steps for preparing your system to mount the file share by using managed identity authentication are different for Windows and Linux clients. Clients shouldn't be domain joined.
+The steps for preparing your system to mount the file share by using managed identity authentication are different for Windows and Linux clients. Windows clients can't be joined to a domain, or managed identity authentication won't work.
 
 ::: zone pivot="windows"
 
-To prepare your client VM or Windows device to authenticate by using a managed identity, follow these steps:
+To prepare your client VM or Windows device to authenticate by using a managed identity, ensure the client isn't joined to a domain and follow these steps.
 
 1. Sign in to your VM or device that has the managed identity assigned and open a PowerShell window as administrator. You need either PowerShell 5.1+ or PowerShell 7+.
 
@@ -355,8 +363,8 @@ The package location and installation steps differ depending on your Linux distr
 Run the following commands to install `azfilesauth` on Azure Linux 3.0:
 
 ```bash
-tdnf update 
-tdnf install azfilesauth
+sudo tdnf update 
+sudo tdnf install azfilesauth
 ```
 
 #### RHEL 9.6+
@@ -367,8 +375,8 @@ Run the following commands to install `azfilesauth` on RHEL 9.6+:
 curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
 sudo rpm -i packages-microsoft-prod.rpm
 rm packages-microsoft-prod.rpm
-dnf update
-dnf install -y azfilesauth
+sudo dnf update
+sudo dnf install -y azfilesauth
 ```
 
 Sometimes RHEL can block kernel upcall access to the credential cache file. If a failure occurs, see `/var/log/messages` for potential causes.
@@ -376,10 +384,10 @@ Sometimes RHEL can block kernel upcall access to the credential cache file. If a
 RHEL uses a persistent credential or KCM cache by default. You can switch to a file-based cache for `azfilesauth`:
 
 ```bash
-  sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
-  [libdefaults]
-    default_ccache_name = FILE:/tmp/krb5cc_%{uid}
-  EOF
+sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
+[libdefaults]
+  default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+EOF
 ```
 
 #### SLES 15 SP6+
@@ -397,10 +405,10 @@ sudo zypper install -y azfilesauth
 SLES 15 SP6+ uses a persistent credential or KCM cache by default. You can switch to a file-based cache for `azfilesauth`:
 
 ```bash
-  sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
-  [libdefaults]
-    default_ccache_name = FILE:/tmp/krb5cc_%{uid}
-  EOF
+sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
+[libdefaults]
+  default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+EOF
 ```
 
 #### Ubuntu 22.04
@@ -429,7 +437,7 @@ sudo apt-get update
 sudo apt-get install -y azfilesauth
 ```
 
-### Configure authentication
+### Configure managed identity authentication
 
 You have two options for configuring authentication on Linux:
 
@@ -473,7 +481,7 @@ sudo azfilesauthmanager list
 
 ::: zone-end
 
-## Mount the file share
+## Mount the Azure file share
 
 You can now mount the file share on Windows or Linux without using a storage account key.
 
@@ -505,7 +513,7 @@ For more information, see [Mount SMB Azure file shares on Linux clients](storage
 
 ### Refresh your credentials
 
-To prevent access interruptions, you should refresh your credentials periodically. The refresh service automatically detects and renews credentials as needed.
+To prevent access interruptions, refresh your credentials periodically. The refresh service automatically detects and renews credentials as needed.
 
 After you mount the file share for the first time, start the refresh service:
 
@@ -519,11 +527,13 @@ To ensure that the service starts automatically on every boot:
 sudo systemctl enable --now azfilesrefresh
 ```
 
-Automatic credential refresh requires a managed identity assigned to your VM. If you're supplying the OAuth token directly, you must refresh credentials manually by using the `azfilesauthmanager set` command as described in [Configure authentication](#configure-authentication), or programmatically via the shared library APIs.
+Automatic credential refresh requires a managed identity assigned to your VM. If you're supplying the OAuth token directly, you must refresh credentials manually by using the `azfilesauthmanager set` command as described in [Configure managed identity authentication](#configure-managed-identity-authentication), or programmatically via the shared library APIs.
 
 ::: zone-end
 
 ## Troubleshooting
+
+If a managed identity mount prompts for a username and password, first verify that the storage account's SMB security settings allow Kerberos authentication. If Kerberos is already enabled, follow the troubleshooting steps for your operating system.
 
 Troubleshooting steps are different for Windows and Linux clients.
 

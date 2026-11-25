@@ -1,29 +1,29 @@
 ---
-title: Add migration tools in Azure Migrate 
-description: Learn how to add migration tools in Azure Migrate. 
+title: Add migration tools in Azure Catalyst 
+description: Learn how to add migration tools in Azure Catalyst. 
 author: sunishvohra-ms 
 ms.author: sunishvohra
 ms.manager: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 08/21/2024
 ms.custom: engagement-fy25
-# Customer intent: "As a cloud architect, I want to add migration tools in Azure Migrate, so that I can efficiently manage the migration of servers, databases, and web apps to Azure."
+# Customer intent: "As a cloud architect, I want to add migration tools in Azure Catalyst, so that I can efficiently manage the migration of servers, databases, and web apps to Azure."
 ---
 
 
 
 # Add migration tools
 
-This article describes how to add migration tools in [Azure Migrate](./migrate-services-overview.md).
+This article describes how to add migration tools in [Azure Catalyst](./migrate-services-overview.md).
 
-- If you want to add a migration tool and haven't yet set up an Azure Migrate project, follow this [article](create-manage-projects.md).
+- If you want to add a migration tool and haven't yet set up an Azure Catalyst project, follow this [article](create-manage-projects.md).
 - If you've added an ISV tool for migration, [follow the steps](prepare-isv-movere.md), to prepare to work with the tool.
 
 ## Select a migration scenario
 
-1. In the Azure Migrate project, select **Overview**.
+1. In the Azure Catalyst project, select **Overview**.
 2. Select the migration scenario you want to use:
 
     - To migrate machines and workloads to Azure, select **Discover, assess and migrate**.
@@ -35,26 +35,26 @@ This article describes how to add migration tools in [Azure Migrate](./migrate-s
 
 1. Add a tool:
 
-    - If you created an Azure Migrate project using the **Discover, assess and migrate** option in the portal, the Migration and modernization tool is automatically added to the project. To add additional migration tools, in **Servers, databases and web apps** > **Migration and modernization**, select **Click here**.
+    - If you created an Azure Catalyst project using the **Discover, assess and migrate** option in the portal, the Migration and modernization tool is automatically added to the project. To add additional migration tools, in **Servers, databases and web apps** > **Migration and modernization**, select **Click here**.
 
-2. In **Azure Migrate** > **Add tools**, select the tools you want to add. Then select **Add tool**.
+2. In **Azure Catalyst** > **Add tools**, select the tools you want to add. Then select **Add tool**.
 
 ## Select a database migration tool
 
-If you created an Azure Migrate project using the **Assess and migrate database** option in the portal, the Database Migration tool is automatically added to the project. 
+If you created an Azure Catalyst project using the **Assess and migrate database** option in the portal, the Database Migration tool is automatically added to the project. 
 
 1. If the Database Migration tool isn't in the project, in **Databases** > **Assessment tools**, select **Click here**.
 
-2. In **Azure Migrate** > **Add tools**, select the Database Migration tool. Then select **Add tool**.
+2. In **Azure Catalyst** > **Add tools**, select the Database Migration tool. Then select **Add tool**.
 
 ## Select a web app migration tool
 
-If you created an Azure Migrate project using the **Explore more** > **Web apps** option in the portal, the Web app migration tool is automatically added to the project. 
+If you created an Azure Catalyst project using the **Explore more** > **Web apps** option in the portal, the Web app migration tool is automatically added to the project. 
 
 1. If the Web app migration tool isn't in the project, in **Web apps** > **Assessment tools**, select **Click here**.
  
 
-2. In **Azure Migrate** > **Add tools**, select the Web App Migration tool. Then select **Add tool**.
+2. In **Azure Catalyst** > **Add tools**, select the Web App Migration tool. Then select **Add tool**.
 
 
 ## Order an Azure Data Box

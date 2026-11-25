@@ -3,7 +3,7 @@ title: 'Tutorial: Log Network Traffic'
 titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to log network traffic flow to and from a virtual network (VNet) using Network Watcher virtual network flow logs.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 02/25/2026
@@ -263,7 +263,7 @@ Open the downloaded `PT1H.json` file using a text editor of your choice. The fol
     "flowLogGUID": "00000000-0000-0000-0000-000000000000",
     "macAddress": "6045BDD6DD48",
     "category": "FlowLogFlowEvent",
-    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e//RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS/FLOWLOGS/MYVNET-MYRESOURCEGROUP-FLOWLOG",
+    "resourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1//RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS/FLOWLOGS/MYVNET-MYRESOURCEGROUP-FLOWLOG",
 	"flowLogVersion": 4,
     "operationName": "FlowLogFlowEvent",
     "flowRecords": {

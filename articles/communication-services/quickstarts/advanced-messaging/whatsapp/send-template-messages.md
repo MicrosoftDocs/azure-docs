@@ -16,6 +16,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Send WhatsApp template messages using Advanced Messages
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to send WhatsApp template messages using Advanced Communication Messages SDK.
 
 ::: zone pivot="programming-language-csharp"

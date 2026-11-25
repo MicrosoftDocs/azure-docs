@@ -38,7 +38,7 @@ ms.devlang: azurecli
        - Merge the content of this server path with the content in the Azure file share. Files with the same name and path will lead to conflicts if their content is different. Both versions of those files are stored next to each other. If your server path or Azure file share is empty, always choose this option.
        - Authoritatively overwrite files and folders in the Azure file share with content in this server's path. This option avoids file conflicts.
 
-     To learn more, see [Initial sync section](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-sync-section).
+     To learn more, see [Initial sync](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-sync).
 
      - **Initial Download**: How the server initially downloads the Azure file share data. This setting is important when the server is connecting to an Azure file share that contains files. Three options are available:
 
@@ -46,7 +46,7 @@ ms.devlang: azurecli
        - Download the namespace only. The file content is recalled when it's accessed.
        - Avoid tiered files. Files appear on the server only after they're fully downloaded. Local access or policy recalls the file content of tiered files from the cloud to the server.
 
-     To learn more, see [Initial download section](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-download-section).
+     To learn more, see [Initial download](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-download).
 
 1. To finish adding the server endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server instance.
 
@@ -59,7 +59,7 @@ ms.devlang: azurecli
 
 # [PowerShell](#tab/azure-powershell)
 
-Run the following PowerShell commands to create the server endpoint. Replace `<your-server-endpoint-path>` and `<your-volume-free-space>` with the desired values. Check the settings for the optional [initial download](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-download-section) and [initial upload](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-sync-section) policies.
+Run the following PowerShell commands to create the server endpoint. Replace `<your-server-endpoint-path>` and `<your-volume-free-space>` with the values you want. Check the settings for the optional [initial download](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-download) and [initial upload](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-sync) policies.
 
 ```powershell
 $serverEndpointPath = "<your-server-endpoint-path>"

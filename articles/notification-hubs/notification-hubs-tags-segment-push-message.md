@@ -12,7 +12,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: csharp
 ms.topic: article
 ms.date: 12/09/2019
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.custom: devx-track-csharp

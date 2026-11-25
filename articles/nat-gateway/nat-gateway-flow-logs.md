@@ -6,14 +6,14 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: how-to
-ms.date: 11/04/2025
+ms.date: 08/10/2026
 ms.custom:
 #Customer intent: As a network administrator, I want to learn about StandardV2 NAT Gateway flow logs and what it can be used for.
 ---
 
 # Manage StandardV2 NAT Gateway Flow Logs
 
-NAT Gateway Flow Logs provide IP information on the traffic flowing through your StandardV2 NAT gateway. Logs are captured through Azure Monitor resource log category `NatGatewayFlowLogsV1`, which you enable through Diagnostic Settings on your StandardV2 NAT gateway resource.
+NAT Gateway flow logs provide IP information on the traffic flowing through your StandardV2 NAT gateway. You capture logs through the Azure Monitor resource log category `NatGatewayFlowlogsV1`. Enable this log category through Diagnostic Settings on your StandardV2 NAT gateway resource.
 
 ## Why use flow logs?
 

@@ -3,6 +3,7 @@ title: Azure Extended Zones FAQ
 description: This article provides answers to some of the frequently asked questions about Azure Extended Zones. 
 author: svaldesgzz
 ms.author: svaldes
+ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: concept-article
 ms.date: 02/25/2026

@@ -4,8 +4,8 @@ description: Learn how to access user identities when you use the built-in authe
 ms.topic: how-to
 ms.date: 07/02/2025
 ms.custom: AppServiceIdentity
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ---
 

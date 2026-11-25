@@ -3,7 +3,7 @@ title: What's new with Event Hubs emulator
 titleSuffix: Azure Event Hubs
 description: View the updates for the latest version and previous versions of the Azure Event Hubs emulator.
 author: Sannidhya
-ms.author: saglodha
+ms.author: aschhabria
 ms.topic: overview
 ms.date: 07/01/2024
 ---

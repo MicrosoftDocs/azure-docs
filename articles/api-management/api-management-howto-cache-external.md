@@ -42,7 +42,7 @@ To complete this tutorial, you need to:
 
 + [Create an Azure API Management instance](get-started-create-service-instance.md)
 + Understand [caching in Azure API Management](api-management-howto-cache.md)
-+ Have an [Azure Managed Redis](../redis/quickstart-create-managed-redis.md) or another Redis-compatible cache available.
++ Have an [Azure Managed Redis](/azure/redis/quickstart-create-managed-redis) or another Redis-compatible cache available.
 
     > [!IMPORTANT]
     > Azure API Management uses a Redis connection string to connect to the cache. If you use Azure Managed Redis, enable access key authentication in your cache to use a connection string. Currently, you can't use Microsoft Entra authentication to connect Azure API Management to Azure Managed Redis.

@@ -13,6 +13,8 @@ ms.subservice: monitoring
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 In this tutorial, you'll use the Data Factory user interface (UI) to create a pipeline that run activities and report lineage data to Microsoft Purview account. Then you can view all the lineage information in your Microsoft Purview account. 
 
 Currently, lineage is supported for Copy, Data Flow, and Execute SSIS activities. Learn more details on the supported capabilities from [Supported Azure Data Factory activities](../purview/how-to-link-azure-data-factory.md#supported-azure-data-factory-activities).

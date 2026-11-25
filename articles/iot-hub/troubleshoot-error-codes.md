@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Azure IoT Hub Error Codes
 description: Understand specific error codes and how to fix errors reported by Azure IoT Hub
-author: sethmanheim
+author: dimatx
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/06/2026
-ms.author: sethm
+ms.author: dimatokar
 ms.custom: [mqtt, iot]
 ai-usage: ai-assisted
 ---
@@ -50,12 +50,14 @@ You might see that your requests to IoT Hub fail with an error that begins with 
 | **400026 NullMessage** | The message is null. | Ensure the message is not null. |
 | **400027 ConnectionForcefullyClosedOnNewConnection** | Your device disconnects and reports `Communication_Error` as the `ConnectionStatusChangeReason` using .NET SDK and MQTT transport type. Either your device-to-cloud twin operation (such as read or patch reported properties) or direct method invocation fails with the error code `400027`. This error occurs when another client creates a new connection to IoT Hub using the same identity, so IoT Hub closes the previous connection. IoT Hub doesn't allow more than one client to connect using the same identity. | Ensure that each client connects to IoT Hub using its own identity. |
 | **400028 InvalidDeviceScope** | The device scope specified isn't valid. | Check the device scope for correctness. |
-| **400029 ConnectionForcefullyClosedOnFaultInjection** | Existing connections will be closed with this error during service and platform upgrades. Retries are expected to succeed immediately. | Retry the operation |
+| **400029 ConnectionForcefullyClosedOnFaultInjection** | The connection was closed by Azure IoT Hub. This error can occur during service or underlying infrastructure operations, including maintenance, updates, or connection rebalancing. Transient disconnections are expected in cloud-connected applications. For more information, see [Manage device reconnections to create resilient applications](concepts-manage-device-reconnections.md). | Reconnect using exponential backoff with jitter. Investigate persistent disconnections. |
 | **400030 ConnectionRejectedOnFaultInjection** | New connections and immediate retry attempts will be rejected with this error during service and platform upgrades. | Retry the operation |
 | **400031 InvalidEndpointAuthenticationType** | The endpoint authentication type specified isn't valid. | Check the endpoint authentication type for correctness. |
 | **400032 ManagedIdentityNotEnabled** | The managed identity isn't enabled. | Enable the managed identity. |
 | **400035 InvalidPolicyKey** | The policy key specified isn't valid. | Check the policy key for correctness. |
 | **400036 BulkRegenerateDeviceKeyOperationFailure** | The bulk regenerate device key operation failed. | Review the operation details. |
+| **400038 HttpResponseExceededAllowedSize** | The HTTP response from the upstream endpoint exceeded the maximum response size allowed by the IoT hub. | Reduce the size of the HTTP response returned by the upstream endpoint. The default maximum HTTP response size is **15 MiB (15,728,640 bytes)**. If your solution requires responses larger than the default limit, contact Azure support to review your requirements. |
+
 
 ### 4001xx Routing errors
 
@@ -148,7 +150,7 @@ For device developers, if the volume of errors is a concern, switch to the C SDK
 In general, the error message presented should explain how to fix the error. If for some reason you don't have access to the error message detail, make sure:
 
 * The SAS or other security token you use isn't expired.
-* For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Tutorial: Create and upload certificates for testing](tutorial-x509-test-certs.md).
+* For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Tutorial: Create and upload certificates for testing](../iot-hub/tutorial-x509-test-certs.md).
 * For X.509 certificate thumbprint authentication, the thumbprint of the device certificate is registered with IoT Hub.
 * The authorization credential is well formed for the protocol that you use. To learn more, see [Control access to IoT Hub by using Microsoft Entra ID](authenticate-authorize-azure-ad.md).
 * The authorization rule used has the permission for the operation requested.
@@ -285,7 +287,7 @@ This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-
 
 Some other possibilities include:
 
-* The device lost underlying network connectivity longer than the [MQTT keep-alive](iot-mqtt-connect-to-iot-hub.md#default-keep-alive-time-out), resulting in a remote idle time-out. The MQTT keep-alive setting can be different per device.
+* The device lost underlying network connectivity longer than the [MQTT keep-alive](iot-mqtt-connect-to-iot-hub.md#default-keep-alive-timeout), resulting in a remote idle time-out. The MQTT keep-alive setting can be different per device.
 * The device sent a TCP/IP-level reset but didn't send an application-level `MQTT DISCONNECT`. Basically, the device abruptly closed the underlying socket connection. Sometimes, bugs in older versions of the Azure IoT SDK might cause this issue.
 * The device side application crashed.
 

@@ -1,12 +1,11 @@
 ---
-title: Assess AWS instances for migration to Azure with Azure Migrate
-description: Learn to access AWS instances for migration to Azure with Azure Migrate.
+title: Assess AWS instances for migration to Azure with Azure Catalyst
+description: Learn to access AWS instances for migration to Azure with Azure Catalyst.
 ms.topic: tutorial
 ms.date: 02/06/2025
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.custom: MVC, engagement-fy23
-monikerRange:
 # Customer intent: As a server administrator, I want to evaluate my AWS instances for migration to Azure, so that I can assess cloud readiness, identify risks, and estimate costs effectively before proceeding with the migration.
 ---
 
@@ -14,7 +13,7 @@ monikerRange:
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
-This article shows you how to assess Amazon Web Services (AWS) instances for migration to Azure, using the Azure Migrate: Discovery and assessment tool.
+This article shows you how to assess Amazon Web Services (AWS) instances for migration to Azure, using the Azure Catalyst: Discovery and assessment tool.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -51,14 +50,14 @@ Run an assessment as follows:
 
    ![Screenshot of Get started screen.](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. In **Azure Migrate: Discovery and assessment**, select **Assess** > **Azure VM**.
+2. In **Azure Catalyst: Discovery and assessment**, select **Assess** > **Azure VM**.
 
     ![Screenshot of Discovery and assessment screen.](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
 3. In **Assess servers** > **Assessment type** > **Azure VM**.
 4. In **Discovery source**:
 
-    - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
+    - If you discovered servers using the appliance, select **Servers discovered from Azure Catalyst appliance**.
     - If you discovered servers using an imported CSV file, select **Imported servers**. 
     
 1. Select **Edit** to review the assessment properties.
@@ -70,11 +69,11 @@ Run an assessment as follows:
         - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you'll be prompted to specify **Reserved Instances** and **VM series**.
         - In Azure Government, you can target assessments in [these regions](supported-geographies.md#azure-government)
     - In **Storage type**,
-        - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
+        - If you want to use performance-based data in the assessment, select **Automatic** for Azure Catalyst to recommend a storage type, based on disk IOPS and throughput.
         - Alternatively, select the storage type you want to use for VM when you migrate it.
     - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, to help optimize your Azure compute cost. 
         - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
-        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Catalyst assessments, you can only see cost estimates of 1 savings option at a time. 
         - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
         - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties aren't applicable.
  1. In **VM Size**:
@@ -82,7 +81,7 @@ Run an assessment as follows:
         - In **Performance history**, indicate the data duration on which you want to base the assessment
         - In **Percentile utilization**, specify the percentile value you want to use for the performance sample. 
     - In **VM Series**, specify the Azure VM series you want to consider.
-        - If you're using performance-based assessment, Azure Migrate suggests a value for you.
+        - If you're using performance-based assessment, Azure Catalyst suggests a value for you.
         - Tweak settings as needed. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
     - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
     
@@ -114,7 +113,7 @@ Run an assessment as follows:
 
 1. In **Review + create assessment**, review the assessment details and select **Create Assessment** to create the group and run the assessment.
 
-1. After the assessment is created, view it in **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Assessments**.
+1. After the assessment is created, view it in **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment** > **Assessments**.
 
 1. Select **Export assessment** to download it as an Excel file.
     
@@ -131,7 +130,7 @@ An assessment describes:
 
 To view an assessment:
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Assessments**.
+1. In **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**, select the number next to **Assessments**.
 2. In **Assessments**, select an assessment to open it. As an example (estimations and costs, for example,  only): 
 
     ![Screenshot of Assessment summary.](./media/tutorial-assess-aws/assessment-summary.png)
@@ -143,10 +142,10 @@ To view an assessment:
 
 1. Select **Azure readiness**.
 2. In **Azure readiness**, review the VM status:
-    - **Ready for Azure**: Used when Azure Migrate recommends a VM size and cost estimates, for VMs in the assessment.
+    - **Ready for Azure**: Used when Azure Catalyst recommends a VM size and cost estimates, for VMs in the assessment.
     - **Ready with conditions**: Shows issues and suggested remediation.
     - **Not ready for Azure**: Shows issues and suggested remediation.
-    - **Readiness unknown**: Used when Azure Migrate can't assess readiness, because of data availability issues.
+    - **Readiness unknown**: Used when Azure Catalyst can't assess readiness, because of data availability issues.
 
 3. Select an **Azure readiness** status. You can view VM readiness details. You can also drill down to see VM details, including compute, storage, and network settings.
 

@@ -1,12 +1,12 @@
 ---
 title: Query on Azure IoT Hub message routing
 description: Learn about the IoT Hub message routing query language that you can use to apply rich queries to messages to receive the data that matters to you. 
-author: sethmanheim
+author: dimatx
 
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 05/22/2025
+ms.date: 11/10/2026
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics']
 ---
 
@@ -88,6 +88,70 @@ $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
 A full list of supported operators and functions is provided in the [Expressions and conditions](iot-hub-devguide-query-language.md#expressions-and-conditions) section of [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md).
+
+## Filter by MQTT topic and user properties
+
+This section applies to the **MQTT v5 connection profile (preview)**.
+For its supported operations and limitations, see
+[MQTT v5 capabilities](mqtt-v5-capabilities.md).
+
+Consider vehicles that publish telemetry to
+`fleet/vehicles/<deviceId>/telemetry` and fault reports to
+`fleet/vehicles/<deviceId>/faults`. Fault messages include a `severity`
+MQTT v5 user property. You want an all-messages path plus a separate path
+that selects only critical faults.
+
+The topic identifies the category, and the user property identifies severity.
+These are separate query inputs:
+
+| Filter input | Routing condition | What it matches |
+| --- | --- | --- |
+| MQTT publish topic | `topic_matches('fleet/vehicles/+/faults')` | Fault topics for any one device-ID topic level. |
+| MQTT v5 user property | `severity = 'critical'` | Messages whose `severity` user property has the string value `critical`. |
+| Both | `topic_matches('fleet/vehicles/+/faults') AND severity = 'critical'` | Only critical fault messages. |
+
+`topic_matches(...)` matches the publish topic, not user properties. MQTT v5
+user properties are exposed as application properties in routing queries:
+reference their names directly, without a `$` prefix. For example,
+`severity = 'critical'` doesn't inspect `$body.severity` or a destination's
+CloudEvents field. IoT Hub evaluates the condition before delivery.
+Use unique property names and avoid duplicate keys.
+
+Topic filters use MQTT wildcards, not template variables. Use `+` to match
+one device-ID level; don't put `{deviceId}` in a routing filter. Body-based
+queries are a separate option with the content requirements described below.
+Test positive and negative cases; a syntactically valid condition can still
+select the wrong messages or no messages.
+
+To test these queries, configure two independent delivery paths to
+[supported routing destinations](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
+Enable a device-telemetry route with condition `true` for the all-messages
+path and another with the combined condition above for the selective path.
+Use separate endpoints and independently readable destinations so that
+all-messages delivery can't be mistaken for selective delivery. Read back
+the saved conditions before testing to check that shell quoting hasn't
+changed the expressions.
+
+### Expected filter behavior
+
+When both routes are enabled and destinations are healthy, the combined condition
+produces the following expected results:
+
+| Category | Severity user property | All-messages path | Selective path |
+| --- | --- | --- | --- |
+| `faults` | `critical` | Delivered | Delivered |
+| `faults` | `warning` | Delivered | Not selected |
+| `telemetry` | `critical` | Delivered | Not selected |
+| `telemetry` | `warning` | Delivered | Not selected |
+| `faults` | Absent | Delivered | Not selected |
+
+To publish these cases and compare actual receipt, see
+[Verify the selective route](mqtt-v5-custom-topics.md#verify-the-selective-route).
+
+If you retain the all-messages route, a message excluded by a selective route
+can still be delivered through the all-messages route. This delivery path isn't fallback.
+Don't assume that multiple routes or device retries provide end-to-end
+exactly-once processing; make downstream processing safe for duplicate inputs.
 
 ## Query based on message body
 

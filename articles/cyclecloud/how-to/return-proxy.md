@@ -2,7 +2,8 @@
 title: Return Proxy Enable
 description: Learn about the Azure CycleCloud return proxy. Learn how to designate a cluster node as a return proxy with listening ports on CycleCloud server forwarded through an SSH tunnel.
 author: KimliW
-ms.date: 06/19/2026
+ai-usage: ai-assisted
+ms.date: 08/10/2026
 ms.topic: how-to
 ms.author: adjohnso
 ---
@@ -12,6 +13,8 @@ ms.author: adjohnso
 Nodes in a cluster need to communicate with the Azure CycleCloud server to report status, as well as making API requests for auto-scaling and distributed synchronization. Nodes communicate with HTTPS to CycleCloud on its private 9443 port.
 
 If network topology or firewalls prevent communication between the Azure CycleCloud server and cluster nodes, you can designate a node in the cluster as a **return proxy** with the listening port on Azure CycleCloud server forwarded through an SSH tunnel. The cluster nodes then reach the CycleCloud server via port 37140 on the proxy. A typical deployment has the cluster head node designated as the return proxy, but any persistent node can play that same role.
+
+For the source, destination, direction, and applicability of each direct and return-proxy rule, see the [CycleCloud ports and traffic matrix](network-security.md#required-ports-and-traffic).
 
 ::: moniker range="=cyclecloud-7"
 

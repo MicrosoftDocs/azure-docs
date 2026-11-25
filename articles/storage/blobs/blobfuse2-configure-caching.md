@@ -74,7 +74,7 @@ sudo chown <youruser> /mnt/ramdisk/blobfuse2tmp
 
 In caching mode, BlobFuse waits for an open file system call. Upon receiving the open call, BlobFuse downloads the entire file to a local cache before using it. This behavior can make the initial load slower, especially for AI and machine learning tasks where the application is processing many files.
 
-The preload feature helps by downloading entire containers or subdirectories to the local cache when you mount them. Preload enhances data availability, boosting efficiency and reducing wait times. This improvement is vital for AI training with large datasets as it prepares all necessary files in advance, saving GPU time and reducing costs. By combining preload with the [Blob Filter](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse-Blob-Filter) feature, you can access specific files in a container or subdirectory, offering extensive flexibility and optimizing GPU cycles.
+The preload feature helps by downloading entire containers or subdirectories to the local cache when you mount them. Preload enhances data availability, boosting efficiency and reducing wait times. This improvement is vital for AI training with large datasets as it prepares all necessary files in advance, saving GPU time and reducing costs. By combining preload with the [Blob Filter](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse2%E2%80%90Blob-Filter) feature, you can access specific files in a container or subdirectory, offering extensive flexibility and optimizing GPU cycles.
 
 To enable preload with file-cache mode, use the `--preload` parameter. The following command shows an example:
 

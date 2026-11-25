@@ -5,7 +5,7 @@ services: azure-logic-apps, azure-functions
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ai.usage: ai-assisted
+ai-usage: ai-assisted
 ms.date: 03/10/2026
 ms.custom: sfi-image-nochange
 #Customer intent: As an integration developer who works with Azure Logic Apps, I want to call and run functions created in Azure Functions from my logic app workflows.

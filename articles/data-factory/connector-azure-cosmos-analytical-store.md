@@ -8,12 +8,14 @@ ms.subservice: data-movement
 ms.topic: how-to
 ms.custom:
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ---
 
 # Copy and transform data in Azure Cosmos DB analytical store by using Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article outlines how to use Data Flow to transform data in Azure Cosmos DB analytical store. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 

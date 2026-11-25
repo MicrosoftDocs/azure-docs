@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: "Configure Durable Functions Publishing to Azure Event Grid"
 description: "Learn how to configure automatic Azure Event Grid publishing for Durable Functions orchestration lifecycle events. Set up managed identity, create custom topics, and verify event delivery in this step-by-step guide."
 ms.topic: how-to
@@ -13,6 +13,8 @@ ms.custom: devx-track-azurecli
 ---
 
 # Configure Durable Functions publishing to Azure Event Grid
+
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
 
 Publishing orchestration lifecycle events to [Azure Event Grid](../../event-grid/overview.md) enables DevOps automation (such as blue/green deployments), real-time monitoring dashboards, and tracking of long-running background processes.
 
@@ -37,7 +39,7 @@ Publishing orchestration lifecycle events to [Azure Event Grid](../../event-grid
        dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask
        ```
 
-   For other languages, check your `package.json`, `requirements.txt`, `pom.xml`, or `requirements.psd1`.
+   For other languages, [update the extension bundle](durable-functions-extension-upgrade.md#upgrade-the-extension-bundle) to include Event Grid publishing support.
 
 - Managed identity [enabled](../../app-service/overview-managed-identity.md) and [configured](./durable-functions-configure-managed-identity.md) on your function app.
 - A [running storage provider](../common/durable-task-storage-providers.md) or the local [Azurite storage emulator](../../storage/common/storage-use-azurite.md).
@@ -61,7 +63,7 @@ Create a resource group with the `az group create` command. Pick a location that
 az group create --name <resource-group-name> --location <location>
 ```
 
-[!INCLUDE [register-provider-cli.md](../../event-grid/includes/register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](~/reusable-content/ce-skilling/azure/includes/event-grid/register-provider-cli.md)]
 
 ### Create a custom topic
 
@@ -87,22 +89,7 @@ Managed identities in Azure allow resources to authenticate to Azure services wi
 
 ### Configure the Durable Functions publisher app
 
-Although your Durable Functions app automatically publishes orchestration lifecycle events to Event Grid, you need to configure the connection settings. Add the following to the `extensions.durableTask` section in your `host.json`:
-
-```json
-{
-  "version": "2.0",
-  "extensions": {
-    "durableTask": {
-      "eventGridTopicEndpoint": "%EventGrid__topicEndpoint%",
-      "eventGridKeySettingName": "EventGrid__credential"
-    }
-  }
-}
-```
-
-> [!NOTE]
-> The `eventGridTopicEndpoint` setting references the Event Grid custom topic endpoint you saved earlier. The credential setting handles both managed identity and connection string scenarios.
+Configure the Event Grid application settings described in [Configure app settings](#configure-app-settings). No additional Event Grid configuration in `host.json` is required for managed identity.
 
 ### Assign Event Grid Data Sender role
 
@@ -250,7 +237,7 @@ When an orchestration state changes, the Durable Functions runtime publishes an 
 | `data.runtimeStatus` | `Running`, `Completed`, `Failed`, or `Canceled`. |
 | `data.reason` | Additional tracking data. For more information, see [Diagnostics in Durable Functions](durable-functions-diagnostics.md). |
 
-Event Grid ensures at-least-once delivery, so you may receive duplicate events in rare failure scenarios. Consider adding deduplication logic using the `instanceId` if needed.
+Event Grid ensures at-least-once delivery, so you may receive duplicate events in rare failure scenarios. Deduplicate redeliveries by the Event Grid event `id` within the relevant topic/subscription scope. Use `instanceId` to correlate events, not as the sole deduplication key: one instance can legitimately produce multiple lifecycle transitions. If you also need application-level idempotency for separately generated notifications, design an execution- and transition-aware key; event-ID deduplication alone doesn't cover those notifications.
 
 ## Verify event delivery
 

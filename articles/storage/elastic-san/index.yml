@@ -6,11 +6,11 @@ summary: A cloud-native service that offers a scalable, cost-effective, high-per
 metadata:
   title: Azure Elastic SAN documentation
   description: Create a virtual SAN to act as the storage for multiple compute options.
-  ms.service: azure-elastic-san-storage
+  ms.service: azure-elastic-san
   ms.topic: landing-page
-  author: roygara
-  ms.author: rogarana
-  ms.date: 01/06/2025
+  author: normesta
+  ms.author: normesta
+  ms.date: 09/19/2026
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -51,6 +51,38 @@ landingContent:
           - text: Optimize the performance of your Elastic SAN
             url: elastic-san-best-practices.md
 
+# Card (optional)
+  - title: Explore Elastic SAN Next Generation (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Elastic SAN Next Generation?
+            url: next-generation-introduction.md
+          - text: Compare Azure core storage services
+            url: ../common/storage-introduction.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
+      - linkListType: concept
+        links:
+          - text: Plan an Elastic SAN Next Generation deployment
+            url: next-generation-planning.md
+          - text: Review scale targets
+            url: next-generation-scale-targets.md
+          - text: Understand performance
+            url: next-generation-performance.md
+          - text: Apply best practices
+            url: next-generation-best-practices.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Elastic SAN Next Generation
+            url: next-generation-create.md
+          - text: Manage your SAN and its resources
+            url: next-generation-manage.md
+          - text: Attach and Detach experience
+            url: next-generation-attach-volume-portal.md
+          - text: Connect to Windows VMs over iSCSI
+            url: elastic-san-connect-windows.md
+          - text: Connect to Linux VMs over iSCSI
+            url: elastic-san-connect-linux.md
+            
 # Card (optional)
   - title: Connect to Azure Kubernetes Service (AKS)
     linkLists:

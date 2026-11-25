@@ -3,7 +3,7 @@ title: Create and manage a unified model API - Azure API Management
 description: Learn how to create a unified model API in Azure API Management to route and transform requests across AI models from multiple LLM providers using a single client-facing API format.
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/29/2026
+ms.date: 11/17/2026
 ai-usage: ai-assisted
 ---
 
@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 You can create a unified model API in Azure API Management to expose multiple LLM backends through a single client-facing endpoint. Client applications use one familiar API format - the OpenAI Chat Completions API - while API Management automatically translates requests to the backend models using OpenAI Chat Completions API or Anthropic Messages API.
 
 > [!NOTE]
-> The unified model API is in preview and is currently rolling out to customers. In the classic tiers, early access to this feature is available through the [AI Gateway Early release channel](configure-service-update-settings.md#update-group).
+> The unified model API is in general availability (GA) for V2 tiers. In the classic tiers, early access to this feature is available through the [AI Gateway Early release channel](configure-service-update-settings.md#update-group).
 
 By centralizing model access behind a single API layer, you can:
 
@@ -105,6 +105,11 @@ Developers can discover available models and their aliases by calling the `/mode
 Client applications can call the unified model API using any OpenAI-compatible SDK. Point the SDK's base URL at your API Management endpoint and use an API Management subscription key or another supported authentication method for authentication.
 
 The following example uses the Python OpenAI SDK and passes an API Management subscription key in the header for authentication. The request body specifies a client-facing model alias configured in API Management, for example, `gpt` or `claude-sonnet`.:
+
+[!IMPORTANT]
+> The Python OpenAI SDK sends the `api_key` value as `Authorization: Bearer <api_key>`. It doesn't send the `api_key` in the API Management subscription-key header. To use this example with an API Management subscription key, enable bearer subscription-key recognition for the API by setting `properties.subscriptionKeyParameterNames.bearer` to `enabled`. Recognition is disabled by default. For more information, see [Use a subscription key in the Authorization header](api-management-subscriptions.md#use-a-subscription-key-in-the-authorization-header).
+
+This subscription key authenticates the client to API Management. It isn't a model provider API key or an OAuth access token. Configure API Management's credentials or managed identity for each backend separately.
 
 ```python
 from openai import OpenAI

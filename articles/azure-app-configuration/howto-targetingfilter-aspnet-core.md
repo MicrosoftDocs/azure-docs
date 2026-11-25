@@ -7,7 +7,7 @@ ms.devlang: csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 12/02/2024
+ms.date: 07/15/2026
 ms.custom:
   - build-2025
 ---
@@ -85,6 +85,7 @@ In this section, you create a web application that allows users to sign in and u
         // ... ...
     
         using Azure.Identity;
+        using Microsoft.FeatureManagement;
     
         var builder = WebApplication.CreateBuilder(args);
     
@@ -198,6 +199,8 @@ In this section, you create a web application that allows users to sign in and u
 1. Open *_Layout.cshtml* in the *Pages/Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
     :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
+
+1. Open *Program.cs*, and add `app.UseAuthentication();` before the line `app.UseAuthorization();`. This middleware validates the authentication cookie that Identity issues, so users can sign in after registering an account in the web app.
 
 ## Enable targeting for the web application
 

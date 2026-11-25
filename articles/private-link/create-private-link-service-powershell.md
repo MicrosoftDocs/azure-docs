@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an Azure private link servi
 author: asudbring
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 03/30/2026
+ms.date: 08/10/2026
 ms.author: allensu
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
@@ -82,7 +82,7 @@ This section details how you can create and configure the following components o
 
 * Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig) that defines how traffic is distributed to the VMs.
 
-* Create a public load balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
+* Create an internal load balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
 
 
 ```azurepowershell-interactive

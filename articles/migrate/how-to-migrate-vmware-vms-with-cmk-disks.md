@@ -1,8 +1,8 @@
 ---
 title: Migrate VMware virtual machines to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using the Migration and modernization tool
 description: Learn how to migrate VMware VMs to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using the Migration and modernization tool 
-author: habibaum
-ms.author: v-uhabiba 
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: how-to
 ms.date: 05/09/2025
 ms.update-cycle: 365-days
@@ -25,8 +25,8 @@ The examples in this article use [Azure PowerShell](/powershell/azure/new-azurep
 ## Prerequisites
 
 - [Review the tutorial](tutorial-migrate-vmware.md) on migration of VMware VMs to Azure with agentless replication to understand tool requirements.
-- [Follow these instructions](create-manage-projects.md) to create an Azure Migrate project and add the **Migration and modernization** tool to the project.
-- [Follow these instructions](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for VMware in your on-premises environment and complete discovery.
+- [Follow these instructions](create-manage-projects.md) to create an Azure Catalyst project and add the **Migration and modernization** tool to the project.
+- [Follow these instructions](how-to-set-up-appliance-vmware.md) to set up the Azure Catalyst appliance for VMware in your on-premises environment and complete discovery.
 
 ## Prepare for replication
 
@@ -34,12 +34,12 @@ Once VM discovery is complete, the Discovered Servers line on the Migration and 
 
 Before you can start replicating VMs, the replication infrastructure needs to be prepared.
 
-1. Create a Service Bus instance in the target region. The Service Bus is used by the on-premises Azure Migrate appliance to communicate with the Migration and modernization service to coordinate replication and migration.
+1. Create a Service Bus instance in the target region. The Service Bus is used by the on-premises Azure Catalyst appliance to communicate with the Migration and modernization service to coordinate replication and migration.
 2. Create a storage account for transfer of operation logs from replication.
-3. Create a storage account that the Azure Migrate appliance uploads replication data to.
+3. Create a storage account that the Azure Catalyst appliance uploads replication data to.
 4. Create a Key Vault and configure the Key Vault to manage shared access signature tokens for blob access on the storage accounts created in step 3 and 4.
 5. Generate a shared access signature token for the service bus created in step 1 and create a secret for the token in the Key Vault created in the previous step.
-6. Create a Key Vault access policy to give the on-premises Azure Migrate appliance (using the appliance AAD app) and the Migration and modernization Service access to the Key Vault.
+6. Create a Key Vault access policy to give the on-premises Azure Catalyst appliance (using the appliance AAD app) and the Migration and modernization Service access to the Key Vault.
 7. Create a replication policy and configure the Migration and modernization service with details of the replication infrastructure created in the previous step.
 
 The replication infrastructure must be created in the target Azure region for the migration and in the target Azure subscription that the VMs are being migrated to.
@@ -48,7 +48,7 @@ The Migration and modernization portal experience simplifies preparation of the 
 
 ### Identifying replication infrastructure components
 
-1. On the Azure portal, go the resource groups page and select the resource group in which the Azure Migrate project was created.
+1. On the Azure portal, go the resource groups page and select the resource group in which the Azure Catalyst project was created.
 2. Select **Deployments** from the left menu and search for a deployment name beginning with the string *"Microsoft.MigrateV2.VMwareV2EnableMigrate"*. You'll see a list of Resource Manager templates created by the portal experience to set up replication for VMs in this project. We'll download one such template and use that as the base to prepare the template for replication with CMK.
 3. To download the template, select any deployment matching the string pattern in the previous step > select **Template** from the left menu > select **Download** from the top menu. Save the template.json file locally. You'll edit this template file in the last step.
 
@@ -107,7 +107,7 @@ ApplianceName  SiteId
 VMwareApplianc /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ContosoVMwareCMK/providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite
 ```
 
-Copy the value of the SiteId string corresponding to the Azure Migrate appliance that the VM is discovered through. In the example shown above, the SiteId is *"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ContosoVMwareCMK/providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite"*
+Copy the value of the SiteId string corresponding to the Azure Catalyst appliance that the VM is discovered through. In the example shown above, the SiteId is *"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ContosoVMwareCMK/providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite"*
 
 ```azurepowershell
 
@@ -272,4 +272,4 @@ DeploymentDebugLogLevel :
 
 ## Next steps
 
-[Monitor replication](tutorial-migrate-vmware.md#track-migrations) status through the portal experience and perform test migrations and migration.
+[Monitor replication](tutorial-migrate-vmware.md#track-and-migrate-replicating-servers) status through the portal experience and perform test migrations and migration.

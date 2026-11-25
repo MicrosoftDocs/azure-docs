@@ -130,6 +130,8 @@ items:
       href: iot-dps-ip-filtering.md
     - name: Managing public network access
       href: public-network-access.md
+    - name: Update root certificate in national clouds
+      href: ../iot-hub/update-root-certificate-national-clouds.md
   - name: Monitor Device Provisioning Service
     href: monitor-iot-dps.md
   - name: Provision IoT Edge devices
@@ -144,6 +146,8 @@ items:
     items:
     - name: Troubleshooting DPS
       href: how-to-troubleshoot-dps.md
+    - name: Monitor device connectivity health
+      href: ../iot-hub/how-to-monitor-device-connectivity-health.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
     - name: DPS FAQ
       href: dps-faq.yml
 - name: Reference
@@ -233,7 +237,7 @@ items:
     - name: Python
       href: https://github.com/Azure/azure-iot-sdk-python/tree/v2/samples
     - name: iOS Platform
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
+      href: https://github.com/Azure-Samples/azure-iot-samples-ios
   - name: Terraform modules
     items:
     - name: DPS instance resource

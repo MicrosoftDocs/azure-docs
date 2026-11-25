@@ -1,10 +1,10 @@
 ---
 title: Storage pool parameters for Azure Container Storage (version 1.x.x)
 description: Lists the mandatory and optional storage pool parameters for the storage pool that's created when you install Azure Container Storage (version 1.x.x).
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.date: 09/03/2025
-ms.author: kendownie
+ms.author: schoag
 ms.topic: reference
 # Customer intent: As a cloud architect, I want to understand the mandatory and optional storage pool parameters for Azure Container Storage, so that I can configure storage effectively for my container deployments.
 ---

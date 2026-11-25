@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/07/2026
+ms.date: 11/17/2026
 
 #CustomerIntent: As a tool publisher, I want to plan my tool's requirements and structure before building it so that I can produce a well-designed, efficient containerized tool for Microsoft Discovery.
 ---
@@ -13,9 +13,6 @@ ms.date: 04/07/2026
 # Plan tool requirements for Microsoft Discovery
 
 Before containerizing and publishing a tool to Microsoft Discovery, carefully plan the tool's functionality, compute needs, and dependencies. A thorough planning phase reduces issues during containerization and helps ensure your tool works reliably within Discovery investigations.
-
-> [!NOTE]
-> This article applies to tools targeting Microsoft Discovery API version **2026-02-01-preview**.
 
 ## Prerequisites
 
@@ -52,6 +49,7 @@ Record the compute resources your tool needs to run reliably. These values feed 
 | **GPU** | Whether the tool requires GPU; if so, GPU memory and compute level |
 | **InfiniBand** | Whether tightly coupled Message Passing Interface (MPI) workloads require high-speed interconnect |
 | **Scalability** | Whether to use a static pool (fixed number of containers) or elastic scaling |
+| **Runtime** | Expected and worst-case execution time. Plan within the [job execution limit](reference-limits-quotas.md#job-execution-limits). If your jobs can run longer, checkpointing might be necessary. |
 
 Capture both a **minimum** (what the tool needs to start at all) and a **maximum** (the most it will ever use). The platform enforces max resource limits. Tools that exceed them will be forcefully stopped.
 
@@ -107,6 +105,7 @@ Container-managed batching is preferred for tools where the agent can't easily p
 
 ## Related content
 
+- [Understand AKS upgrades for Microsoft Discovery Supercomputer](concept-supercomputer-aks-upgrades.md)
 - [Write action scripts for a Discovery tool](how-to-write-tool-action-scripts.md)
 - [Create a Dockerfile for a Discovery tool](how-to-create-tool-docker-file.md)
 - [Create a tool definition](how-to-create-tool-definition.md)

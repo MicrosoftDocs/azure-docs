@@ -7,6 +7,8 @@
       href: overview.md
     - name: About hubs, groups, and connections
       href: key-concepts.md
+    - name: Choose Web PubSub capability
+      href: choose-web-pubsub-capability.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: Region availability
@@ -27,12 +29,14 @@
 - name: Tutorials
   expanded: false
   items:
-    - name: Use LiveTry to explore
-      href: quickstarts-livetry.md
+    - name: Use playground to explore
+      href: quickstarts-playground.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
       href: tutorial-build-chat.md
+    - name: Run an app with Web PubSub Chat
+      href: tutorial-build-chat-client.md
     - name: Develop with Visual Studio Code
       href: tutorial-develop-with-visual-studio-code.md
     - name: Client streaming with a service-supported subprotocol
@@ -41,6 +45,8 @@
       href: tutorial-permission.md
     - name: Build a serverless chat app with Azure Functions
       href: quickstart-serverless.md
+    - name: Deploy a serverless app with Web PubSub Chat
+      href: tutorial-serverless-chat.md
     - name: Authenticate and authorize MQTT client
       href: tutorial-upstream-auth-mqtt-client.md
 - name: How-to guides
@@ -65,15 +71,7 @@
         - name: Send client events to Event Hubs
           href: howto-develop-event-listener.md
         - name: Use server SDK with Azure Identity
-          items:
-            - name: Use server SDK with Azure Identity and .NET
-              href: howto-create-serviceclient-with-net-and-azure-identity.md
-            - name: Use server SDK with Azure Identity and Java
-              href: howto-create-serviceclient-with-java-and-azure-identity.md
-            - name: Use server SDK with Azure Identity and JavaScript
-              href: howto-create-serviceclient-with-javascript-and-azure-identity.md
-            - name: Use server SDK with Azure Identity and Python
-              href: howto-create-serviceclient-with-python-and-azure-identity.md
+          href: howto-use-azure-identity.md
     - name: Monitor
       items:
         - name: Audit compliance using Azure Policy
@@ -172,15 +170,45 @@
           href: reference-rest-api-mqtt.md
         - name: Cross-protocol communication
           href: reference-mqtt-cross-protocol-communication.md
-- name: Chat hub (Preview)
-  expanded: true
-  items: 
+- name: Chat (Preview)
+  expanded: false
+  items:
     - name: Overview
-      href: chat-hub-overview.md
-    - name: Quickstart
-      href: chat-hub-quickstart.md
-    - name: FAQ 
-      href: chat-hub-faq.md
+      href: chat-overview.md
+    - name: Quickstart and tutorial
+      items:
+        - name: Configure storage and enable Chat
+          href: chat-howto-enable-chat.md
+        - name: Quickstart
+          href: chat-quickstart.md
+        - name: Tutorial
+          href: chat-tutorial.md
+    - name: How-to guides
+      items:
+        - name: Authenticate and connect clients
+          href: chat-howto-authenticate.md
+        - name: Create and manage rooms
+          href: chat-howto-manage-rooms.md
+        - name: Send and read messages
+          href: chat-howto-messages.md
+        - name: Configure roles and permissions
+          href: chat-howto-roles-permissions.md
+    - name: Reference
+      items:
+        - name: Frequently asked questions
+          href: chat-faq.md
+        - name: SDKs and REST API
+          href: chat-reference-sdk-and-rest.md
+        - name: Service SDK - Python
+          href: /python/api/overview/azure/messaging-webpubsubchatservice-readme
+        - name: Service SDK - JavaScript
+          href: /javascript/api/overview/azure/web-pubsub-chat-readme
+        - name: Service SDK - C#
+          href: /dotnet/api/overview/azure/messaging.webpubsub.chat-readme
+        - name: Service SDK - Java
+          href: /java/api/overview/azure/messaging-webpubsub-chat-readme
+        - name: Error codes
+          href: chat-reference-errors.md
 - name: Socket.IO
   expanded: false
   items:

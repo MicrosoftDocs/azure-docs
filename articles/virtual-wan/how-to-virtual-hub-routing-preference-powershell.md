@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: concept-article
-ms.date: 08/13/2024
+ms.date: 08/27/2026
 ms.author: duau
 ---
 # Configure virtual hub routing preference - Azure PowerShell
@@ -27,7 +27,7 @@ To configure virtual hub routing preference for an existing virtual hub, use the
    Get-AzVirtualHub -ResourceGroupName "[resource group name]" -Name "[virtual hub name]" | select-object HubRoutingPreference
    ```
 
-1. Update the current HubRoutingPreference for an existing virtual hub. The preference can be either VpnGateway, or ExpressRoute. The following example sets the hub routing preference to VpnGateway. 
+1. Update the current HubRoutingPreference for an existing virtual hub. The preference can be VpnGateway, ExpressRoute, or ASPath. The following example sets the hub routing preference to VpnGateway. 
 
    ```azurepowershell-interactive
     Update-AzVirtualHub -ResourceGroupName "[resource group name]" -Name "[virtual hub name]" -HubRoutingPreference "VpnGateway"

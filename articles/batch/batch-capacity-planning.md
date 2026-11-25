@@ -1,8 +1,9 @@
 ---
 title: Capacity planning for Azure Batch
 description: Learn how to plan capacity for Azure Batch workloads, including the capacity hierarchy, quota planning, proactive monitoring, and strategies to avoid allocation failures.
+ai-usage: ai-assisted
 ms.topic: concept-article
-ms.date: 06/04/2026
+ms.date: 09/16/2026
 # Customer intent: As a cloud engineer planning Batch workloads, I want to understand how Azure Batch capacity and quotas fit together, so that I can size my pools, request the right quota, and avoid allocation failures.
 ---
 
@@ -11,6 +12,15 @@ ms.date: 06/04/2026
 Effective capacity planning helps ensure that your Azure Batch workloads have the compute resources they need, when they need them. This article explains how Batch capacity is structured, how to plan quota for your workloads, and how to reduce the risk of allocation failures.
 
 A quota is a limit, not a capacity guarantee. Planning ahead helps you request appropriate quota, choose resilient configurations, and react gracefully when capacity is constrained. For the specific default and maximum values, see [Batch service quotas and limits](batch-quota-limit.md).
+
+## Confirm that Batch fits your workload
+
+Use Batch when you want Azure to provide scheduling as a service and your application can organize work into pools, jobs, and tasks. Before you plan Batch capacity, consider these alternatives:
+
+- Choose [Azure CycleCloud](/azure/cyclecloud/overview) when you need to operate a specific HPC scheduler, customize the cluster topology and software stack, or align closely with existing on-premises workflows.
+- Choose [Azure CycleCloud Workspace for Slurm](/azure/cyclecloud/overview-ccws) when you want a ready-to-deploy Slurm environment with networking, storage, and access components provisioned in your subscription.
+
+If Batch is the right operating model, use the following sections to estimate peak demand, select VMs, calculate quota, and define fallbacks before you create production pools.
 
 ## Capacity hierarchy
 
@@ -53,6 +63,21 @@ For detailed symptoms, causes, and resolutions of allocation and quota errors, s
 - [Pool and node errors](batch-pool-node-error-checking.md)
 - [Azure Batch pool resizing failure](/troubleshoot/azure/hpc/batch/azure-batch-pool-resizing-failure)
 - [Azure Batch pool creation failure](/troubleshoot/azure/hpc/batch/azure-batch-pool-creation-failure)
+
+## Validate capacity before production
+
+Run a proof of concept with a representative job, its expected data volume, and the production pool configuration. Don't approve the design for production until you can record evidence for every criterion:
+
+| Criterion | Evidence to record |
+| --- | --- |
+| Workload completion | The job completes correctly with production task dependencies, application packages, and input and output data paths. |
+| Scale and quota | The pool reaches the required node count in the intended region without exceeding Batch account, subscription, or VM-family quota. |
+| Performance | End-to-end job time meets the target, including pool allocation, data transfer, compute, and result persistence. |
+| Recovery | After a node loss, task failure, or Spot preemption if used, the job stays within the recorded maximum recovery time and permitted checkpoint loss, meets the completion deadline, and successfully uses the planned fallback VM size or pool. |
+| Cost | Measured compute, storage, networking, and license cost per completed job meets the target at the expected run frequency. |
+| Operations | Alerts identify quota pressure, allocation failures, and failed tasks, and an owner can retarget or recover the workload. |
+
+If a criterion fails, revise the pool size, VM selection, storage path, retry behavior, or regional fallback and repeat the same job. A small functional test doesn't establish production capacity because it doesn't exercise peak scale, quota, or data movement.
 
 ## Best practices
 

@@ -6,7 +6,7 @@ ms.author: duau
 ms.service: azure-firewall
 ms.topic: overview
 ms.custom: mvc, references_regions
-ms.date: 03/28/2026
+ms.date: 11/04/2026
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
 
@@ -48,6 +48,8 @@ Azure Firewall Premium provides advanced capabilities, including signature-based
 :::image type="content" source="media/overview/firewall-premium.png" alt-text="Architecture diagram illustrating Azure Firewall Premium deployment with advanced security capabilities including signature-based intrusion detection and prevention system (IDPS).":::
 
 For more information, see [Azure Firewall features by SKU](features-by-sku.md#azure-firewall-premium-features).
+
+Azure Firewall AI Security (preview) is an optional add-on for Azure Firewall Premium. It adds capabilities for AI traffic protection, file and application-request analysis, data loss prevention, and policy insights. For the protection model and links to feature guidance, see [Azure Firewall AI Security concepts](ai-security-concepts.md).
 
 ## Feature comparison
 

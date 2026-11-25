@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about optimizing data flow execution in pipelines in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: kromerm
 ms.topic: best-practice
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.custom: synapse
 ms.date: 10/20/2023

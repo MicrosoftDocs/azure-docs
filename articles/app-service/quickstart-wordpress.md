@@ -3,11 +3,11 @@ title: 'Quickstart: Deploy a WordPress Site on Azure App Service'
 description: Learn how to create and deploy a WordPress site on Azure App Service with Azure Database for MySQL. This quickstart walks you through setting up WordPress, configuring hosting plans, and managing essential site settings.
 keywords: app service, azure app service, wordpress, wordpress hosting, azure wordpress, php, mysql flexible server, linux app service, wordpress on linux, azure marketplace
 
-author: msangapu-msft
+author: btardif
 ms.service: azure-app-service
 ms.topic: quickstart
 ms.date: 04/21/2026
-ms.author: msangapu
+ms.author: byvinyal
 ms.custom:
   - mvc
   - linux-related-content

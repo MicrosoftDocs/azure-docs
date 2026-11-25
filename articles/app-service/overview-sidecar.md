@@ -3,8 +3,8 @@ title: Sidecars overview
 description: Learn what sidecars are, their benefits, and how they work in Azure App Service for Linux.
 ms.topic: overview
 ms.date: 07/14/2025
-ms.author: cephalin
-author: cephalin
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ---
 

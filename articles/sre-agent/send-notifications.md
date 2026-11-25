@@ -3,7 +3,7 @@ title: Send Notifications in Azure SRE Agent
 description: Send contextual notifications to Microsoft Teams, Outlook, or MCP-enabled tools with investigation summaries, root cause analysis, and recommended actions.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 11/13/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -80,6 +80,9 @@ The agent can send emails with file attachments. Total attachment size must be 5
 
 ## Teams capabilities
 
+> [!TIP]
+> For agent-user chat and native approval or authorization request notifications, see [Teams integration](teams-integration.md) (preview).
+
 The Teams connector provides the following tools.
 
 | Tool | Description |
@@ -97,11 +100,11 @@ Updates about the same issue stay in the same thread, so your channels stay orga
 
 Outgoing Teams messages include a "Sent by Azure SRE Agent" footer with a UTC timestamp. When the message originates from a conversation thread in the portal, the footer includes a **View thread** link back to the SRE Agent portal so recipients can see the full investigation context.
 
-The footer appears on both standard messages and Adaptive Cards. It's enabled by default when you set up the Teams connector. To disable it, clear the **Add "Sent by Azure SRE Agent" footer to messages** checkbox in the connector settings (**Builder** > **Connectors** > **Edit**).
+The footer appears on both standard messages and Adaptive Cards. It's enabled by default when you set up the Teams connector. To disable it, clear the **Add "Sent by Azure SRE Agent" footer to messages** checkbox in the connector settings (**Build + setup** > **Extensions** > **Connectors** > **Edit**).
 
 ## Use notifications
 
-After you connect Outlook or Teams through **Builder** > **Connectors**, ask the agent directly in chat:
+After you connect Outlook or Teams through **Build + setup** > **Extensions** > **Connectors**, ask the agent directly in chat:
 
 ```text
 Send an email to oncall@contoso.com summarizing the investigation
@@ -115,7 +118,7 @@ The agent uses connected tools immediately. You don't need a custom agent for ad
 
 ## Set up notification connectors
 
-Before your agent can send email or post to Teams, connect the appropriate connector and sign in by using your Microsoft account. Both connectors use an OAuth sign-in flow. Your agent sends notifications as the authenticated user.
+To send email or make connector-based posts to Teams, connect the appropriate connector and sign in by using your Microsoft account. These connectors use an OAuth sign-in flow. Your agent sends connector notifications as the authenticated user.
 
 | Channel | What happens after sign-in |
 |---------|---------------------------|
@@ -125,7 +128,7 @@ Before your agent can send email or post to Teams, connect the appropriate conne
 For step-by-step setup instructions, see:
 
 - [Set up Outlook connector](outlook-connector.md).
-- [Set up Teams connector](teams-bot.md).
+- [Set up Teams connector](set-up-teams-connector.md).
 
 Your agent can have one Outlook and one Teams connector at a time. To change the sending identity, disconnect and reconnect by using a different Microsoft account.
 
@@ -143,7 +146,7 @@ The following table describes recommended practices for notifications.
 | Resource | Description |
 |----------|-------------|
 | [Set up Outlook connector](outlook-connector.md) | Connect your agent to Office 365 Outlook |
-| [Set up Teams connector](teams-bot.md) | Connect your agent to Microsoft Teams |
+| [Set up Teams connector](set-up-teams-connector.md) | Connect your agent to Microsoft Teams |
 | [Create a scheduled task](create-scheduled-task.md) | Automate recurring notifications |
 
 ## Related content

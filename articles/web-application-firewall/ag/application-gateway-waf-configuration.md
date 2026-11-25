@@ -2,7 +2,7 @@
 title: WAF Exclusion Lists in Azure Application Gateway
 description: This article provides information on Web Application Firewall exclusion lists configuration in Application Gateway with the Azure portal.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 02/25/2026
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Web Application Firewall exclusion lists
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 The Azure Application Gateway Web Application Firewall (WAF) provides protection for web applications. This article describes the configuration for WAF exclusion lists. These settings are located in the WAF policy associated to your Application Gateway. To learn more about WAF policies, see [Azure Web Application Firewall on Azure Application Gateway](ag-overview.md) and [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md).
 

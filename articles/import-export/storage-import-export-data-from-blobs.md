@@ -6,7 +6,7 @@ services: storage
 ms.service: azure-import-export
 ms.topic: tutorial
 ms.date: 02/13/2023
-ms.author: shaas
+ms.author: jeevanm
 ms.custom:
   - tutorial
   - devx-track-azurepowershell

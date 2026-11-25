@@ -5,7 +5,7 @@ author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 09/27/2021
-ms.author: spelluru
+ms.author: egrootenboer
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---

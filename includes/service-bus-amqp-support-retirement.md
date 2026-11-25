@@ -4,11 +4,11 @@ description: "This file includes a note about retirement of support for the Serv
 author: egrootenboer
 ms.service: azure-service-bus
 ms.topic: include
-ms.date: 10/10/2023
+ms.date: 10/06/2026
 ms.author: egrootenboer
 ---
 
 > [!IMPORTANT]
-> On 30 September 2026, we'll retire support of the SBMP protocol for Azure Service Bus, so you'll no longer be able to use this protocol after 30 September 2026. Migrate to the latest Azure Service Bus SDK libraries using the Advanced Message Queuing Protocol (AMQP), which offer critical security updates and improved capabilities, before that date.
+> The Service Bus Messaging Protocol (SBMP) was retired on September 30, 2026. Use a supported Azure Service Bus client library with the Advanced Message Queuing Protocol (AMQP). See the [WindowsAzure.ServiceBus migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide_WindowsAzureServiceBus.md) to migrate to `Azure.Messaging.ServiceBus`.
 >
-> For more information, see the [support retirement announcement](https://azure.microsoft.com/updates/retirement-notice-update-your-azure-service-bus-sdk-libraries-by-30-september-2026/).
+> For more information, see the [retirement announcement](https://techcommunity.microsoft.com/blog/messagingonazureblog/some-azure-service-bus-sdk-libraries-will-be-retired-on-30-september-2026%E2%80%94migrat/3917853).

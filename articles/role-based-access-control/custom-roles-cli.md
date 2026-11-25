@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 12/01/2023
-ms.author: rolyon
+ms.author: diberry
 ms.reviewer: bagovind
 ---
 # Create or update Azure custom roles using Azure CLI

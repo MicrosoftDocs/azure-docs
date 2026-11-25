@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 03/04/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: As a cloud administrator, I want to enable identity-based authentication for SMB Azure file shares using Microsoft Entra Domain Services, so that users can securely access file shares using their Microsoft Entra credentials.
 ---
@@ -31,6 +31,10 @@ If you're new to Azure Files, read the [planning guide](storage-files-planning.m
 
 Before you enable Microsoft Entra Domain Services over SMB for Azure file shares, complete the following prerequisites:
 
+1.  **Allow Kerberos authentication in the storage account's SMB security settings.**
+
+    If you use a custom SMB security profile, verify that **Kerberos** is selected under **Authentication methods**. For instructions, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
+
 1.  **Select or create a Microsoft Entra tenant.**
 
     You can [use an existing tenant](/entra/identity-platform/quickstart-create-new-tenant#use-an-existing-microsoft-entra-tenant) or [create a new tenant](/entra/fundamentals/create-new-tenant) in Microsoft Entra ID. The tenant and the file share that you want to access must be associated with the same subscription.
@@ -42,18 +46,18 @@ Before you enable Microsoft Entra Domain Services over SMB for Azure file shares
     It typically takes about 15 minutes for a Microsoft Entra Domain Services deployment to complete. Verify that the health status of Microsoft Entra Domain Services shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
 
     > [!NOTE]
-    > Remember to check the health of Entra Domain Services after deployment and resolve any critical or warning alerts in the health dashboard. See [Check the health of a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/check-health).
+    > Check the health of Microsoft Entra Domain Services after deployment and resolve any critical or warning alerts in the health dashboard. See [Check the health of a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/check-health).
 
 1.  **Domain-join a VM with Microsoft Entra Domain Services.**
 
-    To access an Azure file share by using Entra credentials from a VM, your VM must be domain-joined to Microsoft Entra Domain Services. For more information, see [Join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/join-windows-vm). Microsoft Entra Domain Services authentication over SMB with Azure file shares is supported only on Windows VMs running OS versions later than Windows 7 or Windows Server 2008 R2, or on [Linux VMs](storage-files-identity-auth-linux-kerberos-enable.md) running Ubuntu 18.04+ or an equivalent RHEL or SLES VM.
+    To access an Azure file share by using Microsoft Entra credentials from a VM, your VM must be domain-joined to Microsoft Entra Domain Services. For more information, see [Join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/join-windows-vm). Microsoft Entra Domain Services authentication over SMB with Azure file shares is supported only on Windows VMs running OS versions later than Windows 7 or Windows Server 2008 R2, or on [Linux VMs](storage-files-identity-auth-linux-kerberos-entra-domain-services.md) running Ubuntu 18.04+ or an equivalent RHEL or SLES VM.
 
     > [!NOTE]
     > Non-domain-joined VMs can access Azure file shares using Microsoft Entra Domain Services authentication only if the VM has unimpeded network connectivity to the domain controllers for Microsoft Entra Domain Services. Usually this connectivity requires either site-to-site or point-to-site VPN.
 
 1.  **Select or create an SMB Azure file share.**
 
-    Select a new or existing SMB Azure file share that's associated with the same subscription as your Entra tenant. See [Create an SMB Azure file share](storage-how-to-create-file-share.md).
+    Select a new or existing SMB Azure file share that's associated with the same subscription as your Microsoft Entra tenant. See [Create an SMB Azure file share](storage-how-to-create-file-share.md).
     For optimal performance, your file share should be in the same region as the VM from which you plan to access the share.
 
 ## Regional availability

@@ -4,7 +4,7 @@ description: Extend the number of dev box resources you can use in your subscrip
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 08/28/2025
 

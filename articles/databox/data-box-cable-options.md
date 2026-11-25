@@ -4,7 +4,7 @@ description: Learn about the different ways to cable your Azure Data Box for dat
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.author: shaas

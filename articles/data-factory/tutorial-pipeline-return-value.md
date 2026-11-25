@@ -7,12 +7,14 @@ ms.custom: synapse
 ms.topic: how-to
 ms.date: 09/26/2024
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ---
 
 # Set Pipeline Return Value in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In the calling pipeline-child pipeline paradigm, you can use the [Set Variable activity](control-flow-set-variable-activity.md) to return values from the child pipeline to the calling pipeline. In the following scenario, we have a child pipeline through [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md). And we want to __retrieve information from the child pipeline__, to then be used in the calling pipeline.
 

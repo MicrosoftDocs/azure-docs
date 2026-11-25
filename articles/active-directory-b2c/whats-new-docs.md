@@ -6,7 +6,7 @@ ms.service: entra-id
 ms.subservice: b2c
 ms.topic: whats-new
 
-ms.author: kengaderdus
+ms.author: diberry
 author: kengaderdus
 manager: CelesteDG
 ms.custom: sfi-ropc-nochange

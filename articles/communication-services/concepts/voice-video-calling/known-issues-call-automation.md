@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 
 # Known issues in Azure Communication Services calling Call Automation API
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 
 - The only authentication currently supported for server applications is to use a connection string.
 

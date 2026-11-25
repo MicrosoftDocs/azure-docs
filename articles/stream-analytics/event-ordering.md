@@ -1,8 +1,6 @@
 ---
 title: Event ordering policies in Azure Stream Analytics
 description: Learn about late arrival and out-of-order event policies in Azure Stream Analytics, including how event time adjustments and partition behavior work.
-author: xujxu
-ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: concept-article
 ms.date: 06/10/2026

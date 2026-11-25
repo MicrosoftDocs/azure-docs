@@ -5,7 +5,7 @@ author: duau
 ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
-ms.date: 12/31/2025
+ms.date: 08/27/2026
 ms.author: duau
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network administrator, I want to deploy and configure Enterprise CA certificates for Azure Firewall Premium, so that I can enable TLS inspection and ensure secure traffic management within my organization's network."
@@ -28,7 +28,7 @@ To use an Enterprise CA to generate a certificate to use with Azure Firewall Pre
 - an Active Directory Certification Services Root CA with Web Enrollment enabled 
 - an Azure Firewall Premium with Premium tier Firewall Policy 
 - an [Azure Key Vault](premium-certificates.md#azure-key-vault) 
-- a Managed Identity with Read permissions to **Certificates and Secrets** defined in the Key Vault Access Policy 
+- a Managed Identity with **Get** and **List** permissions under **Secret Permissions** in the Key Vault access policy. Azure Firewall reads certificates through their corresponding secret, so Certificate permissions aren't required. For more information, see [Azure Key Vault](premium-certificates.md#azure-key-vault). 
 
 ## Create a new subordinate certificate template
 

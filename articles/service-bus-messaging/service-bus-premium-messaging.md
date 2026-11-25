@@ -4,9 +4,9 @@ description: Learn how Azure Service Bus premium tier provides dedicated resourc
 #customer intent: As a solutions architect, I want to understand the differences between Service Bus Premium and Standard tiers so that I can choose the right tier for my application
 ms.topic: concept-article
 ms.custom: devx-track-extended-java
-ms.date: 05/30/2026
+ms.date: 10/06/2026
 author: spelluru
-ms.author: spelluru
+ms.author: egrootenboer
 ai-usage: ai-assisted
 ---
 
@@ -30,6 +30,16 @@ This article explains the technical differences between the Premium and Standard
 **Service Bus Premium Messaging** provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, 4, 8 or 16 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will. The result is predictable and repeatable performance for your Service Bus-based solution.
 
 Premium messaging also delivers faster peak performance compared to the standard tier.
+
+## Choosing a tier
+
+Service Bus offers three tiers that differ in the capabilities they provide:
+
+- **Basic** - Supports queues only.
+- **Standard** - Adds topics and subscriptions, sessions, transactions, and duplicate detection, on shared capacity billed per operation.
+- **Premium** - Provides dedicated [messaging units](#how-many-messaging-units-are-needed) with resource isolation for predictable throughput and latency, [large messages](#large-messages-support) up to 100 MB, [virtual network integration and Private Link](private-link-service.md), [Geo-Replication](service-bus-geo-replication.md), and [Java Message Service (JMS) 2.0](#java-message-service-jms-support-in-service-bus) support.
+
+For a full comparison of features and pricing across all tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/). To move an existing namespace, see [Migrate Standard to Premium](service-bus-migrate-standard-premium.md) - a Basic namespace migrates to Premium by way of Standard.
 
 ## Premium messaging technical differences
 
@@ -61,12 +71,13 @@ You specify the number of messaging units when provisioning an Azure Service Bus
 
 The number of messaging units allocated to the Service Bus premium namespace can be **dynamically adjusted** to factor in the change (increase or decrease) in workloads.
 
-There are a few factors to take into consideration when deciding the number of messaging units for your architecture:
+Consider the following factors when deciding the number of messaging units for your architecture:
 
 - Start with **1 or 2 messaging units** allocated to your namespace, or **1 message unit per partition**.
-- Study the CPU usage metrics within the [Resource usage metrics](monitor-service-bus-reference.md#resource-usage-metrics) for your namespace.
-  - If CPU usage is **below 20%**, you might be able to **scale down** the number of messaging units allocated to your namespace.
-  - If CPU usage is **above 70%**, your application benefits from **scaling up** the number of messaging units allocated to your namespace.
+- Check the CPU and memory usage metrics within the [Resource usage metrics](monitor-service-bus-reference.md#resource-usage-metrics) for your namespace.
+  - If CPU usage is **below 25%**, you might be able to **scale down** the number of messaging units allocated to your namespace.
+  - If CPU usage is **above 75%**, your application benefits from **scaling up** the number of messaging units allocated to your namespace.
+  - Because memory usage can rise quickly, **scale up** when memory usage is **above 60%** to help prevent interruptions to message processing.
 
 To learn how to configure a Service Bus namespace to automatically scale (increase or decrease messaging units), see [Automatically update messaging units](automate-update-messaging-units.md).
 
@@ -77,7 +88,7 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 >
 >  * **Reactive**: If additional workloads are identified by studying the resource usage metrics, then additional resources can be allocated to the namespace to incorporate increasing demand.
 >
-> The billing meters for Service Bus are hourly. When scaling up, you only pay for the additional resources for the hours that these were used.
+> The billing meters for Service Bus are hourly, based on the highest number of messaging units allocated during each hour. When you scale up, you pay for the extra units in each hour that they're allocated, even if you use them for only part of that hour. Scaling back down within the same hour doesn't reduce that hour's charge. For more information, see [Cost considerations for scaling](automate-update-messaging-units.md#cost-considerations-for-scaling).
 >
 
 ## Get started with premium messaging
@@ -90,19 +101,17 @@ You can also create [Premium namespaces using Azure Resource Manager templates](
 
 ## Large messages support
 
-Azure Service Bus premium tier namespaces support the ability to send large message payloads up to 100 MB. This feature is primarily targeted towards legacy workloads that used larger message payloads on other enterprise messaging brokers and are looking to seamlessly migrate to Azure Service Bus.
+Azure Service Bus premium tier namespaces support the ability to send large message payloads up to 100 MB. This feature is primarily targeted towards legacy workloads that used larger message payloads on other enterprise messaging brokers and are looking to migrate to Azure Service Bus.
 
 Here are some considerations when sending large messages on Azure Service Bus:
 
 - Supported on Azure Service Bus premium tier namespaces only.
-- Supported only when using the Advanced Message Queuing Protocol (AMQP) protocol. Not supported when using SBMP or HTTP protocols, in the premium tier, the maximum message size for SBMP and HTTP protocols is 1 MB.
+- Use the Advanced Message Queuing Protocol (AMQP) to send messages larger than 1 MB. HTTP supports a maximum message size of 1 MB in the Premium tier.
 - Supported when using [Java Message Service (JMS) 2.0 client SDK](how-to-use-java-message-service-20.md) and other language client SDKs.
 - Sending large messages result in decreased throughput and increased latency.
 - While 100-MB message payloads are supported, keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
 - The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
 - Batching isn't supported.
-
-[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
 ### Enable large messages support for a new queue or topic
 
@@ -141,9 +150,9 @@ For more information, see [Partitioning in Service Bus](service-bus-partitioning
 
 ## High availability in Service Bus
 
-Azure Service Bus spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter and it implements transparent failure detection and failover mechanisms such that the service continues to operate within the assured service-levels and typically without noticeable interruptions when such failures occur. A premium namespace can have two or more messaging units and these messaging units are spread across multiple **failure domains** within a datacenter, supporting an **all-active Service Bus cluster model**. 
+Azure Service Bus spreads the risk of catastrophic failures of individual machines or even complete racks across clusters that span multiple failure domains within a datacenter and it implements transparent failure detection and failover mechanisms such that the service continues to operate within the assured service-levels and typically without noticeable interruptions when such failures occur. A premium namespace can have two or more messaging units and these messaging units are spread across multiple **failure domains** within a datacenter, supporting an **all-active Service Bus cluster model**.
 
-For a Service Bus namespace, the outage risk is further spread across three physically separated facilities **availability zones**, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of a datacenter. The all-active Azure Service Bus cluster model within a failure domain along with the availability zone support is superior to any on-premises message broker product in terms of resiliency against grave hardware failures and even catastrophic loss of entire datacenter facilities. Still, there might be grave situations with widespread physical destruction that even those measures can't sufficiently defend against. 
+For a Service Bus namespace, the outage risk is further spread across three physically separated facilities **availability zones**, and the service has enough capacity reserves to instantly cope with the complete, catastrophic loss of a datacenter. The all-active Azure Service Bus cluster model within a failure domain along with the availability zone support is superior to any on-premises message broker product in terms of resiliency against grave hardware failures and even catastrophic loss of entire datacenter facilities. Still, there might be grave situations with widespread physical destruction that even those measures can't sufficiently defend against.
 
 Furthermore, the **Geo-Replication** feature is one of the options to [insulate Azure Service Bus applications against outages and disasters](service-bus-outages-disasters.md), providing replication of both metadata (entities, configuration, properties) and data (message data and message property / state changes). The Geo-Replication feature ensures that the metadata and data of a namespace are continuously replicated from a primary region to one or more secondary regions.
 
@@ -168,4 +177,3 @@ The standard tier supports only JMS 1.1 subset focused on queues. For more infor
 - [Azure Service Bus Geo-disaster recovery](service-bus-geo-replication.md)
 - [Partitioning in Service Bus](service-bus-partitioning.md)
 - [Encrypting Azure Service Bus data at rest](configure-customer-managed-key.md)
-

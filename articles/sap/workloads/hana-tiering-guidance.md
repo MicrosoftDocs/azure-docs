@@ -6,7 +6,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: concept-article
 ms.date: 02/04/2026
 author: manvendravikramsingh
-ms.author: manvsingh
+ms.author: mattmcinnes
 # Customer intent: As a data manager, I want to implement effective data archiving and tiering strategies for SAP HANA on Azure, so that I can balance storage costs and performance while ensuring compliance with data retention requirements.
 ---
 # Managing SAP HANA data footprint for balancing cost and performance

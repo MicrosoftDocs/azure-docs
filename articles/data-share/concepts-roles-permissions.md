@@ -2,14 +2,17 @@
 title: Roles and requirements for Azure Data Share   
 description: Learn about the permissions required to share and receive data using Azure Data Share.
 author: chvukosw
-ms.author: chvukosw
+ms.author: diberry
 ms.service: azure-data-share
 ms.topic: concept-article
-ms.date: 01/20/2026
-ms.custom: subject-rbac-steps
+ms.date: 10/13/2026
+ms.custom: subject-rbac-steps, msecd-doc-authoring-1030
+ai-usage: ai-assisted
 ---
 
 # Roles and requirements for Azure Data Share
+
+[!INCLUDE [Azure Data Share retirement notice](includes/data-share-retirement.md)]
 
 This article describes roles and permissions required to share and receive data using Azure Data Share service. 
 

@@ -16,6 +16,8 @@ ms.date: 10/20/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article provides guidance for upgrading connectors in Azure Data Factory.  
 
 ## How to receive notifications in Azure Service Health portal

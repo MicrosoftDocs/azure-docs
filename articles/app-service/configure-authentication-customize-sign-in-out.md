@@ -4,8 +4,8 @@ description: Use the built-in authentication and authorization in Azure App Serv
 ms.topic: how-to
 ms.date: 04/03/2025
 ms.custom: AppServiceIdentity
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 #customer intent: As an app developer, I want to customize my sign-in and sign-out options to provide links to different providers and to enhance the user experience in Azure App Service.
 ms.service: azure-app-service
 ---

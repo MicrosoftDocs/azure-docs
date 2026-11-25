@@ -60,7 +60,7 @@ Each connection requires a specific virtual network gateway connection type. The
 
 ## <a name="connectionmode"></a>Connection modes
 
-[!INCLUDE [Connection modes](../../includes/vpn-gateway-connection-mode-include.md)]
+[!INCLUDE [Connection modes](../networking/includes/vpn-gateway/connection-mode.md)]
 
 ## <a name="gwsub"></a>Gateway subnet
 

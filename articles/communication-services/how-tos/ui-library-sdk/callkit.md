@@ -13,6 +13,8 @@ zone_pivot_groups: acs-plat-ios
 
 # Integrate CallKit into the UI Library
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The Azure Communication Services UI Library provides out-of-the-box support for CallKit. Developers can provide their own configuration for CallKit to be used for the UI Library.
 
 In this article, you learn how to set up CallKit correctly by using the UI Library in your application.

@@ -1,6 +1,6 @@
 ---
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.date: 01/29/2026
 ms.topic: include
 ms.service: azure-backup

@@ -3,7 +3,7 @@ title: Teams meeting interoperability
 titleSuffix: An Azure Communication Services concept document
 description: Join Teams meetings
 author: tomkau
-ms.author: tomkau
+ms.author: diberry
 ms.date: 10/15/2021
 ms.topic: concept-article
 ms.service: azure-communication-services
@@ -11,6 +11,8 @@ ms.subservice: teams-interop
 ---
 
 # Join a Teams meeting
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 Azure Communication Services can be used to build applications that enable users to join and participate in Teams meetings. [Standard Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there's no additional fee for the interoperability capability itself. With the bring your own identity (BYOI) model, you control user authentication and users of your applications don't need Teams licenses to join Teams meetings. This is ideal for applications that enable licensed Teams users and external users using a custom application to join into a virtual consultation experience. For example, healthcare providers using Teams can conduct teleheath virtual visits with their patients who use a custom application. 
 

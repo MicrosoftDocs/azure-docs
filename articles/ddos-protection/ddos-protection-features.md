@@ -5,7 +5,7 @@ services: ddos-protection
 author: duongau
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 03/17/2026
+ms.date: 10/29/2026
 ms.author: duau
 # Customer intent: As a network security administrator, I want to implement Azure DDoS Protection, so that I can ensure my organization's resources are safeguarded against DDoS attacks through automatic mitigation, real-time monitoring, and tailored protection policies.
 ---
@@ -27,9 +27,9 @@ During mitigation, traffic sent to the protected resource is redirected by the D
 
 Azure DDoS Protection drops attack traffic and forwards the remaining traffic to its intended destination. Within a few minutes of attack detection, you're notified using Azure Monitor metrics. By configuring logging on DDoS Protection telemetry, you can write the logs to available options for future analysis. Metric data in Azure Monitor for DDoS Protection is retained for 30 days.
 
-## Adaptive real time tuning
+## Adaptive real-time tuning
 
-The complexity of attacks (for example, multi-vector DDoS attacks) and the application-specific behaviors of tenants call for per-customer, tailored protection policies. The service accomplishes this by using two insights:
+The complexity of attacks (for example, multivector DDoS attacks) and the application-specific behaviors of tenants call for per-customer, tailored protection policies. The service accomplishes this need by using two insights:
 
 - Automatic learning of per-customer (per-Public IP) traffic patterns for Layer 3 and 4.
 
@@ -37,9 +37,21 @@ The complexity of attacks (for example, multi-vector DDoS attacks) and the appli
 
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-real-time-tuning.png" alt-text="Diagram of how DDoS Protection works." lightbox="./media/ddos-best-practices/ddos-protection-real-time-tuning.png":::
 
+<a id="custom-detection-thresholds-preview"></a>
+
+## Custom detection thresholds
+
+If your workload needs fixed, protocol-specific detection thresholds instead of adaptive auto-tuning, create a DDoS Protection custom policy. A custom policy lets you set inbound TCP, UDP, and TCP SYN thresholds, in packets per second, for supported public IP endpoints across compute, container, and networking resources. The policy association uses a public IP address or resource-specific IP configuration, depending on the resource and management interface. When you set a custom threshold for a protocol, automatic tuning is disabled for that protocol on the protected endpoint. For supported resources and limitations, see the [custom policy overview](ddos-custom-policy-overview.md).
+
 ## DDoS Protection telemetry, monitoring, and alerting
 
 Azure DDoS Protection exposes rich telemetry via [Azure Monitor](/azure/azure-monitor/overview). You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Monitor logs, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+
+### Peacetime telemetry (preview)
+
+For eligible protected public IP addresses, peacetime telemetry makes existing DDoS-specific metrics available during normal operation as well as during mitigation. Use these metrics to understand TCP, UDP, SYN, and aggregate traffic patterns, compare packet rates with mitigation triggers, and configure workload-specific traffic alerts without waiting for an attack.
+
+The feature changes metric availability, not the underlying protection or mitigation-policy behavior. It doesn't change when mitigation flow logs, reports, or protection notifications are generated. For preview eligibility and viewing guidance, see [Monitor Azure DDoS Protection](monitor-ddos-protection.md#peacetime-telemetry-availability-preview).
 
 ### Azure DDoS Protection mitigation policies
 
@@ -55,13 +67,19 @@ For more information, see [View and configure DDoS Protection telemetry](telemet
 
 ### Metric for an IP address under DDoS attack
 
-If the public IP address is under attack, the value for the metric **Under DDoS attack or not** changes to 1 as DDoS Protection performs mitigation on the attack traffic.
+The metric **Under DDoS attack or not** reports **0** when no attack was reported for that measurement and **1** when an attack was reported. With **Max** aggregation, a displayed **1** means at least one reported value in the interval was **1**, not necessarily that an attack is still active when you view the chart. Missing data isn't a reported **0**.
 
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-ddos-attack.png" alt-text="Screenshot of Under DDoS attack or not metric and chart." lightbox="./media/ddos-best-practices/ddos-protection-ddos-attack.png":::
 
-We recommend configuring an alert on this metric. You'll then be notified when there’s an active DDoS mitigation performed on your public IP address.
+We recommend [configuring an alert on this metric](alerts.md). The alert evaluates reported measurements over its lookback period. Traffic data or dropped packets alone don't establish that an attack occurred.
 
 For more information, see [Manage Azure DDoS Protection using the Azure portal](manage-ddos-protection.md).
+
+## NAT Gateway StandardV2 protection (preview)
+
+Azure DDoS Protection supports StandardV2 IPv4 and IPv6 public IP addresses associated with NAT Gateway StandardV2. Configure Network Protection on the associated virtual network or IP Protection on an individual public IP address. No NAT gateway-specific DDoS configuration is required. Standard SKU NAT Gateway and custom policies for NAT Gateway aren't supported in this preview.
+
+For subnet, public IP, prefix, and availability requirements, see [DDoS protection for NAT Gateway StandardV2](ddos-protection-nat-gateway-standardv2.md).
 
 ## Web application firewall for resource attacks
 

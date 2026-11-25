@@ -3,7 +3,7 @@ title: Subscription Permission Visibility in Azure SRE Agent
 description: Learn how Azure SRE Agent shows all your Azure subscriptions in the assignment picker including those requiring elevated access.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 04/24/2026
+ms.date: 10/28/2026
 author: dm-chelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -79,7 +79,7 @@ You can also select the external link icon next to any subscription name to open
 The updated subscription picker appears when you add subscriptions in two places:
 
 - **During onboarding**: Step 2 "Agent Scope," Infrastructure tab, "Add subscriptions"
-- **After setup**: Settings → Managed resources → "Add subscription"
+- **After setup**: **Build + setup** > **Context** > **Managed resources** > **Add subscription**
 
 ## Related capabilities
 

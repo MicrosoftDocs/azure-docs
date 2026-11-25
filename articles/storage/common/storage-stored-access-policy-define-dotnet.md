@@ -9,7 +9,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.author: shaas
+ms.author: normesta
 ms.reviewer: ozgun
 ms.devlang: csharp
 ms.custom:

@@ -6,7 +6,7 @@ ms.subservice: process-automation
 ms.date: 04/15/2026
 ms.topic: how-to
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 # Use existing runbooks and modules

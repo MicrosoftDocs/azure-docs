@@ -21,7 +21,7 @@ The following ExpressRoute circuit SKUs can be connected to the hub gateway: Loc
 
 ExpressRoute gateways are provisioned in units of 2 Gbps. One scale unit = 2 Gbps with support up to 10 scale units = 20 Gbps.
 
-[!INCLUDE [ExpressRoute Performance](../../includes/virtual-wan-expressroute-performance.md)]
+[!INCLUDE [ExpressRoute Performance](../networking/includes/virtual-wan/expressroute-performance.md)]
 
 ## ExpressRoute FastPath in Virtual WAN
 

@@ -4,18 +4,18 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/06/2024
-ms.author: kendownie
+ms.date: 10/28/2026
+ms.author: normesta
 # Customer intent: "As a system administrator, I want to migrate files from on-premises NAS to Azure using Data Box and File Sync, so that I can establish a hybrid cloud deployment while minimizing downtime and ensuring data integrity during the transition."
 ---
 
-# Use Data Box to migrate from Network Attached Storage (NAS) to a hybrid cloud deployment by using Azure File Sync
+# Migrate from NAS to Azure File Sync with Azure Data Box
 
 :heavy_check_mark: **Applies to:** Classic SMB file shares created with the Microsoft.Storage resource provider
 
 :heavy_multiplication_x: **Doesn't apply to:** All NFS file shares including file shares created with the Microsoft.FileShares resource provider or classic file shares created with the Microsoft.Storage resource provider
 
-This migration article is one of several that apply to the keywords NAS, Azure File Sync, and Azure Data Box. Check if this article applies to your scenario:
+This article describes how to use Azure Data Box to bulk-migrate data from an on-premises NAS to Azure file shares, then set up Azure File Sync on a new Windows Server for a hybrid cloud deployment. Check if this article applies to your scenario:
 
 > [!div class="checklist"]
 > * Data source: Network Attached Storage (NAS)
@@ -24,8 +24,7 @@ This migration article is one of several that apply to the keywords NAS, Azure F
 
 If your scenario is different, look through the [table of migration guides](storage-files-migration-overview.md#migration-guides).
 
-Azure File Sync works on Direct Attached Storage (DAS) locations. It doesn't support sync to Network Attached Storage (NAS) locations.
-So you need to migrate your files. This article guides you through the planning and implementation of that migration.
+Azure File Sync works on Direct Attached Storage (DAS) locations. It doesn't support sync to NAS locations, which means you need to migrate your files. This article guides you through the planning and implementation of that migration.
 
 ## Migration goals
 
@@ -63,7 +62,7 @@ In this phase, you need to map the results of the migration plan from the previo
 
 To determine how many devices you need and their types, consider these important limits:
 
-* Any Azure Data Box appliance can move data into up to 10 storage accounts. 
+* A Data Box order can copy into up to 10 storage accounts in the same Azure region. A Data Box Disk order copies into a single storage account.
 * Each Data Box option comes with its own usable capacity. See [Data Box options](#data-box-options).
 
 Consult your migration plan to find the number of storage accounts you've decided to create and the shares in each one. Then look at the size of each of the shares on your NAS. Combining this information will allow you to optimize and decide which appliance should be sending data to which storage accounts. Two Data Box devices can move files into the same storage account, but don't split content of a single file share across two Data Boxes.
@@ -72,18 +71,16 @@ Consult your migration plan to find the number of storage accounts you've decide
 
 For a standard migration, choose one or a combination of these Data Box options: 
 
-* **Data Box Disk**.
-  Microsoft will send you between one and five SSD disks that have a capacity of 8 TiB each, for a maximum total of 40 TiB. The usable capacity is about 20 percent less because of encryption and file-system overhead. For more information, see [Data Box Disk documentation](../../databox/data-box-disk-overview.md).
-* **Data Box**.
-  This option is the most common. Microsoft will send you a ruggedized Data Box appliance that works similar to a NAS. It has a usable capacity of 80 TiB. For more information, see [Data Box documentation](../../databox/data-box-overview.md).
-* **Data Box Heavy**.
-  This option features a ruggedized Data Box appliance on wheels that works similar to a NAS. It has a capacity of 1 PiB. The usable capacity is about 20 percent less because of encryption and file-system overhead. For more information, see [Data Box Heavy documentation](../../databox/data-box-heavy-overview.md).
+| Option | Description | Usable capacity | More information |
+|---|---|---|---|
+| **Data Box Disk** | One to five 8-TB SSDs per order. Copies into a single storage account. | About 35 TB per order. | [Data Box Disk documentation](../../databox/data-box-disk-overview.md) |
+| **Data Box** | The most common option: a ruggedized appliance that works like a NAS. | 120 TB or 525 TB (next generation). The 80-TB device is being retired region by region. | [Data Box documentation](../../databox/data-box-overview.md?pivots=dbx-ng) |
 
 ## Phase 4: Provision a suitable Windows Server instance on-premises
 
 While you wait for your Azure Data Box devices to arrive, you can start reviewing the needs of one or more Windows Server instances you'll be using with Azure File Sync.
 
-* Create a Windows Server 2022 instance (at a minimum, Windows Server 2012 R2) as a virtual machine or physical server. A Windows Server failover cluster is also supported.
+* Create a Windows Server 2022 instance (at a minimum, Windows Server 2016) as a virtual machine or physical server. A Windows Server failover cluster is also supported.
 * Provision or add Direct Attached Storage. NAS isn't supported.
 
 The resource configuration (compute and RAM) of the Windows Server instance you deploy depends mostly on the number of files and folders you'll be syncing. We recommend a higher performance configuration if you have any concerns.
@@ -99,23 +96,41 @@ When your Data Box arrives, you need to set it up with unimpeded network connect
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md).
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
-* [Set up Data Box Heavy](../../databox/data-box-heavy-quickstart-portal.md).
 
-Depending on the type of Data Box, Data Box copy tools might be available. At this point, we don't recommend them for migrations to Azure file shares because they don't copy your files to the Data Box with full fidelity. Use Robocopy instead.
+Depending on the type of Data Box, Data Box copy tools might be available. Don't use these generic copy tools for migrations to Azure file shares because they don't preserve full file and folder fidelity. Use Robocopy or the [Data Box data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md) instead.
 
 When your Data Box arrives, it will have pre-provisioned SMB shares available for each storage account you specified when you ordered it.
 
 * If your files go into an SSD Azure file share, there will be one SMB share per SSD "File storage" storage account.
-* If your files go into an HDD storage account, there will be three SMB shares per HDD pay-as-you-go storage account. Only the file shares that end with `_AzFiles` are relevant for your migration. Ignore any block and page blob shares.
+* If your files go into an HDD storage account, there are three SMB shares per HDD pay-as-you-go storage account. Only the file share that ends with `_AzFile` is relevant for your migration. Ignore any block and page blob shares.
+
+### How Data Box maps folders to Azure file shares
+
+Under the `<storage-account-name>_AzFile` device share, each first-level folder maps to an Azure file share on the target storage account:
+
+- The first-level folder name becomes the Azure file share name during ingestion. If a share with that name doesn't already exist in the target storage account, Data Box creates it. If it does exist, Data Box copies the data into that existing share.
+- Don't copy files directly to the root of the `_AzFile` share. All data must go inside a first-level folder.
+- Each Data Box device supports up to 512 shares or containers, so plan no more than 512 first-level folders per device.
+- First-level folder names must follow [Azure Files naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata), and each file must be 4 TiB or smaller. Data Box reports share names that break these rules and files larger than 4 TiB as critical errors, which you must fix before you can run **Prepare to ship**.
+- If you use Data Box Disk, create a subfolder for each Azure file share under the *AzureFile* folder and copy your files into it. Files copied directly to the *AzureFile* folder are uploaded as block blobs. Data Box Disk can store a maximum of 100,000 files.
+- For a one-to-one mapping with your source SMB shares, create one first-level folder for each source share (using the desired Azure file share name) and copy each source share into its corresponding folder. For example:
+
+  ```
+  \\<DataBox-IP>\<storage-account-name>_AzFile\Share1
+  \\<DataBox-IP>\<storage-account-name>_AzFile\Share2
+  \\<DataBox-IP>\<storage-account-name>_AzFile\Share3
+  ```
+
+For more information, see [Connect to Data Box](../../databox/data-box-deploy-copy-data.md#connect-to-data-box).
 
 Follow the steps in the Azure Data Box documentation:
 
 1. [Connect to Data Box](../../databox/data-box-deploy-copy-data.md).
-1. Copy data to Data Box. </br>You can use Robocopy (follow instruction below) or the new [Data Box data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md).
+1. Copy data to Data Box. <br>You can use Robocopy (follow instruction in the next section) or the new [Data Box data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md).
 1. [Prepare your Data Box for upload to Azure](../../databox/data-box-deploy-picked-up.md).
 
 > [!TIP]
-> As an alternative to Robocopy, Data Box has created a data copy service. You can use this service to load files onto your Data Box with full fidelity. [Follow this data copy service tutorial](../../databox/data-box-deploy-copy-data-via-copy-service.md) and make sure to set the correct Azure file share target.
+> As an alternative to Robocopy, use the Data Box data copy service to load files onto your Data Box with full fidelity. [Follow this data copy service tutorial](../../databox/data-box-deploy-copy-data-via-copy-service.md) and ensure you set the correct Azure file share target.
 
 Data Box documentation specifies a Robocopy command. That command isn't suitable for preserving the full file and folder fidelity. Use this command instead:
 
@@ -167,7 +182,7 @@ In this step, you'll run Robocopy jobs to sync your cloud shares with the latest
 This Robocopy run might finish quickly or take a while, depending on the amount of churn that happened on your NAS shares.
 
 > [!WARNING]
-> Because of regressed Robocopy behavior in Windows Server 2019, the Robocopy `/MIR` switch isn't compatible with tiered target directories. You can't use Windows Server 2019 or Windows 10 client for this phase of the migration. Use Robocopy on an intermediate Windows Server 2016 instance.
+> Because of a Robocopy regression in Windows Server 2019, the Robocopy `/MIR` switch isn't compatible with tiered target directories. Don't use Windows Server 2019 or a Windows 10 client for this phase of the migration. Use Robocopy on an intermediate Windows Server 2016 or Windows Server 2022 instance. This warning takes precedence over the Windows Server 2019 note in the Robocopy section that follows.
 
 Here's the basic migration approach:
  - Run Robocopy from your NAS appliance to sync your Windows Server instance. 
@@ -183,11 +198,11 @@ The following Robocopy command will copy only the differences (updated files and
 
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
-RoboCopy might report that files were copied even when no data transfer was necessary. This behavior occurs because robocopy evaluates both file data and metadata changes when producing its output. To correctly interpret the results, review the file status in the command output:
+Robocopy might report that files were copied even when no data transfer was necessary. This behavior occurs because Robocopy evaluates both file data and metadata changes when producing its output. To correctly interpret the results, review the file status in the command output:
 - Newer: File data is copied to the destination.
 - Modified: Only metadata is updated; file data isn't recopied.
 
-In both cases, RoboCopy might report byte counts as though data was transferred. This behavior can lead to confusion when validating copy operations.
+In both cases, Robocopy might report byte counts as though data was transferred. This behavior can lead to confusion when validating copy operations.
 
 If you provisioned less storage on your Windows Server instance than your files use on the NAS appliance, you've configured cloud tiering. As the local Windows Server volume becomes full, [cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md) will kick in and tier files that have already successfully synced. Cloud tiering will generate enough space to continue the copy from the NAS appliance. Cloud tiering checks once an hour to determine what has synced and to free up disk space to reach the 99 percent volume free space.
 
@@ -240,5 +255,5 @@ The following articles will help you understand advanced options and best practi
 
 * [Migration overview](storage-files-migration-overview.md)
 * [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
-* [Create a file share](storage-how-to-create-file-share.md)
+* [Create a classic file share](create-classic-file-share.md)
 * [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

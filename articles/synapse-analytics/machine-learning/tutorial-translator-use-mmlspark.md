@@ -5,8 +5,8 @@ ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 11/02/2021
-author: ruixinxu
-ms.author: ruxu
+author: juluczni
+ms.author: juluczni
 ---
 
 # Tutorial: Azure Translator in Foundry Tools

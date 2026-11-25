@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: azure-dns
 ms.topic: best-practice
 ms.custom: [security, horz-security]
-ms.date: 08/06/2025
+ms.date: 07/28/2026
 ai-usage: ai-assisted
 ---
 
@@ -22,7 +22,7 @@ Network security for Azure DNS focuses on protecting DNS infrastructure from ext
 
 * **Use private DNS zones for internal resources**: Deploy Azure Private DNS zones for internal name resolution within virtual networks to prevent exposure of internal DNS records to public DNS servers. Private DNS zones keep your internal infrastructure hidden from external reconnaissance.
 
-* **Configure DNS security policies**: Use DNS security policies to control and monitor DNS queries, block access to malicious domains, and implement traffic actions such as allow, block, or alert for specific domain lists. For more information, see [DNS security policy](dns-security-policy.md).
+* **Configure DNS resolver policies**: Use DNS resolver policies to control and monitor DNS queries, block access to malicious domains, and implement traffic actions such as allow, block, or alert for specific domain lists. For more information, see [DNS resolver policy](dns-security-policy.md).
 
 * **Implement alias records for automatic updates**: Use DNS alias records to automatically update IP address references when underlying resources change, preventing security risks from stale DNS entries that might redirect users to compromised or incorrect resources. For more information, see [Azure DNS alias records overview](dns-alias.md).
 

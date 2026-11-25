@@ -1,14 +1,14 @@
 ---
-title: Quickstart for adding feature flags to Azure Functions | Microsoft Docs
+title: Quickstart for adding feature flags to Azure Functions
 description: In this quickstart, use Azure Functions with feature flags from Azure App Configuration and test the function locally.
-services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 03/15/2025
+ms.date: 9/1/2026
 ms.author: zhenlwa
+ai-usage: ai-assisted
 ---
 # Quickstart: Add feature flags to an Azure Functions app
 
@@ -25,13 +25,13 @@ In this quickstart, you create an Azure Functions app and use feature flags in i
 Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
-> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
+> ![Enable feature flag named Beta](media/quickstart-feature-flag-azure-functions-csharp/add-beta-feature-flag.png)
 
-## Create a Function App
+## Create a function app
 
-Create an Azure Functions app using Visual Studio by selecting the **Azure Functions (C#)** template. This template guides you through configuring essential settings for your project. For detailed instructions, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md?pivots=isolated).
+Create an Azure Functions app by using Visual Studio and selecting the **Azure Functions (C#)** template. This template guides you through configuring essential settings for your project. For detailed instructions, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md?pivots=isolated).
 
-Use the following table as a reference for key parameters when creating your Function App.
+Use the following table as a reference for key parameters when you create the function app.
 
 | Setting              | Value                      |
 |----------------------|----------------------------|
@@ -45,7 +45,7 @@ Use the following table as a reference for key parameters when creating your Fun
 ## Connect to an App Configuration store
 You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
 
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add the latest stable version of following NuGet packages to your project.
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add the latest stable version of the following NuGet packages to your project.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
 

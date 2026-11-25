@@ -13,6 +13,10 @@ ms.author: v-mallicka
 
 You can troubleshoot common errors encountered while using Azure Backup service to back up encrypted Azure virtual machines with the steps listed below:
 
+> [!NOTE]
+> Azure Disk Encryption (ADE) is scheduled for retirement in September 2028. After this date, ADE backup is blocked and restore operations might not work as expected. For the latest retirement timeline and migration guidance, see the official [ADE overview](/azure/virtual-machines/disk-encryption-overview) and [Migrate from Azure Disk Encryption to encryption at host](/azure/virtual-machines/disk-encryption-migrate) documentation.
+
+
 ## Before you start
 
 1. Review below limitations and supported configurations:

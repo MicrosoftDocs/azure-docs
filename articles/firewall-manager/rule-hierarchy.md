@@ -16,7 +16,7 @@ Security administrators need to manage firewalls and ensure compliance across on
 
 Azure Firewall policy allows you to define a rule hierarchy and enforce compliance:
 
-- Provides a hierarchical structure to overlay a central base policy on top of a child application team policy. The base policy has a higher priority and runs before the child policy.
+- Provides a hierarchical structure to overlay a central base policy on top of a child application team policy. Rule collections inherited from the base policy take priority over rule collections defined in the child policy of the same rule type. Azure Firewall still processes network rule collections before application rule collections regardless of inheritance. For more information, see [Azure Firewall Manager rule processing](rule-processing.md).
 - Use an Azure custom role definition to prevent inadvertent base policy removal and provide selective access to rule collection groups within a subscription or resource group.
 
 ## Solution overview

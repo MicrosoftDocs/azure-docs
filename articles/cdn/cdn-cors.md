@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 manager: kumud
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: how-to
 ms.date: 02/28/2026
 ROBOTS: NOINDEX

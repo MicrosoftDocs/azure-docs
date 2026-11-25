@@ -1,6 +1,10 @@
 
 ::: zone pivot="programming-language-csharp"  
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
++ The [.NET SDK](https://dotnet.microsoft.com/download) for a [supported .NET version using the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions).
+
+  Update Core Tools and its templates to support your target version. For project SDK and worker package requirements, see [Core SDK and package](../articles/azure-functions/dotnet-isolated-process-guide.md#core-sdk-and-package).
+
+  If you use an Azure Developer CLI template, install the SDK that matches the template's target framework.
 
 + [Azurite storage emulator](../articles/storage/common/storage-install-azurite.md?tabs=npm#install-azurite) 
 ::: zone-end  
@@ -14,9 +18,9 @@
 + [Node.js 22](https://nodejs.org/)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-+ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell 7.6](/powershell/scripting/install/installing-powershell)
 
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)  
++ [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 ::: zone-end
 ::: zone pivot="programming-language-python" 
 + [Python 3.11](https://www.python.org/)

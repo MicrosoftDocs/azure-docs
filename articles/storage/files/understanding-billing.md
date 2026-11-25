@@ -4,8 +4,8 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/21/2026
-ms.author: kendownie
+ms.date: 11/17/2026
+ms.author: normesta
 ms.custom:
   - references_regions
   - build-2025
@@ -14,7 +14,7 @@ ms.custom:
 
 # Understand Azure Files billing
 
-This article helps you understand the different billings models for Azure Files so you can manage costs and determine total cost of ownership. For pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
+This article helps you understand the different billing models for Azure Files so you can manage costs and determine total cost of ownership. For pricing information, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Determine the cost of an Azure Files deployment
 
@@ -66,9 +66,9 @@ Azure Files supports four different redundancy options that you can use to contr
 
 Azure Files supports two different top-level resource types, which are items that you create and manage within your Azure subscriptions and resource groups. Each resource type supports slightly different billing model options, which in turn impacts both cost and cost structure:
 
-- **Storage accounts** represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. Storage accounts support all billing models, media tiers, and redundancy options. All storage resources that you deploy into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS protocols, although NFS is only supported on SSD storage. The `Microsoft.Storage` resource provider offers storage accounts, and you create classic file shares within those storage accounts.
+- **Storage accounts** represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. Storage accounts support all billing models, media tiers, and redundancy options, but not every combination supports both protocols. All storage resources that you deploy into a storage account share the limits that apply to that storage account. Classic file shares support both SMB and NFS, and both performance tiers. The `Microsoft.Storage` resource provider offers storage accounts, and you create classic file shares within those storage accounts.
 
-- **File shares** are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. The `Microsoft.FileShares` resource provider offers file shares as a top-level resource.
+- **File shares** are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support both media tiers with the NFS file system protocol. The `Microsoft.FileShares` resource provider offers file shares as a top-level resource.
 
 ## Azure Files storage units
 
@@ -95,7 +95,7 @@ If your operating system isn't listed, check with your operating system vendor.
 
 ## File share total cost of ownership checklist
 
-If you're migrating to Azure Files from on-premises or comparing Azure Files to other cloud storage solutions, consider the following factors to ensure a fair, apples-to-apples comparison:
+If you're migrating to Azure Files from on-premises or comparing Azure Files to other cloud storage solutions, consider the following factors to ensure a fair, direct comparison:
 
 - **How do you pay for storage, IOPS, and bandwidth?** Most cloud solutions have models that align with the principles of either **provisioned storage**, such as price determinism and simplicity, or **pay-as-you-go storage**, which can optimize costs by only charging you for what you actually use. Provisioned billing models can differ based on minimum provisioned share size, the provisioning unit, and the ability to increase and decrease provisioning.
 
@@ -131,12 +131,14 @@ The provisioned v2 model is available for the following combinations of media ti
 | HDD | Zone | SMB | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | HDD | Geo | SMB | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | HDD | GeoZone | SMB | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| HDD | Local | NFS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| HDD | Local | NFS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | HDD | Zone | NFS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | HDD | Geo | NFS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | HDD | GeoZone | NFS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
 The provisioned v2 model is generally available in all Azure public cloud regions and all Azure US Government cloud regions. Not all regions support all media tiers and redundancy options.
+
+NFS HDD support is a separate preview that requires sign-up. To learn about its prerequisites, see [NFS on HDD preview](create-file-share.md#nfs-on-hdd-preview). NFS HDD shares support only LRS, and you can't change their redundancy.
 
 ### Provisioned v2 provisioning
 
@@ -188,40 +190,11 @@ The following table shows the maximum IOPS and throughput you can provision for 
 | 131,072 GiB | 102,400 | 10,340 | 50,000 | 5,120 |
 | 262,144 GiB | 102,400 | 10,340 | 50,000 | 5,120 |
 
-Shares provisioned before guardrails were introduced that exceed the 5× limit continue to operate normally. When you change any provisioned quantity on such a share, the ratio of provisioned IOPS or throughput to its recommended value can stay the same or decrease, but can't increase. For example, if a share currently has IOPS provisioned at 7× the recommendation, you can reduce it to 6× but can't increase it to 7.1×. Once the share reaches or falls below 5×, the standard guardrail applies.
+Shares provisioned before guardrails were introduced that exceed the 5× limit continue to operate normally. When you change any provisioned quantity on such a share, the ratio of provisioned IOPS or throughput to its recommended value can stay the same or decrease, but can't increase. For example, if a share currently has IOPS provisioned at 7× the recommendation, you can reduce it to 6× but can't increase it to 7.1×. After the share reaches or falls below 5×, the standard guardrail applies.
 
 ### Provisioned v2 bursting
 
-Credit-based IOPS bursting provides added flexibility around IOPS usage. Use this flexibility as a buffer against unanticipated IO spikes. For established IO patterns, provision for IO peaks.
-
-Burst IOPS credits accumulate whenever traffic for your file share is less than provisioned (baseline) IOPS. Whenever a file share's IOPS usage exceeds the provisioned IOPS and there are available burst IOPS credits, the file share can burst up to the maximum allowed burst IOPS limit. File shares can continue to burst as long as there are credits remaining, based on the number of burst credits accrued. Each IO beyond provisioned IOPS consumes one credit. Once all credits are consumed, the share returns to the provisioned IOPS. IOPS against the file share don't have to do anything special to use bursting. Bursting operates on a best effort basis.  
-
-Share credits have three states:
-
-- **Accruing**, when the file share is using less than the provisioned IOPS.
-- **Declining**, when the file share is using more than the provisioned IOPS and in the bursting mode.
-- **Constant**, when the file share is using exactly the provisioned IOPS and there are either no credits accrued or used.
-
-A new file share starts with the full number of credits in its burst bucket. Burst credits don't accrue if the share IOPS fall below the provisioned limit due to throttling by the server. The following formulas are used to determine the burst IOPS limit and the number of credits possible for a file share:
-
-| Item | SSD formula | HDD formula |
-|-|-|-|
-| Burst IOPS limit | `MIN(MAX(3 * ProvisionedIOPS, 10000), 102400)` | `MIN(MAX(3 * ProvisionedIOPS, 5000), 50000)` |
-| Burst IOPS credits | `(BurstLimit - ProvisionedIOPS) * 3600` | `(BurstLimit - ProvisionedIOPS) * 3600` |
-
-The following table illustrates a few examples of these formulas for various provisioned IOPS amounts:
-
-| Provisioned IOPS | SSD burst IOPS limit | SSD burst credits | HDD burst IOPS limit | HDD burst credits |
-|-|-|-|-|-|
-| 500 | -- | -- | Up to 5,000 | 16,200,000 |
-| 1,000 | -- | -- | Up to 5,000 | 14,400,000 |
-| 3,000 | Up to 10,000 | 25,200,000 | Up to 9,000 | 21,600,000 |
-| 5,000 | Up to 15,000 | 36,000,000 | Up to 15,000 | 36,000,000 |
-| 10,000 | Up to 30,000 | 72,000,000 | Up to 30,000 | 72,000,000 |
-| 25,000 | Up to 75,000 | 180,000,000 | Up to 50,000 | 90,000,000 |
-| 50,000 | Up to 102,400 | 188,640,000 | Up to 50,000 | 0 |
-| 75,000 | Up to 102,400 | 98,640,000 | -- | -- |
-| 102,400 | Up to 102,400 | 0 | -- | -- |
+[!INCLUDE [files-provisioned-v2-bursting](../../../includes/files-provisioned-v2-bursting.md)]
 
 ### Provisioned v2 resource models
 
@@ -309,6 +282,10 @@ The system emits consumption units against the provisioned v2 billing meters hou
 
 ### Provisioned v2 migrations
 
+Conversion of existing SSD `FileStorage` storage accounts from provisioned v1 to provisioned v2 is available in limited public preview. You must complete a [survey](https://forms.cloud.microsoft/r/tkjpMwPPvU) to use the preview. The conversion applies to all classic file shares in the storage account and preserves each share's existing provisioned storage, IOPS, and throughput. After conversion, these quantities are billed under the provisioned v2 model.
+
+Conversion is one-way: you can't convert the storage account back to provisioned v1. You must retain the account's existing redundancy configuration during conversion. For prerequisites, preview survey details, and instructions, see [Change the billing model of a storage account](modify-file-share.md#change-the-billing-model-of-a-storage-account).
+
 The process for migrating your SMB Azure file shares from a pay-as-you-go model to the provisioned v2 billing model differs depending on whether you're using Azure File Sync.
 
 - If you're using Azure Files without Azure File Sync, see [Migrate files from one SMB Azure file share to another](migrate-files-between-shares.md).
@@ -320,7 +297,7 @@ The provisioned v1 method provides storage, IOPS, and throughput in a fixed rati
 
 The amount of storage you provision determines the guaranteed storage, IOPS, and throughput limits of your classic file share's usage. For example, if you provision a 2 TiB share and upload 2 TiB of data to your classic file share, it is full. You can't add more data unless you increase the size of your classic file share or delete some of the data. Credit-based IOPS bursting provides added flexibility around usage, on a best-effort basis, while credits remain.
 
-Unlike purchasing storage on-premises, you can dynamically scale up or down provisioned v1 classic file shares as your needs change. However, you can only decrease the provisioned storage after 24 hours elapse since your last storage increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
+Unlike purchasing storage on-premises, you can dynamically scale up or down provisioned v1 classic file shares as your needs change. However, you can only decrease the provisioned storage after 24 hours have elapsed since your last storage increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
 
 You can decrease the size of your provisioned share below your used GiB. If you do, you don't lose data, but you're still billed for the size used. You receive the performance of the provisioned share, not the size used.
 
@@ -374,51 +351,11 @@ The provisioned v1 model supports two types of bursting: **credit-based bursting
 
 #### Provisioned v1 credit-based bursting
 
-Credit-based IOPS bursting provides added flexibility around IOPS usage. Use this flexibility as a buffer against unanticipated IO spikes. For established IO patterns, provision for IO peaks.
-
-Burst IOPS credits accumulate whenever traffic for your classic file share is less than provisioned (baseline) IOPS. Whenever a classic file share's IOPS usage exceeds the provisioned IOPS and there are available burst IOPS credits, the classic file share can burst up to the maximum allowed burst IOPS limit. Classic file shares can continue to burst as long as there are credits remaining, based on the number of burst credits accrued. Each IO beyond provisioned IOPS consumes one credit. Once all credits are consumed, the classic file share returns to the provisioned IOPS. IOPS against the classic file share don't have to do anything special to use bursting. Bursting operates on a best effort basis.  
-
-Share credits have three states:
-
-- **Accruing**, when the classic file share is using less than the provisioned IOPS.
-- **Declining**, when the classic file share is using more than the provisioned IOPS and in the bursting mode.
-- **Constant**, when the classic file share is using exactly the provisioned IOPS and there are either no credits accrued or used.
-
-A new classic file share starts with the full number of credits in its burst bucket. Burst credits don't accrue if the share IOPS fall below the provisioned limit due to throttling by the server. The following formulas are used to determine the burst IOPS limit and the number of credits possible for a classic file share:
-
-| Item | Formula |
-|-|-|
-| Burst limit | `MIN(MAX(3 * ProvisionedStorageGiB, 10000), 102400)` |
-| Burst credits | `(BurstLimit - BaselineIOPS) * 3600` |
-
-The following table illustrates a few examples of these formulas for the provisioned sizes:
-
-| Capacity (GiB) | Baseline IOPS | Burst IOPS | Burst credits | Throughput (MiB/sec) |
-|-|-|-|-|-|
-| 100 | 3,100 | Up to 10,000 | 24,840,000 | 110 |
-| 500 | 3,500 | Up to 10,000 | 23,400,000 | 150 |
-| 1,024 | 4,024 | Up to 10,000 | 21,513,600 | 203 |
-| 5,120 | 8,120 | Up to 15,360 | 26,064,000 | 613 |
-| 10,240 | 13,240 | Up to 30,720 | 62,928,000 | 1,125 |
-| 33,792 | 36,792 | Up to 102,400 | 227,548,800 | 3,480 |
-| 51,200 | 54,200 | Up to 102,400 | 164,880,000 | 5,220 |
-| 102,400 | 102,400 | Up to 102,400 | 0 | 10,340 |
+[!INCLUDE [files-provisioned-v1-credit-bursting](../../../includes/files-provisioned-v1-credit-bursting.md)]
 
 #### Provisioned v1 paid bursting
 
-Paid bursting is an advanced feature of the provisioned v1 model designed to support customers who never want to be throttled. Paid bursting adds extra usage-based billing for any amount of IOPS or throughput above the provisioned storage. This feature is distinct from credit-based bursting, which is included for free as part of provisioned storage. While paid bursting can add powerful flexibility to how you provision your classic file share, it can also lead to unexpected billing if used incorrectly.
-
-Like credit-based bursting, paid bursting isn't a replacement for provisioning the correct amount of IOPS and throughput. Rather, it provides further protection against throttling if you run into unexpected demand. If you have a consistent level of IOPS or throughput usage, it's cheaper to provision enough IOPS and throughput (through storage provisioning) to cover demand instead of relying on paid bursting.
-
-Paid bursting is disabled by default, but you can enable it by following the instructions to [change the cost and performance characteristics of a provisioned v1 classic file share](./modify-file-share.md?tabs=azure-powershell#provisioned-v1-billing-model) ( PowerShell and CLI only). If you enable paid bursting, monitor IOPS and throughput usage by using the following metrics available through Azure Monitor:
-
-- File Share Provisioned IOPS
-- File Share Provisioned Bandwidth MiB/s (throughput)
-- Transactions by Max IOPS
-- Bandwidth by Max MiB/sec (throughput)
-- Burst Credits for IOPS (credit-based bursting)
-- Paid Bursting IOS (IOs)
-- Paid Bursting Bandwidth
+[!INCLUDE [files-provisioned-v1-paid-bursting](../../../includes/files-provisioned-v1-paid-bursting.md)]
 
 ### Provisioned v1 resource models
 
@@ -455,7 +392,7 @@ To correctly deploy Azure Files with the provisioned v1 billing model on classic
     In Azure, the lowest granularity that you can see billing for is the *resource*, meaning that if you put two classic file shares in the same storage account, you can't easily track their costs back to individual projects, departments, or customers. To solve this problem, group classic file shares into storage accounts based on how they need to be tracked from a billing perspective.
 
 - **How many storage accounts are available in your subscription for your target region?**  
-    An additional complicating factor is the number of storage accounts you can have per subscription per region. See [`Microsoft.Storage` control plane limits](./storage-files-scale-targets.md#microsoftstorage-control-plane-limits) for more information. Depending on how many storage accounts you need, you might need to use additional subscriptions to achieve extra storage accounts.
+    An additional complicating factor is the number of storage accounts you can have per subscription per region. See [`Microsoft.Storage` control plane limits](./storage-files-scale-targets.md#microsoftstorage-control-plane-limits) for more information. Depending on how many storage accounts you need, you might need to use additional subscriptions to create additional storage accounts.
 
 ### Provisioned v1 snapshots
 
@@ -487,6 +424,12 @@ Consumption against the provisioned v1 billing meters is emitted hourly in terms
     - 30 day month: 34.1333 units against the **Premium Provisioned** meter.
     - 31 day month: 33.0323 units against the **Premium Provisioned** meter.
 - 1,024 units against the **Premium Provisioned** meter if aggregated for a month.
+
+### Convert from provisioned v1 to provisioned v2 (limited public preview)
+
+You can convert an existing SSD `FileStorage` storage account from provisioned v1 to provisioned v2 through a limited public preview that requires completing a survey. The conversion applies to all classic file shares in the storage account. Each share retains its existing provisioned storage, IOPS, and throughput, which are then billed under the provisioned v2 model. After conversion, you can provision these quantities independently instead of increasing storage to obtain more IOPS or throughput.
+
+Conversion is one-way, and you can't change redundancy options during the conversion. Accounts using `Premium_LRS` convert to `PremiumV2_LRS`, and accounts using `Premium_ZRS` convert to `PremiumV2_ZRS`. For prerequisites, preview survey details, and instructions, see [Change the billing model of a storage account](modify-file-share.md#change-the-billing-model-of-a-storage-account).
 
 ## Pay-as-you-go model
 
@@ -539,16 +482,26 @@ Transactions are grouped into five different transaction categories that have di
 
 The following table shows the categorization of each transaction:
 
-| Transaction bucket | Management operations | Data operations |
-|-|-|-|
-| Write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareAcl`</li><li>`SnapshotShare`</li><li>`RestoreShare`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li><li>`Flush`</li><li>`SetDirectoryProperties`</li></ul> |
-| List transactions | <ul><li>`ListShares`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
-| Read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> |
-| Other/protocol transactions | <ul><li>`AcquireShareLease`</li><li>`BreakShareLease`</li><li>`ReleaseShareLease`</li><li>`RenewShareLease`</li><li>`ChangeShareLease`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
-| Delete transactions | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li><li>`DeleteFile`</li></ul> |  
+| Transaction bucket | Transaction type |
+|-|-|
+| SMB write transactions | <ul><li>`Create`</li><li>`SetInfo`</li><li>`Write`</li><li>`Flush`</li></ul> |
+| FileREST write transactions | <ul><li>`CopyFile`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`RenameFile`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`PutFilePermission`</li><li>`SetDirectoryProperties`</li></ul> |
+| SMB list transactions | *No applicable transactions* |
+| FileREST list transactions | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
+| SMB read transactions | <ul><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li></ul> |
+| FileREST read transactions | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`GetFilePermission`</li></ul> |
+| SMB other/protocol transactions | <ul><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li></ul> |
+| FileREST other/protocol transactions | <ul><li>`AbortCopyFile`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li><li>`GetUserDelegationKey`</li></ul> |
+| SMB delete transactions | *No applicable transactions* |
+| FileREST delete transactions | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li><li>`DeleteFile`</li></ul> |
+| FileREST management write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareAcl`</li><li>`SnapshotShare`</li><li>`RestoreShare`</li></ul> |
+| FileREST management list transactions | <ul><li>`ListShares`</li></ul> |
+| FileREST management read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> |
+| FileREST management other/protocol transactions | <ul><li>`AcquireShareLease`</li><li>`BreakShareLease`</li><li>`ReleaseShareLease`</li><li>`RenewShareLease`</li><li>`ChangeShareLease`</li></ul> |
+| FileREST management delete transactions | <ul><li>`DeleteShare`</li></ul> |  
 
 > [!NOTE]
-> NFSv4.1 is only available for SSD file shares that use either the provisioned v2 or provisioned v1 billing models. Transaction buckets don't affect billing for provisioned file shares.
+> NFSv4.1 supports SSD file shares that use provisioned v2 or provisioned v1 billing, and HDD file shares that use provisioned v2 billing in preview. NFS isn't supported with pay-as-you-go billing. Transaction buckets don't affect billing for provisioned file shares.
 
 ### Switching between access tiers
 
@@ -623,7 +576,7 @@ To correctly deploy Azure Files with the pay-as-you-go billing model on classic 
     In Azure, the lowest granularity that you can see billing for is the *resource*, meaning that if you put two classic file shares in the same storage account, you can't easily track their costs back to individual projects, departments, or customers. To solve this problem, group classic file shares into storage accounts based on how they need to be tracked from a billing perspective.
 
 - **How many storage accounts are available in your subscription for your target region?**  
-    An additional complicating factor is the number of storage accounts you can have per subscription per region. See [`Microsoft.Storage` control plane limits](./storage-files-scale-targets.md#microsoftstorage-control-plane-limits) for more information. Depending on how many storage accounts you need, you might need to use additional subscriptions to achieve extra storage accounts.
+    An additional complicating factor is the number of storage accounts you can have per subscription per region. See [`Microsoft.Storage` control plane limits](./storage-files-scale-targets.md#microsoftstorage-control-plane-limits) for more information. Depending on how many storage accounts you need, you might need to use additional subscriptions to create additional storage accounts.
 
 ### Pay-as-you-go snapshots
 

@@ -1,20 +1,41 @@
 ---
-title: What's New in Azure Migrate
-description: Learn about what's new and recent updates in the Azure Migrate service.
+title: What's new in Azure Catalyst
+description: Learn about what's new and recent updates in the Azure Catalyst service.
 ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
-ms.date: 05/07/2026
+ms.reviewer: v-gajeronika
+ms.date: 10/27/2026
 ms.custom: mvc, engagement-fy25
-# Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Migrate, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
+# Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Catalyst, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
 ---
 
-# What's new in Azure Migrate
+# What's new in Azure Catalyst
 
-[Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
+[Azure Catalyst](migrate-services-overview.md) (formerly Azure Migrate) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Catalyst.
+
+## Update (November 2026)
+
+- **Azure Migrate is now Azure Catalyst.** Azure Migrate is evolving into Azure Catalyst, bringing migration into a broader vision for intelligent, agent-powered modernization across infrastructure, applications, and data. Azure Catalyst helps organizations move from understanding their estate to planning and executing modernization on Azure and accelerating their path to AI.
+Your current migration experience and capabilities aren't impacted by this change. Existing projects and workflows continue to work as they do today.
+- Azure Catalyst now supports two ways to execute migrations after discovery and planning. You can group applications and workloads into migration waves for coordinated execution. [Learn more about wave migrations](wave-migrations-overview.md). Alternatively, you can start server replications and migrate directly without creating a wave. Direct migration is supported only for servers. [Learn more about direct server migrations](execute-server-migrations.md).
+- General availability: Azure Catalyst now supports migrating to Azure Confidential VMs. Azure confidential VMs provide strong protection for sensitive workloads. They create a hardware-enforced boundary between your workload and the virtualization stack, so you can migrate many applications without code changes while keeping VM state protected. [Learn more](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#migrate-eligible-machines-to-azure-confidential-virtual-machines).
+- Public preview: Azure Catalyst expands target coverage for webapps with two new targets: Azure Container Apps and Managed Instance on Azure App Service. Webapps can now be assessed across multiple Azure targets - Azure App Service Code, Azure App Service Containers, Azure App Service Managed instance, Azure Container Apps (ACA) and Azure Kubernetes Service (AKS). You can determine readiness status for these apps, code changes required to modernize, effort estimate, target SKU size and Azure costs. Comparing these services side by side helps you quickly choose the one that best fits your organization's requirements.
+  
+## Update (September 2026)
+
+- Public preview: Wave planning is now available in Azure Migrate. Generate recommended migration waves based on workload inventory, assessment data, application mappings, and dependencies. Review grouping and sequencing, dependencies, and risks, then configure and commit selected waves. [Learn more](wave-plan-overview.md).
+
+- Public preview: Azure Migrate now supports network assessments for VMware environments, including those integrated with NSX. You can assess application-associated network resources and receive recommendations for Azure networking components such as virtual networks, subnets, Network Security Groups (NSGs), Azure Firewall, load balancers, and Azure Virtual Network Manager configurations. The assessment also provides migration readiness insights, estimated network costs, and sustainability metrics to help you plan application migrations to Azure. A new assessment report experience lets you review recommended network resources, cost estimates, and migration considerations before migration. [Learn more](network-assessment.md).
+
+
+## Update (August 2026)
+
+- Public preview: Azure Migrate now supports the discovery of networking resources in VMware and VMware environments that use NSX. During discovery, Azure Migrate collects network inventory information, including subnets, VLANs, NSX segments, VMware port groups, load balancers, firewall policies, and NAT policies. You can view discovered network resources on the Network tab under Infrastructure. This view helps you understand network inventory and the relationships between network resources and virtual machines before you plan your migration.
+
+  The dependency map is also enhanced to display network-aware relationships and workload communication paths. By using network discovery, Azure Migrate extends beyond compute-focused discovery to support network-aware migration planning. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
 
 ## Update (June 2026)
 
@@ -41,7 +62,7 @@ If no tags are applied, workloads default to Production for the environment type
 
 - Public preview: Azure Migrate now offers **Reports** a new experience that helps you generate executive-level insights for migration and modernization planning. Reports include migration and modernization executive summaries, security insights, and business case insights for workloads discovered in Azure Migrate. You can tailor reports to different migration strategies, such as modernizing to **PaaS (AI‑ready), migrating to Azure Virtual Machines**, or rehosting to **Azure VMware Solution (AVS)**. Reports help you assess your application and infrastructure landscape by providing readiness analysis, target recommendations, and cost guidance, including TCO and ROI comparisons between on‑premises environments and Azure. Reports also deliver security insights and cost optimization recommendations, such as savings through Azure Hybrid Benefit, Reserved Instances, and dev/test pricing, and recommend related services like Azure Backup, Azure Site Recovery, and Microsoft Defender for Cloud. [Learn more](reports-overview.md).
 
-- General Availability: Azure Migrate now supports migrating Generation 2 VMs to Trusted Launch Azure VMs. Trusted Launch helps protect workloads from boot-level by threats using UEFI-based Secure Boot and vTPM, ensuring that only trusted, signed components during startup. [Learn more](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md).
+- General availability: Azure Migrate now supports migrating Generation 2 VMs to Trusted Launch Azure VMs. Trusted Launch helps protect workloads from boot-level by threats using UEFI-based Secure Boot and vTPM, ensuring that only trusted, signed components during startup. [Learn more](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md).
 
 - Public preview: Azure Migrate now offers Azure Copilot migration agent, which provides a conversational experience to help you plan and analyze VMware migrations using Azure Migrate data. You can use natural language prompts to explore inventory, assess readiness, and evaluate migration strategies and business cases, while migration execution continues in the Azure Migrate portal. [Learn more](azure-copilot-migration-agent.md).
 
@@ -66,21 +87,19 @@ If no tags are applied, workloads default to Production for the environment type
 - Public preview: Azure Migrate now supports Arc-based discovery, enabling you to assess on-premises servers and SQL Server instances that are already Azure Arc-enabled—without deploying additional infrastructure. This integration accelerates migration planning by leveraging existing Arc data to generate business cases and assessments within an hour. [Learn more](concepts-arc-resource-discovery.md). 
     - The VM extension is an optional component that collects performance data from Arc-enabled servers to provide right sized recommendations in assessments and business cases. [Learn more](migrate-virtual-machine-extension-reference.md).
 
-- Public preview: Wave Planning in Azure Migrate provides a structured approach to cloud migration and modernization. It helps organizations break down large-scale migrations into manageable **waves** of workloads and applications. This capability accelerates timelines, reduces uncertainty, and minimizes risks through phased execution and logical grouping. [Learn more](overview.md).
+- Public preview: Wave planning in Azure Migrate provides a structured approach to migration planning. It helps organizations break down large-scale migrations into manageable **waves** of workloads and applications, review recommendations, and commit selected waves. Execution and tracking are separate activities. [Learn more](wave-plan-overview.md).
 
-    - Distribute workloads and applications into waves for high-fidelity planning, leveraging Azure Migrate’s discovery and assessment information. 
+    - Group workloads and applications using discovery, assessment, and dependency information.
 
-    - Sequence and prioritize migration waves based on business criticality, complexity of applications ensuring efficient and risk-mitigated execution. 
+    - Review sequencing based on dependencies, business criticality, and application complexity.
 
-    - Visualize execution plans and timelines across all waves, providing clear visibility into migration progress and sequence. 
- 
-    - Execute and centrally track migrations using integrated tools, for example, Server Migration for unified tracking. 
+    - Review wave composition, dependencies, reasoning, and risks.
 
-    - Monitor progress as migrations proceed, with status updates.
+    - Configure proposed wave assignments by exporting, editing, and validating the inventory-to-wave mapping CSV file.
 
-    - Support both automated and manual migration scenarios, allowing for flexible execution and tracking regardless of workload type or migration tool. 
+    - Commit reviewed waves for the next phase.
 
-Wave Planning in Azure Migrate provides a scalable, transparent, and risk-aware migration experience, enabling organizations to modernize infrastructure with confidence and control. 
+For the current workflow, see [Configure a wave plan](how-to-configure-wave-plan.md).
 
 
 ## Update (October 2025)
@@ -109,7 +128,7 @@ Notable aspects of the solution:
     - **Interact with nodes for server insights:** You can interact directly with nodes within the visualization to access detailed server information. This includes viewing immediate dependents and connection details, allowing for a deeper understanding of each server’s properties and dependencies.
     - **Scope and filter visualization:** You can search by server names and apply filters using netstat data, such as process and port information, enabling scoped analysis of network connections.
     - **Switch to per server view:** For more granular analysis, you can switch the visualization to a per-server view. This mode allows analyzing network connections at the process and port levels for individual servers. [Learn more](how-to-create-group-machine-dependencies-agentless.md#visualize-individual-server-dependencies). 
-    - **Identify and group high-affinity servers:** The visualization makes it easy to identify servers that are tightly coupled and exhibit high affinity. You can multi-select these servers and tag them as application groups, supporting logical organization and application-centric migration planning.
+    - **Identify and group high-affinity servers:** The visualization makes it easy to identify servers that are tightly coupled and exhibit high affinity. You can multiselect these servers and tag them as application groups, supporting logical organization and application-centric migration planning.
 
 ## Update (September 2025)
 
@@ -195,7 +214,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 ## Update (March 2024)
 
-- Public preview: Spring Boot app discovery and assessment is now available through a packaged solution to deploy a Kubernetes appliance. [Learn more](tutorial-discover-spring-boot.md).
+- Public preview: Spring Boot app discovery and assessment is now available through a packaged solution to deploy a Kubernetes appliance.
 
 ## Update (February 2024)
 
@@ -217,7 +236,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 ## Update (September 2023)
 
-- Azure Migrate now supports discovery and assessment of Spring Boot apps. [Learn more](how-to-create-azure-spring-apps-assessment.md).
+- Azure Migrate now supports discovery and assessment of Spring Boot apps.
 
 ## Update (August 2023)
 
@@ -254,7 +273,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 ## Update (February 2023)
 
 - Azure Migrate now supports discovery and assessment of SQL Server Always On failover cluster instances and Always On availability groups. [Learn more](how-to-discover-applications.md).
-- Public preview: Modernize your ASP.NET web apps on Azure Kubernetes Service directly through Azure Migrate. [Learn more](tutorial-modernize-asp-net-aks.md).
+- Public preview: Modernize your ASP.NET web apps on Azure Kubernetes Service directly through Azure Migrate.
 
 ## Update (January 2023)
 
@@ -473,6 +492,6 @@ If you're using the previous version of Azure Migrate (only assessment of on-pre
 
 ## Related content
 
-- Learn about [Azure Migrate pricing](https://azure.microsoft.com/pricing/details/azure-migrate/).
-- Review [frequently asked questions about Azure Migrate](resources-faq.md).
+- Learn about [Azure Catalyst pricing](https://azure.microsoft.com/pricing/details/azure-migrate/).
+- Review [frequently asked questions about Azure Catalyst](resources-faq.md).
 - Try tutorials to assess [VMware VMs](./tutorial-assess-vmware-azure-vm.md) and [Hyper-V VMs](tutorial-assess-hyper-v.md).

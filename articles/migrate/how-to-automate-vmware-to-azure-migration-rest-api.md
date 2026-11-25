@@ -5,7 +5,7 @@ author: prsadhu-ms-idc
 ms.author: prsadhu
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 12/02/2025
 ms.update-cycle: 365-days
 # Customer intent: As a migration owner, I want to automate the migration of my VMware virtual machines to Azure using Azure Site Recovery REST API, so that I can efficiently manage large-scale migrations with custom automation solutions.
@@ -23,12 +23,12 @@ Use this article if you want to:
 
 Before you begin, make sure you have the following:
 
-- An Azure subscription with Azure Migrate Owner role to create and manage Azure Migrate resources. [Azure Migrate built-in roles](/azure/migrate/prepare-azure-accounts).
+- An Azure subscription with Azure Migrate Owner role to create and manage Azure Catalyst resources. [Azure Migrate built-in roles](/azure/migrate/prepare-azure-accounts).
 
 > [!IMPORTANT]
 > Insufficient permissions can cause API calls to fail with authorization or resource access errors.
 
-- A Migrate project configured for agent-based migration.
+- A Azure Catalyst project configured for agent-based migration.
 - A replication appliance deployed and registered with the vault.
 - VMware or physical virtual machines discovered by the appliance.
 - First replication enabled from the Azure portal to create the initial resources required for replication.
@@ -39,9 +39,9 @@ Before you call the APIs, gather the required resource identifiers. This section
 
 ### Get the Azure Site Recovery Vault ID
 
-In the Azure portal, go to your **Azure Migrate project > Execute > Migrations > Replications summary > Properties**.
+In the Azure portal, go to your **Azure Catalyst project > Execute > Migrations > Replications summary > Properties**.
 Under Linked Recovery Services vaults, identify the vault where Replication type is set to Other, and copy the Vault ID.
-Alternatively, you can find the vault ID in the resource group where the Azure Migrate project is created.
+Alternatively, you can find the vault ID in the resource group where the Azure Catalyst project is created.
 The resource ID format is:
 ```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{migrateProjectName-MigrateVault-numbers}
@@ -298,7 +298,7 @@ Use the `id` value from the process server entry as your `processServerId` that 
 
 ### Get the Fabric Discovery Machine ID
 
-The `fabricDiscoveryMachineId` is the Azure Resource Manager ID of the discovered VM from Azure Migrate. To find it:
+The `fabricDiscoveryMachineId` is the Azure Resource Manager ID of the discovered VM from Azure Catalyst. To find it:
 
 ```http
 (for VMware VMs) GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/VMwareSites/{siteName}/machines?api-version=2023-06-06
@@ -624,7 +624,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 | Parameter | Required | Description |
 |-----------|----------|-------------|
 | `instanceType` | Yes | Must be `InMageRcm` |
-| `fabricDiscoveryMachineId` | Yes | Azure Resource Manager ID of the discovered VMware machine from Azure Migrate |
+| `fabricDiscoveryMachineId` | Yes | Azure Resource Manager ID of the discovered VMware machine from Azure Catalyst |
 | `processServerId` | Yes | ID of the process server to use for replication |
 | `targetResourceGroupId` | Yes | Azure Resource Manager ID of the target resource group in Azure |
 | `disksToInclude` | Yes* | List of disks to replicate with their configuration |

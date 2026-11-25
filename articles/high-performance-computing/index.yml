@@ -10,7 +10,7 @@ metadata:
   ms.service: hpc-fundamentals
   ms.topic: hub-page
   author: padmalathas
-  ms.author: padmalathas
+  ms.author: mdoster
   ms.date: 12/19/2024
 
 # Main Items (Icons)
@@ -43,7 +43,7 @@ productDirectory:
       items:
       # Card
       - title: Azure HPC Scenarios and Migration Guidelines
-        imageSrc: ../media/index/migrate.svg
+        imageSrc: ../media/index/azure-catalyst.svg
         links:
            - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/azure-hpc-landing-zone-accelerator
              text: Introduction to HPC Scenario

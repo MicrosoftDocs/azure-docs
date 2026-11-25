@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: entra-id
 ms.topic: how-to
 ms.date: 01/11/2024
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
@@ -63,7 +63,7 @@ Add a **JourneyFraming** element inside the [RelyingParty](relyingparty.md) elem
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" /> -->
   <UserJourneyBehaviors> 
-    <JourneyFraming Enabled="true" Sources="https://somesite.com https://anothersite.com" /> 
+    <JourneyFraming Enabled="true" Sources="https://somesite.com https://differentsite.com" /> 
   </UserJourneyBehaviors>
 <!--
 </RelyingParty> -->

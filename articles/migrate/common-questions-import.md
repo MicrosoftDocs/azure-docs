@@ -1,20 +1,22 @@
 ---
 title: Questions about importing data
-description: Get answers to common questions about importing RVTools XLSX into Azure migrate
-author: habibaum
-ms.author: v-uhabiba
+description: Get answers to common questions about importing RVTools XLSX into Azure Catalyst
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 10/28/2024
-ms.update-cycle: 1825-days
-# Customer intent: "As a migration specialist, I want to understand the requirements for importing RVTools XLSX data into Azure Migrate, so that I can ensure a successful and accurate import of my VMware servers."
+ms.update-cycle: 365-days
+# Customer intent: "As a migration specialist, I want to understand the requirements for importing RVTools XLSX data into Azure Catalyst, so that I can ensure a successful and accurate import of my VMware servers."
 ---
 
 # Import VMware servers using RVTools XLSX - Common questions
 
 This article answers common questions about importing servers running in your VMware environment using RVTools XLSX.
 
-### Which sheets and columns are required to import data into Azure Migrate? 
+<a name="which-sheets-and-columns-are-required-to-import-data-into-azure-migrate"></a>
+
+### Which sheets and columns are required to import data into Azure Catalyst? 
 
 The following sheets and columns are necessary for importing all data: 
 
@@ -41,9 +43,9 @@ The following sheets and columns are necessary for importing all data:
 
 Ensure the following:
 
-- There are no manual edits in the RVTools export file. If there are edits, remove them or export a fresh file for importing into Azure Migrate.
+- There are no manual edits in the RVTools export file. If there are edits, remove them or export a fresh file for importing into Azure Catalyst.
 
-- The imported file is set to be readable. Set the file sensitivity to **General** as file sensitivity labels might prevent Azure Migrate from reading the file successfully.
+- The imported file is set to be readable. Set the file sensitivity to **General** as file sensitivity labels might prevent Azure Catalyst from reading the file successfully.
 
 
 ## Next steps

@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using the Azure Fu
 ms.topic: how-to
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.date: 11/02/2025
+ms.date: 11/09/2026
 
 zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
@@ -78,6 +78,8 @@ You also need these prerequisites to [run and debug your functions locally](#run
 + The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.
 
 + [.NET (CLI)](/dotnet/core/tools/), which is included in the .NET SDK.
+
+  Install the SDK for a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions) and update the Azure Functions extension, Core Tools, and templates to support your target version. For project SDK and worker package requirements, see [Core SDK and package](dotnet-isolated-process-guide.md#core-sdk-and-package).
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
@@ -90,9 +92,9 @@ You also need these prerequisites to [run and debug your functions locally](#run
 + [Node.js](https://nodejs.org/), one of the [supported versions](functions-reference-node.md#node-version). Use the `node --version` command to check your version.
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-+ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
++ [PowerShell 7.6](/powershell/scripting/install/installing-powershell) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
-+ [.NET 8 runtime](https://dotnet.microsoft.com/download/dotnet/8.0).
++ [.NET 10 runtime](https://dotnet.microsoft.com/download/dotnet/10.0).
 
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
 ::: zone-end  
@@ -112,6 +114,9 @@ The Functions extension lets you create the required function app project at the
    You can either create a new folder or choose an empty folder for the project workspace, but don't choose a project folder that's already part of a workspace.   
 
    You can instead run the command `Azure Functions: Create New Containerized Project...` to also get a Dockerfile generated for the project.
+
+   > [!NOTE]
+   > This command generates a Dockerfile that uses the complete Function App image contract. It doesn't generate the worker-only Dockerfile used by Flex Consumption container images. For Flex Consumption, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 1. When prompted, **Select a language** for your project. If necessary, choose a specific language version.
 
@@ -169,7 +174,7 @@ Files generated depend on the chosen Node.js programming model for Functions:
 +  An HttpExample folder that contains: 
 
     + The [function.json definition file](functions-reference-node.md#folder-structure)
-    + An [index.js file](functions-reference-node.md#exporting-a-function), which contains the function code.
+    + An [index.js file](functions-reference-node.md?pivots=nodejs-model-v3#programming-model), which contains the function code.
 
 ---
 
@@ -234,7 +239,7 @@ Visual Studio Code creates a new folder in the project. The folder contains a ne
 This action creates a new folder in the project. The folder contains a new **function.json** file and the new PowerShell code file.
 ::: zone-end
 ::: zone pivot="programming-language-python"
-This action's results depends on the Python model version.
+This action's results depend on the Python model version.
 
 ### [v2](#tab/python-v2)
 
@@ -409,7 +414,7 @@ For more information about the resources required to run your containerized func
 
 ## <a name="republish-project-files"></a>Deploy project files
 
-Set up [continuous deployment](functions-continuous-deployment.md) so that your function app in Azure updates when you update source files in the connected source location. You can also deploy your project files from Visual Studio Code. When you publish from Visual Studio Code, you can take advantage of the [Zip deploy technology](functions-deployment-technologies.md#zip-deploy).
+Set up [continuous deployment](functions-continuous-deployment.md) so that your function app in Azure updates when you update source files in the connected source location. You can also deploy your project files from Visual Studio Code. When you publish from Visual Studio Code, you can use [ZIP deployment](functions-deployment-technologies.md#zip-deployment).
 
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
@@ -587,7 +592,7 @@ When you [run functions locally](#run-functions-locally), Core Tools streams log
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-csharp,programming-language-typescript"
 ### Streaming logs
 
-When you're developing an application, it's often useful to see logging information in near-real time. You can view a stream of log files generated by your functions. Turn on logs from the command pallet with the `Azure Functions: Start streaming logs` command. This output is an example of streaming logs for a request to an HTTP-triggered function:
+When you're developing an application, it's often useful to see logging information in near-real time. You can view a stream of log files generated by your functions. Turn on logs from the command palette with the `Azure Functions: Start streaming logs` command. This output is an example of streaming logs for a request to an HTTP-triggered function:
 
 :::image type="content" source="media/functions-develop-vs-code/streaming-logs-vscode-console.png" alt-text="Screenshot for streaming logs output for H T T P trigger.":::
 

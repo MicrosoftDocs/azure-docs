@@ -1,22 +1,22 @@
 ---
-title: Set up an Azure Migrate appliance with a script
-description: Learn how to set up an Azure Migrate appliance with a script
+title: Set up an Azure Catalyst appliance with a script
+description: Learn how to set up an Azure Catalyst appliance with a script
 ms.topic: how-to
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 03/21/2025
 ms.custom: engagement-fy24
 ms.update-cycle: 1095-days
-# Customer intent: "As a cloud administrator, I want to deploy an Azure Migrate appliance using a PowerShell script, so that I can facilitate discovery, assessment, and replication of servers in my VMware or Hyper-V environment efficiently."
+# Customer intent: "As a cloud administrator, I want to deploy an Azure Catalyst appliance using a PowerShell script, so that I can facilitate discovery, assessment, and replication of servers in my VMware or Hyper-V environment efficiently."
 ---
 
 
 # Set up an appliance with a script
 
-Follow this article to deploy an [Azure Migrate appliance](./migrate-appliance-architecture.md) using a PowerShell script for:
+Follow this article to deploy an [Azure Catalyst appliance](./migrate-appliance-architecture.md) using a PowerShell script for:
 - discovery, assessment and agentless replication of servers running in VMware environment
 - discovery and assessment of servers running in Hyper-V environment.
 
@@ -28,7 +28,7 @@ You can deploy the appliance for servers on VMware and on Hyper-V by either usin
 
 ## Prerequisites
 
-You can use the script to deploy the Azure Migrate appliance on an existing server in your VMware or Hyper-V environment.
+You can use the script to deploy the Azure Catalyst appliance on an existing server in your VMware or Hyper-V environment.
 
 - The server that hosts the appliance must meet the following hardware and OS requirements:
 
@@ -39,7 +39,7 @@ Hyper-V | Windows Server 2022 or Windows Server 2025, with 16 GB of memory, eigh
 
 - The server also needs an external virtual switch. It requires a static or dynamic IP address. 
 - Before you deploy the appliance, review detailed appliance requirements for [VMware](migrate-appliance.md#appliance---vmware) and [Hyper-V](migrate-appliance.md#appliance---hyper-v).
-- If you run the script on a server with Azure Migrate appliance already set up, you can choose to clean up the existing configuration and set up a fresh appliance of the desired configuration. When you execute the script, you will get a notification as shown below:
+- If you run the script on a server with Azure Catalyst appliance already set up, you can choose to clean up the existing configuration and set up a fresh appliance of the desired configuration. When you execute the script, you will get a notification as shown below:
 
     ![Setting up appliance with desired configuration](./media/deploy-appliance-script/script-reconfigure-appliance.png)
 
@@ -58,7 +58,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
 
 1. Extract the zipped file to a folder on the server that will host the appliance.
 > [!NOTE]
-> Make sure you don't run the script on a server with an existing Azure Migrate appliance. Running the script on the Azure Migrate appliance will remove the working configuration and replace it with newly defined configuration.
+> Make sure you don't run the script on a server with an existing Azure Catalyst appliance. Running the script on the Azure Catalyst appliance will remove the working configuration and replace it with newly defined configuration.
 
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 
@@ -68,7 +68,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
 
    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
-5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover, assess and migrate **servers running in your VMware environment** to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
+5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover, assess and migrate **servers running in your VMware environment** to an Azure Catalyst project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
    :::image type="content" source="./media/deploy-appliance-script/script-vmware-default-inline.png" alt-text="Screenshot that shows how to set up VMware appliance with desired configuration." lightbox="./media/deploy-appliance-script/script-vmware-default-expanded.png":::
 
@@ -77,7 +77,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
  - Installs agents and a web application.
  - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
  - Download and installs an IIS rewritable module.
- - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+ - Updates a registry key (HKLM) with persistent setting details for Azure Catalyst.
  - Creates the following files under the path:
     - **Config Files**: `%ProgramData%\Microsoft Azure\Config`
     - **Log Files**: `%ProgramData%\Microsoft Azure\Logs`
@@ -106,7 +106,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
 
 1. Extract the zipped file to a folder on the server that will host the appliance.
 > [!NOTE]
-> Make sure you don't run the script on an existing Azure Migrate appliance. Running the script on the Azure Migrate appliance will remove the working configuration and replace it with newly defined configuration.
+> Make sure you don't run the script on an existing Azure Catalyst appliance. Running the script on the Azure Catalyst appliance will remove the working configuration and replace it with newly defined configuration.
 
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
@@ -114,7 +114,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
 
    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
-5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **servers running in your Hyper-V environment** to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
+5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **servers running in your Hyper-V environment** to an Azure Catalyst project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
     :::image type="content" source="./media/deploy-appliance-script/script-hyperv-default-inline.png" alt-text="Screenshot that shows how to set up Hyper-V appliance with desired configuration." lightbox="./media/deploy-appliance-script/script-hyperv-default-expanded.png":::
 
@@ -123,7 +123,7 @@ Check that the zipped file is [secure](migrate-appliance.md#verify-security), be
     - Installs agents and a web application.
     - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
     - Download and installs an IIS rewritable module.
-    - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+    - Updates a registry key (HKLM) with persistent setting details for Azure Catalyst.
     - Creates the following files under the path:
         - **Config Files**: %Programdata%\Microsoft Azure\Config
         - **Log Files**: %Programdata%\Microsoft Azure\Logs

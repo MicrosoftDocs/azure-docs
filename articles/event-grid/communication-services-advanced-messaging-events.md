@@ -4,7 +4,7 @@ description: This article describes how to use Azure Communication Services as a
 ms.topic: reference
 ms.date: 07/15/2024
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ms.reviewr: osaghaso
 ---
 

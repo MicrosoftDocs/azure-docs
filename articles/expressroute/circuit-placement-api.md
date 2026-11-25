@@ -2,10 +2,10 @@
 title: 'Azure ExpressRoute CrossConnections circuit placement API'
 description: This article provides a detailed overview for ExpressRoute partners about the ExpressRoute CrossConnections circuit placement API.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 03/11/2026
+ms.date: 08/27/2026
 ms.author: duau
 # Customer intent: As an ExpressRoute partner, I want to utilize the CrossConnections circuit placement API to select and manage port pairs for circuit connectivity, so that I can optimize and enhance the performance of the ExpressRoute circuits I provision.
 ---
@@ -14,7 +14,7 @@ ms.author: duau
 
 The ExpressRoute partner circuit placement API allows ExpressRoute partners to provision circuit connectivity on a specific port pair. Specifically, if an ExpressRoute partner manages multiple port pairs at one peering location, they can use this API to select which port pair will facilitate the ExpressRoute circuit.
 
-This API uses the expressRouteCrossConnection resource type. For more information, see [ExpressRoute CrossConnection API development and integration](cross-connections-api-development.md).
+This API uses the expressRouteCrossConnections resource type. For more information, see [ExpressRoute CrossConnection API development and integration](cross-connections-api-development.md).
 
 ## Register provider subscription to the expressRouteProviderPort resource type
 To use the circuit placement API, you first need to enroll your subscription to access the port resource type.
@@ -109,8 +109,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 **Response status code**
 
-* 200 (OK)  The request is success. It will fetch list of ports.
-* 4XX (Bad Request)  One of validations failed – for example: Provider subid isn't valid.
+* 200 (OK) The request is successful. It fetches the list of ports.
+* 4XX (Bad Request) One of the validations failed. For example: Provider subscription ID isn't valid.
 
 ### To get a list of all port pairs by location
 
@@ -152,8 +152,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 **Response status code**
 
-* 200 (OK) The request is success. It will fetch list of ports.
-* 4XX (Bad Request) One of validations failed – for example: Provider subid isn't valid or location isn't valid.
+* 200 (OK) The request is successful. It fetches the list of ports.
+* 4XX (Bad Request) One of the validations failed. For example: Provider subscription ID isn't valid or location isn't valid.
 
 ### To get a specific port pair using the port pair descriptor ID.
 
@@ -196,9 +196,9 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 **Status code	description**
 
-* 200 (OK) The request is success. It will fetch port detail.
+* 200 (OK) The request is successful. It fetches the port detail.
 * 204 The port pair with the mentioned descriptor ID isn't available.
-* 4XX (Bad Request) One of validations failed – For example: Provider subid isn't valid.
+* 4XX (Bad Request) One of the validations failed. For example: Provider subscription ID isn't valid.
 
 ### Move a target ExpressRoute Circuit to a specific port pair
 

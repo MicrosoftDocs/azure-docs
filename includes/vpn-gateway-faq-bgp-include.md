@@ -47,13 +47,13 @@ By default, Azure VPN Gateway allocates a single IP address from the `GatewaySub
 
 You can find the allocated BGP IP address by using Azure PowerShell or the Azure portal. In PowerShell, use `Get-AzVirtualNetworkGateway`, and look for the `bgpPeeringAddress` property. In the Azure portal, on the **Gateway Configuration** page, look under the **Configure BGP ASN** property.
 
-If your on-premises VPN routers use Automatic Private IP Addressing (APIPA) IP addresses (169.254.x.x) as the BGP IP addresses, you must specify one or more Azure APIPA BGP IP addresses on your VPN gateway. Azure VPN Gateway selects the APIPA addresses to use with the on-premises APIPA BGP peer specified in the local network gateway, or the private IP address for a non-APIPA, on-premises BGP peer. For more information, see [Configure BGP for Azure VPN Gateway](../articles/vpn-gateway/bgp-howto.md).
+If your on-premises VPN routers use Automatic Private IP Addressing (APIPA) IP addresses (169.254.x.x) as the BGP IP addresses, you must specify one or more Azure APIPA BGP IP addresses on your VPN gateway. Azure VPN Gateway selects the APIPA addresses to use with the on-premises APIPA BGP peer specified in the local network gateway, or the private IP address for a non-APIPA, on-premises BGP peer. For more information, see [Configure BGP for Azure VPN Gateway](../articles/vpn-gateway/configure-bgp.md).
 
 ### What are the requirements for the BGP peer IP addresses on my VPN device?
 
 Your on-premises BGP peer address must not be the same as the public IP address of your VPN device or from the VNet address space of the VPN gateway. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device (either a regular IP address or an APIPA address).
 
-If your device uses an APIPA address for BGP, you must specify one or more APIPA BGP IP addresses on your VPN gateway, as described in [Configure BGP for Azure VPN Gateway](../articles/vpn-gateway/bgp-howto.md). Specify these addresses in the corresponding local network gateway that represents the location.
+If your device uses an APIPA address for BGP, you must specify one or more APIPA BGP IP addresses on your VPN gateway, as described in [Configure BGP for Azure VPN Gateway](../articles/vpn-gateway/configure-bgp.md). Specify these addresses in the corresponding local network gateway that represents the location.
 
 ### What should I specify as my address prefixes for the local network gateway when I use BGP?
 

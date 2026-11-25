@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: quickstart
-ms.date: 06/19/2026
+ms.date: 10/28/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -55,7 +55,7 @@ After connecting the eventstream, use the **Open Eventstream** button to see it 
 
 Follow these steps to check your work so far, and make sure data is flowing into the eventstream.
 
-1. Start your cluster where you deployed Azure IoT Operations in earlier quickstarts. The OPC PLC simulator you deployed with your Azure IoT Operations instance should begin running and sending data. You can confirm this step by [verifying that your event hub is receiving messages](quickstart-configure.md#verify-data-is-flowing-to-event-hubs) in the Azure portal. 
+1. Start your cluster where you deployed Azure IoT Operations in earlier quickstarts. The OPC PLC simulator you deployed with your Azure IoT Operations instance should begin running and sending data. You can confirm this step by [verifying that your event hub is receiving messages](quickstart-configure.md#verify-data-is-flowing-to-event-hubs) in the Azure portal.
 
 1. Wait a few minutes for data to propagate. Then, in the eventstream live view, select the eventstream source and refresh the **Data preview**. You should see JSON data from the simulator begin to appear in the table.
 

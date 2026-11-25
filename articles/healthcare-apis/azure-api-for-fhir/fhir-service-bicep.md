@@ -6,12 +6,14 @@ ms.service: azure-health-data-services
 ms.custom: devx-track-bicep
 ms.topic: tutorial
 ms.author: kesheth
-ms.date: 05/28/2026
+ms.date: 10/04/2026
 ---
 
 # Deploy a FHIR service within Azure Health Data Services using Bicep
 
-This tutorial uses Azure API for FHIR as an example to demonstrate how to deploy a FHIR service within Azure Health Data Services using Bicep. Azure API for FHIR is retiring on September 30, 2026. For new deployments, see [Deploy Azure Health Data Services with Bicep](../deploy-healthcare-apis-using-bicep.md) instead.
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
+This tutorial uses Azure API for FHIR as an example to demonstrate how to deploy a FHIR service within Azure Health Data Services by using Bicep. For new deployments, see [Deploy Azure Health Data Services with Bicep](../deploy-healthcare-apis-using-bicep.md) instead.
 
 
 [Bicep](../../azure-resource-manager/bicep/overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. Bicep offers the best authoring experience for your infrastructure-as-code solutions in Azure.

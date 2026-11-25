@@ -29,6 +29,14 @@ Things to ensure before you configure backup for AKS cluster:
 
 - Currently, AKS Backup supports once-a-day backups. It also supports more frequent backups (in 4-hour, 8-hour, and 12-hour intervals) per day. This solution allows you to retain your data for restore for up to 360 days for Azure Disk-based volumes. For Azure Files-based volumes, backup retention is limited to a maximum of 30 days. Learn how to [create a backup policy](#create-a-backup-policy).
 
+- If you're configuring backup for a network-isolated AKS cluster, ensure that you configure the following Azure Firewall and Network Security Group (NSG) rules to allow the Azure Backup service and cluster components to communicate successfully.
+   
+   Allow outbound access to the following FQDNs: `*.blob.core.windows.net`, `docker.io`, `*.azurecr.io`, `*.dp.kubernetesconfiguration.azure.com`, `*.microsoft.com`, `*.azure.com`, `*.core.windows.net`, `*.azmk8s.io`, `*.digicert.com`, `*.digicert.cn`, `*.geotrust.com`, `*.msocsp.com`, `mcr.microsoft.com`, `data.mcr.microsoft.com`.
+
+   _Note_: Allow the regional endpoint (`<region>.dp.kubernetesconfiguration.azure.com`) for the region in which the AKS cluster is deployed. For example, `canadacentral.dp.kubernetesconfiguration.azure.com` for Canada Central.
+
+   Configure inbound NSG rules to allow the _AzureBackup_ and _AzureCloud_ service tags.
+
 - For Azure Files-based volumes, we recommend creating persistent volumes with the Reclaim Policy set to **Retain** to ensure that snapshots remain available even if the PVC is deleted. You can set the reclaim policy with: `kubectl patch pv <your-pv-name> --patch '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'`
 
 - You need to [install the Backup extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations for an AKS cluster. Learn more [about the Backup extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
@@ -157,7 +165,7 @@ Azure Backup for AKS allows you to define the application boundary within AKS cl
   > [!NOTE]
   > You should add the labels to every single YAML file that is deployed and to be backed up. This includes namespace-scoped resources like persistent volume claims, and cluster-scoped resources like persistent volumes.
   >
-  > If you want to exclude specific Persistent Volume Claims from your backups, add the annotation `velero.io/exclude-from-backup=true`. This Velero annotation is supported by Azure Backup for AKS.
+  > To exclude specific Persistent Volume Claims from your backups, add the label `velero.io/exclude-from-backup=true`.
 
 ## Verify backup and snapshots
 
@@ -242,7 +250,6 @@ To enable a backup hook as part of the backup configuration flow to back up MySQ
 
       ```dotnetcli
       kubectl apply -f mysqlbackuphook.yaml
-
       ```
 
 1. When the deployment is finished, you can [configure backups for the AKS cluster](#configure-backup).

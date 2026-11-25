@@ -5,7 +5,7 @@ author: hectoralinares
 ms.author: hectorl
 ms.service: azure
 ms.topic: how-to
-ms.date: 05/29/2026
+ms.date: 11/17/2026
 
 #CustomerIntent: As a researcher or scientist, I want to set up a shared session with tasks and cognition so that the Discovery Engine can execute research on my behalf.
 ---
@@ -19,7 +19,7 @@ This guide walks you through setting up a shared session that uses the [Discover
 Before you begin, verify you have:
 
 - A Microsoft Discovery workspace with at least one project configured.
-- A chat model deployment in your project. By default, your project uses the `gpt-5-4` chat model deployment (model: `gpt-5.4`). The Discovery Engine requires this model for task validation. See [Create chat model deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment) for setup instructions.
+- A chat model deployment in your workspace. By default, your project uses the workspace's `gpt-5-4` chat model deployment (model: `gpt-5.4`). The Discovery Engine requires this model for task validation. See [Create chat model deployment](quickstart-infrastructure.md#6-create-chat-model-deployment) for setup instructions.
 - At least one agent deployed in your project (see [Discovery Agent concepts](concept-discovery-agent.md)).
 - Access to Discovery Studio in your browser.
 
@@ -147,7 +147,7 @@ When all tasks reach a terminal status (Complete, Needs User Attention), the sha
 Review the results of your root or parent tasks that typically synthesize the findings from child tasks into a coherent output. File outputs from child tasks propagate up to the root task, so you can find all produced files in one place.
 
 > [!IMPORTANT]
-> To view output files, you need **Storage Blob Data Reader** on the storage account and network access to the storage endpoint. Agents create files using the platform's managed identity, and your own identity is used when you view them. If you see access errors when clicking file links, contact your administrator. See [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md).
+> To view output files, you need **Storage Blob Data Reader** on the storage account and network access to the storage endpoint. Agents create files using the platform's managed identity, and you use your own identity when you view them. If you see access errors when clicking file links, contact your administrator. See [Azure Blob Storage in Microsoft Discovery](how-to-configure-project-storage.md).
 
 If you're satisfied with the results, stop the Discovery Engine to prevent further resource consumption.
 

@@ -2,7 +2,7 @@
 title: Transform data using a mapping data flow
 description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flow
 author: whhender
-ms.author: whhender
+ms.author: weetok
 ms.reviewer: makromer
 ms.subservice: data-flows
 ms.topic: tutorial
@@ -16,6 +16,8 @@ ms.custom: sfi-image-nochange
 # Tutorial: Transform data using mapping data flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In this tutorial, you use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow
 

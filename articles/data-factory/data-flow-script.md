@@ -2,7 +2,7 @@
 title: Mapping data flow script
 description: Overview of Data Factory's data flow script code-behind language
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.topic: overview
 ms.date: 05/15/2024
@@ -11,6 +11,8 @@ ms.date: 05/15/2024
 # Data flow script (DFS)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 

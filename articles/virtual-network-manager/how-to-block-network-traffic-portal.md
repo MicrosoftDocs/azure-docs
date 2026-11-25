@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 07/29/2026
 ms.custom:
   - template-how-to
   - sfi-image-nochange
@@ -38,10 +38,10 @@ Before you start to configure security admin rules, confirm that you've done the
     | ------- | ----- |
     | Name | Enter the name **Deny_RDP** for the rule name. |
     | Description | Enter a description about the rule. |
-    | Priority* | Enter a value between 0 and 99 to determine the priority of the rule. The lower the value the higher the priority. Enter **1** for this example|
+    | Priority* | Enter a value between 1 and 4096 to determine the priority of the rule. The lower the value, the higher the priority. Enter **1** for this example. |
     | Action* | Select **Deny** to block traffic. For more information, see [Action](concept-security-admins.md#action)
     | Direction* | Select **Inbound** as you want to deny inbound traffic with this rule. |
-    | Protocol* | Select the **TCP** protocol. HTTP and HTTPS are TCP ports. |
+    | Protocol* | Select the **TCP** protocol. RDP uses TCP on port 3389. |
     |**Source**| |
     | Source type | Select the source type of either **IP address** or **Service tags**. |
     | Source IP addresses | This field appears when you select the source type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses separate using a comma. Leave blank for this example.|
@@ -69,8 +69,8 @@ If you just created a new security admin configuration, make sure to deploy this
 
 ## Update existing security admin configuration
 
-- If the security admin configuration you're updating is applied to a network group containing static members, you need to deploy the configuration again to take effect.
-- Security admin configurations are automatically applied to dynamic members in a network group.
+- If you update the security admin configuration itself, such as changing or adding rules, you need to deploy the configuration again for the changes to take effect. This requirement applies whether the network group has static or dynamic members.
+- If you only change dynamic network group membership without modifying the configuration, Azure Virtual Network Manager automatically applies the already-deployed security admin configuration to the newly matched members.
 
 ## Verify security admin rules
 

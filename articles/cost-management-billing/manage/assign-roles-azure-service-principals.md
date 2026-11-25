@@ -4,7 +4,7 @@ description: This article helps you assign EA roles to service principals by usi
 author: prashantsaini4
 ms.reviewer: prsaini
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.topic: how-to
 ms.date: 12/12/2025
 ms.author: prsaini

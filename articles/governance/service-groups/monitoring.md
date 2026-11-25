@@ -1,8 +1,6 @@
 ---
 title: Monitoring Service Groups with Azure Monitor
 description: Learn how to monitor the health and performance of Azure Service Groups using Azure Monitor within the Azure portal. 
-author: lauradolan
-ms.author: ladolan
 ms.service: azure-policy 
 ms.topic: how-to
 ms.date: 06/04/2026

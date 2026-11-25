@@ -3,7 +3,7 @@ title: WAF on Azure Application Gateway bot protection overview
 titleSuffix: Azure Web Application Firewall
 description: This article provides an overview of web application firewall (WAF) on Application Gateway bot protection
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 10/12/2023
@@ -12,7 +12,7 @@ ms.date: 10/12/2023
 
 # Azure Web Application Firewall on Azure Application Gateway bot protection overview
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 Roughly 20% of all Internet traffic comes from bad bots. They do things like scraping, scanning, and looking for vulnerabilities in your web application. When these bots are stopped at the Web Application Firewall (WAF), they can’t attack you. They also can’t use up your resources and services, such as your backends and other underlying infrastructure.
 

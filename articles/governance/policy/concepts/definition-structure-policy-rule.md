@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure policy rules
 description: Describes how policy definition policy rules are used to establish conventions for Azure resources in your organization.
-ms.date: 03/19/2025
+ms.date: 11/23/2026
 ms.topic: concept-article
 ---
 
@@ -90,7 +90,7 @@ When using the `match` and `notMatch` conditions, provide a hashtag (`#`) to mat
 
 ## Fields
 
-Conditions that evaluate whether the values of properties in the resource request payload meet certain criteria can be formed using a `field` expression. The following fields are supported:
+A `field` expression helps you create conditions that check if the values of properties in the resource request payload meet specific criteria. Both built-in and custom policy definitions support the following fields:
 
 - `name`
 - `fullName`
@@ -107,6 +107,15 @@ Conditions that evaluate whether the values of properties in the resource reques
   - Returns the type of [managed identity](/entra/identity/managed-identities-azure-resources/overview) enabled on the resource.
   - Valid values from managed identity: `None`, `SystemAssigned`, `SystemAssigned, UserAssigned`, and `UserAssigned`.
   - `identity.type` can be used with any supported [conditions](#conditions) of a policy rule. For example, a policy with [deny effect](./effect-deny.md) could block requests based on the existence of an identity or based on the specific value of the identity type. An example policy rule that checks for existence of `identity.type` is the built-in Policy definition [Automation Account should have Managed Identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdea83a72-443c-4292-83d5-54a2f98749c0) with ID `dea83a72-443c-4292-83d5-54a2f98749c0`.
+- `identity.userAssignedIdentities`
+  - Returns the object containing the user-assigned managed identities associated with the resource. Each key is an identity resource ID in the format `/subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}`.
+  - Use `containsKey` or `notContainsKey` to check whether a specific identity is associated with the resource. For an example, see [Modify the managed identity of a virtual machine](../tutorials/modify-virtual-machine-identity.md).
+- `extendedLocation`
+  - Returns the resource's extended location object, which contains the `name` and `type` properties.
+- `extendedLocation.name`
+  - Returns the `name` property of the resource's extended location.
+- `extendedLocation.type`
+  - Returns the `type` property of the resource's extended location, such as `EdgeZone`.
 - `tags`
   - `tags['<tagName>']`
     - This bracket syntax supports tag names that have punctuation such as a hyphen, period, or space.
@@ -670,9 +679,29 @@ The following functions are only available in policy rules:
        "in": ['userId']
     ```
     
-> [!WARNING]
-> When you use the `requestContext().identity` function, the policy engine marks the policy as `NotApplicable` for compliance evaluation/scans. As a result, compliance results for that policy show as `NotApplicable`, but enforcement of effects such as `Deny`, `DeployIfNotExists`, and `Modify` still occurs at request time.
+- `requestContext().clientIpAddress` (preview)
+  - Returns the IP address of the client that sent the request that triggered policy evaluation. This value is usually the client's public IP address (example: `203.0.113.10`).
+  - Use it with `ipRangeContains()` to allow or block requests based on where they come from, at any scope where you can assign a policy, such as a management group, subscription, or resource group. Pass your allowed or disallowed IP range as the _range_ argument and `requestContext().clientIpAddress` as the _targetRange_ argument. The existing syntax and input requirements of `ipRangeContains()` apply.
+  - Supported only in policy definitions that use the [deny](./effect-deny.md) or [denyAction](./effect-deny-action.md) effect.
+  - To block requests that come from outside an allowed IP range:
 
+    ```json
+    {
+      "value": "[ipRangeContains(parameters('allowedIPAddressRange'), requestContext().clientIpAddress)]",
+      "equals": false
+    }
+    ```
+
+  - To block requests that come from within a disallowed IP range:
+
+    ```json
+    {
+      "value": "[ipRangeContains(parameters('disallowedIPAddressRange'), requestContext().clientIpAddress)]",
+      "equals": true
+    }
+    ```
+
+    - To check more than one distinct range, such as an IPv4 range and an IPv6 range, add one condition per range. The IP address conditions can stand alone or be combined with other conditions in the policy rule to narrow enforcement to a specific set of resources. For complete policy rules, see [IP filtering policy rule examples (preview)](#ip-filtering-policy-rule-examples-preview).
 
 - `policy()`
   - Returns the following information about the policy that is being evaluated. Properties can be accessed from the returned object (example: `[policy().assignmentId]`).
@@ -690,6 +719,7 @@ The following functions are only available in policy rules:
   - `range`: [Required] string - String specifying a range of IP addresses to check if the _targetRange_ is within.
   - `targetRange`: [Required] string - String specifying a range of IP addresses to validate as included within the _range_.
   - Returns a _boolean_ for whether the _range_ IP address range contains the _targetRange_ IP address range. Empty ranges, or mixing between IP families isn't allowed and results in evaluation failure.
+  - To evaluate the IP address of the incoming request, pass `requestContext().clientIpAddress` (preview) as the _targetRange_. For more information, see [IP filtering policy rule examples (preview)](#ip-filtering-policy-rule-examples-preview).
 
   Supported formats:
   - Single IP address (examples: `10.0.0.0`, `2001:0DB8::3:FFFE`)
@@ -716,6 +746,107 @@ This policy rule example uses the `resourceGroup` resource function to get the `
   }
 }
 ```
+
+### IP filtering policy rule examples (preview)
+
+Azure Policy can allow or block requests based on the IP address they come from, at any scope where you can assign a policy, such as a management group, subscription, or resource group. To filter by IP address, combine `ipRangeContains()` with `requestContext().clientIpAddress` in a policy rule. Azure Policy then evaluates both the request header content, such as the client IP address, and the resource payload in the request body.
+
+**Single allowed IP range**
+
+This policy rule example blocks the deletion of storage accounts when the request comes from an IP address outside of the allowed IP range. Replace the resource type with the type you want to protect.
+
+```json
+{
+  "parameters": {
+    "allowedIPAddressRange": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Allowed IP address range",
+        "description": "Storage accounts can only be deleted by requests that come from within this IP address or range. Example: 203.0.113.0/24"
+      }
+    }
+  },
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Storage/storageAccounts"
+        },
+        {
+          "value": "[ipRangeContains(parameters('allowedIPAddressRange'), requestContext().clientIpAddress)]",
+          "equals": false
+        }
+      ]
+    },
+    "then": {
+      "effect": "denyAction",
+      "details": {
+        "actionNames": [
+          "delete"
+        ]
+      }
+    }
+  }
+}
+```
+
+**Multiple disallowed IP ranges**
+
+This policy rule example blocks the deletion of storage accounts when the request comes from an IP address within any of the disallowed IP ranges. Because `ipRangeContains()` accepts a single range, the rule uses one condition for the IPv4 range and one for the IPv6 range.
+
+```json
+{
+  "parameters": {
+    "disallowedIPv4AddressRange": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Disallowed IPv4 address range",
+        "description": "Example: 203.0.113.0/24"
+      }
+    },
+    "disallowedIPv6AddressRange": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Disallowed IPv6 address range",
+        "description": "Example: 2001:db8::/32"
+      }
+    }
+  },
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "equals": "Microsoft.Storage/storageAccounts"
+        },
+        {
+          "anyOf": [
+            {
+              "value": "[ipRangeContains(parameters('disallowedIPv4AddressRange'), requestContext().clientIpAddress)]",
+              "equals": true
+            },
+            {
+              "value": "[ipRangeContains(parameters('disallowedIPv6AddressRange'), requestContext().clientIpAddress)]",
+              "equals": true
+            }
+          ]
+        }
+      ]
+    },
+    "then": {
+      "effect": "denyAction",
+      "details": {
+        "actionNames": [
+          "delete"
+        ]
+      }
+    }
+  }
+}
+```
+
+To block create and update requests from the same IP ranges, use the `deny` effect instead of `denyAction`.
 
 ## Policy rule limits
 

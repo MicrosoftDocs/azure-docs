@@ -1,12 +1,12 @@
 ---
 title: Deploy Azure IoT Operations to a Production Cluster
-description: Use the Azure portal to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster.
+description: Use the Azure portal or follow the Azure CLI-only deployment path to deploy Azure IoT Operations with secure settings.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 11/18/2025
+ms.date: 11/12/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an IT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
@@ -14,7 +14,16 @@ ai-usage: ai-assisted
 
 # Deploy Azure IoT Operations to a production cluster
 
-Learn how to deploy Azure IoT Operations to a Kubernetes cluster with secure settings for production using the Azure portal.
+Learn how to deploy Azure IoT Operations to a Kubernetes cluster with secure settings for production by using the Azure portal or Azure CLI.
+
+Choose a deployment method and use the links to navigate this article:
+
+| Section | What it covers |
+| --- | --- |
+| [Prerequisites](#prerequisites) | Prepare your cluster, tools, and Azure permissions. |
+| [Deploy in Azure portal](#deploy-in-azure-portal) | Configure deployment in the portal, then run the generated Azure CLI commands. |
+| [Deploy using Azure CLI](howto-deploy-iot-operations-cli.md) | Create or select dependencies and deploy with Bash or PowerShell, without the portal wizard. |
+| [Verify deployment](#verify-deployment) | Check the deployed services for health and configuration issues. |
 
 If you deployed a [test instance](./howto-deploy-iot-test-operations.md) of Azure IoT Operations to a cluster and you want to use the same cluster for production scenarios, follow the steps in [Enable secure settings on an existing Azure IoT Operations instance](../secure-iot-ops/howto-enable-secure-settings.md).
 
@@ -37,6 +46,8 @@ Development resources:
 
 [!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
+* To deploy in Azure Government, run `az cloud set --name AzureUSGovernment` before you sign in. For other differences, see [Azure IoT Operations in Azure Government](../overview-azure-government.md#deploy-azure-iot-operations).
+
 A cluster host:
 
 * Have an Azure Arc-enabled Kubernetes cluster with the custom location and workload identity features enabled. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md).
@@ -47,9 +58,15 @@ A cluster host:
 
 ## Deploy in Azure portal
 
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
+
 ### Basics
 
 [!INCLUDE [deploy-iot-ops-portal-basics](../includes/deploy-iot-ops-portal-basics.md)]
+
+### SKU
+
+[!INCLUDE [deploy-iot-ops-portal-sku](../includes/deploy-iot-ops-portal-sku.md)]
 
 ### Configuration
 
@@ -58,12 +75,13 @@ A cluster host:
    | Parameter | Value |
    | --------- | ----- |
    | **Azure IoT Operations name** | *Optional*: Replace the default name for the Azure IoT Operations instance. |
-   | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to configure [cardinality](../deployment-plan/deployment-planning.md#understand-broker-cardinality) and [memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile) settings. To configure other settings including [disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md), [persistence](../deployment-plan/deployment-planning-persistence.md), [diagnostics](../deployment-plan/deployment-planning-diagnostics.md), and [advanced MQTT client options](../deployment-plan/deployment-planning-mqtt-options.md), see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
+   | **Cluster mode** | *Optional*: If you chose the **Standard** SKU, select either single-node cluster (default) or multi-node cluster. For **Essentials**, single-node cluster is the only option shown and can't be changed. |
+   | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to configure [cardinality](../deployment-plan/deployment-planning.md#understand-broker-cardinality), [memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile), and [persistence](../deployment-plan/deployment-planning-persistence.md) settings. To configure other settings including [disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md), [diagnostics](../deployment-plan/deployment-planning-diagnostics.md), and [advanced MQTT client options](../deployment-plan/deployment-planning-mqtt-options.md), see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
    | **Data flow profile configuration** | *Optional*: Edit the default settings for data flows. For more information, see [Configure data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
 
    :::image type="content" source="./media/howto-deploy-iot-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-operations/deploy-configuration.png":::
 
-1. Select **Next: Dependency management**.
+1. Select **Dependency management**.
 
 ### Dependency management
 
@@ -86,9 +104,9 @@ A cluster host:
 
    :::image type="content" source="./media/howto-deploy-iot-operations/deploy-dependency-management-2.png" alt-text="A screenshot that shows configuring secure settings on the third tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-operations/deploy-dependency-management-2.png":::
 
-1. Select **Next: Automation**.
+1. Select **Automation**.
 
-## Run Azure CLI commands
+### Run Azure CLI commands
 
 [!INCLUDE [deploy-iot-ops-cli-commands-intro](../includes/deploy-iot-ops-cli-commands-intro.md)]
 
@@ -113,7 +131,7 @@ A cluster host:
 1. To prepare the cluster for Azure IoT Operations deployment, copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
    > [!TIP]
-   > The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.8.0 deployed on it, you can skip this step.
+   > The `init` command only needs to be run once per cluster. If you're reusing a cluster that already has the latest version of Azure IoT Operations deployed on it, you can skip this step.
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
@@ -136,15 +154,15 @@ A cluster host:
    > [!IMPORTANT]
    > The default version of this command assigns an identity for data flows. If you plan to use data flow graphs, include the `--usage` parameter with the value `wasm-graph`.
 
-1. Restart the schema registry pods to apply the new identity. 
+1. Restart the schema registry pods to apply the new identity.
 
    ```azurecli
-   kubectl delete pods adr-schema-registry-0 adr-schema-registry-1 -n azure-iot-operations
+   kubectl rollout restart statefulset adr-schema-registry -n azure-iot-operations
    ```
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 
-Once the `create` command completes successfully, you have a working Azure IoT Operations instance running on your cluster. At this point, your instance is configured for production scenarios.
+Once all the preceding deployment, secret synchronization, identity, and restart steps complete successfully, your Azure IoT Operations instance is configured for production scenarios.
 
 ## Verify deployment
 

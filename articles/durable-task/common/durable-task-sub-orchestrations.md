@@ -4,7 +4,8 @@ title: "Sub-orchestrations in Durable Task"
 description: Learn how to use sub-orchestrations to call orchestrator functions from parent orchestrators in Durable Functions and Durable Task SDKs. Get started now.
 ms.topic: concept-article
 ms.service: durable-task
-ms.date: 04/23/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 zone_pivot_groups: azure-durable-approach
 ---
@@ -30,6 +31,8 @@ In this article:
 - [Run sub-orchestrations in parallel](#run-sub-orchestrations-in-parallel) — Fan-out pattern with deterministic instance IDs
 
 ::: zone pivot="durable-functions"
+
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
 
 > [!NOTE]
 > In PowerShell, sub-orchestrations are supported only in the standalone SDK: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK). For the differences between the standalone SDK and the legacy built-in SDK, see the [migration guide](../durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md).
@@ -178,6 +181,10 @@ public void deviceProvisioningOrchestration(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -211,7 +218,25 @@ public class DeviceProvisioningOrchestration : TaskOrchestrator<string, object?>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+```typescript
+import { OrchestrationContext, TOrchestrator } from "@microsoft/durabletask-js";
+
+const deviceProvisioningOrchestrator: TOrchestrator = async function* (
+    ctx: OrchestrationContext,
+    deviceId: string
+): any {
+    // Step 1: Create an installation package in blob storage and return a SAS URL.
+    const sasUrl: string = yield ctx.callActivity(createInstallationPackage, deviceId);
+
+    // Step 2: Notify the device that the installation package is ready.
+    yield ctx.callActivity(sendPackageUrlToDevice, { id: deviceId, url: sasUrl });
+
+    // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    yield ctx.waitForExternalEvent("DownloadCompletedAck");
+
+    // Step 4: ...
+};
+```
 
 # [Python](#tab/python)
 
@@ -233,7 +258,7 @@ def device_provisioning_orchestrator(ctx: task.OrchestrationContext, device_id: 
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 
@@ -260,6 +285,10 @@ public class DeviceProvisioningOrchestration implements TaskOrchestration {
     }
 }
 ```
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -423,6 +452,10 @@ public void provisionNewDevices(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ## Next steps
@@ -466,7 +499,20 @@ public class ProvisionNewDevices : TaskOrchestrator<object?, object?>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+```typescript
+import { OrchestrationContext, TOrchestrator, whenAll } from "@microsoft/durabletask-js";
+
+const provisionNewDevices: TOrchestrator = async function* (ctx: OrchestrationContext): any {
+    const deviceIds: string[] = yield ctx.callActivity(getNewDeviceIds);
+
+    // Run multiple device provisioning flows in parallel
+    const provisioningTasks = deviceIds.map((deviceId: string) =>
+        ctx.callSubOrchestrator(deviceProvisioningOrchestrator, deviceId)
+    );
+
+    yield whenAll(provisioningTasks);
+};
+```
 
 # [Python](#tab/python)
 
@@ -487,7 +533,7 @@ def provision_new_devices(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
@@ -509,6 +555,52 @@ public class ProvisionNewDevices implements TaskOrchestration {
     }
 }
 ```
+
+# [Go](#tab/go)
+
+The following self-contained workflow functions demonstrate parent/child composition without external device services. Register them as `ParentGreeting` and `ChildGreeting`.
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func childGreeting(ctx *task.OrchestrationContext) (any, error) {
+	var name string
+	if err := ctx.GetInput(&name); err != nil {
+		return nil, err
+	}
+	return fmt.Sprintf("Hello %s!", name), nil
+}
+
+func parentGreeting(ctx *task.OrchestrationContext) (any, error) {
+	var names []string
+	if err := ctx.GetInput(&names); err != nil {
+		return nil, err
+	}
+	pending := make([]task.Task, len(names))
+	for i, name := range names {
+		pending[i] = ctx.CallSubOrchestrator(
+			"ChildGreeting", task.WithSubOrchestratorInput(name))
+	}
+	if err := ctx.WhenAll(pending...); err != nil {
+		return nil, err
+	}
+	results := make([]string, len(pending))
+	for i, child := range pending {
+		if err := child.Await(&results[i]); err != nil {
+			return nil, err
+		}
+	}
+	return results, nil
+}
+```
+
+Schedule all children before waiting to run them in parallel. The results remain in input order. For child results, instance IDs, metadata, and failures, see the [Go SDK sub-orchestrations sample](https://github.com/microsoft/durabletask-go/tree/main/samples/suborchestrations).
 
 ---
 

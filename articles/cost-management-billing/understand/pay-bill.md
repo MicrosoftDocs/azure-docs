@@ -8,7 +8,7 @@ ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/10/2026
+ms.date: 09/16/2026
 service.tree.id: 3b35c9b8-bf14-4e4a-bc0d-21055e56b28c
 ---
 
@@ -76,6 +76,34 @@ After you submit the payment, allow time for the payment to appear in the Azure 
 #### How am I refunded if I made a payment with UPI or NetBanking?
 
 Refunds are treated as a regular charge. They go to your bank account.
+
+### Paying with Pix in Brazil
+
+Customers who have a billing address in Brazil and an MCA billing account type can use Pix for one-time payment transactions. To make a payment with Pix:
+
+1. Select **Add a new payment method** when you're making a payment.
+2. Select **PIX**.
+3. You see a QR code in the payments blade within Azure portal. Alternatively, use the payment link provided to complete the payment. The link and the QR code are valid for 24 hours.
+4. When you complete payment, the payment blade automatically closes and returns you to Azure portal.
+
+After you submit the payment, wait for the payment to appear in the Azure portal.
+
+> [!NOTE]
+> Paying with Pix is available only for MCA billing accounts. You can check your account type [here](#check-the-type-of-your-account).
+
+### Paying with Alipay in China
+
+Customers who have a billing address in China and an MCA billing account type can use Alipay for one-time payment transactions. To make a payment with Alipay:
+
+1. Select **Add a new payment method** when you're making a payment.
+2. Select **Alipay**.
+3. You're redirected to a payment partner, like Worldpay, where you can view the QR code and complete the payment with your mobile device.
+4. When you complete payment, the payment page automatically closes and returns you to Azure portal.
+
+After you submit the payment, allow time for the payment to appear in the Azure portal.
+
+> [!NOTE]
+> Paying with Alipay is available only for MCA billing accounts. You can check your account type [here](#check-the-type-of-your-account).
 
 ## Partial payments
 

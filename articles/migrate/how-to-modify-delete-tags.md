@@ -1,20 +1,19 @@
 ---
-title: Add, Edit, and Delete Tags in Azure Migrate
-description: Tags in Azure Migrate help you organize workloads for migration planning. Discover how to add, edit, and manage tags to streamline your migration process.
+title: Add, Edit, and Delete Tags in Azure Catalyst
+description: Tags in Azure Catalyst help you organize workloads for migration planning. Discover how to add, edit, and manage tags to streamline your migration process.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 04/28/2026
 ms.update-cycle: 365-days
-monikerRange:
 # Customer intent: As an IT administrator managing migration resources, I want to tag workloads with relevant attributes, so that I can enhance resource organization and visibility during the migration process.
 ---
 
-# Modify and delete Tags for Workloads in Azure Migrate
+# Modify and delete Tags for Workloads in Azure Catalyst
 
-This article explains how to update or remove existing tags associated with workloads in Azure Migrate. As your migration planning evolves, you might need to refine tag values or clean up metadata that’s no longer required. Manage these changes safely while keeping your inventory accurate and up to date.
+This article explains how to update or remove existing tags associated with workloads in Azure Catalyst. As your migration planning evolves, you might need to refine tag values or clean up metadata that’s no longer required. Manage these changes safely while keeping your inventory accurate and up to date.
 
 ## Edit tags
 
@@ -22,7 +21,7 @@ You can update the value of an existing tag by using any of the methods.
 
 To edit tags, follow these steps:
 
-1. In the Azure Migrate project, go to the **Inventory** pane.
+1. In the Azure Catalyst project, go to the **Inventory** pane.
 1. Select the workloads whose tags you want to edit.
 1. Select **Tags** and then select **Add and edit tags**.
     
@@ -36,11 +35,11 @@ To edit tags, follow these steps:
 
 ## Edit tags by using CSV export and import
 
-You can make changes to existing tags by exporting workload data to a CSV file, editing it offline, and importing the updated file back into Azure Migrate.
+You can make changes to existing tags by exporting workload data to a CSV file, editing it offline, and importing the updated file back into Azure Catalyst.
 
 To edit tags, follow these steps:
 
-1. In the Azure Migrate project, go to the **Inventory** pane, and export **All inventory** CSV file.
+1. In the Azure Catalyst project, go to the **Inventory** pane, and export **All inventory** CSV file.
 1. Open the CSV file and locate the workloads you want to update.
 1. Update the tag values as required:
     1. **Reserved tags**:
@@ -62,11 +61,11 @@ You can remove tags from workloads by using any of the methods.
 
 ### Delete tags in the Azure portal
 
-You can delete tags in the Azure portal when they're no longer needed for organizing or tracking your Azure Migrate resources.
+You can delete tags in the Azure portal when they're no longer needed for organizing or tracking your Azure Catalyst resources.
 
 To delete tags, follow these steps:
 
-1. In the Azure Migrate project, go to the **Inventory** pane.
+1. In the Azure Catalyst project, go to the **Inventory** pane.
 1. Select the workloads from which you want to remove tags.
 1. Select **Tags** and then select **Add and edit tags**.
 1. Delete the tag you want to remove:
@@ -81,7 +80,7 @@ You can delete tags in bulk by exporting workload data to a CSV file and reimpor
 
 To delete tags, follow these steps:
 
-1. In the Azure Migrate project, go to the **Inventory** pane and export the **All inventory** CSV file.
+1. In the Azure Catalyst project, go to the **Inventory** pane and export the **All inventory** CSV file.
 1. Open the exported CSV file and locate the workloads that you want to update.
 1. To remove reserved tags:
     1. For the target rows, clear the value in the **Environment** column or the **Migration Intent** column, or 
@@ -94,16 +93,16 @@ To delete tags, follow these steps:
     2. After updating the file, save it and import it again by selecting **Tags** > **Import tags**.
 
     > [!IMPORTANT]
-    > - If a workload doesn’t have an Environment value, Azure Migrate treats it as Prod by default.
-    > - If a workload doesn’t have a Migration Intent value, Azure Migrate treats it as Migrate by default.
+    > - If a workload doesn’t have an Environment value, Azure Catalyst treats it as Prod by default.
+    > - If a workload doesn’t have a Migration Intent value, Azure Catalyst treats it as Migrate by default.
 
 ## View tags
 
-This section shows how to view existing tags for workloads in Azure Migrate so you can review their current state.
+This section shows how to view existing tags for workloads in Azure Catalyst so you can review their current state.
 
 To view tags, follow these steps:
 
-1. In the Azure Migrate project, go to the **Inventory** pane.
+1. In the Azure Catalyst project, go to the **Inventory** pane.
 1. Select a workload to open its details.
 1. In the workload details view, review the assigned tags, including **Environment, Migration Intent**, and any custom tags.
 1. After applying tags, select a workload in the **Inventory** pane and confirm that the updated tags appear in the workload details view.
@@ -111,7 +110,7 @@ To view tags, follow these steps:
 
 ### Filter inventory using tags
 
-You can use tags to filter the Azure Migrate inventory and focus on specific workloads that match your criteria.
+You can use tags to filter the Azure Catalyst inventory and focus on specific workloads that match your criteria.
 
 To filter inventory using tags, follow these steps:
 
@@ -121,9 +120,11 @@ To filter inventory using tags, follow these steps:
 
 You can use tag-based filters to scope **assessments, business cases**, and **reports** to a specific subset of your inventory.
 
-## How Azure Migrate uses tags in downstream analysis
+<a name="how-azure-migrate-uses-tags-in-downstream-analysis"></a>
 
-After you apply tags to workloads, Azure Migrate uses them across downstream features to scope assessments, build business cases, plan migration waves, and generate targeted reports.
+## How Azure Catalyst uses tags in downstream analysis
+
+After you apply tags to workloads, Azure Catalyst uses them across downstream features to scope assessments, build business cases, plan migration waves, and generate targeted reports.
 
 | Downstream feature | How tags are used |
 |---|---|

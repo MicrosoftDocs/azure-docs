@@ -6,7 +6,7 @@ description: In this quickstart, learn how to create an Azure Content Delivery N
 services: cdn
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 02/28/2026

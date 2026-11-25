@@ -10,7 +10,7 @@ ms.service: entra-id
 
 ms.topic: tutorial
 ms.date: 02/19/2025
-ms.author: kengaderdus
+ms.author: diberry
 ms.reviewer: yoelh
 ms.subservice: b2c
 ms.custom:

@@ -15,13 +15,17 @@
   expanded: true
 - name: Resources
   items:
-  - name: Microsoft Threat Modeling tool
-    displayName: stride
+  - name: Microsoft threat modeling tools
+    displayName: stride, SecureDesignStudio, SDS, TMT, Threat Modeling Tool
     href: threat-modeling-tool.md
     items:
-    - name: Getting started
+    - name: Get started with SecureDesignStudio
+      href: secure-design-studio-getting-started.md
+    - name: SecureDesignStudio feature overview
+      href: secure-design-studio-feature-overview.md
+    - name: Get started with Threat Modeling Tool
       href: threat-modeling-tool-getting-started.md
-    - name: Feature overview
+    - name: Threat Modeling Tool feature overview
       href: threat-modeling-tool-feature-overview.md
     - name: Threats
       href: threat-modeling-tool-threats.md

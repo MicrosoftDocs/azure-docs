@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 06/29/2022
-ms.author: alkohli
+ms.author: scompton
 ms.custom: sfi-image-nochange
 ---
 

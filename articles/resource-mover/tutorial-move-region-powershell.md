@@ -4,8 +4,9 @@ description: Learn how to move resources across regions using PowerShell in Azur
 ms.service: azure-resource-mover
 ms.topic: tutorial
 author: RochakSingh-blr
-ms.author: v-rochak2
+ms.author: bhappayy
 ms.date: 07/31/2025
+ms.update-cycle: 1095-days
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange
@@ -155,7 +156,7 @@ Add resources as follows:
 2. Create the target resource settings object per the resource you're moving. In our case, it's a VM.
 
     ```azurepowershell-interactive
-    $targetResourceSettingsObj = New-Object Microsoft.Azure.PowerShell.Cmdlets.ResourceMover.Models.Api202101.VirtualMachineResourceSettings
+    $targetResourceSettingsObj = New-Object Microsoft.Azure.PowerShell.Cmdlets.ResourceMover.Models.VirtualMachineResourceSettings
     ```
 
 3. Set the resource type and target resource name for the object.

@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # How to collect diagnostic audio recordings
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 To debug some issue, you may need audio recordings, especially when investigating audio quality problems, such as distorted audio and echo issues.
 
 To collect diagnostic audio recordings, open the chrome://webrtc-internals(Chrome) or edge://webrtc-internals(Edge) page.

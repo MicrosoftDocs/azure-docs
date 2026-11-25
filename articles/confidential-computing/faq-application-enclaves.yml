@@ -6,7 +6,7 @@ metadata:
   ms.topic: faq
   ms.service: azure-confidential-computing
   ms.date: 11/1/2021
-  ms.author: stempesta
+  ms.author: sgallagher
 title: Frequently asked questions for application enclaves on Intel SGX confidential VMs
 summary: |
   This article provides answers to some of the most common questions about running [confidential computing workloads on Intel SGX Azure virtual machines](overview.md).

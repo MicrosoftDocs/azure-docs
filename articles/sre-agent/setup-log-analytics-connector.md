@@ -3,7 +3,7 @@ title: "Tutorial: Connect to Log Analytics & Application Insights in Azure SRE A
 description: Set up Log Analytics and Application Insights connectors so your agent can query your workspaces directly with fewer tokens.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 04/28/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -17,10 +17,13 @@ In this tutorial, you connect your agent to a Log Analytics workspace so it can 
 
 For background on why you'd add a connector when built-in observability already works, see [Log Analytics & Application Insights connectors](log-analytics-app-insights.md).
 
+> [!NOTE]
+> This article covers the legacy Log Analytics connector, which uses a workspace picker with managed identity and automatic RBAC role assignment. The connector wizard also includes Application Insights as a separate connector with its own resource picker. To connect telemetry sources through the current connector wizard, see [Connect a telemetry source](connect-telemetry-source.md).
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Add a Log Analytics connector in the Builder
+> - Add a Log Analytics connector in **Build + setup** > **Extensions** > **Connectors**
 > - Select a workspace from the auto-discovered list
 > - Verify the connection by querying logs in chat
 
@@ -33,7 +36,7 @@ You don't need to configure subscription scope or resource group access separate
 
 ## Add the connector
 
-1. Go to **Builder** > **Connectors**.
+1. Go to **Build + setup** > **Extensions** > **Connectors**.
 1. Select **Add connector**.
 1. Select **Log Analytics Workspace** (or **Application Insights** for App Insights resources).
 
@@ -61,8 +64,8 @@ After you select a workspace, a hint shows which resource groups receive RBAC ro
 ## Save and verify
 
 1. Select **Add**. The agent assigns the required RBAC roles to its managed identity and creates the connection.
-1. Confirm the connector appears in **Builder** > **Connectors** with a **Connected** status.
-1. Go to **Chat** and test the connection:
+1. Confirm the connector appears in **Build + setup** > **Extensions** > **Connectors** with a **Connected** status.
+1. Return to the main navigation with **Back**, select **New chat**, and test the connection:
 
 ```text
 What tables are available in my Log Analytics workspace?
@@ -88,6 +91,7 @@ Results appear as formatted tables with an Azure Monitor badge. The agent can no
 ## Related content
 
 - [Log Analytics & Application Insights connectors](log-analytics-app-insights.md): Capability overview
+- [Connect a telemetry source](connect-telemetry-source.md): Set up Log Analytics through managed connectors
 - [Create a scheduled task](create-scheduled-task.md): Automate recurring log queries
 - [Kusto tools](kusto-tools.md): Deterministic, parameterized queries against ADX clusters
 - [Diagnose with Azure observability](diagnose-azure-observability.md): Built-in monitoring queries

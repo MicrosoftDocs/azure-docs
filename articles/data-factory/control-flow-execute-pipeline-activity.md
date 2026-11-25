@@ -3,7 +3,7 @@ title: Execute Pipeline Activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how you can use the Execute Pipeline Activity to invoke one pipeline from another pipeline in Azure Data Factory or Synapse Analytics.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: how-to
@@ -16,6 +16,9 @@ ms.custom:
 # Execute Pipeline activity in Azure Data Factory and Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> The Fabric equivalent of Execute Pipeline activity is Invoke Pipeline activity. For configuration details, see [Invoke Pipeline activity](/fabric/data-factory/invoke-pipeline-activity).
 
 The Execute Pipeline activity allows a Data Factory or Synapse pipeline to invoke another pipeline.
 

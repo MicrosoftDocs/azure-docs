@@ -6,7 +6,7 @@ ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 11/18/2024
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -16,6 +16,8 @@ ms.custom:
 # Parameterize linked services in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 You can now parameterize a linked service and pass dynamic values at run time. For example, if you want to connect to different databases on the same logical SQL server, you can now parameterize the database name in the linked service definition. This prevents you from having to create a linked service for each database on the logical SQL server. You can parameterize other properties in the linked service definition as well - for example, *User name.*
 

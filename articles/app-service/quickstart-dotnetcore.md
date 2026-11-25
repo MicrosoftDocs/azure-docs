@@ -10,8 +10,8 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ai-usage: ai-assisted
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a .NET developer, I want to deploy a web app to Azure App Services by using my preferred development process.
@@ -123,7 +123,7 @@ You can quickly deploy the ASP.NET Core sample app in this tutorial using Azure 
 ```bash
 mkdir dotnetcore-quickstart
 cd dotnetcore-quickstart
-azd init --template https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service.git
+azd init --template https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service.git .
 azd up
 ```
 
@@ -351,20 +351,31 @@ Follow these steps to create your App Service resources and publish your project
 
    - If the `az` command isn't recognized, ensure that you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
 
-1. Use [az webapp up](/cli/azure/webapp#az-webapp-up) to deploy the code in your local *MyFirstAzureWebApp* directory:
+1. Create a resource group, an App Service plan, and a web app. Replace `<app-name>` with a name that's unique across all of Azure (valid characters are `a-z`, `0-9`, and `-`). For Linux, run:
 
    ```azurecli
-   az webapp up --sku F1 --name <app-name> --os-type <os>
+   az group create --name myResourceGroup --location eastus
+   az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku P0v3 --is-linux
+   az webapp create --name <app-name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "DOTNETCORE:10.0"
    ```
 
-   - Replace `<app-name>` with a name that's unique across all of Azure. Valid characters are `a-z`, `0-9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
-   - The `--sku F1` argument creates the web app on the **Free** [pricing tier][app-service-pricing-tier]. Omit this argument to use a faster premium tier, which incurs an hourly cost.
-   - Replace `<os>` with either `linux` or `windows`.
-   - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. To get a list of allowable regions for your Azure account, run the [az account list-locations](/cli/azure/appservice#az-appservice-list-locations) command.
+   For Windows, use the same commands but omit `--is-linux` from `az appservice plan create` and use `--runtime "DOTNET:10"` with `az webapp create`. The `--sku P0v3` argument selects the paid Premium v3 [pricing tier][app-service-pricing-tier]. Replace `eastus` with an available region, which you can list by using [`az account list-locations`](/cli/azure/account#az-account-list-locations).
 
-   The command might take a few minutes to complete. While it runs, the command provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL.
+1. From the *MyFirstAzureWebApp* directory, publish the application and create a ZIP archive of the contents of the *publish* directory (not the directory itself):
 
-1. Open a web browser and navigate to the URL. You see the ASP.NET Core 10.0 web app displayed in the page.
+   ```dotnetcli
+   dotnet publish --configuration Release --output publish
+   ```
+
+   On Linux or macOS, run `cd publish && zip -r ../app.zip . && cd ..`. On Windows, run `Compress-Archive -Path publish\* -DestinationPath app.zip` in PowerShell.
+
+1. Deploy the archive by using [az webapp deploy](/cli/azure/webapp#az-webapp-deploy):
+
+   ```azurecli
+   az webapp deploy --resource-group myResourceGroup --name <app-name> --src-path app.zip --type zip
+   ```
+
+   Open `https://<app-name>.azurewebsites.net` in a browser. You see the ASP.NET Core 10.0 web app displayed in the page.
 
    :::image type="content" source="media/quickstart-dotnetcore/web-app-net-10.png" lightbox="media/quickstart-dotnetcore/web-app-net-10.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Core 10.0 web app in Azure.":::
 
@@ -388,7 +399,7 @@ Follow these steps to create your App Service resources and publish your project
    New-AzWebApp -ResourceGroupName myResourceGroup -Name <app-name> -Location westeurope
    ```
 
-   - Replace `<app-name>` with a name that's unique across all of Azure. Valid characters are `a-z`, `0-9`, and `-` A combination of your company name and an app identifier is a good pattern.
+   - Replace `<app-name>` with a name that's unique across all of Azure. Valid characters are `a-z`, `0-9`, and `-`. A combination of your company name and an app identifier is a good pattern.
    - You can optionally include the parameter `-Location <location-name>` where `<location-name>` is an available Azure region. To get a list of allowable regions for your Azure account, run the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command.
 
    The command might take a few minutes to complete. The command creates a resource group, an App Service plan, and the App Service resource.
@@ -434,7 +445,7 @@ Follow these steps to create your App Service resources and publish your project
    ### [.NET 10](#tab/net10)
 
    - Under **Resource group**, select **Create new**. Enter *myResourceGroup* for the name.
-   - Under **Name**, enter a globally unique name for your web app.
+   - Under **Name**, enter a name for your web app.
    - Under **Publish**, select *Code*.
    - Under **Runtime stack** select *.NET 8 (LTS)*.
    - Under **Operating System**, select **Windows**. If you select **Linux**, you can't configure GitHub deployment in the next step, but you can still do it after you create the app in the **Deployment Center** page.
@@ -442,20 +453,23 @@ Follow these steps to create your App Service resources and publish your project
    - Under **App Service Plan**, select **Create new** and type *myAppServicePlan* for the name.
    - Under **Pricing plan**, select **Free F1**.
 
-   :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net-10.png" lightbox="./media/quickstart-dotnetcore/app-service-details-net-10.png" alt-text="Screenshot of new App Service app configuration for .NET 8 in the Azure portal.":::
+   :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net-10.png" lightbox="./media/quickstart-dotnetcore/app-service-details-net-10.png" alt-text="Screenshot of the Create Web App Basics tab in the Azure portal, showing the unique default hostname format for a new .NET 10 web app.":::
 
    ### [.NET Framework 4.8](#tab/netframework48)
 
    - Under **Resource group**, select **Create new**. Enter *myResourceGroup* for the name.
-   - Under **Name**, enter a globally unique name for your web app.
+   - Under **Name**, enter a name for your web app.
    - Under **Publish**, select *Code*.
    - Under **Runtime stack** select *ASP.NET V4.8*.
    - Select an **Operating System**, and a **Region** you want to serve your app from.
    - Under **App Service Plan**, select **Create new** and type *myAppServicePlan* for the name.
    - Under **Pricing plan**, select **Free F1**.
 
-   :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net-48.png" lightbox="./media/quickstart-dotnetcore/app-service-details-net-48.png" alt-text="Screenshot of new App Service app configuration for .NET Framework V4.8 in the Azure portal.":::
+   :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net-48.png" lightbox="./media/quickstart-dotnetcore/app-service-details-net-48.png" alt-text="Screenshot of the Create Web App Basics tab in the Azure portal, showing the unique default hostname format for a new .NET Framework 4.8 web app.":::
    -----
+
+   > [!NOTE]
+   > New App Service resources created in the Azure portal use a secure unique default hostname in the format `<AppName>-<Hash>.<Region>.azurewebsites.net`. This hostname is generated automatically to help prevent subdomain takeover. To learn more, see [Prevent subdomain takeovers in Azure App Service](reference-dangling-subdomain-prevention.md).
 
 1. Select the **Deployment** tab at the top of the page
 
@@ -481,7 +495,7 @@ Follow these steps to create your App Service resources and publish your project
    -----
 
    > [!NOTE]
-   > By default, the resource creation [disables basic authentication](configure-basic-auth-disable.md). It creates the GitHub Actions deployment by using a [user-assigned identity](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions). If you get a permissions error during resource creation, your Azure account might not have [enough permissions](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials). You can [configure GitHub Actions deployment later](deploy-continuous-deployment.md) with an identity generated for you by an Azure administrator, or you enable basic authentication instead.
+   > By default, the resource creation [disables basic authentication](configure-basic-auth-disable.md). It creates the GitHub Actions deployment by using a [user-assigned identity](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions). If you get a permissions error during resource creation, your Azure account might not have [enough permissions](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials). You can [configure GitHub Actions deployment later](deploy-continuous-deployment.md) with an identity generated for you by an Azure administrator, or you can enable basic authentication instead.
 
 1. Select **Review + create** at the bottom of the page.
 
@@ -506,7 +520,7 @@ Follow these steps to create your App Service resources and publish your project
 
 ## Update the app and redeploy
 
-Make a change the default page and redeploy to see the changes.
+Make a change to the default page and redeploy to see the changes.
 
 :::zone target="docs" pivot="development-environment-vs"
 
@@ -625,13 +639,19 @@ Make a change the default page and redeploy to see the changes.
    Example .NET app to Azure App Service.
    ```
 
-1. Save your changes, then redeploy the app using the `az webapp up` command again and replace `<os>` with either `linux` or `windows`.
+1. Save your changes, then publish and redeploy the updated app:
 
    ```azurecli
-   az webapp up --os-type <os>
+   dotnet publish --configuration Release --output publish
    ```
 
-   This command uses values that are cached locally in the *.azure/config* file, including the app name, resource group, and App Service plan.
+   Re-create *app.zip* from the contents of *publish* as described in [Publish your web app](#publish-your-web-app), then run:
+
+   ```azurecli
+   az webapp deploy --resource-group myResourceGroup --name <app-name> --src-path app.zip --type zip
+   ```
+
+   Replace `<app-name>` with the name you used when you created the web app.
 
 1. After deployment completes, switch back to the browser window that opened in the **Browse to the app** step, and refresh.
 
@@ -781,7 +801,7 @@ On the **App Services** page, select the name of your web app.
 
 :::image type="content" source="./media/quickstart-dotnetcore/select-app-service.png" alt-text="Screenshot of the Azure portal - App Services page with an example web app selected.":::
 
-The **Overview** page for your web app, contains options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
+The **Overview** page for your web app contains options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
 
 :::image type="content" source="media/quickstart-dotnetcore/web-app-overview-page.png" alt-text="Screenshot of the Azure portal - App Service overview page." lightbox="media/quickstart-dotnetcore/web-app-overview-page.png":::
 
@@ -802,10 +822,8 @@ The **Overview** page for your web app, contains options for basic management li
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
 
 ```azurecli
-az group delete
+az group delete --name myResourceGroup
 ```
-
-For your convenience, the [az webapp up](/cli/azure/webapp#az-webapp-up) command that you ran earlier in this project saves the resource group name as the default value whenever you run `az` commands from this project.
 
 :::zone-end
 

@@ -147,7 +147,7 @@ Every Azure Managed Grafana workspace comes pre-configured with an Azure Monitor
 
       :::image type="content" source="media/troubleshoot/troubleshoot-load-subscriptions.png" alt-text="Screenshot of the Azure Managed Grafana workspace: Load subscriptions.":::
 
-      Check if a system-assigned or a user-assigned managed identity is enabled in your workspace by going to **Settings** > **Identity (Preview)**. Go to [Set up Azure Managed Grafana authentication and permissions](how-to-authentication-permissions.md) to learn how to enable and configure the managed identity.
+      Check if a system-assigned or a user-assigned managed identity is enabled in your workspace by going to **Settings** > **Identity**. See [Configure authentication for Azure Managed Grafana](how-to-authentication-permissions.md) to learn how to enable and configure the managed identity.
 
    1. Once you've selected your subscription, select **Save & test**. If you see *No Log Analytics workspaces found*, you may need to assign the Reader role to the managed identity in the Log Analytics workspace. Open your Log Analytics workspace, go to **Settings** > **Access control (IAM)**, **Add** > **Add role assignment**.. 
  

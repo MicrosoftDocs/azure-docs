@@ -13,6 +13,23 @@ ms.custom: mode-other
 
 On this page, you can read about recent updates about Azure Web PubSub. As we make continuous improvements to the capabilities and developer experience of the service, we welcome any feedback and suggestions. Reach out to the service team at **awps@microsoft.com**
 
+## Q3 2026
+
+### Web PubSub chat is now available in public preview
+Azure Web PubSub now provides a managed chat capability for building scalable, real-time chat experiences with minimal server-side code. Purpose-built client and server APIs let you work directly with chat concepts such as rooms, messages, members, and roles.
+
+Web PubSub chat includes:
+
+- One-to-one and group conversations
+- Real-time message delivery and ordering
+- Persistent room message history
+- Built-in room membership and access control
+- Automatic reconnection and message recovery
+- Web PubSub chat runs on Azure Web PubSub infrastructure and inherits its automatic scaling, geo-replication, security, and compliance capabilities.
+
+> [!div class="nextstepaction"]
+> [Learn more about Web PubSub chat](./chat-overview.md)
+
 ## Q1 2026
 
 ### Wildcard group role patterns

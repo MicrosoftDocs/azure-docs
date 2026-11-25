@@ -3,7 +3,7 @@ title: Create and use WAF v2 custom rules on Application Gateway
 titleSuffix: Azure Web Application Firewall
 description: This article provides information on how to create Web Application Firewall (WAF) v2 custom rules in Azure Application Gateway.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 04/30/2025
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Create and use Web Application Firewall v2 custom rules on Application Gateway
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 The Web Application Firewall (WAF) v2 on Azure Application Gateway provides protection for web applications. This protection is provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). In some cases, you may need to create your own custom rules to meet your specific needs. For more information about WAF custom rules, see [Custom web application firewall rules overview](custom-waf-rules-overview.md).
 

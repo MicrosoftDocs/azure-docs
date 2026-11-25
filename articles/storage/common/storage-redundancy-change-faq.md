@@ -8,7 +8,7 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.topic: concept-article
 ms.date: 09/16/2025
-ms.author: shaas
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
 # Customer intent: "As a cloud architect, I want to evaluate Azure Storage redundancy options, so that I can choose the best replication strategy for my data durability and high availability requirements."
@@ -84,7 +84,12 @@ There are no initial costs for making zonal conversions. However, after an accou
 
 When you **add** geo-redundancy, the resulting geo conversion incurs a [geo-replication data transfer charge](https://azure.microsoft.com/pricing/details/storage/blobs/) at the time of the change. This transfer charge applies because your entire storage account is being replicated to a secondary region. Because all subsequent write operations are also replicated to the secondary region, they too are subject to the data transfer charge. 
 
-You incur no charges when you **remove** geo-redundancy, such as converting **GRS** &rarr; **LRS** or **GZRS** &rarr; **ZRS**.
+You incur no conversion charges when you **remove** geo-redundancy or zone redundancy. Examples include:
+
+- **GRS** &rarr; **LRS**
+- **GZRS** &rarr; **ZRS**
+- **ZRS** &rarr; **LRS**
+- **GZRS** &rarr; **GRS**
 
 When you remove read access from a storage account, it continues to incur charges as *RA-GRS* or *RA-GZRS* for 30 days beyond the date on which it was converted. This policy applies to **RA-GRS &rarr; GRS** or **RA-GZRS &rarr; GZRS**.
 
@@ -138,7 +143,7 @@ A direct **LRS &rarr; GZRS** conversion isn't supported. This specific conversio
 - **LRS &rarr; ZRS**, followed by **ZRS &rarr; GZRS**, or 
 - **LRS &rarr; GRS**, followed by **GRS &rarr; GZRS**.
 
-When performing an **LRS &rarr; ZRS** conversion, followed by **ZRS &rarr; GZRS**, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
+When performing an **LRS &rarr; ZRS** conversion, followed by **ZRS &rarr; GZRS**, you must wait at least 24 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
 
 ### How do I convert my account from GZRS to LRS?
 
@@ -147,7 +152,7 @@ A direct **GZRS &rarr; LRS** conversion isn't supported. This conversion require
 - **GZRS &rarr; ZRS**, followed by **ZRS &rarr; LRS**, or
 - **GZRS &rarr; GRS**, followed by **GRS &rarr; LRS**.
 
-When performing a **GZRS &rarr; GRS** conversion, followed by **GRS &rarr; LRS**, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
+When performing a **GZRS &rarr; GRS** conversion, followed by **GRS &rarr; LRS**, you must wait at least 24 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
 
 ### How do I convert my account from GRS to ZRS?
 
@@ -156,7 +161,7 @@ A direct **GRS &rarr; ZRS** conversion isn't supported. This conversion requires
 - **GRS &rarr; GZRS**, followed by **GZRS &rarr; ZRS**.
 - **GRS &rarr; LRS**, followed by **LRS &rarr; ZRS**.
 
-When performing a **GRS &rarr; GZRS conversion** followed by **GZRS &rarr; ZRS**, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
+When performing a **GRS &rarr; GZRS conversion** followed by **GZRS &rarr; ZRS**, you must wait at least 24 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
 
 When you complete the initial **GRS &rarr; LRS** conversion, your storage account temporarily becomes **LRS**, a lower redundancy option. This option offers less durability and availability.
 
@@ -167,7 +172,7 @@ A direct **ZRS &rarr; GRS** conversion isn't supported. This conversion requires
 - **ZRS &rarr; GZRS**, followed by **GZRS &rarr; GRS**, or
 - **ZRS &rarr; LRS**, followed by **LRS &rarr; GRS**.
 
-When performing a **ZRS &rarr; LRS** conversion followed by **LRS &rarr; GRS**, you must wait at least 72 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
+When performing a **ZRS &rarr; LRS** conversion followed by **LRS &rarr; GRS**, you must wait at least 24 hours between the conversions. This temporary delay ensures the consistency and integrity of the account by allowing background processes to complete before making another change.
 
 When you complete the initial **ZRS &rarr; LRS** conversion, your storage account is temporarily held in **LRS**, a lower redundancy option. This option offers much less durability and availability.
 
@@ -179,7 +184,6 @@ As with [conversion duration](#how-long-does-the-sku-conversion-process-take), t
 
 Zonal conversions involve adding or removing availability zone options to your account. The following list highlights the most common conflicting features or scenarios that can generate errors when attempting a zonal conversion. If you encounter an error, the error message typically provides details about the specific conflict.
 
-- **Object Replication:** Zonal conversions on accounts with object replication (OR) might generate an error. In this case, you can delete your account's OR policies and attempt the conversion again.
 - **NFSv3:** NFSv3 can't be unconfigured. To convert an NFSv3-enabled account to ZRS, you need to perform a *manual migration*. Manual migrations utilize a feature or tool such as AzCopy to migrate the data of your current storage account to a different storage account with the desired redundancy. To learn more about using AzCopy, see [Use AzCopy to copy blobs](storage-use-azcopy-blobs-copy.md).
 - **Archive data:** Accounts containing data within the archive tier can generate errors. Before converting, you should rehydrate archive data to either the cold, cool, or hot tier, and then retry your conversion. You can also delete any archived data before converting.
 - **NFSv4 accounts with public endpoints:** You might encounter issues when attempting to migrate a storage account with a public endpoint. You should disable access to the storage account's public endpoints before retrying your conversion. You can read more about changing account replication in the [Change how a storage account is replicated](redundancy-migration.md) article.

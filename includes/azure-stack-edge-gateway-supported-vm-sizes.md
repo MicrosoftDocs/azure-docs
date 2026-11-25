@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 01/19/2024
-ms.author: alkohli
+ms.author: scompton
 ---
 
 The VM size determines the amount of compute resources (like CPU, GPU, and memory) that are made available to the VM. You should create virtual machines by using a VM size appropriate for the workload. Even though all machines will be running on the same hardware, machine sizes have different limits for disk access. This can help you manage overall disk access across your VMs. If a workload increases, you can also resize an existing virtual machine.

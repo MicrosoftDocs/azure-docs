@@ -1,9 +1,9 @@
 ---
 title: Secure access to MCP servers in Azure API Management
-description: Learn how secure access to MCP servers managed in Azure API Management.
+description: Learn how to secure access to MCP servers managed in Azure API Management.
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/10/2025
+ms.date: 09/11/2026
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ms.custom:
@@ -13,7 +13,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-With  [MCP server support in API Management](mcp-server-overview.md), you can expose and govern access to MCP servers and their tools. This article describes how to secure access to MCP servers managed in API Management, including both MCP servers exposed from managed REST APIs and existing MCP servers hosted outside of API Management.
+By using [MCP server support in API Management](mcp-server-overview.md), you can expose and govern access to MCP servers and their tools. This article describes how to secure access to MCP servers managed in API Management, including both MCP servers exposed from managed REST APIs and existing MCP servers hosted outside of API Management.
 
 You can secure either or both inbound access to the MCP server (from an MCP client to API Management) and outbound access (from API Management to the MCP server).
 
@@ -21,7 +21,7 @@ You can secure either or both inbound access to the MCP server (from an MCP clie
 
 ### Key-based authentication
 
-If the MCP server is protected with an API Management subscription key passed in a `Ocp-Apim-Subscription-Key` header, MCP clients can present the key in the incoming requests, and the MCP server can validate the key. For example, in Visual Studio Code, you can add a `headers` section to the MCP server configuration to require the subscription key in the request headers:
+If the MCP server is protected with an API Management subscription key passed in the `Ocp-Apim-Subscription-Key` header, MCP clients can present the key in incoming requests, and API Management validates the key. For example, in Visual Studio Code, you can add a `headers` section to the MCP server configuration to include the subscription key in request headers:
 
 ```json
 {
@@ -37,12 +37,12 @@ If the MCP server is protected with an API Management subscription key passed in
 ```
 
 > [!NOTE]
-> Securely manage subscription keys using Visual Studio Code workspace settings or secure inputs. 
+> Securely manage subscription keys by using Visual Studio Code workspace settings or secure inputs. 
 >
  
 ### Token-based authentication (OAuth 2.1 with Microsoft Entra ID)
 
-MCP clients can present OAuth tokens or JWTs issued by Microsoft Entra ID using an `Authorization` header and validated by API Management. 
+MCP clients can present OAuth tokens or JWTs issued by Microsoft Entra ID by using an `Authorization` header and validated by API Management. 
 
 For example, use the [validate-azure-ad-token](validate-azure-ad-token-policy.md) policy to validate Microsoft Entra ID tokens:
 
@@ -56,9 +56,9 @@ For example, use the [validate-azure-ad-token](validate-azure-ad-token-policy.md
 
 ### Forward tokens to backend
 
-Request headers are automatically forwarded (with certain exclusions) to MCP tool invocations, simplifying integration with downstream APIs that rely on headers for routing, context, or authentication. 
+Request headers are automatically forwarded (with certain exclusions) to MCP tool invocations. This feature simplifies integration with downstream APIs that rely on headers for routing, context, or authentication. 
 
-If you require explicit forwarding of the `Authorization` header to validate incoming requests, you can use one of the following approaches:
+If you need to explicitly forward the `Authorization` header to validate incoming requests, use one of the following approaches:
 
 * Explicitly define `Authorization` as a required header in the API settings and forward the header in the `Outbound` policy. 
 
@@ -71,7 +71,7 @@ If you require explicit forwarding of the `Authorization` header to validate inc
     </set-header> 
     ```
 
-* Use API Management credential manager and policies (`get-authorization-context`, `set-header`) to securely forward the token. See [Secure outbound access](#secure-outbound-access) for details.
+* Use API Management credential manager and policies (`get-authorization-context`, `set-header`) to securely forward the token. To learn more, see [Secure outbound access](#secure-outbound-access).
 
 
 For more inbound authorization options and samples, see:
@@ -86,9 +86,9 @@ For more inbound authorization options and samples, see:
 
 ## Secure outbound access
 
-Use API Management's [credential manager](credentials-overview.md) to securely inject OAuth 2.0 tokens for backend API requests made by MCP server tools. 
+Use API Management's [credential manager](credentials-overview.md) to securely inject OAuth 2.0 tokens for backend API requests that MCP server tools make. 
 
-### Steps to configure OAuth 2-based outbound access
+### Steps to configure OAuth 2.0-based outbound access
 
 **Step 1:** Register an application in the identity provider. 
 

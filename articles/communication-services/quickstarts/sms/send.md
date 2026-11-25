@@ -16,6 +16,8 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 
 # Send an SMS message
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 > [!IMPORTANT]
 > SMS capabilities depend on the phone number you use and the country/region that you're operating within as determined by your Azure billing address. For more information, see [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md).
 

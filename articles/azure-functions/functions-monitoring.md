@@ -3,7 +3,7 @@ title: Monitor executions in Azure Functions
 description: Learn how to use Azure Application Insights with Azure Functions to monitor function executions. Application Insights collects log, performance, and error data.
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: concept-article
-ms.date: 05/07/2025
+ms.date: 09/15/2026
 ms.custom:
   - devx-track-csharp
   - fasttrack-edit
@@ -42,7 +42,7 @@ To learn how to configure OpenTelemetry in your function app, see [Use OpenTelem
 
 You can try out Application Insights integration with Azure Functions for free featuring a daily limit to how much data is processed for free.
 
-If you enable Applications Insights during development, you might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs don't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Application Insights billing](/azure/azure-monitor/logs/cost-logs#application-insights-billing).
+If you enable Application Insights during development, you might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs don't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Application Insights billing](/azure/azure-monitor/logs/cost-logs#application-insights-billing).
 
 > [!IMPORTANT]
 > Application Insights has a [sampling](/azure/azure-monitor/app/sampling) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. Sampling is enabled by default. If you appear to be missing data, you might need to adjust the sampling settings to fit your particular monitoring scenario. To learn more, see [Configure sampling](configure-monitoring.md#configure-sampling).
@@ -55,33 +55,12 @@ Typically, you create an Application Insights instance when you create your func
 > [!IMPORTANT]
 > Sovereign clouds, such as Azure Government, require the use of the Application Insights connection string (`APPLICATIONINSIGHTS_CONNECTION_STRING`) instead of the instrumentation key. To learn more, see the [APPLICATIONINSIGHTS_CONNECTION_STRING reference](functions-app-settings.md#applicationinsights_connection_string).
 
-The following table details the supported features of Application Insights available for monitoring your function apps:
+The following Application Insights features are available for monitoring your function apps:
 
-| Azure Functions runtime version   | 1.x     | 4.x+ |
-|-----------------------------------|:---------------:|:------------------:|
-| | | |
-| **Automatic  collection of**        |               |                  |
-| &bull; Requests                     | ✓           | ✓              |
-| &bull; Exceptions                   | ✓           | ✓              |
-| &bull; Performance Counters         | ✓           | ✓              |
-| &bull; Dependencies                 |               |                  |
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |               | ✓              |
-| &nbsp;&nbsp;&nbsp;&mdash; Service Bus|               | ✓              |
-| &nbsp;&nbsp;&nbsp;&mdash; Event Hubs  |               | ✓              |
-| &nbsp;&nbsp;&nbsp;&mdash; SQL\*       |               | ✓              |
-| | | | 
-| **Supported features**              |               |                  |
-| &bull; QuickPulse/LiveMetrics       | Yes           | Yes              |
-| &nbsp;&nbsp;&nbsp;&mdash; Secure Control Channel |               | Yes |
-| &bull; Sampling                     | Yes           | Yes              |
-| &bull; Heartbeats                   | | Yes              |
-| | | |
-| **Correlation**                    |               |                  |
-| &bull; Service Bus                  |               | Yes              |
-| &bull; Event Hubs                    |               | Yes              |
-| | | | 
-| **Configurable**                  |               |                  |
-| &bull;[Fully configurable](#custom-telemetry-data)           |               | Yes                 |
+- Automatic collection of requests, exceptions, performance counters, and HTTP, Service Bus, Event Hubs, and SQL dependencies.
+- QuickPulse/Live Metrics with a secure control channel, sampling, and heartbeats.
+- Correlation for Service Bus and Event Hubs.
+- [Fully configurable](#custom-telemetry-data) telemetry collection.
 
 \* To enable the collection of SQL query string text, see [Enable SQL query collection](./configure-monitoring.md#enable-sql-query-collection).
 
@@ -133,9 +112,9 @@ You can also use language-specific classic Application Insights SDKs, but these 
 - [Log custom telemetry in JavaScript functions](functions-reference-node.md#track-custom-data) 
 - [Log custom telemetry in Python functions](functions-reference-python.md#logging-and-monitoring)
 
-### Performance Counters
+### Performance counters
 
-Automatic collection of Performance Counters isn't supported when running on Linux.
+Automatic collection of performance counters isn't supported when running on Linux.
 
 ## Writing to logs
 

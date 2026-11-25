@@ -1,41 +1,37 @@
 ---
-title: 'Tutorial: De-identify Multiple Documents with the De-identification Service in Python'
-description: Learn how to bulk de-identify documents with the asynchronous de-identification service in Python.
+title: "Tutorial: De-identify Multiple Documents with the De-identification Service in Python"
+description: Learn how to bulk de-identify documents in Azure Storage with the asynchronous de-identification service and Python SDK. Follow this step-by-step tutorial.
 author: LeaKass
 ms.author: leakassab
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: tutorial
-ms.date: 10/23/2025
+ms.date: 11/05/2026
 
 #customer intent: As an IT admin, I want to de-identify multiple documents with the de-identification service in Python.
 
 ---
 
-# Tutorial: De-identify multiple documents with the asynchronous de-identification service
+# Tutorial: De-identify multiple documents with the asynchronous de-identification service in Python
 
-In this tutorial, you learn how to configure and run the Azure Health Data Services de-identification service via the asynchronous (Batch) API.
+In this tutorial, you learn how to de-identify multiple documents in Azure Storage by using the Azure Health Data Services de-identification service asynchronous (batch) API and the Python SDK.
 
-The Azure Health Data Services de-identification service can de-identify documents in Azure Storage via an asynchronous job. If you have many documents that you want to de-identify, using a job is a good option. Jobs also provide consistent surrogation, which means that surrogate values in the de-identified output match across all documents. For more information about de-identification, including consistent surrogation, see [What is the de-identification service?](overview.md)
+The Azure Health Data Services de-identification service can de-identify documents in Azure Storage by using an asynchronous job. If you have many documents that you want to de-identify, using a job is a good option. Jobs also provide consistent surrogation, which means that surrogate values in the de-identified output match across all documents. For more information about de-identification, including consistent surrogation, see [What is the de-identification service?](overview.md)
 
 When you choose to store documents in Azure Blob Storage, you're charged based on Azure Storage pricing. This cost isn't included in the de-identification service pricing. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs).
 
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* A de-identification service with a system-assigned managed identity. To create one, use the following steps. For more information, see [Deploy the de-identification service](quickstart.md).
+* The [Azure CLI](/cli/azure/install-azure-cli). After you install it, open your terminal of choice. This tutorial uses Azure PowerShell.
+* Python 3.15 or later.
 
-  1. In the top search bar, enter **De-identification**.
-  1. Select **De-identification Services** from the search results.
-  1. Select **Create**.
-  1. Fill in required subscription and instance details.
-  1. Select **Review + create**, and then select **Create**.
-  1. After deployment is finished, go to the resource and copy your service URL and subscription ID.
+## Deploy a de-identification service
 
-  > [!IMPORTANT]
-  > To use the Batch (asynchronous) API with the multilingual model, ensure that you have the DeID Batch Data Owner role assigned to your identity in **Access Control (IAM)**.
+Deploy a de-identification service with a system-assigned managed identity. To create one, see [Deploy the de-identification service](quickstart.md). After deployment finishes, go to the resource and copy your service URL and subscription ID.
 
-* Installation of the [Azure CLI](/cli/azure/install-azure-cli). After you install it, open your terminal of choice. In this tutorial, we use Azure PowerShell.
+> [!IMPORTANT]
+> To use the batch (asynchronous) API with the multilingual model, ensure that you have the **DeID Batch Data Owner** role assigned to your identity in **Access Control (IAM)**.
 
 ## Create a storage account and container
 
@@ -89,24 +85,28 @@ Next, you upload a document that contains synthetic protected health information
     az storage blob upload --data $DocumentContent --account-name $StorageAccountName --container-name deidtest --name deidsample_fr.txt --auth-mode login
     ```
 
-## Grant the de-identification service access to the storage account
+## Grant the de-identification service access to the container
 
 In this step, you grant role-based access to the container for the system-assigned managed identity of the de-identification service.
 
-You grant the Storage Blob Data Contributor role because the de-identification service reads the original document and writes the de-identified output documents.
+You grant the **Storage Blob Data Contributor** role because the de-identification service reads the original document and writes the de-identified output documents. Assign the role at the container scope so that the service can access only this container.
 
 Substitute the name of your de-identification service for the `<deid_service_name>` placeholder:
 
 ```powershell
 $DeidServicePrincipalId=$(az resource show -n <deid_service_name> -g $ResourceGroup --resource-type microsoft.healthdataaiservices/deidservices --query identity.principalId --output tsv)
-az role assignment create --assignee $DeidServicePrincipalId --role "Storage Blob Data Contributor" --scope $StorageAccountId
+$ContainerScope = "$StorageAccountId/blobServices/default/containers/deidtest"
+az role assignment create --assignee $DeidServicePrincipalId --role "Storage Blob Data Contributor" --scope $ContainerScope
 ```
 
-To verify that the de-identification service has access to the storage account, you can check on the Azure portal under **storage accounts**. On the **Storage center** and **Resources** tab, select your storage account name. Select **Access control (IAM)**. In the search bar, search for the name of your de-identification service (`$ResourceGroup`).
+> [!IMPORTANT]
+> Batch jobs access storage as the service's managed identity. Anyone who can create jobs can read and write any location that the managed identity can access. Assign storage roles at the narrowest scope that your jobs need. For more information, see [Storage access for batch jobs](manage-access-rbac.md#storage-access-for-batch-jobs).
+
+To verify that the de-identification service has access to the container, check on the Azure portal under **storage accounts**. On the **Storage center** and **Resources** tab, select your storage account name, and then select the `deidtest` container. Select **Access control (IAM)**. In the search bar, search for the name of your de-identification service (`$ResourceGroup`).
 
 ## Configure network isolation on the storage account
 
-Next, you update the storage account to disable public network access and allow access only from trusted Azure services such as the de-identification service.
+Next, update the storage account to disable public network access and allow access only from trusted Azure services such as the de-identification service.
 
 After you run this command, you can't view the storage container contents without setting a network exception.
 
@@ -213,10 +213,10 @@ curl -X GET \
 
 ## Clean up resources
 
-After you're finished with the storage account, you can delete the storage account and role assignments:
+When you finish using the storage account, delete the storage account and role assignments.
 
 ```powershell
-az role assignment delete --assignee $DeidServicePrincipalId --role "Storage Blob Data Contributor" --scope $StorageAccountId
+az role assignment delete --assignee $DeidServicePrincipalId --role "Storage Blob Data Contributor" --scope $ContainerScope
 az role assignment delete --assignee $UserId --role "Storage Blob Data Contributor" --scope $StorageAccountId
 az storage account delete --ids $StorageAccountId --yes
 ```

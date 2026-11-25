@@ -3,7 +3,7 @@ title: include file
 description: include file
 author: dominicbetts
 ms.topic: include
-ms.date: 06/03/2026
+ms.date: 08/03/2026
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.custom:
@@ -13,7 +13,7 @@ ms.custom:
 If you want to remove the Azure IoT Operations deployment but keep your cluster, use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command:
 
    ```azurecli
-   az iot ops delete --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
+  az iot ops delete --name $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP
    ```
 
 If you want to delete all the resources you created for this quickstart, delete the Kubernetes cluster where you deployed Azure IoT Operations and then remove the Azure resource group that contained the cluster.

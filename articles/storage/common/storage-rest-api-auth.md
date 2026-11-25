@@ -8,7 +8,7 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/01/2019
-ms.author: shaas
+ms.author: normesta
 ms.reviewer: ozge
 ms.subservice: storage-common-concepts
 ms.devlang: csharp

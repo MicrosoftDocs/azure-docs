@@ -3,7 +3,7 @@ title: Azure Monitor alerts in Azure SRE Agent
 description: Learn how Azure SRE Agent uses Azure Monitor alerts to detect incidents, acknowledge them automatically, and start investigations without managing credentials.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 04/24/2026
+ms.date: 10/28/2026
 author: dm-chelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -19,7 +19,7 @@ Azure Monitor alerts tell you when something changes. Azure SRE Agent turns that
 This integration is designed for teams that already rely on Azure Monitor and want faster incident handling without adding another credential set or manually triaging repeated alerts.
 
 > [!TIP]
-> - Connect Azure Monitor from **Builder > Incident platform** and use the agent's managed identity for authentication.
+> - Connect Azure Monitor from **Incidents** > **Connect an incident platform** and use the agent's managed identity for authentication.
 > - The scanner checks for new alerts every minute and starts investigations automatically.
 > - Repeated firings from the same alert rule merge into one investigation thread instead of creating duplicate work.
 > - [Incident response plans](incident-response-plans.md) control which severities the agent handles and whether it acts autonomously or waits for approval.
@@ -62,7 +62,7 @@ If alerts don't appear after you connect Azure Monitor, verify the following con
 
 ## Get started
 
-Connect Azure Monitor from **Builder > Incident platform** and save. Alerts for subscriptions in scope begin flowing to the agent within a few minutes.
+Open **Incidents**, select **Connect an incident platform**, choose **Azure Monitor**, and complete the wizard. If another platform is connected, use its connection menu to disconnect it first. Alerts for subscriptions in scope begin flowing to the agent within a few minutes.
 
 | Resource | What you learn |
 |---|---|

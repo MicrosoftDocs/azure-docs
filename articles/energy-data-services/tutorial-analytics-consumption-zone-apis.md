@@ -3,7 +3,7 @@ title: 'Tutorial: Use Analytics Consumption Zone APIs in Azure Data Manager for 
 description: Learn how to use the Analytics Consumption Zone APIs to create, list, get details of, and delete Analytics Consumption Zone instances in Azure Data Manager for Energy.
 ms.service: azure-data-manager-energy
 ms.topic: tutorial
-ms.date: 05/17/2026
+ms.date: 10/30/2026
 ms.author: nsannala
 author: NSannala
 ms.reviewer: 
@@ -16,11 +16,6 @@ ms.reviewer:
 
 This tutorial shows how to use the Analytics Consumption Zone (ACZ) management APIs in Azure Data Manager for Energy. You create, list, retrieve, and delete ACZ instances by using cURL.
 
-> [!IMPORTANT]
-> Analytics Consumption Zone is currently in preview. For legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-During the preview, ACZ is available only on Developer tier instances and requires the use of allow lists. Follow the guidance in [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md), and contact your Microsoft representative.
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -32,7 +27,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Data Manager for Energy (Developer tier) instance in your Azure subscription. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
+- An Azure Data Manager for Energy (Developer or Standard tier) instance in your Azure subscription. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - ACZ enabled for your instance. See [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md).
 - The Azure CLI installed and authenticated (`az login`).
 - cURL (for Bash examples) or PowerShell 5.1+ (for PowerShell examples).
@@ -60,7 +55,7 @@ Use the Create ACZ API to set up a new ACZ instance for a data partition.
 
 #### Key points
 
-- A maximum of three ACZ instances per data partition (preview limit).
+- You can have up to three ACZ instances per data partition.
 - The ACZ name must be unique within the partition.
 - The user-assigned managed identity must be:
   - Assigned to your Azure Data Manager for Energy resource (see [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)).
@@ -147,10 +142,10 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Post -Header
 | `{acz-name}` | Display name for the ACZ instance (1-100 characters, for example, `my-acz-wells-and-logs`). |
 | `{acz-type}` | Optional: `LATEST_VERSION` (default) exports only the latest version, and `ALL_VERSIONS` exports all versions. |
 | `{storage-resource-id}` | Azure resource ID of the destination Data Lake Storage Gen2 storage account (for example, `/subscriptions/xxx.../storageAccounts/mystorageacct`). |
-| `{base-path}` | Optional: Base path within the storage account for ACZ data output (for example, `acz-output`). |
+| `{base-path}` | Optional: Storage location for ACZ output (for example, `acz-output` or `acz-output/workbench`). The first segment is the container name; ACZ creates the container if it doesn't exist. The first segment must be a valid container name. For naming rules, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Any remaining segments are folders. ACZ writes data to `<basePath>/<aczId>/`. If you omit `basePath`, ACZ creates a container named after the `aczId` and writes data to `<aczId>/<aczId>/`. If you use the Swagger UI, replace the placeholder value `string`; otherwise, ACZ creates a container named `string`. |
 | `allCatalogSync` | Optional (default: `false`). When set to `true`, exports all catalog kinds from the partition. Specified *outside* the `configuration` section. When `true`, `catalogKinds` and `wellboreDDMSKinds` in configuration are ignored for catalog data. |
 | `{catalog-kinds}` | Optional: OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`). Ignored if `allCatalogSync` is `true`. |
-| `{wellbore-ddms-kinds}` | Optional: Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). File downloads occur only for kinds listed here. |
+| `{wellbore-ddms-kinds}` | Optional (preview): Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). File downloads occur only for kinds listed here. |
 
 > [!TIP]
 > **Export all catalog data:**  Set `"allCatalogSync": true` (outside the `configuration` section) to export all catalog kinds from your data partition. When enabled, the `catalogKinds` and `wellboreDDMSKinds` arrays in configuration are ignored for catalog data. Wellbore DDMS bulk file downloads still occur only for kinds listed in `wellboreDDMSKinds`.
@@ -186,9 +181,11 @@ You must provide at least one of the following options:
     ]
   },
   "historicalSnapshotStatus": "PROCESSING",
+  "maintenance": [],
   "createdTs": "2026-03-31T10:00:00Z",
   "updatedTs": "2026-03-31T10:00:00Z",
-  "createdBy": "user@contoso.com"
+  "createdBy": "user@contoso.com",
+  "catalogSchemaVersion": 2
 }
 ```
 
@@ -271,9 +268,11 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Get -Headers
         ]
       },
       "historicalSnapshotStatus": "PROCESSING",
+      "maintenance": [],
       "createdTs": "2026-03-31T10:00:00Z",
       "updatedTs": "2026-03-31T10:00:00Z",
-      "createdBy": "user@contoso.com"
+      "createdBy": "user@contoso.com",
+      "catalogSchemaVersion": 2
     },
     {
       "aczId": "acz-xyz789ghi012",
@@ -293,9 +292,24 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Get -Headers
         ]
       },
       "historicalSnapshotStatus": "COMPLETED",
+      "maintenance": [
+        {
+          "activity": "OPTIMIZE_Z_ORDER",
+          "status": "SUCCEEDED",
+          "lastAttemptTs": "2026-04-01T03:00:00Z",
+          "lastSuccessfulTs": "2026-04-01T03:00:12Z"
+        },
+        {
+          "activity": "VACUUM",
+          "status": "SUCCEEDED",
+          "lastAttemptTs": "2026-04-01T03:00:12Z",
+          "lastSuccessfulTs": "2026-04-01T03:00:13Z"
+        }
+      ],
       "createdTs": "2026-03-31T09:00:00Z",
       "updatedTs": "2026-03-31T09:45:00Z",
-      "createdBy": "user@contoso.com"
+      "createdBy": "user@contoso.com",
+      "catalogSchemaVersion": 2
     }
   ],
   "count": 2
@@ -384,13 +398,33 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs/{acz-id}" -Method Get
     ]
   },
   "historicalSnapshotStatus": "COMPLETED",
+  "maintenance": [
+    {
+      "activity": "OPTIMIZE_Z_ORDER",
+      "status": "SUCCEEDED",
+      "lastAttemptTs": "2026-04-01T03:00:00Z",
+      "lastSuccessfulTs": "2026-04-01T03:00:12Z"
+    },
+    {
+      "activity": "VACUUM",
+      "status": "SUCCEEDED",
+      "lastAttemptTs": "2026-04-01T03:00:12Z",
+      "lastSuccessfulTs": "2026-04-01T03:00:13Z"
+    }
+  ],
   "createdTs": "2026-03-31T10:00:00Z",
   "updatedTs": "2026-03-31T10:30:00Z",
-  "createdBy": "user@contoso.com"
+  "createdBy": "user@contoso.com",
+  "catalogSchemaVersion": 2
 }
 ```
 
 To track ACZ provisioning, check the `status` and `historicalSnapshotStatus` fields.
+
+The response also includes:
+
+- `catalogSchemaVersion`: The schema version of the `osducatalog` table. New ACZ instances use version 2, which adds the `modifyUser` and `modifyTime` columns. For details, see [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md).
+- `maintenance`: The status of the Delta table maintenance activities that ACZ runs (`OPTIMIZE_Z_ORDER` and `VACUUM`), including the last attempt time and the last successful run time. The array is empty until the first maintenance run.
 
 ## Delete an ACZ instance
 
@@ -469,6 +503,9 @@ The ACZ APIs return the following error codes.
 
 ## Related content
 
+- [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
+- [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md)
 - [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
-- [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
+- [Connect ACZ data to Snowflake](how-to-connect-analytics-consumption-zone-to-snowflake.md)
+- [Entitlements export in Analytics Consumption Zone (preview)](concepts-analytics-consumption-zone-entitlements.md)

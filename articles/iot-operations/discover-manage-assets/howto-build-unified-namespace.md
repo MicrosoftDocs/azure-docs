@@ -38,6 +38,10 @@ This article describes how to design and implement a UNS by using asset definiti
 - An MQTT client to validate the namespace. The validate step uses `mosquitto_sub` from the [Mosquitto](https://mosquitto.org/download/) `mosquitto-clients` package. For alternative options, see [Tips and tools for troubleshooting your Azure IoT Operations instance](../troubleshoot/tips-tools.md).
 - An Azure role that allows you to create assets in the Azure IoT Operations namespace, such as **Contributor** on the namespace resource (or a custom role with `Microsoft.DeviceRegistry/namespaces/assets/write`). For role guidance, see [Custom RBAC roles for Azure IoT Operations](../reference/custom-rbac.md).
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the `BROKER_HOST` environment variable for the MQTT broker hostname. Set it before you run the related command.
+
 ## Design your namespace hierarchy
 
 Before you create assets, agree on a topic hierarchy. The hierarchy is the contract between OT, IT, and the business units that consume the data. Each level becomes a branch in the MQTT topic tree that a downstream service can subscribe to.
@@ -107,14 +111,14 @@ The following example shows an OPC UA asset for one oven that publishes its data
 
 # [Azure CLI](#tab/cli)
 
-Replace `<RESOURCE_GROUP>` and `<INSTANCE_NAME>` with your own values before you run the commands. The `dataset add` command uses an empty `--data-source` because the OPC UA node IDs are supplied on each datapoint:
+Make sure you set the `AIO_INSTANCE_NAME` and `RESOURCE_GROUP` environment variables as described in the prerequisites before you run the commands. The `dataset add` command uses an empty `--data-source` because the OPC UA node IDs are supplied on each datapoint:
 
 ```azurecli
 # Create the asset
 az iot ops ns asset opcua create \
   --name oven-1 \
-  --instance <INSTANCE_NAME> \
-  -g <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  -g $RESOURCE_GROUP \
   --device opc-ua-connector \
   --endpoint opc-ua-connector-0 \
   --description 'Oven 1'
@@ -122,8 +126,8 @@ az iot ops ns asset opcua create \
 # Add the dataset and point it at the UNS path for this asset
 az iot ops ns asset opcua dataset add \
   --asset oven-1 \
-  --instance <INSTANCE_NAME> \
-  -g <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  -g $RESOURCE_GROUP \
   --name oven \
   --data-source "" \
   --dest topic="contoso/redmond/building1/line1/ovens/oven-1" retain=Never qos=Qos1 ttl=3600
@@ -131,16 +135,16 @@ az iot ops ns asset opcua dataset add \
 # Add data points to the dataset
 az iot ops ns asset opcua datapoint add \
   --asset oven-1 \
-  --instance <INSTANCE_NAME> \
-  -g <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  -g $RESOURCE_GROUP \
   --dataset oven \
   --name temperature \
   --data-source "ns=3;s=FastUInt10"
 
 az iot ops ns asset opcua datapoint add \
   --asset oven-1 \
-  --instance <INSTANCE_NAME> \
-  -g <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  -g $RESOURCE_GROUP \
   --dataset oven \
   --name energy-use \
   --data-source "ns=3;s=FastUInt100"
@@ -152,8 +156,8 @@ Verify the dataset destination by using the `show` command:
 az iot ops ns asset opcua dataset show \
   --asset oven-1 \
   --name oven \
-  -g <RESOURCE_GROUP> \
-  --instance <INSTANCE_NAME>
+  -g $RESOURCE_GROUP \
+  --instance $AIO_INSTANCE_NAME
 ```
 
 The command returns the dataset, including the destination topic you set:
@@ -246,7 +250,7 @@ The Azure IoT Operations namespace and the custom location must already exist in
 
     ```azurecli
     az deployment group create \
-      --resource-group <RESOURCE_GROUP> \
+      --resource-group $RESOURCE_GROUP \
       --template-file oven.bicep
     ```
 
@@ -255,8 +259,8 @@ The Azure IoT Operations namespace and the custom location must already exist in
     ```azurecli
     az iot ops ns asset opcua show \
       --name oven-1 \
-      -g <RESOURCE_GROUP> \
-      --instance <INSTANCE_NAME>
+      -g $RESOURCE_GROUP \
+      --instance $AIO_INSTANCE_NAME
     ```
 ---
 
@@ -305,7 +309,7 @@ To confirm the namespace is populated correctly, use an MQTT client to subscribe
 1. Subscribe to `#` to see every published topic, or subscribe to a branch such as `contoso/redmond/+/+/ovens/#` to see only oven data for the Redmond site. The following example uses `mosquitto_sub` against the broker's default TLS listener on port 8883. Replace `<broker-host>` with the broker's hostname or IP address and `<ca.pem>` with the broker's CA certificate. If your deployment exposes a non-TLS listener, drop `--cafile` and use the matching port instead.
 
     ```bash
-    mosquitto_sub -h <broker-host> -p 8883 -t '#' --cafile /var/run/certs/ca.crt
+    mosquitto_sub -h $BROKER_HOST -p 8883 -t '#' --cafile /var/run/certs/ca.crt
     ```
 
 1. Verify that each asset appears at its expected branch and that no messages arrive on unexpected paths. Unexpected topics usually indicate a misconfigured dataset destination or a topic mapping prefix that doesn't match the design.

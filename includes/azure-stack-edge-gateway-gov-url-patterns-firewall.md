@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/13/2023
-ms.author: alkohli
+ms.author: scompton
 ---
 
 |    URL pattern                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Component or functionality                                                                           |

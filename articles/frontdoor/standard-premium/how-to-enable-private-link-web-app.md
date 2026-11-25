@@ -3,7 +3,7 @@ title: Connect Azure Front Door to an App Service Origin
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a web app or function app privately.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 07/31/2025
@@ -181,7 +181,7 @@ az afd origin create --enabled-state Enabled \
 1. Use the [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) cmdlet to approve the private endpoint connection.
 
     ```azurepowershell-interactive
-    Approve-AzPrivateEndpointConnection -ResourceId '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/webapp1/privateEndpointConnections/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1'
+    Approve-AzPrivateEndpointConnection -ResourceId '/subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/webapp1/privateEndpointConnections/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1'
     ```
 
 1. Use the [Get-AzPrivateEndpointConnection](/powershell/module/az.network/get-azprivateendpointconnection) cmdlet to verify the status of the private endpoint connection.

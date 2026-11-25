@@ -355,11 +355,11 @@ Using Command Line Tool
 1. `ktutil`
   
    ```
-   ktutil: addent -password -p espkafkauser@TEST.COM -k 1 -e RC4-HMAC 
-   Password for espkafkauser@TEST.COM: 
+    ktutil: addent -password -p <username>@<DOMAIN.COM> -k 1 -e RC4-HMAC
+    Password for <username>@<DOMAIN.COM>:
    ktutil: wkt user1.keytab 
    ktutil: q 
-   kinit –kt espkafkauser.keytab espkafkauser@TEST.COM 
+    kinit –kt espkafkauser.keytab <username>@<DOMAIN.COM>
    ```
 
 1. `klist` again to check kerberos cached ticket.
@@ -376,7 +376,7 @@ Using Command Line Tool
       useKeyTab=true
       storeKey=true
       keyTab="/home/sshuser/espkafkauser.keytab"
-      principal="espkafkauser@TEST.COM";
+            principal="<username>@<DOMAIN.COM>";
    };
    ```
       

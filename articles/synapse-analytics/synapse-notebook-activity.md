@@ -2,12 +2,12 @@
 title: Transform data by running a Synapse notebook
 description: In this article, you learn how to create and develop a Synapse notebook activity and a Synapse pipeline.
 services: synapse analytics 
-author: ruixinxu 
+author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline 
 ms.topic: concept-article 
 ms.date: 12/11/2024
-ms.author: ruxu 
+ms.author: juluczni
 ms.custom: sfi-image-nochange
 ---
 
@@ -69,6 +69,8 @@ a = 1
 b = 3
 c = "Default Value"
 ```
+
+For parameter names, start with an ASCII letter (`A`-`Z` or `a`-`z`) or an underscore (`_`). Use only ASCII letters, digits (`0`-`9`), and underscores for the remaining characters. For example, use `customer_id` or `_run_date`. Don't use spaces, hyphens, periods, line breaks, or non-ASCII characters, such as in `customer id`, `customer-id`, `customer.id`, or `café`. Match each name exactly in the notebook's parameter cell and the pipeline's base parameters. This guidance applies to parameter names, not parameter values.
 
 You can reference these parameters in other cells and when you run the notebook to use the default values you specify in the parameters cell.
 

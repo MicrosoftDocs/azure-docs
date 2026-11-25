@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/15/2021
-ms.author: alkohli
+ms.author: scompton
 ---
 
 Depending on the operating system of client, the procedures to remotely connect to the device are different.

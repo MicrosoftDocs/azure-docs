@@ -1,8 +1,8 @@
 ---
 title: Integrate Application Performance Monitoring into Container Images
 description: Describes how to integrate application performance monitoring into container images.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article

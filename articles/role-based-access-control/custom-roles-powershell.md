@@ -8,7 +8,7 @@ ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 12/01/2023
-ms.author: rolyon
+ms.author: diberry
 ms.reviewer: bagovind
 ms.custom: devx-track-azurepowershell
 ---
@@ -269,7 +269,7 @@ PS C:\> Get-AzSubscription -SubscriptionName Production3
 
 Name     : Production3
 Id       : 22222222-2222-2222-2222-222222222222
-TenantId : 99999999-9999-9999-9999-999999999999
+TenantId : aaaabbbb-0000-cccc-1111-dddd2222eeee
 State    : Enabled
 
 PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"
@@ -304,7 +304,7 @@ PS C:\> Get-AzManagementGroup
 Id          : /providers/Microsoft.Management/managementGroups/marketing-group
 Type        : /providers/Microsoft.Management/managementGroups
 Name        : marketing-group
-TenantId    : 99999999-9999-9999-9999-999999999999
+TenantId    : aaaabbbb-0000-cccc-1111-dddd2222eeee
 DisplayName : Marketing group
 
 PS C:\> $role = Get-AzRoleDefinition "Virtual Machine Operator"

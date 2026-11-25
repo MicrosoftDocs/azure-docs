@@ -14,7 +14,7 @@ metadata:
     - ignite-2023
     - build-2024
     - build-2025
-  ms.date: 09/15/2025
+  ms.date: 07/29/2026
   
 highlightedContent:
 
@@ -29,16 +29,11 @@ highlightedContent:
 productDirectory:
   title: Available Services
   items:
-    - title: Arize AI
-      imageSrc: ./media/index/arize-ai.svg
-      links: 
-      - url: ./arize-ai/overview.md
-        text: Develop, debug, and improve AI applications with enterprise quality using observability and evaluation tools.
-    - title: Astro
-      imageSrc: ./media/index/astronomer.svg
+    - title: Commvault Cloud
+      imageSrc: ./media/index/commvault.png
       links:
-        - url: ./astronomer/astronomer-overview.md
-          text: Deploy a fully managed and seamless Apache Airflow on Astro on Azure.
+        - url: ./commvault/overview.md
+          text: Protect, recover and manage your Azure workloads directly in Azure Portal with Commvault's Azure-Native and fully managed cyber-resilience service.
     - title: Confluent
       imageSrc: ./media/index/confluent.svg
       links:
@@ -49,7 +44,7 @@ productDirectory:
       links:
         - url: ./datadog/overview.md
           text: Cloud-scale observability and security for your Azure, hybrid, or multicloud environment to troubleshoot quickly, increase uptime, and control costs.
-    - title: Dell PowerScale Preview
+    - title: Dell PowerScale
       imageSrc: ./media/index/dell.svg
       links:
         - text: Scalable, high-performance enterprise file storage. 
@@ -69,16 +64,16 @@ productDirectory:
       links:
         - url: ./informatica/informatica-overview.md
           text: A comprehensive AI-powered cloud data management platform for data and application integration, data quality, data governance and privacy, and master data management.
-    - title: LambdaTest - HyperExecute
-      imageSrc: ./media/index/lambda-test.svg
-      links: 
-        - url: ./lambda-test/overview.md
-          text: An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.
     - title: MongoDB Atlas
       imageSrc: ./media/index/mongo-db.svg
       links:
         - url: ./mongo-db/overview.md
           text: A fully managed document database with native vector search support for AI applications.    
+    - title: Napster API
+      imageSrc: ./media/index/napster.svg
+      links:
+        - url: ./napster/overview.md
+          text: Build, deploy, and operate persistent multimodal AI agents across video, voice, text, and telephony channels.
     - title: New Relic
       imageSrc: ./media/index/new-relic.svg
       links:
@@ -94,7 +89,7 @@ productDirectory:
       links:
         - url: ./palo-alto/palo-alto-overview.md
           text: Protect your organization with a next generation firewall solution integrated with Azure.
-    - title: Pure Storage
+    - title: Everpure Cloud
       imageSrc: ./media/index/pure-storage.svg
       links:
         - url: pure-storage/overview.md
@@ -104,5 +99,3 @@ productDirectory:
       links:
         - url: ./qumulo/qumulo-overview.md
           text: Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.
-
-

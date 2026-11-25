@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Bastion using PowerShell.
 author: asudbring
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 03/03/2025
+ms.date: 08/10/2026
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
@@ -133,10 +133,12 @@ You can create a VM using the [Quickstart: Create a VM using PowerShell](/azure/
 
 The following required roles for your resources.
 
-* Required VM roles:
+* Required roles:
 
   * Reader role on the virtual machine.
   * Reader role on the NIC with private IP of the virtual machine.
+  * Reader role on the Azure Bastion resource.
+  * Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
 
 * Required inbound ports:
 

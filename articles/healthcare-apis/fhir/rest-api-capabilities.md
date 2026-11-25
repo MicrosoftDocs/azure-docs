@@ -234,7 +234,7 @@ Content-type: `application/fhir+json`
 }
 ```
 
-Set the `application/fhir+json` Content-Type header for any FHIRPath Patch operations. FHIRPatch Patch supports add, insert, delete, remove, and move operations. You can also easily integrate FHIRPatch Patch operations into Bundles. 
+Set the `application/fhir+json` Content-Type header for any FHIRPath Patch operations. FHIRPath Patch supports add, insert, delete, remove, and move operations. You can also easily integrate FHIRPath Patch operations into Bundles. 
 
 For more examples, see the sample [FHIRPath Patch REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/FhirPatchRequests.http).
 
@@ -304,6 +304,11 @@ By default, any change to a resource, including metadata-only changes, creates a
 ```rest
 PATCH <fhir server>/Patient/test-patient?_meta-history=false
 ```
+
+## Resource ID
+
+
+FHIR service randomly generates resource id ([Logical ID](https://www.hl7.org/fhir/R4/resource.html#id)) when customer creates a resource. Customers may provide their own FHIR resource IDs when using update operations. **Resource IDs are technical identifiers and must not contain or infer Protected Health Information (PHI) or Personally Identifiable Information (PII).**
 
 ## Related content
 

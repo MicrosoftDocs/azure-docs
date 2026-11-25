@@ -1,12 +1,12 @@
 ---
-title: Support for physical discovery and assessment in Azure Migrate and Modernize
-description: 'Learn about support for physical discovery and assessment with Azure Migrate: Discovery and assessment.'
+title: Support for physical discovery and assessment in Azure Catalyst
+description: 'Learn about support for physical discovery and assessment with Azure Catalyst: Discovery and assessment.'
 author: molishv
 ms.author: molir
 ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1095-days
 ms.date: 04/04/2025
 ms.custom: engagement-fy23, linux-related-content
@@ -15,9 +15,9 @@ ms.custom: engagement-fy23, linux-related-content
 
 # Support matrix for physical server discovery and assessment
 
-This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool. If you want to migrate physical servers to Azure, see the [migration support matrix](migrate-support-matrix-physical-migration.md).
+This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure by using the [Azure Catalyst: Discovery and assessment](migrate-services-overview.md) tool. If you want to migrate physical servers to Azure, see the [migration support matrix](migrate-support-matrix-physical-migration.md).
 
-To assess physical servers, you create a project and add the Azure Migrate: Discovery and assessment tool to the project. After you add the tool, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises servers and sends servers metadata and performance data to Azure. After discovery is finished, you gather discovered servers into groups and run an assessment for a group.
+To assess physical servers, you create a project and add the Azure Catalyst: Discovery and assessment tool to the project. After you add the tool, you deploy the [Azure Catalyst appliance](migrate-appliance.md). The appliance continuously discovers on-premises servers and sends servers metadata and performance data to Azure. After discovery is finished, you gather discovered servers into groups and run an assessment for a group.
 
 ## Limitations
 
@@ -25,7 +25,7 @@ Support | Details
 --- | ---
 Assessment limits | You can discover and assess up to 35,000 physical servers in a single [project](migrate-support-matrix.md#project).
 Project limits | You can create multiple projects in an Azure subscription. In addition to physical servers, a project can include servers on VMware and on Hyper-V, up to the assessment limits for each.
-Discovery | The Azure Migrate appliance can discover up to 1,000 physical servers.
+Discovery | The Azure Catalyst appliance can discover up to 1,000 physical servers.
 Assessment | You can add up to 35,000 servers in a single group.<br/><br/> You can assess up to 35,000 servers in a single assessment.
 
 [Learn more](concepts-assessment-calculation.md) about assessments.
@@ -35,17 +35,19 @@ Assessment | You can add up to 35,000 servers in a single group.<br/><br/> You c
 - **Physical server deployment:** The physical server can be standalone or deployed in a cluster.
 - **Type of servers:** Bare-metal servers, virtualized servers running on-premises, or other clouds like Amazon Web Services (AWS), Google Cloud Platform (GCP), and Xen.
    > [!Note]
-   > Currently, Azure Migrate doesn't support the discovery of paravirtualized servers.
+   > Currently, Azure Catalyst doesn't support the discovery of paravirtualized servers.
 
 - **Operating system:** All Windows and Linux operating systems can be assessed for migration.
 
     [!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
-As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
+As a result, Azure Catalyst doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
 
-## Azure Migrate appliance requirements
+<a name="azure-migrate-appliance-requirements"></a>
 
-Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a virtual machine (VM) or a physical server.
+## Azure Catalyst appliance requirements
+
+Azure Catalyst uses the [Azure Catalyst appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a virtual machine (VM) or a physical server.
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---physical) for physical servers.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
@@ -58,16 +60,16 @@ The following table summarizes port requirements for assessment.
 
 Device | Connection
 --- | ---
-Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app by using the URL ``` https://<appliance-ip-or-name>:44368 ```.<br/><br/> Outbound connections on ports 443 (HTTPS) to send discovery and performance metadata to Azure Migrate and Modernize.
+Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app by using the URL ``` https://<appliance-ip-or-name>:44368 ```.<br/><br/> Outbound connections on ports 443 (HTTPS) to send discovery and performance metadata to Azure Catalyst.
 Physical servers | **Windows**: Inbound connections on the WinRM port 5986 (HTTPS) are used to pull configuration and performance metadata from Windows servers. <br/><br/> If the HTTPS prerequisites aren't configured on the target Hyper-V servers, the appliance communication will fall back to WinRM port 5985 (HTTP).<br/><br/> To enforce HTTPS communication without fallback, toggle the Appliance Config Manager. <br/><br/> After enabling, ensure that the prerequisites are configured on the target servers. <br/><br/> - If certificates aren't configured on the target servers, discovery will fail on both the currently discovered servers and the newly added servers. <br/><br/> - WinRM HTTPS requires a local computer Server Authentication certificate with a common name (CN) matching the hostname. The certificate must not be expired, revoked, or self-signed. Refer to the [article](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) for configuring WinRM for HTTPS.<br/><br/> - Linux: Inbound connections on port 22 (TCP) to pull configuration and performance metadata from Linux servers. |
 
 ## Software inventory requirements
 
-In addition to discovering servers, Azure Migrate: Discovery and assessment can perform software inventory on servers. Software inventory provides the list of applications, roles, and features running on Windows and Linux servers that are discovered by using Azure Migrate and Modernize. It helps you to identify and plan a migration path tailored for your on-premises workloads.
+In addition to discovering servers, Azure Catalyst: Discovery and assessment can perform software inventory on servers. Software inventory provides the list of applications, roles, and features running on Windows and Linux servers that are discovered by using Azure Catalyst. It helps you to identify and plan a migration path tailored for your on-premises workloads.
 
 Support | Details
 --- | ---
-Supported servers | You can perform software inventory on up to 1,000 servers discovered from each Azure Migrate appliance.
+Supported servers | You can perform software inventory on up to 1,000 servers discovered from each Azure Catalyst appliance.
 Operating systems | Servers running all Windows and Linux versions that meet the server requirements and have the required access permissions are supported.
 Server requirements | Windows servers must have PowerShell remoting enabled and PowerShell version 2.0 or later installed. <br/><br/> WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.<br/><br/> Linux servers must have SSH connectivity enabled and ensure that the following commands can be executed on the Linux servers to pull the application data: list, tail, awk, grep, locate, head, sed, ps, print, sort, uniq. Based on the OS type and the type of package manager used, here are some more commands: rpm/snap/dpkg, yum/apt-cache, mssql-server.
 Windows server access | A guest user account for Windows servers.
@@ -94,7 +96,7 @@ Supported SQL configuration | Discovery of standalone, highly available, and dis
 Supported SQL services | Only SQL Server Database Engine is supported. <br /><br /> Discovery of SQL Server Reporting Services, SQL Server Integration Services, and SQL Server Analysis Services isn't supported.
 
 > [!NOTE]
-> By default, Azure Migrate uses the most secure way of connecting to SQL instances. That is, Azure Migrate and Modernize encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the `TrustServerCertificate` property to `true`. Also, the transport layer uses Secure Socket Layer to encrypt the channel and bypass the certificate chain to validate trust. For this reason, the appliance server must be set up to trust the certificate's root authority.
+> By default, Azure Catalyst uses the most secure way of connecting to SQL instances. That is, Azure Catalyst encrypts communication between the Azure Catalyst appliance and the source SQL Server instances by setting the `TrustServerCertificate` property to `true`. Also, the transport layer uses Secure Socket Layer to encrypt the channel and bypass the certificate chain to validate trust. For this reason, the appliance server must be set up to trust the certificate's root authority.
 >
 > However, you can modify the connection settings by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
@@ -282,9 +284,9 @@ Use the following sample scripts to create a login and provision it with the nec
 
 ## Web apps discovery requirements
 
-[Software inventory](how-to-discover-applications.md) identifies the web server role that exists on discovered servers. If a server is found to have a web server installed, Azure Migrate and Modernize discovers web apps on the server.
+[Software inventory](how-to-discover-applications.md) identifies the web server role that exists on discovered servers. If a server is found to have a web server installed, Azure Catalyst discovers web apps on the server.
 
-You can add both domain and nondomain credentials on the appliance. Ensure that the account used has local admin privileges on the source servers. Azure Migrate and Modernize automatically maps credentials to the respective servers, so you don't have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
+You can add both domain and nondomain credentials on the appliance. Ensure that the account used has local admin privileges on the source servers. Azure Catalyst automatically maps credentials to the respective servers, so you don't have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
 
 After the appliance is connected, it gathers configuration data for ASP.NET web apps (IIS web server) and Java web apps (Tomcat servers). Web apps configuration data is updated once every 24 hours.
 
@@ -302,7 +304,7 @@ Required privileges | The least privileged user should be a part of the two user
 
 ## Dependency analysis requirements (agentless)
 
-[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers. You can easily visualize dependencies with a map view in an Azure Migrate project. You can use dependencies to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis.
+[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers. You can easily visualize dependencies with a map view in an Azure Catalyst project. You can use dependencies to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis.
 
 Support | Details
 --- | ---

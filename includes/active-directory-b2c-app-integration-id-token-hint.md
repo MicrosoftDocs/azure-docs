@@ -4,7 +4,7 @@ ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 06/11/2021
-ms.author: kengaderdus
+ms.author: diberry
 # Used by Azure AD B2C app integration articles under "App integration".
 ---
 ## Pass an ID token hint

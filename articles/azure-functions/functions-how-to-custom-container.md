@@ -1,7 +1,7 @@
 ---
 title: Work with Azure Functions in Containers
 description: Learn how to work with containerized function apps running in Linux containers in an Azure Container Apps environment.
-ms.date: 03/13/2026
+ms.date: 11/09/2026
 ms.topic: how-to
 zone_pivot_groups: functions-container-hosting
 ms.custom:
@@ -28,6 +28,9 @@ This article demonstrates the support that Azure Functions provides for function
 
 Choose the hosting environment for your containerized function app at the top of this article.
 
+> [!IMPORTANT]
+> This article uses a complete Function App container image that includes the Functions host and is intended for Azure Container Apps or an Azure Functions Premium or Dedicated plan. Flex Consumption uses a worker-only container model and a different Dockerfile and deployment workflow. For Flex Consumption, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
+
 If you want to jump right in, the following article shows you how to create your first function in a Linux container and deploy the image from a container registry to a supported Azure hosting service:
 
 :::zone pivot="container-apps"
@@ -40,7 +43,7 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 :::zone-end
 >
 >[!IMPORTANT]
->This article currently shows how to connect to the default storage account by using a connection string. For the best security, instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see [Connections](./functions-reference.md#connections).
+>This article currently shows how to connect to the default storage account by using a connection string. For the best security, instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see [Connections](./manage-connections.md).
 
 <a name="creating-containerized-function-apps"></a>
 
@@ -204,7 +207,7 @@ The following steps create and deploy an existing containerized function app fro
     | **Pricing plan** | Elastic Premium EP1 | `EP1` is the most affordable plan. You can choose a larger plan if you need to. |
     | **Zone Redundancy** | Disabled | You don't need this feature in a nonproduction app. |
 
-1. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insight instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
+1. Accept the default options of creating a new storage account on the **Storage** tab and a new Application Insights instance on the **Monitoring** tab. You can also choose to use an existing storage account or Application Insights instance.
 
 1. Select **Review + create** to review the app configuration selections.
 
@@ -297,7 +300,7 @@ The new image is deployed to your app based on your new settings.
 
 ## Use Container Apps workload profiles
 
-Workload profiles are feature of Container Apps that let you better control your deployment resources. Azure Functions on Azure Container Apps also supports workload profiles. For more information, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md).
+Workload profiles are a feature of Container Apps that let you better control your deployment resources. Azure Functions on Azure Container Apps also supports workload profiles. For more information, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md).
 
 You can also set the amount of CPU and memory resources allocated to your app.
 
@@ -341,8 +344,10 @@ When you create a containerized function app in an environment that has workload
 
 Azure Functions lets you work with application settings for containerized function apps in the standard way. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
-> [!TIP]  
-> By default, a containerized function app monitors port 80 for incoming requests. If your app must use a different port, use the [`WEBSITES_PORT` application setting](../app-service/reference-app-settings.md#custom-containers) to change this port.
+Keep these considerations in mind when you configure application settings:
+
+- Don't use the `WEBSITE_RUN_FROM_PACKAGE` app setting for a containerized function app. This setting applies to package-based code deployments. When you convert an existing code-based function app to use a custom container, remove `WEBSITE_RUN_FROM_PACKAGE`. Otherwise, the Functions host might continue to use content from the previously deployed package instead of the content in your container image.
+- By default, a containerized function app monitors port 80 for incoming requests. If your app must use a different port, use the [`WEBSITES_PORT` application setting](../app-service/reference-app-settings.md#custom-containers) to change this port.
 
 :::zone pivot="container-apps"
 

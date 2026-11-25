@@ -2,7 +2,7 @@
 title: Azure Service Bus Geo-Replication | Microsoft Docs
 description: How to use geographical regions to promote between regions in Azure Service Bus for metadata and data
 ms.topic: article
-ms.date: 07/15/2025
+ms.date: 11/02/2026
 ms.custom:
   - references_regions
 ---
@@ -22,15 +22,12 @@ This feature allows you to promote any secondary region to primary, at any time.
 :::image type="content" source="./media/service-bus-geo-replication/geo-replication-overview.png" alt-text="Diagram showing Geo-Replication with a primary region (East US) replicating to a secondary region (East US 2), with clients connected to the primary.":::
 
 > [!NOTE]
-> - This feature is available for the Premium tier of Azure Service Bus.
+> - This feature is available for the Premium tier of Azure Service Bus, including [partitioned namespaces](enable-partitions-premium.md).
 > - Currently only a single secondary region is supported.
 
 > [!IMPORTANT]
 > - You can't use this feature in combination with the [Azure Service Bus Geo-Disaster Recovery](service-bus-geo-dr.md) feature.
-> - The following features aren't currently available yet. The product team is continuously working on bringing more features and will update this list with the latest status.
->     - Large messages aren't supported yet.
->     - Geo-Replication on [partitioned namespaces](enable-partitions-premium.md) is still in public preview.
->     - Using Geo-Replication together with a [network security perimeter](network-security-perimeter.md) isn't supported yet. You can't enable Geo-Replication on a namespace that's associated with a network security perimeter, or associate a Geo-Replication enabled namespace with one.
+> - Large messages aren't supported yet.
 > - When you perform a failover, the timer for entities that have auto-delete on idle enabled is reset and starts over.
 > - When you enable Event Grid integration on a namespace that uses Geo-Replication, note the following:
 >   - Event Grid replicates to the [geo-paired location](/azure/reliability/reliability-event-grid#set-up-disaster-recovery), not the secondary region set up for geo-replication.
@@ -246,9 +243,29 @@ resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2025-05-01-preview
 
 ---
 
+## Validate Geo-Replication configuration
+
+To identify Service Bus namespaces with a configured secondary region, open [Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal) in the Azure portal, select the subscriptions used by your workload, and run the following query:
+
+```kusto
+Resources
+| where type =~ 'microsoft.servicebus/namespaces'
+| where sku.name =~ 'Premium'
+| mv-expand replica = properties.geoDataReplication.locations
+| where replica.roleType =~ 'Secondary'
+| project id, name, resourceGroup, subscriptionId,
+    secondaryRegion = tostring(replica.locationName)
+```
+
+The query returns only Premium namespaces that have a `Secondary` entry in `properties.geoDataReplication.locations`. A namespace with only a primary entry doesn't qualify. Each result identifies the namespace by its resource ID, name, resource group, and subscription, and shows its configured secondary region in `secondaryRegion`.
+
+If a namespace doesn't appear in the results, no matching secondary configuration is visible to you in the selected subscription scope. This absence isn't proof that the configuration doesn't exist. Azure Resource Graph indexes resource changes asynchronously, so verify the current configuration on the namespace's **Geo-Replication** page in the Azure portal.
+
+This query assesses configuration, not replication health or readiness for promotion. Use [Monitoring data replication](#monitoring-data-replication) to check replication lag, and check the [secondary region state](#management) on the namespace's **Geo-Replication** page before initiating a promotion.
+
 ## Management
 
-After you create a namespace with the Geo-Replication feature enabled, you can manage the feature from the **Geo-Replication** blade. 
+After you create a namespace with the Geo-Replication feature enabled, you can manage the feature from the **Geo-Replication** blade.
 
 The secondary region can be in one of the following states:
 
@@ -310,7 +327,7 @@ You can automate promotion either with monitoring systems or with custom-built m
 
 ### Using the Azure portal
 
-In the portal, select the **Promote** icon, and follow the instructions in the pop-up pane to delete the region. 
+In the portal, select the **Promote** icon, and follow the instructions in the pop-up pane to delete the region.
 
 :::image type="content" source="./media/service-bus-geo-replication/promote-secondary-region.png" alt-text="Screenshot showing the flow to promote secondary region." lightbox="./media/service-bus-geo-replication/promote-secondary-region.png":::
 
@@ -323,27 +340,37 @@ az servicebus namespace failover --namespace-name <your-namespace-name> --resour
 ```
 
 ### Monitoring data replication
-You can monitor the progress of the replication job by checking the replication lag metrics. For a complete list of available metrics, see [Service Bus metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-servicebus-namespaces-metrics).
+Monitor replication with the lag metrics in Azure Monitor. For the available aggregations and dimensions, see [Service Bus metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-servicebus-namespaces-metrics).
 
 Two replication lag metrics are available, both reported per entity (the `EntityName` dimension):
 
-- **ReplicationLagDuration** – the replication lag in seconds, that is, how far behind the secondary region is from the primary. This metric is the recommended metric for monitoring your recovery point objective (RPO) and for configuring alerts. When the lag reaches the configured maximum, the primary throttles incoming requests.
-- **ReplicationLagCount** – the number of pending replication operations by which the secondary region is behind the primary. Use it as a relative indicator of replication backlog: a sustained increase means the secondary is falling behind. This value reflects internal replication-log operations, not a count of unreplicated messages.
+- **ReplicationLagDuration** - the time-based distance, in seconds, represented by outstanding replication work between the primary and secondary regions. Use it to monitor your recovery point objective (RPO) in time and to configure time-based alerts. It isn't the time since the last message was sent or an exact estimate of how long catch-up takes. When lag reaches the configured maximum, the primary throttles incoming requests.
+- **ReplicationLagCount** - the number of outstanding replication-log operations, including message and message-state changes. Use it alongside duration to identify a growing backlog. It isn't a count of unreplicated messages, and neither metric predicts the exact number of messages that a forced promotion might lose.
+
+During initial synchronization or rebuilding, duration can represent an estimated catch-up time and count can represent the workload measured at the start of synchronization. Interpret these values separately from steady-state replication lag.
+
+The **Replication lag** value beside a secondary region on the **Geo-Replication** page shows the largest current duration across the namespace's queues and topics. The historical chart on that page instead shows the **Maximum** of `ReplicationLagDuration` within each chart interval. A historical peak can remain visible after current lag has decreased. If the current value shows `--`, the service can't determine the aggregate lag; `--` doesn't mean zero. The configured maximum replication lag is a separate setting, not a measured value.
 
 #### View replication lag in the Azure portal
 To monitor replication lag in the Azure portal:
 1. Go to your Service Bus namespace in the Azure portal.
 1. Select **Metrics** under the **Monitoring** section.
-1. Select the **ReplicationLagDuration** metric from the dropdown.
-1. The chart displays the replication lag between primary and secondary regions in seconds.
+1. Select **ReplicationLagDuration** to view time-based lag in seconds, or **ReplicationLagCount** to view outstanding replication operations.
+1. Split or filter the chart by **EntityName** to find the entities contributing to lag. Select **Maximum** to inspect peaks and compare them with **Minimum** to distinguish short spikes from sustained lag.
 
-You can also set up alerts on this metric to be notified when lag exceeds a threshold.
+#### Configure replication lag alerts
+Use `ReplicationLagDuration` for time-based RPO alerts. Choose a threshold in **seconds** that reflects your acceptable lag, and monitor the `EntityName` dimension so an affected entity isn't hidden by an aggregate. Use **Maximum** in a chart to investigate peaks, but avoid a static alert on **Maximum** over a long lookback period when you need a *sustained* breach: even one short peak can keep that window above the threshold. For periodic workloads, compare the duration chart with count and the current lag before treating a peak as an ongoing replication delay. **Average** can hide a brief but significant peak.
+
+To alert on sustained lag with a fixed threshold, create an [Azure Monitor metric alert rule](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule) for `ReplicationLagDuration` with **Static** threshold, **Greater than**, and **Minimum** aggregation over a lookback period such as 10 to 15 minutes. Check every minute and tune both the threshold and lookback period to your workload and RPO. This condition fires when the reported lag stays above the threshold throughout the lookback window, rather than when a single peak occurs. If you also alert on `ReplicationLagCount`, use it as a supporting indicator of persistent replication work, not as a message-loss or time-based RPO threshold.
+
+> [!NOTE]
+> The **Number of violations** and **Evaluation period** options for consecutive breaches apply to *dynamic-threshold* metric alerts. A dynamic threshold adapts to observed behavior; use a static threshold with **Minimum** over the lookback period when you need to enforce a fixed time-based limit.
 
 #### View replication lag in Log Analytics
 To use Log Analytics for querying and historical analysis:
-1. Enable Metrics logs in your Service Bus namespace as described in [Monitor Azure Service Bus](monitor-service-bus.md). 
-1. After you enable Metrics logs, you need to produce and consume data from the namespace for a few minutes before you start to see the logs. 
-1. To view Metrics logs, go to the Monitoring section of Service Bus and select the **Logs** blade. You can use the following query to find the replication lag (in seconds) between the primary and secondary regions. 
+1. Enable Metrics logs in your Service Bus namespace as described in [Monitor Azure Service Bus](monitor-service-bus.md).
+1. After you enable Metrics logs, you need to produce and consume data from the namespace for a few minutes before you start to see the logs.
+1. To view Metrics logs, go to the Monitoring section of Service Bus and select the **Logs** blade. You can use the following query to find the replication lag (in seconds) between the primary and secondary regions.
 
 ```kusto
 AzureMetrics
@@ -361,13 +388,9 @@ Keep the following considerations in mind when using this feature:
 ## Pricing
 The Premium tier for Service Bus is priced per [Messaging Unit](service-bus-premium-messaging.md#how-many-messaging-units-are-needed). With the Geo-Replication feature, each replica runs on the same number of MUs as configured on the primary, and you're charged for the total MUs across all replicas. Additionally, there's a charge based on the data replicated to secondary replicas. The data transfer rate is determined by the zone where the primary region is located at the time of replication. For current pricing details, including data transfer rates, see the [Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/).
 
-You can calculate the total cost as follows:
-</br>
-(number of replicas x MUs configured on primary x hours x hourly rate per MU) + (GBs replicated x data transfer rate per GB)
+You can calculate the total cost as follows: </br> (number of replicas x MUs configured on primary x hours x hourly rate per MU) + (GBs replicated x data transfer rate per GB)
 
-For example, if you have 2 MUs configured on the primary namespace with 10 GB of data replicated:
-</br>
-(2 replicas x 2 MUs x hours x hourly rate) + (10 GB x data transfer rate)
+For example, if you have 2 MUs configured on the primary namespace with 10 GB of data replicated: </br> (2 replicas x 2 MUs x hours x hourly rate) + (10 GB x data transfer rate)
 
 ## Recommended scenarios to trigger promotion
 While you can trigger a promotion at any time, here are some recommended scenarios where promoting a secondary to primary is advisable. For more details on each scenario, see [Scenarios](#scenarios).

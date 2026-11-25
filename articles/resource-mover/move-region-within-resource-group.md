@@ -4,8 +4,9 @@ description: Learn how to move resources within a resource group to another regi
 ms.service: azure-resource-mover
 ms.topic: how-to
 author: RochakSingh-blr
-ms.author: v-rochak2
+ms.author: bhappayy
 ms.date: 07/31/2025
+ms.update-cycle: 1095-days
 ms.custom: sfi-image-nochange
 # Customer intent: As an Azure administrator, I want to relocate resources to a different Azure region using a resource management tool, so that I can optimize resource deployment and achieve better performance or compliance for my applications.
 ---

@@ -14,6 +14,8 @@ ms.service: azure-communication-services
 
 # Azure Communication Services for US Government
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 You can use Azure Communication Services within [Azure Government](https://azure.microsoft.com/global-infrastructure/government/) to provide compliance with US government requirements for cloud services. In addition to enjoying the features and capabilities of Messaging, Voice and Video calling, developers benefit from the following features that are unique to Azure Government:
 - Your personal data is logically segregated from customer content in the commercial Azure cloud.
 - Your resource’s customer content is stored within the United States.

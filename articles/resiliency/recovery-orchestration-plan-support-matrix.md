@@ -1,17 +1,19 @@
 ---
 title: Support matrix for Azure Recovery Orchestration Plan
-description: Learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure (preview).
+description: Learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure.
 ms.topic: overview
 ms.service: resiliency
-ms.date: 06/02/2026
+ms.date: 10/26/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-#customer intent: As an IT admin, I want to learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure (preview), so that I can effectively utilize the service for my disaster recovery needs.
+#customer intent: As an IT admin, I want to learn about the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure, so that I can effectively utilize the service for my disaster recovery needs.
 ---
 
-# Support matrix for Azure Recovery Orchestration Plan (preview)
+# Support matrix for Azure Recovery Orchestration Plan
 
-This article summarizes the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure (preview).
+This article summarizes the supported resource types, protection solutions, supported scope, role requirements, and managed identity requirements for Azure Recovery Orchestration Plan in Resiliency in Azure.
+
+Recovery Orchestration Plans are a paid advanced capability and require the service group to be [enrolled in a usage plan](infrastructure-resiliency-manager-pricing.md#enroll-a-service-group-in-a-usage-plan). The usage plan identifies the Azure subscription to charge for the service group's usage. For charge eligibility and hourly proration, see [Billing and pricing](infrastructure-resiliency-manager-pricing.md#when-a-service-group-is-billed).
 
 ## Supported protection solutions
 
@@ -19,11 +21,11 @@ The following table lists the supported protection solutions and their failov
 
 | **Protection solution**  | **Description**  | **Failover behavior**  |
 |----|----|----|
-| Azure Site Recovery  | Replicates VMs and Virtual Machine Scale Sets across availability zones within a region.  | Active failover orchestrated by the Recovery Plan. Resources must be manually included and require cache storage account parameter.  |
+| Azure Site Recovery  | Replicates VMs and Virtual Machine Scale Sets across availability zones within a region.  | Active failover orchestrated by the Recovery Plan. You must manually include resources and provide the cache storage account parameter.  |
 | Highly Available (HA) solutions  | Zone-redundant configurations for PaaS services such as SQL database, Cosmos DB, Storage Accounts, and others.  | Automatic failover handled by the service. Resources are automatically excluded from the Recovery Plan.  |
 
->[!NOTE]
->A recovery plan doesn't orchestrate failover for resources configured with a Highly Available (HA) solution because the resource performs self-managed failover.
+> [!NOTE]
+> A recovery plan doesn't orchestrate failover for resources configured with a Highly Available (HA) solution because the resource performs self-managed failover.
 
 ## Supported resource types
 
@@ -51,7 +53,7 @@ The following table lists the supported Azure resource types in the Recover
 | Azure Database for MySQL  | Zone-redundant configuration (HA)  | Automatic (HA)  |
 
 >[!NOTE]
->Resources protected by HA solutions are automatically excluded from the Recovery Plan and don’t require active failover orchestration. The resources handle zone-level failures automatically.
+>Resources protected by HA solutions are automatically excluded from the Recovery Plan and don't require active failover orchestration. The resources handle zone-level failures automatically.
 
 ## Role requirements
 
@@ -68,7 +70,7 @@ The following table lists the role and permission requirements for managed id
 
 | **Managed identity** | **Description** | **Role requirement** | **Permission requirement** |
 |---|---|---|---|
-| System-assigned and User-assigned | can be configured during plan creation. | Requires the **Automation Job Operator** role on the managed identity to run Azure Automation Runbook scripts. | Requires permissions to add failed-over resources back to the Service Group and Recovery Plan after failover. |
+| System-assigned and User-assigned | can be configured during plan creation. | Requires the **Automation Job Operator** role on the managed identity to run Azure Automation runbook scripts. | Requires permissions to add failed-over resources back to the Service Group and Recovery Plan after failover. |
 
 ## Supported scope
 
@@ -76,11 +78,11 @@ The following table lists the supported scope for Azure Recovery Orchestration
 
 | **Scope**          | **Supported**                    |
 |--------------------|----------------------------------|
-| Zonal recovery     | Yes                              |
+| Zone recovery      | Yes                              |
 | Regional recovery  | No (not supported at this time)  |
 
 ## Related content
 
-- [About Azure Recovery Orchestration Plan (preview)](recovery-orchestration-plan-about.md).
-- [Create and configure a Recovery Orchestration Plan (preview)](recovery-orchestration-plan-create-configure.md).
-- [Execute failover and reprotect operations (preview)](recovery-orchestration-plan-execute.md).
+- [About Azure Recovery Orchestration Plan](recovery-orchestration-plan-about.md).
+- [Create and configure a Recovery Orchestration Plan](recovery-orchestration-plan-create-configure.md).
+- [Execute failover and reprotect operations](recovery-orchestration-plan-execute.md).

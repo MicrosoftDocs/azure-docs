@@ -14,6 +14,8 @@ ai-usage: ai-assisted
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article focuses on fundamental concepts and examples that help you create parameterized data pipelines in Azure Data Factory. Parameterization and dynamic expressions add flexibility to ADF and can save time by allowing for more flexible Extract, Transform, Load (ETL) or Extract, Load, Transform (ELT) solutions. These features reduce solution maintenance costs and speed up the implementation of new features into existing pipelines. Parameterization minimizes hard coding and increases the number of reusable objects and processes in a solution.
 
 ## Azure Data Factory UI and parameters

@@ -265,6 +265,8 @@ Here's an example:
 
 ``` %run /<path>/Notebook1 { "parameterInt": 1, "parameterFloat": 2.5, "parameterBool": true,  "parameterString": "abc" } ```
 
+For parameter names in the `%run` argument map, start with an ASCII letter (`A`-`Z` or `a`-`z`) or an underscore (`_`). Use only ASCII letters, digits (`0`-`9`), and underscores for the remaining characters. For example, use `customer_id` or `_run_date`. Don't use spaces, hyphens, periods, line breaks, or non-ASCII characters, such as in `customer id`, `customer-id`, `customer.id`, or `café`. Match each name exactly in the referenced notebook's parameter cell. This guidance applies to parameter names, not parameter values.
+
 The notebook reference works in both interactive mode and pipelines.
 
 The `%run` magic command has these limitations:

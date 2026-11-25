@@ -2,10 +2,10 @@
 title: Connect to an Azure Elastic SAN volume - Windows
 description: Learn how to connect to an Azure Elastic SAN volume by using the Windows VM Extension or the manual connect script.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/09/2026
-ms.author: rogarana
+ms.author: normesta
 ms.custom: references_regions
 ---
 # Connect to Elastic SAN volumes - Windows

@@ -1,61 +1,63 @@
 ---
-title: Discovery using Azure Migrate Collector
-description: Learn how to use Azure Migrate Collector to discover VMware servers and workloads, upload inventory and performance data to Azure Migrate, and generate business case and assessment reports.
+title: Discovery using Azure Catalyst Collector
+description: Learn how to use Azure Catalyst Collector to discover VMware servers and workloads, upload inventory and performance data to Azure Catalyst, and generate business case and assessment reports.
 author: molishv
 ms.author: molir
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 05/26/2026
 ms.custom: engagement-fy26
 ms.update-cycle: 1095-days
-# Customer intent: As an IT professional, I want to use Azure Migrate Collector to discover my IT estate and generate assessment and business case reports, so that I can plan migration and modernization effectively.
+# Customer intent: As an IT professional, I want to use Azure Catalyst Collector to discover my IT estate and generate assessment and business case reports, so that I can plan migration and modernization effectively.
 ---
 
-# Discover servers and workloads using Azure Migrate collector
+# Discover servers and workloads by using Azure Catalyst Collector
 
-This article explains how to use Azure Migrate collector to quickly discover servers and workloads across your IT estate without direct Azure connectivity. You can deploy the collector on a Windows Server to scan VMware environments and physical or virtual servers. The collected inventory data can be used to generate business case and performance-based assessment reports that support lift-and-shift migration and modernization of your IT estate.
+This article explains how to use Azure Catalyst Collector to quickly discover servers and workloads across your IT estate without direct Azure connectivity. You can deploy the collector on a Windows Server to scan VMware environments and physical or virtual servers. Use the collected inventory data to generate business case and performance-based assessment reports that support lift-and-shift migration and modernization of your IT estate.
 
-Azure Migrate collector can discover your VMware estate or individual Windows and Linux servers running on any hypervisor or public cloud. You can collect server configurations, performance metrics, installed software, SQL Server and PostgreSQL database instances, and web apps (.NET on IIS and Java on Tomcat). With no Azure connectivity required, you can scan the estate locally and upload data securely, saving time and avoiding complex networking or access approval requirements.
+Azure Catalyst Collector can discover your VMware estate or individual Windows and Linux servers running on any hypervisor or public cloud. You can collect server configurations, performance metrics, installed software, SQL Server and PostgreSQL database instances, and web apps (.NET on IIS and Java on Tomcat). With no Azure connectivity required, you can scan the estate locally and upload data securely, saving time and avoiding complex networking or access approval requirements.
 
 ## Collect data from VMware estate
 
 > [!NOTE]
-> If you prefer agentless continuous discovery using an appliance, see [Discover servers in VMware environment](tutorial-discover-vmware.md).
+> To use agentless continuous discovery by using an appliance, see [Discover servers in VMware environment](tutorial-discover-vmware.md).
 
 ### Prerequisites
 
-Before you set up the collector, [create a new Azure Migrate project](quickstart-create-project.md). If you plan to collect data from an Azure VMware Solution (AVS) private cloud, ensure that the machine where the collector is installed has network line-of-sight to the AVS vCenter.
+Before you set up the collector, [create a new Azure Catalyst project](quickstart-create-project.md). If you plan to collect data from an Azure VMware Solution (AVS) private cloud, ensure that the machine where you install the collector has network line-of-sight to the AVS vCenter.
 
 | Requirement | Details |
 |---|---|
-| Operating System | A server running Windows Server 2019, 2022, or 2025 Operating System. Ensure the server has IIS role installed. |
+| Operating System | A server running Windows Server 2019, 2022, or 2025 operating system. Ensure the server has IIS role installed. |
 | Compute and storage | A server with 16 GB of RAM, 8 vCPUs, and approximately 80 GB of disk storage. |
-| Supported vCenter versions | 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5. |
+| Supported vCenter versions | [!INCLUDE [vmware-discovery-supported-versions](includes/vmware-discovery-supported-versions.md)] |
 | Networking - vCenter | Network line of sight from collector to vCenter with inbound access allowed on TCP port 443. <br><br> If the server running vCenter server listens on a different port, you can modify the port when you provide the vCenter server details in the collector configuration manager. |
 | Networking – ESXi hosts | Network line of sight from collector to all ESXi hosts with inbound access allowed on TCP port 443. |
-| Networking – Windows/Linux | To collect data about installed software, webapps and database (SQL, MySQL, PostgreSQL) inventory, network line of sight isn't required from collector to guest machines. Collector captures guest data using the following ports via VMware pipe. <br><br> Windows - WinRM https (5986) or http (5985) <br> Linux - SSH over port 22 |
-| SQL | For deeper discovery of SQL readiness data, network line of sight is required from collector to SQL instances. SQL metadata is collected using TCP connection to SQL instances over custom port. |
-| vCenter statistical level | Verify Performance Statistics Level in vCenter is set to Level 1 or above: <br> Level 1: CPU and memory metrics only. (recommended) <br> Level 2: CPU, memory, disk, and network metrics. <br> <br> If the level is disabled, no historical data is collected. Change it to level 1 or above and wait for 24 hours before starting data collection using collector. |
+| Networking – Windows/Linux | To collect data about installed software, web apps, and database (SQL, MySQL, PostgreSQL) inventory, network line of sight isn't required from collector to guest machines. Collector captures guest data by using the following ports via VMware pipe. <br><br> Windows - WinRM https (5986) or http (5985) <br> Linux - SSH over port 22 |
+| SQL | For deeper discovery of SQL readiness data, network line of sight is required from collector to SQL instances. Collector collects SQL metadata by using a TCP connection to SQL instances over a custom port. |
+| vCenter statistical level | Verify Performance Statistics Level in vCenter is set to Level 1 or above: <br> Level 1: CPU and memory metrics only. (recommended) <br> Level 2: CPU, memory, disk, and network metrics. <br> <br> If the level is disabled, no historical data is collected. Change it to level 1 or above and wait for 24 hours before starting data collection by using collector. |
 
 ### Prepare vCenter, guest and database accounts 
 
 | Account | Permissions | Purpose |
 |---|---|---|
-| vCenter account | Read only and guest operations | To collect server configurations and performance data of VMware machines. |
-| Windows | Domain account or administrator* account | To collect installed software, SQL and PostgreSQL database instance and web apps data. |
-| Linux | Root account* | To collect installed software, SQL and PostgreSQL database instance and web apps data. |
-| Domain | Domain account with SQL permissions | To collect SQL readiness data |
+| vCenter account | Read-only and guest operations | To collect server configurations and performance data of VMware machines. |
+| Windows | Domain account or administrator* account | To collect installed software, SQL and PostgreSQL database instance, and web apps data. |
+| Linux | Root account* | To collect installed software, SQL and PostgreSQL database instance, and web apps data. |
+| Domain | Domain account with SQL permissions | To collect SQL readiness data. |
 
 > [!NOTE]
 > You can set up custom least privileged Windows, Linux, and SQL accounts. For more information, see [Least privileged accounts](best-practices-least-privileged-account.md). 
 
-### Download the Azure Migrate Collector
+<a name="download-the-azure-migrate-collector"></a>
 
-1.	In the Azure Migrate project, select **Discover** > **Using Collector** and then select **Download**.  
-2.	Alternatively, download the Azure Migrate collector installer script from: [here](https://aka.ms/Migrate/DownloadCollector). 
-3.	Extract the installer ZIP file to a folder on the server that hosts the Azure Migrate collector.
+### Download the Azure Catalyst Collector
+
+1.	In the Azure Catalyst project, select **Discover** > **Using Collector** and then select **Download**.  
+2.	Alternatively, download the Azure Catalyst Collector installer script from: [here](https://aka.ms/Migrate/DownloadCollector). 
+3.	Extract the installer ZIP file to a folder on the server that hosts the Azure Catalyst Collector.
 
 ### Run the installer script
 
@@ -71,85 +73,108 @@ Before you set up the collector, [create a new Azure Migrate project](quickstart
 6. The installer script performs the following actions:
    - Installs agents and web applications.
    - Enables Windows features: Windows Activation Service, Web-Server, Web-Mgmt-Service.
-   - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+   - Updates a registry key (HKLM) with persistent setting details for Azure Catalyst.
    - Creates the following files:
      - Config: `%ProgramData%\Microsoft Azure\Config`
      - Logs: `%ProgramData%\Microsoft Azure\OfflineData`
 
-7.  After successful execution, the appliance configuration manager launches automatically and creates a desktop shortcut.
+7.  After successful execution, the installer script automatically launches the appliance configuration manager and creates a desktop shortcut.
+
+### Verify security
+
+To verify that the downloaded collector installer ZIP file is secure, check its hash value:
+
+1. On the server where you downloaded the file, open a Command Prompt window by using the **Run as administrator** option.
+1. Run this command to create the hash for the ZIP file:
+
+   ```
+   C:\>CertUtil -HashFile <file_location> SHA256
+   ```
+
+   For example:
+
+   ```
+   C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\AzureMigratecollector.zip SHA256
+   ```
+
+1. Verify the latest collector version and hash value:
+
+   | Algorithm | Version | Download | SHA256 |
+   | --- | --- | --- | --- |
+   | Collector zip file (936 MB) | 20261112.1 | [Latest version](https://aka.ms/Migrate/DownloadCollector) | 5DBE4AEE6B308979E33B4FEEC37DE14477F511F0D582C21D281A81D69281EBA0 |
 
 ### Provide vCenter credentials
 
 1.	Select **Add credentials**, and then enter a name for the credentials.
 Provide the username and password for the vCenter Server account that the collector uses to discover servers.
-2. To add multiple credentials, select **Add more** to save the current credentials and add additional ones.
-You can add multiple credentials to discover servers across multiple vCenter servers using a single collector.
+2. To add multiple credentials, select **Add more** to save the current credentials and add more.
+You can add multiple credentials to discover servers across multiple vCenter servers by using a single collector.
 3. Provide **vCenter server details**, select **Add discovery source**, and then enter the IP address or FQDN of the vCenter Server.
 Use the default port (**443**) for discovery or specify a custom port. Select the credential name to map to the vCenter server, and then select **Save**.
-4. Select **Add more** to save the details and add additional vCenter servers.
-You can add up to 10 vCenter servers per collector
+4. Select **Add more** to save the details and add more vCenter servers.
+You can add up to 10 vCenter servers per collector.
 
 ### Provide guest and database credentials
 
-1.	Provide Windows and Linux guest accounts to collect data about installed software, database instances and web apps. Provide SQL credentials (Windows or SQL server authentication) to collect SQL suitability data. 
-2.	To verify if the guest credentials are valid, test them against a few target servers. 
+1.	Provide Windows and Linux guest accounts to collect data about installed software, database instances, and web apps. Provide SQL credentials (Windows or SQL server authentication) to collect SQL suitability data.
+2.	Test the guest credentials against a few target servers to verify if they're valid.
 3.	Enable the checkbox to validate credentials. 
 4.	Select the vCenter and select up to five virtual machines from the drop-down.
 5.	Select **Validate**.   
 6.	If the credentials aren't valid, fix the errors by following the recommended step before triggering data collection. 
-7.	If the credentials are successfully validated, guest discovery of installed software and inventory of database instance on the machines is successful. 
+7.	If the credentials are successfully validated, guest discovery of installed software and inventory of database instances on the machines is successful.
 > [!NOTE]
-> - For the collection of data about installed software, web apps and for identifying SQL/PostgreSQL server instances, the collector doesn’t need network line of sight to guest machines. The guest data collection is done via the ESXi hosts using the installed VMware tools. However, for collecting readiness data directly from database instances, the collector must have network line of sight to the target SQL server instances. 
+> - For the collection of data about installed software, web apps, and for identifying SQL/PostgreSQL server instances, the collector doesn't need network line of sight to guest machines. The guest data collection is done via the ESXi hosts using the installed VMware tools. However, for collecting readiness data directly from database instances, the collector must have network line of sight to the target SQL server instances.
 > - Identifying server dependencies and in-depth discovery of MySQL and PostgreSQL instances isn't supported in this version of Collector.
 
 ## Collect data from physical servers
 
-You can use the same Azure migrate collector to discover both VMware machines and physical servers that’s hypervisor agnostic. To collect data about physical servers, switch the fabric type to physical. 
+You can use the same Azure Catalyst Collector to discover both VMware machines and physical servers that’s hypervisor agnostic. To collect data about physical servers, switch the fabric type to physical.
 
-To discover physical servers using an appliance-based approach, see [Discover physical servers](tutorial-discover-physical.md).
+To discover physical servers by using an appliance-based approach, see [Discover physical servers](tutorial-discover-physical.md).
 
 ### Provide credentials for Windows and Linux servers
 
-1. Provide credentials for discovery of Windows and Linux physical or virtual servers, and then select **Add credentials**.
+1. Provide credentials to discover Windows and Linux physical or virtual servers, and then select **Add credentials**.
 2. For a Windows server:
     - Select the source type as **Windows Server**.
     - Enter a friendly name for the credentials.
-    - Sign in using your credentials.
+    - Sign in by using your credentials.
     - Select **Save**.
 3. For Linus server:
     - If you use password-based authentication. Select the source type as Linux Server (Password-based).
     - Enter a friendly name for the credentials.
-    - Sign in using your credentials.
+    - Sign in by using your credentials.
     - Select **Save**.
     - If you use SSH key-based authentication, select the source type as Linux Server (SSH key-based).
     - Enter a friendly name for the credentials.
-    - Sign in using your credentials.
+    - Sign in by using your credentials.
     - Browse and select the SSH private key file.
     - Select **Save**.
 
 > [!NOTE]
-> - Azure Migrate supports SSH private keys created using the ssh-keygen command with RSA, DSA, ECDSA, and ed25519 algorithms.
+> - Azure Catalyst supports SSH private keys created by using the ssh-keygen command with RSA, DSA, ECDSA, and ed25519 algorithms.
 > - It doesn't support SSH keys with a passphrase. Use a key without a passphrase.
-> - It doesn't support SSH private key files created by PuTTY.
+> - It doesn't support SSH private key files created by using PuTTY.
 > - It supports SSH private key files in OpenSSH format.
-> -To add multiple credentials at once, select Add more to save and enter more credentials. 
+> - To add multiple credentials at once, select **Add more** to save and enter more credentials.
 
 ### Provide Windows and Linux server details
 
-1. Provide physical or virtual server details by adding discovery sources using Add single item, Add multiple items, or Import CSV (default). Enter the server IP address or FQDN along with a friendly name for the credentials used to connect.
-1. For Add single item, select the OS type, enter the server IP address or FQDN, provide a friendly credential name, and select Save. For Add multiple items, enter multiple server records at once, specify the credential name, verify the records, and then save. 
-1. For Import CSV, download the CSV template, fill in the server IP address or FQDN and credential friendly name, import the file into the appliance, verify the records, and select Save. 
+1. Provide physical or virtual server details by adding discovery sources using **Add single item**, **Add multiple items**, or **Import CSV** (default). Enter the server IP address or FQDN along with a friendly name for the credentials used to connect.
+1. For **Add single item**, select the OS type, enter the server IP address or FQDN, provide a friendly credential name, and select **Save**. For **Add multiple items**, enter multiple server records at once, specify the credential name, verify the records, and then save.
+1. For **Import CSV**, download the CSV template, fill in the server IP address or FQDN and credential friendly name, import the file into the appliance, verify the records, and select **Save**.
 1. The collector communicates with Windows servers using WinRM port 5986 (HTTPS) and Linux servers by using port 22 (TCP). If HTTPS prerequisites aren't configured on Hyper‑V servers, it automatically switches to WinRM port 5985 (HTTP). 
-1. When you save, the collector validates connectivity to each server and shows the validation status in the table. If validation fails, select Validation failed to review the error, fix the issue, and validate again. You can revalidate connectivity at any time before starting data collection or remove servers by selecting Delete. 
+1. When you save, the collector validates connectivity to each server and shows the validation status in the table. If validation fails, select **Validation failed** to review the error, fix the issue, and validate again. You can revalidate connectivity at any time before starting data collection or remove servers by selecting **Delete**.
 1. Before starting data collection, you can optionally turn off the workload discovery slider for the added servers. You can change this setting at any time. 
 1. Add additional credentials (Windows domain, Windows non‑domain, or SQL authentication) to discover SQL Server instances and databases. The appliance automatically maps these credentials to SQL servers. 
 1. Provide domain credentials in Down‑Level format (domain\username). UPN format isn't supported. Domain credentials are authenticated against Active Directory to prevent account lockouts. 
-1. The credentials table shows the domain credential validation status. If validation fails, select the failed status to view details, fix the issue, and select Revalidate credentials.
+1. The credentials table shows the domain credential validation status. If validation fails, select the failed status to view details, fix the issue, and select **Revalidate credentials**.
 
 ### Start data collection
 
 > [!IMPORTANT]
-> Ensure you are using the latest version of Collector before you start data collection.
+> Ensure you're using the latest version of Collector before you start data collection.
 
 1. After adding all credentials, select **Start Data Collection**.
 2. After validating vCenter credentials, if you skip adding any guest or DB credentials, **Start Data Collection** is disabled. To proceed, disable the **Guest discovery** toggle.
@@ -166,8 +191,8 @@ To discover physical servers using an appliance-based approach, see [Discover ph
 
 ### Collect incremental data
 
-1. After addressing the issues, enable **Incremental data** to collect data only on workloads where previous attempts failed.
-2. When enabled, VMware configuration and performance data collection are skipped. It attempts Software inventory, databases, and webapps collections on previously failed workloads.
+1. After addressing the issues, turn on **Incremental data** to collect data only on workloads where previous attempts failed.
+2. When enabled, the process skips VMware configuration and performance data collection. It attempts software inventory, databases, and web apps collections on previously failed workloads.
 3. If disabled, full data collection runs.
 
 ### Export collected data
@@ -175,15 +200,17 @@ To discover physical servers using an appliance-based approach, see [Discover ph
 1. After successful data collection, export the collected data by generating a ZIP file.
 2. Select **Export**. A ZIP file is created at: `C:\ProgramData\Microsoft Azure\OfflineData\Azure-Migrate-Discovery-YYYY-MM-DD-HH-MM-SS.zip`.
 
-## Upload the collected data to an Azure Migrate project
+<a name="upload-the-collected-data-to-an-azure-migrate-project"></a>
 
-1.	[Create a new Azure Migrate project](quickstart-create-project.md) as Inventory Import from collector is supported only for newly created projects. 
-2.	After creating the project, select Start discovery using collector. 
+## Upload the collected data to an Azure Catalyst project
+
+1.	[Create a new Azure Catalyst project](quickstart-create-project.md) as Inventory Import from collector is supported only for newly created projects. 
+2.	After creating the project, select **Start discovery using collector**.
 
 ### Import the ZIP file generated using collector
 
 1.	Select Browse and select the ZIP file exported from your collector.
-2.	After you select the right file, select Import. 
+2.	After you select the right file, select **Import**.
 3.	You can see the import status as it proceeds. 
 
 > [!NOTE]
@@ -196,19 +223,47 @@ To discover physical servers using an appliance-based approach, see [Discover ph
 
 ### Import more inventory
 
-1.	To discover more inventory with the Azure migrate collector after your initial import, follow these steps to add the new data to your Azure Migrate project:
+1.	To discover more inventory with the Azure Catalyst Collector after your initial import, follow these steps to add the new data to your Azure Catalyst project:
 2.	Go to **All inventory** view. You can see your existing discovery data.
 3.	Select **Discover** > **Using collector** and go to import page.
-4.	Select **Azure migrate collector (ZIP)** in the file type dropdown
+4.	Select **Azure Catalyst Collector (ZIP)** in the file type dropdown.
 5.	Select **Browse** and select the **ZIP** file exported from your collector.
 6.	After you select the right file, select **Import** to ingest the file. 
 
 > [!NOTE]
 > You can import multiple ZIP files of different hypervisor types (VMware, physical) to the same project. 
 
+<a name="upgrade-the-collector-to-an-azure-migrate-appliance"></a>
+
+## Upgrade the collector to an Azure Catalyst appliance
+
+After you finish planning your migration by using collector discovery, you can upgrade the collector to an Azure Catalyst appliance to execute migrations in the same project. After the upgrade, you can use your existing assessment reports and wave plans to execute migrations.
+
+You can set up the appliance on the machine that hosts the collector or on a different machine. If you use the same machine, you can reuse the credentials that you added during collector discovery.
+
+### Download the installer and copy the project key
+
+1. In your Azure Catalyst project, go to **Manage** > **Appliances**.
+1. For the collector that you want to upgrade, select **Upgrade to appliance**.
+1. In the **Upgrade the collector to appliance** pane, copy the **Project key**. You use this key to register the appliance with the same project.
+1. Under **Download and run the appliance installer script**, select **Download** to download the ZIP file that contains the PowerShell installer script.
+1. Before you set up and register the appliance, review [Set up prerequisites and register the appliance](tutorial-discover-vmware.md#set-up-prerequisites-and-register-the-appliance).
+
+### Set up the appliance on the collector machine
+
+1. Extract the downloaded ZIP file on the machine that hosts the collector.
+1. Run the appliance installer script, and select the option to keep the existing server configurations and credentials.
+1. Register the appliance by using the project key that you copied.
+
+### Set up the appliance on a different machine
+
+1. Extract the downloaded ZIP file on the new machine, and run the appliance installer script.
+1. Register the appliance by using the project key that you copied.
+1. Manually add all source server configurations and credentials. Use the same friendly names that you used in the collector.
+
 ## Next steps
 
 - Review the [discovered inventory](how-to-review-discovered-inventory.md).
 - Generate a [business case](migrate-appliance.md).
 - Create an [assessment](tutorial-discover-import.md).
-- Compare [discovery approaches](discovery-methods-modes.md)
+- Compare [discovery approaches](discovery-methods-modes.md).

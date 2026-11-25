@@ -6,7 +6,7 @@ ms.service: azure-synapse-analytics
 ms.topic: concept-article
 ms.subservice: security
 ms.date: 02/18/2025
-ms.author: mesrivas
+ms.author: rakrish
 
 ---
 # What is Synapse role-based access control (RBAC)?

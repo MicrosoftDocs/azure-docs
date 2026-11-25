@@ -3,7 +3,7 @@ title: Access signed transactions in Artifact Signing
 description: Learn how to access signed transactions in Artifact Signing in the Azure portal. 
 author: meha 
 ms.author: mesharm 
-ms.service: trusted-signing 
+ms.service: azure-artifact-signing
 ms.topic: how-to 
 ms.date: 12/28/2025
 ---

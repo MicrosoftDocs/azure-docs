@@ -1,49 +1,50 @@
 ---
 title: Troubleshoot network connectivity issues | Microsoft Docs
-description: Provides troubleshooting tips for common errors in using Azure Migrate with private endpoints.
-author: vijain
+description: Provides troubleshooting tips for common errors in using Azure Catalyst with private endpoints.
+author: Jeronika-MS
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.topic: troubleshooting
+ms.update:cycle: 1095-days
 ms.date: 09/09/2024
 ms.custom:
   - engagement-fy25
   - sfi-image-nochange
-# Customer intent: "As a cloud operations engineer, I want to troubleshoot network connectivity issues with private endpoints in Azure Migrate, so that I can ensure seamless data migration and application performance."
+# Customer intent: "As a cloud operations engineer, I want to troubleshoot network connectivity issues with private endpoints in Azure Catalyst, so that I can ensure seamless data migration and application performance."
 ---
 
 # Troubleshoot network connectivity
 
-This article helps you troubleshoot network connectivity issues using Azure Migrate with private endpoints.
+This article helps you troubleshoot network connectivity issues using Azure Catalyst with private endpoints.
 
 ## Validate private endpoints configuration
 
 Make sure the private endpoint is an approved state.  
 
-1. Go to **Azure Migrate**: **Discovery and Assessment** and **Migration and modernization** properties page.
+1. Go to **Azure Catalyst**: **Discovery and Assessment** and **Migration and modernization** properties page.
 
-2. The properties page contains the list of private endpoints and private link FQDNs that were automatically created by Azure Migrate.  
+2. The properties page contains the list of private endpoints and private link FQDNs that were automatically created by Azure Catalyst.  
 
 3. Select the private endpoint you want to diagnose.  
    a. Validate that the connection state is Approved.
    b. If the connection is in a Pending state, you need to get it  approved.
-   c. You might also navigate to the private endpoint resource and review if the virtual network matches the Migrate project private endpoint virtual network.
+   c. You might also navigate to the private endpoint resource and review if the virtual network matches the Azure Catalyst project private endpoint virtual network.
 
       :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/private-endpoint-connection.png" alt-text="Screenshot of View Private Endpoint connection.":::
 
 ## Validate the data flow through the private endpoints
 
-Review the data flow metrics to verify the traffic flow through private endpoints. Select the private endpoint in the Azure Migrate: Server Assessment and Migration and modernization Properties page. This will redirect to the private endpoint overview section in Azure Private Link Center. In the left menu, select **Metrics** to view the _Data Bytes In_ and _Data Bytes Out_ information to view the traffic flow.
+Review the data flow metrics to verify the traffic flow through private endpoints. Select the private endpoint in the Azure Catalyst: Server Assessment and Migration and modernization Properties page. This will redirect to the private endpoint overview section in Azure Private Link Center. In the left menu, select **Metrics** to view the _Data Bytes In_ and _Data Bytes Out_ information to view the traffic flow.
 
 ## Verify DNS resolution
 
-The on-premises appliance (or replication provider) will access the Azure Migrate resources using their fully qualified private link domain names (FQDNs). You might require additional DNS settings to resolve the private IP address of the private endpoints from the source environment. [See this article](../private-link/private-endpoint-dns-integration.md#on-premises-workloads-using-a-dns-forwarder) to understand the DNS configuration scenarios that can help troubleshoot any network connectivity issues.  
+The on-premises appliance (or replication provider) will access the Azure Catalyst resources using their fully qualified private link domain names (FQDNs). You might require additional DNS settings to resolve the private IP address of the private endpoints from the source environment. [See this article](../private-link/private-endpoint-dns-integration.md#on-premises-workloads-using-a-dns-forwarder) to understand the DNS configuration scenarios that can help troubleshoot any network connectivity issues.  
 
-To validate the private link connection, perform a DNS resolution of the Azure Migrate resource endpoints (private link resource FQDNs) from the on-premises server hosting the Migrate appliance and ensure that it resolves to a private IP address.
+To validate the private link connection, perform a DNS resolution of the Azure Catalyst resource endpoints (private link resource FQDNs) from the on-premises server hosting the Azure Catalyst appliance and ensure that it resolves to a private IP address.
 
 **To obtain the private endpoint details to verify DNS resolution:**
 
-1. The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Migration and modernization properties pages. Select **Download DNS settings** to view the list. Note, only the private endpoints that were automatically created by Azure Migrate are listed below.
+1. The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Migration and modernization properties pages. Select **Download DNS settings** to view the list. Note, only the private endpoints that were automatically created by Azure Catalyst are listed below.
 
    [![Migration and modernization tool Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties.png)](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties.png#lightbox)
 
@@ -59,7 +60,7 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
-- Enter ```nslookup <storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
+- Enter ```nslookup <storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Catalyst.  
 
     You'll receive a message like this:  
 
@@ -67,7 +68,7 @@ An illustrative example for DNS resolution of the storage account private link F
 
 - A private IP address of 10.1.0.5 is returned for the storage account. This address belongs to the private endpoint virtual network subnet.
 
-You can verify the DNS resolution for other Azure Migrate artifacts using a similar approach.
+You can verify the DNS resolution for other Azure Catalyst artifacts using a similar approach.
 
 If the DNS resolution is incorrect, follow these steps:  
 
@@ -85,14 +86,14 @@ If the DNS resolution isn't working as described in the previous section, there 
 
 ### Confirm that the required Private DNS Zone resource exists  
 
-By default, Azure Migrate also creates a private DNS zone corresponding to the _privatelink_ subdomain for each resource type. The private DNS zone is created in the same Azure resource group as the private endpoint resource group. The Azure resource group should contain private DNS zone resources with the following format:
+By default, Azure Catalyst also creates a private DNS zone corresponding to the _privatelink_ subdomain for each resource type. The private DNS zone is created in the same Azure resource group as the private endpoint resource group. The Azure resource group should contain private DNS zone resources with the following format:
 
 - privatelink.vaultcore.azure.net for the key vault
 - privatelink.blob.core.windows.net for the storage account
 - privatelink.siterecovery.windowsazure.com for the recovery services vault (for Hyper-V and agent-based replications)
-- privatelink.prod.migration.windowsazure.com - migrate project, assessment project, and discovery site.
+- privatelink.prod.migration.windowsazure.com - Azure Catalyst project, assessment project, and discovery site.
 
-Azure Migrate automatically creates the private DNS zone (except for the cache/replication storage account selected by the user). You can locate the linked private DNS zone by navigating to the private endpoint page and selecting DNS configurations. Here, you should see the private DNS zone under the private DNS integration section.
+Azure Catalyst automatically creates the private DNS zone (except for the cache/replication storage account selected by the user). You can locate the linked private DNS zone by navigating to the private endpoint page and selecting DNS configurations. Here, you should see the private DNS zone under the private DNS integration section.
 
 [![DNS configuration screenshot](./media/how-to-use-azure-migrate-with-private-endpoints/dns-configuration-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/dns-configuration-expanded.png#lightbox)
 
@@ -135,9 +136,11 @@ This is a non-exhaustive list of items that can be found in advanced or complex 
 - Network peering, which might impact which DNS servers are used and how traffic is routed.  
 - Custom gateway (NAT) solutions might impact how traffic is routed, including traffic from DNS queries.
 
-For more information, review the [troubleshooting guide for Private Endpoint connectivity problems.](../private-link/troubleshoot-private-endpoint-connectivity.md)  
+For more information, review the [troubleshooting guide for Private Endpoint connectivity problems.](/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems)  
 
-## Common issues while using Azure Migrate with private endpoints
+<a name="common-issues-while-using-azure-migrate-with-private-endpoints"></a>
+
+## Common issues while using Azure Catalyst with private endpoints
 
 In this section, we'll list some of the commonly occurring issues and suggest do-it-yourself troubleshooting steps to remediate the problem.
 
@@ -147,7 +150,7 @@ Azure Key Vault create or update operation failed for <_KeyVaultName_> due to th
 
 #### Possible causes
 
-This issue can occur if the Azure account being used to register the appliance doesn’t have the required permissions or the Azure Migrate appliance cannot access the Key Vault.
+This issue can occur if the Azure account being used to register the appliance doesn’t have the required permissions or the Azure Catalyst appliance cannot access the Key Vault.
 
 #### Remediation
 
@@ -161,11 +164,11 @@ This issue can occur if the Azure account being used to register the appliance d
 **Steps to troubleshoot connectivity issues to the Key Vault:**
 If you have enabled the appliance for private endpoint connectivity, use the following steps to troubleshoot network connectivity issues:
 
-- Ensure that the appliance is either hosted in the same virtual network or is connected to the target Azure virtual network (where the Key Vault private endpoint has been created) over a private link. The Key Vault private endpoint is created in the virtual network selected during the project creation experience. You can verify the virtual network details in the **Azure Migrate > Properties** page.
+- Ensure that the appliance is either hosted in the same virtual network or is connected to the target Azure virtual network (where the Key Vault private endpoint has been created) over a private link. The Key Vault private endpoint is created in the virtual network selected during the project creation experience. You can verify the virtual network details in the **Azure Catalyst > Properties** page.
    ![Azure Migrate properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-properties-page.png)  
 
 - Ensure that the appliance has network connectivity to the Key Vault over a private link. To validate the private link connectivity, perform a DNS resolution of the Key Vault resource endpoint from the on-premises server hosting the appliance and ensure that it resolves to a private IP address.
-- Go to **Azure Migrate: Discovery and assessment> Properties** to find the details of private endpoints for resources like the Key Vault created during the key generation step.  
+- Go to **Azure Catalyst: Discovery and assessment> Properties** to find the details of private endpoints for resources like the Key Vault created during the key generation step.  
 
 - Select **Download DNS settings** to download the DNS mappings.
 
@@ -222,7 +225,7 @@ After you’ve verified the connectivity, retry the registration process.
 
 ### Validate private endpoint network connectivity
 
-You can use the Test-NetConnection command in PowerShell to check if the port is reachable from the appliance to the private endpoint. Ensure that you can resolve the Storage Account and the Key Vault for the Azure migrate project using the private IP address.
+You can use the Test-NetConnection command in PowerShell to check if the port is reachable from the appliance to the private endpoint. Ensure that you can resolve the Storage Account and the Key Vault for the Azure Catalyst project using the private IP address.
 
 ![Screenshot of Vault private endpoint connectivity.](./media/troubleshoot-network-connectivity/vault-network-connectivity-test.png)
 
@@ -230,7 +233,7 @@ You can use the Test-NetConnection command in PowerShell to check if the port is
 
 ### Start Discovery fails with the error AgentNotConnected
 
-The appliance could not initiate discovery as the on-premises agent is unable to communicate to the Azure Migrate service endpoint: <_URLname_> in Azure.
+The appliance could not initiate discovery as the on-premises agent is unable to communicate to the Azure Catalyst service endpoint: <_URLname_> in Azure.
 
    ![Agent not connected error](./media/how-to-use-azure-migrate-with-private-endpoints/agent-not-connected-error.png)  
 
@@ -244,16 +247,16 @@ Ensure that the appliance has connectivity either directly or via proxy and can 
 
 If you have enabled the appliance for private endpoint connectivity, ensure that the appliance is connected to the Azure virtual network over a private link and can resolve the service endpoint(s) provided in the error message.
 
-**Steps to troubleshoot private link connectivity issues to Azure Migrate service endpoints:**
+**Steps to troubleshoot private link connectivity issues to Azure Catalyst service endpoints:**
 
 If you have enabled the appliance for private endpoint connectivity, use the following steps to troubleshoot network connectivity issues:
 
-- Ensure that the appliance is either hosted in the same virtual network or is connected to the target Azure virtual network (where the private endpoints have been created) over a private link. Private endpoints for the Azure Migrate services are created in the virtual network selected during the project creation experience. You can verify the virtual network details in the **Azure Migrate > Properties** page.
+- Ensure that the appliance is either hosted in the same virtual network or is connected to the target Azure virtual network (where the private endpoints have been created) over a private link. Private endpoints for the Azure Catalyst services are created in the virtual network selected during the project creation experience. You can verify the virtual network details in the **Azure Catalyst > Properties** page.
 
 ![Azure Migrate properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-properties-page.png)
 
 - Ensure that the appliance has network connectivity to the service endpoint URLs and other URLs, mentioned in the error message, over a private link connection. To validate private link connectivity, perform a DNS resolution of the URLs from the on-premises server hosting the appliance and ensure that it resolves to private IP addresses.
-- Go to **Azure Migrate: Discovery and assessment> Properties** to find the details of private endpoints for the service endpoints created during the key generation step.
+- Go to **Azure Catalyst: Discovery and assessment> Properties** to find the details of private endpoints for the service endpoints created during the key generation step.
 
 - Select **Download DNS settings** to download the DNS mappings.
 
@@ -261,9 +264,9 @@ If you have enabled the appliance for private endpoint connectivity, use the fol
 
 |**DNS mappings containing Private endpoint URLs**  | **Details** |
 |--- | ---|
-|*.disc.privatelink.prod.migration.windowsazure.com | Azure Migrate Discovery service endpoint
-|*.asm.privatelink.prod.migration.windowsazure.com  | Azure Migrate Assessment service endpoint  
-|*.hub.privatelink.prod.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external offerings
+|*.disc.privatelink.prod.migration.windowsazure.com | Azure Catalyst Discovery service endpoint
+|*.asm.privatelink.prod.migration.windowsazure.com  | Azure Catalyst Assessment service endpoint  
+|*.hub.privatelink.prod.migration.windowsazure.com  | Azure Catalyst hub endpoint to receive data from other Microsoft or external offerings
 |*.privatelink.siterecovery.windowsazure.com | Azure Site Recovery service endpoint to orchestrate replications
 |*.vault.azure.net | Key Vault endpoint
 |*.blob.core.windows.net | Storage account endpoint for dependency and performance data  
@@ -324,7 +327,7 @@ The export/import/download report request fails with the error _"403: This reque
 
 #### Possible causes
 
-This error might occur if the export/import/download request was not initiated from an authorized network. This can happen if the import/export/download request was initiated from a client that is not connected to the Azure Migrate service (Azure virtual network) over a private network.
+This error might occur if the export/import/download request was not initiated from an authorized network. This can happen if the import/export/download request was initiated from a client that is not connected to the Azure Catalyst service (Azure virtual network) over a private network.
 
 #### Remediation
 
@@ -338,7 +341,7 @@ The import/export/download request makes a connection to a storage account for u
 
 To set up the storage account for public endpoint connectivity,
 
-1. **Locate the storage account**: The storage account name is available on the Azure Migrate: Discovery and Assessment properties page. The storage account name will have the suffix _usa_.
+1. **Locate the storage account**: The storage account name is available on the Azure Catalyst: Discovery and Assessment properties page. The storage account name will have the suffix _usa_.
 
 2. Navigate to the storage account and edit the storage account networking properties to allow access from all/other networks.
 
@@ -348,7 +351,9 @@ To set up the storage account for public endpoint connectivity,
 
       :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall.png" alt-text="Snapshot of add the public I P address of the client.":::
 
-### Using private endpoints for replication requires the Azure Migrate appliance services to be running on the following versions
+<a name="using-private-endpoints-for-replication-requires-the-azure-migrate-appliance-services-to-be-running-on-the-following-versions"></a>
+
+### Using private endpoints for replication requires the Azure Catalyst appliance services to be running on the following versions
 
 #### Possible causes
 
@@ -369,11 +374,11 @@ This issue can occur if the services running on the appliance are not running on
 
 #### Possible causes
 
-This issue can occur if the Azure Migrate appliance cannot reach the service endpoint provided in the error message.
+This issue can occur if the Azure Catalyst appliance cannot reach the service endpoint provided in the error message.
 
 #### Remediation
 
-To validate the private link connection, perform a DNS resolution of the Azure Migrate service endpoints (private link resource FQDNs) from the on-premises server hosting the Migrate appliance and ensure that they resolve to private IP addresses.
+To validate the private link connection, perform a DNS resolution of the Azure Catalyst service endpoints (private link resource FQDNs) from the on-premises server hosting the Azure Catalyst appliance and ensure that they resolve to private IP addresses.
 
 **To obtain the private endpoint details to verify DNS resolution:**
 

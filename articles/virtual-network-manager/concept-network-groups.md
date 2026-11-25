@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 07/08/2026
+ms.date: 07/29/2026
 ---
 
 # What is a network group in Azure Virtual Network Manager?
@@ -21,6 +21,16 @@ A *network group* is global container that includes a set of virtual network res
 Group membership is a many-to-many relationship, such that one group holds many virtual networks and any given virtual network can participate in multiple network groups. As part of a network group, the virtual network receives any configurations applied to the group and deployed to the virtual networks region. 
 
 You can set a virtual network to join a network group in multiple ways. The two types of group memberships are *static* and *dynamic* memberships.
+
+The following table compares the two membership types:
+
+| | Static membership | Dynamic membership |
+| --- | --- | --- |
+| **How members are selected** | You manually select individual virtual networks from the network manager's scope. | Azure Policy evaluates conditions you define, and virtual networks that meet them join the group. |
+| **Typical scale** | A few virtual networks that you want to name explicitly. | Large numbers of virtual networks, or membership that changes as virtual networks are created and updated. |
+| **Azure Policy required** | No. | Yes. A policy definition and assignment govern membership. |
+| **Permissions needed** | Role-based access control permissions to join the network group. | Role-based access control permissions to join the network group, plus read and write permissions on the underlying policy. See [required permissions](concept-azure-policy-integration.md#required-permissions). |
+| **Best fit** | A small, stable set of virtual networks, or patching a group by adding or removing one virtual network. | Membership dictated by a condition, such as a tag or naming convention, rather than an explicit list. |
 
 ### Static membership
 

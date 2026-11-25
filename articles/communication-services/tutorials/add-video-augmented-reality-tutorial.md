@@ -15,6 +15,8 @@ ms.custom: mode-other
 
 # Add augmented reality filters to video calls
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 > [!NOTE]
 > DeepAR SDK is third-party software, which is licensed under its own terms. Microsoft doesn't make any representations or warranties concerning the use of third-party software.
 

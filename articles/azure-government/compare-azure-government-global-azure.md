@@ -3,8 +3,6 @@ title: Compare Azure Government and global Azure
 description: Describes the feature differences between Azure Government and the global (public) Azure.
 ms.service: azure-government
 ms.topic: article
-author: EliotSeattle
-ms.author: eliotgra
 recommendations: false
 ms.date: 08/21/2025
 ms.custom:
@@ -84,7 +82,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Cloud Services|cloudapp.net|usgovcloudapp.net||
 |**Containers**|Azure Service Fabric|cloudapp.azure.com|cloudapp.usgovcloudapi.net||
 ||Container Registry|azurecr.io|azurecr.us||
-|**Databases**|Azure Cache for Redis|redis.cache.windows.net|redis.cache.usgovcloudapi.net|See [How to connect to other clouds](../redis/how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)|
+|**Databases**|Azure Cache for Redis|redis.cache.windows.net|redis.cache.usgovcloudapi.net|See [How to connect to other clouds](/azure/redis/how-to-manage-redis-cache-powershell#how-to-connect-to-other-clouds)|
 ||Azure Cosmos DB|documents.azure.com|documents.azure.us||
 ||Azure Database for MariaDB|mariadb.database.azure.com|mariadb.database.usgovcloudapi.net||
 ||Azure Database for MySQL|mysql.database.azure.com|mysql.database.usgovcloudapi.net||
@@ -328,6 +326,10 @@ For Azure Government, use the following audience URI when authenticating to IoT 
 In comparison, global Azure uses `https://iothubs.azure.net` as the audience URI.
 
 For more information about authenticating to IoT Hub with Microsoft Entra ID, see [Control access to IoT Hub by using Microsoft Entra ID](../iot-hub/authenticate-authorize-azure-ad.md).
+
+### [Azure IoT Operations](../iot-operations/index.yml)
+
+Azure IoT Operations is available in preview in Azure Government. The Azure portal experience for Azure IoT Operations isn't available. Deploy and manage Azure IoT Operations by using the Azure CLI or the operations experience web UI. Preview features of Azure IoT Operations and Azure Device Registry, and features that depend on Azure Container Storage enabled by Azure Arc, aren't available. For supported regions, features, and deployment steps, see [Azure IoT Operations in Azure Government](../iot-operations/overview-azure-government.md).
 
 ## Management and governance
 

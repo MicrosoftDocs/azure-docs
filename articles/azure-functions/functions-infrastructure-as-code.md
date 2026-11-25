@@ -3,7 +3,7 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 11/09/2026
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template, linux-related-content, ignite-2024
 zone_pivot_groups: functions-hosting-plan
 ---
@@ -26,11 +26,13 @@ The template code to create the required Azure resources depends on the desired 
 
 | Hosting option | Deployment type | Sample templates |
 | ----- | ----- | ----- |
-| [Flex Consumption plan](./flex-consumption-plan.md) | Code-only | [Bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-flex-managed-identities/main.bicep)<br/>[ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-flex-managed-identities/azuredeploy.json)<br/>[Terraform](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/terraformazurerm) |
+| [Flex Consumption plan](./flex-consumption-plan.md) | Code \| [Container (preview)](flex-consumption-os-level-dependencies.md) | [Bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-flex-managed-identities/main.bicep)<br/>[ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-flex-managed-identities/azuredeploy.json)<br/>[Terraform](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/tree/main/IaC/terraformazurerm) |
 | [Premium plan](./functions-premium-plan.md) | Code \| Container | [Bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-premium-plan/main.bicep)<br/>[ARM template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-premium-plan/azuredeploy.json) |
 | [Dedicated plan](./dedicated-plan.md) | Code \| Container | [Bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/main.bicep)<br/>[ARM template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-dedicated-plan/azuredeploy.json) |
 | [Azure Container Apps](../container-apps/functions-overview.md) | Container-only | [Bicep](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/ACAKindfunctionapp)|
 | [Consumption plan](consumption-plan.md)(legacy) | Code-only | [Bicep](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-windows-consumption/main.bicep)<br/>[ARM template](https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-windows-consumption/azuredeploy.json) |
+
+The Flex Consumption sample templates linked in this table deploy code packages. For the container image configuration model and current deployment procedure, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 For new serverless function apps, use the Flex Consumption plan. <br/>The Consumption plan is a legacy hosting plan. For existing apps, [migrate to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).
 
@@ -161,13 +163,13 @@ The function app needs a connection to this storage account. Configure this conn
 ::: zone pivot="flex-consumption-plan"
 
 > [!TIP]
-> For better security, add `allowSharedKeyAccess: false` to your storage account properties and use managed identity-based connections instead of connection strings. The Flex Consumption plan examples in this article use this approach, including the `AzureWebJobsStorage__*` identity-based settings and a system-assigned managed identity. For more information, see [Connecting to host storage with an identity](./functions-reference.md#connecting-to-host-storage-with-an-identity).
+> For better security, add `allowSharedKeyAccess: false` to your storage account properties and use managed identity-based connections instead of connection strings. The Flex Consumption plan examples in this article use this approach, including the `AzureWebJobsStorage__*` identity-based settings and a system-assigned managed identity. For more information, see [Connecting to host storage with an identity](./manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ::: zone-end
 ::: zone pivot="dedicated-plan"
 
 > [!TIP]
-> For better security, set `allowSharedKeyAccess` to `false` on your storage account and use managed identity-based connections instead of connection strings. For more information, see [Connecting to host storage with an identity](./functions-reference.md#connecting-to-host-storage-with-an-identity).
+> For better security, set `allowSharedKeyAccess` to `false` on your storage account and use managed identity-based connections instead of connection strings. For more information, see [Connecting to host storage with an identity](./manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ::: zone-end
 ::: zone pivot="premium-plan,consumption-plan"
@@ -1119,9 +1121,11 @@ Your Bicep file or ARM template can optionally also define a deployment for your
 + [Linux container](./functions-how-to-custom-container.md) 
 ::: zone-end  
 ::: zone pivot="flex-consumption-plan"  
-The Flex Consumption plan maintains your project code in a zip-compressed package file in a blob storage container known as the _deployment container_. You can configure both the storage account and container used for deployment. For more information, see [Deployment](flex-consumption-plan.md#deployment). 
+Flex Consumption supports code-package and container-image deployments. This section documents the infrastructure configuration for code-package deployments. For the container image configuration model and current deployment procedure, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
-You must use _[one deploy](functions-deployment-technologies.md#one-deploy)_ to publish your code package to the deployment container. During an ARM template or Bicep deployment, you can do this step by [defining a package source](#deployment-package) that uses the `/onedeploy` extension. If you choose to instead directly upload your package to the container, the package isn't automatically deployed.
+For code-package deployments, the Flex Consumption plan maintains your project code in a zip-compressed package file in a blob storage container known as the _deployment container_. You can configure both the storage account and container used for deployment. For more information, see [Deployment](flex-consumption-plan.md#deployment).
+
+Use [package deployment](functions-deployment-technologies.md#flex-consumption-package-deployment) to publish your code package to the deployment container. During an ARM template or Bicep deployment, define a [package source](#deployment-package) that uses the literal `/onedeploy` extension resource name. If you instead upload your package directly to the container, the package isn't automatically deployed.
 
 ### Configure the deployment container
 
@@ -1167,11 +1171,11 @@ When you use a connection string instead of managed identities, set the `authent
 
 ### Deployment package
 
-The Flex Consumption plan uses _one deploy_ for deploying your code project. The code package itself is the same as the package you use for zip deployment in other Functions hosting plans. However, the name of the package file must be `released-package.zip`. 
+A Flex Consumption code-package app uses package deployment for the project. The code package itself is the same as the package you use for ZIP deployment in other Functions hosting plans. However, the name of the package file must be `released-package.zip`.
 
-To include a one deploy package in your template, use the `/onedeploy` resource definition for the remote URL that contains the deployment package. The Functions host must be able to access both this remote package source and the deployment container.  
+To include a deployment package in your template, use the `/onedeploy` resource definition for the remote URL that contains the package. The Functions host must be able to access both this remote package source and the deployment container.
 
-This example adds a one deploy source to an existing app:  
+This example adds a package source to an existing app:
 
 ### [Bicep](#tab/bicep)
 
@@ -1347,9 +1351,7 @@ To enable the same build processes that you get with continuous integration, add
 
 ### [Linux](#tab/linux)
 
-To enable the same build processes that you get with continuous integration, add `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to your application settings in your deployment code and remove the `WEBSITE_RUN_FROM_PACKAGE` setting entirely.
-
-The `ENABLE_ORYX_BUILD` setting is set to `true` by default. If you have problems building a .NET or Java function app, set it to `false`. 
+To enable the same build processes that you get with continuous integration, add both `SCM_DO_BUILD_DURING_DEPLOYMENT=true` and `ENABLE_ORYX_BUILD=true` to your application settings in your deployment code. Remove the `WEBSITE_RUN_FROM_PACKAGE` setting entirely when you request the remote build.
 
 Function apps that are built remotely on Linux can run from a package.
 
@@ -1591,7 +1593,7 @@ You maintain these application configurations in `functionAppConfig`:
 | [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency) | `scaleAndConcurrency.triggers.http.perInstanceConcurrency` |
 | [Language runtime](functions-app-settings.md#functions_worker_runtime) | `runtime.name` |
 | [Language version](supported-languages.md) | `runtime.version` |
-| [Maximum instance count](event-driven-scaling.md#flex-consumption-plan) | `scaleAndConcurrency.maximumInstanceCount` |
+| [Maximum instance count](event-driven-scaling.md#limit-scale-out) | `scaleAndConcurrency.maximumInstanceCount` |
 | [Site update strategy](flex-consumption-site-updates.md) | `siteUpdateStrategy.type` |
 
 The Flex Consumption plan also supports these application settings:
@@ -1774,7 +1776,7 @@ Keep these considerations in mind when working with site and application setting
 
 + When adding or updating application settings by using templates, make sure that you include all existing settings with the update. You must do this because the underlying update REST API calls replace the entire `/config/appsettings` resource. If you remove the existing settings, your function app won't run. To programmatically update individual application settings, you can instead use the Azure CLI, Azure PowerShell, or the Azure portal to make these changes. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
-+ When possible, use managed identity-based connections to other Azure services, including the `AzureWebJobsStorage` connection. For more information, see [Configure an identity-based connection](functions-reference.md#configure-an-identity-based-connection).
++ When possible, use managed identity-based connections to other Azure services, including the `AzureWebJobsStorage` connection. For more information, see [Configure an identity-based connection](manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections).
 ::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 ## Slot deployments
 

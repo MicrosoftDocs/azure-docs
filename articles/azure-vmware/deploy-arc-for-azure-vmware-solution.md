@@ -3,7 +3,7 @@ title: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 03/02/2026
+ms.date: 11/16/2026
 ms.custom: references_regions, devx-track-azurecli, engagement-fy23
 # Customer intent: As an IT administrator managing VMware environments, I want to deploy Arc-enabled VMware vSphere in Azure VMware Solution, so that I can integrate my resources with Azure for centralized management and enhanced operational capabilities.
 ---
@@ -18,7 +18,7 @@ Arc-enabled Azure VMware Solution allows you to do the following actions:
 - Perform different virtual machine (VM) operations directly from Azure like; create, resize, delete, and power cycle operations (start/stop/restart) on VMware VMs consistently with Azure.
 - Permit developers and application teams to use VM operations on-demand with [Role-based access control](/azure/role-based-access-control/overview).
 - Install the Arc-connected machine agent to [govern, protect, configure, and monitor](/azure/azure-arc/servers/overview#supported-cloud-operations) them.
-- Browse your VMware vSphere resources (vms, templates, networks, and storage) in Azure
+- Browse your VMware vSphere resources (VMs, VM templates, networks, and storage) in Azure.
 
 ## Prerequisites
 
@@ -44,6 +44,8 @@ You need the following items to ensure you're set up to begin the onboarding pro
 - Validate the regional support before you start the onboarding process. Arc for Azure VMware Solution is supported in all regions where Arc for VMware vSphere on-premises is supported. For details, see [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview#supported-regions).
 - A [management VM](/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter Server.
 - [Support Matrix](/azure/azure-arc/vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere) for using Azure Arc to manage your Azure VMware Solution VMs. 
+- Ensure that you have a [vSphere account with the required privileges](/azure/azure-arc/vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere). During onboarding, this account is provided to the Azure Arc onboarding script and is used to deploy the Azure Arc resource bridge VM.
+
 - [Ensure Azure Arc resource bridge system requirements](/azure/azure-arc/resource-bridge/system-requirements) are met before proceeding with the deployment. 
 - A [management VM](/azure/azure-arc/resource-bridge/system-requirements#management-machine-requirements) with internet access that has a direct line of site to the vCenter Server.
 - From the Management VM, verify you  have access to [vCenter Server and NSX Manager portals](/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
@@ -71,7 +73,7 @@ You need the following items to ensure you're set up to begin the onboarding pro
 
 If you want to use a custom DNS, use the following steps: 
 
-  1. Navigate to the DNS page from your Azure VMware Solution private cloud. 
+1. Navigate to the DNS page from your Azure VMware Solution private cloud. 
   2. Under Workload networking, select **DNS**, and identify the default forwarder-zones under the DNS zones tab. 
   3. Edit the forwarder zone to add the custom DNS server IP. When you add the custom DNS as the first IP, it allows requests to be directly forwarded to the first IP and decreases the number of retries. 
 
@@ -136,7 +138,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
    }
 ```
     
-  - Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
+- Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
   - `isStatic` is always true. 
   - `networkForApplianceVM` is the name for the segment for Arc appliance VM. One gets created if it doesn't already exist.  
   - `networkCIDRForApplianceVM` is the IP CIDR of the segment for Arc appliance VM. It should be unique and not affect other networks of Azure VMware Solution management IP CIDR. 
@@ -202,7 +204,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
 
 If using a proxy, the Arc Resource Bridge must be configured to use the proxy in order to connect to Azure services. This approach requires other parameters to be specified during the onboarding process via the script.
 
-  - `applianceProxyDetails`- Proxy details to be used for the deployment of Arc Appliance in the network.
+- `applianceProxyDetails`- Proxy details to be used for the deployment of Arc Appliance in the network.
   - `managementProxyDetails`- Proxy details to be used on management VM for running of the script. Provide these details only if you want to set or override the existing proxy settings on management VM.
   - `http` - Proxy server address for http requests.
   - `https` - Proxy server address for https requests.
@@ -235,30 +237,27 @@ When Arc appliance is successfully deployed on your private cloud, you can do th
 - Discover your VMware vSphere infrastructure resources and project them to Azure by navigating, **Private cloud > Arc vCenter Server resources > Virtual Machines**.
 - Similar to VMs, customers can enable networks, templates, resource pools, and data-stores in Azure.
 
-## Enable virtual machines, resource pools, clusters, hosts, datastores, networks, and VM templates in Azure
+## Onboard VMware vCenter resources in Azure
 
-Once you connected your Azure VMware Solution private cloud to Azure, you can browse your vCenter Server inventory from the Azure portal. This section shows you how to make these resources Azure enabled.
+After you connect your Azure VMware Solution private cloud to Azure, you can browse your vCenter Server inventory from the Azure portal. This section guides you through onboarding virtual machines, resource pools, clusters, hosts, datastores, networks, and VM templates in Azure.
 
 > [!NOTE]
-> Enabling Azure Arc on a VMware vSphere resource is a read-only operation on vCenter Server. It doesn't make changes to your resource in vCenter Server.
+> Onboarding a VMware resource to Azure is a read-only operation on vCenter Server. It doesn't make changes to your resource in vCenter Server.
 
 1. On your Azure VMware Solution private cloud, in the left navigation, locate **vCenter Server Inventory**.
-2. Select the resources you want to enable, then select **Enable in Azure**.
-3. Select your Azure **Subscription** and **Resource Group**, then select **Enable**.
+2. Select the resources you want to onboard, and then select **Manage Arc onboarding**.
+3. Select your Azure **Subscription** and **Resource Group**, select **Arc agent with virtual hardware management**, and then provide the Administrator username and password for the VM. For Linux VMs, select the option to use SSH key-based authentication. 
 
-  The enable action starts a deployment and creates a resource in Azure, creating representative objects in Azure for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly.
+   The Arc agent is the [Azure Arc connected machine agent](/azure/azure-arc/servers/agent-overview). For information about the prerequisites for installing the Arc agent, see [Connected Machine agent prerequisites](/azure/azure-arc/servers/prerequisites).
 
-Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources.
+   Alternatively, you can choose not to install this agent by selecting **Virtual hardware management only**.
 
-For virtual machines there's another section to configure **VM extensions** which enables guest management to facilitate more Azure extensions to be installed on the VM. Use the following steps to enable guest management:
+   The **Onboard** action starts a deployment and creates a resource in Azure, creating representative objects in Azure for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly.
 
-1. Select **Enable guest management**.
-2. Choose a __Connectivity Method__ for the Arc agent.
-3. Provide an Administrator/Root access username and password for the VM.
-
-If you choose to enable the guest management as a separate step or have issues with the VM extension install steps, see [Enable guest management and install extensions on Arc-enabled VMs](/azure/azure-vmware/arc-enable-guest-management).
+Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources. There's no agent installation action for non-virtual machine resources.
 
 ## Next Steps
 
 - To manage Arc-enabled Azure VMware Solution, see [Manage Arc-enabled Azure VMware private cloud - Azure VMware Solution](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution)
-- To remove Arc-enabled  Azure VMware Solution resources from Azure, see [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution.](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)
+
+- To remove Arc-enabled Azure VMware Solution resources from Azure, see [Remove Arc-enabled Azure VMware Solution vSphere resources from Azure - Azure VMware Solution.](/azure/azure-vmware/remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure)

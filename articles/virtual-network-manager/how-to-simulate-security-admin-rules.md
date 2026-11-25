@@ -31,7 +31,7 @@ This feature helps you validate security admin rule behavior, identify potential
 
   - It can take time after configuring these tools before data becomes available for rule impact analyzer.
 
-- Required role-based access control (RBAC) permissions. For more information, see [Traffic analytics RBAC Permissions](/azure/network-watcher/required-rbac-permissions#traffic-analytics).
+- Required role-based access control (RBAC) permissions. For more information, see [Traffic analytics RBAC Permissions](/azure/network-watcher/rbac-permissions#traffic-analytics).
 
 ## Simulate security admin rules in the Azure portal
 

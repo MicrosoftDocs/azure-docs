@@ -3,7 +3,7 @@ title: Traffic Analytics Overview
 titleSuffix: Azure Network Watcher
 description: Learn what Azure Network Watcher traffic analytics is, and how to use it for viewing network activity, securing networks, and optimizing performance.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 02/10/2026
@@ -74,7 +74,7 @@ To use traffic analytics, you need the following components:
       - Information about the flow, such as the source and destination IP addresses, the source and destination ports, and the protocol.
       - The status of the traffic, such as allowed or denied.
     
-      For more information, see [Network security group flow logs overview](nsg-flow-logs-overview.md) and [Create a network security group flow log](nsg-flow-logs-manage.md#create-a-flow-log).
+      For more information, see [Network security group flow logs overview](nsg-flow-logs-overview.md).
     
     - **Virtual network (VNet)**: A resource that enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. For more information, see [Virtual network overview](../virtual-network/virtual-networks-overview.md?toc=/azure/network-watcher/toc.json).
     
@@ -87,7 +87,7 @@ To use traffic analytics, you need the following components:
       For more information, see [Virtual network flow logs overview](vnet-flow-logs-overview.md) and [Create a virtual network flow log](vnet-flow-logs-portal.md#create-a-flow-log). To learn about the differences between network security group flow logs and virtual network flow logs, see [Virtual network flow logs compared to network security group flow logs](vnet-flow-logs-overview.md#virtual-network-flow-logs-compared-to-network-security-group-flow-logs). 
 
 > [!NOTE]
-> To use Traffic analytics, you must have the required permissions. For more information, see [Traffic analytics permissions](required-rbac-permissions.md#traffic-analytics).
+> To use Traffic analytics, you must have the required permissions. For more information, see [Traffic analytics permissions](rbac-permissions.md#traffic-analytics).
 
 ## How traffic analytics works
 

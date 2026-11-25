@@ -8,7 +8,7 @@ ms.service: azure-notification-hubs
 ms.devlang: csharp
 ms.topic: article
 ms.date: 06/08/2023
-ms.author: sethm
+ms.author: dimatokar
 ms.custom:
   - devx-track-csharp
   - sfi-ropc-nochange

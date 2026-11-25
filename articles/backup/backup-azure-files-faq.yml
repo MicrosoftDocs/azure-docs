@@ -128,7 +128,7 @@ sections:
       - question: |
           Why data transferred in MB is 0 for the backup jobs?
         answer: |
-           In the current backup solution for Azure Files, no data is transferred to the vault, and snapshots are retained in the same storage account as the backed-up file share. So, the data transferred in MB is 0.
+           For snapshot-based backup, no data is transferred to the vault, and snapshots are retained in the same storage account as the backed-up file share. So, the data transferred in MB is 0.
        
       - question: |
           Why are Azure Files snapshot-based backups not replicated based on the Storage Replication Type setting of the vault?

@@ -141,10 +141,6 @@ The plugin works by calling the [Azure Digital Twins Query API](/rest/api/digita
 
 For more information on using the plugin, see the [Kusto documentation for the azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin).
 
-To see example queries and complete a walkthrough with sample data, see [Azure Digital Twins query plugin for Azure Data Explorer: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) in GitHub.
-
 ## Next steps
 
 * View the plugin documentation for the Kusto Query Language in Azure Data Explorer: [azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin)
-
-* View sample queries using the plugin, including a walkthrough that runs the queries in an example scenario: [Azure Digital Twins query plugin for Azure Data Explorer: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) 

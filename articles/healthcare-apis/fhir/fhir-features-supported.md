@@ -6,7 +6,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/01/2025
+ms.date: 08/24/2026
 ms.author: kesheth
 ---
 
@@ -68,7 +68,8 @@ SMART on FHIR Implementation Guide defines access to FHIR resource types with sc
 
 * **Request body size** - Azure API for FHIR supports up to 2 MB per request, while Azure Health Data Services (FHIR) supports up to 28 MB.
 * **Bundle size** - Each bundle is limited to 500 items.
-* **Subscription Limit** - By default, each subscription is limited to a maximum of 10 FHIR services. The limit can be used in one or many workspaces.
+* **Subscription limit** - By default, each subscription is limited to 10 workspaces.
+* **Workspace limit** - By default, each workspace is limited to a maximum of 10 FHIR services. Because the per-subscription and per-workspace limits are enforced independently, distribute FHIR services across multiple workspaces to reach more than 10 services in a subscription. In case of questions or higher limit needs, create a support request with the issue type **Service and Subscription limit (quotas)**. For the full quota table, see [Azure Health Data Services limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-health-data-services).
 * **Storage size** - By default each FHIR instance is limited to storage capacity of 4 TB. To deploy a FHIR instance with storage capacity beyond 4 TB, create support request with Issue type **Service and Subscription limit (quotas)**.
   
 

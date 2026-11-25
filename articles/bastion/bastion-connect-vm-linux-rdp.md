@@ -5,7 +5,7 @@ description: Learn how to use Azure Bastion to connect to a Linux VM using RDP v
 author: asudbring
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 03/12/2026
+ms.date: 08/11/2026
 ms.author: allensu
 ms.custom:
   - linux-related-content
@@ -26,7 +26,7 @@ The following diagram shows the dedicated deployment architecture using an RDP c
 
 Before you begin, verify that you meet the following criteria:
 
-* An Azure Bastion host deployed in the virtual network where the virtual machine is located, or in a [peered virtual network](vnet-peering.md). To set up a Bastion host, see [Create a bastion host](quickstart-host-portal.md#createhost). The SKU you need depends on your connection method:
+* An Azure Bastion host deployed in the virtual network where the virtual machine is located, or in a [peered virtual network](vnet-peering.md). To set up a Bastion host, see [Create a bastion host](quickstart-host-portal.md#createhost). You need the [Standard SKU](bastion-sku-comparison.md) or higher for RDP connections to Linux VMs, including browser-based connections from the Azure portal. The following table shows the requirements for each connection method:
 
   | Connection method | Minimum SKU | Additional configuration |
   |---|---|---|

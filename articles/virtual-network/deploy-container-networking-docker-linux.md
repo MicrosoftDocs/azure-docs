@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 02/23/2026
+ms.date: 07/30/2026
 ms.custom:
   - template-how-to
   - linux-related-content
@@ -263,12 +263,14 @@ For more information about the Azure CNI plugin, see [Microsoft Azure Container 
     git clone https://github.com/Azure/azure-container-networking.git
     ```
 
-1. Configure permissions and install the CNI plugin. The install script command requires a version number for the CNI plugin. At the time of the writing of this article, the newest version is **`v1.4.39`**. To obtain the latest version number of the plugin or previous versions, see [Releases](https://github.com/Azure/azure-container-networking/releases).
+1. Configure permissions and install the CNI plugin. The install script requires the Azure CNI plugin version as its first argument. For the latest version number or previous versions, see [Releases](https://github.com/Azure/azure-container-networking/releases). The script accepts an optional second argument, the [containernetworking CNI plugin version](https://github.com/containernetworking/plugins/releases). If you omit it, the script uses its built-in default.
+
+    Replace `<azure-cni-plugin-version>` with the version you want to install.
 
     ```bash
     cd ./azure-container-networking/scripts
     chmod u+x install-cni-plugin.sh
-    sudo ./install-cni-plugin.sh v1.4.39
+    sudo ./install-cni-plugin.sh <azure-cni-plugin-version>
     chmod u+x docker-run.sh
     ```
 

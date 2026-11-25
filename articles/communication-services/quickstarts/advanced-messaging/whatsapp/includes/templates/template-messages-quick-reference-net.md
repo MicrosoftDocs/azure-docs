@@ -54,7 +54,7 @@ WhatsApp message templates are specific message formats that businesses use to s
 For more information about WhatsApp requirements for templates, see the WhatsApp Business Platform API references:
 - [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/).
 - [View Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components).
-- [Send Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates).
+- [Send Template Messages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview).
 - Businesses must also adhere to [opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users.
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-net.md)]
@@ -294,7 +294,7 @@ The `format` can require different media types. In the .NET SDK, each media type
 | `LONGITUDE`| Location longitude. | double |
 | `LOCATIONNAME` | Text that appears immediately below the generic map at the top of the message. | string |
 
-For more information about location based templates, see [WhatsApp's documentation for message media](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#location). 
+For more information about location based templates, see [WhatsApp's documentation for message media](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview). 
 
 #### Example
 
@@ -576,7 +576,7 @@ Response<SendMessageResult> sendTemplateMessageResult4 =
 ```
 
 ### Send Authentication Template message
-This sample template sends authentication template message with one-time password buttons. For more information, see the Facebook Auth Template API article [Sending Authentication Templates](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates/auth-otp-template-messages).
+This sample template sends authentication template message with one-time password buttons. For more information, see the Facebook Auth Template API article [Sending Authentication Templates](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview/auth-otp-template-messages).
 
 #### Example
 

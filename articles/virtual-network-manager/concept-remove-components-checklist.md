@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 07/11/2025
+ms.date: 07/29/2026
 ---
 
 # Remove and update Azure Virtual Network Manager components checklist
@@ -13,6 +13,8 @@ ms.date: 07/11/2025
 This article provides a checklist of steps you need to complete to remove or update a configuration component of Azure Virtual Network Manager.
 
 ## <a name="remove"></a>Remove components checklist
+
+Most rows in this checklist begin by *undeploying* a configuration. Undeploying doesn't delete the configuration. It removes the configuration from the regions you deployed it to, by deploying a **None** configuration of that type to those regions. Because a deployment describes the goal state of your network manager in the targeted regions, deploying **None** replaces the previously deployed goal state, and the configuration stops taking effect there. The configuration itself stays in your network manager until you delete it in a later step. For more information, see [Goal state model](concept-deployments.md#goalstate).
 
 | Action | Steps | 
 | ------ | ----- |

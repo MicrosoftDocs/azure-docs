@@ -1,17 +1,17 @@
 ---
-title: Azure VM assessments in Azure Migrate 
-description: Learn about assessments in Azure Migrate 
+title: Azure VM assessments in Azure Catalyst 
+description: Learn about assessments in Azure Catalyst 
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 # Customer intent: As an IT administrator, I want to evaluate the readiness of my on-premises servers for migration to Azure, so that I can determine the appropriate sizing recommendations and estimated costs for moving to cloud infrastructure.
 ---
 
 # Assessment overview (migrate to Azure VMs)
 
-This article provides an overview of assessments in the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool. The tool can assess on-premises servers in VMware virtual and Hyper-V environment, and physical servers for migration to Azure.
+This article provides an overview of assessments in the [Azure Catalyst: Discovery and assessment](migrate-services-overview.md) tool. The tool can assess on-premises servers in VMware virtual and Hyper-V environment, and physical servers for migration to Azure.
 
 ## What's an assessment?
 
@@ -22,7 +22,7 @@ An assessment with the Discovery and assessment tool measures the readiness and 
 
 ## Types of assessments
 
-There are three types of assessments you can create using Azure Migrate: Discovery and assessment.
+There are three types of assessments you can create using Azure Catalyst: Discovery and assessment.
 
 **Assessment Type** | **Details**
 --- | ---
@@ -34,7 +34,7 @@ There are three types of assessments you can create using Azure Migrate: Discove
 > [!NOTE]
 > If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, select the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
 
-Assessments you create with Azure Migrate are a point-in-time snapshot of data. An Azure VM assessment provides two sizing criteria options:
+Assessments you create with Azure Catalyst are a point-in-time snapshot of data. An Azure VM assessment provides two sizing criteria options:
 
 **Assessment type** | **Details** | **Data**
 --- | --- | ---
@@ -45,16 +45,16 @@ Assessments you create with Azure Migrate are a point-in-time snapshot of data. 
 
 There are a couple of ways to run an assessment.
 
-- Assess servers by using server metadata collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises servers. It then sends server metadata and performance data to Azure Migrate.
+- Assess servers by using server metadata collected by a lightweight Azure Catalyst appliance. The appliance discovers on-premises servers. It then sends server metadata and performance data to Azure Catalyst.
 - Assess servers by using server metadata that's imported in a comma-separated values (CSV) format.
 
 ## How do I assess with the appliance?
 
-If you're deploying an Azure Migrate appliance to discover on-premises servers, do the following steps:
+If you're deploying an Azure Catalyst appliance to discover on-premises servers, do the following steps:
 
-1. Set up Azure and your on-premises environment to work with Azure Migrate.
+1. Set up Azure and your on-premises environment to work with Azure Catalyst.
 1. For your first assessment, create an Azure project and add the Discovery and assessment tool to it.
-1. Deploy a lightweight Azure Migrate appliance. The appliance continuously discovers on-premises servers and sends server metadata and performance data to Azure Migrate. Deploy the appliance as a VM or a physical server. You don't need to install anything on servers that you want to assess.
+1. Deploy a lightweight Azure Catalyst appliance. The appliance continuously discovers on-premises servers and sends server metadata and performance data to Azure Catalyst. Deploy the appliance as a VM or a physical server. You don't need to install anything on servers that you want to assess.
 
 After the appliance begins server discovery, you can gather servers you want to assess into a group and run an assessment for the group with assessment type **Azure VM**.
 
@@ -64,15 +64,15 @@ Follow our tutorials for [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tu
 
 If you're assessing servers by using a CSV file, you don't need an appliance. Instead, do the following steps:
 
-1. Set up Azure to work with Azure Migrate
+1. Set up Azure to work with Azure Catalyst
 1. For your first assessment, create an Azure project and add the Discovery and assessment tool to it.
 1. Download a CSV template and add server data to it.
-1. Import the template into Azure Migrate
+1. Import the template into Azure Catalyst
 1. Discover servers added with the import, gather them into a group, and run an assessment for the group with assessment type **Azure VM**.
 
 ## What data does the appliance collect?
 
-If you're using the Azure Migrate appliance for assessment, learn about the metadata and performance data that's collected for [VMware](discovered-metadata.md#collected-metadata-for-vmware-servers) and [Hyper-V](discovered-metadata.md#collected-metadata-for-hyper-v-servers).
+If you're using the Azure Catalyst appliance for assessment, learn about the metadata and performance data that's collected for [VMware](discovered-metadata.md#collected-metadata-for-vmware-servers) and [Hyper-V](discovered-metadata.md#collected-metadata-for-hyper-v-servers).
 
 ## How does the appliance calculate performance data?
 
@@ -102,7 +102,7 @@ If you use the appliance for discovery, it collects performance data for compute
 
 ## How are Azure VM assessments calculated?
 
-The assessment uses the on-premises servers' metadata and performance data to calculate assessments. If you deploy the Azure Migrate appliance, assessment uses the data the appliance collects. But if you run an assessment imported using a CSV file, you provide the metadata for the calculation.
+The assessment uses the on-premises servers' metadata and performance data to calculate assessments. If you deploy the Azure Catalyst appliance, assessment uses the data the appliance collects. But if you run an assessment imported using a CSV file, you provide the metadata for the calculation.
 
 Calculations occur in these three stages:
 
@@ -120,8 +120,8 @@ Here's what's included in an Azure VM assessment:
 --- | ---
 **Target location** | The location to which you want to migrate. The assessment currently supports these target Azure regions:<br><br> Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China East 2,  China North, China North 2, East Asia, East US, East US 2, France Central, France South, Germany North, Germany West Central, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, Norway East, Norway West, South Africa North, South Africa West, South Central US, Southeast Asia, South India, Switzerland North, Switzerland West, UAE Central, UAE North, UK South, UK West, West Central US, West Europe, West India, West US, West US 2, JioIndiaCentral, JioIndiaWest, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia.
 **Target storage disk (as-is sizing)** | The type of disk to use for storage in Azure. <br><br> Specify the target storage disk as Premium-managed, Standard SSD-managed, Standard HDD-managed, or Ultra Disk.
-**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra Disk.<br><br> **Premium or Standard or Ultra Disk**:  The assessment recommends a disk SKU within the storage type selected.<br><br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br><br> If you're looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra Disks.<br><br> Azure Migrate supports only managed disks for migration assessment.
-**Savings options (compute)** | Specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. <br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable. The monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.
+**Target storage disk (performance-based sizing)** | Specifies the type of target storage disk as Premium-managed, Standard HDD-managed, Standard SSD-managed, or Ultra Disk.<br><br> **Premium or Standard or Ultra Disk**:  The assessment recommends a disk SKU within the storage type selected.<br><br> If you want a single-instance VM service-level agreement (SLA) of 99.9%, consider using Premium-managed disks. This use ensures that all disks in the assessment are recommended as Premium-managed disks.<br><br> If you're looking to run data-intensive workloads that need high throughput, high IOPS, and consistent low latency disk storage, consider using Ultra Disks.<br><br> Azure Catalyst supports only managed disks for migration assessment.
+**Savings options (compute)** | Specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Catalyst assessments, you can only see cost estimates of 1 savings option at a time. <br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties are not applicable. The monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.
 **Sizing criteria** | Used to rightsize the Azure VM.<br><br> Use as-is sizing or performance-based sizing.
 **Performance history** | Used with performance-based sizing. Performance history specifies the duration used when performance data is evaluated.
 **Percentile utilization** | Used with performance-based sizing. Percentile utilization specifies the percentile value of the performance sample used for rightsizing.
@@ -136,7 +136,7 @@ Here's what's included in an Azure VM assessment:
 **Security** | Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it will assess security readiness and costs for your Azure VM with Microsoft Defender for Cloud.   
 
 
-[Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Migrate.
+[Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Catalyst.
 
 ## Calculate readiness
 
@@ -145,7 +145,7 @@ Not all servers are suitable to run in Azure. An Azure VM Assessment assesses al
 - **Ready for Azure**: The server can be migrated as-is to Azure without any changes. It will start in Azure with full Azure support.
 - **Conditionally ready for Azure**: The server might start in Azure but might not have full Azure support. For example, Azure doesn't support a server that's running an old version of Windows Server. You must be careful before you migrate these servers to Azure. To fix any readiness problems, follow the remediation guidance the assessment suggests.
 - **Not ready for Azure**: The server won't start in Azure. For example, if an on-premises server's disk stores more than 64 TB, Azure can't host the server. Follow the remediation guidance to fix the problem before migration.
-- **Readiness unknown**: Azure Migrate can't determine the readiness of the server because of insufficient metadata.
+- **Readiness unknown**: Azure Catalyst can't determine the readiness of the server because of insufficient metadata.
 
 To calculate readiness, the assessment reviews the server properties and operating system settings summarized in the following tables.
 
@@ -156,8 +156,8 @@ For an Azure VM Assessment, the assessment reviews the following properties of a
 **Property** | **Details** | **Azure readiness status**
 --- | --- | ---
 **Boot type** | Azure supports UEFI boot type for OS mentioned [here](./common-questions-server-migration.md#which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure)| Not ready if the boot type is UEFI and Operating System running on the VM is: Windows Server 2003/Windows Server 2003 R2/Windows Server 2008/Windows Server 2008 R2
-**Cores** | Each server must have no more than 128 cores, which is the maximum number an Azure VM supports.<br><br> If performance history is available, Azure Migrate considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br><br> If there's no performance history, Azure Migrate uses the allocated cores to apply the comfort factor. | Ready if the number of cores is within the limit
-**RAM** | Each server must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m&nbsp;<sup>2</sup> VM supports. [Learn more](/azure/virtual-machines/sizes).<br><br> If performance history is available, Azure Migrate considers the utilized RAM for comparison. If a comfort factor is specified, the utilized RAM is multiplied by the comfort factor.<br><br> If there's no history, the allocated RAM is used to apply a comfort factor.<br><br> | Ready if the amount of RAM is within the limit
+**Cores** | Each server must have no more than 128 cores, which is the maximum number an Azure VM supports.<br><br> If performance history is available, Azure Catalyst considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br><br> If there's no performance history, Azure Catalyst uses the allocated cores to apply the comfort factor. | Ready if the number of cores is within the limit
+**RAM** | Each server must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m&nbsp;<sup>2</sup> VM supports. [Learn more](/azure/virtual-machines/sizes).<br><br> If performance history is available, Azure Catalyst considers the utilized RAM for comparison. If a comfort factor is specified, the utilized RAM is multiplied by the comfort factor.<br><br> If there's no history, the allocated RAM is used to apply a comfort factor.<br><br> | Ready if the amount of RAM is within the limit
 **Storage disk** | The allocated size of a disk must be no more than 64 TB.<br><br> The number of disks attached to the server, including the OS disk, must be 65 or fewer. | Ready if the disk size and number are within the limits
 **Networking** | A server must have no more than 32 network interfaces (NICs) attached to it. | Ready if the number of NICs is within the limit
 
@@ -185,7 +185,7 @@ Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](/azur
 Windows Vista and Windows XP Professional | These operating systems have passed their end-of-support dates. The server might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
 Linux | See the [Linux operating systems](/azure/virtual-machines/linux/endorsed-distros) that Azure endorses. Other Linux operating systems might start in Azure. But we recommend that you upgrade the OS to an endorsed version before you migrate to Azure. | Ready for Azure if the version is endorsed.<br><br>Conditionally ready if the version isn't endorsed.
 Other operating systems like Oracle Solaris, Apple macOS, and FreeBSD | Azure doesn't endorse these operating systems. The server might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you install a supported OS before migrating to Azure.  
-OS specified as **Other** in vCenter Server | Azure Migrate can't identify the OS in this case. | Unknown readiness. Ensure that Azure supports the OS running inside the VM.
+OS specified as **Other** in vCenter Server | Azure Catalyst can't identify the OS in this case. | Unknown readiness. Ensure that Azure supports the OS running inside the VM.
 32-bit operating systems | The server might start in Azure, but Azure might not provide full support. | Conditionally ready for Azure. Consider upgrading to a 64-bit OS before migrating to Azure.
 
 ### Security readiness
@@ -233,7 +233,7 @@ If you use performance-based sizing in an Azure VM assessment, the assessment ma
 
 #### Storage sizing in Azure VM Assessment
 
-Azure Migrate maps each disk attached to a server to an Azure disk. The sizing process is as follows:
+Azure Catalyst maps each disk attached to a server to an Azure disk. The sizing process is as follows:
 
 1. **IOPS and Throughput Calculation**
     - The assessment calculates total IOPS and throughput by adding the read and write IOPS and throughput values of each disk.
@@ -278,14 +278,14 @@ For an Azure VM assessment, assessment tries to find an Azure VM that supports t
 
 After it calculates storage and network requirements, the assessment considers CPU and RAM requirements to find a suitable VM size in Azure.
 
-- Azure Migrate looks at the effective utilized cores (including [processor benchmark](common-questions-discovery-assessment.md#i-see-a-banner-on-my-assessment-that-the-assessment-now-also-considers-processor-parameters-what-will-be-the-impact-of-recalculating-the-assessment)) and RAM to find a suitable Azure VM size.
+- Azure Catalyst looks at the effective utilized cores (including [processor benchmark](common-questions-discovery-assessment.md#i-see-a-banner-on-my-assessment-that-the-assessment-now-also-considers-processor-parameters-what-will-be-the-impact-of-recalculating-the-assessment)) and RAM to find a suitable Azure VM size.
 - If no suitable size is found, the server is marked as unsuitable for Azure.
-- If a suitable size is found, Azure Migrate applies the storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation.
+- If a suitable size is found, Azure Catalyst applies the storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation.
 - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
 
 ## Performance coverage (performance-based)
 
-Each performance-based Azure VM assessment in Azure Migrate is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Migrate provides.
+Each performance-based Azure VM assessment in Azure Catalyst is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Catalyst provides.
 
 - The performance coverage is assigned to an assessment. The coverage is based on the availability of data points that are needed to compute the assessment.
 - For performance-based sizing, the assessment needs:
@@ -349,21 +349,21 @@ For an Azure VM assessment, assessment tries to find an Azure VM that supports t
  
 After it calculates storage and network requirements, the assessment considers CPU and RAM requirements to find a suitable VM size in Azure.  
  
-- Azure Migrate looks at the effective utilized cores (including processor benchmark) and RAM to find a suitable Azure VM size.  
+- Azure Catalyst looks at the effective utilized cores (including processor benchmark) and RAM to find a suitable Azure VM size.  
  
 - If no suitable size is found, the server is marked as unsuitable for Azure.  
  
-- If a suitable size is found, Azure Migrate applies the storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation.  
+- If a suitable size is found, Azure Catalyst applies the storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation.  
  
 - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.  
  
 ### Monthly costs 
  
-After sizing recommendations are done, an Azure VM assessment in Azure Migrate calculates compute and storage costs for after migration.  
+After sizing recommendations are done, an Azure VM assessment in Azure Catalyst calculates compute and storage costs for after migration.  
  
 #### Compute cost 
  
-Azure Migrate uses the recommended Azure VM size and the Azure Billing API to calculate the monthly cost for the server.  
+Azure Catalyst uses the recommended Azure VM size and the Azure Billing API to calculate the monthly cost for the server.  
  
 The calculation considers the following:  
  

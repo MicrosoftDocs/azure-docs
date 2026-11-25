@@ -3,7 +3,7 @@ title: Distributed data structures
 description: Distributed data structures are the building blocks of Fluid applications
 ms.date: 10/05/2021
 ms.topic: article
-ms.service: azure-fluid
+ms.service: fluid-framework
 fluid.url: https://fluidframework.com/docs/data-structures/overview/
 ---
 

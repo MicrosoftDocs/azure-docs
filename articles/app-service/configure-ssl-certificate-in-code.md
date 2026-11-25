@@ -5,8 +5,8 @@ keywords: TLS/SSL in code, secure app, HTTPS integration, Azure App Service secu
 ms.topic: article
 ms.date: 04/16/2026
 ms.reviewer: yutlin
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ms.custom:
   - linux-related-content

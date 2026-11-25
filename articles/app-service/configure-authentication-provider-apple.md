@@ -4,8 +4,8 @@ description: Learn how to configure Sign in with Apple as an identity provider f
 ms.topic: how-to
 ms.date: 03/31/2026
 ms.reviewer: mikarmar
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.custom:
   - AppServiceIdentity
@@ -102,8 +102,6 @@ The base64-encoded version of this payload looks like this:
 
 > [!NOTE]
 > Apple doesn't accept client secret JWTs with an expiration date more than six months after the creation, or *nbf*, date. You need to rotate your client secret, at minimum, every six months.
-
-For more information about generating and validating tokens, see [Apple's developer documentation](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens).
 
 ### Sign the client secret JWT
 

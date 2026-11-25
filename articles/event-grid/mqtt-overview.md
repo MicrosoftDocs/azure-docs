@@ -2,9 +2,9 @@
 title: MQTT (PubSub) Broker
 description: Message Queuing Telemetry Transport (MQTT) PubSub broker feature in Azure Event Grid enables MQTT clients to communicate with each other and with Azure services.
 ms.topic: concept-article
-ms.date: 05/07/2026
-author: george-guirguis
-ms.author: geguirgu
+ms.date: 10/13/2026
+author: Connected-Seth
+ms.author: seshanmugam
 ms.subservice: mqtt
 # Customer intent: I want to know how Azure Event Grid supports the MQTT protocol.
 ms.custom:
@@ -23,6 +23,15 @@ Azure Event Grid enables your Message Queuing Telemetry Transport (MQTT) clients
 The MQTT broker is ideal for the implementation of automotive, mobility, and manufacturing scenarios, among others. To learn how to build secure and scalable solutions for connecting millions of MQTT clients to the cloud by using the Azure messaging and data analytics services, see the [automotive](/industry/mobility/architecture/automotive-messaging-data-analytics-content) and [manufacturing](/industry/manufacturing/manufacturing-data-solutions/architecture/ra-manufacturing-data-solutions) reference architectures.
 
 :::image type="content" source="media/overview/mqtt-messaging-high-res.png" alt-text="High-level diagram of Event Grid that shows bidirectional MQTT communication with publisher and subscriber clients." border="false":::
+
+## IPv6 dual-stack connectivity (preview)
+
+IPv6 dual-stack support for Event Grid namespaces is currently in preview. Supported MQTT clients can connect to the public MQTT broker endpoint of a dual-stack-enabled namespace over IPv4 or IPv6. Existing IPv4 MQTT clients can continue to connect after dual stack is enabled. Authentication, authorization, and TLS requirements don't change solely because a client uses IPv6.
+
+> [!WARNING]
+> IPv6 dual-stack support is available only for public endpoints during preview. Private endpoints aren't supported with dual-stack-enabled Event Grid namespaces. If you require private endpoint connectivity, keep **Network protocol preference** set to **IPv4**.
+
+For configuration steps and limitations, see [Configure IPv6 dual-stack support for Azure Event Grid namespaces (preview)](namespace-ipv6-dual-stack.md).
 
 ## Key concepts
 
@@ -152,6 +161,10 @@ This feature simplifies client-side processing by:
 - Providing clear context when a single client handles multiple data streams.
 
 In Azure Event Grid MQTT Broker, subscription identifiers are useful for building efficient, scalable applications where clients need to distinguish between messages from different subscriptions.
+
+## Maximum MQTT message size 
+
+Azure Event Grid Namespace MQTT broker supports MQTT publish messages up to 1 MB (1,024 KB). The broker rejects messages that exceed 1 MB. The 1 MB limit applies to MQTT v3.1.1 and MQTT v5 clients. 
 
 ## Concepts
 

@@ -1,6 +1,6 @@
 ---
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 05/19/2026
 ms.topic: include
 ms.service: azure-deployment-environments

@@ -2,14 +2,14 @@
 title: Monitoring SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about monitoring SAP HANA on an Azure (Large Instances).
 services: virtual-machines-linux
-author: jjaygbay1 
+author: mattmcinnes 
 manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 10/19/2022
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 ms.custom: H1Hack27Feb2017
 # Customer intent: As an IT administrator managing SAP HANA on large instances, I want to monitor resource consumption (CPU, memory, network bandwidth, and disk space) in Azure, so that I can ensure optimal performance and prevent resource depletion.
 ---

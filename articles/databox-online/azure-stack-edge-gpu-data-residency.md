@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 10/01/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Data residency and resiliency for Azure Stack Edge 
@@ -81,14 +81,14 @@ Azure Arc-enabled Kubernetes, Azure IoT Hub and Azure IoT Edge, and Azure Key Va
 Azure Arc-enabled Kubernetes is available as an add-on for Azure Stack Edge. For Singapore (Southeast Asia), Azure Arc data resides only within Singapore and is not replicated in Hong Kong SAR. <!--If there is a region-wide outage, the service is not resilient.-->
 
 <!--For all other regions, Azure Arc supports Azure Regional Pair and is resilient to any region-wide outages.--> 
-<!--For more information, see [Data residency and resiliency for Azure Arc-enabled Kubernetes clusters]().-->
+<!--For more information, see Data residency and resiliency for Azure Arc-enabled Kubernetes clusters.-->
 
 
 ### Azure IoT
 
 Azure IoT is available as an add-on for Azure Stack Edge. For Singapore (Southeast Asia), Azure IoT uses paired region and replicates data to Hong Kong SAR. This means that Azure IoT is resilient to region-wide outages. 
 
-<!--For more information, see [Data residency and resiliency for Azure IoT]().-->
+<!--For more information, see Data residency and resiliency for Azure IoT.-->
 
 
 <!--### Azure Key Vault
@@ -96,7 +96,7 @@ Azure IoT is available as an add-on for Azure Stack Edge. For Singapore (Southea
 Azure Key Vault currently uses Azure Regional Pair for region outage resiliency. For new Azure Key Vault resources, an option is now available that can be enabled at the subscription level. When enabled, if your service is deployed in Singapore (Southeast Asia), you can control the data replication to Hong Kong SAR. 
 
 If you choose to store and process the data only in Singapore region, then the service will not be resilient to region-wide outages. -->
-<!--For more information, see [Data residency and resiliency for Azure Key Vault]().-->
+<!--For more information, see Data residency and resiliency for Azure Key Vault.-->
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Manual promotion of Resource Manager templates
 description: Learn how to manually promote a Resource Manager template to multiple environments with continuous integration and delivery in Azure Data Factory.
 ms.subservice: ci-cd
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 01/29/2025
@@ -12,6 +12,8 @@ ms.date: 01/29/2025
 # Manually promote a Resource Manager template to each environment
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Use the steps below to promote a Resource Manager template to each environment for continuous integration and delivery in Azure Data Factory.
 

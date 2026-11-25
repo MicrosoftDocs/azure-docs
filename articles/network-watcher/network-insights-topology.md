@@ -2,7 +2,7 @@
 title: View Topology
 description: Learn how to use Network Insights topology to get a visual representation of Azure resources with connectivity and traffic insights for monitoring. 
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 11/18/2025
@@ -24,7 +24,7 @@ In this article, you learn how to use topology to visualize virtual networks and
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- The necessary [role-based access control (RBAC) permissions](required-rbac-permissions.md) to use Azure Network Watcher capabilities.
+- The necessary [role-based access control (RBAC) permissions](rbac-permissions.md) to use Azure Network Watcher capabilities.
 
 ## Supported resource types
 
@@ -184,7 +184,61 @@ Topology supports visualization for a wide range of AKS deployment scenarios, in
 ### Limitations
 
 - AKS clusters and their main network components must reside within the same subscription and region.
-- Migration of clusters between subscriptions, tenants, or resource groups is not supported.
+- Migration of clusters between subscriptions, tenants, or resource groups isn't supported.
+
+## Diagnose network issues with Network Watcher in Support + Troubleshooting (Preview)
+
+From topology, you can now start a network diagnosis directly in **Support + Troubleshooting**. Select the issue you're facing, and if it's a network connectivity issue that Network Watcher can diagnose, Support + Troubleshooting uses Copilot Troubleshooting Agent to choose and run the relevant Network Watcher diagnostics for you. It then correlates the results and tells you the probable cause, how confident it is, and the recommended next steps. You don't need to open each diagnostic tool separately, decide which one to run, or fill in its parameters yourself.
+
+The findings come from Network Watcher itself. Network Watcher works out routes, checks network security group (NSG) rules, and tests connectivity. AI decides which diagnostics fit your issue, runs them, and explains the combined results in plain language.
+
+> [!IMPORTANT]
+> Diagnosing network issues with Network Watcher in Support + Troubleshooting is currently in preview. Features and functionality might change before general availability.
+
+### Supported Network Watcher diagnostics
+
+During the limited preview, Support + Troubleshooting can run the following Network Watcher diagnostics:
+
+| Diagnostic | What it checks |
+|---|---|
+| [Next hop](next-hop-overview.md) | Finds the next hop type and IP address that traffic from a VM takes toward a destination. |
+| [IP flow verify](ip-flow-verify-overview.md) | Checks whether NSG rules allow or deny a specific inbound or outbound flow. |
+| [Connection troubleshoot](connection-troubleshoot-overview.md) | Tests connectivity from a source VM to a destination and finds issues along the path. |
+| [NSG diagnostics](nsg-diagnostics-overview.md) | Checks how NSG rules apply to traffic between a source and a destination. |
+
+You don't choose the diagnostic. Based on the issue you select, Support + Troubleshooting runs only the diagnostics that are relevant to it.
+
+### Prerequisites
+
+- **Azure Copilot access.** Azure Copilot must be enabled for your tenant, and your account must have access to it. The **Troubleshooting** preview capability must also be turned on in the **Azure Copilot admin center**. A Global Administrator can manage both settings. For more information, see [Manage access to Azure Copilot](/azure/copilot/manage-access).
+- **Permissions.** You can only diagnose resources you have access to, and every diagnostic runs with your Azure role-based access control (Azure RBAC) permissions. For more information, see [Azure role-based access control permissions required to use Network Watcher capabilities](required-rbac-permissions.md).
+
+### Diagnose an issue from topology
+
+1. In topology, select **Diagnose network issues (Preview)** at the top of the map.
+
+1. The **Support + Troubleshooting** pane opens. Select the issue that best describes your problem.
+
+1. If the issue is a network connectivity issue that Network Watcher can diagnose, Support + Troubleshooting uses AI to decide which Network Watcher diagnostics to run. If it needs more information, provide the details it asks for. When it has everything it needs, it runs the diagnostics.
+
+1. Review the results. Support + Troubleshooting correlates the output of the diagnostics it ran and shows:
+    - **Probable cause**: The most likely reason for the issue, based on the Network Watcher findings.
+    - **Findings**: The specific results from each diagnostic. For example, a connection troubleshoot result includes the connection status, the number of probes sent and failed, latency when available, and any issues found, such as a user-defined route that sends traffic to a `None` next hop, or an NSG rule like `DefaultRule_DenyAllOutBound` that denies outbound traffic.
+    - **Recommended next steps**: Suggested actions to resolve the issue.
+
+1. If the issue isn't one that Network Watcher can diagnose, Support + Troubleshooting continues with its standard troubleshooting guidance and support options.
+
+### Limitations
+
+- **Read-only.** The diagnosis runs only read-only Network Watcher diagnostics. Nothing in the experience creates, modifies, or deletes route tables, NSGs, firewalls, network interfaces, virtual networks, VMs, or other Azure resources. You decide whether to make a configuration change.
+- **VM as the source.** Diagnostics run from a target VM.
+- **Point in time.** Each diagnostic checks the current state of your resources when it runs. For continuous monitoring, use [connection monitor](connection-monitor-overview.md).
+- **Limited to the supported diagnostics.** The AI diagnosis doesn't check application, DNS, guest OS, or firewall health beyond what the supported Network Watcher diagnostics cover.
+
+> [!NOTE]
+> AI-generated content can be incorrect. Review the Network Watcher findings before you change your network configuration. Don't include passwords, access tokens, secrets, or unrelated sensitive information in any details you provide.
+
+
 
 ## Related content
 

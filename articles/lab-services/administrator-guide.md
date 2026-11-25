@@ -2,7 +2,7 @@
 title: Lab Services administrator guide
 description: This guide provides information for administrators who create and manage lab plans by using Azure Lab Services. 
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: concept-article
 ms.date: 11/08/2024
 ms.custom: devdivchpfy22

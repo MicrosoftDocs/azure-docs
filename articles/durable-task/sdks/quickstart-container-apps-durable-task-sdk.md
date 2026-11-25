@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: "Quickstart: Host a Durable Task SDK App on Azure Container Apps"
 titleSuffix: Durable Task
 description: Learn how to configure and deploy a Durable Task SDK app on Azure Container Apps using Azure Developer CLI. Follow this quickstart to get started.
@@ -50,7 +50,7 @@ Before you begin:
 
 ::: zone pivot="python"
 
-- Make sure you have [Python 3.9+](https://www.python.org/downloads/) or later.
+- Make sure you have [Python 3.11](https://www.python.org/downloads/) or later.
 - Install [Docker](https://www.docker.com/products/docker-desktop/). Docker is required for building container images during deployment.
 - Install [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
@@ -428,9 +428,16 @@ def finalize_response(ctx, response: str) -> str:
     return f"{response} I hope you're doing well!"
 ```
 
-The worker uses `DurableTaskSchedulerWorker` for proper lifecycle management:
+The worker uses `DurableTaskSchedulerWorker` for lifecycle management. Keep the context open until the container receives a shutdown signal. Register signal handlers on the main thread:
 
 ```python
+import signal
+import threading
+
+shutdown = threading.Event()
+signal.signal(signal.SIGINT, lambda *_: shutdown.set())
+signal.signal(signal.SIGTERM, lambda *_: shutdown.set())
+
 with DurableTaskSchedulerWorker(
     host_address=host_address, 
     secure_channel=endpoint != "http://localhost:8080",
@@ -446,6 +453,7 @@ with DurableTaskSchedulerWorker(
         
     # Start the worker (without awaiting)
     worker.start()
+    shutdown.wait()
 ```
 
 

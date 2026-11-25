@@ -2,14 +2,17 @@
 title: Share and receive data from Azure SQL Database and Azure Synapse Analytics
 description: Learn how to share and receive data from Azure SQL Database and Azure Synapse Analytics
 author:  chvukosw
-ms.author: chvukosw
+ms.author: diberry
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 01/20/2026
-ms.custom: sfi-image-nochange
+ms.date: 10/13/2026
+ms.custom: sfi-image-nochange, msecd-doc-authoring-1030
+ai-usage: ai-assisted
 ---
 
 # Share and receive data from Azure SQL Database and Azure Synapse Analytics
+
+[!INCLUDE [Azure Data Share retirement notice](includes/data-share-retirement.md)]
 
 [!INCLUDE [appliesto-sql](includes/appliesto-sql.md)]
 

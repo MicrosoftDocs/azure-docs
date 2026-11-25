@@ -3,7 +3,7 @@ title: Develop a deployment script in Bicep
 description: Learn how to develop a deployment script within a Bicep file or store one externally as a separate file.
 ms.custom: devx-track-bicep
 ms.topic: article
-ms.date: 12/22/2025
+ms.date: 08/18/2026
 ---
 
 # Develop a deployment script in Bicep
@@ -44,7 +44,7 @@ resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
       ]
     }
     environmentVariables: []
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     arguments: '<script-arguments>'
     scriptContent: '''<azure-cli-or-azure-powershell-script>''' // or primaryScriptUri: 'https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/inlineScript.ps1'
     supportingScriptUris: []
@@ -84,7 +84,7 @@ resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
       ]
     }
     environmentVariables: []
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '16.2'
     arguments: '<script-arguments>'
     scriptContent: '''<azure-cli-or-azure-powershell-script>''' // or primaryScriptUri: 'https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/inlineScript.ps1'
     supportingScriptUris: []
@@ -123,7 +123,7 @@ In your deployment script, specify these property values:
 
     - Az version *greater than or equal to 12 uses Ubuntu 24.04.
     - Az version *greater than or equal to 9* but less than 12 uses Ubuntu 22.04.
-    
+
     > [!IMPORTANT]
     > We advise you to upgrade to the latest version of Ubuntu. Ubuntu 18.04 is nearing its end of support and won't receive security updates after [May 31, 2023](https://ubuntu.com/18-04).
 
@@ -178,7 +178,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     arguments: name
     scriptContent: 'set -e; output="Hello $1"; echo $output'
     retentionInterval: 'P1D'
@@ -199,7 +199,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -242,7 +242,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     arguments: name
     scriptContent: loadTextContent('./scripts/hello.sh')
     retentionInterval: 'P1D'
@@ -271,7 +271,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: loadTextContent('./scripts/hello.ps1')
     retentionInterval: 'P1D'
@@ -296,7 +296,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     primaryScriptUri: 'https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/hello.sh'
     arguments: '-name ${name}'
     retentionInterval: 'P1D'
@@ -315,7 +315,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '16.2'
     primaryScriptUri: 'https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/hello.ps1'
     arguments: '-name ${name}'
     retentionInterval: 'P1D'
@@ -344,7 +344,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     arguments: name
     scriptContent: 'output="Hello $1"; echo $output; ./hello.sh "$1"'
     supportingScriptUris: [
@@ -366,7 +366,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -409,7 +409,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     }
   }
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     scriptContent: 'result=$(az keyvault list); echo $result | jq -c \'{Result: map({id: .id})}\' > $AZ_SCRIPTS_OUTPUT_PATH'
     retentionInterval: 'P1D'
   }
@@ -436,7 +436,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     }
   }
   properties: {
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '16.2'
     scriptContent: '''
       $kvs=Get-AzKeyVault
 
@@ -467,6 +467,9 @@ output result object = deploymentScript.properties.outputs
 
 The approach to handling outputs varies based on the type of script you're using-the Azure CLI or Azure PowerShell.
 
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. You might retrieve this information through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that deployment script logs don't expose sensitive information.
+
 # [CLI](#tab/CLI)
 
 The Azure CLI deployment script uses an environment variable named `AZ_SCRIPTS_OUTPUT_PATH` to indicate the location of the file for script outputs. When you're running a deployment script within a Bicep file, the Bash shell automatically configures this environment variable for you. Its predefined value is set as `/mnt/azscripts/azscriptoutput/scriptoutputs.json`.
@@ -482,7 +485,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     arguments: name
     scriptContent: 'jq -n -c --arg st "Hello ${name}" \'{"text": $st}\' > $AZ_SCRIPTS_OUTPUT_PATH'
     retentionInterval: 'P1D'
@@ -509,7 +512,7 @@ resource deploymentScript1 'Microsoft.Resources/deploymentScripts@2023-08-01' = 
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -526,7 +529,7 @@ resource deploymentScript2 'Microsoft.Resources/deploymentScripts@2023-08-01' = 
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '16.2'
     arguments: '-textToEcho \\"${deploymentScript1.properties.outputs.text}\\"'
     scriptContent: '''
       param([string] $textToEcho)
@@ -557,7 +560,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     environmentVariables: [
       {
         name: 'UserName'
@@ -584,7 +587,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '16.2'
     environmentVariables: [
       {
         name: 'UserName'
@@ -638,7 +641,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     scriptContent: 'echo "AZ_SCRIPTS_AZURE_ENVIRONMENT is : $AZ_SCRIPTS_AZURE_ENVIRONMENT",echo "AZ_SCRIPTS_CLEANUP_PREFERENCE	is : $AZ_SCRIPTS_CLEANUP_PREFERENCE",echo "AZ_SCRIPTS_OUTPUT_PATH	is : $AZ_SCRIPTS_OUTPUT_PATH",echo "AZ_SCRIPTS_PATH_INPUT_DIRECTORY is : $AZ_SCRIPTS_PATH_INPUT_DIRECTORY",echo "AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY is : $AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY",echo "AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME is : $AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME",echo "AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME	is : $AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME",echo "AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME	is : $AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME",echo "AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME	is : $AZ_SCRIPTS_PATH_SCRIPT_OUTPUT_FILE_NAME",echo "AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME	is : $AZ_SCRIPTS_PATH_EXECUTION_RESULTS_FILE_NAME",echo "AZ_SCRIPTS_USER_ASSIGNED_IDENTITY	is : $AZ_SCRIPTS_USER_ASSIGNED_IDENTITY"'
     retentionInterval: 'P1D'
   }
@@ -655,7 +658,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '10.0'
+    azPowerShellVersion: '16.2'
     scriptContent: '''
       Write-Output "AZ_SCRIPTS_AZURE_ENVIRONMENT is : ${Env:AZ_SCRIPTS_AZURE_ENVIRONMENT}"
       Write-Output "AZ_SCRIPTS_CLEANUP_PREFERENCE	is : ${Env:AZ_SCRIPTS_CLEANUP_PREFERENCE}"
@@ -700,6 +703,9 @@ Here are the requirements for using an existing storage account:
 - Firewall rules for storage accounts aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - The deployment principal must have permissions to manage the storage account, which includes reading, creating, and deleting file shares. For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
 - The `allowSharedKeyAccess` property of the storage account must be set to `true`. The only way to mount a storage account in Azure Container Instance(ACI) is via an access key.
+
+> [!IMPORTANT]
+> If you assign a managed identity with permissions that exceed the script's operational requirements, the script author is responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
 
 To specify an existing storage account, add the following Bicep code to the property element of `Microsoft.Resources/deploymentScripts`:
 
@@ -789,7 +795,7 @@ The two automatically created supporting resources can never outlive the `deploy
   - `OnExpiration`: Delete the two supporting resources only when the `retentionInterval` setting is expired. If you use an existing storage account, the script service removes the file share but retains the storage account.
 
   The container instance and storage account are deleted according to the `cleanupPreference` value. However, if the script fails and `cleanupPreference` isn't set to `Always`, the deployment process automatically keeps the container running for one hour or until the container is cleaned up. You can use the time to troubleshoot the script.
-  
+
   If you want to keep the container running after successful deployments, add a sleep step to your script. For example, add [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) to the end of your script. If you don't add the sleep step, the container is set to a terminal state and can't be accessed even if you haven't deleted it yet.
 
 - `retentionInterval`: Specify the time interval that a `deploymentScript` resource will be retained before it's expired and deleted.

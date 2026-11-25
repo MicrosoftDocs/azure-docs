@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/13/2022
-ms.author: alkohli
+ms.author: scompton
 ---
 
 Create a new local storage account by using an existing resource group. Use this local storage account to upload the virtual disk image when creating a VM.

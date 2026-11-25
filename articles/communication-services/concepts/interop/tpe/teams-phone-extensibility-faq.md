@@ -15,6 +15,8 @@ services: azure-communication-services
 
 # Teams Phone extensibility FAQ
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article answers frequently asked questions about the Teams Phone extensibility (TPE).
 
 ## Can I use an Azure Communication Services phone number to place and receive PSTN calls for TPE scenarios?
@@ -39,7 +41,7 @@ This feature is available in all supported countries by Microsoft Teams for user
 
 ## Which Microsoft Teams licenses are required for Teams users who want to benefit from TPE based solutions?
 
-- Teams Phone License: Required essential for any agent using either a CCaaS client based on Azure Communication Services Calling SDK or a Teams client. The Teams Phone license enables the use of Teams Phone capabilities.
+- Teams Phone License: Required for any agent using either a CCaaS client based on Azure Communication Services Calling SDK or a Teams client. The Teams Phone license enables the use of Teams Phone capabilities.
 - Resource Account License: Included in the Teams Phone license and is necessary for managing resource accounts used in call automation and other functionalities.
 - Enterprise Voice: Users must be Enterprise Voice enabled to ensure they can make and receive calls using the Teams Phone system.
 - Calling Plan (or similar connectivity option): Applies to customers making outbound calls.
@@ -60,7 +62,7 @@ Teams users need to ensure they enable one of the following options: Teams calli
 
 ## Can we expect a new business model for Teams Phone extensibility?
 
-The business model for TPE is consistent with Azure Communication Services regular business model. ISVs or developers are charged on pay-as-you-go model to benefit from Azure Communication Services Calling SDK for Custom Teams Endpoint (CTE) pricing per minute. When customers consume Azure Consumer Services recording, AI Action API, or any other value added service. For more information, see [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/). Developers aren't charged for the PSTN usage because it uses the Teams users connectivity plans and licenses.
+The business model for TPE is consistent with Azure Communication Services regular business model. ISVs or developers are charged on pay-as-you-go model to benefit from Azure Communication Services Calling SDK for Custom Teams Endpoint (CTE) pricing per minute. Customers are also charged when they consume Azure Communication Services recording, AI Action API, or any other value-added service. For more information, see [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/). Developers aren't charged for the PSTN usage because it uses the Teams users connectivity plans and licenses.
 
 ## How can I monitor and debug calling issues?
 
@@ -68,8 +70,17 @@ For TPE calls, we provide access to telemetry details similar to what is offered
 
 ## Why is my end user hearing an announcement that I didn't trigger whenever I start or pause the call recording?
 
-When a recording is started or paused in a call that includes a PSTN user and a Teams or Dual Persona user, the PSTN user will hear an announcement indicating the change. This is due to compliance requirements on Teams to ensure that all participants are aware of the recording status.
-If a partner wishes to disable these announcements, they may submit a request via this [form](https://forms.microsoft.com/r/6vW9Fc7RT8), which will be reviewed and processed promptly.
+When recording starts or pauses in a call that includes a PSTN user and a Teams or Dual Persona user, Teams plays a system recording announcement by default.
+
+Administrators can suppress these announcements by setting the Teams meeting policy parameter `DisableAudioAnnouncementsForResourceAccounts` to `$true`. `$false` is the default and means Teams plays system recording announcements. `$true` suppresses Teams-driven announcements for Azure Communication Services Call Recording and Teams convenience recording.
+
+To configure suppression for a specific resource account, create or update a Teams meeting policy with `DisableAudioAnnouncementsForResourceAccounts` set to `$true`, then assign that policy to the resource account by using `Grant-CsTeamsMeetingPolicy`. This setting suppresses Teams-driven recording announcements; it doesn't disable recording or announcements played by your application.
+
+When you disable these notifications, you're responsible for ensuring that your contact center solution informs participants of recording and transcription in real time in accordance with applicable laws.
+
+For configuration details, see [`Set-CsTeamsMeetingPolicy - DisableAudioAnnouncementsForResourceAccounts`](/powershell/module/microsoftteams/set-csteamsmeetingpolicy#-disableaudioannouncementsforresourceaccounts).
+> [!NOTE]
+> This setting is available in PowerShell [version 7.8.0](https://www.powershellgallery.com/packages/MicrosoftTeams/7.8.0) and later.
 
 ## How do Microsoft Purview Information Barriers (IB) apply to Teams Phone extensibility?
 

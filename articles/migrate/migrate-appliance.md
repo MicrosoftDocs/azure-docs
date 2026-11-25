@@ -1,49 +1,49 @@
 ---
-title: Azure Migrate appliance 
-description: Provides a summary of support for the Azure Migrate appliance.
+title: Azure Catalyst appliance 
+description: Provides a summary of support for the Azure Catalyst appliance.
 author: molishv
 ms.author: molir
 ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
-ms.update-cycle: 180-days
-# Customer intent: "As a system administrator, I want to deploy the Azure Migrate appliance for server discovery and assessment, so that I can evaluate the infrastructure and plan for migration to the cloud."
+ms.update-cycle: 365-days
+# Customer intent: "As a system administrator, I want to deploy the Azure Catalyst appliance for server discovery and assessment, so that I can evaluate the infrastructure and plan for migration to the cloud."
 ---
 
  
-# Azure Migrate appliance
+# Azure Catalyst appliance
 
-This article summarizes the prerequisites and support requirements for the Azure Migrate appliance.
+This article summarizes the prerequisites and support requirements for the Azure Catalyst appliance.
 
 ## Deployment scenarios
 
-The Azure Migrate appliance is used in the following scenarios.
+The Azure Catalyst appliance is used in the following scenarios.
 
 **Scenario** | **Tool** | **Used to**
 --- | --- | ---
-**Discovery and assessment of servers running in VMware environment** | Azure Migrate: Discovery and assessment | Discover servers running in your VMware environment<br/><br/> Perform discovery of installed software inventory, ASP.NET web apps, SQL Server instances and databases, and agentless dependency analysis.<br/><br/> Collect server configuration and performance metadata for assessments.
+**Discovery and assessment of servers running in VMware environment** | Azure Catalyst: Discovery and assessment | Discover servers running in your VMware environment<br/><br/> Perform discovery of installed software inventory, ASP.NET web apps, SQL Server instances and databases, and agentless dependency analysis.<br/><br/> Collect server configuration and performance metadata for assessments.
 **Agentless migration of servers running in VMware environment** | Migration and modernization | Discover servers running in your VMware environment. <br/><br/> Replicate servers without installing any agents on them.
-**Discovery and assessment of servers running in Hyper-V environment** | Azure Migrate: Discovery and assessment | Discover servers running in your Hyper-V environment.<br/><br/> Perform discovery of installed software inventory, SQL Server instances and databases, and agentless dependency analysis.<br/><br/> Collect server configuration and performance metadata for assessments.
-**Discovery and assessment of physical or virtualized servers on-premises** |  Azure Migrate: Discovery and assessment |  Discover physical or virtualized servers on-premises.<br/><br/> Perform discovery of installed software inventory, ASP.NET web apps, SQL Server instances and databases, and agentless dependency analysis.<br/><br/> Collect server configuration and performance metadata for assessments.
+**Discovery and assessment of servers running in Hyper-V environment** | Azure Catalyst: Discovery and assessment | Discover servers running in your Hyper-V environment.<br/><br/> Perform discovery of installed software inventory, SQL Server instances and databases, and agentless dependency analysis.<br/><br/> Collect server configuration and performance metadata for assessments.
+**Discovery and assessment of physical or virtualized servers on-premises** |  Azure Catalyst: Discovery and assessment |  Discover physical or virtualized servers on-premises.<br/><br/> Perform discovery of installed software inventory, ASP.NET web apps, SQL Server instances and databases, and agentless dependency analysis.<br/><br/> Collect server configuration and performance metadata for assessments.
 
 >[!IMPORTANT]
-> Before deploying the appliance using any method, ensure your Azure account and subscription meet the required role-based access control (RBAC) and permission prerequisites. For more information, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
+> Before deploying the appliance using any method, ensure your Azure account and subscription meet the required role-based access control (RBAC) and permission prerequisites. For more information, see [Prepare Azure accounts for Azure Catalyst](prepare-azure-accounts.md).
 
 ## Deployment methods
 
 The appliance can be deployed using a couple of methods:
 
-- The appliance can be deployed using a template for servers running in VMware or Hyper-V environment ([OVA template for VMware](how-to-set-up-appliance-vmware.md) or [VHD for Hyper-V](how-to-set-up-appliance-hyper-v.md)).
+- Use a template for servers running in VMware or Hyper-V environments. For example, use the [OVA template for VMware](tutorial-discover-vmware.md#set-up-the-appliance)or [VHD for Hyper-V](tutorial-discover-hyper-v.md#set-up-the-appliance).
 - If you don't want to use a template, you can deploy the appliance for VMware or Hyper-V environment using a [PowerShell installer script](deploy-appliance-script.md).
 - In Azure Government, you should deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](deploy-appliance-script-government.md).
 - For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
 
 
     > [!Note]
-    > - Don't install any other components, such as **Replication appliance**, on the same server that hosts the Azure Migrate appliance.  
+    > - Don't install any other components, such as **Replication appliance**, on the same server that hosts the Azure Catalyst appliance.  
     > - Federal Information Processing Standards (FIPS) mode isn't supported for appliance deployment. 
 
 ## Verify security
@@ -73,19 +73,19 @@ C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip 
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | B9A4F42F570A9DADFBA4A9CF9BCF1C87CB677BEFE29A1DCABDB1CD2684B9BCB1   |
+    | VMware- OVA file (12.8 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 5E94BF55CAC7E209188478734359469A3C9EBC424A9DA191A53FE6425ED6738F   |
 
     - Use the VHD file to set up the Hyper-V appliance in Azure public cloud.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | AD3C72FB21037B10969548228B4F651BF5A79CD0A34D608CD470B75329A24A24      |
+    | Hyper-V -  VHD (Zip file) (7.5 GB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | 16FF6D77A1FBAB3CC12C1E3CB3A3DB182E50C63BCA81618A30C123AB30F870C7      |
 
     - Use the Zip file to set up the VMware, Hyper-V, or Physical appliance stack in Azure public cloud and Azure Government.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | ZIP file (839 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 69AD956833E6C254DA7ECB44F29B26CAA07ADD4797BBA35405EDFA630CE1CA37   |
+    | ZIP file (746 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  |  D7CC59E5C16A34155C53CDDFF9710D9F07EC1CE51EA802E9354641A602484C7C  |
 
 
 ## Appliance services
@@ -103,11 +103,11 @@ The appliance has the following services:
 
 > [!Note]
 > - The last 3 services are available in the appliance used for discovery and assessment of servers running in your VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc.
-> - The Azure Migrate appliance stores data from the on-premises environment in the regional Cosmos DB during discovery.
+> - The Azure Catalyst appliance stores data from the on-premises environment in the regional Cosmos DB during discovery.
 
 ## Appliance - VMware
 
-The following table summarizes the Azure Migrate appliance requirements for VMware.
+The following table summarizes the Azure Catalyst appliance requirements for VMware.
 
 **Requirement** | **VMware**
 --- | ---
@@ -116,11 +116,11 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.
 **Discovery limits** | An appliance can discover up to 10,000 severs running across multiple vCenter Servers.<br>A single appliance can connect to up to 10 vCenter Servers.
 **Supported deployment** | Deploy as new server running on vCenter Server using OVA template. <br><br> Deploy on an existing server that runs Windows Server 2022 or Windows Server 2025 using PowerShell.
-**OVA template** | Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2191954).<br><br> Download size is 11.9 GB.<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days.<br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance using OVA template, or you activate the operating system license of the appliance server.
+**OVA template** | Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2191954).<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days.<br>If the evaluation period is close to expiry, download and deploy a new appliance by using the OVA template, or activate the operating system license of the appliance server.
 **OVA verification** | The OVA template downloaded from project by checking the hash values.
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) on how to deploy an appliance using the PowerShell installer script.<br/><br/> 
 **Hardware and network requirements** |  The appliance should run on server with Windows Server 2022 or Windows Server 2025, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The onboarding script checks for Windows Server 2016 or earlier versions and blocks the appliance deployment on those systems.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you deploy the appliance using OVA template, you need enough resources on the vCenter Server to create a server that meets the hardware requirements.
-**VMware requirements** | If you deploy the appliance as a server on vCenter Server, it  must be deployed on a vCenter Server running 5.5, 6.0, 6.5, 6.7 or 7.0 and an ESXi host running version 5.5 or later.<br/><br/> 
+**VMware requirements** | If you deploy the appliance as a server on vCenter Server, you  must deploy it on a vCenter Server running [!INCLUDE [vmware-discovery-supported-versions](includes/vmware-discovery-supported-versions.md)] and an ESXi host running version 5.5 or later.<br/><br/> 
 **VDDK (agentless migration)** | To use the appliance for agentless migration of servers, the VMware vSphere VDDK must be installed on the appliance server.
 
 ## Appliance - Hyper-V
@@ -132,12 +132,12 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 |**Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.|
 |**Discovery limits** | An appliance can discover up to 5000 servers running in Hyper-V environment.<br/><br/> An appliance can connect to up to 300 Hyper-V hosts.|
 |**Supported deployment** | Deploy as server running on a Hyper-V host using a VHD template. <br/><br/>  Deploy on an existing server that runs Windows Server 2022 or Windows Server 2025 using PowerShell.|
-|**VHD template** | Zip file that includes a VHD. Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2140422).<br><br> Download size is 8.91 GB.<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance server.|
+|**VHD template** | Zip file that includes a VHD. Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2191848).<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance server.|
 |**VHD verification** | Verify the VHD template downloaded from project by checking the hash values.|
 |**PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v) on how to deploy an appliance using the PowerShell installer script.|
 |**Hardware and network requirements**  |  The appliance should run on server with Windows Server 2022 or Windows Server 2025, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.
 <br/><br/> If you run the appliance as a server running on a Hyper-V host, you need enough resources on the host to create a server that meets the hardware requirements.<br/><br/> The appliance runs on a server with Windows Server 2022 or Windows Server 2025. It needs 32 GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.|
-|**Hyper-V requirements** | If you deploy the appliance with the VHD template, the appliance provided by Azure Migrate is Hyper-V VM version 5.0.<br/><br/> The Hyper-V host must be running Windows Server 2019 or Windows Server 2022.|
+|**Hyper-V requirements** | If you deploy the appliance with the VHD template, the appliance provided by Azure Catalyst is Hyper-V VM version 5.0.<br/><br/> The Hyper-V host must be running Windows Server 2019 or Windows Server 2022.|
 
 ## Appliance - Physical
 
@@ -148,15 +148,15 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.<br>
 **Discovery limits** | An appliance can discover up to 1000 physical servers.
 **Supported deployment** | Deploy on an existing server that runs Windows Server 2022 or Windows Server 2025 using PowerShell.
-**PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zip file from the project or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). [Learn more](tutorial-discover-physical.md).<br><br> Download size is 85.8 MB.
+**PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zip file from the project or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). <br> <br> [Learn more](tutorial-discover-physical.md).
 **Script verification** | Verify the PowerShell installer script downloaded from project by checking the hash values.
 **Hardware and network requirements** |  The appliance runs on a server with Windows Server 2022 or Windows Server 2025. It needs 32 GB RAM, 8 vCPUs, about 80 GB of disk storage, and an external virtual switch.<br/><br/> The appliance uses a static or dynamic IP address and needs internet access, either directly or through a proxy.
 
 ## URL access
 
-The Azure Migrate appliance needs connectivity to the internet.
+The Azure Catalyst appliance needs connectivity to the internet.
 
-- When you deploy the appliance, Azure Migrate does a connectivity check to the required URLs.
+- When you deploy the appliance, Azure Catalyst does a connectivity check to the required URLs.
 - You need to allow access to all URLs in the list. If you're doing assessment only, you can skip the URLs that are marked as required for VMware agentless migration.
 - If you're using a URL-based proxy to connect to the internet, make sure that the proxy resolves any CNAME records received while looking up the URLs.
 
@@ -171,9 +171,9 @@ management.azure.com | Used for resource deployments and management operations
 *.vault.azure.net | Manage secrets in the Azure Key Vault.<br> Note: Ensure servers to replicate have access to this.
 aka.ms/* | Allow access to these links; used to download and install the latest updates for appliance services.
 download.microsoft.com/download | Allow downloads from Microsoft download center.
-*.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.com <br> *.migration.windowsazure.com | Connect to Azure Migrate service URLs.
-*.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br><br> Connect to Azure Migrate service URLs.
+*.servicebus.windows.net | Communication between the appliance and the Azure Catalyst service.
+*.discoverysrv.windowsazure.com <br> *.migration.windowsazure.com | Connect to Azure Catalyst service URLs.
+*.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br><br> Connect to Azure Catalyst service URLs.
 *.blob.core.windows.net |  **Used for VMware agentless migration**<br><br>Upload data to storage for migration.
 
 ### Government cloud URLs
@@ -188,9 +188,9 @@ management.usgovcloudapi.net |  Used for resource deployments and management ope
 *.vault.usgovcloudapi.net | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to these links; used to download and install the latest updates for appliance services.
 download.microsoft.com/download | Allow downloads from Microsoft download center.
-*.servicebus.usgovcloudapi.net  | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.us <br> *.migration.windowsazure.us | Connect to Azure Migrate service URLs.
-*.hypervrecoverymanager.windowsazure.us | **Used for VMware agentless migration**<br><br> Connect to Azure Migrate service URLs.
+*.servicebus.usgovcloudapi.net  | Communication between the appliance and the Azure Catalyst service.
+*.discoverysrv.windowsazure.us <br> *.migration.windowsazure.us | Connect to Azure Catalyst service URLs.
+*.hypervrecoverymanager.windowsazure.us | **Used for VMware agentless migration**<br><br> Connect to Azure Catalyst service URLs.
 *.blob.core.usgovcloudapi.net  |  **Used for VMware agentless migration**<br><br>Upload data to storage for migration.
 *.applicationinsights.us | Upload appliance logs used for internal monitoring.  
 
@@ -245,9 +245,9 @@ management.chinacloudapi.cn |  Used for resource deployments and management oper
 *.vault.chinacloudapi.cn | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to these links; used to download and install the latest updates for appliance services.
 download.microsoft.com/download | Allow downloads from Microsoft download center.
-*.servicebus.chinacloudapi.cn  | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.cn2.windowsazure.cn  *.cn2.prod.migration.windowsazure.cn | Connect to Azure Migrate service URLs.
-*.cn2.hypervrecoverymanager.windowsazure.cn | **Used for VMware agentless migration.** <br><br> Connect to Azure Migrate service URLs.
+*.servicebus.chinacloudapi.cn  | Communication between the appliance and the Azure Catalyst service.
+*.discoverysrv.cn2.windowsazure.cn  *.cn2.prod.migration.windowsazure.cn | Connect to Azure Catalyst service URLs.
+*.cn2.hypervrecoverymanager.windowsazure.cn | **Used for VMware agentless migration.** <br><br> Connect to Azure Catalyst service URLs.
 *.blob.core.chinacloudapi.cn  |  **Used for VMware agentless migration.**<br><br>Upload data to storage for migration.
 *.applicationinsights.azure.cn | Upload appliance logs used for internal monitoring.
 
@@ -263,9 +263,9 @@ management.chinacloudapi.cn |  Used for resource deployments and management oper
 *.vault.chinacloudapi.cn | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to these links; used to download and install the latest updates for appliance services.
 download.microsoft.com/download | Allow downloads from Microsoft download center.
-*.servicebus.chinacloudapi.cn  | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.cn2.windowsazure.cn <br/> *.cn2.prod.migration.windowsazure.cn | Connect to Azure Migrate service URLs.
-*.cn2.hypervrecoverymanager.windowsazure.cn | **Used for VMware agentless migration.**<br/><br/> Connect to Azure Migrate service URLs.
+*.servicebus.chinacloudapi.cn  | Communication between the appliance and the Azure Catalyst service.
+*.discoverysrv.cn2.windowsazure.cn <br/> *.cn2.prod.migration.windowsazure.cn | Connect to Azure Catalyst service URLs.
+*.cn2.hypervrecoverymanager.windowsazure.cn | **Used for VMware agentless migration.**<br/><br/> Connect to Azure Catalyst service URLs.
 *.blob.core.chinacloudapi.cn  |  **Used for VMware agentless migration.**<br/><br/>Upload data to storage for migration.
 *.applicationinsights.azure.cn | Upload appliance logs used for internal monitoring.
 
@@ -279,13 +279,13 @@ The appliance communicates with the discovery sources using the following proces
 ---|---|---|---
 **Start discovery** | The appliance communicates with the vCenter server on TCP port 443 by default. If the vCenter server listens on a different port, you can configure it in the appliance configuration manager. | The appliance communicates with the Hyper-V hosts on WinRM port 5986 (HTTPS) by default. <br/> If the https prerequisites aren't configured on the target Hyper-V servers, the communication would fall back to WinRM port 5985 (HTTP). <br/> To enforce https communication without fallback, enable the https protocol toggle in Appliance Config Manager. <br/> <br/> **Prerequisites** <br/> After enabling the checkbox, ensure that the prerequisites are configured on the target servers. <br/> - If certificates aren't configured on the target servers, discovery would fail on the current discovered servers and on the newly added servers. <br/>  - WinRM HTTPS requires a local computer Server Authentication certificate with a CN matching the hostname to be installed. The certificate mustn't be expired, revoked, or self-signed. Refer to this [article](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) for configuring WINRM for HTTPS. |The appliance communicates with Windows servers over WinRM port 5986 (HTTPS) by default and with Linux servers over port 22 (TCP). <br/> If the https prerequisites aren't configured on the target Hyper-V servers, appliance communication would fall back to WinRM port 5985 (HTTP). <br/> To enforce https communication without fallback, enable the https protocol toggle in Appliance Config Manager. <br/> <br/> **Prerequisites** <br/> After enabling the checkbox, ensure that the pre-requisites are configured on the target servers. <br/> -If certificates aren't configured on the target servers, discovery would fail on the current discovered servers and on the newly added servers. <br/> - WinRM HTTPS requires a local computer Server Authentication certificate with a CN matching the hostname to be installed. The certificate mustn't be expired, revoked, or self-signed. Refer to this [article](/troubleshoot/windows-client/system-management-components/configure-winrm-for-https) for configuring WINRM for HTTPS.
 **Gather configuration and performance metadata** | The appliance collects the metadata of servers running on vCenter Server(s) using vSphere APIs by connecting on port 443 (default port) or any other port each vCenter Server listens on. | The appliance collects the metadata of servers running on Hyper-V hosts using a Common Information Model (CIM) session with hosts on port 5986.| The appliance collects metadata from Windows servers using Common Information Model (CIM) session with servers on port 5986 and from Linux servers using SSH connectivity on port 22.
-**Send discovery data** | The appliance sends the collected data to Azure Migrate: Discovery and assessment and Migration and modernization over SSL port 443.<br/><br/>  The appliance can connect to Azure over the internet or via ExpressRoute private peering or Microsoft peering circuits. | The appliance sends the collected data to Azure Migrate: Discovery and assessment over SSL port 443.<br/><br/> The appliance can connect to Azure over the internet or via ExpressRoute private peering or Microsoft peering circuits. | The appliance sends the collected data to Azure Migrate: Discovery and assessment over SSL port 443.<br/><br/> The appliance can connect to Azure over the internet or via ExpressRoute private peering or Microsoft peering circuits. 
+**Send discovery data** | The appliance sends the collected data to Azure Catalyst: Discovery and assessment and Migration and modernization over SSL port 443.<br/><br/>  The appliance can connect to Azure over the internet or via ExpressRoute private peering or Microsoft peering circuits. | The appliance sends the collected data to Azure Catalyst: Discovery and assessment over SSL port 443.<br/><br/> The appliance can connect to Azure over the internet or via ExpressRoute private peering or Microsoft peering circuits. | The appliance sends the collected data to Azure Catalyst: Discovery and assessment over SSL port 443.<br/><br/> The appliance can connect to Azure over the internet or via ExpressRoute private peering or Microsoft peering circuits. 
 **Data collection frequency** | Configuration metadata is collected and sent every 15 minutes. <br/><br/> Performance metadata is collected every 50 minutes to send a data point to Azure. <br/><br/> Software inventory data is sent to Azure once every 24 hours. <br/><br/> Agentless dependency data is collected every 5 minutes, aggregated on appliance and sent to Azure every 6 hours. <br/><br/> The SQL Server configuration data is updated once every 24 hours and the performance data is captured every 30 seconds. <br/><br/> The web apps configuration data is updated once every 24 hours. Performance data is not captured for web apps.| Configuration metadata is collected and sent every 30 minutes. <br/><br/> Performance metadata is collected every 30 seconds and is aggregated to send a data point to Azure every 15 minutes.<br/><br/> Software inventory data is sent to Azure once every 24 hours. <br/><br/> Agentless dependency data is collected every 5 minutes, aggregated on appliance and sent to Azure every 6 hours.<br/><br/> The SQL Server configuration data is updated once every 24 hours and the performance data is captured every 30 seconds.|  Configuration metadata is collected and sent every 3 hours. <br/><br/> Performance metadata is collected every 5 minutes to send a data point to Azure.<br/><br/> Software inventory data is sent to Azure once every 24 hours. <br/><br/> Agentless dependency data is collected every 5 minutes, aggregated on appliance and sent to Azure every 6 hours.<br/><br/> The SQL Server configuration data is updated once every 24 hours and the performance data is captured every 30 seconds.
-**Assess and migrate** | You can create assessments from the metadata collected by the appliance using Azure Migrate: Discovery and assessment tool.<br/><br/>In addition, you can also start migrating servers running in your VMware environment using the Migration and modernization tool to orchestrate agentless server replication.| You can create assessments from the metadata collected by the appliance using Azure Migrate: Discovery and assessment tool. | You can create assessments from the metadata collected by the appliance using Azure Migrate: Discovery and assessment tool.
+**Assess and migrate** | You can create assessments from the metadata collected by the appliance using Azure Catalyst: Discovery and assessment tool.<br/><br/>In addition, you can also start migrating servers running in your VMware environment using the Migration and modernization tool to orchestrate agentless server replication.| You can create assessments from the metadata collected by the appliance using Azure Catalyst: Discovery and assessment tool. | You can create assessments from the metadata collected by the appliance using Azure Catalyst: Discovery and assessment tool.
 
 ## Appliance upgrades
 
-The appliance is upgraded as the Azure Migrate services running on the appliance are updated. This happens automatically, because auto-update is enabled on the appliance by default. You can change this default setting, to update the appliance services manually.
+The appliance is upgraded as the Azure Catalyst services running on the appliance are updated. This happens automatically, because auto-update is enabled on the appliance by default. You can change this default setting, to update the appliance services manually.
 
 ### Turn off auto-update
 

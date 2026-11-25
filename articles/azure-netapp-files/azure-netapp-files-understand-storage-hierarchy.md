@@ -27,7 +27,7 @@ The following example shows the relationships of the Azure subscription, NetApp 
 - A NetApp account isn't the same as your general Azure storage account. 
 - A NetApp account is regional in scope.   
 - You can have multiple NetApp accounts in a region, but each NetApp account is tied to only a single region.
-- NetApp accounts must be dedicated to a service level. [Confirm you understand the difference between Elastic zone-redundant storage and other service levels before creating your NetApp account.](azure-netapp-files-service-levels.md)
+- NetApp accounts must be dedicated to a service level. <!--[Confirm you understand the difference between Elastic zone-redundant storage and other service levels before creating your NetApp account.](azure-netapp-files-service-levels.md) -->
 
 ## <a name="capacity_pools"></a>Capacity pools
 
@@ -45,6 +45,7 @@ Understanding how capacity pools work helps you select the right capacity pool t
 - You can't delete a capacity pool until you delete all volumes within the capacity pool. 
 - [Azure NetApp Files storage with cool access](cool-access-introduction.md) is supported in Flexible, Standard, Premium, and Ultra service-level capacity pools. For more information about service levels, including the Flexible service level, see [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md).
 
+<!--
 ### General rules of Elastic capacity pools 
 
 - You must have a NetApp account designated for use with Elastic zone-redundant storage.
@@ -60,6 +61,7 @@ Understanding how capacity pools work helps you select the right capacity pool t
 ```
 GET  https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.NetApp/locations/{location}/elasticRegionInfo?api-version=2025-09-01-preview.
 ```
+-->
 
 ### <a name="qos_types"></a>Quality of Service (QoS) types for capacity pools
 
@@ -89,12 +91,12 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 
 #### *Shared* QoS type
 
-When you create a capacity pool in the Elastic zone-redundant storage service level, the default QoS type is shared.
+<!--When you create a capacity pool in the Elastic zone-redundant storage service level, the default QoS type is shared.-->
 
 In a shared QoS capacity pool, throughput is not allocated per volume. Instead all volumes share the pool's total throughput. The pool's performance budget is determined by its size and service level (for example, roughly 32 MiB/s of throughput per 1 TiB of capacity in the zone-redundant storage service level). Unlike auto QoS (which ties throughput to volume size) or manual QoS (which requires setting each volume’s throughput), a shared QoS pool has no fixed per-volume limits. The system dynamically distributes I/O so that each volume can reach its needed throughput as long as the pool hasn't exceeded its limit. 
 
 >[!NOTE]
->The total throughput in shared QoS is still finite (capped by pool size × service-level throughput), so plan capacity accordingly. For exact throughput limits, see [Resource limits Elastic zone-redundant storage](azure-netapp-files-resource-limits.md).
+>The total throughput in shared QoS is still finite (capped by pool size × service-level throughput), so plan capacity accordingly. <!--For exact throughput limits, see [Resource limits Elastic zone-redundant storage](azure-netapp-files-resource-limits.md).-->
 
 ## <a name="volumes"></a>Volumes
 
@@ -105,6 +107,8 @@ In a shared QoS capacity pool, throughput is not allocated per volume. Instead a
 - Volumes contain a capacity of between 50 GiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 50 GiB and 1 PiB.
 - By default, all existing and new regular Azure NetApp Files volumes support a maximum file size of 64 TiB.
 
+<!--
+
 ## Elastic volumes 
 
 - A volume is measured by logical capacity consumption and is scalable.
@@ -113,13 +117,28 @@ In a shared QoS capacity pool, throughput is not allocated per volume. Instead a
 - Each volume belongs to only one pool, but a pool can contain multiple volumes.
 - Volumes capacity is between 1 GiB and 16 TiB. You cannot create a large volume currently.
 
+-->
+
 ## Large volumes
 
 Azure NetApp Files allows you to create [large volumes](large-volumes.md) up to 1 PiB. In contrast, regular Azure NetApp Files volumes are offered between 50 GiB and 102,400 GiB. 
 
-Large volumes begin at a capacity of 50 TiB and scale up to 1 PiB (or [2 PiB as special requests](large-volumes-requirements-considerations.md#requirements-and-considerations-for-breakthrough-mode-preview)). With cool access enabled, large volumes can grow to 7.2 PiB. 
+Large volumes begin at a capacity of 50 TiB and scale up to 1 PiB (or [2 PiB as special requests](large-volumes-requirements-considerations.md#requirements-and-considerations-for-breakthrough-mode)).  When you enable cool access, large volumes can grow to 7.2 PiB.  
 
 For more information, see [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md).
+
+## Storage endpoints 
+
+To serve a volume, Azure NetApp Files creates a storage endpoint (the network resource, with its own IP address, that clients mount) in the delegated subnet. A storage endpoint is always created when the first volume is deployed in a delegated subnet. For subsequent volume deployments, the service might autonomously create more storage endpoints when resource availability, performance needs, or placement requirements demand it. Storage endpoint creation and placement are internal service operations and aren’t exposed as user-configurable options.
+
+>[!NOTE]
+> Creating a storage endpoint adds to the total provisioning time. When a new storage endpoint needs to be created during volume creation, the volume can remain in the **Creating** state for several minutes before it transitions to **Succeeded**. This behavior is expected. Volumes that reuse an existing storage endpoint typically provision faster because no new endpoint is required.
+
+The same behavior applies to application volume group deployments, which create multiple storage endpoints to place data and log volumes optimally. For that reason, creating an application volume group can take 9 to 12 minutes. For more information, see [Understand Azure NetApp Files application volume groups](application-volume-group-concept.md). 
+
+If your deployment depends on predictable provisioning times, plan for storage endpoint creation before the workload deployment starts. This consideration is especially important for automated Azure Kubernetes Service (AKS) or Azure Red Hat OpenShift deployments that dynamically provision Azure NetApp Files volumes. During environment initialization, create a small volume in the target delegated subnet. The initial volume can trigger storage endpoint creation ahead of time, so later volumes might provision more quickly when the service can reuse the existing endpoint. 
+
+ This approach can reduce provisioning delays, but it doesn’t guarantee consistent provisioning time for every later volume. If Azure NetApp Files determines that an additional storage endpoint is required because of resource availability, performance needs, or placement requirements, the service might create another endpoint during a future volume deployment. In that case, the volume can again remain in the Creating state for several minutes before it transitions to Succeeded. Plan automation workflows to allow for this expected behavior. 
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: CycleCloud API operations
 description: Reference for Azure CycleCloud REST API operations used to manage clusters, nodes, and related resources programmatically.
 ms.service: cyclecloud
 ms.topic: reference
-ms.date: 06/19/2026
+ms.date: 11/24/2026
 author: emilylo
 ms.custom: include-file
 
@@ -12,11 +12,19 @@ ms.custom: include-file
 
 Azure CycleCloud provides a REST API for managing clusters, nodes, and related resources programmatically. Use these API operations to query cluster state, create and manage nodes, and track long-running operations. This reference lists the available endpoints, parameters, and response formats to help you automate and integrate CycleCloud cluster management into your workflows.
 
+<!-- BEGIN AUTO-GENERATED CONTENT: do not edit between markers -->
+
+
 <a name="clusters_getnodes"></a>
 ## Get cluster nodes
 ```
 GET /clusters/{cluster}/nodes
 ```
+
+
+### Description
+Requires Read permission on the requested cluster. Operation and request ID selectors are restricted to that cluster. Legacy operations without a recorded cluster are attributed to the cluster of their nodes; if none of their nodes exist anymore, they return 404. A request ID selector that matches no operation in the cluster returns 404 with the message "No operation found for request id".
+
 
 ### Parameters
 
@@ -34,6 +42,8 @@ GET /clusters/{cluster}/nodes
 |**200**|OK|[NodeList](#nodelist)|
 |**400**|Invalid specification|No Content|
 |**404**|Not found|No Content|
+
+
 
 
 ### Example HTTP request
@@ -81,7 +91,7 @@ This operation adds new nodes from a nodearray to a cluster. It accepts multiple
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeCreationResult](#nodecreationresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeCreationResult](#nodecreationresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -138,7 +148,7 @@ This operation deallocates nodes in a cluster. The nodes can be identified in se
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -199,7 +209,7 @@ This operation reimages nodes in a cluster. The nodes can be identified in sever
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -260,7 +270,7 @@ This operation removes nodes in a cluster. You can identify the nodes by node na
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -321,7 +331,7 @@ This operation restarts nodes in a cluster. The nodes can be identified in sever
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -369,6 +379,7 @@ POST /clusters/{cluster}/nodes/shutdown
 ### Description
 This call shuts down nodes in a cluster. Each node's ShutdownPolicy attribute decides the action: Terminate (default) or Deallocate.
 
+
 ### Parameters
 
 |Type|Name|Description|Schema|
@@ -381,7 +392,7 @@ This call shuts down nodes in a cluster. Each node's ShutdownPolicy attribute de
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -442,7 +453,7 @@ This operation starts nodes in a cluster. The nodes can be identified in several
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -503,7 +514,7 @@ This operation terminates nodes in a cluster. The nodes can be identified in sev
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeManagementResult](#nodemanagementresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -647,7 +658,7 @@ This operation adds nodes as needed to a nodearray to hit a total count. The req
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**202**|Accepted  <br>**Headers** :   <br>`Location` (string): The URL for the operation.|[NodeCreationResult](#nodecreationresult)|
+|**202**|Accepted  <br>**Headers** :   <br>`Location` (string) : The URL for the operation.|[NodeCreationResult](#nodecreationresult)|
 |**409**|Invalid input|No Content|
 
 
@@ -779,11 +790,15 @@ GET /operations/
 ```
 
 
+### Description
+Returns only operations whose cluster the caller can read. Legacy operations without a recorded cluster are attributed to the cluster of their nodes; if none of their nodes exist anymore, they are included only for Super Users and are otherwise omitted.
+
+
 ### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Query**|**request_id**  <br>*optional*|The request ID for the operation. If this value is given, the list contains 0 or 1 element.|string|
+|**Query**|**request_id**  <br>*optional*|The request ID for the operation. Request IDs are unique per cluster, so if this value is given, the list contains at most one element per cluster.|string|
 
 
 ### Responses
@@ -823,6 +838,10 @@ GET /operations/{id}
 ```
 
 
+### Description
+Requires Read permission on the operation's cluster. Legacy operations without a recorded cluster are attributed to the cluster of their nodes; if none of their nodes exist anymore, they are accessible only to Super Users. Inaccessible operations return 404. Existing records are not backfilled during upgrade. Operations are deleted with their cluster. Operations are kept for at most 30 days after they start. Older operations return 404.
+
+
 ### Parameters
 
 |Type|Name|Description|Schema|
@@ -860,3 +879,4 @@ GET /operations/{id}
 
 
 
+<!-- END AUTO-GENERATED CONTENT -->

@@ -1,8 +1,8 @@
 ---
 title: Network planning for Oracle AI Database@Azure
 description: Learn about network planning for Oracle AI Database@Azure. 
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: vaidehikher18
+ms.author: vaidehikher
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.custom: engagement-fy23
@@ -94,7 +94,7 @@ The following table describes the network topologies that are supported by each 
 |On-premises connectivity to an Oracle AI Database cluster via a virtual WAN and attached software-defined wide area network (SD-WAN)|No|Yes|
 |On-premises connectivity via a secured hub (a firewall network virtual appliance) |Yes|Yes|
 |Connectivity from an Oracle AI Database cluster on Oracle AI Database@Azure nodes to Azure resources|Yes|Yes|
-|Azure Container Apps supported for advanced network features|No|Yes|
+|Connectivity from Azure Web Apps, Azure Function Apps, Azure Container Apps, and other serverless resources|No|Yes|
 |Connectivity from Azure NetApp Files with Basic network features (ANF and Oracle AI Database@Azure must be deployed in separate VNETs)|No|Yes|
 |Connectivity from Azure NetApp Files with Standard network features (ANF and Oracle AI Database@Azure must be deployed in separate VNETs)|Yes|Yes
 
@@ -118,6 +118,7 @@ The following table describes required configurations of supported network featu
 |Connecting to ODAA instances via Private Endpoint | No | No |
 |Standard V2 NAT GW support | No | No |
 |Disable BGP route propagation | No | Yes |
+|Support for multiple delegated subnets within the same Vnet | No | No |
 
 > [!NOTE]
 > When using NSGs (Network Security Groups) on the Azure side, ensure that any security rules configured on the Oracle (OCI) side are reviewed to avoid conflicts. While applying security policies on both Azure and OCI can enhance the overall security posture, it also introduces additional complexity in terms of management and requires careful manual synchronization between the two environments. Misalignment between these policies could lead to unintended access issues or operational disruptions. 

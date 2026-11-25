@@ -1,8 +1,8 @@
 ---
 title: Migrate to Azure Monitor Agent from Log Analytics Agent 
 description: Procedure to migrate to Azure Monitor Agent from MMA
-author: habibaum
-ms.author: v-uhabiba
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: how-to
 ms.date: 09/18/2024
 ms.update-cycle: 1825-days
@@ -12,7 +12,7 @@ ms.update-cycle: 1825-days
 
 # Agent-based dependency analysis using Azure monitor agent (AMA)
 
-Dependency analysis helps you to identify and understand dependencies across servers that you want to assess and migrate to Azure. We currently perform agent-based dependency analysis by downloading the  [MMA agent and associating a Log Analytics workspace](concepts-dependency-visualization.md) with the Azure Migrate project.
+Dependency analysis helps you to identify and understand dependencies across servers that you want to assess and migrate to Azure. We currently perform agent-based dependency analysis by downloading the  [MMA agent and associating a Log Analytics workspace](concepts-dependency-visualization.md) with the Azure Catalyst project.
 
 [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) replaces the Log Analytics agent, also known as Microsoft Monitor Agent (MMA) and OMS, for Windows and Linux machines, in Azure and non-Azure environments, on-premises, and other clouds. 
 
@@ -33,7 +33,7 @@ This article describes the impact on agent-based dependency analysis because of 
 
 ## Migrate from Log analytics agent (MMA) to Azure Monitor agent (AMA)
 
-If you already set up MMA and the associated Log Analytics workspace with your Azure Migrate project, you can migrate from the existing Log analytics agent to Azure Monitor agent without breaking/changing the association of the Log Analytics workspace with the Azure Migrate project by following these steps.
+If you already set up MMA and the associated Log Analytics workspace with your Azure Catalyst project, you can migrate from the existing Log analytics agent to Azure Monitor agent without breaking/changing the association of the Log Analytics workspace with the Azure Catalyst project by following these steps.
 
 1. To deploy the Azure Monitor agent, it's recommended to first clean up the existing Service Map to avoid duplicates. [Learn more](/azure/azure-monitor/vm/vminsights-migrate-from-service-map#remove-the-service-map-solution-from-the-workspace).
 
@@ -45,7 +45,7 @@ In the transition scenario, the Log analytics workspace would be the same as the
 
 ## Estimate the price change
 
-You'll now be charged for associating a Log Analytics workspace with Azure Migrate project. This was earlier free for the first 180 days.
+You'll now be charged for associating a Log Analytics workspace with Azure Catalyst project. This was earlier free for the first 180 days.
 As per the pricing change, you'll be billed against the volume of data gathered by the AMA agent and transmitted to the workspace. To review the volume of data you're gathering, follow these steps:
 
 1. Sign in to the Log analytics workspace. 
@@ -61,9 +61,11 @@ let AzureMigrateDataTables = dynamic(["ServiceMapProcess_CL","ServiceMapComputer
 | summarize AzureMigrateGBperMonth=sum(Quantity)/1000 
 ```
 
-## Support for Azure Monitor agent in Azure Migrate 
+<a name="support-for-azure-monitor-agent-in-azure-migrate"></a>
 
-Install and manage Azure Monitor agent as mentioned [here](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal). Currently, you can download the Log Analytics agent through the Azure Migrate portal. 
+## Support for Azure Monitor agent in Azure Catalyst 
+
+Install and manage Azure Monitor agent as mentioned [here](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal). Currently, you can download the Log Analytics agent through the Azure Catalyst portal. 
 
 ## Next steps
 [Learn](how-to-create-group-machine-dependencies.md) how to create dependencies for a group.

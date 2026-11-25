@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Find out how to check whether the Azure Maps Web SDK supports a browser. View a list of supported browsers. Learn how to use map services with legacy browsers.
 author: sinnypan
 ms.author: sipa
-ms.date: 03/31/2025
+ms.date: 09/30/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: general
@@ -36,12 +36,6 @@ The Azure Maps Web SDK supports the following desktop browsers:
 
 See also [Target legacy browsers] later in this article.
 
-## Node.js
-
-The following Web SDK modules are also supported in Node.js:
-
-- Services module ([documentation] | [npm module])
-
 ## <a name="Target-Legacy-Browsers"></a>Target legacy browsers
 
 You might want to target older browsers that don't support WebGL or that have only limited support for it. In such cases, you can use Azure Maps services together with an open-source map control like [Leaflet].
@@ -61,18 +55,12 @@ Learn more about the Azure Maps Web SDK:
 > [!div class="nextstepaction"]
 > [Map control]
 
-> [!div class="nextstepaction"]
-> [Services module]
-
 [atlas.isSupported]: /javascript/api/azure-maps-control/atlas#issupported-boolean-
 [Azure Maps Leaflet plugin]: https://github.com/azure-samples/azure-maps-leaflet
 [Azure Maps Samples]: https://samples.azuremaps.com/?search=leaflet
-[documentation]: how-to-use-services-module.md
 [Leaflet]: https://leafletjs.com
 [Map control]: how-to-use-map-control.md
-[npm module]: https://www.npmjs.com/package/azure-maps-rest
 [npm package of the Azure Maps Web SDK]: https://www.npmjs.com/package/azure-maps-control
 [Render Azure Maps in Leaflet sample source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Third%20Party%20Map%20Controls/Render%20Azure%20Maps%20in%20Leaflet/Render%20Azure%20Maps%20in%20Leaflet.html
 [Render Azure Maps in Leaflet]: https://samples.azuremaps.com/third-party-map-controls/render-azure-maps-in-leaflet
-[Services module]: how-to-use-services-module.md
 [Target legacy browsers]: #Target-Legacy-Browsers

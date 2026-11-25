@@ -5,16 +5,21 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: tutorial
-ms.date: 06/25/2026
+ms.date: 10/27/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want to capture media from ONVIF compliant cameras and store the media in Azure Blob Storage so that I can process and analyze the captured images and videos.
+ms.custom:
+ - sfi-ropc-nochange
 ---
 
-# Tutorial: Capture media from ONVIF cameras and store in Azure Blob Storage
+# Tutorial: Capture media from ONVIF cameras and store it in Azure Blob Storage
 
-In this tutorial, you build an end-to-end scenario that captures media from an ONVIF camera and stores the snapshots and clips in Azure Blob Storage. By centralizing camera media in cloud storage, you can process and analyze it for scenarios such as defect detection on the assembly line, safety monitoring, customer dwell time tracking, and order accuracy verification.
+In this tutorial, you build an end-to-end solution that captures media from an ONVIF camera and stores the snapshots and clips in Azure Blob Storage. By centralizing camera media in cloud storage, you can process and analyze it for scenarios such as defect detection on the assembly line, safety monitoring, customer dwell time tracking, and order accuracy verification.
 
-To build the scenario, use the connector for ONVIF to discover the camera and its media endpoints, the media connector to capture snapshots and clips, and Azure Container Storage enabled by Azure Arc (ACSA) to synchronize the captured media to Azure Blob Storage.
+To build the solution, use the connector for ONVIF to discover the camera and its media endpoints, the media connector to capture snapshots and clips, and Azure Container Storage enabled by Azure Arc (ACSA) to synchronize the captured media to Azure Blob Storage.
+
+[!INCLUDE [azure-government-acsa-note](../includes/azure-government-container-storage-note.md)]
 
 In this tutorial, you:
 
@@ -34,7 +39,7 @@ Before you start this tutorial, complete the following setup steps:
 
 - Create an Azure storage account with a blob container. See [Create a storage account](/azure/storage/common/storage-account-create). Note the name of your storage account and container.
 
-- An ONVIF compliant camera that's accessible from your Azure IoT Operations cluster. The camera must support [Profile S](https://www.onvif.org/profiles/profile-s/) or [Profile T](https://www.onvif.org/profiles/profile-t/) for video streaming.
+- An ONVIF-compliant camera that's accessible from your Azure IoT Operations cluster. The camera must support [Profile S](https://www.onvif.org/profiles/profile-s/) or [Profile T](https://www.onvif.org/profiles/profile-t/) for video streaming.
 
 - Access to the operations experience web UI. To sign in, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your Azure IoT Operations instance. See [Operations experience web UI](../discover-manage-assets/howto-use-operations-experience.md).
 
@@ -61,7 +66,7 @@ Before you can use the ONVIF and media connectors in the operations experience w
 
 ### Deploy the ONVIF connector template
 
-1. In the Azure portal, go to your Azure IoT Operations instance, select **Components > Connector templates**, and then select **Create a connector template**.
+1. In the Azure portal, go to your Azure IoT Operations instance, select **Components** > **Connector templates**, and then select **Create a connector template**.
 
 1. On the first page of **Add an Akri connector template**, select **Azure IoT Operations connector for ONVIF**, and then select **Metadata**.
 
@@ -79,7 +84,7 @@ Before you can use the ONVIF and media connectors in the operations experience w
 
 The media connector needs a persistent volume claim to save captured media to Azure Blob Storage.
 
-1. In the Azure portal, go to your Azure IoT Operations instance, select **Components > Connector templates**, and then select **Create a connector template**.
+1. In the Azure portal, go to your Azure IoT Operations instance, select **Components** > **Connector templates**, and then select **Create a connector template**.
 
 1. On the first page of **Add an Akri connector template**, select **Azure IoT Operations media connector**, and then select **Metadata**.
 
@@ -103,9 +108,11 @@ The media connector needs a persistent volume claim to save captured media to Az
 
 1. On **Review**, review the details of the connector template instance, and then select **Create** to create the connector template instance.
 
+1. Before creating media assets, [configure the media connector's storage root](../discover-manage-assets/howto-configure-media-connector-storage.md#configure-storage-roots-and-retention). For the PVC mount and subvolume path in this tutorial, set `cloudIngestPath` to `/data/ingestSubDir` in the template's `additionalConfiguration`. Also configure the [exclusive-writer deployment boundary](../discover-manage-assets/howto-configure-media-connector-storage.md#plan-the-deployment-boundary). Mounting the PVC alone doesn't enable cloud ingest.
+
 ## Create an ONVIF device
 
-Create a device that represents your ONVIF compliant camera. ONVIF devices automatically enable discovery to find the device's capabilities and media endpoints.
+Create a device that represents your ONVIF-compliant camera. ONVIF devices automatically enable discovery to find the device's capabilities and media endpoints.
 
 1. In the operations experience web UI, select **Devices**.
 
@@ -168,7 +175,7 @@ After a few minutes, the **Devices** page shows the new media device with a **Mi
 
 ## Create a media asset to save clips to Azure Blob Storage
 
-Create an asset that captures video clips from the camera and saves them to the persistent volume claim. ACSA automatically uploads the clips to your Azure Blob Storage account. This section assumes that you configured Azure Container Storage enabled by Azure Arc with a subvolume called `ingestSubDir` and mounted the persistent volume claim to the connector template instance at `/data`. 
+Create an asset that captures video clips from the camera and saves them to the persistent volume claim. ACSA automatically uploads the clips to your Azure Blob Storage account. This section assumes that you configured Azure Container Storage enabled by Azure Arc with a subvolume path of `ingestSubDir`, mounted the persistent volume claim at `/data`, and set `cloudIngestPath` to `/data/ingestSubDir`.
 
 1. Find the name of the media endpoint on the media device you created in [View and import the discovered media device](#view-and-import-the-discovered-media-device). The device's details page in the operations experience shows the endpoint name, or run `az iot ops ns device show --name <your-new-media-device-name> --instance <your-instance-name> -g <your-resource-group-name>` to list the device's endpoints.
 
@@ -185,7 +192,7 @@ Create an asset that captures video clips from the camera and saves them to the 
     ```
 
     > [!IMPORTANT]
-    > The path must start with the mount path you configured in the media connector template (`/data` in this example), continue with the path you configured in the ingest subvolume (`ingestSubDir` in this example), and end with the folder for saving clips.
+    > The destination must be under the configured `cloudIngestPath` (`/data/ingestSubDir` in this example). The `clips` suffix is a prefix for the stream output, not the final directory. The connector appends cluster, extension, device, endpoint, asset, and stream identities as described in [Filesystem destination paths](../discover-manage-assets/howto-use-media-connector.md#filesystem-destination-paths).
 
 ## Verify the captured media in Azure Blob Storage
 
@@ -197,9 +204,7 @@ After you create the asset, the media connector starts capturing clips from the 
 
 1. Navigate to the folder structure that matches your ACSA edge volume configuration. You see the uploaded clips:
 
-    :::image type="content" source="media/tutorial-onvif-media-blob-storage/uploaded-blobs.png" alt-text="Screenshot of the Azure portal that shows the uploaded media clips." lightbox="media/tutorial-onvif-media-blob-storage/uploaded-blobs.png":::
-
-    The media connector saves the clips in the `clips` folder with timestamp-based names.
+    Below the configured cloud-ingest root, the media connector uses `{cluster}/{extension}/clips/{device}/{inboundEndpoint}/my-camera-clips/clipstream/` and timestamp-based filenames. Check the task startup logs or data-operation status for the resolved path, and browse the corresponding hierarchy in the blob container.
 
 ## Troubleshoot ONVIF media capture and Azure Blob Storage upload
 
@@ -224,6 +229,8 @@ If you don't see captured media in Azure Blob Storage:
     ```
 
 1. Verify ACSA is running and has the correct configuration.
+
+1. Verify that `cloudIngestPath` points to the writable ingest subvolume, not just the PVC mount, and that only one media connector can write to or clean the tree.
 
 1. Make sure your camera is accessible from the cluster and the Real-Time Streaming Protocol (RTSP) stream URL is correct.
 
@@ -253,6 +260,7 @@ When you no longer need the resources you created in this tutorial, delete them 
 ## Related content
 
 - [Configure the connector for ONVIF](../discover-manage-assets/howto-use-onvif-connector.md)
+- [Configure storage and retention for the media connector](../discover-manage-assets/howto-configure-media-connector-storage.md)
 - [Azure Container Storage enabled by Azure Arc overview](/azure/azure-arc/container-storage/overview)
 - [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes)
 - [Troubleshoot Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/troubleshooting)

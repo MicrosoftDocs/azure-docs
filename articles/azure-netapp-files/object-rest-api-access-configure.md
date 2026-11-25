@@ -99,6 +99,9 @@ openssl req -new -key $KEY_DIR/server-key.pem -out $CERT_DIR/server-req.pem -sub
 # Generate self-signed certificate 
 openssl x509 -req -days $CERT_DAYS -in $CERT_DIR/server-req.pem -signkey $KEY_DIR/server-key.pem -out $CERT_DIR/server-cert.pem 
 
+# Combining private key and permissions
+cat $KEY_DIR/server-key.pem $CERT_DIR/server-cert.pem > $CERT_DIR/server-combined.pem
+
 echo "Self-signed certificate created at $CERT_DIR/server-cert.pem"
 ```
 After the certificate is created, you will need to create a bucket.
@@ -108,8 +111,8 @@ After the certificate is created, you will need to create a bucket.
 To enable object REST API, you must create a bucket on an Azure NetApp Files volume. 
 
 1. From your NetApp volume, select **Buckets**. 
-1. Select **+Create or update bucket**. 
-1. In Create or update bucket, provide the following information for the bucket:
+1. Select **+ Create bucket**. 
+1. Provide the following information for the bucket:
 
     **Bucket configuration**
 
@@ -147,7 +150,23 @@ To enable object REST API, you must create a bucket on an Azure NetApp Files vol
 
     :::image type="content" source="./media/object-rest-api-access-configure/create-bucket.png" alt-text="Screenshot of create a bucket menu." lightbox="./media/object-rest-api-access-configure/create-bucket.png":::
 
-1. Select **Save**. 
+    * **Credentials storage**
+
+        * **Azure Key Vault**
+
+            * **Vault URI**
+
+                Select the name from the drop-down list.
+
+            * **Secret name**
+
+                Enter the name of the secret. The secret name is user-defined and can be any value that meets the naming guidelines. 
+            
+        * **Access key**
+
+            When you select this option, the portal generates access keys after the bucket is created and displays them once in the Azure portal. You must manually copy both these values and store them securely.
+
+1. Select **Create**. 
 
     Additional details are needed to create the first bucket on a set of volumes sharing the same IP address.
     
@@ -165,7 +184,7 @@ To enable object REST API, you must create a bucket on an Azure NetApp Files vol
 
             Select the name from the drop-down list.
 
-        * **Secret name**
+        * **Certificate name**
 
             Enter the name of the certificate.
            
@@ -178,28 +197,12 @@ To enable object REST API, you must create a bucket on an Azure NetApp Files vol
         * **Certificate source**. 
 
             Upload the appropriate certificate. Only PEM files are supported.
-                     
-    **Credentials storage**
-
-    * **Azure Key Vault**
-
-        * **Vault URI**
-
-            Select the name from the drop-down list.
-
-        * **Secret name**
-
-            Enter the name of the secret. The secret name is user-defined and can be any value, that meets the naming guidelines. 
-            
-    * **Access key**
-
-        When selecting this option, access keys are generated after the bucket is created and are displayed once in the Azure portal. You must manually copy both these values and store them securely.
 
 1. Select **Save** to validate the configuration.
 
 1. Select **Create** to provision the bucket.
 
-After you create a bucket, you need to generate credentials to access the bucket.
+After you create a bucket, you need to generate credentials to access the bucket. 
 
 ## Generate credentials
 
@@ -253,10 +256,12 @@ You can modify a bucket's access management settings.
 * Permissions
 
 1. From your NetApp volume, select **Buckets**.
-1.	Select **+Create or update bucket**.
-1.	Enter the name of the bucket you want to modify.
-1.	Change the access management settings as required.
-1.	Click **Save** to modify the existing bucket.
+1. Select the ellipses (...) in the **Actions** column of the bucket you want to modify, and then select **Edit**.
+
+    :::image type="content" source="./media/object-rest-api-access-configure/update-bucket.png" alt-text="Screenshot to update a bucket menu." lightbox="./media/object-rest-api-access-configure/update-bucket.png":::        
+
+1. Change the access management settings as needed.
+1. Select **Save** to modify the existing bucket.
 
 > [!NOTE]
 > You cannot modify a bucket’s path. To update a bucket’s path, delete and re-create the bucket with the new path.

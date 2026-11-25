@@ -3,7 +3,7 @@ title: Expression builder in mapping data flows
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Build expressions by using Expression Builder in mapping data flows in Azure Data Factory and Azure Synapse Analytics
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.custom: synapse
@@ -14,6 +14,8 @@ ms.date: 09/25/2024
 # Build expressions in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In mapping data flow, many transformation properties are entered as expressions. These expressions are composed of column values, parameters, functions, operators, and literals that evaluate to a Spark data type at run time. Mapping data flows has a dedicated experience aimed to aid you in building these expressions called the **Expression Builder**. Utilizing  [IntelliSense](/visualstudio/ide/using-intellisense) code completion for highlighting, syntax checking, and autocompleting, the expression builder is designed to make building data flows easy. This article explains how to use the expression builder to effectively build your business logic.
 

@@ -1,19 +1,19 @@
 ---
 title: Migrate Hyper-V servers to Azure by using Private Link
-description: Use Azure Migrate with private endpoints to migrate on-premises Hyper-V VMs to Azure.
-author: vijain
-ms.author: vijain
+description: Use Azure Catalyst with private endpoints to migrate on-premises Hyper-V VMs to Azure.
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 12/14/2022
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator, I want to migrate on-premises Hyper-V VMs to Azure using private endpoints, so that I can ensure secure and private network connectivity during the migration process."
 ---
 
 # Migrate Hyper-V servers to Azure using Private Link
 
-This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
+This article describes how to use Azure Catalyst to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md) tool to connect privately and securely to Azure Catalyst over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
 
 This article shows you how to [migrate on-premises Hyper-V VMs to Azure](tutorial-migrate-hyper-v.md), using the [Migration and modernization](migrate-services-overview.md) tool, with agentless migration. You can also migrate using agent-based migration.  
 
@@ -25,15 +25,15 @@ The following diagram illustrates the agentless migration workflow with private 
 
 For migrating Hyper-V VMs, the Migration and modernization tool installs software providers (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes.  
 
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Discover**.
+1. In the Azure Catalyst project > **Servers, databases and web apps** > **Migration and modernization**, select **Discover**.
 1. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is region-name**. 
 1. Select **Create resources**. This creates an Azure Site Recovery vault in the background. Don't close the page during the creation of resources. If you have already set up migration with the Migration and modernization tool, this option won't appear since resources were set up previously. 
     - This step creates a Recovery Services vault in the background and enables a managed identity for the vault. A Recovery Services vault is an entity that contains the replication information of servers and is used to trigger replication operations.
-    - If the Azure Migrate project has private endpoint connectivity, a private endpoint is created for the Recovery Services vault. This step adds five fully qualified domain names (FQDNs) to the private endpoint, one for each microservice linked to the Recovery Services vault.
+    - If the Azure Catalyst project has private endpoint connectivity, a private endpoint is created for the Recovery Services vault. This step adds five fully qualified domain names (FQDNs) to the private endpoint, one for each microservice linked to the Recovery Services vault.
     - The five domain names are formatted in this pattern:  *{Vault-ID}-asr-pod01-{type}-.{target-geo-code}*.privatelink.siterecovery.windowsazure.com
-    - By default, Azure Migrate automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS is then linked to the private endpoint virtual network.
+    - By default, Azure Catalyst automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS is then linked to the private endpoint virtual network.
 1. In **Prepare Hyper-V host servers**, download the Hyper-V Replication provider, and the registration key file. 
 
     - The registration key is needed to register the Hyper-V host with the Migration and modernization tool. 
@@ -53,10 +53,10 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 > [!Note]
 > You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10.
 
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
+1. In the Azure Catalyst project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
 1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Yes, with Hyper-V**. Then select **Next: Virtual machines**.
 1. In **Virtual machines**, select the machines you want to replicate. 
-    - If you've run an assessment for the VMs, you can apply VM sizing and disk type (premium/standard) recommendations from the assessment results. To do this, in **Import migration settings from an Azure Migrate assessment?**, select the **Yes** option. 
+    - If you've run an assessment for the VMs, you can apply VM sizing and disk type (premium/standard) recommendations from the assessment results. To do this, in **Import migration settings from an Azure Catalyst assessment?**, select the **Yes** option. 
     - If you didn't run an assessment, or you don't want to use the assessment settings, select the **No** option. 
     - If you selected to use the assessment, select the VM group, and assessment name. 
 
@@ -66,13 +66,13 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 1. In **Replication storage account**, select the Azure storage account in which replicated data will be stored in Azure.  
 
-1. Next, [**create a private endpoint for the storage account**](/azure/migrate/migrate-servers-to-azure-using-private-link?pivots=agentlessvmware#create-a-private-endpoint-for-the-storage-account) and [**grant permissions to the Recovery Services vault managed identity**](/azure/migrate/migrate-servers-to-azure-using-private-link?pivots=agentbased#grant-access-permissions-to-the-recovery-services-vault-1) to access the storage account required by Azure Migrate. This is mandatory before you proceed. 
+1. Next, [**create a private endpoint for the storage account**](/azure/migrate/migrate-servers-to-azure-using-private-link?pivots=agentlessvmware#create-a-private-endpoint-for-the-storage-account) and [**grant permissions to the Recovery Services vault managed identity**](/azure/migrate/migrate-servers-to-azure-using-private-link?pivots=agentbased#grant-access-permissions-to-the-recovery-services-vault-1) to access the storage account required by Azure Catalyst. This is mandatory before you proceed. 
 
     -  For Hyper-V VM migrations to Azure, if the replication storage account is of *Premium* type, you must select another storage account of *Standard* type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
 
     - Ensure that the server hosting the replication provider has network connectivity to the storage accounts via the private endpoints before you proceed. Learn how to [verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution).  
         >[!Tip] 
-        > You can manually update the DNS records by editing the DNS hosts file on the Azure Migrate appliance with the private link FQDNs and private IP addresses of the storage account. 
+        > You can manually update the DNS records by editing the DNS hosts file on the Azure Catalyst appliance with the private link FQDNs and private IP addresses of the storage account. 
 
 1. In **Virtual network**, select the Azure VNet/subnet for the migrated Azure VMs.
 
@@ -92,7 +92,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements). 
 
-    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
+    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Catalyst picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
 
@@ -109,19 +109,19 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     > [!Note]
     > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
-    Next, follow the instructions to [perform migrations](tutorial-migrate-hyper-v.md#migrate-vms). 
+    Next, follow the instructions to [perform migrations](tutorial-migrate-hyper-v.md#track-and-migrate-replicating-servers). 
 
 ### Grant access permissions to the Recovery Services vault
 
 You must grant the permissions to the Recovery Services vault for authenticated access to the cache/replication storage account.
 
-To identify the Recovery Services vault created by Azure Migrate and grant the required permissions, follow these steps.
+To identify the Recovery Services vault created by Azure Catalyst and grant the required permissions, follow these steps.
 
 **Identify the Recovery Services vault and the managed identity object ID**
 
 You can find the details of the Recovery Services vault on the Migration and modernization tool **Properties** page.
 
-1. Go to the **Azure Migrate** hub, and on the **Migration and modernization** tile, select **Overview**.
+1. Go to the **Azure Catalyst** hub, and on the **Migration and modernization** tile, select **Overview**.
 
 1. In the left pane, select **Properties**. Make a note of the Recovery Services vault name and managed identity ID. The vault will have **Private endpoint** as the **Connectivity type** and **Other** as the **Replication type**. You'll need this information when you provide access to the vault.
 
@@ -151,7 +151,7 @@ To replicate by using ExpressRoute with private peering, [create a private endpo
 >[!Note]
 > You can create private endpoints only on a general-purpose v2 storage account. For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
-Create the private endpoint for the storage account in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network.
+Create the private endpoint for the storage account in the same virtual network as the Azure Catalyst project private endpoint or another virtual network connected to this network.
 
 Select **Yes** and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the virtual network. It also adds the DNS records for the resolution of new IPs and FQDNs that are created. Learn more about [private DNS zones](../dns/private-dns-overview.md).
 
@@ -172,8 +172,7 @@ Ensure that the replication provider has network connectivity to the storage acc
 
 ## Next steps
 
- - [Migrate VMs](tutorial-migrate-hyper-v.md#migrate-vms)
- - Complete the [migration process](tutorial-migrate-hyper-v.md#complete-the-migration).
+ - [Migrate VMs](tutorial-migrate-hyper-v.md#track-and-migrate-replicating-servers)
  - Review the [post-migration best practices](tutorial-migrate-hyper-v.md#post-migration-best-practices).
 
 

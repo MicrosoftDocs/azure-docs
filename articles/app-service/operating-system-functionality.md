@@ -1,11 +1,11 @@
 ---
 title: Operating System Functionality in Azure App Service
 description: Learn what types of file, network, and registry access your Windows app gets when it runs in Azure App Service. 
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: concept-article
-ms.date: 07/21/2025
+ms.date: 11/06/2026
 ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
@@ -31,6 +31,8 @@ App Service runs customer apps in a multitenant hosting environment.
 
 - Apps deployed in the Free and Shared tiers run in worker processes on shared virtual machines (VMs).
 - Apps deployed in the Standard and Premium tiers run on VMs dedicated specifically for the apps associated with a single customer.
+- Windows apps support both 32-bit and 64-bit (x64) processes. To select the process architecture, [configure the app's platform settings](configure-common.md#configure-general-settings). 
+- Linux apps run exclusively as 64-bit processes.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 

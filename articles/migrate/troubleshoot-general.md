@@ -1,22 +1,23 @@
 ---
-title: Troubleshoot Azure Migrate issues | Microsoft Docs
-description: Provides an overview of known issues in the Azure Migrate service, and troubleshooting tips for common errors.
-author: habibaum
-ms.author: v-uhabiba 
+title: Troubleshoot Azure Catalyst issues | Microsoft Docs
+description: Provides an overview of known issues in the Azure Catalyst service, and troubleshooting tips for common errors.
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-migrate
 ms.topic: troubleshooting
+ms.update:cycle: 365-days
 ms.date: 06/20/2024
 ms.custom: engagement-fy24
-# Customer intent: As an IT administrator using Azure Migrate, I want to resolve troubleshooting issues related to project creation and assessment, so that I can ensure a smooth migration process for our applications and infrastructure.
+# Customer intent: As an IT administrator using Azure Catalyst, I want to resolve troubleshooting issues related to project creation and assessment, so that I can ensure a smooth migration process for our applications and infrastructure.
 ---
 
-# Troubleshoot Azure Migrate
+# Troubleshoot Azure Catalyst
 
-[Azure Migrate](migrate-services-overview.md) provides a hub of tools for assessment and migration, and third-party independent software vendor (ISV) offerings. This article helps you troubleshoot issues with Azure Migrate, Azure Migrate Server Assessment, and Migration and modernization.
+[Azure Catalyst](migrate-services-overview.md) provides a hub of tools for assessment and migration, and third-party independent software vendor (ISV) offerings. This article helps you troubleshoot issues with Azure Catalyst, Azure Catalyst Server Assessment, and Migration and modernization.
 
 ## How do I create or find a project?
 
-Review the [Azure Migrate project troubleshooting guide](troubleshoot-project.md).
+Review the [Azure Catalyst project troubleshooting guide](troubleshoot-project.md).
 
 ## I can't get the appliance working
 

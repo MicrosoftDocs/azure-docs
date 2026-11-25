@@ -1,10 +1,11 @@
 ---
 title: Build a business case or assess servers using an imported CSV file
-description: Describes how to discover on-premises servers for migration to Azure using an imported CSV file in Azure Migrate
+description: Describes how to discover on-premises servers for migration to Azure using an imported CSV file in Azure Catalyst
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 
 # Customer intent: As a cloud migration planner, I want to import server data from a CSV file into my migration assessment tool, so that I can efficiently evaluate and build a business case for migrating on-premises servers to Azure without requiring direct access or setup of additional components.
@@ -14,12 +15,12 @@ ms.custom: engagement-fy25
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to build a business case or assess on-premises machines with the Azure Migrate: Discovery and Assessment tool, using an imported comma-separate values (CSV) file. 
+This tutorial shows you how to build a business case or assess on-premises machines with the Azure Catalyst: Discovery and Assessment tool, using an imported comma-separate values (CSV) file. 
 
-If you use a CSV file, you don't need to set up the Azure Migrate appliance to discover servers. You can control the data you share in the file, and much of the data is optional. This method is useful if:
+If you use a CSV file, you don't need to set up the Azure Catalyst appliance to discover servers. You can control the data you share in the file, and much of the data is optional. This method is useful if:
 
 - You want to create a quick, initial business case or assessment before you deploy the appliance.
-- You can't deploy the Azure Migrate appliance in your organization.
+- You can't deploy the Azure Catalyst appliance in your organization.
 - You can't share credentials that allow access to on-premises servers.
 - Security constraints prevent you from gathering and sending data collected by the appliance to Azure.
 
@@ -29,7 +30,7 @@ If you use a CSV file, you don't need to set up the Azure Migrate appliance to d
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up an Azure account
-> * Set up an Azure Migrate project
+> * Set up an Azure Catalyst project
 > * Prepare a CSV file
 > * Import the file
 > * Assess servers
@@ -41,12 +42,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- You can add up to 20,000 servers in a single CSV file, and in an Azure Migrate project. 
+- You can add up to 20,000 servers in a single CSV file, and in an Azure Catalyst project. 
 - Operating system names specified in the CSV file must contain and match [supported names](#supported-operating-system-names).
 
 ## Prepare an Azure user account
 
-To create an Azure Migrate project, you need an account with:
+To create an Azure Catalyst project, you need an account with:
 
 - Contributor or Owner permissions on an Azure subscription.
 - Permissions to register Microsoft Entra apps.
@@ -57,7 +58,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Search box to search for the Azure subscription](./media/tutorial-discover-import/search-subscription.png)
 
-1. In the **Subscriptions** page, select the subscription in which you want to create an Azure Migrate project.
+1. In the **Subscriptions** page, select the subscription in which you want to create an Azure Catalyst project.
 
 1. Select **Access control (IAM)**.
 
@@ -81,23 +82,23 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Set up a project
 
-Set up a new Azure Migrate project if you don't have one.
+Set up a new Azure Catalyst project if you don't have one.
 
-1. In the Azure portal > **All services**, search for **Azure Migrate**.
-2. Under **Services**, select **Azure Migrate**.
+1. In the Azure portal > **All services**, search for **Catalyst**.
+2. Under **Services**, select **Catalyst**.
 3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
    ![Boxes for project name and region](./media/tutorial-discover-import/new-project.png)  
     > [!Note]
-    > - Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
+    > - Use the **Advanced** configuration section to create an Azure Catalyst project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity).
     > - Ensure that you allow network access to the Azure vNet (*selected during project creation with private endpoint connectivity*) from the IP address of the machine that you choose to upload the CSV file from. 
 
 7. Select **Create**.
-8. Wait a few minutes for the Azure Migrate project to deploy.
+8. Wait a few minutes for the Azure Catalyst project to deploy.
 
-The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
+The **Azure Catalyst: Discovery and assessment** tool is added by default to the new project.
 
 ## Prepare the CSV
 
@@ -105,7 +106,7 @@ Download the CSV template and add server information to it.
 
 ### Download the template
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**, select **Discover**.
 2. In **Discover machines**, select **Import using CSV**.
 3. Select **Download** to download the CSV template. Alternatively, you can [download it directly](https://go.microsoft.com/fwlink/?linkid=2109031).
 
@@ -165,7 +166,7 @@ For example, to specify all fields for a second disk, add these columns:
 
 After adding information to the CSV template, import the CSV file.
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**, select **Discover**.
 1. In **Discover machines**, select **Import using CSV** 
 1. Upload the .csv file and select **Import**.
 3. The import status is shown.
@@ -186,8 +187,8 @@ You can update the information for a server by importing the data for the server
 
 To verify that the servers appear in the Azure portal after discovery:
 
-1. Open the Azure Migrate dashboard.
-2. On the **Azure Migrate - Servers** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
+1. Open the Azure Catalyst dashboard.
+2. On the **Azure Catalyst - Servers** > **Azure Catalyst: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 3. Select the **Import based** tab.
 
 ## Supported operating system names
@@ -224,6 +225,6 @@ Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CoreOS Linux<br/>Debian GNU/Linux 4<br
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Created an Azure Migrate project.
+> * Created an Azure Catalyst project.
 > * Discovered servers using an imported CSV file.
 Now,  [build a quick business case](how-to-build-a-business-case.md) or run an assessment for [migration to Azure VMs](./tutorial-assess-vmware-azure-vm.md).

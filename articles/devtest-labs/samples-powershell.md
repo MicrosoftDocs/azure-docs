@@ -3,8 +3,8 @@ title: Azure PowerShell Samples
 description: Use these Azure PowerShell scripts for DevTest Labs activities like adding users, creating custom roles, and setting lab policies.
 ms.topic: sample
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/31/2025
 
 #customer intent: As a lab administrator, I want to run Azure PowerShell scripts to add and assign users and allow specific VM sizes and images, so I can easily configure lab settings.

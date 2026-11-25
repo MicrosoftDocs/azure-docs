@@ -140,7 +140,7 @@ To add Windows Server Active Directory over LDAP with SSL as an external identit
    | **BaseDNUsers** |  The location to search for valid users. For example, **CN=users,DC=avsldap,DC=local**. Base DN is required for LDAP authentication.  |
    | **PrimaryUrl** | The primary URL of the external identity source. For example, `ldaps://yourserver.avslab.local:636`.  |
    | **SecondaryURL** | The secondary fallback URL if the primary fails. For example, `ldaps://yourbackupldapserver.avslab.local:636`. |
-   | **DomainAlias** | For Windows Server Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the Windows Server Active Directory domain as an alias of the identity source, typically in the **avsldap\\** format.    |
+   | **DomainAlias** | For Windows Server Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the Windows Server Active Directory domain as an alias of the identity source.  For example, if the domain is **avsldap.local**, the alias would typically be **avsldap**  |
    | **DomainName** | The domain's fully qualified domain name (FQDN). For example, **avslab.local**.  |
    | **Name** | A name for the external identity source. For example, **avslab.local**. |
    | **Retain up to** | The retention period of the cmdlet output. The default value is 60 days.   |

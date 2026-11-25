@@ -1,6 +1,6 @@
 ---
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: include
 ms.date: 08/14/2023
 ms:author: mbender

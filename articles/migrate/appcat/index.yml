@@ -1,14 +1,14 @@
 ### YamlMime:Landing
 
-title: Azure Migrate application and code assessment
+title: Azure Catalyst application and code assessment
 summary: Tools to assess application binaries and source code for cloud readiness.
 
 metadata:
-  title: Azure Migrate application and code assessment
-  description: Learn about Azure Migrate application and code assessment.
+  title: Azure Catalyst application and code assessment
+  description: Learn about Azure Catalyst application and code assessment.
   ms.service: azure-migrate
-  author: habibaum
-  ms.author: v-uhabiba 
+  author: Jeronika-MS
+  ms.author: v-gajeronika 
   ms.topic: landing-page
   ms.date: 11/15/2023
 

@@ -4,8 +4,8 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.topic: sample
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.service: azure-spring-apps
 ms.custom: subject-policy-compliancecontrols, devx-track-java
 ---
@@ -22,7 +22,7 @@ page lists the **compliance domains** and **security controls** for Azure Spring
 assign the built-ins for a **security control** individually to help make your Azure resources
 compliant with the specific standard.
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](~/reusable-content/ce-skilling/azure/includes/policy/standards/intro-warning.md)]
 
 [!INCLUDE [azure-policy-compliancecontrols-springcloud](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.appplatform.md)]
 

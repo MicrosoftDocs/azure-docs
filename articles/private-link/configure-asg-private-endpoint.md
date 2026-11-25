@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 03/30/2026
+ms.date: 08/10/2026
 ms.custom:
   - template-how-to
   - devx-track-azurepowershell
@@ -22,7 +22,7 @@ Azure Private Link private endpoints support application security groups (ASGs) 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An Azure web app with a Premium V2 tier or higher app service plan deployed in your Azure subscription.
+- An Azure web app on a Basic, Standard, Premium v2, Premium v3, Premium v4, or Isolated v2 App Service plan (or a function app on the Functions Premium plan) deployed in your Azure subscription. For the App Service plan tiers that support private endpoints, see [Use private endpoints for Azure App Service apps](../app-service/overview-private-endpoint.md).
 
     - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md).
     - The example web app in this article is named **myWebApp1979**. Replace the example with your web app name.
@@ -85,7 +85,7 @@ You can associate an ASG with a private endpoint when it's created. The followin
     | **Networking** |   |
     | Virtual network | Select **myVNet**. |
     | Subnet | Select your subnet. </br> In this example, it's **myVNet/myBackendSubnet(10.0.0.0/24)**. |
-    | Enable network policies for all private endpoints in this subnet. | Leave the default selected. |
+    | Enable network policies for all private endpoints in this subnet. | Enable network policies for network security groups. Network policies are disabled by default; they must be enabled for the network security group rules that reference the application security group to apply to the private endpoint. |
     | **Application security group** |   |
     | Application security group | Select **myASG**. |
 

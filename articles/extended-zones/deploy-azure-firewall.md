@@ -3,6 +3,7 @@ title: Deploy Azure Firewall in Azure Extended Zones
 description: Learn how to deploy Azure Firewall in Azure Extended Zones using ARM templates, including routing configuration, firewall rules, and deployment validation.
 author: svaldesgzz
 ms.author: svaldes
+ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
 ms.date: 03/27/2026

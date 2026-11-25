@@ -3,7 +3,7 @@ title: If Condition activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: The If Condition activity allows you to control the processing flow based on a condition in an Azure Data Factory or Synapse Analytics pipeline.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.subservice: orchestration
 ms.topic: concept-article
@@ -16,6 +16,9 @@ ms.custom:
 
 # If Condition activity in Azure Data Factory and Synapse Analytics pipelines
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [If Condition activity](/fabric/data-factory/if-condition-activity).
 
 The If Condition activity provides the same functionality that an if statement provides in programming languages. It executes a set of activities when the condition evaluates to `true` and another set of activities when the condition evaluates to `false`. 
 

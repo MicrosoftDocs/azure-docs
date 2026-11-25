@@ -1,7 +1,7 @@
 ---
 title: Extend Migration Agent to Other Platforms
-description: "Learn how to extend the Azure Logic Apps (Standard) Migration Agent by creating and adding custom parsers that support integration platforms like TIBCO, IBM IIB, Dell Boomi, or Workato."
 titleSuffix: Azure Logic Apps
+description: Learn how to extend the Azure Logic Apps Migration Agent by creating and adding custom parsers for other integration platforms.
 services: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
@@ -10,21 +10,17 @@ ms.reviewers: estfan, azla
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.update-cycle: 365-days
-ms.date: 05/06/2026
-# Customer intent: As a developer who works with enterprise integration platforms, I want to extend Azure Logic Apps (Standard) Migration Agent support to other integration platforms so I can migrate my integration solutions to Azure Logic Apps (Standard).
+ms.date: 09/13/2026
+# Customer intent: As an enterprise integration developer who works with BizTalk Server, MuleSoft, TIBCO BusinessWorks, or others, I want to extend the Migration Agent extension support to other integration platforms so I can migrate my integration solutions to Azure Logic Apps Standard.
 ---
 
-# Extend Azure Logic Apps Migration Agent to other platforms by creating custom parsers (preview)
+# Extend Azure Logic Apps Migration Agent to other platforms by creating custom parsers
 
 [!INCLUDE [logic-apps-sku-standard](../includes/logic-apps-sku-standard.md)]
 
-> [!NOTE]
->
-> This preview feature is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+If your organization uses an integration platform that the Azure Logic Apps Migration Agent extension in Visual Studio Code doesn't currently support, such as IBM IIB/ACE, Dell Boomi, or Workato, you can extend the agent by creating and adding a custom parser for that platform. Version 1.12.1 includes registered support for BizTalk Server, MuleSoft Anypoint, and TIBCO BusinessWorks. The extension uses a registry-based parser architecture that supports both built-in and external parsers.
 
-If your organization uses an integration platform that the Azure Logic Apps Migration Agent extension in Visual Studio Code doesn't currently support, such as TIBCO BusinessWorks, IBM IIB/ACE, Dell Boomi, or Workato, you can extend the agent by creating and adding a custom parser for that platform. The extension uses a registry-based parser architecture that supports both built-in and external parsers, so you can add platform support without modifying the core migration pipeline.
-
-This article shows how to create and add a custom parser that transforms your source integration platform's artifacts into the migration agent's common Intermediate Representation (IR) format. This JSON document describes artifacts in a platform-neutral way and lets the agent process your artifacts through all 5 migration stages.
+This article shows how to create and add a custom parser that transforms your source integration platform's artifacts into the migration agent's common Intermediate Representation (IR) format. This JSON document describes artifacts in a platform-neutral way. A built-in parser with the required platform-specific skills can participate in all five migration stages. An external parser extension covers only Discovery.
 
 ## Prerequisites
 
@@ -53,7 +49,9 @@ All parsers transform source platform artifacts into a common IR format as a JSO
 
 | Built-in parsers | External parser plugins |
 |------------------|-------------------------|
-| BizTalk (`.btproj`, `.odx`) <br>BizTalk (`.btm`, `.xsd`) <br>BizTalk (`.btp`) <br>MuleSoft (stub) | Partner platform parsers <br>Community parsers |
+| BizTalk Server (`.btproj`, `.odx`, `.btm`, `.xsd`, `.btp`, binding `.xml`, `.hidx`, `.bre`, `.brl`, `.asmx`) <br><br>MuleSoft Anypoint (`pom.xml`, Mule flow `.xml`, `.dwl`) <br><br>TIBCO BusinessWorks (`tibco.xml`, `TIBCO.xml`, `module.bwm`, `.process`, `.bwp`) | Partner platform parsers <br>Community parsers |
+
+The MuleSoft RAML and OpenAPI specification parser and the generic XML parser are stubs in version 1.12.1.
 
 :::image type="content" source="media/migration-agent-extend/parser-architecture.png" alt-text="Diagram that shows how built-in and external parser plugins feed into the common IR document format used by migration stages." lightbox="media/migration-agent-extend/parser-architecture.png":::
 
@@ -188,7 +186,7 @@ description: >-
 1. In the `src/types/platforms.ts` file, add your platform to the supported platforms list.
 
    ```typescript
-   export type SourcePlatform = 'biztalk' | 'mulesoft' | '<your-platform>';
+    export type SourcePlatform = 'biztalk' | 'mulesoft' | 'tibco' | '<your-platform>';
 
    export const SUPPORTED_PLATFORMS: PlatformInfo[] = [
        // ... existing platforms ...
@@ -229,10 +227,10 @@ However, if you prefer to not directly contribute to the repository, create a se
 import * as vscode from 'vscode';
 
 export async function activate(context: vscode.ExtensionContext) {
-    const assistant = vscode.extensions.getExtension('microsoft.logicapps-migration-assistant');
+    const agent = vscode.extensions.getExtension('ms-azuretools.logicapps-migration-agent');
 
-    if (assistant) {
-        const api = await assistant.activate();
+    if (agent) {
+        const api = await agent.activate();
         api.registerParser(new MyPlatformParser(), {
             priority: 10,
         });

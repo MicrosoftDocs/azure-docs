@@ -3,7 +3,7 @@ title: Managing the mapping data flow graph
 titleSuffix: Azure Data Factory & Azure Synapse
 description: How to effectively manage and edit the mapping data flow graph
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: how-to
@@ -14,6 +14,8 @@ ms.date: 10/20/2023
 # Managing the mapping data flow graph
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Mapping data flows are authored using a design surface know as the data flow graph. In the graph, transformation logic is built left-to-right and additional data streams are added top-down. To add a new transformation, select the plus sign on the lower right of an existing transformation.
 

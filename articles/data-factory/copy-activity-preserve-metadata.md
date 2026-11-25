@@ -14,6 +14,8 @@ ms.author: tinglee
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 When you use Azure Data Factory or Synapse Analytics pipelines copy activity to copy data from source to sink, in the following scenarios, you can also preserve the metadata and ACLs along.
 
 ## <a name="preserve-metadata"></a> Preserve metadata for lake migration

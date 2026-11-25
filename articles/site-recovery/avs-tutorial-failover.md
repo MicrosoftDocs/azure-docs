@@ -4,7 +4,7 @@ description: Learn how to fail over Azure VMware Solution VMs to Azure in Azure 
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 02/12/2026
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.custom: MVC, engagement-fy23
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and they don't show all possible settings and paths. If you want to learn about failover in detail, see [Fail over VMs](site-recovery-failover.md).
 
-To better understand the following tasks, you can learn about the [types of failover](failover-failback-overview.md#types-of-failover). If you want to fail over multiple VMs in a recovery plan, review [this article](site-recovery-failover.md).
+To better understand the following tasks, learn about the [types of failover](failover-failback-overview-modernized.md#types-of-failover). If you want to fail over multiple VMs in a recovery plan, review [Run a failover from on-premises to Azure](site-recovery-failover.md).
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ In some scenarios, failover requires extra processing that takes around 8 to 10 
 
 To connect to an Azure VM after failover by using Remote Desktop Protocol (RDP) or Secure Shell (SSH):
 
-1. Verify that you meet [the requirements](failover-failback-overview.md#connect-to-azure-after-failover).
+1. Verify that you meet the [requirements to connect after failover](failover-failback-overview-modernized.md#connect-to-azure-after-failover).
 1. After failover, go to the VM and validate by [connecting](/azure/virtual-machines/windows/connect-logon) to it.
 1. Select **Change recovery point** if you want to use a different recovery point after failover. After you commit the failover in the next step, this option isn't available.
 1. After validation, select **Commit** to finalize the recovery point of the VM after failover.
@@ -101,4 +101,3 @@ After failover, reprotect the Azure VMs to the Azure VMware Solution private clo
 
 - Learn how to [reprotect Azure VMs](avs-tutorial-reprotect.md).
 - Learn how to [fail back from Azure](avs-tutorial-failback.md).
-

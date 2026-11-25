@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: to load data into dedicated SQL pool using the copy activity"
 description: Use the pipeline copy activity in Azure Synapse Analytics to load data into dedicated SQL pool.
-ms.author: jingwang
-author: linda33wj
+ms.author: juluczni
+author: juluczni
 manager: shwang
 ms.reviewer: douglasl
 ms.service: azure-synapse-analytics

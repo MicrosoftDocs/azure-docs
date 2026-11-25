@@ -1,13 +1,13 @@
 ---
 title: "Tutorial: Generate images using serverless GPUs in Azure Container Apps"
-description: Learn to run to generate images powered by serverless GPUs in Azure Container Apps.
+description: Learn how to generate images with serverless GPUs in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.date: 09/21/2026
 ms.author: cshoe
 zone_pivot_groups: container-apps-portal-or-cli
 ---
@@ -24,7 +24,7 @@ In this tutorial you:
 > * Create a new container app and environment 
 > * Configure the environment to use serverless GPUs
 > * Deploy your app to Azure Container Apps
-> * Use the new serverless GPU enable application
+> * Use the new serverless GPU-enabled application
 > * Enable artifact streaming to reduce GPU cold start
 
 ## Prerequisites
@@ -34,7 +34,7 @@ In this tutorial you:
 | Resource | Description |
 |---|---|
 | Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
-| Access to serverless GPUs | Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). |
+| Access to serverless GPUs | Serverless GPUs are available only in supported regions and require managed environment GPU quota. For more information, see [Request serverless GPU quota](gpu-serverless-overview.md#request-serverless-gpu-quota). |
 
 ::: zone-end
 
@@ -43,7 +43,7 @@ In this tutorial you:
 | Resource | Description |
 |---|---|
 | Azure account | You need an Azure account with an active subscription. If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
-| Access to serverless GPUs | Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). |
+| Access to serverless GPUs | Serverless GPUs are available only in supported regions and require managed environment GPU quota. For more information, see [Request serverless GPU quota](gpu-serverless-overview.md#request-serverless-gpu-quota). |
 | [Azure CLI](/cli/azure/install-azure-cli) | Install the [Azure CLI](/cli/azure/install-azure-cli) or upgrade to the latest version. |
 
 ::: zone-end

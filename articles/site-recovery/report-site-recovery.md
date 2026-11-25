@@ -3,7 +3,7 @@ title: Configure Azure Site Recovery reports
 description: This article describes how to configure reports for Azure Site Recovery.
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 02/13/2026
+ms.date: 09/21/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 author: Jeronika-MS
@@ -26,7 +26,7 @@ This article shows how to set up and view Azure Site Recovery reports.
 
 Azure Site Recovery reports support the following scenarios:
 - Site Recovery jobs and Site Recovery replicated items.
-- Azure virtual machine replication to Azure, Hyper-V replication to Azure, VMware replication to Azure – Classic and Modernized. 
+- Azure virtual machine replication to Azure, Hyper-V replication to Azure, VMware replication to Azure – Modernized.
 
 ## Configure reports
 
@@ -64,7 +64,7 @@ Currently, Azure Site Recovery *doesn't* provide a built-in Azure policy definit
 
 To view your reports after setting up your vault to transfer data to Log Analytics workspace, go to the **Business Continuity Center** > **Monitoring+Reporting** > **Reports**. 
 
-You must select one or more workspace subscriptions, one or more log analytics workspaces, and the replication scenario of your choice, before you can see the report with information. 
+You must select one or more workspace subscriptions, one or more Log Analytics workspaces, and the replication scenario of your choice, before you can see the report with information. 
 
 **Following are some of the reports available in the Business Continuity Center:**
 

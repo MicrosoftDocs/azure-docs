@@ -3,12 +3,12 @@ title: List blobs with Java
 titleSuffix: Azure Storage
 description: Learn how to list blobs in your storage account using the Azure Storage client library for Java. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
-ms.author: shaas
+ms.date: 11/02/2026
+ms.author: schoag
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 # Customer intent: As a Java developer, I want to implement blob listing functionality using the Azure Storage client library, so that I can efficiently manage and retrieve data stored in my Azure Storage account.
@@ -34,7 +34,7 @@ Add the following `import` statements:
 
 #### Authorization
 
-The authorization mechanism must have the necessary permissions to list a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs (REST API)](/rest/api/storageservices/list-blobs#authorization).
+The authorization mechanism must have the necessary permissions to list a blob. For authorization with Microsoft Entra ID (recommended), you need the Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs (REST API)](/rest/api/storageservices/list-blobs#authorization).
 
 [!INCLUDE [storage-dev-guide-create-client-java](../../../includes/storage-dev-guides/storage-dev-guide-create-client-java.md)]
 
@@ -81,7 +81,7 @@ Name: folderA/file2.txt
 Name: folderA/folderB/file3.txt
 ```
 
-You can also specify options to filter list results or show additional information. The following example lists blobs with a specified prefix, and also lists deleted blobs:
+You can also specify options to filter list results or show more information. The following example lists blobs with a specified prefix, and also lists deleted blobs:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobList.java" id="Snippet_ListBlobsFlatOptions":::
 
@@ -100,7 +100,7 @@ Name: folderA/folderB/file3.txt, Is deleted? false
 ```
 
 > [!NOTE]
-> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage)](data-lake-storage-directory-file-acl-java.md#list-directory-contents).
+> The sample output shown assumes that you have a storage account with a flat namespace. If you enable the hierarchical namespace feature for your storage account, directories aren't virtual. Instead, they're concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage)](data-lake-storage-directory-file-acl-java.md#list-directory-contents).
 
 ## Use a hierarchical listing
 
@@ -127,11 +127,34 @@ Blob name: folderA/folderB/file3.txt
 ```
 
 > [!NOTE]
-> Blob snapshots cannot be listed in a hierarchical listing operation.
+> You can't list blob snapshots in a hierarchical listing operation.
+
+## List blobs in Apache Arrow format
+
+To list blobs in Apache Arrow format, use version **12.36.0** or later of the [com.azure:azure-storage-blob](https://central.sonatype.com/artifact/com.azure/azure-storage-blob/12.36.0) package.
+
+This capability is built on the existing `List Blobs` API. Instead of using the default XML, it uses the compact, columnar [Apache Arrow](https://arrow.apache.org/) format as the response format on the wire. You enable it by setting a single option on the container listing call. The Java SDK decodes Apache Arrow behind the scenes and still returns the same `BlobItem` objects. This approach improves listing throughput and reduces client-side CPU when enumerating large containers. It preserves the response contract that applications rely on.
+
+> [!WARNING]
+> Listing blobs in Apache Arrow format isn't supported on storage accounts that have hierarchical namespace (Azure Data Lake Storage) enabled.
+
+To request Apache Arrow-formatted results, set the response serialization format on [ListBlobsOptions](/java/api/com.azure.storage.blob.models.listblobsoptions) to [StorageResponseSerializationFormat.ARROW](/java/api/com.azure.storage.blob.models.storageresponseserializationformat) by calling `setStorageResponseSerializationFormat`, then pass the options to [BlobContainerClient.listBlobs](/java/api/com.azure.storage.blob.blobcontainerclient). When using Apache Arrow output, you can also call `setStartFrom` and `setEndBefore` to control the range of paths returned.
+
+The following example lists the blobs in a container and requests the results in Apache Arrow format:
+
+```java
+ListBlobsOptions options = new ListBlobsOptions()
+    .setPrefix("folderA/")
+    .setStorageResponseSerializationFormat(StorageResponseSerializationFormat.ARROW);
+
+for (BlobItem blobItem : containerClient.listBlobs(options, null)) {
+    System.out.println("Blob name: " + blobItem.getName());
+}
+```
 
 ## Resources
 
-To learn more about how to list blobs using the Azure Blob Storage client library for Java, see the following resources.
+To learn more about how to list blobs by using the Azure Blob Storage client library for Java, see the following resources.
 
 ### Code samples
 
@@ -139,7 +162,7 @@ To learn more about how to list blobs using the Azure Blob Storage client librar
 
 ### REST API operations
 
-The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for listing blobs use the following REST API operation:
+The Azure SDK for Java contains libraries that build on top of the Azure REST API. By using these libraries, you can interact with REST API operations through familiar Java paradigms. The client library methods for listing blobs use the following REST API operation:
 
 - [List Blobs](/rest/api/storageservices/list-blobs) (REST API)
 

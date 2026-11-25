@@ -1,5 +1,5 @@
 ---
-title: Using Azure App Configuration in JavaScript apps with the Azure SDK for JavaScript | Microsoft Docs
+title: Using Azure App Configuration in JavaScript apps with the Azure SDK for JavaScript
 description: This document shows examples of how to use the Azure SDK for JavaScript to access key-values in Azure App Configuration.
 services: azure-app-configuration
 author: maud-lv
@@ -7,8 +7,9 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: sample
 ms.custom: mode-other, devx-track-js
-ms.date: 02/20/2025
+ms.date: 08/28/2026
 ms.author: malev
+ai-usage: ai-assisted
 #Customer intent: As a JavaScript developer, I want to manage all my app settings in one place.
 ---
 # Create a Node.js app with the Azure SDK for JavaScript
@@ -32,7 +33,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
 |---|---|
 | TestApp:Settings:Message | Data from Azure App Configuration |
 
-## Setting up the Node.js app
+## Set up the Node.js app
 
 1. In this tutorial, you'll create a new directory for the project named *app-configuration-example*.
 
@@ -66,7 +67,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
     ```
 
 > [!NOTE]
-> The code snippets in this example will help you get started with the App Configuration client library for JavaScript. For your application, you should also consider handling exceptions according to your needs. To learn more about exception handling, please refer to our [JavaScript SDK documentation](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration).
+> The code snippets in this example help you get started with the App Configuration client library for JavaScript. In your application, handle exceptions according to your needs. For more information, see the [JavaScript SDK documentation](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration).
 
 ## Code samples
 
@@ -75,7 +76,7 @@ The sample code snippets in this section show you how to perform common operatio
 > [!NOTE]
 > The App Configuration client library refers to a key-value object as `ConfigurationSetting`. Therefore, in this article, the **key-values** in App Configuration store will be referred to as **configuration settings**.
 
-Learn below how to:
+Learn how to:
 
 - [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
 - [Get a configuration setting](#get-a-configuration-setting)

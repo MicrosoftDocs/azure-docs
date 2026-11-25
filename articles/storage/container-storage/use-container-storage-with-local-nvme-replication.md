@@ -1,11 +1,11 @@
 ---
 title: Use Azure Container Storage (version 1.x.x) with local NVMe replication
 description: Configure Azure Container Storage (version 1.x.x) for use with Ephemeral Disk using local NVMe on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool with volume replication, create a volume, and deploy a pod.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 09/03/2025
-ms.author: kendownie
+ms.author: schoag
 ms.custom: references_regions
 # Customer intent: As a Kubernetes administrator, I want to configure Azure Container Storage (version 1.x.x) with local NVMe replication, so that I can optimize storage performance and resilience for my container workloads.
 ---

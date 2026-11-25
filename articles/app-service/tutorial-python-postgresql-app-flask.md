@@ -3,10 +3,10 @@ title: 'Tutorial: Deploy a Python Flask web app with PostgreSQL'
 description: Create a Python Flask web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Flask framework and Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/12/2025
+ms.date: 10/08/2026
 ms.update-cycle: 180-days
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.custom: mvc, cli-validate, devx-track-python, devdivchpfy22, vscode-azure-extension-update-completed, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
@@ -16,14 +16,16 @@ ms.service: azure-app-service
 
 # Deploy a Python (Flask) web app with PostgreSQL in Azure
 
-In this tutorial, you deploy a data-driven Python web app to [Azure App Service](./overview.md) with the [Azure Database for PostgreSQL](/azure/postgresql/) relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. This article uses a [Flask](https://flask.palletsprojects.com/) app. Alternatives include [Django](tutorial-python-postgresql-app-django.md) or the [FastAPI tutorial](tutorial-python-postgresql-app-fastapi.md).
+In this tutorial, you deploy a data-driven Python web app to [Azure App Service](./overview.md) with the [Azure Database for PostgreSQL](/azure/postgresql/) relational database service. To use Azure Managed Redis, follow the [Azure Developer CLI](./tutorial-python-postgresql-app-flask.md?pivots=azure-developer-cli) steps. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. This article uses a [Flask](https://flask.palletsprojects.com/) app. Alternatives include [Django](tutorial-python-postgresql-app-django.md) or the [FastAPI tutorial](tutorial-python-postgresql-app-fastapi.md).
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app-flask/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app-flask/python-postgresql-app-architecture.png" alt-text="Diagram shows the architecture of an App Service with a PostgreSQL database in Azure.":::
+
+::: zone pivot="azure-portal"
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Create a secure-by-default App Service, PostgreSQL, and Redis cache architecture.
+> - Create a secure-by-default App Service and PostgreSQL architecture.
 > - Secure connection secrets using a managed identity and Key Vault references.
 > - Deploy a sample Python app to App Service from a GitHub repository.
 > - Access App Service connection strings and app settings in the application code.
@@ -36,8 +38,6 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-::: zone pivot="azure-portal"
-
 - An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. You can also [get one for free](https://github.com/join).
 - Knowledge of Python with Flask development.
@@ -46,6 +46,22 @@ In this tutorial, you learn how to:
 ::: zone-end
 
 ::: zone pivot="azure-developer-cli"
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> - Create a secure-by-default App Service, PostgreSQL, and Azure Managed Redis cache architecture.
+> - Secure connection secrets by using a managed identity and Key Vault references.
+> - Deploy a sample Python app to App Service from a GitHub repository.
+> - Access App Service connection strings and app settings in the application code.
+> - Make updates and redeploy the application code.
+> - Generate database schema by running database migrations.
+> - Stream diagnostic logs from Azure.
+> - Manage the app in the Azure portal.
+> - Provision the same architecture and deploy by using Azure Developer CLI.
+> - Optimize your development workflow with GitHub Codespaces and GitHub Copilot.
+
+## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. You can also [get one for free](https://github.com/join).
@@ -384,6 +400,8 @@ Having issues? Check the [Troubleshooting guide](configure-language-python.md#tr
 
 With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the Linux container in App Service. 
 
+For a detached CLI alternative, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
+
 :::row:::
     :::column span="2":::
         **Step 1:** Back in the **App Service** page, in the left menu, 
@@ -527,7 +545,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd provision
     ```  
 
-    The `azd provision` command takes about 15 minutes to complete. The Redis cache takes the most time. Later, modify your code to work with App Service and deploy the changes with `azd deploy`. While it runs, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure.
+    The `azd provision` command takes about 15 minutes to complete. Azure Managed Redis takes the most time. Later, modify your code to work with App Service and deploy the changes with `azd deploy`. While it runs, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -535,12 +553,12 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **App Service plan**: Defines the compute resources for App Service. It creates a Linux plan in the *Basic* tier.
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-    - **Private endpoints**: Access endpoints for the key vault and the Redis cache in the virtual network.
+    - **Private endpoints**: Access endpoints for the key vault and Azure Managed Redis in the virtual network.
     - **Network interfaces**: Represents private IP addresses, one for each of the private endpoints.
     - **Azure Database for PostgreSQL flexible server**: Accessible only from in the virtual network. A database and a user are created for you on the server.
     - **Private DNS zone**: Enables DNS resolution of the PostgreSQL server in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
-    - **Azure Cache for Redis**: Accessible only from behind its private endpoint.
+    - **Azure Managed Redis**: Accessible only from behind its private endpoint.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
 
     After the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet. You must make small changes to make it connect to the database in Azure.
@@ -590,7 +608,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [Without GitHub Copilot](#tab/nocopilot)
 
-1. You need to use the four app settings for connectivity in App service. Open *azureproject/production.py*, uncomment the following lines (lines 3-8), and save the file:
+1. You need to use the four app settings for connectivity in App Service. Open *azureproject/production.py*, uncomment the following lines (lines 3-8), and save the file:
 
     ```python
     DATABASE_URI = 'postgresql+psycopg2://{dbuser}:{dbpass}@{dbhost}/{dbname}'.format(
@@ -619,6 +637,8 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 ## Generate database schema
 
 With the PostgreSQL database protected by the virtual network, the easiest way to run [Flask database migrations](https://flask-migrate.readthedocs.io/en/latest/) is in an SSH session with the Linux container in App Service.
+
+For a detached CLI alternative, see [Run commands without an interactive session](configure-linux-open-ssh-session.md#run-commands-without-an-interactive-session). Run shared database migrations on one instance and verify completion separately; request acceptance doesn't confirm success. Keep the following interactive steps when you need immediate output.
 
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 

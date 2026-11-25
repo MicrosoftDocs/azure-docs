@@ -8,7 +8,7 @@ ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 02/03/2025
 author: KarlErickson
-ms.author: karler
+ms.author: vyomnagrani
 ms.reviewer: kuzhong
 ms.custom:
   - devx-track-azurecli

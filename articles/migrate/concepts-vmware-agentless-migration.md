@@ -1,13 +1,13 @@
 ---
 title: Agentless Replication of VMware Virtual Machines 
-description: This article describes concepts related to agentless migration of VMware VMs in Azure Migrate.
+description: This article describes concepts related to agentless migration of VMware VMs in Azure Catalyst.
 author: piyushdhore-microsoft 
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 05/12/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.custom: vmware-scenario-422, engagement-fy24
 ms.update-cycle: 1095-days
 # Customer intent: As a cloud architect, I want to understand the agentless migration process of VMware virtual machines to Azure, so that I can effectively plan and execute the migration while ensuring data integrity and minimal downtime.
@@ -15,21 +15,21 @@ ms.update-cycle: 1095-days
 
 # Agentless migration architecture
 
-This article describes the replication concepts when you're migrating VMware virtual machines (VMs) by using the agentless migration method in Azure Migrate.
+This article describes the replication concepts when you're migrating VMware virtual machines (VMs) by using the agentless migration method in Azure Catalyst.
 
 ## Replication process
 
-The agentless replication option works by using VMware snapshots and VMware changed block tracking (CBT) technology to replicate data from VM disks. The following block diagram shows you the steps involved when you migrate your VMs by using Azure Migrate.
+The agentless replication option works by using VMware snapshots and VMware changed block tracking (CBT) technology to replicate data from VM disks. The following block diagram shows you the steps involved when you migrate your VMs by using Azure Catalyst.
 
 ![Diagram of migration steps for virtual machines.](./media/concepts-vmware-agentless-migration/migration-phases.png)
 
-When you configure replication for a VM, it goes through an initial replication phase. During this phase, Azure Migrate takes a VM snapshot. The service then replicates a full copy of data from the snapshot disks to managed disks in your target subscription.
+When you configure replication for a VM, it goes through an initial replication phase. During this phase, Azure Catalyst takes a VM snapshot. The service then replicates a full copy of data from the snapshot disks to managed disks in your target subscription.
 
 After initial replication for the VM is complete, the replication process transitions to an incremental replication (delta replication) phase. In this phase, data changes that occurred since the beginning of the last completed replication cycle are replicated and written to the replica managed disks. This part of the process keeps replication in sync with changes on the VM.
 
-Azure Migrate uses VMware CBT technology to keep track of changes between replication cycles. At the start of a replication cycle, Azure Migrate takes a VM snapshot. The service uses CBT to get the changes between the current snapshot and the last successfully replicated snapshot. Only the data that changed since the previous completed replication cycle is replicated, to keep replication for the VM in sync. At the end of each replication cycle, the snapshot is released, and Azure Migrate performs snapshot consolidation for the VM.
+Azure Catalyst uses VMware CBT technology to keep track of changes between replication cycles. At the start of a replication cycle, Azure Catalyst takes a VM snapshot. The service uses CBT to get the changes between the current snapshot and the last successfully replicated snapshot. Only the data that changed since the previous completed replication cycle is replicated, to keep replication for the VM in sync. At the end of each replication cycle, the snapshot is released, and Azure Catalyst performs snapshot consolidation for the VM.
 
-When you perform the migration operation on a replicating VM, an on-demand delta replication cycle replicates the remaining changes since the last replication cycle. After the on-demand cycle finishes, Azure Migrate creates the VM in Azure by using the replica managed disks that correspond to the VM.
+When you perform the migration operation on a replicating VM, an on-demand delta replication cycle replicates the remaining changes since the last replication cycle. After the on-demand cycle finishes, Azure Catalyst creates the VM in Azure by using the replica managed disks that correspond to the VM.
 
 Before you trigger the migration, you must shut down the on-premises VM. Shutting down the VM prevents data loss during migration.
 
@@ -38,8 +38,8 @@ After the migration is successful and the VM restarts in Azure, ensure that you 
 ## Replication cycles
 
 > [!NOTE]
-> Be sure to check for any existing snapshots on the VM from earlier replication attempts, partner apps, or active backup tools (e.g., VEEAM), as this will block agentless replication setup in Azure Migrate.
-> Snapshot-based backups conflict with Azure Migrate’s agentless change tracking and replication process and should not be used concurrently.
+> Be sure to check for any existing snapshots on the VM from earlier replication attempts, partner apps, or active backup tools (e.g., VEEAM), as this will block agentless replication setup in Azure Catalyst.
+> Snapshot-based backups conflict with Azure Catalyst’s agentless change tracking and replication process and should not be used concurrently.
 
 A replication cycle is the periodic process of transferring data from an on-premises environment to Azure managed disks. A full replication cycle consists of the following steps:
 
@@ -52,7 +52,7 @@ A cycle is complete after the disks are consolidated.
 
 ## Components for replication
 
-An Azure Migrate appliance has the following *on-premises* components that are responsible for replication:
+An Azure Catalyst appliance has the following *on-premises* components that are responsible for replication:
 
 - Data replication agent
 - Gateway agent
@@ -61,18 +61,18 @@ The following table summarizes the *Azure* components that are created when you 
 
 | Component | Region | Subscription | Description |
 | --- | --- | --- | --- |
-| Recovery services vault | Azure Migrate project's region | Azure Migrate project's subscription | Vault that's used to orchestrate data replication. |
-| Service bus | Target region | Azure Migrate project's subscription | Component that's used for communication between the cloud service and the Azure Migrate appliance. |
-| Log storage account | Target region | Azure Migrate project's subscription | Account that's used to store replication data. The service reads this data and applies it on the customer's managed disk. |
-| Gateway storage account | Target region | Azure Migrate project's subscription | Account that's used to store machine states during replication |
-| Key vault | Target region | Azure Migrate project's subscription | Vault that manages connection strings for the service bus and access keys for the log storage account. |
+| Recovery services vault | Azure Catalyst project's region | Azure Catalyst project's subscription | Vault that's used to orchestrate data replication. |
+| Service bus | Target region | Azure Catalyst project's subscription | Component that's used for communication between the cloud service and the Azure Catalyst appliance. |
+| Log storage account | Target region | Azure Catalyst project's subscription | Account that's used to store replication data. The service reads this data and applies it on the customer's managed disk. |
+| Gateway storage account | Target region | Azure Catalyst project's subscription | Account that's used to store machine states during replication |
+| Key vault | Target region | Azure Catalyst project's subscription | Vault that manages connection strings for the service bus and access keys for the log storage account. |
 | Virtual machine | Target region | Target subscription | VM created in Azure when you migrate. |
 | Managed disks | Target region | Target subscription | Managed disks attached to Azure VMs. |
 | Network interface cards (NICs) | Target region | Target subscription | NICs attached to the VMs created in Azure. |
 
 ## Required permissions
 
-- Azure Migrate Owner or Azure Migrate Execute Expert on the Azure Migrate project's resource group and the target resource group. [Learn more](prepare-azure-accounts.md).
+- Azure Migrate Owner or Azure Migrate Execute Expert on the Azure Catalyst project's resource group and the target resource group. [Learn more](prepare-azure-accounts.md).
 
 ## Data integrity
 
@@ -82,7 +82,7 @@ There are two stages in every replication cycle, to help ensure data integrity b
 
 The first stage validates that every sector that changed in the source disk is replicated to the target disk. You perform the validation by using bitmaps.
 
-The source disk is divided into sectors of 512 bytes. Every sector in the source disk is mapped to a bit in the bitmap. When data replication starts, Azure Migrate creates a bitmap for all the changed blocks (in delta cycle) in the source disk that needs to be replicated. Similarly, when the data is transferred to the target Azure disk, Azure Migrate creates a bitmap.
+The source disk is divided into sectors of 512 bytes. Every sector in the source disk is mapped to a bit in the bitmap. When data replication starts, Azure Catalyst creates a bitmap for all the changed blocks (in delta cycle) in the source disk that needs to be replicated. Similarly, when the data is transferred to the target Azure disk, Azure Catalyst creates a bitmap.
 
 After the data transfer finishes successfully, the cloud service compares the two bitmaps to ensure that it didn't miss any changed block. If there's any mismatch between the bitmaps, the cycle is considered failed. Because every cycle is resynchronization, the mismatch is fixed in the next cycle.
 
@@ -90,27 +90,23 @@ After the data transfer finishes successfully, the cloud service compares the tw
 
 The second stage ensures that the data that's transferred to the Azure disks is the same as the data that was replicated from the source disks.
 
-Every changed block that's uploaded is compressed and encrypted before it's written as a blob in the log storage account. Azure Migrate computes the checksum of this block before compression. This checksum is stored as metadata along with the compressed data.
+Every changed block that's uploaded is compressed and encrypted before it's written as a blob in the log storage account. Azure Catalyst computes the checksum of this block before compression. This checksum is stored as metadata along with the compressed data.
 
-Upon decompression, Azure Migrate calculates the checksum for the data and compares it with the checksum computed in the source environment. If there's a mismatch, the data isn't written to the Azure disks, and the cycle is considered failed. Because every cycle is resynchronization, the mismatch is fixed in the next cycle.
+Upon decompression, Azure Catalyst calculates the checksum for the data and compares it with the checksum computed in the source environment. If there's a mismatch, the data isn't written to the Azure disks, and the cycle is considered failed. Because every cycle is resynchronization, the mismatch is fixed in the next cycle.
 
 ## Security
 
-The Azure Migrate appliance compresses data and encrypts it before uploading it. Data is transmitted over a secure communication channel that uses HTTPS and TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it's persisted to the cloud (encryption at rest).
+The Azure Catalyst appliance compresses data and encrypts it before uploading it. Data is transmitted over a secure communication channel that uses HTTPS and TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it's persisted to the cloud (encryption at rest).
 
 ## Tracking  migrations
 
-Execution progress is shown in **Execution stage** and **Execution status**:
-
-**Execution stage**: Preparation, Testing, or Completion.
-   
-- Preparation: Servers that are enabled for replication remain in the Preparation stage while initial replication (data replication) is in progress. After initial replication is complete, the servers move to the Testing stage.
-  
-- Testing: Servers for which initial replication is complete, and delta replication is in progress will move to the Testing phase. You can choose to run test migrations on a test virtual network before the actual migration (recommended). Ensure that you clean up test migrations after validation.
-  
-- Completion: Servers for which Test Migrations are completed or skipped will move to this stage. You can perform final migrations (cut over) for these servers. After migration finishes, ensure that you select Complete Migration from the same drop-down menu to clean up resources and shut down the source virtual machines.
-
-**Execution status**: In progress, In error, Action pending, or Completed. Click on the status hyperlink to view the details in the drill-down menu.
+1. In Azure Catalyst project, go to **Manage** > **Server replication**.
+2. The following columns show the replication and migration status of your servers for which you initiated replication:
+    - **Replication status**: Displays the current state of replication for the server. Learn more about [replication states](concepts-vmware-agentless-migration.md#replication-states).
+    - **Replication health**: Indicates whether replication is Healthy, Warning, or Critical.
+    - **Last sync**: Shows when the latest replication data was synchronized to Azure.
+    - **Test migration status**: Indicates the current or most recent test migration status for the replicating server or shows as **Pending**.
+    - **Migration status**: Displays the current or most recent migration status for the replicating server or shows as **Ready to migrate** if the initial replication is completed.
 
 ## Replication states
 
@@ -186,13 +182,13 @@ Whenever you trigger a migration operation, the on-demand replication cycle for 
 
 The following constraints help ensure that you don't exceed the IOPS limits on the storage area networks:
 
-- Each Azure Migrate appliance supports the replication of 52 disks in parallel.
-- Each ESXi host supports 8 disks. Every ESXi host has a 32-MB NFC buffer. So, you can schedule 8 disks on the host. (Each disk takes up 4 MB of buffer for incident response and disaster recovery.)
-- Each datastore can have a maximum of 15 disk snapshots. The only exception is when more than 15 disks are attached to a VM.
+- Each Azure Catalyst appliance supports the replication of 52 disks in parallel. A primary appliance with scale-out appliances supports up to 110 disks in parallel.
+- Each ESXi host supports 8 disks. Every ESXi host has a 32-MB NFC buffer. You can schedule 8 disks on the host (each disk takes up 4 MB of buffer for incident response and disaster recovery). If the default 32 MB NFC buffer is insufficient, you can increase it to improve replication performance. Ensure the same buffer size is configured on both the ESXi host and the appliance, as mismatched values can negatively affect replication performance. For more information, see [Increase NFC Buffer](troubleshoot-replication-vmware.md#remediation).
+- By default, Azure Catalyst schedules up to 15 of its own disk snapshots per datastore at a time. This limit is configurable. For details, see [Datastore snapshot capacity](troubleshoot-replication-vmware.md#datastore-snapshot-capacity).
 
 ## Scale-out replication
 
-Azure Migrate supports concurrent replication of 500 VMs. When you plan to replicate more than 300 VMs, you must deploy a scale-out appliance. The scale-out appliance is similar to an Azure Migrate primary appliance but consists only of a gateway agent to facilitate data transfer to Azure.
+Azure Catalyst supports concurrent replication of 500 VMs. When you plan to replicate more than 300 VMs, you must deploy a scale-out appliance. The scale-out appliance is similar to an Azure Catalyst primary appliance but consists only of a gateway agent to facilitate data transfer to Azure.
 
 The following diagram shows the recommended way to use the scale-out appliance.
 
@@ -226,7 +222,7 @@ To mitigate this risk, we recommend that you increase the datastore size proacti
 
 You can increase or decrease the replication bandwidth by using `NetQosPolicy`. The `AppNamePrefix` value to use in `NetQosPolicy` is `GatewayWindowsService.exe`.
 
-To throttle replication traffic from the Azure Migrate appliance, you can create a policy like the following example on the appliance. This policy applies to all the replicating VMs from the Azure Migrate appliance simultaneously.
+To throttle replication traffic from the Azure Catalyst appliance, you can create a policy like the following example on the appliance. This policy applies to all the replicating VMs from the Azure Catalyst appliance simultaneously.
 
 ```New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB```
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Data Box
 description: Learn how to copy data from VHDs from on-premises VM workloads to your Azure Data Box
 services: databox
 author: stevenmatthew
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: tutorial
 ms.date: 10/20/2019
 ms.author: shaas

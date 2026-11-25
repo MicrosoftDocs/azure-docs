@@ -2,11 +2,11 @@
 title: What is a network security perimeter?
 titleSuffix: Azure Private Link
 description: Learn how Azure Network Security Perimeter secures PaaS resources with logical network boundaries. Control public access, prevent data exfiltration, and manage access rules for Storage, Azure AI Search, and Key Vault.
-author: mbender-ms
-ms.author: mbender
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 03/22/2026
+ms.date: 11/09/2026
 ms.custom:
   - references_regions, ignite-2024
   - ai-gen-docs-bap
@@ -16,15 +16,15 @@ ms.custom:
 
 # What is a network security perimeter?
 
-Azure Network Security Perimeter creates logical network boundaries around your platform-as-a-service (PaaS) resources that are deployed outside your virtual networks. Network security perimeter helps you control public network access to resources like Azure Storage accounts and Azure Key Vault by establishing a secure perimeter.
+Azure Network Security Perimeter creates logical network boundaries around your platform-as-a-service (PaaS) resources that you deploy outside your virtual networks. By establishing a secure perimeter, network security perimeter helps you control public network access to resources like Azure Storage accounts and Azure Key Vault.
 
 By default, network security perimeter restricts public access to PaaS resources within the boundary. You can grant exceptions through explicit access rules for inbound and outbound traffic. This approach helps prevent data exfiltration while maintaining necessary connectivity for your applications.
 
-For access patterns involving traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md)
+For access patterns that involve traffic from virtual networks to PaaS resources, see [What is Azure Private Link?](private-link-overview.md)
 
 Features of a network security perimeter include:
 
-- Resource to resource access communication within perimeter members, preventing data exfiltration to nonauthorized destinations.
+- Resource-to-resource access communication within perimeter members, which prevents data exfiltration to nonauthorized destinations.
 - External public access management with explicit rules for PaaS resources associated with the perimeter.
 - Access logs for audit and compliance.
 - Unified experience across PaaS resources.
@@ -43,6 +43,7 @@ A network security perimeter includes the following components:
 | **Profile** | Collection of access rules that apply on resources associated with the profile. |
 | **Access rule**| Inbound and outbound rules for resources in a perimeter to allow access outside the perimeter. |
 | **Resource association** | Perimeter membership for a PaaS resource. |
+| **Network identifier** | A public IP address or prefix associated with a service endpoint subnet, enabling network security perimeter to identify and authorize inbound traffic from IaaS resources. Used with [standard service endpoint](service-endpoint-standard-overview.md). |
 | **Diagnostics settings** | Extension resource hosted by Microsoft Insights to collect logs & metrics for all resources in the perimeter. |
 
 > [!NOTE]
@@ -60,44 +61,47 @@ When creating a network security perimeter, you can specify the following proper
 
 ## Access modes in network security perimeter
 
-Administrators add PaaS resources to a perimeter by creating resource associations. These associations can be made in two access modes. The access modes are:
+Administrators add PaaS resources to a perimeter by creating resource associations. You can make these associations in two access modes. The access modes are:
 
 | **Mode** | **Description** |
 |----------------|--------|
-| **Transition mode (formerly Learning mode)**  | - Default access mode.</br>- Helps network administrators to understand the existing access patterns of their PaaS resources.</br>- Advised mode of use before transitioning to enforced mode.|
-| **Enforced mode**  | - Must be set by the administrator.</br>- By default, all traffic except intra-perimeter traffic is denied in this mode unless an *Allow* access rule exists. |
+| **Transition mode (formerly Learning mode)**  | - Default access mode.</br>- Helps network administrators understand the existing access patterns of their PaaS resources.</br>- Recommended mode of use before transitioning to enforced mode.|
+| **Enforced mode**  | - Set by the administrator.</br>- By default, denies all traffic except intra-perimeter traffic unless an *Allow* access rule exists. |
 
 
-Learn more on move from transition mode (formerly learning mode) to enforced mode in [Transitioning to a network security perimeter](network-security-perimeter-transition.md) article.
+To learn more about moving from transition mode (formerly learning mode) to enforced mode, see [Transitioning to a network security perimeter](network-security-perimeter-transition.md).
 
 ## Why use a network security perimeter?
 
-Network security perimeter provides a secure perimeter for communication of PaaS services deployed outside the virtual network. It allows you to control network access to Azure PaaS resources. Some of the common use cases include:
+A network security perimeter provides a secure perimeter for communication of PaaS services deployed outside the virtual network. It allows you to control network access to Azure PaaS resources. Some common use cases include:
 
 - Create a secure boundary around  PaaS resources.
 - Prevent data exfiltration by associating PaaS resources  to the perimeter.
 - Enable access rules to grant access outside the secure perimeter.
 - Manage access rules for all the PaaS resources within the network security perimeter in a single pane of glass.
-- Enable diagnostic settings to generate access logs of PaaS resources within the perimeter for Audit and Compliance.
+- Enable diagnostic settings to generate access logs of PaaS resources within the perimeter for audit and compliance.
 - Allow private endpoint traffic without the need for explicit access rules.
 
 
 ## How does a network security perimeter work?
 
-When a network security perimeter is created and the PaaS resources are associated with the perimeter in enforced mode, all public traffic is denied by default thus preventing data exfiltration outside the perimeter.  
+When you create a network security perimeter and associate PaaS resources with the perimeter in enforced mode, you deny all public traffic by default. This setup prevents data exfiltration outside the perimeter.  
 
-Access rules can be used to approve public inbound and outbound traffic outside the perimeter. Public inbound access can be approved using Network and Identity attributes of the client such as source IP addresses, subscriptions. Public outbound access can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations. 
+Use access rules to approve public inbound and outbound traffic outside the perimeter. Approve public inbound access by using the network and identity attributes of the client, such as source IP addresses and subscriptions. Approve public outbound access by using FQDNs (Fully Qualified Domain Names) of the external destinations.
 
-For example, upon creating a network security perimeter and associating a set of PaaS resources with the perimeter like Azure Key Vault and Azure Storage in enforced mode, all incoming and outgoing public traffic is denied to these PaaS resources by default. To allow any access outside the perimeter, necessary access rules can be created. Within the same perimeter, profiles can be created to group PaaS resources with similar set of inbound and outbound access requirements.
+By using [standard service endpoint](service-endpoint-standard-overview.md), a network security perimeter can also authorize inbound traffic by using *network identifiers* — public IP addresses or prefixes associated with service endpoint subnets. This approach provides scalable, identity-based IaaS-to-PaaS connectivity without requiring individual IP-based access rules. 
+
+For example, when you create a network security perimeter and associate a set of PaaS resources with the perimeter, such as Azure Key Vault and Azure Storage, in enforced mode, you deny all incoming and outgoing public traffic to these PaaS resources by default. To allow any access outside the perimeter, create the necessary access rules. Within the same perimeter, create profiles to group PaaS resources with similar sets of inbound and outbound access requirements.
 
 ## Onboarded private link resources
 
-A network security perimeter-aware private link resource is a PaaS resource that can be associated with a network security perimeter. Currently the list of onboarded private link resources are as follows:
+A network security perimeter-aware private link resource is a PaaS resource that you can associate with a network security perimeter. Currently, the onboarded private link resources are as follows:
 
 | Private link resource name | Resource type | Resources | Public cloud Availability | Gov Cloud Availability |
 |---------------------------|---------------|-----------| --------- | --------- |
 | [Azure Monitor](/azure/azure-monitor/essentials/network-security-perimeter)             | Microsoft.Insights/dataCollectionEndpoints</br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service | Generally available | Not Available |
 | [Azure AI Search](/azure/search/search-security-network-security-perimiter)          | Microsoft.Search/searchServices | | Generally Available | Not Available |
+| [Azure App Configuration](/azure/azure-app-configuration/overview) | Microsoft.AppConfiguration/configurationStores | | Public Preview | Not Available |
 | [Cosmos DB](/azure/cosmos-db/how-to-configure-nsp)                | Microsoft.DocumentDB/databaseAccounts | | Public Preview | Not Available |
 | [Event Hubs](/azure/event-hubs/network-security-perimeter)                | Microsoft.EventHub/namespaces | | Generally Available | Not Available |
 | [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | | Generally Available | Generally Available |
@@ -106,32 +110,36 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | [Azure OpenAI service](/azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices(kind="OpenAI") | | Public Preview | Not Available |
 | [Microsoft Foundry](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) | Microsoft.CognitiveServices/accounts<br>Microsoft.CognitiveServices(kind="AIServices") | | Generally Available | Generally Available |
 | [Azure Service Bus](/azure/service-bus-messaging/network-security-perimeter) | Microsoft.ServiceBus/namespaces | | Generally Available | Not Available |
+| [Event Grid](/azure/event-grid/configure-network-security-perimeter) | Microsoft.EventGrid/domains | | Public Preview | Not Available |
 
 > [!IMPORTANT]
 > The following onboarded services are in public preview with Network Security Perimeter:
+> - Azure App Configuration
 > - Cosmos DB
 > - SQL DB
 > - Azure OpenAI Service
+> - Event Grid
 >   
-> These previews are provided without a service level agreement, and it's not recommended for production workloads.
+> These previews are provided without a service level agreement, and don't use them for production workloads.
 > Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> Refer to the respective private link resource documentation for information on currently unsupported scenarios.
+> For information about currently unsupported scenarios, refer to the respective private link resource documentation.
 
 ## Where is network security perimeter available?
 
-Network security perimeter is currently available in all Azure public cloud regions and in Azure Government regions (US Gov Virginia, US Gov Texas, US Gov Arizona, US DoD East and US DoD Central). 
+Network security perimeter is currently available in all Azure public cloud regions and in Azure Government regions (US Gov Virginia, US Gov Texas, US Gov Arizona, US DoD East, and US DoD Central). 
 
 ## Supported access rule types
 
 Network security perimeter supports the following access rule types:
 
 | Direction | Access rule type | 
-|---------------------------|---------------|
+| --------------------------- | --------------- |
 | Inbound | Subscription-based rules |
-| Inbound | IP-based rules (check respective onboarded private link resources for v6 support)| 
+| Inbound | IP-based rules (check respective onboarded private link resources for v6 support) |
+| Inbound | [Service tags](configure-network-security-perimeter-service-tag.md) |
 | Outbound | FQDN-based rules |
 
 > [!NOTE]
@@ -141,17 +149,17 @@ Network security perimeter supports the following access rule types:
 
 ### Logging limitations
 
-While enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
+While enabling access logs for network security perimeter, the Log Analytics workspace to associate with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
 
 > [!NOTE]
-> For PaaS resource logs, use **Log Analytics Workspace, Storage or Event Hub** as the log destination associated to the same perimeter as the PaaS resource.
+> For PaaS resource logs, use **Log Analytics Workspace, Storage, or Event Hub** as the log destination associated to the same perimeter as the PaaS resource.
 
 ### Microsoft Sentinel limitations
 
-The following are known limitations:
-* Network security perimeters aren't supported for Log Analytics workspaces enabled for Microsoft Sentinel. If a network security perimeter is enabled on the workspace, analytic rules are automatically disabled. For more information, see [Prerequisites for deploying Microsoft Sentinel](/azure/sentinel/prerequisites).
-* Azure Backup is not supported for Storage Accounts enabled with network security perimeter. We recommend not associating a storage account with network security perimeter if you have backups enabled or if you plan to use Azure Backup.
-* Querying workspaces with private link from Advanced hunting is not supported.
+The following limitations are known:
+* Network security perimeters aren't supported for Log Analytics workspaces enabled for Microsoft Sentinel. If you enable a network security perimeter on the workspace, analytic rules are automatically disabled. For more information, see [Prerequisites for deploying Microsoft Sentinel](/azure/sentinel/prerequisites).
+* Azure Backup isn't supported for Storage Accounts enabled with network security perimeter. Don't associate a storage account with network security perimeter if you enable backups or if you plan to use Azure Backup.
+* Querying workspaces with private link from Advanced hunting isn't supported.
 
 [!INCLUDE [network-security-perimeter-limits](../../includes/network-security-perimeter-limits.md)]
 

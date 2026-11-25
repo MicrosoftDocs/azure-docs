@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn tips & tricks to optimize the use of Authentication in your Azure Maps applications. 
 author: pbrasil
 ms.author: peterbr 
-ms.date: 05/11/2022
+ms.date: 08/28/2026
 ms.topic: best-practice
 ms.service: azure-maps
 ms.subservice: authentication
@@ -14,7 +14,7 @@ ms.subservice: authentication
 
 The security of your application is crucial. Regardless of how excellent the user experience is, an insecure application can be compromised by hackers, undermining its integrity and deteriorating user trust.
 
-This article contains tips to ensure the security of your Azure Maps application. When using Azure, it's important to familiarize yourself with the available security tools. For more information, See [Introduction to Azure security] in the Azure security documentation.
+This article contains tips to ensure the security of your Azure Maps application. When using Azure, it's important to familiarize yourself with the available security tools. For more information, see [Introduction to Azure security] in the Azure security documentation.
 
 ## Understanding security threats
 
@@ -26,7 +26,7 @@ To implement best practices for securing your Azure Maps applications, it's esse
 
 When developing publicly facing client applications with Azure Maps, it's crucial to ensure that your authentication secrets remain private and aren't publicly accessible.
 
-Subscription key-based authentication (Shared Key) can be used in client-side applications or web services, but it's the least secure method for protecting your application or web service. This is because the key can be easily extracted from an HTTP request, granting access to all Azure Maps REST APIs available in the SKU (Pricing Tier). If you use subscription keys, make sure to [rotate them regularly] and remember that Shared Key doesn't support configurable lifetimes, so rotation must be done manually. Consider using [Shared Key authentication with Azure Key Vault] to securely store your secret in Azure.
+You can use subscription key-based authentication (Shared Key) in client-side applications or web services, but it's the least secure method for protecting your application or web service. This method is insecure because bad actors can easily extract the key from an HTTP request, granting access to all Azure Maps REST APIs available to the account. If you use subscription keys, make sure to [rotate them regularly] and remember that Shared Key doesn't support configurable lifetimes, so you must rotate keys manually. Consider using [Shared Key authentication with Azure Key Vault] to securely store your secret in Azure.
 
 When using [Microsoft Entra authentication] or [Shared Access Signature (SAS) Token authentication], access to Azure Maps REST APIs is authorized using [role-based access control (RBAC)]. RBAC enables you to specify the level of access granted to the issued tokens. It's important to consider the duration for which access should be granted. Unlike Shared Key authentication, the lifetime of these tokens is configurable.
 

@@ -75,9 +75,6 @@ Here's a sample input data file for the import API:
 {"$dtId":"twin0","$relationshipId":"relationship","$targetId":"twin1","$relationshipName":"has","relationshipProperty1":"propertyValue1","relationshipProperty2":10}
 ```
 
->[!TIP]
->For a sample project that converts models, twins, and relationships into the NDJSON supported by the import API, see [Azure Digital Twins Bulk Import NDJSON Generator](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/bulk-import/ndjson-generator). The sample project is written for .NET and can be downloaded or adapted to help you create your own import files.
-
 Once the file has been created, upload it to a block blob in Azure Blob Storage using your preferred upload method (some options are the [AzCopy command](../storage/common/storage-use-azcopy-blobs-upload.md), the [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md#upload-a-blob), or the [Azure portal](https://portal.azure.com)). You use the blob storage URL of the NDJSON file in the body of the Import Jobs API call.
 
 ### Run the import job

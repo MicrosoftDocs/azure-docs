@@ -3,8 +3,8 @@ ms.service: azure-policy
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: include
 ms.date: 02/25/2025
-author: michaeltlombardi
-ms.author: mlombardi
+author: mgreenegit
+ms.author: migreene
 ---
 
 ### Count machines in scope of guest configuration policies

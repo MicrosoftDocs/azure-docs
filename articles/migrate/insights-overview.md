@@ -1,19 +1,20 @@
 ---
-title: Insights In Azure Migrate - Assess, risks, and plan Cloud migration
-description: Discover how Azure Migrate's Insights (preview) feature helps identify vulnerabilities, end-of-support software, and missing security tools in your datacenter. Plan secure and efficient cloud migrations with early risk visibility and actionable insights.
-author: habibaum
-ms.author: v-uhabiba
+title: Insights In Azure Catalyst - Assess, risks, and plan Cloud migration
+description: Discover how Azure Catalyst's Insights (preview) feature helps identify vulnerabilities, end-of-support software, and missing security tools in your datacenter. Plan secure and efficient cloud migrations with early risk visibility and actionable insights.
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-migrate 
 ms.topic: how-to 
 ms.date: 09/19/2025
 ms.custom: engagement-fy24 
+ms.update-cycle: 180-days
 monikerRange: migrate
-# Customer intent: IT administrators and cloud architects use the Insights (preview) feature in Azure Migrate to identify and mitigate security risks in their datacenter during cloud migration planning. This helps them assess vulnerabilities, outdated software, and missing security tools to ensure a secure and efficient migration to Azure
+# Customer intent: IT administrators and cloud architects use the Insights (preview) feature in Azure Catalyst to identify and mitigate security risks in their datacenter during cloud migration planning. This helps them assess vulnerabilities, outdated software, and missing security tools to ensure a secure and efficient migration to Azure
 ---
 
-# Insights in Azure Migrate (preview)
+# Insights in Azure Catalyst (preview)
 
-This article describes the **Insights** (preview) feature in Azure Migrate, which provides security assessment of the infrastructure and software inventory discovered in your datacenter.
+This article describes the **Insights** (preview) feature in Azure Catalyst, which provides security assessment of the infrastructure and software inventory discovered in your datacenter.
 
 ## Key benefits of Insights: What users gain 
 
@@ -26,13 +27,13 @@ This article describes the **Insights** (preview) feature in Azure Migrate, whic
 
 ## Security Insights data
 
-Azure Migrate currently focuses on a core set of security risk areas. Each area corresponds to a specific security insight. The following table summarizes the available insights data: 
+Azure Catalyst currently focuses on a core set of security risk areas. Each area corresponds to a specific security insight. The following table summarizes the available insights data: 
 
 | Resource | Security Insight | Details | 
 | --- | --- | --- | 
 | Servers | With security risks | Servers are flagged if they have at least one of the following security risks: End-of-support operating system, End-of-support software, Known vulnerabilities (CVEs), Missing security or patch management software, Pending critical or security updates | 
 |  | OS end of support | Servers with end of support Operating system. | 
-|  | Software end of support | Servers with end of support Software discovered in Azure Migrate. | 
+|  | Software end of support | Servers with end of support Software discovered in Azure Catalyst. | 
 |  | With vulnerabilities | Servers with known vulnerability (CVE) in OS and discovered Software. | 
 |  | Missing security software | Servers without any discovered software belonging to Security software category. | 
 |  | Missing patch management software | Servers without any discovered patch management software. | 
@@ -49,22 +50,22 @@ Azure Migrate currently focuses on a core set of security risk areas. Each area 
 
 ## How are Insights derived
 
-Azure Migrate identifies potential security risks in your datacenter using software inventory data collected through the [Azure Migrate appliance discovery process](how-to-review-discovered-inventory.md#deploy-and-configure-the-azure-migrate-appliance). When you run a discovery of your on-premises environment, you usually provide guest credentials for your Windows and Linux servers. This allows the tool to collect information about installed software, operating system configuration, and pending updates. Azure Migrate processes this data to generate key security insights without needing additional credentials or permissions.
+Azure Catalyst identifies potential security risks in your datacenter using software inventory data collected through the [Azure Catalyst appliance discovery process](how-to-review-discovered-inventory.md#deploy-and-configure-the-azure-migrate-appliance). When you run a discovery of your on-premises environment, you usually provide guest credentials for your Windows and Linux servers. This allows the tool to collect information about installed software, operating system configuration, and pending updates. Azure Catalyst processes this data to generate key security insights without needing additional credentials or permissions.
 
 >[!Note]
-> Azure Migrate does not install additional agents or runs a deep scan of your environment. Security insights are limited to software and operating system data discovered through the Azure Migrate appliance quick discovery. It analyzes the collected software inventory data and cross-references it with publicly available vulnerability and support lifecycle databases to highlight security risks in your datacenter.
+> Azure Catalyst does not install additional agents or runs a deep scan of your environment. Security insights are limited to software and operating system data discovered through the Azure Catalyst appliance quick discovery. It analyzes the collected software inventory data and cross-references it with publicly available vulnerability and support lifecycle databases to highlight security risks in your datacenter.
 
 Security risks are derived through a series of following analyses:
 
-- **End-of-support**: Azure Migrate checks the versions of discovered Operating system, software, database platform and web app runtime against the publicly available [endoflife.date](https://endoflife.date/) repository. All end of life data is refreshed every 7 days. If software is found to be end of support (meaning the vendor no longer provides security updates), it flags it as a security risk. Similarly, a database instance is flagged as security risk if the database platform is end of support. Likewise, a web app is marked with security risk when it is built on a framework/runtime that is no longer supported. Identifying unsupported resources early helps you plan upgrade or mitigation as part of your cloud migration.
+- **End-of-support**: Azure Catalyst checks the versions of discovered Operating system, software, database platform and web app runtime against the publicly available [endoflife.date](https://endoflife.date/) repository. All end of life data is refreshed every 7 days. If software is found to be end of support (meaning the vendor no longer provides security updates), it flags it as a security risk. Similarly, a database instance is flagged as security risk if the database platform is end of support. Likewise, a web app is marked with security risk when it is built on a framework/runtime that is no longer supported. Identifying unsupported resources early helps you plan upgrade or mitigation as part of your cloud migration.
 
-- **Vulnerabilities**: Azure Migrate identifies installed software and operating system (OS) for each server. It maps the discovered software, OS, database platform and web app runtime to CPE nomenclature (Common Platform Enumeration) using AI model, which provides a unique identification for each  version. Azure Migrate stores only software metadata (name, publisher, version) and doesn't capture any organization-specific information. It correlates the CPE names with known CVE IDs (Common Vulnerabilities and Exposures). CVE IDs are unique identifiers assigned to publicly disclosed cybersecurity vulnerabilities and help organizations identify and track vulnerabilities in a standard way. Refer to [CVE](https://www.cve.org/) for more details. Information about CVE IDs and related software comes from the publicly available [National Vulnerability Database](https://nvd.nist.gov/) (NVD), managed by NIST. This helps identify vulnerabilities in the software, operating system, database instance and web app. Each vulnerability is categorized by risk level (Critical, High, Medium, Low) based on the [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score provided by NVD. This feature uses the NVD API but is not endorsed or certified by the NVD. All CVE data from NVD is refreshed every 7 days. 
+- **Vulnerabilities**: Azure Catalyst identifies installed software and operating system (OS) for each server. It maps the discovered software, OS, database platform and web app runtime to CPE nomenclature (Common Platform Enumeration) using AI model, which provides a unique identification for each  version. Azure Catalyst stores only software metadata (name, publisher, version) and doesn't capture any organization-specific information. It correlates the CPE names with known CVE IDs (Common Vulnerabilities and Exposures). CVE IDs are unique identifiers assigned to publicly disclosed cybersecurity vulnerabilities and help organizations identify and track vulnerabilities in a standard way. Refer to [CVE](https://www.cve.org/) for more details. Information about CVE IDs and related software comes from the publicly available [National Vulnerability Database](https://nvd.nist.gov/) (NVD), managed by NIST. This helps identify vulnerabilities in the software, operating system, database instance and web app. Each vulnerability is categorized by risk level (Critical, High, Medium, Low) based on the [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score provided by NVD. This feature uses the NVD API but is not endorsed or certified by the NVD. All CVE data from NVD is refreshed every 7 days. 
 
-- **Pending updates for servers**: Azure Migrate identifies machines that are not fully patched or updated based on [Windows Update](/windows/deployment/update/windows-update-overview) metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Migrate refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated.
+- **Pending updates for servers**: Azure Catalyst identifies machines that are not fully patched or updated based on [Windows Update](/windows/deployment/update/windows-update-overview) metadata for Windows servers and Linux package manager metadata for Linux servers. It also retrieves the classification of these updates (Critical, Security, Other updates) and shows them for further consideration. Azure Catalyst refreshes data from Windows Updates and Linux package managers every 24 hours. This insight appears as Servers with pending security and critical updates, indicating that the server is not fully patched and should be updated.
 
-- **Missing security and patch management software**: Azure Migrate classifies software by processing its name and publisher into predefined categories and sub categories. [Learn more](/previous-versions/azure/migrate/how-to-discover-applications#software-classification--potential-targets). It identifies unprotected servers that lack *Security & Compliance* software identified through software inventory. For example, if the software inventory indicates a server without software in categories such as, antivirus, threat detection, SIEM, IAM, or patch management, Azure Migrate flags the server as a potential security risk.
+- **Missing security and patch management software**: Azure Catalyst classifies software by processing its name and publisher into predefined categories and sub categories. [Learn more](/previous-versions/azure/migrate/how-to-discover-applications#software-classification--potential-targets). It identifies unprotected servers that lack *Security & Compliance* software identified through software inventory. For example, if the software inventory indicates a server without software in categories such as, antivirus, threat detection, SIEM, IAM, or patch management, Azure Catalyst flags the server as a potential security risk.
 
-Azure Migrate updates security insights whenever it refreshes discovered software inventory data. The platform updates insights when you run a new discovery or when the Azure Migrate appliance sends inventory updates. You usually run a full discovery at the start of a project and may do periodic re-scans before finalizing an assessment. Any system changes, such as, new patches or software reached end-of-life, will reflect in the updated security insights.
+Azure Catalyst updates security insights whenever it refreshes discovered software inventory data. The platform updates insights when you run a new discovery or when the Azure Catalyst appliance sends inventory updates. You usually run a full discovery at the start of a project and may do periodic re-scans before finalizing an assessment. Any system changes, such as, new patches or software reached end-of-life, will reflect in the updated security insights.
 
 ### Calculate number of security risks
 
@@ -92,23 +93,23 @@ Runtime end-of-support flag + Number of vulnerabilities
 - **Number of vulnerabilities** = Count of CVEs identified for the runtime version.
 
 >[!Note]
-> Security insights in Azure Migrate help guide and highlight potential security risks in the datacenter. They are not meant to be compared with specialized security tools. We recommend to adopt Azure services such as, [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md) for comprehensive protection of your hybrid environment.
+> Security insights in Azure Catalyst help guide and highlight potential security risks in the datacenter. They are not meant to be compared with specialized security tools. We recommend to adopt Azure services such as, [Microsoft Defender for Cloud](/azure/defender-for-cloud/) and [Azure Update Manager](../update-manager/overview.md) for comprehensive protection of your hybrid environment.
 
 ## Prerequisites for reviewing Insights 
 
 Ensure the following prerequisites are met for generating complete Insights:
 
-- Use [appliance-based discovery in Azure Migrate](how-to-review-discovered-inventory.md) to review Insights. It might take up to 24 hours after discovery to generate Insights.[Import-based discovery](discovery-methods-modes.md) isn't supported.
-- Use an existing project or create an [Azure Migrate project using portal](quickstart-create-project.md) in any of the public regions supported by Azure Migrate. This capability is currently not supported in Government clouds.
+- Use [appliance-based discovery in Azure Catalyst](how-to-review-discovered-inventory.md) to review Insights. It might take up to 24 hours after discovery to generate Insights.[Import-based discovery](discovery-methods-modes.md) isn't supported.
+- Use an existing project or create an [Azure Catalyst project using portal](quickstart-create-project.md) in any of the public regions supported by Azure Catalyst. This capability is currently not supported in Government clouds.
 - Ensure guest discovery features are enabled on the appliance(s).
-- Ensure there are no software discovery issues. Go to [Action Center](centralized-issue-tracking.md) in Azure Migrate project to filter issues for software inventory. 
+- Ensure there are no software discovery issues. Go to [Action Center](centralized-issue-tracking.md) in Azure Catalyst project to filter issues for software inventory. 
 - Ensure Software inventory is gathered actively for all servers at least once in last 30 days.
 
 ## Review Insights 
 
-To review insights in Azure Migrate:
+To review insights in Azure Catalyst:
 
-1. Go to the **[Azure Migrate](https://portal.azure.com)** portal.
+1. Go to the **[Azure Catalyst](https://portal.azure.com)** portal.
 1. Select your project from **All Projects**.
 1. In the left menu, select **Explore inventory** > **Insights (preview)** to review security insights for the selected project. This page provides a summary of security risks across discovered servers and software. 
 
@@ -301,7 +302,7 @@ Security insights are enabled by default for all users. To manage access, create
 |  | `Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*` | Read vulnerabilities of VMware machine |
 
 
-You can also implement built-in roles for Azure Migrate to manage access to view Insights. [Learn more](/azure/migrate/prepare-azure-accounts)
+You can also implement built-in roles for Azure Catalyst to manage access to view Insights. [Learn more](/azure/migrate/prepare-azure-accounts)
 
 Below error message is displayed when a user does not have permissions to view Insights:
 
@@ -319,6 +320,6 @@ Azure offers integrated solutions to identify and mitigate security risks and st
 
 ## Next steps
 
-- Learn more about [permissions in Azure Migrate](/azure/role-based-access-control/permissions/migration#microsoftmigrate).
+- Learn more about [permissions in Azure Catalyst](/azure/role-based-access-control/permissions/migration#microsoftmigrate).
 - Learn more about [Security cost in Business case](concepts-business-case-calculation.md).
 - Learn more about [Assessments](concepts-overview.md).

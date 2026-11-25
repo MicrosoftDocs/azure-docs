@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 02/27/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom:
   - devx-track-azurepowershell
   - build-2025
@@ -25,7 +25,7 @@ Users, groups, Microsoft services such as the Azure portal, and partner services
 
 You must call the REST API by using an explicit header to indicate your intent to use the additional privilege. This requirement also applies to Azure PowerShell and Azure CLI access.
 
-This article explains how to enable admin-level access to Azure file shares for specific [customer use cases](#customer-use-cases). For a more general article on identity-based authentication for users, see [Overview of Azure Files identity-based authentication](storage-files-active-directory-overview.md).
+This article explains how to enable admin-level access to Azure file shares for specific [Azure Files OAuth over REST use cases](#azure-files-oauth-over-rest-use-cases). For a more general article on identity-based authentication for users, see [Overview of Azure Files identity-based authentication](storage-files-active-directory-overview.md).
 
 ## Limitations
 
@@ -33,9 +33,9 @@ Authorizing file data operations by using Microsoft Entra ID is supported only f
 
 Azure Files OAuth over REST support for Azure Files REST data plane APIs that manage `FileService` and `FileShare` resources is available with REST API versions 2024-11-04 and later.
 
-See [Versioning for Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services).
+See [Versioning for Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services).
 
-## Customer use cases
+## Azure Files OAuth over REST use cases
 
 OAuth authentication and authorization with Azure Files over the REST API interface can benefit customers in the following scenarios.
 
@@ -90,14 +90,14 @@ When you use the new roles and data actions, this feature provides storage accou
 - File share management services.
 - Data services (the data in the file share).
 
-Many [built-in roles](../../role-based-access-control/built-in-roles.md) provide access to management services. You can also [create custom roles](../../role-based-access-control/custom-roles.md) with the appropriate permissions. To learn more about role-based access control, see [Azure RBAC](../../role-based-access-control/overview.md). For more information about how built-in roles are defined, see [Understand role definitions](../../role-based-access-control/role-definitions.md).
+Many [built-in roles](../../role-based-access-control/built-in-roles.md) provide access to management services. You can also [create custom roles](../../role-based-access-control/custom-roles.md) with the appropriate permissions. To learn more about role-based access control, see [Azure RBAC](../../role-based-access-control/overview.md). For more information about how built-in roles are defined, see [Understand role definitions](../../role-based-access-control/role-definitions.md).
 
 For the file share resource type, the corresponding RBAC scope uses `shares` in the control plane (management operations) but uses `fileshares` in the data plane (data operations). If you try to use a file share resource ID that contains `shares` in RBAC scope or data action strings, it doesn't work. You must use `fileshares` in the scope of RBAC assignments, for example:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>/fileServices/default/fileshares/<share-name>`
 
 > [!IMPORTANT]
-> Any wildcard use cases defined for the path `Microsoft.Storage/storageAccounts/fileServices/*` or higher scope automatically inherit the extra access and permissions granted through this new data action. To prevent unintended or overprivileged access to Azure Files, the system implements extra checks that require users and applications to explicitly indicate their intent to use the extra privilege. You should also review your user RBAC role assignments and replace any wildcard usage with explicit permissions to ensure proper management of data access.
+> Any wildcard use cases defined for the path `Microsoft.Storage/storageAccounts/fileServices/*` or higher scope automatically inherit the extra access and permissions granted through this new data action. To prevent unintended or overprivileged access to Azure Files, the system implements extra checks that require users and applications to explicitly indicate their intent to use the extra privilege. Also review your RBAC role assignments and replace any wildcard usage with explicit permissions to ensure proper management of data access.
 
 ## Authorize access to file data in application code
 
@@ -173,11 +173,11 @@ You can also authorize access to file data by using the Azure portal, Azure Powe
 
 The [Azure portal](https://portal.azure.com?azure-portal=true) can use either your Entra account or the storage account access key to access file data in an Azure storage account. Which authorization method the Azure portal uses depends on the Azure roles that are assigned to you.
 
-When you attempt to access file data, the Azure portal first checks whether you have an Azure role with `Microsoft.Storage/storageAccounts/listkeys/action`. If you have a role with this action, the Azure portal uses the storage account key for accessing file data via shared key authorization. If you don't have a role with this action, the Azure portal attempts to access data by using your Entra account.
+When you attempt to access file data, the Azure portal first checks whether you have an Azure role with `Microsoft.Storage/storageAccounts/listkeys/action`. If you have a role with this action, the Azure portal uses the storage account key for accessing file data via shared key authorization. If you don't have a role with this action, the Azure portal attempts to access data by using your Entra account.
 
-To access file data from the Azure portal by using your Entra account, you need permissions to access file data. You also need permissions to move through the storage account resources in the Azure portal. The built-in Azure roles grant access to file resources, but they don't grant permissions to storage account resources. For this reason, access to the portal also requires assigning an Azure Resource Manager role such as the Reader role, scoped to the level of the storage account or higher. The Reader role grants the most restrictive permissions, but any Resource Manager role that grants access to storage account management resources is acceptable.
+To access file data from the Azure portal by using your Entra account, you need permissions to access file data. You also need permissions to move through the storage account resources in the Azure portal. The built-in Azure roles grant access to file resources, but they don't grant permissions to storage account resources. For this reason, access to the portal also requires assigning an Azure Resource Manager role such as the Reader role, scoped to the level of the storage account or higher. The Reader role grants the most restrictive permissions, but any Resource Manager role that grants access to storage account management resources is acceptable.
 
-When you go to a container, the Azure portal indicates which authorization scheme is in use. For more information about data access in the portal, see [Choose how to authorize access to file data in the Azure portal](authorize-data-operations-portal.md).
+When you go to a file share, the Azure portal indicates which authorization scheme is in use. For more information about data access in the portal, see [Choose how to authorize access to file data in the Azure portal](authorize-data-operations-portal.md).
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -195,7 +195,7 @@ The storage context with OAuth works only for operations on files and directorie
 
 ### Prerequisites
 
-You need an Azure resource group and a storage account within that resource group. The storage account must be assigned a role that grants explicit permissions to perform data operations against file shares. Make sure that you have the required roles and permissions to access both the management services and data services. For details on the permissions required to call specific Azure Files service operations, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
+You need an Azure resource group and a storage account within that resource group. The storage account must be assigned a role that grants explicit permissions to perform data operations against file shares. Make sure that you have the required roles and permissions to access both the management services and data services. For details on the permissions required to call specific Azure Files service operations, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 You also need to install the latest [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage/) module:
 
@@ -215,7 +215,7 @@ To authorize access to file data by using Azure PowerShell, follow these steps:
    $ctxkey = (Get-AzStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>).Context
    ```
 
-1. Create a file share by calling `New-AzStorageShare`. Because you use the storage account context from step 2, you create the file share by using your storage account key.
+1. Create a file share by calling `New-AzStorageShare`. Because you use the storage account context from step 2, you create the file share by using your storage account key.
 
    ```azurepowershell-interactive
    $fileshareName = "sample-share"
@@ -253,7 +253,7 @@ All commands under the `az storage file` and `az storage directory` command grou
 
 ### Prerequisites
 
-You need an Azure resource group and a storage account within that resource group. The storage account must be assigned a role that grants explicit permissions to perform data operations against file shares. Make sure that you have the required roles and permissions to access both the management services and data services. For details on the permissions required to call specific Azure Files service operations, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
+You need an Azure resource group and a storage account within that resource group. The storage account must be assigned a role that grants explicit permissions to perform data operations against file shares. Make sure that you have the required roles and permissions to access both the management services and data services. For details on the permissions required to call specific Azure Files service operations, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
 
 If you haven't already done so, [install the latest version of the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -267,7 +267,7 @@ Follow these steps to authorize access to file data by using the Azure CLI:
    az login
    ```
 
-1. Create a file share by calling `az storage share create`. Because you're using the connection string, the file share is created via your storage account key.
+1. Create a file share by calling `az storage share create`. Because you're using the connection string, the file share is created via your storage account key.
 
    ```azurecli
    az storage share create --name testshare1 --connection-string <connection-string>
@@ -276,13 +276,13 @@ Follow these steps to authorize access to file data by using the Azure CLI:
 1. Create a test directory and upload a file into the file share by using `az storage directory create` and `az storage file upload`. Specify the `--auth-mode` as `login` and pass the `--backup-intent` parameter.
 
    ```azurecli
-   az storage directory create --name testdir1 --account-name filesoauthsa --share-name testshare1 --auth-mode login --backup-intent
-   az storage file upload  --account-name filesoauthsa --share-name testshare1 --auth-mode login --backup-intent --source <source file path>
+   az storage directory create --name testdir1 --account-name <storage-account-name> --share-name testshare1 --auth-mode login --backup-intent
+   az storage file upload  --account-name <storage-account-name> --share-name testshare1 --auth-mode login --backup-intent --source <source file path>
    ```
 
    Because the CLI commands use authentication type as `login` (`--auth-mode login` with the `--backup-intent` parameter), the file and directory are created through Entra credentials.
 
-For more information, refer to the documentation for supported commands:
+For more information, see the documentation for supported commands:
 
 - [az storage file](/cli/azure/storage/file)
 - [az storage directory](/cli/azure/storage/directory)

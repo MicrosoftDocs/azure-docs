@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 #ms.subservice:
 ms.topic: concept-article
-ms.date: 04/22/2026
+ms.date: 11/06/2026
 ai-usage: ai-assisted
 
 #customer intent: As an industrial edge IT or operations user, I want to understand the types of Azure resources that Azure Device Registry creates to manage assets.
@@ -43,6 +43,14 @@ graph LR
 ```
 --->
 
+## Lifecycle operations and cluster connectivity
+
+Create, update, and delete operations for both assets and devices require the associated Azure Arc-enabled Kubernetes cluster to be connected.
+
+Azure Device Registry represents each asset and device as a resource in Azure and synchronizes its configuration to a custom resource on the edge cluster. Because lifecycle operations must reach the cluster to apply these custom resource changes, they can fail when Azure can't connect to the associated Azure Arc-enabled Kubernetes cluster.
+
+If a create, update, or delete operation fails because Azure can't reach the cluster, see [Troubleshoot device and asset lifecycle operations](../troubleshoot/troubleshoot.md#troubleshoot-device-and-asset-lifecycle-operations).
+
 ## Devices
 
 Before you create an asset, define a device. A device is a configuration resource that describes [southbound](overview-manage-assets.md#southbound-and-northbound-connectivity) edge connectivity information for one or more assets.
@@ -61,12 +69,12 @@ A device can have multiple inbound endpoints. For example, you might create a de
 Each inbound endpoint has properties like:
 
 - **Address**. The network address of the physical asset or device. For example, the URL of an OPC UA server or the IP address of a camera.
-- **Connector type**. The type of connector that the device uses to connect to the physical asset or device. For example, `opcua`, `onvif`, `media`, `mqtt`, `http`, or `sse`.
+- **Connector type**. The type of connector that the device uses to connect to the physical asset or device. For example, `opcua`, `onvif`, `media`, `mqtt`, `http`, `sse`, or `sql-server`.
 - **Authentication data**. The credentials that the device uses to authenticate to the physical asset or device. For example, a username and password.
 
 ### Connector templates
 
-*Connector templates* define the types of inbound endpoints available to operational technology (OT) users. For example, the Open Network Video Interface Forum (ONVIF) connector template defines the required properties for creating an inbound endpoint that connects to an ONVIF-compliant camera. Other built-in connector templates include OPC UA, media, MQTT, HTTP/REST, and server-sent events (SSE).
+*Connector templates* define the types of inbound endpoints available to operational technology (OT) users. For example, the Open Network Video Interface Forum (ONVIF) connector template defines the required properties for creating an inbound endpoint that connects to an ONVIF-compliant camera. Other built-in connector templates include OPC UA, media, MQTT, HTTP/REST, server-sent events (SSE), and SQL Server.
 
 An IT user adds connector templates in the Azure portal or by using the Azure CLI. After the IT user adds a connector template, an OT user can create devices with inbound endpoints of that type in the operations experience web UI.
 
@@ -85,9 +93,10 @@ The type of inbound endpoint that the asset connects to determines what schema e
 
 - If the asset connects to an OPC UA server, define datasets, event groups, and management groups.
 - If the asset connects to a media resource, define streams.
-- If the asset connects to an HTTP/REST endpoint, define datasets.
+- If the asset connects to an HTTP/REST endpoint, define datasets and management groups.
 - If the asset connects to an SSE endpoint, define datasets and event groups.
-- If the asset connects to an MQTT broker, define datasets.
+- If the asset connects to a SQL Server endpoint, define datasets and event groups.
+- If the asset connects to an MQTT broker, define datasets and management groups.
 
 ### Streams
 
@@ -109,7 +118,7 @@ Events are grouped into event groups. An *event group* is a collection of events
 
 An *action* is a command that you send to a connected asset. For example, you can send an action to an ONVIF-compliant camera to start recording or to change its pan-tilt-zoom position. The connector for OPC UA also supports sending commands to OPC UA servers.
 
-Actions are grouped into management groups. A *management group* is a collection of actions that are logically related. The management group specifies the MQTT topic where the asset subscribes for action commands.
+Actions are grouped into management groups. A *management group* is a collection of actions that are logically related. A group can provide a default timeout that individual actions can override. Supported group defaults and required action settings depend on the connector. The connector receives requests on the MQTT topic resolved for each action.
 
 ### Data points
 

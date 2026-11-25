@@ -8,7 +8,7 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.topic: concept-article
 ms.date: 11/03/2025
-ms.author: shaas
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
 # Customer intent: As a cloud architect, I want to develop a comprehensive disaster recovery plan for Azure Storage, so that I can ensure high availability and minimize data loss during service outages or regional failures.
@@ -191,13 +191,6 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 | **Customer-managed planned failover**     | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
 | **Customer-managed (unplanned) failover** | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
 | **Microsoft-managed failover**            | All account types | General-purpose v2 accounts |
-
-#### Classic storage accounts
-
-> [!IMPORTANT]
-> Customer-managed failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as the *classic* model, isn't supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [migrated to the ARM model](classic-account-migration-overview.md). Your storage account must be accessible to perform the upgrade, so the primary region can't currently be in a failed state.
->
-> During a disaster that affects the primary region, Microsoft manages the failover for classic storage accounts. For more information, see [Microsoft-managed failover](#microsoft-managed-failover).
 
 ### Unsupported features and services
 

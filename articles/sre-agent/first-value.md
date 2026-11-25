@@ -1,9 +1,9 @@
 ---
-title: "Step 2: Add Your Team's Knowledge to Azure SRE Agent"
+title: "Add Your Team's Knowledge to Azure SRE Agent"
 description: Upload runbooks and documentation so your agent uses your team's procedures instead of generic advice.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/06/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -11,7 +11,7 @@ ms.custom: knowledge base, runbooks, documentation, upload, getting started
 #customer intent: As a site reliability engineer, I want to upload my team's documentation to my agent so that it provides relevant, team-specific answers during investigations.
 ---
 
-# Step 2: Add your team's knowledge to Azure SRE Agent
+# Add your team's knowledge to Azure SRE Agent
 **Estimated time**: 5 minutes
 
 Upload your runbooks and documentation so your agent uses your team's procedures, not generic advice.
@@ -28,18 +28,18 @@ By the end of this step, your agent:
 
 | Requirement | Details |
 |---|---|
-| **Agent created** | Complete [Step 1: Create your agent](create-agent.md) first. |
+| **Agent created** | Complete [Create and set up](create-and-set-up.md) first. |
 | **Documentation files** | Runbooks, playbooks, or troubleshooting guides (`.md`, `.txt`). |
 
 > [!NOTE]
-> This step covers **file uploads**, which is the fastest way to add knowledge. Your agent can also reference documentation from **Azure DevOps repositories** and **GitHub repositories** through connectors (see **Builder** > **Connectors**), and non-Microsoft data sources through [MCP connectors](chat-from-your-tools.md).
+> This step covers **file uploads**, which is the fastest way to add knowledge. Your agent can also reference **Azure DevOps repositories** and **GitHub repositories** through **Build + setup** > **Context** > **Code access**, and non-Microsoft data sources through [MCP connectors](mcp-connectors.md).
 
 ## Open the knowledge base
 
 Go to the knowledge base in the agent portal.
 
-1. Select **Builder** in the left sidebar.
-1. Select **Knowledge base**.
+1. Select **Build + setup**, and then expand **Context** in the left sidebar.
+1. Select **Knowledge sources**.
 
 An empty state appears that prompts you to add a knowledge source.
 
@@ -48,7 +48,8 @@ An empty state appears that prompts you to add a knowledge source.
 Add your first documentation files to the knowledge base.
 
 1. Select **Add file**.
-1. Select your documentation files, such as runbooks, escalation procedures, and query references.
+1. Drag files or folders into the drop zone, or select **browse for files** to choose documentation such as runbooks, escalation procedures, and query references.
+1. Select **Add file** in the dialog.
 1. Wait for indexing to complete (usually instant).
 
 | Supported formats | Maximum size |
@@ -97,10 +98,10 @@ The following table lists common document types to upload and the value they pro
 | Escalation paths | `on-call.md` | Who to contact |
 | Runbooks | `deployment-rollback.md` | Step-by-step procedures |
 
-## Next step
+## Continue learning
 
 > [!div class="nextstepaction"]
-> [Step 3: Connect source code](./connect-source-code.md)
+> [Connect source code](connect-source-code.md)
 
 ## Related content
 

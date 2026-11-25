@@ -1,22 +1,23 @@
 ---
 title: Review MongoDB assessment properties
-description: Explains how to assess MongoDB workloads in Azure Migrate, including key components, readiness evaluation, and migration planning.
+description: Explains how to assess MongoDB workloads in Azure Catalyst, including key components, readiness evaluation, and migration planning.
 author: sandeepsnairms
 ms.author: sandnair
 ms.service: azure-migrate 
 ms.topic: tutorial
 ms.date: 04/28/2026
+ms.update-cycle: 365-days
 ms.custom: engagement-fy24 
-# Customer intent: Customers want to assess on-premises MongoDB workloads using Azure Migrate to prepare for migration to Azure DocumentDB. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
+# Customer intent: Customers want to assess on-premises MongoDB workloads using Azure Catalyst to prepare for migration to Azure DocumentDB. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
 ---
 
 # Tutorial: Review MongoDB assessment properties (preview)
 
-This article describes what you can review in a MongoDB assessment in Azure Migrate, including readiness, target recommendations, and estimated costs.
+This article describes what you can review in a MongoDB assessment in Azure Catalyst, including readiness, target recommendations, and estimated costs.
 
-The MongoDB assessment in Azure Migrate helps you plan your migration to Azure by evaluating readiness and sizing based on the machine parameters of the servers hosting your MongoDB workloads. It analyzes CPU, memory, storage, and performance utilization to recommend a right-sized Azure target and estimate monthly costs. 
+The MongoDB assessment in Azure Catalyst helps you plan your migration to Azure by evaluating readiness and sizing based on the machine parameters of the servers hosting your MongoDB workloads. It analyzes CPU, memory, storage, and performance utilization to recommend a right-sized Azure target and estimate monthly costs. 
  
-Azure Migrate evaluates the following migration paths for MongoDB workloads: 
+Azure Catalyst evaluates the following migration paths for MongoDB workloads: 
 - Azure DocumentDB – For modernizing to a fully managed, MongoDB-compatible database service with built-in high availability and elastic scaling. 
 - MongoDB on Azure Virtual Machines – For lift-and-shift migrations where you retain full control over the MongoDB engine and the operating system. 
 
@@ -118,7 +119,7 @@ To review readiness reports for different migration strategies, follow these ste
     - **Ready**: The instance can be migrated to Azure DocumentDB without any migration issues.
     - **Ready with conditions**: The instance has one or more migration issues. Select the hyperlink to view the identified issues and recommended remediation steps.
     - **Not ready**: The assessment didn't find a target configuration that meets the required performance and configuration. Select the link to view recommendations.
-    - **Unknown**: Azure Migrate can't assess readiness because discovery is in progress or needs attention. Check Notifications for details and resolve discovery issues.
+    - **Unknown**: Azure Catalyst can't assess readiness because discovery is in progress or needs attention. Check Notifications for details and resolve discovery issues.
 
 4. To view detailed information for a specific instance, select the instance name to drill down into the following details:
 
@@ -128,7 +129,7 @@ To review readiness reports for different migration strategies, follow these ste
     - Source database storage details
 
     >[!IMPORTANT]
-    > If you don't provide MongoDB credentials, or if the Azure Migrate appliance can't connect to the instance, SKU recommendations are based on server configuration. In this case, readiness might be shown as Ready with conditions. Provide credentials with sufficient permissions to enable more complete assessment rules and sizing.
+    > If you don't provide MongoDB credentials, or if the Azure Catalyst appliance can't connect to the instance, SKU recommendations are based on server configuration. In this case, readiness might be shown as Ready with conditions. Provide credentials with sufficient permissions to enable more complete assessment rules and sizing.
 
 5. To view the list of user databases and their details, select the number of user databases.
 6. To review migration issues and warnings for a specific target deployment type, select **Review details** in the **Migration issues** column.

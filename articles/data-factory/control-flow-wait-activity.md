@@ -3,7 +3,7 @@ title: Wait activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: The Wait activity in Azure Data Factory and Synapse Analytics pauses the execution of a pipeline for a specified period. 
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: how-to
@@ -14,6 +14,9 @@ ms.date: 10/20/2023
 When you use a Wait activity in a pipeline, the pipeline waits for the specified period of time before continuing with execution of subsequent activities. 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Wait activity](/fabric/data-factory/wait-activity).
 
 ## Create a Wait activity with UI
 

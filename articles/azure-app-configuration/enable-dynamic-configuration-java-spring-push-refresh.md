@@ -19,7 +19,7 @@ The App Configuration Java Spring client library supports updating configuration
 
 - Poll Model: The Poll Model is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `AppConfigurationRefresh`'s `refreshConfigurations` sends a request to the server to check if the configuration changed, and pulls the updated configuration if needed.
 
-- Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events with Event Grid, with a [Web Hook](../event-grid/handler-event-hubs.md), the application can use these events to optimize the total number of requests needed to keep the configuration updated.
+- Push model: This model uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once you set up App Configuration to send key-value change events through Event Grid with a [webhook](../event-grid/handler-event-hubs.md), the application can use these events to optimize the total number of requests needed to keep the configuration updated.
 
 This tutorial shows how you can implement dynamic configuration updates in your code using push refresh. It builds on the app introduced in the quickstarts. Before you continue, finish [Create a Java Spring app with App Configuration](./quickstart-java-spring-app.md) first.
 
@@ -28,7 +28,7 @@ You can use any code editor to do the steps in this tutorial. [Visual Studio Cod
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up a subscription to send configuration change events from App Configuration to a Web Hook
+> * Set up a subscription to send configuration change events from App Configuration to a webhook
 > * Deploy a Spring Boot application to App Service
 > * Set up your Java Spring app to update its configuration in response to changes in App Configuration.
 > * Consume the latest configuration in your application.
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 - Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 17.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
-- An existing Azure App Configuration Store.
+- An existing Azure App Configuration store.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -139,9 +139,9 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 > [!NOTE]
 > The Primary token name should be stored in App Configuration as a key, and then the Primary token secret should be stores as an App Configuration Key Vault Reference for added security.
 
-## Build and run the app in app service
+## Build and run the app in App Service
 
-Event Grid Web Hooks require validation on creation. You can validate by following this [guide](../event-grid/webhook-event-delivery.md) or by starting your application with Azure App Configuration Spring Web Library already configured, which registers your application for you. To use an event subscription, follow the steps in the next two sections.
+Event Grid webhooks require validation when you create them. You can validate by following this [guide](../event-grid/webhook-event-delivery.md) or by starting your application with Azure App Configuration Spring Web Library already configured, which registers your application for you. To use an event subscription, follow the steps in the next two sections.
 
 1. Set an environment variable.
 
@@ -214,25 +214,25 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
 ## Set up an event subscription
 
-1. Open the App Configuration resource in the Azure portal, then select `+ Event Subscription` in the `Events` pane.
+1. Open the App Configuration resource in the Azure portal, and then select **+ Event Subscription** in the **Events** pane.
 
-    :::image type="content" source="./media/events-pane.png" alt-text="The events pane has an option to create new Subscriptions." :::
+    :::image type="content" source="./media/enable-dynamic-configuration-java-spring-push-refresh/events-pane.png" alt-text="The events pane has an option to create new Subscriptions." :::
 
-1. Enter a name for the `Event Subscription` and the `System Topic`. By default the Event Types Key-Value modified and Key-Value deleted are set, the reason can be changed along with using the Filters tab to choose the exact reasons a Push Event is sent.
+1. Enter a name for the **Event Subscription** and the **System Topic**. By default, **Key-value modified** and **Key-value deleted** are selected under **Event Types**. Use the **Filters** tab to choose the exact reasons that a push event is sent.
 
-    :::image type="content" source="./media/create-event-subscription.png" alt-text="Events require a name, topic, and filters." :::
+    :::image type="content" source="./media/enable-dynamic-configuration-java-spring-push-refresh/create-event-subscription.png" alt-text="Events require a name, topic, and filters." :::
 
-1. Select the `Endpoint Type` as `Web Hook`, select `Select an endpoint`.
+1. For **Endpoint Type**, select **Web Hook**, and then select **Select an endpoint**.
 
-    :::image type="content" source="./media/event-subscription-webhook-endpoint.png" alt-text="Selecting Endpoint creates a new blade to enter the endpoint URI." :::
+    :::image type="content" source="./media/enable-dynamic-configuration-java-spring-push-refresh/event-subscription-webhook-endpoint.png" alt-text="Selecting Endpoint creates a new blade to enter the endpoint URI." :::
 
 1. The endpoint is the URI of the application + "/actuator/appconfiguration-refresh?{your-token-name}={your-token-secret}". For example, `https://my-azure-webapp.azurewebsites.net/actuator/appconfiguration-refresh?myToken=myTokenSecret`
 
-1. Select `Create` to create the event subscription. When `Create` is selected, a registration request for the Web Hook is sent to your application. The request is received by the Azure App Configuration client library, verified, and returns a valid response.
+1. Select **Create** to create the event subscription. When you select **Create**, the portal sends a registration request for the webhook to your application. The Azure App Configuration client library receives the request, verifies it, and returns a valid response.
 
-1. Select `Event Subscriptions` in the `Events` pane to validate that the subscription was created successfully.
+1. Select **Event Subscriptions** in the **Events** pane to validate that the subscription was created successfully.
 
-    :::image type="content" source="./media/event-subscription-view-webhook.png" alt-text="Web Hook shows up in a table on the bottom of the page." :::
+    :::image type="content" source="./media/enable-dynamic-configuration-java-spring-push-refresh/event-subscription-view-webhook.png" alt-text="A webhook appears in a table at the bottom of the page." :::
 
 > [!NOTE]
 > When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](../event-grid/event-filtering.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
@@ -262,7 +262,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
 ## Next steps
 
-In this tutorial, you enabled your Java app to dynamically refresh configuration settings from App Configuration. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917), it has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your Java app to dynamically refresh configuration settings from App Configuration. For further questions, see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917). It has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

@@ -14,6 +14,8 @@
     href: shared-responsibility.md
   - name: AI shared responsibility model
     href: shared-responsibility-ai.md
+  - name: AI agent shared responsibility model
+    href: shared-responsibility-ai-agent.md
 
 - name: AI security
   items:

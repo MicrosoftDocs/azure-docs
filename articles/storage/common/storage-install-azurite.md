@@ -2,7 +2,7 @@
 title: Install and run the Azurite emulator for Azure Storage
 description: The Azurite open-source emulator provides a free local environment to help accelerate development and testing of your Azure storage applications.
 author: stevenmatthew
-ms.author: shaas
+ms.author: normesta
 ms.date: 06/24/2025
 ms.service: azure-storage
 ms.subservice: storage-common-concepts

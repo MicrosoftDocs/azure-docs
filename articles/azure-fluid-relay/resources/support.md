@@ -3,7 +3,7 @@ title: Azure Fluid Relay support
 description: Help and support options for Azure Fluid Relay.
 ms.date: 08/19/2021
 ms.topic: reference
-ms.service: azure-fluid
+ms.service: fluid-framework
 ---
 
 # Help and support options for Azure Fluid Relay

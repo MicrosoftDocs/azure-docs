@@ -2,7 +2,7 @@
 title: Azure Batch task start event
 description: Reference information for Batch task start event. This event is emitted once a task has been scheduled to start on a compute node by the scheduler.
 ms.topic: reference
-ms.date: 07/01/2025
+ms.date: 08/05/2026
 # Customer intent: As a cloud developer, I want to understand the task start event details in the Batch service, so that I can effectively manage task execution and retries in my cloud-based applications.
 ---
 
@@ -18,7 +18,7 @@ ms.date: 07/01/2025
     "jobId": "myJob",
     "id": "myTask",
     "taskType": "User",
-    "systemTaskVersion": 220192842,
+    "systemTaskVersion": 0,
     "requiredSlots": 1,
     "nodeInfo": {
         "poolId": "pool-001",
@@ -31,7 +31,8 @@ ms.date: 07/01/2025
         "maxTaskRetryCount": 2
     },
     "executionInfo": {
-        "retryCount": 0
+        "retryCount": 0,
+        "scheduledTime": "2016-09-08T16:32:20.000Z"
     }
 }
 ```
@@ -40,7 +41,7 @@ ms.date: 07/01/2025
 |------------------|----------|-----------|
 |`jobId`|String|The ID of the job containing the task.|
 |`id`|String|The ID of the task.|
-|`taskType`|String|The type of the task. It's either a 'JobManager' indicating it's a job manager task or 'User' indicating it isn't a job manager task.|
+|`taskType`|String|The type of the task. It's either a 'JobManager' indicating it's a job manager task or 'User' indicating it isn't a job manager task. This event isn't emitted for job preparation tasks, job release tasks, or start tasks. For those tasks, see [Special task event](batch-special-task-event.md).|
 |`systemTaskVersion`|Int32|The internal retry counter on a task. Internally the Batch service retries a task to account for transient issues. These issues include internal scheduling errors or attempts to recover from compute nodes in a bad state.|
 |`requiredSlots`|Int32|The required slots to run the task.|
 |[`nodeInfo`](#nodeInfo)|Complex Type| Contains information about the compute node on which the task ran.|
@@ -71,4 +72,5 @@ ms.date: 07/01/2025
 
 |Element name|Type|Notes|
 |------------------|----------|-----------|
-|`retryCount`|Int32|The number of times the task is retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount|
+|`retryCount`|Int32|The number of times the task is retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount.|
+|`scheduledTime`|DateTime|The time when the Batch service most recently scheduled the task to start on a compute node. If the task is retried or requeued, this value reflects the most recent scheduling time.|

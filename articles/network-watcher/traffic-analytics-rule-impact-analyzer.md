@@ -3,7 +3,7 @@ title: Analyze Security Rules in Traffic Analytics
 titleSuffix: Azure Network Watcher
 description: Use Rule Impact Analyzer to simulate and assess security admin rule effects in Azure Virtual Network Manager. Ensure compliance and prevent misconfigurations.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.date: 04/07/2026
 ms.topic: how-to
@@ -21,7 +21,7 @@ The rules impact analyzer enables you to preview the impact of security admin ru
 
 - Traffic analytics enabled for your virtual network flow logs or network security group flow logs. For more information, see [Enable traffic analytics on virtual network flow logs](vnet-flow-logs-manage.md#enable-or-disable-traffic-analytics) or [Enable traffic analytics on network security group flow logs](nsg-flow-logs-manage.md#enable-or-disable-traffic-analytics).
  
-- Required role-based access control (RBAC) permissions. For more information, see [Traffic analytics RBAC Permissions](required-rbac-permissions.md#traffic-analytics).
+- Required role-based access control (RBAC) permissions. For more information, see [Traffic analytics RBAC Permissions](rbac-permissions.md#traffic-analytics).
 
 - A network group. For more information, see [Create a network group](../virtual-network-manager/create-virtual-network-manager-portal.md#create-a-network-group).
 

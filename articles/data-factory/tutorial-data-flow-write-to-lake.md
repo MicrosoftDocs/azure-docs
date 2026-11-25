@@ -2,7 +2,7 @@
 title: Best practices for writing to files to data lake with data flows
 description:  This tutorial provides best practices for writing to files to data lake with data flows
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 05/15/2024
@@ -11,6 +11,8 @@ ms.date: 05/15/2024
 # Best practices for writing to files to data lake with data flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 

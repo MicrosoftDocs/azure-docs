@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 06/19/2024
+ms.date: 08/12/2026
 ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
@@ -37,21 +37,23 @@ This article requires the following VNets and permissions.
 
 ### <a name="vnet"></a>Virtual networks
 
-| VNet | Configuration steps| Virtual network gateway|
-|---|---|---|
-| Hub-RM        | [Resource Manager](./tutorial-site-to-site-portal.md)                 | [Yes](tutorial-create-gateway-portal.md) |
-| Spoke-RM      | [Resource Manager](./tutorial-site-to-site-portal.md)                 | No                                       |
+| VNet     | Configuration steps                                   | Virtual network gateway                  |
+| -------- | ----------------------------------------------------- | ---------------------------------------- |
+| Hub-RM   | [Resource Manager](./tutorial-site-to-site-portal.md) | [Yes](tutorial-create-gateway-portal.md) |
+| Spoke-RM | [Resource Manager](./tutorial-site-to-site-portal.md) | No                                       |
 
 ### <a name="permissions"></a>Permissions
 
 The accounts you use to create a virtual network peering must have the necessary roles or permissions. In the example below, if you were peering the two virtual networks named **Hub-RM** and **Spoke-Classic**, your account must have the following roles or permissions for each virtual network:
 
-|VNet|Deployment model|Role|Permissions|
-|---|---|---|---|
-|Hub-RM|Resource Manager|[Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-|Spoke-RM|Resource Manager|[Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+| VNet     | Deployment model | Role                                                                                                                                | Permissions                                                    |
+| -------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Hub-RM   | Resource Manager | [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write |
+| Spoke-RM | Resource Manager | [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) | Microsoft.Network/virtualNetworks/peer                         |
 
 Learn more about [built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Resource Manager only).
+
+The virtual networks can be in different subscriptions and different Microsoft Entra tenants.
 
 ## To add a peering and enable transit
 
@@ -129,6 +131,7 @@ Add-AzVirtualNetworkPeering `
 
 ## Next steps
 
+* [Use a VPN or ExpressRoute gateway in a different region](vpn-gateway-different-region.md).
 * Learn more about [virtual network peering constraints and behaviors](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) and [virtual network peering settings](../virtual-network/virtual-network-manage-peering.md#create-a-peering) before creating a virtual network peering for production use.
 * Learn how to [create a hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) with virtual network peering and gateway transit.
 * [Create virtual network peering with the same deployment model](../virtual-network/tutorial-connect-virtual-networks-portal.md).

@@ -4,7 +4,7 @@ ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/11/2024
-ms.author: kengaderdus
+ms.author: diberry
 # Used by the web app/web API tutorials for granting a web application access to a registered web API application.
 ---
 

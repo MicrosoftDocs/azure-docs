@@ -1,22 +1,23 @@
 ---
 title: Quickstart to evaluate migration readiness and savings for Arc resources
-description: In this quickstart, you'll learn how you to use Azure Migrate evaluate migration of your Arc enabled servers to Azure. 
+description: In this quickstart, you'll learn how you to use Azure Catalyst evaluate migration of your Arc enabled servers to Azure. 
 author: snehithm
 ms.author: snmuvva
 ms.service: azure-migrate
 ms.topic: quickstart
 ms.date: 10/21/2025
+ms.update-cycle: 365-days
 monikerRange: migrate
 # Customer intent: "As a IT admin, I want to evaluate the readiness and potential savings of migrating my Arc-enabled on-premises servers to Azure."
 ---
 
 # Quickstart: Evaluate readiness and identify potential savings of migrating your Arc enabled servers to Azure (Preview)
 
-In this quickstart, you'll use Azure Migrate's new [Arc-based discovery](concepts-arc-resource-discovery.md) to evaluate migration readiness and identify potential migration savings of your Arc-enabled servers. 
+In this quickstart, you'll use Azure Catalyst's new [Arc-based discovery](concepts-arc-resource-discovery.md) to evaluate migration readiness and identify potential migration savings of your Arc-enabled servers. 
 
-To view potential savings and readiness of your Arc-enabled servers, you must first create an Azure Migrate project. 
+To view potential savings and readiness of your Arc-enabled servers, you must first create an Azure Catalyst project. 
 
-An Azure Migrate project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. In a project, you can track discovered assets, create assessments, and orchestrate migrations to Azure.
+An Azure Catalyst project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. In a project, you can track discovered assets, create assessments, and orchestrate migrations to Azure.
 
  
 > [!IMPORTANT]
@@ -24,14 +25,16 @@ An Azure Migrate project is used to store discovery, assessment, and migration m
 
 ## Prerequisites
 
-- You must have the **Azure Migrate Owner** or **Owner** role on at least one resource group where you'll create the Migrate project. 
+- You must have the **Azure Migrate Owner** or **Owner** role on at least one resource group where you'll create the Azure Catalyst project. 
     - Ensure the `Microsoft.OffAzure` and `Microsoft.Migrate` resource providers are registered on the subscription. Learn how to [register resource providers](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
 - You must have the **Migrate Arc Discovery Reader - Preview** role or a custom role with equivalent permissions on the subscriptions with Arc resources. 
     - Ensure subscriptions with Arc resources that you want to include in the project also have `Microsoft.OffAzure` resource provider registered. 
 - Your Arc-enabled Server machines are running connected machine agents of version [1.46 (September 2024 release)](/azure/azure-arc/servers/agent-release-notes-archive#version-146---september-2024) or newer. Machines with older agent versions are excluded from the project as they don’t include all the necessary information for migration assessments.
 
 
-## Create a migrate project with your Arc resources
+<a name="create-a-migrate-project-with-your-arc-resources"></a>
+
+## Create a Azure Catalyst project with your Arc resources
 
 1. In the Azure portal, search for *Azure Arc*.
 2. In **Services**, select **Azure Arc**.
@@ -75,11 +78,11 @@ To view the business cases:
 
 ## View default assessment
 
-Similarly, when you create an Azure Migrate project with Arc resources, a default assessment named *default-all-workloads* is created. This assessment  evaluates all workloads (servers and SQL Server instances) in scope.
+Similarly, when you create an Azure Catalyst project with Arc resources, a default assessment named *default-all-workloads* is created. This assessment  evaluates all workloads (servers and SQL Server instances) in scope.
 
 To view the default assessment:
 
-1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc center as described in the [Create a migrate project with your Arc resources section](#create-a-migrate-project-with-your-arc-resources) section. By default, you're taken to the **Business case** tab.
+1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc center as described in the [Create a Azure Catalyst project with your Arc resources section](#create-a-migrate-project-with-your-arc-resources) section. By default, you're taken to the **Business case** tab.
 
 2. Switch to the **Assessment** tab.
 
@@ -96,7 +99,7 @@ Along with default business cases and assessments, you can also create custom bu
 
 To create a custom business case:
 
-1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc center as described in the [Create a migrate project with your Arc resources section](#create-a-migrate-project-with-your-arc-resources) section. 
+1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc center as described in the [Create a Azure Catalyst project with your Arc resources section](#create-a-migrate-project-with-your-arc-resources) section. 
 
 2. Select **+Create**
 
@@ -107,7 +110,7 @@ To create a custom business case:
 
 To create a custom assessment:
 
-1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc center as described in the [Create a migrate project with your Arc resources section](#create-a-migrate-project-with-your-arc-resources) section. 
+1. Navigate to **Savings and Readiness (Preview)** pane in Azure Arc center as described in the [Create a Azure Catalyst project with your Arc resources section](#create-a-migrate-project-with-your-arc-resources) section. 
 
 2. Select **+Create**
 
@@ -120,9 +123,9 @@ To create a custom assessment:
 
 If you no longer need the project, delete it by following these steps:
 
-1. In Azure portal, search for *Azure Migrate*
-2. Under **Services**, select **Azure Migrate**.
-3. In **Azure Migrate**, select **All projects**.
+1. In Azure portal, search for *Catalyst*
+2. Under **Services**, select **Catalyst**.
+3. In **Azure Catalyst**, select **All projects**.
 4. In **All projects**, search and select the project you want to delete. 
 5. Select **Delete** in the toolbar. 
 6. In the **Select associated resources** tab, ensure all resources are selected and select **Review**
@@ -132,5 +135,5 @@ If you no longer need the project, delete it by following these steps:
 ## Next steps
 
 - Learn how [Arc-based discovery works](concepts-arc-resource-discovery.md)
-- [Manage Arc resource data sync in Azure Migrate](how-to-manage-arc-resource-sync.md)
+- [Manage Arc resource data sync in Azure Catalyst](how-to-manage-arc-resource-sync.md)
 - [Enable additional data collection for more accurate recommendations](how-to-enable-additional-data-collection-for-arc-servers.md)

@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: reference
 ms.date: 06/26/2024
-ms.author: sipastak
+ms.author: scompton
 ms.custom: devx-track-arm-template
 ---
 # System requirements for Azure Stack Edge Pro with GPU 

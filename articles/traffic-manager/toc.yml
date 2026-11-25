@@ -20,6 +20,10 @@
       displayName: Resource Manager
     - name: Create a Traffic Manager profile - Terraform
       href: quickstart-create-traffic-manager-profile-terraform.md
+    - name: Create Traffic Manager linked records - Bicep
+      href: ../dns/quickstart-traffic-manager-linked-records-bicep.md?toc=%2fazure%2ftraffic-manager%2ftoc.json
+    - name: Create Traffic Manager linked records - ARM Template
+      href: ../dns/quickstart-traffic-manager-linked-records-template.md?toc=%2fazure%2ftraffic-manager%2ftoc.json
 - name: Tutorials
   items:
     - name: Route traffic for low latency
@@ -36,6 +40,8 @@
       href: tutorial-traffic-manager-subnet-routing.md
     - name: Alias records for Traffic Manager
       href: ../dns/tutorial-alias-tm.md?toc=%2fazure%2ftraffic-manager%2ftoc.json
+    - name: Traffic Manager linked records
+      href: ../dns/tutorial-traffic-manager-linked-records-portal.md?toc=%2fazure%2ftraffic-manager%2ftoc.json
 - name: Concepts
   items:
     - name: Routing methods
@@ -55,6 +61,8 @@
       href: traffic-manager-nested-profiles.md
     - name: Endpoint types
       href: traffic-manager-endpoint-types.md
+    - name: Strictly typed profiles
+      href: traffic-manager-strictly-typed-profiles.md
     - name: Endpoint monitoring
       href: traffic-manager-monitoring.md
     - name: Real User Measurements
@@ -119,10 +127,8 @@
           href: traffic-manager-subnet-override-powershell.md
     - name: Troubleshoot
       items:
-        - name: Troubleshoot Azure Traffic Manager
-          href: /troubleshoot/azure/traffic-manager/welcome-azure-traffic-manager?toc=/azure/traffic-manager/TOC.json
-- name: Support and troubleshooting
-  href: traffic-manager-support-help.md
+        - name: Troubleshoot degraded state on Azure Traffic Manager
+          href: traffic-manager-troubleshooting-degraded.md
 - name: Reference
   items:
     - name: Code samples
@@ -146,7 +152,7 @@
     - name: Networking blog
       href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
     - name: Azure networking blog
-      href: https://azure.microsoft.com/blog/topics/networking/
+      href: https://azure.microsoft.com/blog/category/networking/
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-virtual-network.html
     - name: Pricing

@@ -1,6 +1,6 @@
 ---
 title: Azure security management and monitoring overview
-description: Learn about security management and monitoring capabilities in Azure, including Azure Monitor, Azure Policy, Azure Update Manager, and Azure role-based access control.
+description: Learn about Azure security management and monitoring capabilities, including Azure Monitor, Azure Policy, Azure Update Manager, and Azure RBAC.
 services: security
 author: msmbaldwin
 
@@ -8,8 +8,9 @@ ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: overview
-ms.date: 05/05/2026
+ms.date: 07/20/2026
 ms.author: mbaldwin
+ai-usage: ai-assisted
 
 ---
 # Azure security management and monitoring overview
@@ -18,15 +19,15 @@ Azure provides comprehensive security management and monitoring capabilities to 
 
 ## Azure Monitor
 
-[Azure Monitor](/azure/azure-monitor/overview) collects, analyzes, and acts on telemetry data from your Azure and on-premises environments. Monitor helps you maximize the availability and performance of your applications and proactively identify issues.
+[Azure Monitor](/azure/azure-monitor/overview) collects, analyzes, and acts on telemetry data from your Azure and on-premises environments. Monitor helps you maximize the availability and performance of your applications and proactively identify problems.
 
 Azure Monitor provides:
 
-* **Metrics and logs**: Collect and analyze data from Azure resources, operating systems, and applications
-* **Log Analytics workspaces**: Centralized storage and analysis of log data with powerful query capabilities
-* **Application Insights**: Application performance management (APM) for monitoring live web applications
-* **Azure Monitor Alerts**: Proactive notifications based on metrics, logs, and activity data
-* **Azure Workbooks**: Interactive visual reports combining text, queries, metrics, and parameters
+* **Metrics and logs**: Collect and analyze data from Azure resources, operating systems, and applications.
+* **Log Analytics workspaces**: Centralized storage and analysis of log data with powerful query capabilities.
+* **Application Insights**: Application performance management (APM) for monitoring live web applications.
+* **Azure Monitor Alerts**: Proactive notifications based on metrics, logs, and activity data.
+* **Azure Workbooks**: Interactive visual reports combining text, queries, metrics, and parameters.
 
 For security monitoring, Azure Monitor integrates with Microsoft Sentinel and Microsoft Defender for Cloud to provide comprehensive threat detection and response capabilities.
 
@@ -42,11 +43,11 @@ Azure role-based access control (Azure RBAC) provides fine-grained access manage
 
 Azure RBAC enables you to:
 
-* Assign built-in roles or create custom roles
-* Control access at multiple scope levels (management group, subscription, resource group, resource)
-* Separate duties within teams and grant only necessary access
-* Integrate with Microsoft Entra ID for identity-based access control
-* Audit role assignments through Azure Activity Log
+* Assign built-in roles or create custom roles.
+* Control access at multiple scope levels (management group, subscription, resource group, resource).
+* Separate duties within teams and grant only necessary access.
+* Integrate with Microsoft Entra ID for identity-based access control.
+* Audit role assignments through Azure Activity Log.
 
 Learn more:
 
@@ -60,11 +61,11 @@ Learn more:
 
 Azure Policy capabilities include:
 
-* **Policy definitions**: Rules that describe compliance conditions and effects
-* **Initiatives**: Collections of policy definitions grouped to achieve specific compliance goals
-* **Compliance reporting**: Dashboard views showing compliant and non-compliant resources
-* **Automatic remediation**: Deploy corrective configurations for non-compliant resources
-* **Regulatory compliance**: Built-in policy sets aligned with standards like Microsoft cloud security benchmark, ISO 27001, and NIST
+* **Policy definitions**: Rules that describe compliance conditions and effects.
+* **Initiatives**: Collections of policy definitions grouped to achieve specific compliance goals.
+* **Compliance reporting**: Dashboard views showing compliant and non-compliant resources.
+* **Automatic remediation**: Deploy corrective configurations for non-compliant resources.
+* **Regulatory compliance**: Built-in policy sets aligned with standards like Microsoft cloud security benchmark, ISO 27001, and NIST.
 
 Common security use cases:
 
@@ -85,20 +86,20 @@ Learn more:
 
 Azure Update Manager provides:
 
-* **Update assessment**: Automatic or on-demand assessment of available updates
-* **Scheduled patching**: Configure recurring maintenance windows for update installation
-* **One-time updates**: Install updates immediately for urgent security patches
-* **Hotpatching**: Install security updates on Windows Server without requiring reboots (supported SKUs)
-* **Update compliance reporting**: Dashboard views and Azure Workbooks showing update status
-* **Integration with Azure Policy**: Enforce update policies at scale
+* **Update assessment**: Automatic or on-demand assessment of available updates.
+* **Scheduled patching**: Configure recurring maintenance windows for update installation.
+* **One-time updates**: Install updates immediately for urgent security patches.
+* **Hotpatching**: Install security updates on Windows Server without requiring reboots (supported SKUs).
+* **Update compliance reporting**: Dashboard views and Azure Workbooks showing update status.
+* **Integration with Azure Policy**: Enforce update policies at scale.
 
 Update Manager features include:
 
-* Native Azure experience with zero onboarding required
-* Granular access control at the resource level using Azure RBAC
-* Support for Azure VMs and Azure Arc-enabled servers
-* Pre and post-event scripts for custom automation
-* Integration with Azure Monitor for alerts and notifications
+* Native Azure experience with zero onboarding required.
+* Granular access control at the resource level by using Azure RBAC.
+* Support for Azure VMs and Azure Arc-enabled servers.
+* Pre-event and post-event scripts for custom automation.
+* Integration with Azure Monitor for alerts and notifications.
 
 Learn more:
 
@@ -111,11 +112,11 @@ Azure Activity Log records subscription-level events including administrative op
 
 Activity Log capabilities:
 
-* **Administrative operations**: Create, update, delete operations on Azure resources
-* **Service health**: Azure service incidents and maintenance notifications  
-* **Resource health**: Availability status changes for Azure resources
-* **Retention and export**: Retain logs for up to 90 days; export to Log Analytics, Storage, or Event Hubs for longer retention
-* **Integration with alerts**: Create alert rules based on Activity Log events
+* **Administrative operations**: Create, update, and delete operations on Azure resources.
+* **Service health**: Azure service incidents and maintenance notifications.
+* **Resource health**: Availability status changes for Azure resources.
+* **Retention and export**: Retain logs for up to 90 days; export to Log Analytics, Storage, or Event Hubs for longer retention.
+* **Integration with alerts**: Create alert rules based on Activity Log events.
 
 For comprehensive security auditing, you can configure diagnostic settings to send logs to Log Analytics workspaces for analysis with Microsoft Sentinel or Defender for Cloud.
 
@@ -130,11 +131,11 @@ Learn more:
 
 Cost Management provides:
 
-* **Cost analysis**: Visualize and analyze costs across subscriptions, resource groups, and tags
-* **Budgets**: Set spending limits with proactive alerts
-* **Recommendations**: Identify opportunities to reduce costs without compromising security
-* **Cost allocation**: Distribute costs across business units using tags and subscriptions
-* **Anomaly detection**: Identify unusual spending patterns that may indicate security issues
+* **Cost analysis**: Visualize and analyze costs across subscriptions, resource groups, and tags.
+* **Budgets**: Set spending limits with proactive alerts.
+* **Recommendations**: Identify opportunities to reduce costs without compromising security.
+* **Cost allocation**: Distribute costs across business units using tags and subscriptions.
+* **Anomaly detection**: Identify unusual spending patterns that might indicate security problems.
 
 Learn more:
 
@@ -147,11 +148,11 @@ Learn more:
 
 Resource Graph capabilities:
 
-* **Fast querying**: Query thousands of resources across multiple subscriptions in seconds
-* **Complex queries**: Use Kusto Query Language (KQL) to analyze resource properties and relationships
-* **Resource inventory**: Discover all resources of specific types or with particular configurations
-* **Compliance verification**: Identify resources that don't meet security or compliance requirements
-* **Change tracking**: Track resource property changes over time
+* **Fast querying**: Query thousands of resources across multiple subscriptions in seconds.
+* **Complex queries**: Use Kusto Query Language (KQL) to analyze resource properties and relationships.
+* **Resource inventory**: Discover all resources of specific types or with particular configurations.
+* **Compliance verification**: Identify resources that don't meet security or compliance requirements.
+* **Change tracking**: Track resource property changes over time.
 
 Learn more:
 
@@ -164,18 +165,18 @@ Learn more:
 
 Azure Automation provides:
 
-* **Process automation**: Automate frequent, time-consuming, and error-prone tasks using PowerShell and Python runbooks
+* **Process automation**: Automate frequent, time-consuming, and error-prone tasks by using PowerShell and Python runbooks.
 * **Configuration management**: Apply and maintain desired state configurations using State Configuration (DSC)
-* **Shared resources**: Centralized storage for credentials, certificates, connections, and variables used in automation
-* **Change tracking**: Monitor configuration changes across files, registry, services, and software
-* **Inventory collection**: Discover and track software and configurations across machines
+* **Shared resources**: Centralized storage for credentials, certificates, connections, and variables used in automation.
+* **Change tracking**: Monitor configuration changes across files, registry, services, and software.
+* **Inventory collection**: Discover and track software and configurations across machines.
 
 Common security automation scenarios:
 
-* Automated incident response workflows
-* Scheduled security scans and remediation
-* Configuration drift detection and correction
-* Automated backup and disaster recovery operations
+* Automated incident response workflows.
+* Scheduled security scans and remediation.
+* Configuration drift detection and correction.
+* Automated backup and disaster recovery operations.
 
 Learn more:
 
@@ -188,11 +189,11 @@ Learn more:
 
 Advisor recommendation categories:
 
-* **Reliability**: Improve availability and disaster recovery capabilities
-* **Security**: Detect threats and vulnerabilities through Defender for Cloud integration
-* **Performance**: Improve application speed and responsiveness
-* **Cost**: Optimize and reduce overall Azure spending
-* **Operational Excellence**: Achieve process and workflow efficiency
+* **Reliability**: Improve availability and disaster recovery capabilities.
+* **Security**: Detect threats and vulnerabilities through Defender for Cloud integration.
+* **Performance**: Improve application speed and responsiveness.
+* **Cost**: Optimize and reduce overall Azure spending.
+* **Operational Excellence**: Achieve process and workflow efficiency.
 
 Learn more:
 
@@ -201,14 +202,14 @@ Learn more:
 
 ## Azure Service Health
 
-[Azure Service Health](/azure/service-health/overview) provides personalized information about the health of your Azure services and regions. Service Health helps you plan for maintenance and respond to incidents that may affect availability.
+[Azure Service Health](/azure/service-health/overview) provides personalized information about the health of your Azure services and regions. Service Health helps you plan for maintenance and respond to incidents that might affect availability.
 
 Service Health components:
 
-* **Azure status**: Global view of Azure service health across all regions
-* **Service Health**: Personalized view of the health of Azure services you use in the regions you use them
-* **Resource Health**: Health information about individual Azure resources
-* **Health alerts**: Proactive notifications about service issues, planned maintenance, and health advisories
+* **Azure status**: Global view of Azure service health across all regions.
+* **Service Health**: Personalized view of the health of Azure services you use in the regions you use them.
+* **Resource Health**: Health information about individual Azure resources.
+* **Health alerts**: Proactive notifications about service problems, planned maintenance, and health advisories.
 
 Learn more:
 

@@ -4,8 +4,8 @@ description: Learn how to configure Microsoft Entra authentication as an identit
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: how-to
 ms.date: 04/27/2026
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 #customer intent: As an app deployment engineer, I want configure Microsoft Entra authentication for my apps in App Service and understand how to migrate older apps to Microsoft Graph.
 ms.service: azure-app-service
 ms.custom:

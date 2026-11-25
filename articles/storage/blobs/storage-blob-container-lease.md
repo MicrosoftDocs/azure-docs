@@ -3,8 +3,8 @@ title: Create and manage container leases with .NET
 titleSuffix: Azure Storage 
 description: Learn how to manage a lock on a container in your Azure Storage account using the .NET client library.
 services: storage
-author: stevenmatthew
-ms.author: shaas
+author: schoag-msft
+ms.author: schoag
 
 ms.service: azure-blob-storage
 ms.topic: how-to

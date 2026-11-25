@@ -4,9 +4,9 @@ title: Application Gateway for Containers API Specification for Kubernetes
 description: This article provides documentation for Application Gateway for Containers' API specification for Kubernetes.
 services: application-gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
-ms.date: 4/22/2026
+ms.date: 11/3/2026
 ms.author: mbender
 # Customer intent: "As a Kubernetes developer, I want to understand the API specifications for the Application Gateway for Containers, so that I can effectively configure and manage load balancing and traffic routing for my containerized applications."
 ---
@@ -280,8 +280,8 @@ BackendLoadBalancingPolicySpec
 <td>
 <code>targetRefs</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.TargetRefSpec">
-[]TargetRefSpec
+<a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetRef">
+[]BackendLoadBalancingPolicyTargetRef
 </a>
 </em>
 </td>
@@ -393,7 +393,7 @@ field.</p>
 <h3 id="alb.networking.azure.io/v1.BackendLoadBalancingPolicyPort">BackendLoadBalancingPolicyPort
 </h3>
 <p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.TargetRefSpec">TargetRefSpec</a>)
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetRef">BackendLoadBalancingPolicyTargetRef</a>)
 </p>
 <div>
 <p>BackendLoadBalancingPolicyPort defines the port configuration for the backend load balancing policy.</p>
@@ -439,8 +439,8 @@ int32
 <td>
 <code>targetRefs</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.TargetRefSpec">
-[]TargetRefSpec
+<a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetRef">
+[]BackendLoadBalancingPolicyTargetRef
 </a>
 </em>
 </td>
@@ -490,6 +490,51 @@ LoadBalancingConfig
 </em>
 </td>
 <td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetRef">BackendLoadBalancingPolicyTargetRef
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicySpec">BackendLoadBalancingPolicySpec</a>)
+</p>
+<div>
+<p>BackendLoadBalancingPolicyTargetRef defines the target reference and ports for the backend load balancing policy.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>targetRef</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.CustomTargetRef">
+CustomTargetRef
+</a>
+</em>
+</td>
+<td>
+<p>TargetRef identifies an API object to apply policy to.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>ports</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyPort">
+[]BackendLoadBalancingPolicyPort
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Ports specifies the list of ports on the target where the policy is applied.</p>
 </td>
 </tr>
 </tbody>
@@ -702,7 +747,7 @@ string
 <td>
 <code>clientCertificateRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#secretobjectreference">
+<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/1.6/spec/#secretobjectreference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -899,7 +944,7 @@ CommonTLSPolicyVerify
 <td>
 <code>caCertificateRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#secretobjectreference">
+<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/1.6/spec/#secretobjectreference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -926,7 +971,7 @@ certificate.</p>
 <h3 id="alb.networking.azure.io/v1.CustomTargetRef">CustomTargetRef
 </h3>
 <p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetStatus">BackendLoadBalancingPolicyTargetStatus</a>, <a href="#alb.networking.azure.io/v1.BackendTLSPolicySpec">BackendTLSPolicySpec</a>, <a href="#alb.networking.azure.io/v1.FrontendTLSPolicySpec">FrontendTLSPolicySpec</a>, <a href="#alb.networking.azure.io/v1.HealthCheckPolicySpec">HealthCheckPolicySpec</a>, <a href="#alb.networking.azure.io/v1.PolicyRefStatus">PolicyRefStatus</a>, <a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>, <a href="#alb.networking.azure.io/v1.TargetRefSpec">TargetRefSpec</a>, <a href="#alb.networking.azure.io/v1.WebApplicationFirewallPolicySpec">WebApplicationFirewallPolicySpec</a>)
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetRef">BackendLoadBalancingPolicyTargetRef</a>, <a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetStatus">BackendLoadBalancingPolicyTargetStatus</a>, <a href="#alb.networking.azure.io/v1.BackendTLSPolicySpec">BackendTLSPolicySpec</a>, <a href="#alb.networking.azure.io/v1.FrontendTLSPolicySpec">FrontendTLSPolicySpec</a>, <a href="#alb.networking.azure.io/v1.HealthCheckPolicySpec">HealthCheckPolicySpec</a>, <a href="#alb.networking.azure.io/v1.PolicyRefStatus">PolicyRefStatus</a>, <a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>, <a href="#alb.networking.azure.io/v1.WebApplicationFirewallPolicySpec">WebApplicationFirewallPolicySpec</a>)
 </p>
 <div>
 <p>CustomTargetRef is a reference to a custom resource that isn&rsquo;t part of the
@@ -944,7 +989,7 @@ Kubernetes core API.</p>
 <td>
 <code>NamespacedPolicyTargetReference</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#namespacedpolicytargetreference">
+<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/1.6/spec/#namespacedpolicytargetreference">
 Gateway API .NamespacedPolicyTargetReference
 </a>
 </em>
@@ -1457,8 +1502,8 @@ HTTPPathModifierType
 <td>
 <p>Type defines the type of path modifier. More types may be
 added in a future release of the API.</p>
-<p>Values may be added to this enum, implementations
-must ensure unknown values won&rsquo;t cause a crash.</p>
+<p>This enum might be extended in the future. Implementations must handle
+unknown values without crashing.</p>
 <p>Unknown values here must result in the implementation setting the
 Accepted Condition for the rule to be false</p>
 </td>
@@ -1546,19 +1591,19 @@ the implementation setting the Accepted Condition for the Route to <code>status:
 <tr>
 <td>/foo/bar</td>
 <td>/foo</td>
-<td></td>
+<td>&nbsp;</td>
 <td>/bar</td>
 </tr>
 <tr>
 <td>/foo/</td>
 <td>/foo</td>
-<td></td>
+<td>&nbsp;</td>
 <td>/</td>
 </tr>
 <tr>
 <td>/foo</td>
 <td>/foo</td>
-<td></td>
+<td>&nbsp;</td>
 <td>/</td>
 </tr>
 <tr>
@@ -2046,9 +2091,9 @@ bool
 <td>
 <em>(Optional)</em>
 <p>UseTLS indicates whether health check should enforce TLS.
-By default, health check uses the same protocol as the
+By default, health check will use the same protocol as the
 service if the same port is used for health check. If the port
-is different, health check uses plaintext.</p>
+is different, health check will be plaintext.</p>
 </td>
 </tr>
 <tr>
@@ -2909,7 +2954,7 @@ Kubernetes meta/v1.Duration
 </td>
 <td>
 <em>(Optional)</em>
-<p>If the endpoint doesn't report load metrics for this duration, the system stops using metrics to influence load balancing decisions. The default value is 3 minutes.</p>
+<p>If the endpoint does not report load metrics for this duration, metrics will stop
 being used to influence load balancing decisions. Default is 3 minutes.</p>
 </td>
 </tr>
@@ -2937,6 +2982,7 @@ Default is 1.0.</p>
 <td>
 <em>(Optional)</em>
 <p>A list of custom metrics reported by endpoints to be used for reporting utilization
+and influencing load balancing decisions. Compute utilization by taking the
 max of the values of metrics specified in this list.</p>
 </td>
 </tr>
@@ -3052,7 +3098,7 @@ LoadAwareConfig
 <td>
 <code>caCertificateRef</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#secretobjectreference">
+<a href="https://gateway-api.sigs.k8s.io/reference/api-spec/1.6/spec/#secretobjectreference">
 Gateway API .SecretObjectReference
 </a>
 </em>
@@ -3117,6 +3163,8 @@ certificate.</p>
 </tr><tr><td><p>&#34;OperationFailed&#34;</p></td>
 <td></td>
 </tr><tr><td><p>&#34;OverrideNotSupported&#34;</p></td>
+<td></td>
+</tr><tr><td><p>&#34;PartiallyResolvedTargetReference&#34;</p></td>
 <td></td>
 </tr><tr><td><p>&#34;Pending&#34;</p></td>
 <td></td>
@@ -3191,7 +3239,7 @@ CustomTargetRef
 </td>
 <td>
 <em>(Optional)</em>
-<p>Conditions describe the current conditions of the Application Gateway for Containers IP Access Rules as they relate
+<p>Conditions describe the current conditions of the policy as they relate
 to a particular targetRef.</p>
 </td>
 </tr>
@@ -3399,8 +3447,8 @@ int
 <td>
 <em>(Optional)</em>
 <p>StatusCode is the HTTP status code to be used in response.</p>
-<p>Values might be added to this enum. Implementations
-must ensure that unknown values won&rsquo;t cause a crash.</p>
+<p>This enum might be extended in the future. Implementations must handle
+unknown values without crashing.</p>
 </td>
 </tr>
 </tbody>
@@ -3952,51 +4000,6 @@ This is inclusive.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="alb.networking.azure.io/v1.TargetRefSpec">TargetRefSpec
-</h3>
-<p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicySpec">BackendLoadBalancingPolicySpec</a>)
-</p>
-<div>
-<p>TargetRefSpec defines the target reference and ports for the backend load balancing policy.</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>targetRef</code><br/>
-<em>
-<a href="#alb.networking.azure.io/v1.CustomTargetRef">
-CustomTargetRef
-</a>
-</em>
-</td>
-<td>
-<p>TargetRef identifies an API object to apply policy to.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>ports</code><br/>
-<em>
-<a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyPort">
-[]BackendLoadBalancingPolicyPort
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Ports specifies the list of ports on the target where the policy is applied.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3 id="alb.networking.azure.io/v1.URLRewriteFilter">URLRewriteFilter
 </h3>
 <p>
@@ -4004,7 +4007,7 @@ CustomTargetRef
 </p>
 <div>
 <p>URLRewriteFilter defines a filter that modifies a request during
-forwarding. You can use at most one of these filters on a rule. This
+forwarding. At most one of these filters may be used on a rule. This
 MUST NOT be used on the same rule having an sslRedirect.</p>
 </div>
 <table>

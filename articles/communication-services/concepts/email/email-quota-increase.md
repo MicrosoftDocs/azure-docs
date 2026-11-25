@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Quota increase for email domains
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 If you're using Azure Communication Services Email, you can request to raise your default email sending limit. To request an increase in your email sending limit, complete the following steps.
 
 ## 1. Understand domain reputation

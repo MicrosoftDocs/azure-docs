@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/04/2023
+ms.date: 09/16/2026
 ms.author: glenga
 ms.custom:
   - build-2025
@@ -58,7 +58,9 @@ public void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConn
 }
 ```
 
-To get access to [event metadata](#event-metadata) in function code, bind to an [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) object. You can also access the same properties by using binding expressions in the method signature. The following example shows both ways to get the same data:
+The following example uses [Microsoft.Azure.EventHubs.EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata), which is supported by earlier Event Hubs extension versions. For extension 5.x and later, use [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata). See [supported parameter types](#usage) for your extension version.
+
+You can also access [event metadata](#event-metadata) by using binding expressions in the method signature. The following example shows both ways to get the same data:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -81,7 +83,7 @@ public void Run(
 }
 ```
 
-To receive events in a batch, make `string` or `EventData` an array.  
+To receive events in a batch, make `string` or `EventData` an array.
 
 > [!NOTE]
 > When receiving in a batch, you cannot bind to method parameters like in the above example with `DateTime enqueuedTimeUtc` and must receive these from each `EventData` object  
@@ -205,7 +207,7 @@ $eventHubMessages | ForEach-Object { Write-Host "Processed message: $_" }
 
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
-This example uses SDK types to directly access the underlying [`EventData`](/python/api/azure-eventhub/azure.eventhub.eventdata) object provided by the Event Hubs trigger: 
+This example uses SDK types to directly access the underlying [`EventData`](/python/api/azure-eventhub/azure.eventhub.eventdata) object provided by the Event Hubs trigger:
 
 The function reads the event body and logs it.
 ```python
@@ -399,7 +401,7 @@ func processEvent(ctx context.Context, event bindings.EventHubMessage) error {
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attribute to configure the trigger. C# script instead uses a function.json configuration file as described in the [C# scripting guide](../articles/azure-functions/functions-reference-csharp.md#event-hubs-trigger).
+Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attributes to configure the trigger. C# script instead uses a function.json configuration file as described in the [C# scripting guide](../articles/azure-functions/functions-reference-csharp.md#event-hubs-trigger).
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -495,9 +497,7 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end
 ::: zone pivot="programming-language-powershell,programming-language-python"  
 
-The following table explains the trigger configuration properties that you set in the *function.json* file, which differs by runtime version.
-
-# [Functions 2.x+](#tab/functionsv2)
+The following table explains the trigger configuration properties that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
@@ -509,20 +509,6 @@ The following table explains the trigger configuration properties that you set i
 |**cardinality** | Set to `many` in order to enable batching. If omitted or set to `one`, a single message is passed to the function.|
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
 |**dataType** | An optional property that sets the type of the trigger input. Choose `string` or `binary` if the input is not valid JSON. | 
-
-# [Functions 1.x](#tab/functionsv1)
-
-|function.json property | Description                                                                                                                                                                                                   |
-|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**type** | Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.                                                                                         |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal.                                                                                                      |
-|**name** | The name of the variable that represents the event item in function code.                                                                                                                                     |
-|**path** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime.                                                                   |
-|**consumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
-|**cardinality** | Set to `many` in order to enable batching. If omitted or set to `one`, a single message is passed to the function.                                                                                            |
-|**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).                                                                                |
-
----
 
 ::: zone-end
 
@@ -543,7 +529,7 @@ Functions also supports Python SDK type bindings for Azure Event Hubs, which let
 ::: zone-end 
 
 ::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Hubs output binding depends on the Functions runtime version, the extension package version, and the C# modality used. 
+The parameter type supported by the Event Hubs output binding depends on the Functions runtime version, the extension package version, and the C# modality used.
 
 # [Extension v5.x+](#tab/extensionv5/in-process)
 
@@ -589,11 +575,11 @@ To learn more, see the [EventHubTrigger](/java/api/com.microsoft.azure.functions
 
 ## Event metadata
 
-The Event Hubs trigger provides several [metadata properties](../articles/azure-functions/./functions-bindings-expressions-patterns.md). Metadata properties can be used as part of binding expressions in other bindings or as parameters in your code. The properties come from the [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) class.
+The Event Hubs trigger provides several [metadata properties](../articles/azure-functions/functions-bindings-expressions-patterns.md). Metadata properties can be used as part of binding expressions in other bindings or as parameters in your code. The available SDK types depend on the [extension version](#usage).
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`PartitionContext`|[PartitionContext](/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|The `PartitionContext` instance.|
+|`PartitionContext`|`PartitionContext`|Information about the partition. The type depends on the extension version.|
 |`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
 |`Offset`|`string`|The offset of the data relative to the event hub partition stream. The offset is a marker or identifier for an event within the Event Hubs stream. The identifier is unique within a partition of the Event Hubs stream.|
 |`PartitionKey`|`string`|The partition to which event data should be sent.|

@@ -5,7 +5,7 @@ description: Code samples for modifying user flows with API connectors
 author: kengaderdus
 manager: CelesteDG
 
-ms.author: kengaderdus
+ms.author: diberry
 ms.date: 01/11/2024
 ms.custom: mvc
 ms.topic: sample
@@ -26,9 +26,9 @@ The following tables provide links to code samples for using web APIs in your us
 ## Azure Function quickstarts
 | Sample                                                                                                                          | Description                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | This .NET Core Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information. |
-| [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | This Node.js Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.  |
-| [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | This Python Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.    |
+| [.NET Core](https://github.com/Azure-Samples/functions-connectors-net) | This .NET Core Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information. |
+| [Node.js](https://github.com/azure-samples/functions-connectors-typescript)   | This Node.js Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.  |
+| [Python](https://github.com/azure-samples/functions-connectors-python)    | This Python Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.    |
 
 
 ## Automated fraud protection services & CAPTCHA

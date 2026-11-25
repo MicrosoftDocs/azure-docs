@@ -7,9 +7,9 @@ ms.manager: vijain
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 02/07/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
-ms.update-cycle: 1095-days
 # Customer intent: "As a cloud architect, I want to understand the migration options available with the Migration and Modernization Tool, so that I can effectively plan and execute the migration of our on-premises servers to Azure."
 ---
 
@@ -17,10 +17,10 @@ ms.update-cycle: 1095-days
 
 This article answers common questions about the **Migration and modernization** tool. If you have other questions, check these resources:
 
-* Get [general information](resources-faq.md) about Azure Migrate.
-* Read common questions about the [Azure Migrate appliance](common-questions-appliance.md).
+* Get [general information](resources-faq.md) about Azure Catalyst.
+* Read common questions about the [Azure Catalyst appliance](common-questions-appliance.md).
 * Learn more about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md).
-* Ask questions in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum).
+* Ask questions in the [Azure Catalyst forum](https://aka.ms/AzureMigrateForum).
 
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that has an end-of-life status. Consider your use and planning accordingly. For more information, see the [CentOS end-of-life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
@@ -39,7 +39,7 @@ Agentless migrations don't require you to deploy any software (agents) on the so
 
 Agentless replication options are available for [VMware VMs](tutorial-migrate-vmware.md) and [Hyper-V VMs](./tutorial-migrate-hyper-v.md).
 
-Agent-based migrations require that you install Azure Migrate software (agents) on the source VMs that you're migrating. The agent-based option doesn't rely on the virtualization platform for the replication functionality. It can be used with any server that runs an x86/x64 architecture and a version of an operating system that the agent-based replication method supports.
+Agent-based migrations require that you install Azure Catalyst software (agents) on the source VMs that you're migrating. The agent-based option doesn't rely on the virtualization platform for the replication functionality. It can be used with any server that runs an x86/x64 architecture and a version of an operating system that the agent-based replication method supports.
 
 The agent-based migration option can be used for:
 
@@ -60,21 +60,27 @@ Agentless migration offers more convenience and simplicity than agent-based repl
 
 To learn more, review [Select a VMware migration option](./server-migrate-overview.md).
 
-### What geographies are supported for migration with Azure Migrate?
+<a name="what-geographies-are-supported-for-migration-with-azure-migrate"></a>
+
+### What geographies does Azure Catalyst support for migration?
 
 Review the supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
-### Can I use the same Azure Migrate project to migrate to multiple regions?
+<a name="can-i-use-the-same-azure-migrate-project-to-migrate-to-multiple-regions"></a>
 
-Although you can create assessments for multiple regions in an Azure Migrate project, one Azure Migrate project can be used to migrate servers to only one Azure region. You can create more Azure Migrate projects for other regions.
+### Can I use the same Azure Catalyst project to migrate to multiple regions?
+
+Although you can create assessments for multiple regions in an Azure Catalyst project, you can use one Azure Catalyst project to migrate servers to only one Azure region. You can create more Azure Catalyst projects for other regions.
 
 * For agentless VMware migrations, the target region is locked when you enable the first replication.
 * For agent-based migrations (VMware, physical servers, and servers from other clouds), the target region is locked when the **Create Resources** button is selected on the portal when you set up the replication appliance.
 * For agentless Hyper-V migrations, the target region is locked when the **Create Resources** button is selected on the portal when you set up the Hyper-V replication provider.
 
-### Can I use the same Azure Migrate project to migrate to multiple subscriptions?
+<a name="can-i-use-the-same-azure-migrate-project-to-migrate-to-multiple-subscriptions"></a>
 
-Yes, you can use the same Azure Migrate project to migrate to multiple subscriptions with the same Azure tenant in the same target region. You can select the target subscription when you enable replication for a machine or a set of machines.
+### Can I use the same Azure Catalyst project to migrate to multiple subscriptions?
+
+Yes, you can use the same Azure Catalyst project to migrate to multiple subscriptions with the same Azure tenant in the same target region. You can select the target subscription when you enable replication for a machine or a set of machines.
 
 The target region is locked:
 
@@ -82,17 +88,21 @@ The target region is locked:
 * During the replication appliance installation for agent-based migrations.
 * During Hyper-V provider installation for agentless Hyper-V migrations.
 
-### Does Azure Migrate support Azure Resource Graph?
+<a name="does-azure-migrate-support-azure-resource-graph"></a>
 
-Currently, Azure Migrate isn't integrated with Azure Resource Graph. It does support performing Azure Resource Graph-related queries.
+### Does Azure Catalyst support Azure Resource Graph?
+
+Currently, Azure Catalyst isn't integrated with Azure Resource Graph. It does support performing Azure Resource Graph-related queries.
 
 ### How is the data transmitted from an on-premises environment to Azure? Is it encrypted before transmission?
 
-With agentless replication, the Azure Migrate appliance compresses and encrypts data before uploading it. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it persists the data to the cloud (encryption at rest).
+With agentless replication, the Azure Catalyst appliance compresses and encrypts data before uploading it. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it persists the data to the cloud (encryption at rest).
 
-### Can I use the recovery services vault created by Azure Migrate for disaster recovery scenarios?
+<a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>
 
-We don't recommend using the recovery services vault created by Azure Migrate for disaster recovery scenarios, because that can result in start replication failures in Azure Migrate.
+### Can I use the recovery services vault created by Azure Catalyst for disaster recovery scenarios?
+
+Don't use the recovery services vault that Azure Catalyst creates for disaster recovery scenarios. Using this vault can cause start replication failures in Azure Catalyst.
 
 ### What is the difference between the Test Migration and Migrate operations?
 
@@ -102,7 +112,9 @@ The applications can continue to run at the source while you perform tests on a 
 
 :::image type="content" source="./media/common-questions-server-migration/difference-migration-test-migration.png" alt-text="Screenshot that shows the difference between a test and actual migration.":::
 
-### Is there a rollback option for Azure Migrate?
+<a name="is-there-a-rollback-option-for-azure-migrate"></a>
+
+### Is there a rollback option for Azure Catalyst?
 
 You can use the **Test Migration** option to validate your application functionality and performance in Azure. You can perform any number of test migrations and can do the final migration after you establish confidence through the **Test Migration** operation.
 
@@ -113,10 +125,10 @@ A test migration doesn't affect the on-premises machine, which remains operation
 
 ### Can I select the virtual network and subnet to use for test migrations?
 
-You can select a virtual network for test migrations. Azure Migrate automatically selects a subnet based on the following logic:
+You can select a virtual network for test migrations. Azure Catalyst automatically selects a subnet based on the following logic:
 
-* If you specify a target subnet (other than default) as an input while enabling replication, Azure Migrate prioritizes a subnet with the same name in the virtual network used for the test migration.
-* If a subnet with the same name isn't found, Azure Migrate alphabetically selects the first available subnet that isn't a gateway, application gateway, firewall, or Azure Bastion subnet.
+* If you specify a target subnet (other than default) as an input while enabling replication, Azure Catalyst prioritizes a subnet with the same name in the virtual network used for the test migration.
+* If a subnet with the same name isn't found, Azure Catalyst alphabetically selects the first available subnet that isn't a gateway, application gateway, firewall, or Azure Bastion subnet.
 
 ### Why is the Test Migration button disabled for my server?
 
@@ -149,7 +161,9 @@ When you select **Complete Migration**, the **Migration and modernization** tool
 
 The **Migration and modernization** tool migrates UEFI-based machines to Azure as Azure generation 2 VMs. If you want to migrate them as Azure generation 1 VMs, convert the boot type to BIOS before starting replication, and then use the **Migration and modernization** tool to migrate to Azure.
 
-### Does Azure Migrate convert UEFI-based machines to BIOS-based machines and migrate them to Azure as Azure generation 1 VMs?
+<a name="does-azure-migrate-convert-uefi-based-machines-to-bios-based-machines-and-migrate-them-to-azure-as-azure-generation-1-vms"></a>
+
+### Does Azure Catalyst convert UEFI-based machines to BIOS-based machines and migrate them to Azure as Azure generation 1 VMs?
 
 The **Migration and modernization** tool migrates all the UEFI-based machines to Azure as Azure generation 2 VMs. We no longer support the conversion of UEFI-based VMs to BIOS-based VMs. All the BIOS-based machines are migrated to Azure only as Azure generation 1 VMs.
 
@@ -160,7 +174,7 @@ The **Migration and modernization** tool migrates all the UEFI-based machines to
 
 [!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
-As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
+As a result, Azure Catalyst doesn't guarantee consistent or reliable outcomes for these OS versions. Customers might face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
 
 | **Operating systems supported for UEFI-based machines** | **Agentless VMware to Azure**                                                                                                             | **Agentless Hyper-V to Azure** | **Agent-based VMware, physical, and other clouds to Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
@@ -174,7 +188,9 @@ As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes f
 | CentOS Stream               | Y | Y                              | Y                                                          |
 | Oracle Linux 9, 8, 7.7-CI, 7.7, 6                             |  Y                                                                                                                                        | Y                              | Y                                                          |
 
-### Can I migrate Active Directory domain controllers by using Azure Migrate?
+<a name="can-i-migrate-active-directory-domain-controllers-by-using-azure-migrate"></a>
+
+### Can I migrate Active Directory domain controllers by using Azure Catalyst?
 
 The **Migration and modernization** tool is application agnostic and works for most applications. When you migrate a server by using the **Migration and modernization** tool, all the applications that you install on the server are migrated with it. However, alternate migration methods might be better suited to migrate some applications.
 
@@ -231,7 +247,7 @@ To get started, refer to the [VMware agentless migration](tutorial-migrate-vmwar
 
 ### How do I gauge the bandwidth requirement for my migrations?
 
-A range of factors can affect the amount of bandwidth that you need to replicate data to Azure. The bandwidth requirement depends on how fast the on-premises Azure Migrate appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
+A range of factors can affect the amount of bandwidth that you need to replicate data to Azure. The bandwidth requirement depends on how fast the on-premises Azure Catalyst appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
 
 When replication starts for a VM, an initial replication cycle occurs in which full copies of the disks are replicated. After the initial replication is completed, incremental replication cycles (delta cycles) are scheduled periodically to transfer any changes that occurred since the previous replication cycle.
 
@@ -246,11 +262,13 @@ You can estimate the bandwidth or time needed for agentless VMware VM migration 
 
 * Time to complete initial replication =  {size of disks (or used size if available) * 0.7 (assuming a 30 percent compression average – conservative estimate)}/bandwidth available for replication.
 
-### How do I throttle replication when using the Azure Migrate appliance for agentless VMware replication?
+<a name="how-do-i-throttle-replication-when-using-the-azure-migrate-appliance-for-agentless-vmware-replication"></a>
 
-You can throttle by using `NetQosPolicy`. This throttling method applies to only the outbound connections from the Azure Migrate appliance.
+### How do I throttle replication when using the Azure Catalyst appliance for agentless VMware replication?
 
-For example, the `AppNamePrefix` value to use in `NetQosPolicy` is `GatewayWindowsService.exe`. You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
+You can throttle by using `NetQosPolicy`. This throttling method applies only to the outbound connections from the Azure Catalyst appliance.
+
+For example, the `AppNamePrefix` value to use in `NetQosPolicy` is `GatewayWindowsService.exe`. You could create a policy on the Azure Catalyst appliance to throttle replication traffic from the appliance by creating a policy such as this one:
 
 ```powershell
 New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
@@ -329,7 +347,9 @@ Replication of VMware VMs while they're powered off is supported, but only in th
 
 We highly recommend that you perform a test migration to ensure everything proceeds smoothly during the actual migration. This method can be useful when the initial replication process is lengthy, or for high-churn VMs, such as database servers or other disk-intensive workloads.
 
-### Can I use Azure Migrate to migrate my web apps to Azure App Service?
+<a name="can-i-use-azure-migrate-to-migrate-my-web-apps-to-azure-app-service"></a>
+
+### Can I use Azure Catalyst to migrate my web apps to Azure App Service?
 
 You can perform at-scale agentless migration of ASP.NET web apps running on IIS web servers that are hosted on a Windows OS in a VMware environment. [Learn more](./tutorial-modernize-asp-net-appservice-code.md).
 
@@ -346,11 +366,11 @@ The **Migration and modernization** tool provides an agent-based migration optio
 The agent-based migration method uses agent software to replicate server data to Azure. You install the software on the server that you're migrating. The replication process uses an offload architecture in which the agent relays replication data to a dedicated replication server called the replication appliance or configuration server (or to a scale-out process server). For more details, see [Agent-based migration architecture](./agent-based-migration-architecture.md).
 
 > [!NOTE]
->The replication appliance is different from the Azure Migrate discovery appliance and must be installed on a separate/dedicated machine.
+> The replication appliance is different from the Azure Catalyst discovery appliance and must be installed on a separate dedicated machine.
 
 ### Where should I install the replication appliance for agent-based migrations?
 
-You should install the replication appliance on a dedicated machine. You shouldn't install the replication appliance on a source machine that you want to replicate, or on the Azure Migrate appliance that you used for discovery and assessment. Read [Migrate machines as physical servers to Azure](./tutorial-migrate-physical-virtual-machines.md) for more details.
+You should install the replication appliance on a dedicated machine. Don't install the replication appliance on a source machine that you want to replicate, or on the Azure Catalyst appliance that you used for discovery and assessment. Read [Migrate machines as physical servers to Azure](./tutorial-migrate-physical-virtual-machines.md) for more details.
 
 ### Can I migrate AWS VMs running Amazon Linux operating system?
 
@@ -360,7 +380,7 @@ To migrate workloads running on Amazon Linux, you can spin up a CentOS/RHEL VM i
 
 ### How do I gauge the bandwidth requirement for my migrations?
 
-A range of factors can affect the amount of bandwidth that you need to replicate data to Azure. The bandwidth requirement depends on how fast the on-premises Azure Migrate appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
+A range of factors can affect the amount of bandwidth that you need to replicate data to Azure. The bandwidth requirement depends on how fast the on-premises Azure Catalyst appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
 
 When replication starts for a VM, an initial replication cycle occurs in which full copies of the disks are replicated. After the initial replication is completed, incremental replication cycles (delta cycles) are scheduled periodically to transfer any changes that occurred since the previous replication cycle.
 
@@ -390,7 +410,7 @@ To get started, refer to the [Hyper-V agentless migration](./tutorial-migrate-hy
 
 ### How do I gauge the bandwidth requirement for my migrations?
 
-A range of factors can affect the amount of bandwidth that you need to replicate data to Azure. The bandwidth requirement depends on how fast the on-premises Azure Migrate appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
+A range of factors can affect the amount of bandwidth that you need to replicate data to Azure. The bandwidth requirement depends on how fast the on-premises Azure Catalyst appliance can read and replicate the data to Azure. Replication has two phases: initial replication and delta replication.
 
 When replication starts for a VM, an initial replication cycle occurs in which full copies of the disks are replicated. After the initial replication is completed, incremental replication cycles (delta cycles) are scheduled periodically to transfer any changes that occurred since the previous replication cycle.
 
@@ -403,14 +423,14 @@ Ideally, you'd want initial replication to complete at least 3-4 days before the
 
 ## How do I roll back if something goes wrong during the migration process?
 
-Azure Migrate doesn't support rollback now, which means after users migrate, they can't go back to on-premises.
+Azure Catalyst doesn't support rollback now, which means after users migrate, they can't go back to on-premises.
 
 ## What strategies do I use to reduce downtime during migration?
 
 | **Practice** | **How it helps** | **Benefit** |
 | --- | --- | --- |
 | Use Agent-Based Replication for Continuous Sync | It continuously replicates on-premises VMs to Azure| This helps you cut over with minimal data loss (RPO of a few seconds) and reduces downtime (RTO of a few minutes). |
-| Perform Test Migrations  | Azure Migrate lets you run test migrations without affecting the production VM.  | You check boot success, network connectivity, and application functionality in Azure before the final cutover. |
+| Perform Test Migrations  | Azure Catalyst lets you run test migrations without affecting the production VM.  | You check boot success, network connectivity, and application functionality in Azure before the final cutover. |
 | Use Replication Groups for Dependency-Aware Migration  | You group VMs based on application or service dependencies and migrate them together. | This lowers the risk of broken dependencies during migration and helps keep services running smoothly. |
 | Schedule Cutovers During Maintenance Windows  | **: You plan the final cutover (switching users to the Azure-hosted app) during a known low-traffic period. | This minimizes the user impact and gives time for rollback if needed.|
 | Do a Phased Migration  | You migrate and modernize workloads in stages instead of all at once. | Smaller changes minimize the risk and help keep services available throughout the process. |

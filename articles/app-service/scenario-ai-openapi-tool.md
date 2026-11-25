@@ -1,8 +1,8 @@
 ---
 title: Use App Service as an OpenAPI tool in Foundry agent
 description: Empower your existing web apps by exposing their capabilities to Foundry Agent Service using OpenAPI. Connect Foundry Agent Service to REST APIs to create powerful, feature-rich agents.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.topic: how-to
 ms.date: 01/29/2026

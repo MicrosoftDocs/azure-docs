@@ -3,11 +3,11 @@ title: 'Quickstart: Upload, download, and list blobs - Azure CLI'
 titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure CLI upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: stevenmatthew
+author: schoag-msft
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.date: 01/25/2023
-ms.author: shaas
+ms.author: schoag
 ms.custom: devx-track-azurecli, mode-api
 # Customer intent: As a developer, I want to use the Azure CLI to upload, download, and list blobs in Azure Blob storage, so that I can effectively manage my data transfers and storage operations in the cloud.
 ---
@@ -32,7 +32,7 @@ Azure CLI commands for data operations against Blob storage support the `--auth-
 
 Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Microsoft Entra credentials for authorization.
 
-To begin, sign-in to to your Azure account with the [az login](/cli/azure/reference-index#az-login).
+To begin, sign in to your Azure account with the [az login](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login

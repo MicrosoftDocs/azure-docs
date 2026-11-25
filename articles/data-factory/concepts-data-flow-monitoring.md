@@ -3,7 +3,7 @@ title: Monitoring mapping data flows
 titleSuffix: Azure Data Factory & Azure Synapse
 description: How to visually monitor mapping data flows in Azure Data Factory and Synapse Analytics.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.topic: how-to
 ms.date: 10/20/2023
@@ -15,6 +15,8 @@ ms.custom:
 # Monitor Data Flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 After you have completed building and debugging your data flow, you want to schedule your data flow to execute on a schedule within the context of a pipeline. You can schedule the pipeline using Triggers. For testing and debugging your data flow from a pipeline, you can use the Debug button on the toolbar ribbon or Trigger Now option from the Pipeline Builder to execute a single-run execution to test your data flow within the pipeline context.
 

@@ -15,6 +15,9 @@ ms.subservice: orchestration
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Azure HDInsight activity](/fabric/data-factory/azure-hdinsight-activity).
+
 The HDInsight Hive activity in an Azure Data Factory or Synapse Analytics [pipeline](concepts-pipelines-activities.md) executes Hive queries on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 If you are new to Azure Data Factory and Synapse Analytics, read through the introduction articles for [Azure Data Factory](introduction.md) or [Synapse Analytics](../synapse-analytics/overview-what-is.md), and do the [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 

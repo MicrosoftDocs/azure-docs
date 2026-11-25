@@ -2,7 +2,7 @@
 title: Back up Azure Files in the Azure portal
 description: Learn how to use the Azure portal to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
-ms.date: 02/17/2026
+ms.date: 11/03/2026
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -21,6 +21,10 @@ Azure Files backup is a native cloud solution that protects your data and elimin
 - Define backup schedules and retention settings.
 - Store backup data in the Recovery Service vault, retaining it for up to **10 years**.
 
+> [!NOTE]
+> Snapshot backup for NFS Azure file shares is currently in private preview. The preview is intended for evaluation with non-production subscriptions. To request access, complete the [preview sign-up form](https://forms.cloud.microsoft/r/DJubyYrkYN).
+>
+> Vaulted backup support for NFS Azure file shares is coming soon and isn't yet available in private preview.
 
 ## Prerequisites
 
@@ -90,7 +94,7 @@ To configure backup for multiple file shares from the Recovery Services vault, f
       - **Snapshot**: Enables only snapshot-based backups that are stored locally and can only provide protection during accidental deletions.
       - **Vault-Standard**: Provides comprehensive data protection.
 
-   1. Configure the *backup schedule* as per the requirement. You can configure up to *six backups* per day. The snapshots are taken as per the schedule defined in the policy. For vaulted backup, the data from the last snapshot of the day is transferred to the vault.
+   1. Configure the *backup schedule* as per the requirement. You can configure up to *24 snapshots* per day. The snapshots are taken as per the schedule defined in the policy. For vaulted backup, the data from the last snapshot of the day is transferred to the vault.
 
    1. Configure the *Snapshot retention* and *Vault retention* duration to determine the expiry date of the recovery points.
 
@@ -154,7 +158,7 @@ The following steps explain how you can configure backup for individual file sha
       - **Snapshot**: Enables only snapshot-based backups that are stored locally and can only provide protection for accidental deletions.
       - **Vault-Standard**: Provides comprehensive data protection.
 
-   1. Configure the *backup schedule* as per the requirement. You can configure up to *six backups* per day. The snapshots are taken as per the schedule defined in the policy. For vaulted backup, the data from the last snapshot of the day is transferred to the vault.
+   1. Configure the *backup schedule* as per your requirement. You can configure up to *24 snapshots* per day. The snapshots are taken as per the schedule defined in the policy. For vaulted backup, the data from the last snapshot of the day is transferred to the vault.
 
    1. Configure the *Snapshot retention* and *Vault retention* duration to determine the expiry date of the recovery points.
 

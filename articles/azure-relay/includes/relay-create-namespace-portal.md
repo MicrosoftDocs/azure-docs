@@ -3,7 +3,7 @@ author: spelluru
 ms.service: azure-relay
 ms.topic: include
 ms.date: 12/04/2024
-ms.author: spelluru
+ms.author: egrootenboer
 ms.custom: sfi-image-nochange
 ---
 1. Sign in to the [Azure portal].

@@ -1,13 +1,13 @@
 ---
-title: Set up an Azure Migrate scale-out appliance for agentless VMware migration
-description: Learn how to set up an Azure Migrate scale-out appliance to migrate Hyper-V VMs.
+title: Set up an Azure Catalyst scale-out appliance for agentless VMware migration
+description: Learn how to set up an Azure Catalyst scale-out appliance to migrate Hyper-V VMs.
 author: ajaypartha95
 ms.author: ajaypar
 ms.manager: roopesh.nair
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/03/2024
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1825-days
 ms.custom:
   - engagement-fy24
@@ -23,7 +23,7 @@ This article helps you understand how to use a scale-out appliance to migrate a 
 
 Using the agentless migration method for VMware virtual machines you can:
 
-- Schedule replication for up to 300 VMs from a single vCenter server concurrently using one Azure Migrate appliance.
+- Schedule replication for up to 300 VMs from a single vCenter server concurrently using one Azure Catalyst appliance.
 - Schedule replication for up to 500 VMs from a single vCenter server concurrently by deploying a second scale-out appliance for migration.
 
 In this article, you learn how to:
@@ -32,15 +32,15 @@ In this article, you learn how to:
 - Migrate up to 500 VMs concurrently using the scale-out appliance.
 
 > [!NOTE]
-> While you can schedule replication for up to 300 VMs on a single appliance and up to 500 VMs using a scale-out appliance, the replication itself is limited by each appliance's capacity to replicate only 56 disks at a time. This means that although the VMs are scheduled concurrently, they will be replicated sequentially based on the appliance's available capacity. All scheduled VMs will eventually be replicated by the same appliance, but not all will start replication immediately.
+> While you can schedule replication for up to 300 VMs on a single appliance and up to 500 VMs by using a scale-out appliance, the replication itself is limited by the appliance's parallel disk capacity. By default, a single appliance replicates up to 52 disks at a time, and a primary appliance with scale-out appliances replicates up to 110 disks at a time. For details, see [Parallel disk replication capacity](troubleshoot-replication-vmware.md#parallel-disk-replication-capacity). This limitation means that although you schedule the VMs concurrently, they replicate sequentially based on the appliance's available capacity. All scheduled VMs are eventually replicated by the same appliance, but not all start replication immediately.
 
 
 ##  Prerequisites
 
 Before you get started, you need to perform the following steps:
 
-- Create the Azure Migrate project.
-- Deploy the  Azure Migrate appliance (primary appliance) and complete discovery of VMware virtual machines managed by your vCenter server.
+- Create the Azure Catalyst project.
+- Deploy the  Azure Catalyst appliance (primary appliance) and complete discovery of VMware virtual machines managed by your vCenter server.
 - Configure replication for one or more virtual machines that are to be migrated.
 > [!IMPORTANT]
 > You'll need to have at least one replicating virtual machine in the project before you can add a scale-out appliance for migration.
@@ -51,23 +51,25 @@ To learn how to perform the above, review the tutorial on [migrating VMware virt
 
 To add a scale-out appliance, follow the steps mentioned below:
 
-1. Select **Discover** > **Are your machines virtualized?** 
-1. Select **Yes, with VMware vSphere Hypervisor.**
-1. Select agentless replication in the next step.
-1. Select **Scale-out an existing primary appliance** in the select the type of appliance menu.
-1. Select the primary appliance (the appliance using which discovery was performed) that you wish to scale out.
+1. In Azure Catalyst Project, go to **Manage** > **Server replication**, and select **Start replication**.
+1. In **Specify intent**, select **Servers** or **Virtual Machines (VM)** under **What do you want to migrate**. Under **Where do you want to migrate to**, select **Azure VM**.
+1. In **How will you select workloads**, select one of the following options under **Azure Catalyst appliance sources**:
+     - From all inventory to manually select servers
+     - From an assessment to use an existing assessment
+1. In **Discovery method**, select the appliance that matches your source environment (VMware vSphere in this case). Under **Migration mode**, select **Agentless migration**.
+1. In **Scale-out Appliance**, select **Set up scale-out appliance** to start the setup for the scale-out appliance.
 
-    :::image type="content" source="./media/how-to-scale-out-for-migration/add-scale-out.png" alt-text="Screenshot of Discover machines page for scale-out onboarding.":::
+<a name="generate-the-azure-migrate-project-key"></a>
 
-### 1. Generate the Azure Migrate project key
+### Generate the Azure Catalyst project key
 
-1. In **Generate Azure Migrate project key**, provide a suffix name for the scale-out appliance. The suffix can contain only alphanumeric characters and has a length limit of 14 characters.
+1. In **Generate Azure Catalyst project key**, provide a suffix name for the scale-out appliance. The suffix can contain only alphanumeric characters and has a length limit of 14 characters.
 2. Select **Generate key** to start the creation of the required Azure resources. Don't close the Discover page during the creation of resources.
 3. Copy the generated key. You'll need the key later to complete the registration of the scale-out appliance.
 
-### 2. Download the installer for the scale-out appliance
+### Download the installer for the scale-out appliance
 
-In **Download Azure Migrate appliance**, select  **Download**. You need to download the PowerShell installer script to deploy the scale-out appliance on an existing server running Windows Server 2019 or Windows Server 2022 and with the required hardware configuration (32-GB RAM, 8 vCPUs, around 80 GB of disk storage and internet access, either directly or through a proxy).
+In **Download Azure Catalyst appliance**, select  **Download**. You need to download the PowerShell installer script to deploy the scale-out appliance on an existing server running Windows Server 2019 or Windows Server 2022 and with the required hardware configuration (32-GB RAM, 8 vCPUs, around 80 GB of disk storage and internet access, either directly or through a proxy).
 
 :::image type="content" source="./media/how-to-scale-out-for-migration/download-scale-out.png" alt-text="Download script for scale-out appliance":::
 
@@ -81,9 +83,11 @@ In **Download Azure Migrate appliance**, select  **Download**. You need to downl
 > 3. Download the [latest version](https://go.microsoft.com/fwlink/?linkid=2191847) of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
 Verify [security](migrate-appliance.md#verify-security) by validating the SHA256 values. 
 
-### 3. Run the Azure Migrate installer script
+<a name="run-the-azure-migrate-installer-script"></a>
 
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
+### Run the Azure Catalyst installer script
+
+1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Catalyst appliance.
 
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 
@@ -93,7 +97,7 @@ Verify [security](migrate-appliance.md#verify-security) by validating the SHA256
 
       `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
 
-5. Select from the scenario, cloud, configuration, and connectivity options to deploy the desired appliance. For instance, the selection shown below sets up a **scale-out appliance** to initiate concurrent replications on servers running in your VMware environment to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
+5. Select from the scenario, cloud, configuration, and connectivity options to deploy the desired appliance. For instance, the selection shown below sets up a **scale-out appliance** to initiate concurrent replications on servers running in your VMware environment to an Azure Catalyst project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
     :::image type="content" source="./media/how-to-scale-out-for-migration/script-vmware-scaleout-inline.png" alt-text="Screenshot that shows how to set up scale-out appliance." lightbox="./media/how-to-scale-out-for-migration/script-vmware-scaleout-expanded.png":::
 
@@ -102,7 +106,7 @@ Verify [security](migrate-appliance.md#verify-security) by validating the SHA256
     - Installs gateway agent and appliance configuration manager to perform more concurrent server replications.
     - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
     - Download and installs an IIS rewritable module.
-    - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+    - Updates a registry key (HKLM) with persistent setting details for Azure Catalyst.
     - Creates the following files under the path:
         - **Config Files**: %Programdata%\Microsoft Azure\Config
         - **Log Files**: %Programdata%\Microsoft Azure\Logs
@@ -113,7 +117,7 @@ After the script has executed successfully, the appliance configuration manager 
 > If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 
-### 4. Configure the appliance
+### Configure the appliance
 
 Before you begin, ensure that the [these Azure endpoints](migrate-appliance.md#public-cloud-urls) are accessible from the scale-out appliance.
 
@@ -137,9 +141,9 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
     > [!NOTE]
-    > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
+    > This is a new user experience in Azure Catalyst appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
-    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
+    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Catalyst: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
 	2. The appliance verifies the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and go to an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
@@ -173,7 +177,7 @@ To complete the registration of the scale-out appliance, select **import** to ge
 1. In the pop-up window opened in the previous step, select the location of the copied configuration zip file and select **Save**.
 
     Once the files are successfully imported, the registration of the scale-out appliance completes and it shows you the timestamp of the last successful import. You can also see the registration details by selecting **View details**.
-1. **Install the VDDK**: The appliance checks if the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. Download VDDK version 8.0 from the [Broadcom Developer portal](https://developer.broadcom.com/sdks/vmware-virtual-disk-development-kit-vddk/8.0). After downloading, extract the zip file to the default location: C:\Program Files\VMware\VMware Virtual Disk Development Kit, as mentioned in the installation instructions.
+1. [!INCLUDE [vmware-vddk-download](includes/vmware-vddk-download.md)]
 
     The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 
@@ -183,17 +187,13 @@ At this point, you should revalidate that the scale-out appliance is able to con
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Screenshot shows view credentials and discovery sources to be validated.":::
 
 > [!IMPORTANT]
-> If you edit the vCenter Server credentials on the primary appliance, ensure that you import the configuration files again to the scale-out appliance to get the latest configuration and continue any ongoing replications.<br/> If you do not need the scale-out appliance any longer, make sure that you disable the scale-out appliance. [**Learn more**](./common-questions-appliance.md) on how to disable the scale-out appliance when not needed.
+> If you edit the vCenter Server credentials on the primary appliance, ensure that you import the configuration files again to the scale-out appliance to get the latest configuration and continue any ongoing replications. <br/> If you don't need the scale-out appliance any longer, you must manually disable the scale-out appliance by deleting the corresponding storage account backed configuration entries. Deleting the appliance from the project isn't currently supported.
 
 ## Replicate
 
-1. After the scale-out appliance is registered, on the Migration and modernization tile, select **Replicate**.
+When you add the scale-out appliance, you can replicate 500 VMs at the same time. You can also migrate VMs in batches of 200 through the Azure portal. For more information about executing agentless migrations, see [Execute VMware agentless migrations](tutorial-migrate-vmware.md#execute-migrations).
 
-2.	Follow the steps on the screen to start replicating more virtual machines. 
-
-With the scale-out appliance in place, you can now replicate 500 VMs concurrently. You can also migrate VMs in batches of 200 through the Azure portal.
-
-The Migration and modernization tool takes care of distributing the virtual machines between the primary and scale-out appliance for replication. Once the replication is done, you can migrate the virtual machines.
+The Migration tool distributes the virtual machines between the primary and scale-out appliance for replication. After replication finishes, you can migrate the virtual machines.
 
 > [!TIP]
 > We recommend migrating virtual machines in batches of 200 for optimal performance if you want to migrate a large number of virtual machines.

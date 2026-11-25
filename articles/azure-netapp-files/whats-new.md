@@ -17,11 +17,43 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-## July 2026 
+
+## November 2026
+
+* [Azure NetApp Files asynchronous directory deletion](asynchronous-directory-deletion-concept.md) (preview)
+
+    Azure NetApp Files now supports asynchronous directory deletion to help accelerate cleanup operations for large-scale workloads such as EDA, HPC, AI/ML, and other environments that frequently create and remove directories containing large numbers of files. 
+    
+    By handling directory deletion asynchronously, organizations can reduce workflow delays and improve operational efficiency.
+
+
+## September 2026
+
+* [Support for Microsoft Entra Kerberos authentication](understand-entra-id.md) (preview) 
+
+    Azure NetApp Files now supports Microsoft Entra Kerberos authentication for SMB volumes. The capability enables users with hybrid or cloud-only identities to authenticate through Microsoft Entra ID using cloud-issued Kerberos tickets. This capability removes the requirement for SMB clients to have network line-of-sight to Active Directory Domain Services domain controllers in the authentication path. It helps organizations simplify identity architecture, reduce infrastructure dependencies, and modernize SMB access for hybrid and cloud-first environments. 
+
+* [Large volumes breakthrough mode](large-volumes-requirements-considerations.md#register-for-breakthrough-mode) is now generally available (GA)
+
+    Azure NetApp Files large volumes breakthrough mode is now generally available (GA) in Azure NetApp Files regions where dedicated capacity is ordered and provisioned for you.
+
+    Designed for extreme-scale workloads, breakthrough mode enables higher throughput, greater concurrency, and low-latency access beyond the capabilities of standard large volumes. By leveraging six parallel storage endpoints on dedicated capacity, breakthrough mode can deliver up to 80 GiB/s throughput per volume while supporting petabyte-scale datasets and billions of files. This capability is ideal for high-performance computing (HPC), electronic design automation (EDA), AI/ML data pipelines, and other metadata-intensive workloads requiring predictable, isolated performance at scale.
+
+* [Storage with cool access enhancement](cool-access-introduction.md#throughput-for-premium-and-ultra-service-levels) for Premium and Ultra service levels is now generally available (GA)
+
+    Azure NetApp Files introduces an enhancement to storage with cool access for Premium and Ultra service levels that more precisely aligns throughput with data tiering. When cool access is enabled, maximum throughput is dynamically calculated based on the amount of data tiered to cool access storage, rather than applying a fixed reduction. Hot data retains its configured performance, and throughput is adjusted only when data is tiered to the cool tier. This enhancement delivers more predictable QoS behavior while optimizing performance and cost as data access patterns evolve, without requiring manual tuning or reconfiguration.
+
+    
+## July 2026
+    
+* [Support for SMB opportunistic locking configuration](azure-netapp-files-create-volumes-smb.md) (preview)
+  
+    Azure NetApp Files now supports configuration of SMB opportunistic locking (oplocks) for SMB and dual-protocol volumes. This capability improves compatibility with legacy applications that require oplocks to be disabled and supports configuration on both new and existing volumes. You can configure replication destination volumes independently of the source volume. 
 
 * [Support for DNS server, LDAP port, User DN, Group DN, and Netgroup DN](configure-directory-server.md) (preview)
 
     Azure NetApp Files now supports additional LDAP connection configuration options for NFS volumes, including custom LDAP ports, customer-specified DNS servers, and configurable User DN, Group DN, and Netgroup DN values. These enhancements improve compatibility with a broader range of LDAP directory service deployments and provide greater flexibility when integrating Azure NetApp Files with existing enterprise directory environments. 
+
 ## June 2026
 
 * [Azure NetApp Files migration assistant portal experience](migrate-volumes.md?tabs=portal) is now generally available (GA)
@@ -52,7 +84,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
  
 * [Azure NetApp Files now supports files up to 64TiB on regular Azure NetApp Files volumes](azure-netapp-files-resource-limits.md) is now generally available (GA)
 
-   To support seamless migration and operation of workloads that use large files including Azure VMware Solution (AVS) virtual machines with large VMDK disks, [Azure NetApp Files now supports file sizes of up to 64 TiB for regular volumes](azure-netapp-files-resource-limits.md). This enhancement enables the migration of on premises workloads with large virtual machine disks to Azure VMware Solution and supports ongoing operation of data intensive workloads in Azure. The capability is available in all Azure NetApp Files enabled regions across the Flexible, Standard, Premium, and Ultra service levels.
+   To support seamless migration and operation of workloads that use large files including Azure VMware Solution (AVS) virtual machines with large VMDK disks, [Azure NetApp Files now supports file sizes of up to 64 TiB for regular volumes](azure-netapp-files-resource-limits.md). This enhancement enables the migration of on-premises workloads with large virtual machine disks to Azure VMware Solution and supports ongoing operation of data intensive workloads in Azure. The capability is available in all Azure NetApp Files enabled regions across the Flexible, Standard, Premium, and Ultra service levels.
 
 ## April 2026 
 
@@ -90,11 +122,14 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     
 ## January 2026
 
-* [Elastic zone-redundant storage service level](elastic-zone-redundant-concept.md) (preview)
+<!--
+* [Elastic zone-redundant storage service level] (preview)
 
     Azure NetApp Files Elastic zone-redundant storage service level is an advanced high-availability service level for Azure NetApp Files that provides continuous data access with zero data loss, even if an entire Azure Availability Zone goes offline. Built on Azure’s Zone-redundant storage (ZRS) architecture and compute infrastructure, Azure NetApp Files Elastic zone-redundant storage synchronously replicates file data across availability zones within one region. By eliminating single points of failure, it ensures mission-critical workloads remain online and protected without requiring special configuration or manual intervention. This makes it ideal for applications that demand uncompromising resilience and in-region data protection. 
     
     As a modern data platform, Azure NetApp Files Elastic zone-redundant storage provides consistent performance for metadata-heavy workloads across VMs and containers, making it well suited for AI, analytics, and Kubernetes/OpenShift environments. Whether you're running AKS and containerized apps, cloud‑native applications, or general file shares, Azure NetApp Files Elastic zone-redundant storage delivers continuity without compromise, cost‑effective scalability, and operational simplicity. You can create volumes as small as 1 GiB, giving you the flexibility to optimize storage for workloads of any size. 
+
+-->
 
 * [Application volume group for Oracle](configure-application-volume-oracle-api.md#replication) support for cross-zone and cross-region replication is now generally available (GA)
 
@@ -789,7 +824,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md).
 
-    Standard network features now includes Global virtual network peering.
+    Standard network features now include Global virtual network peering.
 
     Regular billing for Standard network features on Azure NetApp Files began November 1, 2022.
 
@@ -1025,7 +1060,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Active Directory Domain Services (AD DS) LDAP user-mapping with NFS extended groups](configure-ldap-extended-groups.md) (preview)
 
-    By default, Azure NetApp Files supports up to 16 group IDs when handling NFS user credentials, as defined in [RFC 5531](https://tools.ietf.org/html/rfc5531). With this new capability, you can now increase the maximum up to 1,024 if you have users who are members of more than the default number of groups. To support this capability, NFS volumes can now also be added to AD DS LDAP, which enables Active Directory LDAP users with extended groups entries (with up to 1024 groups) to access the volume.
+    By default, Azure NetApp Files supports up to 16 group IDs when handling NFS user credentials, as defined in [RFC 5531](https://tools.ietf.org/html/rfc5531). With this new capability, you can now increase the maximum up to 1,024 if you have users who are members of more than the default number of groups. To support this capability, NFS volumes can now also be added to AD DS LDAP, which enables Active Directory LDAP users with extended groups entries (with up to 1,024 groups) to access the volume.
 
 ## March 2021
 

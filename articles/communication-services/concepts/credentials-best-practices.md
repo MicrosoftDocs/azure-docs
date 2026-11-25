@@ -16,6 +16,8 @@ ms.custom: sfi-ropc-nochange
 
 # Credentials best practices
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article provides best practices for managing [User Access Tokens](./authentication.md#user-access-tokens) in Azure Communication Services SDKs. Follow this guidance to optimize the resources used by your application and reduce the number of roundtrips to the Azure Communication Identity API.
 
 ## Communication Token Credential

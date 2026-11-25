@@ -4,7 +4,7 @@ description: Enterprise Agreement customers who need assistance can use the Azur
 ms.topic: troubleshooting
 ms.date: 06/15/2026
 author: mjeffer
-ms.author: mjeffer
+ms.author: diberry
 ms.reviewer: mjeffer
 ms.service: cost-management-billing
 ms.subservice: billing

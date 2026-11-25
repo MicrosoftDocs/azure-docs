@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: concept-article
 ms.service: azure-virtual-network-manager
-ms.date: 12/31/2024
+ms.date: 07/29/2026
 ---
 
 # Monitoring Azure Virtual Network Manager with virtual network flow logs
@@ -18,7 +18,35 @@ Learn more about [virtual network flow logs](../network-watcher/vnet-flow-logs-o
 
 Currently, you need to enable virtual network flow logs on each virtual network you want to monitor. You can enable virtual network flow logs on a virtual network by using the [Azure portal](../network-watcher/vnet-flow-logs-portal.md), [PowerShell](../network-watcher/vnet-flow-logs-powershell.md), or the [Azure CLI](../network-watcher/vnet-flow-logs-cli.md) guide.
 
-Here's an example of a flow log:
+## How security admin rules appear in flow logs
+
+Each flow log record groups flows under the resource that evaluated them, so you can determine whether an Azure Virtual Network Manager security admin rule allowed or denied a flow directly from the record. Three fields carry that answer:
+
+| Field | What it tells you |
+| --- | --- |
+| `aclID` | Identifier of the resource that evaluated the traffic, either a network security group or Azure Virtual Network Manager. For traffic denied because of encryption, this value is `unspecified`. |
+| `flowGroups[].rule` | Name of the rule that allowed or denied the traffic. For a flow evaluated by Azure Virtual Network Manager, this value is the name of the security admin rule. For traffic denied because of encryption, this value is `unspecified`. |
+| `flowGroups[].flowTuples` | Comma-separated flow records. The seventh value is the traffic direction and the eighth value is the flow state, which carries the allow or deny decision. |
+
+Each flow tuple uses this field order:
+
+`Time Stamp, Source IP, Destination IP, Source port, Destination port, Protocol, Flow direction, Flow state, Flow encryption, Packets sent, Bytes sent, Packets received, Bytes received`
+
+**Flow direction** is `I` for inbound or `O` for outbound. **Flow state** is `B` when a flow begins, `C` while it continues, `E` when it ends, and `D` when the flow is denied. A flow state of `D` under a security admin rule name is how a blocked connection appears in the log.
+
+For example, this tuple appears under the rule `BlockHighRiskTCPPortsFromInternet`:
+
+```output
+1663145998065,203.0.113.153,10.0.0.6,55188,22,6,I,D,NX,0,0,0,0
+```
+
+The tuple records inbound (`I`) TCP traffic (protocol `6`) from 203.0.113.153 to 10.0.0.6 on destination port 22 that was denied (`D`), with no packets or bytes transferred in either direction. Because the flow appears under `BlockHighRiskTCPPortsFromInternet`, the security admin rule with that name blocked the connection.
+
+For the complete flow log schema, including all flow encryption values, see [Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md).
+
+### Example flow log record
+
+The following record is trimmed to one allowed flow group and two denied flow groups. The first group shows outbound traffic allowed by `DefaultRule_AllowInternetOutBound`, and the remaining groups show inbound traffic denied by `BlockHighRiskTCPPortsFromInternet` and by the `Internet` rule.
 
 ```json
 {
@@ -41,15 +69,7 @@ Here's an example of a flow log:
                                 "rule": "DefaultRule_AllowInternetOutBound",
                                 "flowTuples": [
                                     "1663146003599,10.0.0.6,192.0.2.180,23956,443,6,O,B,NX,0,0,0,0",
-                                    "1663146003606,10.0.0.6,192.0.2.180,23956,443,6,O,E,NX,3,767,2,1580",
-                                    "1663146003637,10.0.0.6,203.0.113.17,22730,443,6,O,B,NX,0,0,0,0",
-                                    "1663146003640,10.0.0.6,203.0.113.17,22730,443,6,O,E,NX,3,705,4,4569",
-                                    "1663146004251,10.0.0.6,203.0.113.17,22732,443,6,O,B,NX,0,0,0,0",
-                                    "1663146004251,10.0.0.6,203.0.113.17,22732,443,6,O,E,NX,3,705,4,4569",
-                                    "1663146004622,10.0.0.6,203.0.113.17,22734,443,6,O,B,NX,0,0,0,0",
-                                    "1663146004622,10.0.0.6,203.0.113.17,22734,443,6,O,E,NX,2,134,1,108",
-                                    "1663146017343,10.0.0.6,198.51.100.84,36776,443,6,O,B,NX,0,0,0,0",
-                                    "1663146022793,10.0.0.6,198.51.100.84,36776,443,6,O,E,NX,22,2217,33,32466"
+                                    "1663146003606,10.0.0.6,192.0.2.180,23956,443,6,O,E,NX,3,767,2,1580"
                                 ]
                             }
                         ]
@@ -68,12 +88,7 @@ Here's an example of a flow log:
                                 "rule": "Internet",
                                 "flowTuples": [
                                     "1663145989563,192.0.2.10,10.0.0.6,50557,44357,6,I,D,NX,0,0,0,0",
-                                    "1663145989679,203.0.113.81,10.0.0.6,62797,35945,6,I,D,NX,0,0,0,0",
-                                    "1663145989709,203.0.113.5,10.0.0.6,51961,65515,6,I,D,NX,0,0,0,0",
-                                    "1663145990049,198.51.100.51,10.0.0.6,40497,40129,6,I,D,NX,0,0,0,0",
-                                    "1663145990145,203.0.113.81,10.0.0.6,62797,30472,6,I,D,NX,0,0,0,0",
-                                    "1663145990175,203.0.113.5,10.0.0.6,51961,28184,6,I,D,NX,0,0,0,0",
-                                    "1663146015545,192.0.2.10,10.0.0.6,50557,31244,6,I,D,NX,0,0,0,0"
+                                    "1663145989679,203.0.113.81,10.0.0.6,62797,35945,6,I,D,NX,0,0,0,0"
                                 ]
                             }
                         ]
@@ -83,7 +98,6 @@ Here's an example of a flow log:
         }
     ]
 }
-
 ```
 
 ## Related content

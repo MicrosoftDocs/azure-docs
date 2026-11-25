@@ -33,31 +33,31 @@ You can use any SFTP client to securely connect and then transfer files. The fol
 PS C:\Users\temp> sftp contoso4.contosouser@contoso4.blob.core.windows.net
 ```
 
-The SFTP username is `storage_account_name`.`username`.  In the example above the `storage_account_name` is "contoso4" and the `username` is "contosouser."  The combined username becomes "contoso4.contosouser". The blob service endpoint is "contoso4.blob.core.windows.net".
+The SFTP username is `storage_account_name`.`username`.  In the preceding example, the `storage_account_name` is "contoso4" and the `username` is "contosouser."  The combined username becomes "contoso4.contosouser". The blob service endpoint is "contoso4.blob.core.windows.net".
 
-To complete the connection, you might have to respond to one or more prompts. For example, if you configured the local user with password authentication, then you are prompted to enter that password. You might also be prompted to trust a host key. Valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
+To complete the connection, you might have to respond to one or more prompts. For example, if you configured the local user with password authentication, you're prompted to enter that password. You might also be prompted to trust a host key. Valid host keys are published [here](secure-file-transfer-protocol-host-keys.md).  
 
 > [!NOTE]
-> SFTP operates over the Blob Storage endpoint (blob.core.windows.net) and NOT the Data Lake Storage endpoint (dfs.core.windows.net). Therefore, Data Lake Storage endpoints such as contoso4.contosouser@contoso4.dfs.core.windows.net aren't supported. 
+> SFTP operates over the Blob Storage endpoint (blob.core.windows.net) and not the Data Lake Storage endpoint (dfs.core.windows.net). Therefore, Data Lake Storage endpoints such as `contoso4.contosouser@contoso4.dfs.core.windows.net` aren't supported. 
 ### Connect using a custom domain
 
-If you want to connect to the blob service endpoint by using a custom domain, then the connection string is `myaccount.myuser@customdomain.com`. If the home directory isn't specified for the user, then the connection string is `myaccount.mycontainer.myuser@customdomain.com`.
+To connect to the blob service endpoint by using a custom domain, use the connection string `myaccount.myuser@customdomain.com`. If you don't specify the home directory for the user, use the connection string `myaccount.mycontainer.myuser@customdomain.com`.
 
 > [!IMPORTANT]
-> Ensure your DNS provider does not proxy requests as this might cause the connection attempt to time out.
+> Ensure your DNS provider doesn't proxy requests, as this action might cause the connection attempt to time out.
 
 To learn how to map a custom domain to a blob service endpoint, see [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md).
 
 ### Connect using a private endpoint
 
-If you want to connect to the blob service endpoint by using a private endpoint, then the connection string is `myaccount.myuser@myaccount.privatelink.blob.core.windows.net`. If the home directory isn't specified for the user, then it's `myaccount.mycontainer.myuser@myaccount.privatelink.blob.core.windows.net`.
+To connect to the blob service endpoint by using a private endpoint, use the connection string `myaccount.myuser@myaccount.privatelink.blob.core.windows.net`. If you don't specify the home directory for the user, use `myaccount.mycontainer.myuser@myaccount.privatelink.blob.core.windows.net`.
 
 > [!NOTE]
-> Ensure that you change the networking configuration to "Enabled from selected virtual networks and IP addresses", and then select your private endpoint. Otherwise, the blob service endpoint will still be publicly accessible.
+> Ensure that you change the networking configuration to **Enabled from selected virtual networks and IP addresses**, and then select your private endpoint. Otherwise, the blob service endpoint remains publicly accessible.
 
 ### Connect using internet routing
 
-If you want to connect to the blob service endpoint using internet routing, then the connection string is `myaccount.myuser@myaccount-internetrouting.blob.core.windows.net`. If the home directory isn't specified for the user, then it's `myaccount.mycontainer.myuser@myaccount-internetrouting.blob.core.windows.net`.
+To connect to the blob service endpoint by using internet routing, use the connection string `myaccount.myuser@myaccount-internetrouting.blob.core.windows.net`. If you don't specify the home directory for the user, use `myaccount.mycontainer.myuser@myaccount-internetrouting.blob.core.windows.net`.
 
 ### Transfer data
 
@@ -81,26 +81,28 @@ After the transfer is complete, you can view and manage the file in the Azure po
 See the documentation of your SFTP client for guidance about how to connect and transfer files.
 
 ## Resume upload
-The resumable upload feature for Azure Blob Storage SFTP is now generally available. This feature allows users to resume file uploads from the point of failure in the event of partial transfer failures, thereby saving time and reducing network bandwidth usage.
-The SFTP transfer modes that Azure Blob Storage SFTP supports are below. 
+The resumable upload feature for Azure Blob Storage SFTP is now generally available. This feature allows you to resume file uploads from the point of failure in the event of partial transfer failures, thereby saving time and reducing network bandwidth usage.
+The following SFTP transfer modes are supported by Azure Blob Storage SFTP: 
 -	Write: This mode lets the client continue an upload by adding data to an existing file from a specific point without creating a new file.
 -	Write + Create: This mode allows the client to resume an upload by either adding to an existing file or creating a new one if it doesn't exist, providing flexibility when the file might not be present initially.
 -	Append: This mode adds data to the end of an existing file without overwriting its current contents.
-Previously, this feature only supported append mode in public preview, which limited upload resumption with SFTP clients that lacked append mode support. With general availability, we now support write and write + create modes, which benefits users who use SFTP clients without append mode.
+Previously, this feature only supported append mode during preview, which limited upload resumption with SFTP clients that lacked append mode support. With general availability, Azure Blob Storage SFTP now supports write and write + create modes, which benefits users who use SFTP clients without append mode.
 
 > [!NOTE]
 > Resumable upload is only supported for blobs created with the SFTP protocol. You can't resume an upload for existing blobs that were created with a protocol other than SFTP such as REST. 
 
-### Modify the ACL of a file or directory
+## Modify the ACL of a file or directory
 
 You can modify the permission level of the owning user, owning group, and all other users of an ACL by using an SFTP client. You can also change the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#access-control-lists-acls).
+
 > [!NOTE]
-> Owning users can now also modify owning group and permissions of a blob or directory without container permissions. This is a new feature enhancement added during the General Availability phase of ACLs for local users. For any user that is not the owning user, container permissions are still required. 
-#### Modify permissions
+> Owning users can now also modify owning group and permissions of a blob or directory without container permissions. This feature enhancement was added during the general availability phase of ACLs for local users. For any user that isn't the owning user, container permissions are still required. 
+
+### Modify permissions
 
 To change the permission level of the owning user, owning group, or all other users of an ACL, the local user must have `Modify Permission` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
-The following example prints the ACL of a directory to the console. It then, uses the `chmod` command to set the ACL to `777`. Each `7` is the numeric form of `rwx` (read, write, and execute). So `777` gives read, write, and execute permission to the owning user, owning group, and all other users. This example then prints the updated ACL to the console. To learn more about numeric and short forms of an ACL, see [Short forms for permissions](data-lake-storage-access-control.md#short-forms-for-permissions).
+The following example prints the ACL of a directory to the console. It then uses the `chmod` command to set the ACL to `777`. Each `7` is the numeric form of `rwx` (read, write, and execute). So `777` gives read, write, and execute permission to the owning user, owning group, and all other users. This example then prints the updated ACL to the console. To learn more about numeric and short forms of an ACL, see [Short forms for permissions](data-lake-storage-access-control.md#short-forms-for-permissions).
 
 ```console
 sftp> ls -l
@@ -114,9 +116,9 @@ drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
 ```
 
 > [!NOTE]
-> Adding or modifying ACL entries for named users, named groups, and named security principals is not yet supported.
+> Adding or modifying ACL entries for named users, named groups, and named security principals isn't supported yet.
 
-#### Change the owning user
+### Change the owning user
 
 To change the owning user of a directory or blob, the local user must have `Modify Ownership` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 
@@ -134,7 +136,7 @@ drwxr-x---        0        0                0 Mon, 16 Oct 2023 12:18:08 GMT dir2
 sftp>
 ```
 
-#### Change the owning group
+### Change the owning group
 
 To change the owning group of a directory or blob, the local user must have `Modify Ownership` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).
 

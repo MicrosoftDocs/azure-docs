@@ -4,8 +4,8 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a self-hosted integration runtime in Azure Data Factory and Azure Synapse Analytics, which lets pipelines access data stores in a private network.
 ms.subservice: integration-runtime
 ms.topic: concept-article
-author: lrtoyou1223
-ms.author: lle
+author: kromerm
+ms.author: weetok
 ms.date: 06/17/2026
 ai-usage: ai-assisted
 ms.custom:
@@ -16,6 +16,8 @@ ms.custom:
 # Create and configure a self-hosted integration runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 The [integration runtime (IR)](concepts-integration-runtime.md) is the compute infrastructure that Azure Data Factory and Synapse pipelines use to provide data-integration capabilities across different network environments.
 
@@ -512,7 +514,7 @@ Follow these steps:
 
 # Prerequisites:
 # - PowerShell installed
-# - Azure CLI (az) installed and logged in (https://learn.microsoft.com/en-us/cli/azure/)
+# - [Azure CLI (az) installed and logged in ](/cli/azure/)
 # - signed in user needs rights to modify NSG (e.g. Network contributor) and to read status of the SHIR (e.g. reader), plus reader on the subscription
 
 param (

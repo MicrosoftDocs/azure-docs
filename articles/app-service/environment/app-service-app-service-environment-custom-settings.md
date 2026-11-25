@@ -5,7 +5,7 @@ author: seligj95
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 11/26/2025
+ms.date: 10/05/2026
 ms.author: jordanselig
 ms.custom: mvc, devx-track-arm-template
 ms.service: azure-app-service
@@ -87,6 +87,9 @@ You can also disable TLS 1.0 and TLS 1.1 using the Azure portal by going to the 
 
 ## Change TLS cipher suite order
 
+> [!IMPORTANT]
+> `X25519MLKEM768` is a TLS 1.3 supported group, not a cipher suite. Don't add it to `FrontEndSSLCipherSuiteOrder`. Changing the cipher suite order doesn't enable, disable, prioritize, or require post-quantum key exchange; hybrid negotiation is managed by the platform. Continue to include the required TLS 1.3 AES cipher suites as described in the following section. For more information, see [Post-quantum hybrid key exchange](../overview-tls.md#post-quantum-hybrid-key-exchange) and [TLS supported groups in Windows 11, version 24H2, and later](/windows/win32/secauthn/tls-supported-groups-in-windows-11-24h2-and-later).
+
 App Service Environment supports changing the cipher suite from the default. The default set of ciphers is the same set that is used in the multitenant App Service. Changing the cipher suite is only possible with App Service Environment, the single-tenant offering, not the multitenant offering, because changing it affects the entire App Service deployment. There are two cipher suites that are required for an App Service Environment: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 and TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Additionally, you should include the following cipher suites, which are required for TLS 1.3: TLS_AES_256_GCM_SHA384 and TLS_AES_128_GCM_SHA256.
 
 > [!IMPORTANT]
@@ -108,7 +111,7 @@ To configure your App Service Environment to use just the ciphers that it requir
 
 ## Enable FIPS mode
 
-This setting applies to Linux-based workloads in your App Service Environment. You can configure your Linux-based workloads running on App Service Environment to operate in FIPS (Federal Information Processing Standards) mode. When enabled, FIPS mode ensures that cryptographic operations comply with FIPS 140-2 standards.
+This setting applies to Linux-based workloads in your App Service Environment. You can configure your Linux-based workloads running on App Service Environment to operate in FIPS (Federal Information Processing Standards) mode. When enabled, FIPS mode ensures that cryptographic operations comply with FIPS 140 standards.
 
 To enable FIPS mode on your App Service Environment, you can set the following **clusterSettings** entry:
 

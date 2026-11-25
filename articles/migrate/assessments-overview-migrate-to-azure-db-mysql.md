@@ -1,19 +1,18 @@
 ---
 title: Overview of Assessments for Migration to Azure Database for MySQL (preview)
-description: Learn how to assess your on-premises MySQL database instances for migration to Azure Database for MySQL using the Azure Migrate Discovery and Assessment tool. This article provides an overview of the assessment process, types of assessments, and key criteria for evaluating readiness, sizing, and cost.
+description: Learn how to assess your on-premises MySQL database instances for migration to Azure Database for MySQL using the Azure Catalyst Discovery and Assessment tool. This article provides an overview of the assessment process, types of assessments, and key criteria for evaluating readiness, sizing, and cost.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: concept-article
 ms.date: 05/08/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1825-days
-monikerRange:
 # Customer intent: "As a database administrator, I want to use an assessment tool to evaluate my on-premises MySQL database for migration, so that I can understand readiness, sizing, and costs for transitioning to Azure Database for MySQL."
 ---
 
 # Assessment overview - Migrate to Azure Database for MySQL (preview)
 
-This article provides an overview of assessments for migrating on-premises MySQL database instances from a VMware, Microsoft Hyper-V, and Physical environment to Azure Database for MySQL using the [Azure Migrate: Discovery and assessment tool](migrate-services-overview.md).
+This article provides an overview of assessments for migrating on-premises MySQL database instances from a VMware, Microsoft Hyper-V, and Physical environment to Azure Database for MySQL using the [Azure Catalyst: Discovery and assessment tool](migrate-services-overview.md).
 
 ## Overview
 
@@ -21,7 +20,7 @@ An assessment with the Discovery and assessment tool provides a point-in-time sn
 
 ### Assessment Types
 
-The Azure Migrate: Discovery and assessment tool supports the following types of assessments:
+The Azure Catalyst: Discovery and assessment tool supports the following types of assessments:
 
 **Assessment Type** | **Details**
 --- | ---
@@ -44,9 +43,9 @@ MySQL assessments are performed on the **performance-based** sizing criteria, ma
 
 ## Assess on-premises MySQL instances
 
-You can assess your on-premises MySQL instances using the configuration and utilization data collected by lightweight Azure Migrate appliances, which discover the instances and databases and send the data to the Azure Migrate service.
+You can assess your on-premises MySQL instances using the configuration and utilization data collected by lightweight Azure Catalyst appliances, which discover the instances and databases and send the data to the Azure Catalyst service.
 
-1. Deploy the Azure Migrate appliances to discover the MySQL instances: See this [tutorial](tutorial-discover-mysql-database-instances.md) to deploy the Azure Migrate appliances and discover the MySQL instances that you want to assess.
+1. Deploy the Azure Catalyst appliances to discover the MySQL instances: See this [tutorial](tutorial-discover-mysql-database-instances.md) to deploy the Azure Catalyst appliances and discover the MySQL instances that you want to assess.
 1. Create a MySQL assessment: See this [tutorial](create-mysql-assessment.md) to create a new assessment and review the reports.
 
 ## Properties to create and customize a MySQL assessment
@@ -68,7 +67,7 @@ The Azure Database for MySQL assessment properties includes:
 
 | **Setting** | **Details**|
 | --- | --- |
-| **Sizing criteria**  | Set to be **Performance-based** by default, which means Azure Migrate collects performance metrics pertaining to MySQL instances to recommend an optimal-sized Azure Database for MySQL instance configuration.
+| **Sizing criteria**  | Set to be **Performance-based** by default, which means Azure Catalyst collects performance metrics pertaining to MySQL instances to recommend an optimal-sized Azure Database for MySQL instance configuration.
 | **Performance history** | Indicate the data duration on which you want to base the assessment (Default is one day).
 | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample (Default is 95th percentile).
 | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage.
@@ -86,8 +85,8 @@ The appliance collects the following performance data for compute settings:
 
 - The appliance collects a real-time sample point. For MySQL instances, it collects a sample point every 30 seconds.
 - The appliance aggregates the sample data points collected every 30 seconds over 10 minutes. To create the data point, the appliance selects the peak values from all samples. It sends the max and means for each counter to Azure.
-- Azure Migrate stores all the 10-minute data points for the last month.
-- When you create an assessment, Azure Migrate identifies the appropriate data point to use for right sizing. Identification is based on the percentile values for performance history and percentile utilization.
+- Azure Catalyst stores all the 10-minute data points for the last month.
+- When you create an assessment, Azure Catalyst identifies the appropriate data point to use for right sizing. Identification is based on the percentile values for performance history and percentile utilization.
     - For example, if the performance history spans a week and the utilization is at 95th percentile, the assessment sorts the 10-minute sample points for the last week. It sorts them in ascending order and picks the 95th percentile value for right-sizing.
     - The 95th percentile value ensures you ignore any outliers, which might be included if you picked the 99th percentile.
     - If you want to pick the peak usage for the period and don't want to miss any outliers, select the 99th percentile for percentile utilization.
@@ -108,18 +107,18 @@ Readiness to migrate a MySQL instance to Azure Database for MySQL is determined 
 
 An instance is then marked as:
 - **Ready**: If no major compatibility issues were found between source and target MySQL instances.
-- **Ready with conditions**: If there are non-critical compatibility issues such as degraded or unsupported features that don't block the migration to Azure Database for MySQL. Azure Migrate displays the migration warnings with impact details and recommended remediation guidelines.
-- **Not ready**: If there are any compatibility issues that may block the migration to Azure Database for MySQL. Azure Migrate displays the migration issues with impact details and recommended remediation guidance.
+- **Ready with conditions**: If there are non-critical compatibility issues such as degraded or unsupported features that don't block the migration to Azure Database for MySQL. Azure Catalyst displays the migration warnings with impact details and recommended remediation guidelines.
+- **Not ready**: If there are any compatibility issues that may block the migration to Azure Database for MySQL. Azure Catalyst displays the migration issues with impact details and recommended remediation guidance.
 - **Unknown**:  If the discovery is still in progress or there are any discovery issues in the source instance.
 
 
 ## Calculate sizing
 
-After the assessment determines the readiness, for every server that is either **Ready** or **Ready with conditions**, Azure Migrate uses the performance data to compute a specific Azure Database for MySQL service tier and configuration (SKU size) that can meet or exceed the on-premises MySQL performance. 
+After the assessment determines the readiness, for every server that is either **Ready** or **Ready with conditions**, Azure Catalyst uses the performance data to compute a specific Azure Database for MySQL service tier and configuration (SKU size) that can meet or exceed the on-premises MySQL performance. 
 
 ### Compute sizing
 
-During the discovery process, Azure Migrate collects the MySQL instance configuration and performance data that includes:
+During the discovery process, Azure Catalyst collects the MySQL instance configuration and performance data that includes:
 - **vCores (allocated) and CPU utilization (%)**: CPU utilization for a MySQL instance is the percentage of allocated CPU utilized by the MySQL instance on the server.
 - **Memory (allocated) and memory utilization (%)**: The amount of memory allocated to the MySQL instance, and its utilization percentage.
 - **IOPS**: Calculated by adding the Read and Write IOPS for each instance.
@@ -129,14 +128,14 @@ During the discovery process, Azure Migrate collects the MySQL instance configur
 The assessment aggregates all the configuration and performance data and tries to find the best match across the [various Azure Database for MySQL service tiers and configurations](/azure/mysql/flexible-server/concepts-service-tiers-storage), selecting a configuration that can match or exceed the MySQL instance performance requirements, and  optimizing the cost.
 
 ### Storage sizing
-Azure Migrate calculates the total disk space used by the MySQL instance (including database files, temporary files, transaction logs, and the MySQL server logs) and suggests the recommended storage to provision in Azure Database for MySQL. For Burstable and General Purpose service tiers, the storage range spans from a minimum of 20 GiB to a maximum of 16 TiB, while for the Memory Optimized service tier, the storage support extends up to 32 TiB. In all service tiers, storage is scaled in 1 GiB increments and can be scaled up (but not down) after the server is created.
+Azure Catalyst calculates the total disk space used by the MySQL instance (including database files, temporary files, transaction logs, and the MySQL server logs) and suggests the recommended storage to provision in Azure Database for MySQL. For Burstable and General Purpose service tiers, the storage range spans from a minimum of 20 GiB to a maximum of 16 TiB, while for the Memory Optimized service tier, the storage support extends up to 32 TiB. In all service tiers, storage is scaled in 1 GiB increments and can be scaled up (but not down) after the server is created.
 
 ### IOPS sizing
-Azure Migrate recommends the [Autoscale IOPS feature in Azure Database for MySQL](/azure/mysql/flexible-server/concepts-service-tiers-storage#autoscale-iops), which enables the MySQL instance to automatically scale the database instance’s performance (IO) seamlessly and independent of the selected storage size, depending on the workload needs. With Autoscale IOPS, you pay only for the IO the server uses, eliminating the need to provision and pay for resources that aren't fully utilized, thereby saving time and money.
+Azure Catalyst recommends the [Autoscale IOPS feature in Azure Database for MySQL](/azure/mysql/flexible-server/concepts-service-tiers-storage#autoscale-iops), which enables the MySQL instance to automatically scale the database instance’s performance (IO) seamlessly and independent of the selected storage size, depending on the workload needs. With Autoscale IOPS, you pay only for the IO the server uses, eliminating the need to provision and pay for resources that aren't fully utilized, thereby saving time and money.
 
 ## Performance coverage
 
-Each MySQL assessment is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Migrate provides.
+Each MySQL assessment is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Catalyst provides.
 -  The coverage is based on the availability of data points that are required to compute the assessment.
 - For performance-based sizing, the assessment collects performance data of all the MySQL instances and databases, which include:
   - CPU utilization (%)
@@ -163,8 +162,8 @@ Here are a few reasons why an assessment could have a high performance coverage:
 
   - Servers are powered on during the assessment.
   - Outbound connections on ports 3306 are allowed.
-  - If Azure Migrate connection status of the MySQL agent in Azure Migrate is Connected, check the last heartbeat.
-  - Azure Migrate connection status for all MySQL instances is Connected in the discovered MySQL instance section.
+  - If Azure Catalyst connection status of the MySQL agent in Azure Catalyst is Connected, check the last heartbeat.
+  - Azure Catalyst connection status for all MySQL instances is Connected in the discovered MySQL instance section.
 
  **Recalculate** the assessment to reflect the latest changes in performance coverage.
 

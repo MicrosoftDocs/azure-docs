@@ -141,10 +141,9 @@ Once the private endpoints created for the vault in your VNet have been approved
 >Ensure that you've completed all the steps mentioned above in the document successfully before proceeding. To recap, you must have completed the steps in the following checklist:
 >
 >1. Created a (new) Recovery Services vault.
->2. [Enabled the vault to use system assigned Managed Identity](encryption-at-rest-with-cmk.md?tabs=portal#enable-a-system-assigned-managed-identity-for-the-vault).
->3. Created a Private Endpoint for your vault.
->4. Approved the Private Endpoint (if not auto approved).
->5. Ensured all DNS records are appropriately added (except blob and queue records for custom servers, which will be discussed in the following sections).
+>2. Created a Private Endpoint for your vault.
+>3. Approved the Private Endpoint (if not auto approved).
+>4. Ensured all DNS records are appropriately added (except blob and queue records for custom servers, which will be discussed in the following sections).
 
 ### Check VM connectivity
 

@@ -72,7 +72,3 @@ You may get disk space errors running Spark jobs after enabling IO Cache. These 
 1. Select **Confirm Restart All**.
 
 If that doesn't work, disable IO Cache.
-
-## Next Steps
-
-Read more about IO Cache, including performance benchmarks in this blog post: [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

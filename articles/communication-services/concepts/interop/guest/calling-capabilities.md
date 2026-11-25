@@ -13,6 +13,8 @@ ms.custom: mode-other
 
 # Capabilities for Microsoft Teams users in Azure Communication Services calls
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services is interoperable with Microsoft Teams. This is especially helpful for business-to-consumer use cases, where an external customer in a custom, branded Azure-powered app or website communicates with an employee using Microsoft Teams. This ability enables the external customer to enjoy a custom experience, and the employee to have all their communication needs satisfied in a single hub: Teams.
 
 Azure Communication Services can interoperate with Teams in three ways:
@@ -30,7 +32,7 @@ This page details capabilities for Teams (or Microsoft 365) users in a call with
 M365/Teams user can take calls with Communication Services users via Teams client or [a custom client](../../teams-endpoint.md) built using the Azure Communication Services Calling JavaScript SDK. To learn about features available for Communication Services user, refer to [voice and video capabilities](../../voice-video-calling/calling-sdk-features.md) document.
 
 Azure Communication Services Calling SDK also provides [Media quality statistics](../../voice-video-calling/media-quality-sdk.md) 
-and [improve and manage call quality](). For more information, see the [Calling SDK overview](../../voice-video-calling/calling-sdk-features.md).
+and [improve and manage call quality](../../voice-video-calling/manage-call-quality.md). For more information, see the [Calling SDK overview](../../voice-video-calling/calling-sdk-features.md).
 
 | **Group of features** | **Capability** | **M365 user on a custom client** | **M365 user on a Teams client** |
 | --- | --- | --- | --- |

@@ -3,7 +3,7 @@ title: Pipeline parameters and variables
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics.
 author: whhender
-ms.author: whhender
+ms.author: weetok
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: concept-article
@@ -13,6 +13,8 @@ ms.date: 07/25/2025
 # Pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article helps you understand the difference between pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics and how to use them to control your pipeline behavior.
 

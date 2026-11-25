@@ -3,6 +3,7 @@ title: Deploy a Custom Azure Policy in an Azure Extended Zone
 description: Learn how to deploy a custom Azure policy in an Azure extended zone.
 author: svaldesgzz
 ms.author: svaldes
+ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
 ms.date: 02/12/2026

@@ -1,10 +1,11 @@
 ---
-title: Review a Business Case with Azure Migrate | Microsoft Docs
-description: This article describes how to review a business case with Azure Migrate.
+title: Review a Business Case with Azure Catalyst | Microsoft Docs
+description: This article describes how to review a business case with Azure Catalyst.
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 02/06/2025
+ms.update-cycle: 365-days
 ms.custom: engagement-fy24
 
 # Customer intent: As a cloud solutions architect, I want to review business case reports by using a migration assessment tool so that I can effectively plan and evaluate the cost savings and operational benefits of migrating on-premises workloads to the cloud.
@@ -12,9 +13,9 @@ ms.custom: engagement-fy24
 
 # View a business case (preview)
 
-This article describes how to review the business case reports for on-premises applications and workloads in your datacenter with Azure Migrate.
+This article describes how to review the business case reports for on-premises applications and workloads in your datacenter with Azure Catalyst.
 
-[Azure Migrate](migrate-services-overview.md) helps you to plan and execute migration and modernization projects to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure.
+[Azure Catalyst](migrate-services-overview.md) helps you to plan and execute migration and modernization projects to Azure. Azure Catalyst provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure.
 
 ## Prerequisites
 
@@ -83,7 +84,7 @@ This card shows the potential savings with respect to securing your migration wi
 
 ## Sustainability insights: Lower emissions with Azure
 
-The **Sustainability benefits** capability is now embedded in the Azure Migrate business case feature. It empowers IT, finance, and sustainability teams to:
+The **Sustainability benefits** capability is now embedded in the Azure Catalyst business case feature. It empowers IT, finance, and sustainability teams to:
 
 - **Estimate on-premises emissions**: Uses a standardized methodology (MtCO₂e) that considers compute, storage, power usage, and geographic carbon intensity.
 - **Compare against Azure emissions**: Calculates by using the Microsoft internally validated carbon rate cards for each product and region.

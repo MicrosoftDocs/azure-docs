@@ -146,6 +146,9 @@ items:
   - name: Business Continuity Center
     tocHref: /azure/business-continuity-center/
     topicHref: /azure/business-continuity-center/index
+  - name: Azure in China Playbook
+    tocHref: /azure/china/
+    topicHref: /azure/china/
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
@@ -174,14 +177,14 @@ items:
     items:
     - name: Durable Functions
       tocHref: /azure/durable-task/durable-functions/
-      topicHref: /azure/durable-task/durable-functions/index
+      topicHref: /azure/durable-task/durable-functions/durable-functions-overview
   - name: Durable Task
     tocHref: /azure/durable-task/common/
     topicHref: /azure/durable-task/index
     items:
     - name: Durable Functions
       tocHref: /azure/durable-task/durable-functions/
-      topicHref: /azure/durable-task/durable-functions/index
+      topicHref: /azure/durable-task/durable-functions/durable-functions-overview
   - name: Azure Australia
     tocHref: /azure/azure-australia/
     topicHref: /azure/azure-australia/
@@ -421,7 +424,7 @@ items:
     topicHref: /azure/connectors/
   - name: Connector Namespace
     tocHref: /azure/connector-namespace/
-    topicHref: /azure/connector-namespace/    
+    topicHref: /azure/connector-namespace/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
@@ -627,7 +630,7 @@ items:
     - name: Azure Relay
       tocHref: /azure/service-bus-relay/
       topicHref: /azure/azure-relay/
-  - name: Migrate
+  - name: Catalyst
     tocHref: /azure/migrate/
     topicHref: /azure/migrate/
   - name: Mobile Engagement
@@ -647,6 +650,12 @@ items:
     tocHref: /azure/networking/
     topicHref: /azure/networking/
     items:
+    - name: Adaptive Virtual Patching
+      tocHref: /azure/adaptive-virtual-patching/
+      topicHref: /azure/adaptive-virtual-patching/
+    - name: Azure Agent Grid
+      tocHref: /azure/agent-grid/
+      topicHref: /azure/agent-grid/
     - name: Fundamentals
       tocHref: /azure/networking/fundamentals
     - name: Application Gateway
@@ -688,6 +697,9 @@ items:
     - name: Load Balancer
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
+    - name: Multicloud Interconnect
+      tocHref: /azure/multicloud-interconnect/
+      topicHref: /azure/multicloud-interconnect/
     - name: NAT Gateway
       tocHref: /azure/nat-gateway
       topicHref: /azure/nat-gateway
@@ -954,10 +966,3 @@ items:
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
-  - name: Redis
-    tocHref: /azure/redis/
-    topicHref: /azure/redis/index
-    items:
-    - name: Azure Cache for Redis
-      tocHref: /azure/azure-cache-for-redis/
-      topicHref: /azure/azure-cache-for-redis/index

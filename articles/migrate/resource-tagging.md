@@ -1,33 +1,35 @@
 ---
-title: Tags in Azure Migrate
-description: Azure Migrate tags help you organize and manage migration resources efficiently. Discover how to group workloads for better visibility and control.
+title: Tags in Azure Catalyst
+description: Azure Catalyst tags help you organize and manage migration resources efficiently. Discover how to group workloads for better visibility and control.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
+ms.update-cycle: 365-days
 ms.date: 04/17/2025
-monikerRange:
 # Customer intent: As an IT administrator managing migration resources, I want to tag workloads with relevant attributes, so that I can enhance resource organization and visibility during the migration process.
 ---
 
-# Understand tags in Azure Migrate
+# Understand tags in Azure Catalyst
 
-In any cloud migration journey, organizing and understanding your on-premises environment is critical. Azure Migrate provides tagging capabilities that help you group, organize, and analyze discovered workloads based on business and technical attributes.
+In any cloud migration journey, organizing and understanding your on-premises environment is critical. Azure Catalyst provides tagging capabilities that help you group, organize, and analyze discovered workloads based on business and technical attributes.
 
-Tags in Azure Migrate let you apply key value metadata to servers and workloads so you can manage large inventories more effectively, scope assessments, and plan migrations aligned to business priorities.
+Tags in Azure Catalyst let you apply key value metadata to servers and workloads so you can manage large inventories more effectively, scope assessments, and plan migrations aligned to business priorities.
 
-This article provides a high-level overview of tagging in Azure Migrate and links to detailed guidance for common tagging scenarios and tasks.
+This article provides a high-level overview of tagging in Azure Catalyst and links to detailed guidance for common tagging scenarios and tasks.
 
-## What are tags in Azure Migrate?
+<a name="what-are-tags-in-azure-migrate"></a>
 
-Tags are custom key value pairs that you assign to discovered workloads in Azure Migrate. You can use tags to group workloads based on attributes such as:
+## What are tags in Azure Catalyst?
+
+Tags are custom key value pairs that you assign to discovered workloads in Azure Catalyst. You can use tags to group workloads based on attributes such as:
 
 - Application or service
 - Department or cost center
 - Environment (production, test, development)
 - Business criticality
-- After tags are applied, you can use them across Azure Migrate experiences to filter inventory, scope assessments, and generate reports.
+After you apply tags, use them across Azure Catalyst experiences to filter inventory, scope assessments, and generate reports.
 
 ## Why use tags during migration?
 
@@ -41,7 +43,7 @@ Using tags helps you:
 
 ## Types of Tags
 
-Azure Migrate supports two types of tags:
+Azure Catalyst supports two types of tags:
 
 **Reserved tags**: Environment and Migration Intent. These tags add operational and migration context to workloads and applications. They affect cost modeling, SKU recommendations, assessment scoping, and wave planning.
 
@@ -50,4 +52,4 @@ Azure Migrate supports two types of tags:
 ## Next steps
 
 - [Create and manage Tags](how-to-create-manage-tags.md).
-- [Modify and delete Tags for Workloads in Azure Migrate](how-to-modify-delete-tags.md).
+- [Modify and delete tags for workloads in Azure Catalyst](how-to-modify-delete-tags.md).

@@ -2,8 +2,8 @@
 title: Manage IoT Edge certificates
 titleSuffix: Azure IoT Edge
 description: How to install and manage certificates on an Azure IoT Edge device to prepare for production deployment. 
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 04/13/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
@@ -511,7 +511,7 @@ In this scenario, the bootstrap certificate and private key are long-lived and p
 
    * Create a test EST server using the steps in [Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge](tutorial-configure-est-server.md).
 
-   * Microsoft partners with GlobalSign to [provide a demo account](https://www.globalsign.com/lp/globalsign-and-microsoft-azure-iot-edge-enroll-demo).
+   * Microsoft partners with GlobalSign to [provide a demo account](https://www.globalsign.com/).
 
 1. In the IoT Edge device configuration file `config.toml`, configure the path to a trusted root certificate that IoT Edge uses to validate the EST server's TLS certificate. This step is optional if the EST server has a publicly trusted root TLS certificate.
 

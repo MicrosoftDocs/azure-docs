@@ -2,7 +2,8 @@
 title: Running in Locked Down Networks
 description: Learn how to install and run Azure CycleCloud in a locked down networks. Details on internal communication between cluster nodes and CycleCloud.
 author: anhoward
-ms.date: 06/19/2026
+ai-usage: ai-assisted
+ms.date: 08/10/2026
 ms.topic: how-to
 ms.author: anhoward
 ---
@@ -56,12 +57,9 @@ You can limit outbound internet access from the CycleCloud VM by configuring a s
 
 ## Internal communications between cluster nodes and CycleCloud
 
-Open these ports to allow communication between the cluster nodes and CycleCloud server:
+In CycleCloud 8, open TCP port 9443 from the cluster nodes to the CycleCloud server for direct HTTPS communication. For direct, return-proxy, scheduler, monitoring, and egress rules, see the [CycleCloud ports and traffic matrix](network-security.md#required-ports-and-traffic).
 
-| Name        | Source            | Destination    | Service | Protocol | Port Range |
-| ----------- | ----------------- | -------------- | ------- | -------- | ---------- |
-| amqp_5672  | Cluster Node   | CycleCloud     | AMQP    | TCP      | 5672       |
-| https_9443 | Cluster Node   | CycleCloud     | HTTPS   | TCP      | 9443       |
+CycleCloud 7 also requires TCP port 5672 from cluster nodes to the CycleCloud server for AMQP traffic.
 
 ## Launching Azure CycleCloud clusters in a locked down network
 
@@ -75,7 +73,7 @@ Running VMs or Cyclecloud clusters in a virtual network or subnet with outbound 
 the following steps:
 
 1. Make Azure Cyclecloud reachable from the cluster VMs for full functionality.   Either:
-   1. Cluster VMs connect to Azure Cyclecloud directly via HTTPS and AMQP, or
+   1. Cluster VMs connect to Azure CycleCloud directly via HTTPS, or
    1. Enable the Cyclecloud ReturnProxy feature when you create the cluster. Cyclecloud must be able to connect to the ReturnProxy VM through SSH.
 1. Make sure the cluster VMs have all the required software packages by:
    1. Preinstalling them in a custom Managed Image,

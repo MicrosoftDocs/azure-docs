@@ -1,6 +1,6 @@
 ---
-title: Azure infrastructure security | Microsoft Docs
-description: Learn how Microsoft works to secure the Azure datacenters. The datacenters are managed, monitored, and administered by Microsoft operations staff.
+title: Azure infrastructure security
+description: Learn how Microsoft secures Azure datacenters. Microsoft operations staff manage, monitor, and administer the datacenters.
 services: security
 author: msmbaldwin
 
@@ -10,11 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 05/01/2025
 ms.author: mbaldwin
+ai-usage: ai-assisted
 
 ---
 
 # Azure infrastructure security
-Microsoft Azure runs in datacenters managed and operated by Microsoft. These geographically dispersed datacenters comply with key industry standards, such as ISO/IEC 27001:2013 and NIST SP 800-53, for security and reliability. The datacenters are managed, monitored, and administered by Microsoft operations staff. The operations staff has years of experience in delivering the world's largest online services with 24 x 7 continuity.
+Microsoft Azure runs in datacenters that Microsoft manages and operates. These geographically dispersed datacenters comply with key industry standards, such as ISO/IEC 27001:2013 and NIST SP 800-53, for security and reliability. Microsoft operations staff manage, monitor, and administer the datacenters. The operations staff has years of experience in delivering the world's largest online services with 24/7 continuity.
 
 ## Securing the Azure infrastructure
 This series of articles provides information about what Microsoft does to secure the Azure infrastructure. The articles address:

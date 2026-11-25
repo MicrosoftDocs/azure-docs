@@ -3,7 +3,7 @@ title: File attachments in Azure SRE Agent
 description: Share screenshots, logs, config files, and code directly in chat for AI-powered multimodal analysis in Azure SRE Agent.
 ms.topic: article
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 07/30/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -17,7 +17,7 @@ By using file attachments, you can share screenshots, log files, configuration f
 > [!TIP]
 > - Drag and drop files, use the file picker, or paste clipboard screenshots directly into chat.
 > - The agent automatically applies the right analysis: multimodal vision for images, workspace tools for text and code, and Python for binary documents.
-> - Supports images, text, data files, and documents (31 file types total).
+> - Supports images, text, data files, documents, and archives (37 file types total).
 > - Up to five files per message, 10 MB each, 50 MB total per message.
 
 ## The problem
@@ -59,6 +59,7 @@ The agent automatically determines how to process each file based on its type.
 | Images (.png, .jpg, .jpeg, .gif, .webp, .svg) | Sent directly to the LLM for multimodal vision analysis | Screenshot of an error dashboard, architecture diagram |
 | Text and code (.txt, .md, .json, .csv, .log, .yaml, .yml, .xml) | Saved to the agent workspace and read with file tools | Log file analysis, config file review, query results |
 | Binary documents (.pdf, .docx, .pptx) | Saved to workspace and parsed using Python tools | Incident postmortem PDF, runbook document |
+| Archives (.zip, .gz, .tgz, .7z, .rar, .cab) | Validated by extension, size, and file signature (magic bytes), then saved to the agent workspace | Diagnostic log bundle, packaged runbook set |
 
 Sent messages display file cards with the file name, size, and a download link so you can retrieve uploaded files later in the thread.
 
@@ -68,7 +69,7 @@ Sent messages display file cards with the file name, size, and a download link s
 
 File attachments provide capabilities that set them apart from text-only interactions.
 
-- **Automatic file type detection.** Drop any supported file and the agent determines the right processing approach—vision for images, file tools for text, Python for binary documents. No manual selection needed.
+- **Automatic file type detection.** Drop any supported file and the agent determines the right processing approach: vision for images, file tools for text, Python for binary documents. No manual selection needed.
 
 - **Native clipboard integration.** During incident response, speed matters. Screenshot a dashboard, paste into chat, and ask "what do you see?" The entire round trip takes seconds.
 
@@ -80,11 +81,11 @@ The following table compares common workflows with and without file attachments.
 
 | Scenario | Before | After |
 |---|---|---|
-| **Sharing a screenshot** | Describe the chart verbally or paste a URL | Drop the screenshot into chat—agent analyzes it visually |
-| **Reviewing a log file** | Copy and paste text, lose formatting | Upload the .log file—agent parses it with tools |
-| **Config file review** | Copy and paste YAML/JSON into chat | Upload the file—agent reads it with full context |
-| **Runbook reference** | Recall steps from memory during incidents | Upload runbook—agent follows and applies it to the situation |
-| **Binary documents** | Can't share PDFs or Office docs | Upload directly—agent uses Python to extract content |
+| **Sharing a screenshot** | Describe the chart verbally or paste a URL | Drop the screenshot into chat. The agent analyzes it visually. |
+| **Reviewing a log file** | Copy and paste text, lose formatting | Upload the .log file. The agent parses it with tools. |
+| **Config file review** | Copy and paste YAML/JSON into chat | Upload the file. The agent reads it with full context. |
+| **Runbook reference** | Recall steps from memory during incidents | Upload the runbook. The agent follows and applies it to the situation. |
+| **Binary documents** | Can't share PDFs or Office docs | Upload directly. The agent uses Python to extract content. |
 
 ## Get started
 

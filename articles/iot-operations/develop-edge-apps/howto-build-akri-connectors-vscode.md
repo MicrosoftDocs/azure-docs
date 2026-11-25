@@ -4,7 +4,7 @@ description: Learn how to build Akri connectors for Azure IoT Operations using t
 author: dominicbetts 
 ms.author: dobett 
 ms.topic: how-to
-ms.date: 12/08/2025
+ms.date: 09/10/2026
 ms.service: azure-iot-operations
 ms.subservice: azure-akri
 # CustomerIntent: As a developer, I want to understand how to use the VS Code extension to build and deploy custom Akri connectors.
@@ -24,6 +24,8 @@ The extension enables you to create connectors by using the following programmin
 
 - .NET
 - Rust
+
+To understand how a custom Akri connector works in Rust code against the connector SDK, see [Understand custom Akri connector development with Rust](concept-akri-connector-development-rust.md).
 
 ## Prerequisites
 
@@ -70,7 +72,7 @@ To deploy and use your connector with an Azure IoT Operations instance, you also
 
 # [.NET](#tab/dotnet)
 
-In this example, you create an HTTP/REST connector using the C# language, build a docker image, and then run the connector application by using the VS Code extension:
+In this example, you create an HTTP/REST connector by using C#, build a Docker image, and then run the connector application by using the VS Code extension:
 
 1. Press `Ctrl+Shift+P` to open the command palette and search for **Azure IoT Operations Akri Connectors: Create a New Akri Connector** command. Create a new folder called `my-connectors` and select it, select **C#** as the language, enter a name for the connector like `MyConnector`, and select **PollingTelemetryConnector** as the connector type.
 
@@ -184,7 +186,18 @@ Use the **Azure IoT Operations Akri connectors: Publish Akri Connector Image or 
 
 ## Author connector metadata configuration
 
-Use the VS Code workspace created from the **Create an Akri Connector** command to author the `connector-metadata.json` file that complies with the [JSON schema for Azure IoT Operations Connector Metadata 9.0-preview](https://raw.githubusercontent.com/SchemaStore/schemastore/refs/heads/master/src/schemas/json/aio-connector-metadata-9.0-preview.json) schema. You can place this file anywhere in your connector workspace. The extension provides a static validation capability using the `connector-metadata.json` file and shows warnings in the `PROBLEMS` panel if any required properties are missing.
+Use the VS Code workspace created from the **Create an Akri Connector** command to author the `connector-metadata.json` file that complies with the [JSON schema for Azure IoT Operations Connector Metadata 11.0-preview](https://json.schemastore.org/aio-connector-metadata-11.0-preview.json) schema. You can place this file anywhere in your connector workspace. The extension provides a static validation capability using the `connector-metadata.json` file and shows warnings in the `PROBLEMS` panel if any required properties are missing.
+
+## Author additional configuration
+
+Use the VS Code workspace created from the **Create an Akri Connector** command to author the `additionalConfig.json` file. You can place this file anywhere in your connector workspace. The extension provides the **Azure IoT Operations Akri Connectors: Preview Additional Configuration** command that lets you preview the file as it will be rendered in the operations experience:
+
+:::image type="content" source="media/howto-build-akri-connectors-vscode/additional-configuration-preview.png" alt-text="Screenshot that shows the configuration preview active in VS Code." lightbox="media/howto-build-akri-connectors-vscode/additional-configuration-preview.png":::
+
+[!INCLUDE [Example additional configuration for Akri connectors](../includes/akri-additional-configuration-example.md)]
+
+> [!NOTE]
+> Currently, the extension only lets you preview a standalone `additionalConfig.json` file. The extension doesn't preview embedded additional configuration in the `connector-metadata.json` file.
 
 ## Publish metadata artifacts
 

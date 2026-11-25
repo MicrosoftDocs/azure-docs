@@ -4,8 +4,9 @@ description: See answers to frequently asked questions about Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
-ms.date: 6/23/2026
+ms.service: azure-enclave
 ai-usage: ai-assisted
+ms.date: 9/17/2026
 ---
 
 # Azure Enclave frequently asked questions
@@ -20,11 +21,17 @@ Azure Enclave is a hub-and-spoke network architecture with built-in network isol
 
 ### Why should I use Azure Enclave?
 
-Azure Enclave creates a secure foundation in a known configuration so you can pursue compliance approval faster and deploy workloads with platform-managed boundaries. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md).
+Azure Enclave creates a secure foundation in a known configuration so you can pursue compliance approval faster and deploy workloads with Azure Enclave-managed boundaries. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md)
 
 ### How does Azure Enclave work?
 
 Azure Enclave uses a managed community-and-enclave model. A community provides shared network controls, and each enclave provides isolated workload boundaries. You connect approved endpoints with enclave connections, and Azure Enclave applies policy and routing controls across those paths. For architecture details, see [What is Azure Enclave?](./what-azure-enclave.md).
+
+### Are Azure Enclave and confidential compute enclaves related?
+
+Azure Enclave and confidential compute enclaves address different security boundaries. Azure Enclave provides isolated virtual networks, workload boundaries, and policy controls for Azure resources. Confidential compute enclaves are hardware-based trusted execution environments that protect data while it's being processed. You can use confidential compute technologies within an Azure Enclave workload when your application requires protection for data in use.
+
+For more information, see [Application development for confidential computing](/azure/confidential-computing/application-development) and [Confidential computing enclaves](/azure/confidential-computing/confidential-computing-enclaves).
 
 ### What is the pricing for Azure Enclave?
 
@@ -32,7 +39,7 @@ Azure Enclave pricing includes an hourly charge per enclave plus charges for the
 
 ### What are the benefits of using Azure Enclave?
 
-Azure Enclave helps you deploy secure-by-design network boundaries, enforce policy consistently, and separate workloads with controlled connectivity. It can reduce setup effort for regulated environments by using a known architecture and managed platform components. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md).
+Azure Enclave helps you deploy secure-by-design network boundaries, enforce policy consistently, and separate workloads with controlled connectivity. It can reduce setup effort for regulated environments by using a known architecture and managed Azure Enclave components. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md)
 
 ### Where can I learn to use Azure Enclave?
 
@@ -40,9 +47,9 @@ Start with [What is Azure Enclave?](./what-azure-enclave.md), review the [learn 
 
 ## Customer planning
 
-### Is Azure Enclave in Preview?
+### Is Azure Enclave generally available?
 
-Yes. Azure Enclave is currently in Preview and is provided without a service-level agreement. Azure Enclave shouldn't be used for production workloads during Preview. For more information, see [What is Azure Enclave?](./what-azure-enclave.md).
+Yes. Azure Enclave is generally available for production workloads. For current service scope and availability details, see [What is Azure Enclave?](./what-azure-enclave.md) and [Quotas and region availability in Azure Enclave](./quotas-region-availability.md). 
 
 ### Where can I find a quickstart for Azure Enclave?
 
@@ -62,11 +69,22 @@ You can also query the current regions allowed for communities with the Azure CL
 az provider show --namespace Microsoft.Mission --query "resourceTypes[?resourceType=='communities'].locations"
 ```
 
+### Where does Azure Enclave keep service data?
+
+Azure Enclave processes and stores service data for any supported region. This service data includes resource metadata, service audit and diagnostic logs, and service-managed replication and recovery copies.
+
+Residency covers the geography, not a single region. Customer-managed workloads and configured data transfers follow the relevant services and your configuration and can cross geography boundaries. See [Data residency](./quotas-region-availability.md#data-residency) for scope and customer responsibilities.
+
 ### What roles are used to manage permissions for Azure Enclave resources?
 
 Azure Enclave includes roles to help you manage your environments with least privilege. Verified role names include Community Owner, Community Contributor, Community Reader, Enclave Owner, Enclave Contributor, Enclave Reader, and Enclave Approver. For more information, see [Role-based access controls](./role-based-access-controls.md).
 
 ## Using Azure Enclave
+
+### Why use a dedicated hub?
+
+Use a dedicated hub when you need either a predictable internet egress SNAT IP for a group of enclaves or higher VNet-to-VNet throughput than pooled capacity provides. A dedicated hub has a specific Azure Firewall public IP, so enclaves that use that hub share the same SNAT public IP for internet egress.
+
 
 ### How do I create a resource that isn't in the Azure service allow list?
 
@@ -129,7 +147,7 @@ Adding a virtual network firewall isn't a recommended pattern. Azure Enclave man
 
 ### What access is allowed by default?
 
-Azure Enclave configures required platform egress for managed resources. For communities using a non-Basic firewall, a default outbound firewall policy rule is created for Key Management Service (KMS) over TCP port 1688.
+Azure Enclave configures the required Azure egress for managed resources. For communities that use a non-Basic firewall, it creates a default outbound firewall policy rule for Key Management Service (KMS) over TCP port 1688.
 
 ### How can I quickly stop resource access to a URL or IP?
 

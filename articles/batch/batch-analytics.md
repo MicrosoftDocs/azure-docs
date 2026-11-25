@@ -2,7 +2,7 @@
 title: Azure Batch Analytics
 description: The topics in Batch Analytics contain reference information for the events and alerts available for Batch service resources.
 ms.topic: reference
-ms.date: 04/02/2025
+ms.date: 08/05/2026
 # Customer intent: "As a cloud administrator, I want to understand the diagnostic log events for Batch service resources, so that I can effectively monitor and troubleshoot the performance of my cloud-based applications."
 ---
 
@@ -27,4 +27,6 @@ The Azure Batch service emits the following diagnostic log events during the lif
 - [Task start](batch-task-start-event.md)
 - [Task complete](batch-task-complete-event.md)
 - [Task fail](batch-task-fail-event.md)
+- [Task requeue](batch-task-requeue-event.md)
 - [Task schedule fail](batch-task-schedule-fail-event.md)
+- [Special task](batch-special-task-event.md)

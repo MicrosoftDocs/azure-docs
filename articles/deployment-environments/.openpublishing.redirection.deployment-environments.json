@@ -84,6 +84,10 @@
       "source_path_from_root": "/articles/deployment-environments/how-to-configure-project-admin.md",
       "redirect_url": "/azure/deployment-environments/how-to-manage-deployment-environments-access",
       "redirect_document_id": false
-    }       
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/maintenance-mode.md",
+      "redirect_url": "/azure/deployment-environments/deployment-environments-retirement-guide"
+    }
   ]
 }

@@ -1,11 +1,12 @@
 ---
 title: Troubleshoot Windows upgrade issues
 description: Provides an overview of known issues in the Windows OS upgrade feature
-author: habibaum
-ms.author: v-uhabiba
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 05/08/2025
+ms.update:cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: "As a cloud administrator, I want to troubleshoot Windows OS upgrade issues during VM migration, so that I can ensure successful OS upgrades without errors and optimize my cloud resource management."
 ---
@@ -20,14 +21,14 @@ The Test Migration and Migration fails in the prerequisite stage if the VM alrea
 
 ### Recommended action
 
-Select a different target Azure VM SKU that can attach more data disks and retry the operation. Since Azure Migrate completed the migration and created a VM in Azure, retry the operation by following these steps:
+Select a different target Azure VM SKU that can attach more data disks and retry the operation. Since Azure Catalyst completed the migration and created a VM in Azure, retry the operation by following these steps:
 
 1. Clean up the migration:
    1. Test Migration: Right-click the Azure VM in **Replications** and select **Clean up test migration**.  
    1. Migration: Since the VM is already migrated to Azure, follow [these](/azure/virtual-machines/windows-in-place-upgrade) steps here to upgrade the OS.
 
 2. Update the target VM SKU settings:
-   1. In the Azure portal, select the Azure Migrate project.
+   1. In the Azure portal, select the Azure Catalyst project.
    2. Go to **Migration tools** > **Replications** > Azure VM count.
    3. Select the Replicating machine.
    4. Go to **Compute and network**.
@@ -35,7 +36,9 @@ Select a different target Azure VM SKU that can attach more data disks and retry
 
 3. Verify that the operating system disk has enough [free space](/windows-server/get-started/hardware-requirements#storage-controller-and-disk-space-requirements) to perform the in-place upgrade. The minimum disk space requirement is 32 GB. If more space is needed, follow [these](/azure/virtual-machines/windows/expand-os-disk) steps to expand the operating system disk attached to the VM for a successful OS upgrade.
 
-## Migration fails for Private endpoint enabled Azure Migrate projects  
+<a name="migration-fails-for-private-endpoint-enabled-azure-migrate-projects"></a>
+
+## Migration fails for Private endpoint enabled Azure Catalyst projects  
 
 The migration fails if the storage account that you select for replicating VMs doesn't have the Firewall settings of the target virtual network. 
 

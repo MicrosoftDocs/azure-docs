@@ -2,11 +2,11 @@
 title: Release notes for the Azure Storage Mover service | Microsoft Docs
 description: Read the release notes for the Azure Storage Mover service, which allows you to migrate your on-premises unstructured data to the Azure Storage service.
 services: storage-mover
-author: stevenmatthew
-ms.author: shaas
+author: rajsinghmsa
+ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: release-notes
-ms.date: 09/06/2023
+ms.date: 10/17/2026
 ---
 
 # Release notes for the Azure Storage Mover service
@@ -19,9 +19,10 @@ The following Azure Storage Mover agent versions are supported:
 
 | Milestone                                     | Version number | Release date       | Status                                        |
 |-----------------------------------------------|----------------|--------------------|-----------------------------------------------|
-| Support for data transfers from NFS source to Azure Files NFS target and OS update  | 4.0.902        | October 22, 2025   | Current. Release is available for VM image only and existing agents cannot update to this.  |
-| Enhanced Network checks and OS update         | 3.4.846        | Jul 30, 2025       | Latest update for existing agents           |
-| Enhanced Network checks and support for data transfers from SMB source to Azure Blob target | 3.3.760        | April 8, 2025      | Supported. Downloading latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent) is recommended.|
+| Refresh release and OS Update                 | 4.1.1069       | September 19, 2026 | Current. Release is available for VM image only and existing agents can't update to this.  |
+| Support for data transfers from NFS source to Azure Files NFS target and OS update  | 4.0.902        | October 22, 2025   | Supported. Downloading latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent) is recommended.|
+| Enhanced Network checks and OS update         | 3.4.846        | Jul 30, 2025       | Supported. Downloading latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent) is recommended.           |
+| Enhanced Network checks and support for data transfers from SMB source to Azure Blob target | 3.3.760        | April 8, 2025      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Refresh release                               | 3.3.708        | January 28, 2025   | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Bandwidth Management and general improvements | 3.1.613        | July 10, 2024      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
 | Performance and security improvements         | 3.1.593        | June 16, 2024      | No longer supported. Decommission and download latest agent from [Microsoft Download Center](https://aka.ms/StorageMover/agent).|
@@ -49,10 +50,34 @@ Azure Storage Mover is a hybrid service, which continuously introduces new featu
 
 - Major versions are supported for at least six months from the date of initial release.
 - We guarantee there's an overlap of at least three months between the support of major agent versions.
-- The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Expired agent versions, might still be able to update themselves to a supported version but there are no guarantees.
+- The [Supported agent versions](#supported-agent-versions) table lists expiration dates. Expired agent versions might still be able to update themselves to a supported version but there are no guarantees.
 
 > [!IMPORTANT]
 > Preview versions of the Storage Mover agent can't update themselves. You must replace them manually by deploying the [latest available agent](https://aka.ms/StorageMover/agent).
+
+
+## 2026 September 19
+Refresh release notes for:
+
+- Agent version: 4.1.1069
+
+### What's new
+- Supports APLS in different region than storage mover resource.
+- Fixed failure with Single endpoint testing for storage account name starting with number.
+- Upgraded Mover VM Linux version to 6.8.0-1064-azure.
+- Removed strict check of ACL version for SMB to Azure Files SMB share migration.
+- Supports VMXNET3 Ethernet Controller by using the official OVA image.
+
+#### Steps to enable VMXNET3 Ethernet Controller
+
+The OVA defaults to the e1000e network adapter. To enable the VMXNET3 Ethernet Controller, follow these steps:
+
+1. Use the OVA package from [Download Azure Storage Mover Agent from Official Microsoft Download Center](https://aka.ms/StorageMover/agent) and create the VM.
+1. Power off the VM. By using **Edit Settings** for the VM, update the network adapter type to **VMXNET 3**.
+
+   :::image type="content" source="media/release-notes/vmxnet3-network-adapter.png" alt-text="Screenshot of the VM settings showing Network Adapter 1 with the Adapter Type set to VMXNET 3.":::
+
+1. Start the VM.
 
 
 ## 2025 October 22
@@ -230,7 +255,7 @@ Refresh release notes for:
 - Agent version: 2.0.287
 
 ### Migration scenarios
-Azure Storage mover can migrate your SMB share to Azure file shares (in public preview).
+Azure Storage Mover can migrate your SMB share to Azure file shares (in public preview).
 
 ### Service
 

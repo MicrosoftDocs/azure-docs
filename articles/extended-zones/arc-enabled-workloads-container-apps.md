@@ -3,6 +3,7 @@ title: "Deploy Arc-enabled workloads in an Extended Zone: ContainerApps"
 description: Learn how to deploy arc-enabled ContainerApps in an Extended Zone.
 author: svaldesgzz
 ms.author: svaldes
+ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
 ms.date: 04/30/2026

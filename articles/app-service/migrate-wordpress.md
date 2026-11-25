@@ -1,12 +1,12 @@
 ---
 title: Migrate WordPress to App Service on Linux
 description: Learn how to migrate WordPress from App Service on Windows or from external hosting providers to App Service on Linux.
-author: msangapu-msft
+author: btardif
 ms.service: azure-app-service
 ms.topic: how-to
 ms.date: 12/02/2025
 ms.update-cycle: 1095-days
-ms.author: msangapu
+ms.author: byvinyal
 ms.devlang: php
 ms.custom:
   - linux-related-content

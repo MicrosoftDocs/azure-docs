@@ -4,7 +4,7 @@ description: Learn how to ship your Azure Data Box to Microsoft after the export
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: tutorial
 ms.date: 06/16/2022
 ms.author: shaas

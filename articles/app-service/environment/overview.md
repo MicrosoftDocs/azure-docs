@@ -3,7 +3,7 @@ title: App Service Environment Overview
 description: Learn about App Service Environments, which are fully isolated and single-tenant App Service deployments that provide high-scale, network-secured hosting.
 author: seligj95
 ms.topic: overview
-ms.date: 04/20/2026
+ms.date: 10/05/2026
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -51,13 +51,13 @@ Multitenant App Service apps can use several networking features to reach networ
 
 An App Service Environment is a single-tenant deployment of App Service that runs on your virtual network.
 
-Applications are hosted in App Service plans, which you create in an App Service Environment. An App Service plan serves as a provisioning profile for an application host. As you scale out your App Service plan, you add more application hosts. All apps in that plan run on each host. A single App Service Environment v3 supports up to 200 total instances across all App Service plans. A single App Service Isolated v2 (Iv2) plan supports up to 100 instances.
+You host applications in App Service plans, which you create in an App Service Environment. An App Service plan serves as a provisioning profile for an application host. As you scale out your App Service plan, you add more application hosts. By default, when per-app scaling is disabled, all apps in that plan run on each host. By using [per-app scaling](../manage-scale-per-app.md), an app or deployment slot can run on only a subset of the plan's hosts. A single App Service Environment v3 supports up to 200 total instances across all App Service plans. A single App Service Isolated v2 (Iv2) plan supports up to 100 instances.
 
 If you require physical isolation down to the hardware level, you can deploy your App Service Environment v3 on dedicated hosts.
 
 - Dedicated host deployments limit scaling across all App Service plans to the number of available cores in that environment.
 
-- Each environment has 132 vCores.
+- Each environment has two dedicated hosts with 64 vCores per host, for a total of 128 vCores.
 - Instances sizes use the following vCore allocations:
   - I1v2 uses two vCores.
   - I2v2 uses four vCores.
@@ -65,8 +65,8 @@ If you require physical isolation down to the hardware level, you can deploy you
   
 Only I1v2, I2v2, and I3v2 SKU sizes are available in an App Service Environment deployed on dedicated hosts. Extra charges apply for dedicated host deployments.
 
-> [!NOTE]
-> Dedicated host deployments are available only in limited regions, and expansion to additional regions isn't planned.
+> [!IMPORTANT]
+> Dedicated host deployments are available only in limited regions. If a deployment operation fails with a regional availability or capacity error, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for assistance.
 
 Most customers don't require isolation down to the hardware level, so consider the limitations of dedicated host deployments before you use this feature. To determine whether a dedicated host deployment is right for you, review your security and compliance requirements before deployment.
 
@@ -93,13 +93,14 @@ App Service Environment v3 differs from earlier versions in the following ways:
   Consider the following factors for an environment that has zone redundancy:
  
   - Each App Service plan must have at least two instances to distribute them across zones.
+  - Plan zone redundancy and the minimum plan instance count don't by themselves ensure that an app or deployment slot has two active replicas. A [per-app scaling](../manage-scale-per-app.md) limit of one allows only one active replica for that app or slot.
   - Each App Service plan's zone redundancy status is independent, so you can use a mix of zone-redundant and non-zone-redundant plans.
   - To make plans zone redundant, the App Service Environment must have zone redundancy enabled.
   - You can scale non-zone-redundant plans down to a single instance.
   
   For more information, see [Reliability in App Service Environment](/azure/reliability/reliability-app-service-environment).
 
-- You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
+- You can deploy an App Service Environment v3 on a dedicated host group. Dedicated host deployments aren't zone redundant and don't span availability zones.
 
 - It scales faster than an App Service Environment v2.
 
@@ -130,6 +131,11 @@ You can also use [reserved instance pricing for Iv2](../../cost-management-billi
 ## Regions
 
 App Service Environment v3 is available in the following regions.
+
+> [!NOTE]
+> This table lists regional deployment and availability zone support for App Service Environment v3. It doesn't indicate dedicated host availability, which is limited to select regions.
+>
+> To check dedicated host availability for your subscription, use the [List ASE Regions API](/rest/api/appservice/list-ase-regions/list-ase-regions). Filter the results for `properties.dedicatedHost: true`; `properties.displayName` gives the region name.
 
 ### Azure public regions
 
@@ -191,7 +197,8 @@ App Service Environment v3 is available in the following regions.
 | West US 2            | ✅                           | ✅                          |
 | West US 3            | ✅                           | ✅                          |
 
-\* App Service Environment v3 has limited availability and no support for dedicated host deployments.  
+\* App Service Environment v3 has limited availability.
+
 \** To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative.
 
 ### Azure Government regions

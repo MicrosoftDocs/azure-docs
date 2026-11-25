@@ -1,13 +1,13 @@
 ---
 title: Integrate Oracle Exadata Database@Azure with Azure Key Vault
 description: Follow a comprehensive step-by-step guide for integrating Oracle Exadata Database@Azure with Azure Key Vault.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: how-to
 ms.date: 04/15/2025
 ms.custom: engagement-fy23
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 ---
 
 # Integrate Oracle Exadata Database@Azure with Azure Key Vault
@@ -376,7 +376,7 @@ Manage the lifecycle of the keys in Azure:
 * **Managed HSM**: Follow the [Managed HSM disaster recovery](/azure/key-vault/managed-hsm/disaster-recovery-guide?tabs=uami) guide. For increased availability, see [Enable multi-region replication on Azure Managed HSM](/azure/key-vault/managed-hsm/multi-region-replication).
 * **Standard and Premium**: Automatic replication is enabled for paired regions. For more information, see [Azure Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance).
 
-If you use Oracle Data Guard for DR between two Oracle Exadata Database@Azure VM clusters, use the following tasks to make sure that the DR site is configured similarly. (Cross-region Data Guard scenarios aren't currently supported.)
+If you use Oracle Data Guard for DR between two Oracle Exadata Database@Azure VM clusters, use the following tasks to make sure that the DR site is configured similarly.
 
 * Perform the procedures in [Step 1: Create and prepare a key vault](#step-1-create-and-prepare-a-key-vault) through [Step 5: Register the key vault in OCI](#step-5-register-the-key-vault-in-oci-optional-as-needed) on the DR Exadata VM cluster. You can use the same key vault in the DR region.
 

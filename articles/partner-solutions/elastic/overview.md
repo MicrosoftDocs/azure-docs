@@ -1,10 +1,10 @@
 ---
 title: Elastic integrations overview
-description: Learn about using the Elastic Cloud-Native Observability Platform in Azure Marketplace.
+description: Learn about Elastic Search, Elastic Vector Database, Elastic Observability, and Elastic Security in Azure Marketplace.
 author: pdjokar96
 ms.author: piyushdash
 ms.topic: overview
-ms.date: 07/01/2025
+ms.date: 10/09/2026
 ms.custom:
   - references_regions
 ai-usage: ai-assisted
@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 
 [!INCLUDE [what-is](../includes/what-is.md)]
 
-Elastic on Azure is a set of managed services that deliver search, log analytics, and security monitoring functions for Azure environments. You deploy Elastic resources directly from the Azure portal, and billing flows through your Azure subscription.
+Elastic on Azure is a set of managed services that deliver search, vector database, log analytics, and security monitoring functions for Azure environments. You deploy Elastic resources directly from the Azure portal, and billing flows through your Azure subscription.
 
 ## Why use the Azure Native Integration?
 
@@ -31,17 +31,21 @@ You can run Elastic independently, but the Azure Native Integration simplifies t
 
 ## Available services
 
-Elastic on Azure offers three distinct services, each tailored to a specific workload:
+Elastic on Azure offers four distinct services, each tailored to a specific workload:
 
 | Service | Use case | What it does |
 |---------|----------|-------------|
-| **Elastic Cloud (Elasticsearch)** | Search and analytics | Stores, searches, and analyzes structured and unstructured data at scale. Supports full-text search, vector search, and semantic search |
+| **Elastic Search** | Search and analytics | Stores, searches, and analyzes structured and unstructured data at scale. Supports full-text search, vector search, and semantic search |
+| **Elastic Vector Database** | AI-powered retrieval | Provides a serverless, vector-optimized Elasticsearch project for semantic search, retrieval-augmented generation (RAG), and AI-powered retrieval. Includes built-in embedding models and the `semantic_text` field type |
 | **Elastic Observability** | Monitoring and APM | Collects logs, metrics, and traces to monitor application performance and infrastructure health. Includes alerting and anomaly detection |
 | **Elastic Security** | Threat detection and response | Analyzes security events for threat detection, investigation, and incident response across Azure resources. Includes SIEM and endpoint protection |
+
+In the Azure portal, the **Elastic Cloud (Elasticsearch)** Marketplace offer is labeled **Elastic Search**.
 
 Each service is available as a separate Marketplace offering with its own pricing and configuration:
 
 - [Elastic Cloud (Elasticsearch)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+- [Elastic Vector Database](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-vector?tab=Overview)
 - [Elastic Observability](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-observability?tab=Overview)
 - [Elastic Security](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-security?tab=Overview)
 
@@ -52,7 +56,7 @@ When you create an Elastic resource in Azure:
 1. **Azure provisions a managed resource** (`Microsoft.Elastic/monitors`) in your chosen resource group and region.
 2. **Elastic creates the deployment** — either a serverless project (auto-scaling, usage-based) or a cloud-hosted cluster (dedicated, managed) in the same region.
 3. **Azure configures log forwarding** — subscription activity logs and resource diagnostic logs are routed to Elastic based on your tag rules.
-4. **SSO is established** — Microsoft Entra ID is linked so your team can access the Elastic portal without separate credentials.
+4. **SSO is established** — Microsoft Entra ID is linked so your team can access the Elastic portal without separate credentials. First-time use in a tenant might require user or administrator consent.
 
 Data stays in the Azure region where the service is deployed.
 
@@ -77,7 +81,7 @@ For more Elastic specific billing details, see the Elastic [Billing FAQ](https:/
 
 ## Serverless vs. cloud-hosted
 
-When creating an Elastic resource, you choose between two hosting types:
+When you create an Elastic Search, Elastic Observability, or Elastic Security resource, choose between two hosting types:
 
 | Aspect | Serverless | Cloud hosted |
 |--------|-----------|-------------|
@@ -87,6 +91,8 @@ When creating an Elastic resource, you choose between two hosting types:
 | **Best for** | Variable workloads, getting started quickly | Predictable workloads, specific version requirements |
 
 For more information about differences between hosting types, see [Differences from other Elasticsearch offerings](https://www.elastic.co/docs/deploy-manage/deploy/elastic-cloud/differences-from-other-elasticsearch-offerings) in the Elastic documentation.
+
+Elastic Vector Database is serverless only. Elastic manages scaling and applies vector-optimized defaults automatically.
 
 ## Key capabilities
 
@@ -100,7 +106,7 @@ All Elastic consumption is tracked and billed through your Azure subscription. V
 
 ### Single sign-on with Microsoft Entra ID
 
-Access Elastic services using your Entra ID credentials. SSO is automatically enabled for all Azure users when you create an Elastic resource.
+Access Elastic services using your Entra ID credentials. The first time a user selects an SSO link in a tenant with no earlier Elastic resources, Microsoft Entra ID might request consent for the Elasticsearch (Elastic Cloud) app. If your organization requires administrator consent, a tenant administrator must approve the app. A tenant administrator can optionally add the gallery app beforehand to avoid the prompt.
 
 ### Automated log forwarding
 
@@ -113,6 +119,10 @@ Deploy and manage Elastic Agents on Azure virtual machines directly from the Azu
 ### Azure OpenAI integration
 
 Connect your Elastic deployment with Azure OpenAI to enable AI-powered search experiences, including semantic search and retrieval-augmented generation (RAG).
+
+### Vector database experience
+
+Elastic Vector Database provides a guided serverless experience for embedding-driven workloads. From the resource overview, you can ingest documents and generate embeddings automatically, chat with your data by using Elastic Agent Builder, or run a prefilled semantic search query in Dev Tools.
 
 ### Traffic filters
 
@@ -129,9 +139,13 @@ Elastic on Azure is available in the following regions. Select a region close to
 - Australia East
 - Southeast Asia
 - North Europe
+- Sweden Central
+- Central US
 - Germany West Central
 - Spain Central
-- East US 2
+- UAE North
+- Brazil South
+- East US 2 EUAP
 
 ### Cloud-hosted regions
 
@@ -157,6 +171,7 @@ Elastic on Azure is available in the following regions. Select a region close to
 [!INCLUDE [subscribe](../includes/subscribe.md)]
 
 - [Elastic Cloud (Elasticsearch)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+- [Elastic Vector Database](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-vector?tab=Overview)
 - [Elastic Observability](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-observability?tab=Overview)
 - [Elastic Security](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-security?tab=Overview)
 

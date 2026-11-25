@@ -1,10 +1,10 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.custom: linux-related-content
 ms.topic: include
 ms.date: 06/24/2021
-ms.author: alkohli
+ms.author: scompton
 ---
 
 Connect to the VM by using the private IP that you passed during the VM creation.

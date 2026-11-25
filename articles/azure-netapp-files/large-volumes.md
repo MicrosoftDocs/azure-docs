@@ -18,23 +18,19 @@ Volumes in Azure NetApp Files are the way you present high performance, cost-eff
 
 All resources in Azure NetApp files have [limits](azure-netapp-files-resource-limits.md). _Regular_ volumes have the following limits: 
 
-| Limit type | Limits | 
+| Limit type  | Limits| 
 | - | - | 
 | Capacity | <ul><li>50 GiB minimum</li><li>100 TiB maximum</li></ul> |
-| File count | 2,147,483,632 |
 | Performance | <ul><li>Standard: 1,600 MiB/s</li><li>Flexible: 4,500 MiB/s</li><li>Premium: 4,500 MiB/s</li><li>Ultra: 4,500 MiB/s</li></ul> |
 
-Large volumes have the following limits. With cool-access enabled, you can create volumes up to 7.2 PiB.
+Large volumes have the following limits:
 
 | Limit type | Values | 
 | - | - | 
-| Capacity | Large volumes <br><ul><li>50 TiB minimum</li><li>1 PiB maximum (or [2 PiB by special request](azure-netapp-files-resource-limits.md#request-limit-increase))</li></ul> <br>Large volumes with breakthrough mode<br> <ul><li>2,400 GiB minimum</li><li>2,400 TiB maximum</li></ul><br>Extra-large volumes up to 7.2 PiB<br> <ul><li>2,400 GiB minimum</li><li>7.2 PiB maximum</li></ul>|
-| File count | 15,938,355,048 |
-| Performance | The large volume performance limit is 12,800 MiB/s on all service levels. With breakthrough mode enabled, large volume performance is no longer constrained by a predefined limit. Depending on workload characteristics, throughput of up to 50 GiB/s on a single volume is achievable. |
+| Capacity | Large volumes <br><ul><li>50 TiB minimum</li><li>1 PiB maximum (or [2 PiB by special request](azure-netapp-files-resource-limits.md#request-limit-increase))</li></ul> <br>Large volumes with breakthrough mode<br> <ul><li>2,400 GiB minimum</li><li>2,400 TiB maximum</li></ul><br>Extra-large volumes up to 7.2 PiB with cool access enabled<br> <ul><li>2,400 GiB minimum</li><li>7.2 PiB maximum</li></ul>|
+| Performance | The large volume performance limit is 12,800 MiB/s on all service levels. With breakthrough mode enabled, large volume performance is no longer constrained by a predefined limit. Depending on workload characteristics, throughput of up to 80 GiB/s on a single volume is achievable. |
 
->[!NOTE]
->When creating **Extra-large volumes (up to 7.2 PiB)**, you must enable cool access at the time of volume creation.
-
+All resources in Azure NetApp files have [maximum limits](maxfiles-concept.md).
 
 >[!IMPORTANT]
 >Azure NetApp Files supports large volumes up to 1 PiB (or higher by special request), however large volume size increases are subject to regional and storage capacity availability. Actual capacity may vary by region. Customers planning volumes larger than 100 TiB are encouraged to work with their Microsoft account teams early to confirm availability and expected timeline. (This applies only to large volumes and is independent of service level. This does not apply to large volume breakthrough mode and extra-large volume with cool access)
@@ -58,8 +54,8 @@ This table summarizes the relative IOPS performance improvements across volume t
 
 | Metrics | Large volume vs regular volume |  Large volume breakthrough mode vs regular volume  | Large volume breakthrough mode vs large volume  | 
 | - | - | - | - | 
-| Write IOPS | 3.9x | 8.2x | 2.1x | 
-| Read IOPS | 1.8x | 4.8x | 2.6x | 
+| Write IOPS | 3.9x | 12.4x | 3.16x | 
+| Read IOPS | 1.8x | 11.16x | 6.1x | 
 
 
 :::image type="content" source="./media/large-volumes/large-volume-throughput.png" alt-text="Diagram comparing large and regular volumes with sequential I/O." lightbox="./media/large-volumes/large-volume-throughput.png":::
@@ -70,11 +66,11 @@ This table summarizes the relative throughput improvements across volume types, 
 
 | Metrics | Large volume vs regular volume |  Large volume breakthrough mode vs regular volume  | Large volume breakthrough mode vs large volume  | 
 | - | - | - | - | 
-| Max Write Throughput | 3.4x | 8.4x | 2.5x | 
-| Max Read Throughput | 2.7x | 14.4x | 3.9x | 
+| Max Write Throughput | 3.4x | 12.6x | 3.7x | 
+| Max Read Throughput | 3.7x | 23.0x | 6.3x | 
 
 
-## Work load types and use cases
+## Workload types and use cases
 
 Regular volumes can handle most workloads. Once capacity, file count, performance, or scale limits are reached, new volumes must be created. This condition adds unnecessary complexity to a solution.
 
@@ -83,7 +79,7 @@ Large volumes allow workloads to extend beyond the current limitations of regula
 | Volume type | Primary use cases | 
 | - | --- |
 | Regular volumes | <ul><li>General file shares</li><li>SAP HANA and databases (Oracle, SQL Server, Db2, and others)</li><li>VDI/Azure VMware Solution</li><li>Capacities less than 50 TiB</li></ul> |
-| Large volumes | <ul><li>General file shares</li><li>High file count or high metadata workloads (such as electronic design automation, software development, financial services)</li><li>High capacity workloads (such as AI/ML/LLP, oil & gas, media, healthcare images, backup, and archives)</li><li>Large-scale workloads (many client connections such as FSLogix profiles)</li><li>High performance workloads</li><li>Capacity quotas between 50 TiB and 1-2 PiB, or with cool access enabled 2,400 GiB and 7.2 PiB</li></ul> |
+| Large volumes | <ul><li>General file shares</li><li>High file count or high metadata workloads (such as electronic design automation, software development, financial services)</li><li>High capacity workloads (such as AI/ML/LLP, oil & gas, media, healthcare images, backup, and archives)</li><li>Large-scale workloads (many client connections such as FSLogix profiles)</li><li>High performance workloads</li><li>Capacity quotas between 50 TiB and 1-2 PiB.</li></ul> |
 | Large volumes breakthrough mode | All use cases involving large volumes, as well as those demanding throughput and concurrency beyond the capabilities of large volumes, such as HPC and EDA workloads. |
 
 ## More information

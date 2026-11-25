@@ -4,8 +4,8 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to add, update, and delete project environment types in Azure Deployment Environments. Define project-level deployment settings and permissions.
 ms.service: azure-deployment-environments
 ms.custom: build-2023
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 05/07/2026
 ms.topic: how-to
 

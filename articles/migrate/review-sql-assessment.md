@@ -1,14 +1,14 @@
 ---
 title: How to review the assessments created for migration to SQL Server on Azure VM, Azure SQL Managed Instance and Azure SQL Database
-description: Learn how to review assessment for Azure SQL in Azure Migrate
+description: Learn how to review assessment for Azure SQL in Azure Catalyst
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 04/17/2025
+ms.update-cycle: 1095-days
 ms.custom: engagement-fy24
-monikerRange:
 # Customer intent: As a database administrator, I want to review SQL assessments created for migration to Azure SQL services, so that I can understand readiness and cost estimates for my SQL deployments and make informed decisions for the migration process.
 ---
 
@@ -20,7 +20,7 @@ This article describes the various components of a SQL assessment and how you ca
 
 Follow these steps to view the assessment that you created.
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to Azure SQL assessment.
+1. In **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**, select the number next to Azure SQL assessment.
 2. Select the assessment name, which you wish to view. *For example*, estimations and costs.
       
       :::image type="content" source="./media/tutorial-assess-sql/assessment-sql-summary-inline.png" alt-text="Screenshot of Overview of SQL assessment." lightbox="./media/tutorial-assess-sql/assessment-sql-summary-expanded.png":::
@@ -95,7 +95,7 @@ You can review readiness reports for different migration strategies:
         - Ready: The instance is ready to be migrated to Azure VM/Azure SQL MI/Azure SQL DB without any migration issues but has some migration warnings that you need to review. Select **Ready** to review the migration warnings and the recommended remediation guidances.
     - **Ready with conditions**: The instance/server has one or more migration issues for migrating to Azure VM/Azure SQL MI/Azure SQL DB. You can select the hyperlink and review the migration issues and the recommended remediation guidance.
     - **Not ready**: The assessment could not find a SQL Server on Azure VM/Azure SQL MI/Azure SQL DB configuration meeting the desired configuration and performance characteristics. Select the hyperlink to review the recommendation to make the instance/server ready for the desired target deployment type.
-    - **Unknown**: Azure Migrate can't assess readiness, because the discovery is in progress or there are issues during discovery that need to be fixed from the notifications blade. If the issue persists, contact [Microsoft support](https://support.microsoft.com).
+    - **Unknown**: Azure Catalyst can't assess readiness, because the discovery is in progress or there are issues during discovery that need to be fixed from the notifications blade. If the issue persists, contact [Microsoft support](https://support.microsoft.com).
 
 1. Select the instance name and drill-down to see the number of user databases, instance details including instance properties, compute (scoped to instance) and source database storage details.
 1. Select the number of user databases to review the list of databases and their details.
@@ -116,7 +116,7 @@ The assessment summary shows the estimated monthly compute and storage costs for
 
 ### Review performance coverage
 
-Azure Migrate assigns a performance coverage to all Azure SQL assessments based on the availability of the performance/utilization data points needed to compute the assessment for all the assessed SQL instances and databases. 
+Azure Catalyst assigns a performance coverage to all Azure SQL assessments based on the availability of the performance/utilization data points needed to compute the assessment for all the assessed SQL instances and databases. 
 The performance coverage helps you estimate the reliability of size recommendations in the assessment. Confidence ratings are as follows:
 
 

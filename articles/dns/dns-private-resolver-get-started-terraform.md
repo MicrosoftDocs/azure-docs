@@ -78,16 +78,17 @@ The following figure summarizes the general setup used. Subnet address ranges us
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Run `az network dns record-set list` to view the DNS Private Resolver service.
+1. Run `az dns-resolver list` to view the DNS private resolvers in the resource group.
 
    ```azurecli
-   az network dns record-set list --output table
+   az dns-resolver list --resource-group $resource_group_name --output table
    ```
 
-1. Run `az network private-dns zone show` to view the DNS Private Resolver service within the resource group.
+1. Run `az dns-resolver show` to view the details of the DNS private resolver.
 
     ```azurecli
-    az network private-dns zone show --name $private_dns_zone_name --resource-group $resource_group_name 
+    dns_resolver_name=$(az dns-resolver list --resource-group $resource_group_name --query "[0].name" --output tsv)
+    az dns-resolver show --name $dns_resolver_name --resource-group $resource_group_name
     ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
@@ -98,16 +99,17 @@ The following figure summarizes the general setup used. Subnet address ranges us
     $resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Run `Get-AzDnsRecordSet` to view the DNS Private Resolver service.
+1. Run `Get-AzDnsResolver` to view the DNS private resolvers in the resource group.
 
     ```azurepowershell
-    Get-AzDnsRecordSet -ZoneName $private_dns_zone_name -ResourceGroupName $resource_group_name | Format-Table
+    Get-AzDnsResolver -ResourceGroupName $resource_group_name | Format-Table
     ```
 
-1. Run `Get-AzPrivateDnsZone` to view the DNS Private Resolver service within the resource group.
+1. Run `Get-AzDnsResolver` with the resolver name to view the details of the DNS private resolver.
 
     ```azurepowershell
-    Get-AzPrivateDnsZone -Name $private_dns_zone_name -ResourceGroupName $resource_group_name
+    $dns_resolver_name = (Get-AzDnsResolver -ResourceGroupName $resource_group_name)[0].Name
+    Get-AzDnsResolver -Name $dns_resolver_name -ResourceGroupName $resource_group_name
     ```
 
 ---

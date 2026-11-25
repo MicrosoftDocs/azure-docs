@@ -1,11 +1,11 @@
 ---
 title: Azure Container Storage Release Notes
 description: Release notes for Azure Container Storage
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.topic: release-notes
-ms.date: 01/30/2026
-ms.author: kendownie
+ms.date: 10/30/2026
+ms.author: schoag
 # Customer intent: "As a cloud administrator, I want to review the latest release notes for Azure Container Storage so that I can stay informed about new features, bug fixes, and support status for proper planning and management of my storage deployments."
 ---
 # Azure Container Storage release notes
@@ -18,6 +18,8 @@ The following Azure Container Storage versions are supported:
 
 | Milestone | Status |
 |-----------|--------|
+|2.2.1 - Patch Release | Supported |
+|1.4.2 - Patch Release | Supported |
 |2.2.0 - Minor Release | Supported |
 |1.4.1 - Patch Release | Supported |
 |2.1.0 - Minor Release | Supported |
@@ -27,11 +29,57 @@ The following Azure Container Storage versions are supported:
 
 ## Unsupported versions
 
-The following Azure Container Storage versions are no longer supported: 1.0.6-preview, 1.0.3-preview, 1.0.2-preview, 1.0.1-preview, 1.0.0-preview and any versions below 1.4.0. See [Upgrade a preview installation to GA](#upgrade-a-preview-installation-to-ga) for upgrading guidance.
+The following Azure Container Storage persistent-volume releases are no longer supported: 1.0.6-preview, 1.0.3-preview, 1.0.2-preview, 1.0.1-preview, 1.0.0-preview and any persistent-volume release below 1.4.0. See [Upgrade a preview installation to GA](#upgrade-a-preview-installation-to-ga) for upgrading guidance.
+
+DACS uses a separate extension and version sequence. These persistent-volume version thresholds don't apply to DACS. Check the installed extension's `currentVersion` and `releaseTrain` by following [Verify the extension](distributed-accelerator-for-cloud-storage-quickstart.md#verify-the-extension). The product's preview status doesn't require the extension's release train to be named `preview`.
 
 ## Major vs. minor vs. patch releases
 
 A **major release** introduces significant changes, often including new features, architectural updates, or breaking changes; for example, moving from version 1.1.0 to 2.0.0. A **minor release** adds enhancements or new functionality that are backward-compatible, such as moving from version 1.2.0 to 1.3.0. Lastly, a **patch release** focuses on resolving critical bugs, security issues, or minor optimizations while maintaining backward compatibility, such as moving from version 1.1.1 to 1.1.2, and is intended to ensure stability and reliability without introducing new features.
+
+## Distributed accelerator for cloud storage preview
+
+Distributed accelerator for cloud storage (DACS) preview adds a distributed, read-through NVMe cache for Azure Blob data on AKS. It primarily accelerates model loading for inference and can also accelerate repeated dataset reads for training.
+
+### Preview capabilities
+
+- Azure CLI enablement by using the `distributedAccelerator` capability, which installs the separate `distributedaccelerator` managed extension, controller, and NVMe prerequisite DaemonSet. The managed prerequisites prepare disks on labeled cache nodes; a Cache resource is created separately.
+- Distributed cache servers on Linux nodes with local NVMe.
+- Native Python client and Run:ai Model Streamer integrations.
+- Prefetch for planned model warm-up.
+- x64 and Arm64 support.
+- Scale up to 100 nodes.
+- Direct Blob fallback when model data isn't cached or the cache is unavailable.
+
+### Known limitations
+
+- Azure Blob Storage is the only supported origin. Direct Hugging Face, S3, and Google Cloud Storage origins aren't supported.
+- Coordinated cold-cache population isn't available. Concurrent cold readers can independently retrieve the same missing model data from Azure Blob Storage.
+- Dataset-read acceleration for training doesn't provide persistent storage for training outputs or checkpoints.
+- Upgrade compatibility depends on the target release. Follow release-specific guidance rather than assuming arbitrary preview versions support in-place upgrades.
+- Distributed accelerator for cloud storage is ephemeral and doesn't provide persistent-volume or shared-filesystem semantics.
+- Preview features are provided without a service-level agreement.
+
+For installation and verification, see [Get started with distributed accelerator for cloud storage on AKS](distributed-accelerator-for-cloud-storage-quickstart.md). To configure customer-managed metric scraping, see [Monitor distributed accelerator for cloud storage](monitor-distributed-accelerator-for-cloud-storage.md).
+
+## Version 2.2.1
+
+### Improvements and new features
+
+#### Local NVMe-backed Storage
+- **Volume expansion reliability**: Fixed an issue where local NVMe-backed persistent volumes didn't expand correctly. Volume expansion now works reliably, including after workload failover scenarios. 
+- **Improved provisioning resiliency**: Fixed issues that could prevent local NVMe volume provisioning after interrupted cleanup operations, improving recovery and reducing manual intervention requirements. 
+#### Azure Elastic SAN
+- **Node taint support for Azure Elastic SAN**: Azure Elastic SAN CSI driver components now automatically run on tainted nodes, improving compatibility with clusters that use dedicated or specialized node pools.
+#### General Enhancements
+- **Reduced resource consumption**: Improved the efficiency of Azure Container Storage components, reducing memory usage and API server load in large-scale deployments.
+- **Security enhancements**: Resolved security vulnerabilities through component, dependency, and container image updates.  
+
+## Version 1.4.2
+
+### Improvements and issues that are fixed
+
+- Resolved security vulnerabilities through component updates.
 
 ## Version 2.2.0
 
@@ -164,6 +212,8 @@ Azure Container Storage follows a transparent and predictable support lifecycle,
 
 | Release version | Release Date  | End of Life | Supported Kubernetes Versions |
 |-----------------|---------------|-------------|-------------------------------|
+|2.2.1 - Patch Release | 08/20/2026 | 08/19/2027 | 1.36, 1.35, 1.34 |
+|1.4.2 - Patch Release | 08/20/2026 | 08/19/2027 | 1.36, 1.35, 1.34 |
 |2.2.0 - Minor Release | 06/18/2026 | 06/17/2027 | 1.35, 1.34, 1.33 |
 |1.4.1 - Patch Release | 2/17/2026  | 12/15/2026 | 1.34, 1.33, 1.32 |
 |2.1.0 - Minor Release | 02/03/2026 | 02/02/2027 | 1.34, 1.33, 1.32 |

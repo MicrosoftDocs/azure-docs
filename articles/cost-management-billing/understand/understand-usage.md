@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 04/29/2026
+ms.date: 11/19/2026
 ms.author: jkinma
 #customer intent: As a billing administrator, I want to understand usage and charges so that I can manage Azure billing.
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
@@ -19,7 +19,7 @@ purchases (for example, reservations, Marketplace fees), and refunds for the spe
 Fees don't include credits, taxes, or other charges or discounts. You manually download the usage and charges file.
 
 ## Charges for account types
-The information in the usage and charges file is the same information that's [exported from Cost Management](../costs/tutorial-improved-exports.md). And, it's the same information that gets retrieved from the Cost Details API. For more information about choosing a method to get cost details, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
+The information in the usage and charges file is the same information that's [exported from Cost Management](../costs/tutorial-improved-exports.md). And, it's the same information that gets retrieved from the Cost Details API. A downloaded file keeps its schema version, and new columns, such as `priceFactors` and `supplementalChargeDetails`, are added at the end of the file. To select a dataset version, such as 2026-10-01, use exports. For more information, see [Compare downloads and exports](compare-downloads-exports.md). For more information about choosing a method to get cost details, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
 
 The following table covers which charges are included for each account type.
 

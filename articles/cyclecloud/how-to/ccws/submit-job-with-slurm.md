@@ -4,7 +4,7 @@ description: Learn how to submit, monitor, and manage your first job on an Azure
 author: xpillons
 ms.date: 06/19/2026
 ms.topic: how-to
-ms.author: padmalathas
+ms.author: mattmcinnes
 ---
 
 # Submit your first job on CycleCloud with Slurm

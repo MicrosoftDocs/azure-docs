@@ -2,8 +2,8 @@
 title: 'Azure DevTest Labs overview: Features, scenarios, and benefits'
 description: Azure DevTest Labs enables fast, cost-effective creation and management of Azure virtual machines for development and testing. Discover key features and benefits.
 ms.topic: overview
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 05/29/2025
 ms.custom:
   - UpdateFrequency2

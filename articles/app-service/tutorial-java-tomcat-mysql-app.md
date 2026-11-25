@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Linux Java app with Tomcat and MySQL'
 description: Learn how to get a data-driven Linux Tomcat app working in Azure App Service, with connection to a MySQL running in Azure.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/25/2026
@@ -66,7 +66,7 @@ You can quickly deploy the sample app in this tutorial and see it running in Azu
 ```bash
 mkdir msdocs-tomcat-mysql-sample-app
 cd msdocs-tomcat-mysql-sample-app
-azd init --template msdocs-tomcat-mysql-sample-app
+azd init --template msdocs-tomcat-mysql-sample-app .
 azd up
 ```
 

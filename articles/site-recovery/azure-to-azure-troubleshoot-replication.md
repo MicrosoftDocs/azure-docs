@@ -2,7 +2,7 @@
 title: Troubleshoot replication of Azure VMs with Azure Site Recovery
 description: Troubleshoot replication in Azure VM disaster recovery with Azure Site Recovery.
 ms.topic: troubleshooting
-ms.date: 12/09/2025
+ms.date: 10/15/2026
 author: Jeronika-MS
 ms.author: v-gajeronika 
 ms.service: azure-site-recovery
@@ -33,14 +33,11 @@ You should see the event **Data change rate beyond supported limits**:
 
 If you select the event, you should see the exact disk information:
 
- 
-
 ### Azure Site Recovery limits
 
 The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they can't cover all possible application input-output (I/O) combinations. Actual results can vary based on your application I/O mix.
 
 There are two limits to consider: data churn per disk and data churn per virtual machine. Review churn limits [here](./azure-to-azure-support-matrix.md#limits-and-data-change-rates).
-
 
 ### Solution
 
@@ -64,7 +61,6 @@ A spike in data change rate might come from an occasional data burst. If the dat
 
 > [!IMPORTANT]
 > The churn limit supported by Azure Site Recovery depends on the disk size of the replica Premium SSD. This limit remains the same even if you [change the performance tier](/azure/virtual-machines/disks-change-performance) of the replica disk.  For example, if you have Premium SSD replica disk of disk size 128 GiB created, its base performance tier is P10. If you update its performance tier to P50 without changing the disk size, the churn limit won't change.  
-
 
 ### Disk tier/SKU change considerations
 
@@ -174,22 +170,20 @@ Restart the following services:
     ```powershell
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}?api-version=2025-01-01
     ```
-1.  Open the RCMInfo.conf file on the source machine. The location of the file is as follows:
+2.  Open the RCMInfo.conf file on the source machine. The location of the file is as follows:
 
    - Windows: `C:\ProgramData\Microsoft Azure Site Recovery\Config\RCMInfo.conf`
    - Linux: `/usr/local/InMage/config/RCMInfo.conf`
-1. Update the `AADTenantId`, `AADClientId`, and tenantid of `AADAudienceUri` with the new tenant details fetched from step 1 and save the file by using the following format:
+3. Update the `AADTenantId`, `AADClientId`, and tenantid of `AADAudienceUri` with the new tenant details fetched from step 1 and save the file by using the following format:
 
    ```
    AADTenantId=<mobilityAgentTenantIdToUpdate>
    AADClientId=<mobilityAgentClientIdToUpdate>
    AADAudienceUri=api://<mobilityAgentTenantIdToUpdate>/RecoveryServiceContainer/eastus2euap/1394977864085472368/3134366
    ```
-1. Restart the following services:
+4. Restart the following services:
    - **Windows**: "InMage Scout VX Agent - Sentinel/Outpost", "InMage Scout Application Service"
    - **Linux**: vxagent, appservice
-
-
 
 ## Next steps
 

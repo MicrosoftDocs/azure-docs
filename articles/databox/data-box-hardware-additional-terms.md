@@ -3,7 +3,7 @@ title: Azure Data Box hardware additional terms
 description: Describes additional terms for Azure Data Box hardware.
 services: databox
 author: stevenmatthew
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: concept-article
 ms.date: 09/13/2022
 ms.author: shaas

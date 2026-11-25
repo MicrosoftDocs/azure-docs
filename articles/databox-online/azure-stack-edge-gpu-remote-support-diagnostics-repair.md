@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 07/27/2023
-ms.author: sipastak
+ms.author: scompton
 
 ---
 # Remote support and diagnostics for Azure Stack Edge 

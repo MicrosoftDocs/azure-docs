@@ -4,8 +4,8 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/03/2026
-ms.author: kendownie
+ms.date: 11/18/2026
+ms.author: normesta
 ms.custom:
   - build-2025
 # Customer intent: As a cloud storage administrator, I want to stay informed about the latest features and enhancements in Azure Files and Azure File Sync, so that I can leverage new capabilities for improved security, performance, and data management in my organization.
@@ -17,11 +17,35 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ## What's new in 2026
 
+### 2026 Quarter 4 (October, November, December)
+
+#### NFS Azure file shares on HDD are in preview
+
+NFS support for the HDD media tier is in preview for both Microsoft.FileShares and Microsoft.Storage resource providers. NFS HDD file shares use the provisioned v2 billing model and support only locally redundant storage (LRS). To learn more, see [NFS on HDD preview](create-file-share.md#nfs-on-hdd-preview).
+
+#### Simplified Azure File Sync onboarding for Arc-enabled Windows Servers (Preview)
+
+Azure File Sync now offers a guided Azure portal experience to simplify onboarding Arc-enabled Windows Servers. This streamlined workflow brings together agent installation, server registration, and synchronization with Azure Files, helping customers enable hybrid file access or migrate data to Azure while retaining their familiar Windows Server experience. [Learn more](../file-sync/file-sync-deployment-guide.md?tabs=azure-portal%2Cproactive-portal#install-on-azure-arc-enabled-servers)
+
+#### In place provisioned v1 to provisioned v2 storage account upgrade is now in limited public preview 
+
+Organizations can now upgrade their existing provisioned v1 storage accounts to provisioned v2 storage accounts without downtime, enabling access to the latest pricing and feature benefits. To learn more, read the instructions in the [documentation](./modify-file-share.md#change-the-billing-model-of-a-storage-account).
+
+#### Azure Files-to-Azure Files data copy and synchronization using Azure Storage Mover is now in public preview
+
+You can now copy and synchronize SMB file shares across storage accounts, Azure regions, and subscriptions within the same tenant using Azure Storage Mover. This capability enables scheduled, incremental transfers to maintain secondary copies for business continuity, consolidate file shares, and move data closer to applications and analytics workloads. To learn more, read [Get started with Azure Files-to-Azure Files data copy in Azure Storage Mover](../../storage-mover/azure-files-to-azure-files-copy.md)
+
+#### File shares using Microsoft.FileShares are now available in 12 additional regions
+
+You can now create file shares using the Microsoft.FileShares resource provider in Central US, West Central US, East US 2, West US 2, Denmark East, Belgium Central, Austria East, New Zealand North, Malaysia West, Chile Central, Indonesia Central, and West US 3. This expansion brings regional availability to 51 regions.
+
+For details, see [Regional availability](./files-management-concepts.md#regional-availability).
+
 ### 2026 quarter 2 (April, May, June)
 
 #### Microsoft Entra ID-based authentication for Azure Files on macOS is now in public preview
 
-Mac users can now access Azure file shares securely using their Entra ID credentials, with no storage account keys, no credential prompts, and no complex configuration. This brings MacOS to full parity with the traditional Windows SMB share experience, backed by the same identity governance that organizations apply across their environments. Organizations can extend a consistent, cloud-native file access model to every device in their fleet, with no on-premises AD infrastructure dependency.
+Mac users can now access Azure file shares securely using their Entra ID credentials, with no storage account keys, no credential prompts, and no complex configuration. This brings macOS to full parity with the traditional Windows SMB share experience, backed by the same identity governance that organizations apply across their environments. Organizations can extend a consistent, cloud-native file access model to every device in their fleet, with no on-premises AD infrastructure dependency.
 
 To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/secure-modern-access-to-azure-files-on-macos-with-ms-entra-id/4524077).
 
@@ -95,7 +119,7 @@ Windows servers connected through Azure Arc can now install the Azure File Sync 
 
 #### Encryption in Transit (EiT) for NFS file shares is now generally available
 
-With the launch of Encryption in Transit for NFSv4.1 shares, Azure Files now delivers enterprise-grade security on par with industry standards, closing a key security gap for enterprise workloads. [Learn more](encryption-in-transit-for-nfs-shares.md).
+With the launch of Encryption in Transit for NFSv4.1 shares, Azure Files now delivers enterprise-grade security on par with industry standards, closing a key security gap for enterprise workloads. [Learn more](files-encryption-in-transit.md).
 
 #### Metadata caching for SSD SMB file shares is now generally available
 
@@ -137,7 +161,7 @@ When managed identities are configured for an Azure File Sync deployment, system
 -	Registered server authentication to Azure file share 
 -	Registered server authentication to Storage Sync Service
 
-Public preview is available in all Azure Public and Gov regions supported by Azure File Sync. There's no additional cost to configure Azure File Sync to use managed identities. To learn more, see [How to use managed identities with Azure File Sync (preview)](../file-sync/file-sync-managed-identities.md).
+Public preview is available in all Azure Public and Gov regions supported by Azure File Sync. There's no additional cost to configure Azure File Sync to use managed identities. To learn more, see [How to use managed identities with Azure File Sync (preview)](../file-sync/file-sync-managed-identities.md).
 
 #### Azure File Sync v19 release
 
@@ -147,7 +171,7 @@ The Azure File Sync v19 release improves performance, security, and adds support
 - Preview: Managed Identities support for Azure File Sync service and servers
 - Azure File Sync agent support for Windows Server 2025
 
-To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md#version-19100).
+To learn more, see the [Azure File Sync release notes](../file-sync/file-sync-release-notes.md).
 
 #### Provisioned v2 for HDD file shares
 The provisioned v2 model for Azure Files HDD (standard) pairs predictability of total cost of ownership with flexibility, allowing you to create a file share that meets your exact storage and performance requirements. Provisioned v2 shares enable independent provisioning of storage, IOPS, and throughput. In addition to predictable pricing and flexible provisioning, provisioned v2 also enables increased scale and performance, up to 256 TiB, 50,000 IOPS, and 5 GiB/sec of throughput; and per share monitoring.
@@ -228,7 +252,7 @@ This preview enables share-level read and write access to SMB file shares for us
 
 #### AD Kerberos authentication for Linux clients (SMB) is generally available
 
-Azure Files customers can now use identity-based Kerberos authentication for Linux clients over SMB using either on-premises Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS). For more information, see [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
+Azure Files customers can now use identity-based Kerberos authentication for Linux clients over SMB by using either on-premises Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services. For configuration steps, see [Configure Linux clients for Azure Files with on-premises AD DS](storage-files-identity-auth-linux-kerberos-enable.md) and [Configure Linux clients for Azure Files with Microsoft Entra Domain Services](storage-files-identity-auth-linux-kerberos-entra-domain-services.md).
 
 ### 2023 quarter 1 (January, February, March)
 #### NFS nconnect for Azure file shares is generally available

@@ -66,7 +66,7 @@ The following table includes articles that describe how to protect your network 
 | Title | Description |
 |--|--|
 | [Network security best practices](../security/fundamentals/network-best-practices.md) | Discusses a collection of Azure best practices to enhance your network security. |
-| [Azure Firewall Architecture Guide](/azure/architecture/example-scenario/firewalls/) | Provides a structured approach for designing highly available firewalls in Azure using third-party virtual appliances. |
+| [Deploy highly available NVAs](/azure/architecture/example-scenario/firewalls/) | Provides a structured approach for designing highly available firewall deployments in Azure that use third-party network virtual appliances (NVAs). |
 | [Implement a secure hybrid network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz) | Describes an architecture that implements a DMZ, also called a perimeter network, between the on-premises network and an Azure virtual network. All inbound and outbound traffic passes through Azure Firewall. |
 | [Secure and govern workloads with network level segmentation](/azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation) | Describes the three common patterns used for organizing workloads in Azure from a networking perspective.   Each of these patterns provides a different type of isolation and connectivity. |
 | [Firewall and Application Gateway for virtual networks](/azure/architecture/example-scenario/gateway/firewall-application-gateway) | Describes Azure Virtual Network security services like Azure Firewall and Azure Application Gateway, when to use each service, and network design options that combine both. |

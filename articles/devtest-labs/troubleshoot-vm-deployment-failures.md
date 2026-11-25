@@ -3,8 +3,8 @@ title: Troubleshoot VM deployment failures
 titleSuffix: Azure DevTest Labs
 description: Learn how to troubleshoot virtual machine (VM) deployment failures in Azure DevTest Labs, including error messages and support information.
 ms.topic: troubleshooting-general
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 05/30/2024
 ms.custom: UpdateFrequency2
 

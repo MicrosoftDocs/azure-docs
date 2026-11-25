@@ -1,12 +1,12 @@
 ---
-title: Support for physical server migration in Azure Migrate and Modernize
-description: Learn about support for physical server migration in Azure Migrate and Modernize.
-author: vijain
-ms.author: vijain
+title: Support for physical server migration in Azure Catalyst
+description: Learn about support for physical server migration in Azure Catalyst.
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.manager: kmadnani
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 01/27/2025
 ms.custom: engagement-fy25
 # Customer intent: As a cloud architect, I want to evaluate the migration capabilities for physical servers and other virtual machines to Azure, so that I can determine the best strategy for transitioning our on-premises infrastructure to the cloud.
@@ -36,16 +36,16 @@ The following table summarizes support for physical servers, AWS VMs, and GCP VM
 
 Support | Details
 --- | ---
-Machine workload | Azure Migrate and Modernize supports migration of any workload (such as Microsoft Entra ID or SQL Server) running on a supported machine.
-Operating systems | For the latest information, see the [operating system (OS) support](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for Azure Site Recovery. Azure Migrate and Modernize provides identical OS support.
-Linux file system/guest storage | For the latest information, see the [Linux file system support](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) for Site Recovery. Azure Migrate and Modernize provides identical Linux file system support.
-Network/Storage | For the latest information, see the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate and Modernize provides identical network/storage requirements.
-Azure requirements | For the latest information, see the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate and Modernize has identical requirements for physical server migration.
+Machine workload | Azure Catalyst supports migration of any workload (such as Microsoft Entra ID or SQL Server) running on a supported machine.
+Operating systems | For the latest information, see the [operating system (OS) support](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for Azure Site Recovery. Azure Catalyst provides identical OS support.
+Linux file system/guest storage | For the latest information, see the [Linux file system support](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) for Site Recovery. Azure Catalyst provides identical Linux file system support.
+Network/Storage | For the latest information, see the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Catalyst provides identical network/storage requirements.
+Azure requirements | For the latest information, see the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Catalyst has identical requirements for physical server migration.
 Mobility service | Install the Mobility service agent on each machine you want to migrate.
 UEFI boot | Supported. <br/><br/> Windows : NTFS  <br/><br/> Linux: The following filesystem types are supported: ext4, xfs, btrfs. Some filesystems such as ZFS, UFS, ReiserFS, and DazukoFS may not be supported subject to additional command requirements to mount them.
 UEFI - Secure boot         | Not supported for migration.
 Target disk | Machines can be migrated only to managed disks (Standard HDD, Standard SSD, Premium SSD) in Azure.
-Ultra Disk | Ultra Disk migration isn't supported from the Azure Migrate and Modernize portal. You have to do an out-of-band migration for the disks that are recommended as Ultra Disks. That is, you can migrate selecting it as premium disk type and change it to Ultra Disk after migration.
+Ultra Disk | Ultra Disk migration isn't supported from the Azure Catalyst portal. You have to do an out-of-band migration for the disks that are recommended as Ultra Disks. That is, you can migrate selecting it as premium disk type and change it to Ultra Disk after migration.
 Disk size | Up to 2-TB OS disk for gen 1 VM. Up to 4-TB OS disk for gen 2 VM and 32 TB for data disks.
 Disk limits |  Up to 63 disks per machine.
 Encrypted disks/volumes |  Machines with encrypted disks/volumes aren't supported for migration.
@@ -62,7 +62,7 @@ PV drivers / XenServer tools | Not supported.
 
 ## Replication appliance requirements
 
-If you set up the replication appliance manually, make sure that it complies with the requirements summarized in the table. When you set up the Azure Migrate replication appliance as a VMware VM by using the Open Virtual Appliance template provided in the Azure Migrate and Modernize hub, the appliance is set up with Windows Server 2016 and complies with the support requirements.
+If you set up the replication appliance manually, make sure that it complies with the requirements summarized in the table. When you set up the Azure Catalyst replication appliance as a VMware VM by using the Open Virtual Appliance template provided in the Azure Catalyst hub, the appliance is set up with Windows Server 2016 and complies with the support requirements.
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements).
 - Install MySQL on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).

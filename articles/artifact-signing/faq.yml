@@ -5,9 +5,9 @@ metadata:
   description: Get answers to frequently asked questions about Artifact Signing.
   author: TacoTechSharma
   ms.author: mesharm
-  ms.service: trusted-signing
+  ms.service: azure-artifact-signing
   ms.topic: faq
-  ms.date: 05/14/2026
+  ms.date: 11/17/2026
 title: Artifact Signing FAQ
 summary: |
   Get answers to common questions about the Artifact Signing service. 
@@ -26,9 +26,9 @@ sections:
         answer: | 
          Ask your Microsoft Entra admin to approve your request for access. For more information about permissions, see these articles:
 
-          - [Overview of consent and permissions](https://learn.microsoft.com/entra/identity/enterprise-apps/user-admin-consent-overview)
-          - [Configure the admin consent workflow](https://learn.microsoft.com/entra/identity/enterprise-apps/configure-admin-consent-workflow)
-          - [Review permissions granted to applications](https://learn.microsoft.com/entra/identity/enterprise-apps/manage-application-permissions?pivots=portal)
+          - [Overview of consent and permissions](/entra/identity/enterprise-apps/user-admin-consent-overview)
+          - [Configure the admin consent workflow](/entra/identity/enterprise-apps/configure-admin-consent-workflow)
+          - [Review permissions granted to applications](/entra/identity/enterprise-apps/manage-application-permissions?pivots=portal)
       - question: What if I don't see Microsoft.CodeSigning as a resource provider? 
         answer: | 
           To register the Microsoft.CodeSigning app, go to the subscription **Resource providers** pane as shown in this example:
@@ -42,14 +42,17 @@ sections:
           For pricing information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
       - question: What are my support options when I set up Artifact Signing?
         answer: | 
-          You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **Artifact Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
+          You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **Artifact Signing**).  
   - name: Identity validation
     questions:
       - question: What if I need to create another identity validation for the same organization with a different primary email address?
         answer: For cases where identity validation exists with a primary email address and another identity validation request is required, contact support to continue onboarding.
       - question: What if my country/region isn't listed in country/region drop-down list on the Identity validation page?
         answer: | 
-          For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation isn't applicable to Private Trust certificates.
+          Check [Pre-requisites](quickstart.md?tabs=registerrp-portal%2Caccount-portal%2Corgvalidation%2Ccertificateprofile-portal%2Cdeleteresources-portal#prerequisites) to get the list of supported countries/regions for onboarding. 
+      - question: How do I update information in an identity validation request that's in progress or completed?
+        answer: To update the information, delete the existing identity validation request and create a new request with the correct information. You can delete a request whether it's in progress or completed.
+         - If you delete a completed identity validation request, certificate renewal stops for any certificate profiles associated with that request. This can interrupt signing operations that use those profiles. Before deleting the request, review the associated certificate profiles and plan for the impact on signing.
       - question: What if my Artifact Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
           For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
@@ -59,6 +62,20 @@ sections:
       - question: What if the "New identity validation" button in the Azure portal is inactive?
         answer: |
           If the **New identity validation** button in the Azure portal is inactive and you can't select it, you don't have the Artifact Signing Identity Verifier role assigned to your account. To assign yourself the role, complete the steps in [Assign roles in Artifact Signing](tutorial-assign-roles.md). 
+      - question: Why don't I see an option to upload documents after receiving a request to provide them?
+        answer: |
+          The upload option might not appear if you're using an email address on a domain owned by the legal business entity being validated.
+      - question: How do I update my billing address for Individual identity validation when its formatting cannot be changed in the Azure portal?
+        answer: |
+          Use Azure CLI to update the billing account’s  sold-to  address. This supports casing changes and removing hyphens that cannot be updated through the portal:
+           ```azurecli
+              az billing account update \
+              --name "<billing-account-name>" \
+              --sold-to first-name="<first-name>" last-name="<last-name>" \
+              address-line1="<address>" city="<city>" region="WA" \
+              country="USA" postal-code="123450000"
+            ```
+          Enter the address exactly as it should appear. Plan accordingly, as this changes the billing information for the account.
       - question: What if my identity validation expires?
         answer: |
           If you don't renew identity validation before the expiration date, certificate renewal stops. All signing processes that are associated with those specific certificate profiles stops. To continue signing by using the Artifact Signing service, create another identity validation and associate it with the relevant certificate profiles. We send multiple reminders starting at 60 days before an identity validation's expiration date to help you begin the process of renewing your identity validation. 
@@ -95,11 +112,33 @@ sections:
         answer: |  
           If you see the error, it's because the email address entered in the individual identity validation request is different from the one being used to sign in to access the identity validation link. Make sure both the email addresses match.   
           :::image type="content" source="media/artifact-signing-indie-validation-email-mismatch.png" alt-text="Screenshot of email mismatch when access link to verify individual developer." lightbox="media/artifact-signing-indie-validation-email-mismatch.png"::: 
-      - question: For Individual identity validation, I see an error - address does not match, first name last name not matched or FaceCheck fail.
+      - question: What should I do if I see a "Card missing" error in Authenticator app?
         answer: |  
-          If you encounter one of these errors, delete the existing identity validation request and remove the associated Verified ID from the Microsoft Authenticator app. Then submit a new identity validation request and create a new Verified ID, ensuring that all information is accurate and that the verification environment has adequate lighting.
+          Add your Verified ID card to Microsoft Authenticator by following step 19 and the subsequent steps in [Setup individual identity validation](quickstart.md?tabs=registerrp-portal%2Caccount-portal%2Cindiedevvalidation%2Ccertificateprofile-portal%2Cdeleteresources-portal#tabpanel_3_indiedevvalidation)
+          :::image type="content" source="media/artifact-signing-share-verifiable-credential.png" alt-text="Screenshot of card missing error to verify individual developer." lightbox="media/artifact-signing-share-verifiable-credential.png"::: 
+      - question: What should I do if I see an address mismatch, first or last name mismatch, or Face Check error after obtaining a Verified ID and scanning the QR code?
+        answer: |
+          This guidance applies to individual identity validation, including the individual verification step within organization identity validation. Delete the existing identity validation request and remove the associated Verified ID from Microsoft Authenticator. Then submit a new request and create a new Verified ID, following the guidance for your error below.
+
+          - Face Check failed: Complete verification in even, moderate lighting. Avoid direct sunlight, strong backlighting, and deep shadows. Keep your face centered, fully visible, and facing the camera, with the lens clean and unobstructed. Remove sunglasses or other items that obscure your face, and follow the on-screen instructions. See [Microsoft Entra Face Check guidance](/entra/verified-id/using-facecheck).
+          - First or last name mismatch: Ensure the first and last names in your identity validation request match the corresponding names on your Verified ID and those extracted from your government-issued ID. Check for spelling errors, missing names, or incorrectly assigned first and last names.
+          - Address mismatch (only applies to individual validation): Ensure the address in your identity validation request matches the address on your supporting document. Check the street address, apartment or unit number, city, state or province, postal code, and country or region for errors or omissions.
+      - question: How do I troubleshoot technical errors when completing identity validation with Microsoft Authenticator and Verified ID?
+        answer: |  
+          - Close all open instances of the authenticator app on your mobile, this is usually done by swiping up, finding the app, then swiping up again.  Ensure you close all instances of the authenticator app before relaunching.
+          - Make sure you are using the latest version of Microsoft Authenticator (Android/iOS). Older versions may not fully support Verified ID.
+          - Clear your web cache, if you are accessing the Verified ID setup through a browser, clear your cache or try completing the process using a different browser.
+          - Avoid Weak Internet Connections or VPNs. Do not use a weak Wi‑Fi connection or any VPN/Proxy service. These can interrupt the secure handshake between the browser and Microsoft Authenticator, causing technical errors.
+          - Try a different device. Some device‑specific settings or security policies may interfere with the process. If possible, try completing the setup on another phone.
+          - When reaching out via support channels - [Send Microsoft Authenticator logs](/troubleshoot/entra/entra-id/ad-dmn-services/send-microsoft-authenticator-logs) and an incident ID.
+      - question:  What device security requirements are needed to support Verified ID Face Check?
+        answer: |  
+          Follow the guidance provided [here](/entra/verified-id/using-facecheck#what-device-security-requirements-are-needed-to-support-verified-id-face-check)
   - name: Certificate profiles
     questions:
+      - question: Why is the CN/O dropdown empty when I create a certificate profile? 
+        answer: |
+          You need at least one completed identity validation request that matches the certificate profile type you are creating.
       - question: Does deleting a certificate profile revoke the certificates? 
         answer: |
           Deleting a certificate profile doesn't revoke any previously issued certificates or invalidate their signatures; they remain valid.
@@ -116,13 +155,13 @@ sections:
           - **Without Azure Pipelines** (workstation, self-hosted agent, another CI system): use [SignTool, PowerShell, GitHub Actions, or the Artifact Signing SDK](how-to-signing-integrations.md).
       - question: What can I expect when I see SmartScreen prompts for signed files?
         answer: |
-          SmartScreen reputation builds up automatically. The prompt stops appearing once the file hash has sufficient download history. For more information, see the: [SmartScreen reputation for Windows app developers](https://learn.microsoft.com/windows/apps/package-and-deploy/smartscreen-reputation) documentation. If you continue to encounter SmartScreen prompts for your application, please consider submitting the signed file through [Microsoft Security Intelligence](https://www.microsoft.com/wdsi) for further review.
+          SmartScreen reputation builds up automatically. The prompt stops appearing once the file hash has sufficient download history. For more information, see the: [SmartScreen reputation for Windows app developers](/windows/apps/package-and-deploy/smartscreen-reputation) documentation. If you continue to encounter SmartScreen prompts for your application, please consider submitting the signed file through [Microsoft Security Intelligence](https://www.microsoft.com/wdsi) for further review.
       - question: What types of files can we sign by using Artifact Signing?
         answer: |
-          You can sign [all file types that SignTool supports](https://learn.microsoft.com/windows/win32/seccrypto/cryptography-tools).
+          You can sign [all file types that SignTool supports](/windows/win32/seccrypto/cryptography-tools).
       - question: What is the Artifact Signing compliance level?
         answer: |
-          FIPS 140-2 Level 3.
+          FIPS 140-3 Level 3.
       - question: How do I include the appropriate EKU for our certificates in the ELAM driver resources? 
         answer: |
           For information about the Early Launch Antimalware (ELAM) driver configuration for protecting antimalware user-mode services, see the following guidance:  
@@ -154,7 +193,7 @@ sections:
           If the signature doesn't appear in the digital signature property, run this command: `.\signtool.exe verify /v /debug /pa fileName`. Not all file types include the **Signature** tab in **Properties**.
       - question: How do I fix pop-up credentials in an Azure virtual machine when I run the SignTool + dlib command?
         answer: |
-          1. Create a [user-assigned managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview). 
+          1. Create a [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview). 
           2. Add the user-assigned managed identity to the VM:
              1. Select the VM.
              2. On the left menu, select **Identity**, and then select **User assigned**.
@@ -162,19 +201,22 @@ sections:
           3. In the resource group (or subscription) that has the Artifact Signing Certificate Profile Signer role, add the user-assigned managed identity to the role. To assign the correct role, go to **Access control (IAM)** > **Role assignments**.
       - question: How do I fix pop-up credentials when I use Google Cloud Platform?
         answer: |
-          - Because Google Cloud Platform (GCP) doesn't have an Azure managed identity resource by default, set up an [environment credential](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Use the [EnvironmentCredential class](https://learn.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. We recommend that you use these variables:
+          - Because Google Cloud Platform (GCP) doesn't have an Azure managed identity resource by default, set up an [environment credential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Use the [EnvironmentCredential class](/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. We recommend that you use these variables:
 
              - **AZURE_TENANT_ID** for the Microsoft Entra tenant (directory) ID.
              - **AZURE_CLIENT_ID** for the client (application) ID of an app registration in the tenant. 
              - **AZURE_CLIENT_SECRET** for a client secret that was generated for the app registration. 
-          - To create a client ID and secret, follow the guidance in [Create a service principal](https://learn.microsoft.com/entra/identity-platform/howto-create-service-principal-portal).
+          - To create a client ID and secret, follow the guidance in [Create a service principal](/entra/identity-platform/howto-create-service-principal-portal).
           - After you create the client ID and secret, go to the resource group (or subscription) that has the Artifact Signing Certificate Profile Signer role, and add this app to the role. 
       - question: What if my Artifact Signing account is suspended?
         answer: |
           If a certificate is misused or abused per the service Terms of Use, Artifact Signing suspends the account or revokes a signing certificate or both. In this scenario, we engage with you directly and follow the guidelines in the CA/Browser Forum CSBRs. 
+      - question: What information may help with troubleshooting a signed file?
+        answer: |
+          Consider retaining the corresponding file and its hash. You can also [subscribe to signing transaction events](how-to-sign-history.md). This information may assist with troubleshooting signing-related issues.
       - question: What if I change my subscription ID or tenant ID?
         answer: |
-         Currently, Artifact Signing resources can't be migrated across subscriptions or tenants or resource groups or resources. If you want to make any change to your tenant ID or subscription ID, you must create all your Artifact Signing resources again.
+          Currently, Artifact Signing resources can't be migrated across subscriptions or tenants or resource groups or resources. If you want to make any change to your tenant ID or subscription ID, you must create all your Artifact Signing resources again.
       - question: Does Artifact Signing issue EV certificates?
         answer: |
           No, Artifact Signing doesn't issue Extended Validation (EV) certificates. There's no plan to issue EV certificates in the future.
@@ -192,7 +234,7 @@ sections:
           | No certificates were found that met all the given criteria.         |  Check the dlib path, dlib version, dlib name, filename, and SignTool version. This error indicates that SignTool is attempting to pull certificates from your local computer instead of using Artifact Signing certificates. |
           | Error: "SignerSign() failed." (-2147024846/0x80070032)           |  Ensure that you're using the latest version of SignTool. |
           | Error code (-2147024885/0x8007000b)            |  For MSIX signing, this error indicates that the publisher in the manifest file doesn't match the certificate subject. Check the publisher that's listed in the manifest file. |
-          | Error code (-2147467259/0x80004005)            |  If you use Service Principal + certificate based authentication, check your Environment Variables listed under the table for ["Service principal with certificate"](https://learn.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet).|
+          | Error code (-2147467259/0x80004005)            |  If you use Service Principal + certificate based authentication, check your Environment Variables listed under the table for ["Service principal with certificate"](/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet).|
           | No error codes, SignTool silently fails          |  Ensure that the relevant .NET runtime version is installed. |
           | `Azure.Identity.CredentialUnavailableException`      |  You might see this error in [environments outside Azure](https://github.com/Azure/azure-sdk-for-net/issues/29471). If you're working outside of Azure, we recommend that you add "exclude ManagedIdentity" to your manifest file. |
           | 403          |  - Check the status of your Azure subscription should be "Registered".  <br>  - Check the identity trying to sign the file has Artifact Signing Certificate Profile Signer role.  <br>  - Check the Artifact Signing account name and the Artifact Signing certificate profile name in your *metadata.json* file. <br> - Check the dlib and dlib path. <br>  - Install C++ Redistributables from https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170. <br>  - Check your .NET version, dlib version, and Windows SDK version. <br>  - Check if the corresponding identity validation has a status of **Completed**.<br> - Check the status of the Certificate Profile must be active.  <br> - Verify whether you access the Artifact Signing endpoint from this virtual machine or computer. Try executing the action on a different virtual machine or computer. The error might indicate a network issue. <br> - For Private Trust scenarios 403: The user object ID that does the signing is different from the user object ID that calls  `Get-azCodeSigningRootCert`. The appropriate object ID must have the role Artifact Signing Certificate Profile Signer.|
@@ -200,9 +242,9 @@ sections:
     questions:  
        - question: How do I view usage costs and billing information for Artifact Signing resources?
          answer: | 
-          To review cost information, in the Azure portal, go to your subscription overview. On the left menu, select **Cost Management**. For more information, see [Cost Management](https://learn.microsoft.com/azure/cost-management-billing/costs/).
+          To review cost information, in the Azure portal, go to your subscription overview. On the left menu, select **Cost Management**. For more information, see [Cost Management](/azure/cost-management-billing/costs/).
 
-          To review billing information, go to your subscription overview. On the left menu, select **Billing**. For more information, see [Billing](https://learn.microsoft.com/azure/cost-management-billing/manage/).
+          To review billing information, go to your subscription overview. On the left menu, select **Billing**. For more information, see [Billing](/azure/cost-management-billing/manage/).
        - question: Is the pricing pro-rated or its full amount regardless of when you begin to use the service?
          answer: | 
           The pricing isn't calculated on a pro rata basis. The invoice is generated with the full amount for the SKU that you selected when you created the account, regardless of when you begin to use the service after you create your account. 

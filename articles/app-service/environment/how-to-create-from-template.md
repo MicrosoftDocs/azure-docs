@@ -4,7 +4,7 @@ description: Learn how to create an external or internal load balancer (ILB) App
 author: seligj95
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 03/04/2026
+ms.date: 10/06/2026
 ms.author: jordanselig
 ms.service: azure-app-service
 #customer intent: As a developer, I want to customize an ARM template for deploying an App Service Environment v3, so I can reuse the template to deploy environments in the future.
@@ -15,7 +15,11 @@ An App Service Environment v3 can be created in the Azure portal or by using an 
 
 In the Azure portal, you create an App Service Environment with a specific configuration for immediate deployment. When you [create the environment in the portal](creation.md), you select or create the supporting resources at the same time, including the resource group for the deployment region, and the virtual network with subnet. 
 
+Creating an App Service Environment and creating a web app in the Azure portal are separate operations. You must wait for the environment deployment to complete before creating a web app and its App Service plan in that environment.
+
 When you create an App Service Environment from a template, you access a configuration that's available for repeatable deployment of the same environment or other App Service Environments. The template specifies the property set for the App Service Environment, along with the virtual network and subnet to use for the deployment.
+
+Unlike the portal web app creation workflow, an ARM or Bicep template can deploy the App Service Environment, App Service plan, and web app together in a single deployment, with resource dependencies controlling the creation order. For examples, see the App Service Environment samples in [Azure Resource Manager templates for App Service](../samples-resource-manager-templates.md) and [Bicep files for App Service](../samples-bicep.md).
 
 This article walks through the steps and syntax you need to create an External App Service Environment or internal load balancer (ILB) App Service Environment from an ARM template.
 

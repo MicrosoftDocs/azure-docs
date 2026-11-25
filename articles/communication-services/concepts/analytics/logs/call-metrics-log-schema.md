@@ -15,6 +15,8 @@ ms.subservice: calling
 
 # Call metrics log schema
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This document explains the ACSCallingMetrics logs available to you through Azure Monitor in the form of [Resource Logs](/azure/azure-monitor/data-sources#azure-resources). 
 
 Call metrics logs are used in the **[voice and video insights dashboard](../insights/voice-and-video-insights.md)** to visualize long term graphs of reliability, quality, and performance based on count of succeeded and failed Calling SDK API calls of various operations. Use these logs to gain a clearer understanding of daily aggregated calling metrics across various dimensions for your communication workloads. 
@@ -173,7 +175,7 @@ Here's are two sample rows of the call metrics log:
 
 ```json
 "properties": {
-  "TenantId": "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+  "TenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "TimeGenerated": "2025-02-03T05:17:39.1840000Z",
   "OperationName": "CallingMetrics",
   "OperationVersion": "1.0-dev",
@@ -211,7 +213,7 @@ Here's are two sample rows of the call metrics log:
 
 ```json
 "properties": {
-  "TenantId": "4e7403f8-515a-4df5-8e13-59f0e2b76e3a",
+  "TenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "TimeGenerated": "2025-02-03T05:17:39.1840000Z",
   "OperationName": "CallingMetrics",
   "OperationVersion": "1.0-dev",

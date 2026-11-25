@@ -5,7 +5,7 @@ description: Learn how to add a native client application to your Active Directo
 author: kengaderdus
 manager: CelesteDG
 
-ms.author: kengaderdus
+ms.author: diberry
 ms.date: 01/11/2024
 ms.custom: mvc
 ms.topic: how-to

@@ -1,8 +1,8 @@
 ---
 title: Configure continuous deployment
 description: Learn how to configure continuous integration and continuous deployment to Azure App Service from source repositories via a build pipeline.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.topic: how-to
 ms.date: 06/11/2025
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000

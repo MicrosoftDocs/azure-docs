@@ -3,7 +3,7 @@ title: Pricing and billing for Azure SRE Agent
 description: How Azure SRE Agent billing works, AAU rates, token-based metering, cost examples, and tips to manage your spending.
 ms.topic: reference
 ms.service: azure-sre-agent
-ms.date: 05/12/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -13,13 +13,11 @@ ms.custom: pricing, billing, cost, AAU, Azure Agent Unit, always-on, active flow
 
 # Pricing and billing for Azure SRE Agent
 
-Learn how Azure SRE Agent billing works and what to expect on your Azure bill.
+Azure SRE Agent usage is measured in **Azure Agent Units (AAUs)**, a standardized measure of agentic processing used across all prebuilt Azure agents. Your monthly bill combines a fixed always-on charge for keeping each agent available and a variable active flow charge for the work your agents perform.
 
-## How billing works
+New customers can [evaluate SRE Agent](./evaluate.md) that waives the always-on cost.
 
-Azure SRE Agent charges are based on **Azure Agent Units (AAUs)**, a standardized measure of agentic processing used across all prebuilt Azure agents. Your monthly bill combines two types of charges.
-
-### Always-on flow (fixed cost)
+## Always-on flow (fixed cost)
 
 When you create an agent, you pay a fixed rate as long as the agent exists:
 
@@ -29,11 +27,11 @@ When you create an agent, you pay a fixed rate as long as the agent exists:
 
 Always-on flow doesn't mean the agent is actively processing work. It represents the baseline cost of keeping your agent provisioned and available. Always-on billing continues from agent creation until the agent is **deleted**.
 
-### Active flow (variable cost)
+## Active flow (variable cost)
 
-Whenever your agent works - whether a user asks a question interactively, an automation triggers a task, or an async operation runs in the background - the agent consumes **active flow AAUs**. Any time the agent is actively processing counts as active flow, regardless of how the work was initiated.
+Your agent consumes **active flow AAUs** while it processes work. This usage applies to interactive questions, automated tasks, and any operations that run in the background.
 
-#### How tokens become AAUs
+### How tokens become AAUs
 
 Every time your agent works, it consumes LLM tokens. Each token type is metered separately at the rate shown in the following table.
 
@@ -46,13 +44,15 @@ Every time your agent works, it consumes LLM tokens. Each token type is metered 
 
 Your total active flow AAUs for a task = sum of AAUs across all four token types.
 
-#### AAU rates by model
+### AAU rates by model
 
 Number of AAUs consumed per 1 million tokens:
 
 | Model | Input | Output | Cache read | Cache write |
 |-------|-------|--------|------------|-------------|
-| Claude Opus 4.6 | 100 AAUs | 500 AAUs | 10 AAUs | 125 AAUs |
+| Claude Opus 5.5 | 80 AAUs | 400 AAUs | 4 AAUs | 100 AAUs |
+| Claude Opus 4.6 and 5 | 100 AAUs | 500 AAUs | 10 AAUs | 125 AAUs |
+| GPT-6 Sol and GPT-5.6 Terra | 40 AAUs | 200 AAUs | 4 AAUs | 50 AAUs |
 | GPT 5.3 Codex | 35 AAUs | 280 AAUs | 3.5 AAUs | 0 AAUs |
 | GPT 5.2 | 35 AAUs | 280 AAUs | 3.5 AAUs | 0 AAUs |
 
@@ -74,7 +74,7 @@ The number of tokens you use - and the AAUs you pay for - depends on how complex
 Here's how token use translates to AAUs for common scenarios:
 
 | Scenario | Input tokens | Output tokens | Cache read | Cache write | Claude Opus 4.6 AAUs | GPT 5.3 Codex AAUs | Example |
-|----------|-------------|---------------|------------|-------------|---------------------|------------------------|--------|
+|--|--|--|--|--|--|--|--|
 | **Quick question** | ~20K | ~2K | ~15K | ~5K | ~3.8 | ~1.3 | "Show me recent alerts" |
 | **Incident investigation** | ~200K | ~15K | ~150K | ~50K | ~35.3 | ~11.7 | Automated incident from Azure Monitor |
 | **Full remediation** | ~500K | ~40K | ~400K | ~100K | ~86.5 | ~30.1 | "Diagnose and fix the failing deployment" |
@@ -82,21 +82,23 @@ Here's how token use translates to AAUs for common scenarios:
 **How the math works (Claude Opus 4.6 example - quick question):**
 
 | Token type | Tokens | Rate per 1M | AAUs |
-|-----------|--------|-------------|------|
+|--|--|--|--|
 | Input | 20K | 100 | 2.0 |
 | Output | 2K | 500 | 1.0 |
 | Cache read | 15K | 10 | 0.15 |
 | Cache write | 5K | 125 | 0.625 |
-| **Total** | | | **3.775 AAUs** |
+| **Total** |  |  | **3.775 AAUs** |
 
 > [!TIP]
-> To keep active flow costs predictable, set a monthly AAU allocation limit in **Settings** > **Agent consumption**.
+> To keep active flow costs predictable, set a monthly AAU allocation limit in **Build + setup** > **Monitor** > **Agent consumption**.
 
 ## Monitor your costs
 
+Use the SRE Agent portal to track your AAU consumption and set a monthly active flow spending limit.
+
 ### In the SRE Agent portal
 
-Go to **Settings** > **Agent consumption** to view your usage:
+Go to **Build + setup** > **Monitor** > **Agent consumption** to view your usage:
 
 - **Monthly AAU limit**: your combined always-on and active flow allocation with a button to adjust it
 - **Total active flow consumption**: donut chart breaking down usage by thread type (Chats, Incidents, Scheduled tasks, Triggers)
@@ -116,10 +118,12 @@ Select **Change AAU allocation** to set a monthly active flow AAU limit (minimum
 
 #### Billing impact by action
 
+The following table compares how each action affects active flow and always-on billing, and how service resumes.
+
 | Action | Active flow | Always-on | To resume next month |
-|--------|------------|-----------|---------------------|
+|--|--|--|--|
 | **Set budget limit** (hit limit) | Stops | Still billed | Resets automatically at start of month |
-| **Stop agent** | Stops | Still billed | Manually select **Start** in **Settings** > **Basics** |
+| **Stop agent** | Stops | Still billed | Manually select **Start** in **Settings** > **General** |
 | **Delete agent** | Stops | Stops | Create a new agent |
 
 ### In Azure Cost Management
@@ -134,14 +138,14 @@ For detailed billing breakdowns across multiple agents and resources, use [Azure
 | **Filter incidents with response plans** | Less unnecessary work | Use response plans to filter Azure Monitor alerts by severity, service, or keyword - the agent only investigates incidents that match. |
 | **Batch work with scheduled tasks** | Fewer runs | Schedule tasks to run daily or weekly instead of polling continuously. See Scheduled tasks. |
 | **Test in chat before automating** | Avoids wasted runs | Try your prompt in chat or the Playground first. A misconfigured automation runs repeatedly and wastes AAUs. |
-| **Stop idle agents** | Eliminates active flow | Go to **Settings** > **Basics** and select **Stop**. The agent keeps its configuration but stops all active flow. Always-on cost continues until deleted. |
-| **Delete unused agents** | Eliminates all costs | In sre.azure.com, open the agent and go to **Settings** > **Basics** > **Delete agent**. All billing stops immediately. |
+| **Stop idle agents** | Eliminates active flow | Go to **Settings** > **General** and select **Stop**. The agent keeps its configuration but stops all active flow. Always-on cost continues until deleted. |
+| **Delete unused agents** | Eliminates all costs | In sre.azure.com, open the agent and go to **Settings** > **General** > **Delete agent**. All billing stops immediately. |
 
 ## Frequently asked questions
 
 ### How does the agent compute AAUs from tokens?
 
-Every time your agent performs work, it tracks the LLM tokens consumed across all four token types and meters them at the AAU rates for your configured model. You can see your AAU consumption in **Settings** > **Agent consumption**.
+Every time your agent performs work, it tracks the LLM tokens consumed across all four token types and meters them at the AAU rates for your configured model. You can see your AAU consumption in **Build + setup** > **Monitor** > **Agent consumption**.
 
 ### Does the provider I choose affect my costs?
 
@@ -149,7 +153,7 @@ Set the model provider (Anthropic, OpenAI, and others) at the agent level. It de
 
 ### Which model should I choose?
 
-Claude Opus 4.6 has higher AAU rates but typically produces more thorough investigations with fewer reasoning steps. For complex incident investigations and root cause analysis, Opus often reaches a conclusion in fewer tool calls, which can offset the higher per-token rate. GPT models are a good choice for simpler, high-volume tasks like scheduled compliance checks where cost efficiency matters more than depth. You can change your model provider at any time in **Settings** > **Basics** and compare results.
+Claude Opus 4.6 has higher AAU rates but typically produces more thorough investigations with fewer reasoning steps. For complex incident investigations and root cause analysis, Opus often reaches a conclusion in fewer tool calls, which can offset the higher per-token rate. GPT models are a good choice for simpler, high-volume tasks like scheduled compliance checks where cost efficiency matters more than depth. You can change your model provider at any time in **Settings** > **General** and compare results.
 
 ### Do I get charged when the agent is waiting for me to respond?
 
@@ -167,15 +171,11 @@ In all cases, the agent meters tokens consumed as AAUs.
 
 ### What happens if I stop my agent?
 
-A stopped agent can't monitor your resources or respond to prompts, but it still incurs the fixed always-on cost. Active flow AAUs aren't consumed while stopped. To stop your agent, go to **Settings** > **Basics** and select **Stop**. To resume, select **Start** from the same page. To stop all billing entirely, delete the agent.
+A stopped agent can't monitor your resources or respond to prompts, but it still incurs the fixed always-on cost. Active flow AAUs aren't consumed while stopped. To stop your agent, go to **Settings** > **General** and select **Stop**. To resume, select **Start** from the same page. To stop all billing entirely, delete the agent.
 
 ### Can one agent handle multiple workloads?
 
 Yes. A single agent can monitor multiple resources within its configured scope. Consolidating workloads under one agent reduces always-on costs compared to deploying separate agents.
-
-### Is there a free tier?
-
-No. Azure SRE Agent charges begin at agent creation. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/details/sre-agent/) for current rates.
 
 ### Is pricing the same in all regions?
 

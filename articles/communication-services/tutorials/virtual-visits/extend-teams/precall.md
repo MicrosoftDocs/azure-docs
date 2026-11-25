@@ -13,6 +13,8 @@ ms.subservice: teams-interop
 ---
 
 # Extend precall activities
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 A successful Virtual appointment experience requires the device to be prepared for the audio and video experience. Azure Communication Services provides a set of tools that help to validate the device prerequisites before the Virtual appointment guided support.
 
 ## Prerequisites

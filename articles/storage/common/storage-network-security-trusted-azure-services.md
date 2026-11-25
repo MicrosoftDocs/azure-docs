@@ -52,7 +52,7 @@ The following table lists services that can access your storage account data if 
 | Azure FarmBeats                 | `Microsoft.AgFoodPlatform/farmBeats`    | Enables access to storage accounts. |
 | Azure API Management            | `Microsoft.ApiManagement/service`       | Enables access to storage accounts behind firewalls via policies. [Learn more](../../api-management/authentication-managed-identity-policy.md#use-managed-identity-in-send-request-policy). |
 | Microsoft Autonomous Systems    | `Microsoft.AutonomousSystems/workspaces` | Enables access to storage accounts. |
-| Azure Managed Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](../../redis/entra-for-authentication.md).| 
+| Azure Managed Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](/azure/redis/entra-for-authentication).| 
 | Azure AI Search          | `Microsoft.Search/searchServices`       | Enables access to storage accounts for indexing, processing, and querying. |
 | Foundry Tools        | `Microsoft.CognitiveService/accounts`   | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Microsoft Cost Management | `Microsoft.CostManagementExports` | Enables export to storage accounts behind a firewall. [Learn more](../../cost-management-billing/costs/tutorial-improved-exports.md).|
@@ -91,9 +91,10 @@ The following table lists services that can access your storage account data if 
 | Security Center                 | `Microsoft.Security/dataScanners`       | Enables access to storage accounts. |
 | Singularity                     | `Microsoft.Singularity/accounts`        | Enables access to storage accounts. |
 | Azure Storage Actions           | `Microsoft.Storageactions/Storagetasks` | Enables access to storage accounts. |
+| Azure Storage Mover             | `Microsoft.StorageMover/storageMovers`  | Enables access to storage accounts. |
 | Azure SQL Database              | `Microsoft.Sql`                         | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure SQL Servers               | `Microsoft.Sql/servers`                 | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
-| Azure Synapse Analytics         | `Microsoft.Sql`                         | Allows import and export of data from specific SQL databases via the `COPY` statement or PolyBase (in a dedicated pool), or the `openrowset` function and external tables in a serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |
+| Azure Synapse Analytics         | `Microsoft.Sql`                         | Allows import and export of data from specific SQL databases via the `COPY` statement or PolyBase (in a dedicated pool), or the `openrowset` function and external tables in a serverless pool. [Learn more](/azure/synapse-analytics/sql/vnet-service-endpoint-rule-overview). |
 | Azure Stream Analytics          | `Microsoft.StreamAnalytics`             | Allows data from a streaming job to be written to Blob Storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Stream Analytics          | `Microsoft.StreamAnalytics/streamingjobs` | Allows data from a streaming job to be written to Blob Storage. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Synapse Analytics         | `Microsoft.Synapse/workspaces`          | Enables access to data in Azure Storage. |

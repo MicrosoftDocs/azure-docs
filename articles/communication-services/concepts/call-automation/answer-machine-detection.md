@@ -13,6 +13,8 @@ ms.custom: public_preview
 
 # Implementing Answer Machine Detection with Call Automation
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Answer Machine Detection (AMD) helps contact centers identify whether a call is answered by a human or an answering machine. This article describes how to implement an AMD solution using Dual-Tone Multi-Frequency (DTMF) tones with Azure Communication Services existing play and recognize APIs.
 
 To achieve this goal, developers can implement logic that uses the call connected event and plays an automated message. This message requests the callee to press a specific key to verify they're human before connecting them to an agent or playing a more specific message.

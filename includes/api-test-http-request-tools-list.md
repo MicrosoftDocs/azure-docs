@@ -1,7 +1,7 @@
 ---
 ms.service: azure
 author: ecfan
-ms.author: estfan
+ms.author: divswa
 ms.topic: include
 ms.date: 08/06/2024
 # Specific list of approved tool options for API testing and sending HTTP requests.

@@ -48,16 +48,16 @@ Set the `AzureWebJobsSecretStorageType` environment variable to choose a storage
 
 | Backend | Setting value | Best for | Guide |
 |---------|--------------|---------|-------|
-| **Container Apps secret store** | `containerapp` | Most workloads - no external dependencies (**Recommended**) | [Configure host keys](functions-secrets-host-keys.md#configure-the-container-apps-secret-store) |
-| **Azure Key Vault** | `keyvault` | Centralized governance, compliance auditing | [Configure host keys](functions-secrets-host-keys.md#configure-key-vault) |
-| **Azure Blob Storage** | `blob` | Legacy apps or existing `AzureWebJobsStorage` dependency | [Configure host keys](functions-secrets-host-keys.md#configure-blob-storage) |
+| **Container Apps secret store** | `containerapps` | Most workloads - no external dependencies (**Recommended**) | [Configure host keys](functions-secrets-host-keys.md#configure-the-container-apps-secret-store) |
+| **Azure Key Vault** | `keyvault` | Centralized governance, compliance auditing | [Configure host keys](functions-secrets-host-keys.md?tabs=configure-key-vault) |
+| **Azure Blob Storage** | `blob` | Legacy apps or existing `AzureWebJobsStorage` dependency | [Configure host keys](functions-secrets-host-keys.md?tabs=configure-blob-storage) |
 | **Local file system** | `files` | **Not recommended on Container Apps** - see warning | N/A |
 
-> [!NOTE]
-> For Functions on Azure Container Apps, the platform defaults to `containerapp` (Container Apps secret store) when `AzureWebJobsSecretStorageType` isn't explicitly set. This means access keys are managed by the Container Apps platform's native secret store by default. You can override this default by setting `AzureWebJobsSecretStorageType` to `keyvault` or `blob` if your workload requires a different backend.
+Keep these backend considerations in mind:
 
-> [!WARNING]
-> Don't set `AzureWebJobsSecretStorageType` to `files`. On Azure Container Apps, the file system is **ephemeral**. Host keys stored with the `files` backend are lost on every restart, scale-to-zero event, or revision deployment.
+- The runtime doesn't automatically select Container Apps secret storage. If you don't set `AzureWebJobsSecretStorageType` or set it to an unrecognized value, the Functions host uses Blob Storage when `AzureWebJobsStorage` is available.
+- Keep `AzureWebJobsStorage` configured for storage health checks and storage-dependent features.
+- Don't set `AzureWebJobsSecretStorageType` to `files`. The Container Apps file system is ephemeral, so keys stored with this backend are lost when the app scales to zero, restarts, or deploys a new revision.
 
 ## Next steps
 

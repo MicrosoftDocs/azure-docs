@@ -6,7 +6,7 @@ ms.topic: overview
 ms.date: 03/31/2026
 ms.service: azure-event-grid
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ms.reviewer: spelluru
 ms.custom:
 - ai-gen-docs-bap

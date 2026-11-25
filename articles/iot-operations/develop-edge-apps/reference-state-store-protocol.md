@@ -24,6 +24,7 @@ The state store supports the following commands:
 - `GET` \<keyName\>
 - `DEL` \<keyName\>
 - `VDEL` \<keyName\> \<keyValue\> ## Deletes a given \<keyName\> if and only if its value is \<keyValue\>
+- `SCAN` \<pattern\> \[\<continuationToken\>\]
 
 The protocol uses the following request-response model:
 - **Request**. Clients publish a request to a well-defined state store system topic. To publish the request, clients use the required properties and payload described in the following sections.
@@ -86,9 +87,13 @@ The `SET` command provides more optional flags beyond the basic `keyValue` and `
 
 The `VDEL` command is a special case of the `DEL` command. `DEL` unconditionally deletes the given `keyName`. `VDEL` requires another argument called `keyValue`. `VDEL` only deletes the given `keyName` if it has the same `keyValue`.
 
+### `SCAN` options
+
+The `SCAN` command returns one page of keys that match the given pattern. The page may additionally contain a continuation token; if this token is present, the client can send another `SCAN` request with the same pattern and also containing this token to receive the next page. If the token is not present in the `SCAN` response, that indicates this is the last page.
+
 ## Payload format
 
-The state store `PUBLISH` payload format is inspired by [RESP3](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md), which is the underlying protocol that Redis uses. RESP3 encodes both the verb, such as `SET` or `GET`, and the parameters such as `keyName` and `keyValue`.
+The state store `PUBLISH` payload format is inspired by [RESP3](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md), which is the underlying protocol that Redis uses. RESP3 encodes both the verb, such as `SET` or `GET`, and the parameters such as `keyName` and `keyValue`. However `SCAN`'s request and response have some differences in encoding to RESP3's `SCAN` command, as described below.
 
 ### Case sensitivity
 
@@ -123,12 +128,37 @@ The following example output shows state store RESP3 payloads:
 > [!NOTE]
 > `SET` requires additional MQTT5 properties, as explained in the section [Versioning and hybrid logical clocks](#versioning-and-hybrid-logical-clocks).
 
+#### `SCAN` request
+
+> [!NOTE]
+> This encoding differs from the Redis `SCAN` command's encoding.
+
+For `SCAN` requests, the format is the same as above, with `KEY-NAME` being the scan pattern, and a further optional argument for the continuation token. The following example output shows two requests for the pattern `KEY*`, the first without a continuation token and the second with a continuation token:
+
+```console
+*2<CR><LF>$4<CR><LF>SCAN<CR><LF>$4<CR><LF>KEY*<CR><LF>
+*3<CR><LF>$4<CR><LF>SCAN<CR><LF>$4<CR><LF>KEY*<CR><LF>$9<CR><LF>1;5;KEY99<CR><LF>
+```
+
+A scan pattern is a string that optionally contains wildcard patterns. The currently supported patterns are:
+
+- `?`: Matches a single character.
+- `*`: Matches zero or more characters.
+- `[...]`: Matches any character specified in the `...` set. The set can contain individual characters like `aio` or a range like `0-9` or a combination like `aio0-9`. To use the `-` character explicitly instead of denoting a range, use it as the last character of the set. For example, the pattern `[aio-]` matches any of the four characters `a`, `i`, `o` and `-`.
+- `[!...]`: Matches any character except the ones specified in the `...` set. The format of `...` is described in the previous point.
+
+The characters `?`, `*`, `[`, `]` can be escaped by wrapping them in `[]` to form a single-character set. For example, a pattern that wants to match all key names starting with `KEY?` can be written as `KEY[?]*`.
+
+The sequence `[]` is interpreted as the start of a set containing `]`, not an empty set. Thus `[]]` is a set that matches the `]` character, and `[]x]` is a set that matches the `]` and `x` characters. Similarly, `[!]` is interpreted as the start of a negation set. Thus `[!]]` is a set that matches any character except `]`, and `[!]x]` is a set that matches any character except `]` and `x`.
+
+Patterns must be UTF-8 strings and will only match key names that are also valid UTF-8 strings.
+
 ### Response format
 
 When the state store detects an invalid RESP3 payload, it still returns a response to the requester's `Response Topic`. Examples of invalid payloads include an invalid command, an illegal RESP3, or integer overflow. An invalid payload starts with the string `-ERR` and contains more details.
 
 > [!NOTE]
-> A `GET`, `DEL`, or `VDEL` request on a nonexistent key is not considered an error.
+> A `GET`, `DEL`, or `VDEL` request on a nonexistent key is not considered an error. A `SCAN` request with a pattern that does not match any keys is not considered an error.
 
 If a client sends an invalid payload, the state store sends a payload like the following example:
 
@@ -191,6 +221,45 @@ If a VDEL request fails because the value specified does not match the value ass
 -1<CR><LF>
 ```
 
+#### `SCAN` response
+
+The response is a page of zero or more keys that match the requested pattern. If there are more pages for the client to request, the response additionally contains a continuation token that the client should send in its next request to receive the next page. If this is the last page, it does not contain a continuation token.
+
+If the page contains a continuation token, it is formatted as an array of two elements. The first element is an array of keys. The second element is the continuation token string. The following output is an example of a response containing three keys and a continuation token.
+
+```console
+*2<CR><LF>
+*3<CR><LF>
+$4<CR><LF>
+KEY1<CR><LF>
+$4<CR><LF>
+KEY2<CR><LF>
+$4<CR><LF>
+KEY3<CR><LF>
+$9
+1;5;KEY99
+```
+
+If the page does not contain a continuation token, it is formatted as an array of one element, the array of keys. The following output is an example of a response containing three keys and no continuation token.
+
+```console
+*1<CR><LF>
+*3<CR><LF>
+$4<CR><LF>
+KEY4<CR><LF>
+$4<CR><LF>
+KEY5<CR><LF>
+$4<CR><LF>
+KEY6<CR><LF>
+```
+
+Note that it is possible for a page to contain zero keys, but there may still be more pages that do contain keys. The only indicator that the SCAN operation has finished is when the page does not contain a continuation token, regardless of how many keys it contains.
+
+The continuation token in the response is an opaque string, and must be specified as-is in the request for the next page. The state store may reject the request if the continuation token is modified, or the request might be accepted but produce unexpected results. Unexpected results may also be produced if the continuation token for a request with a certain pattern is then used for a request with a different pattern.
+
+> [!NOTE]
+> This encoding differs from the Redis `SCAN` command's encoding.
+
 #### `-ERR` responses
 
 The following is the current list of error strings. Your client application should handle *unknown error* strings to support updates to the state store.
@@ -209,6 +278,7 @@ The following is the current list of error strings. Your client application shou
 | missing timestamp                                                                                         | When clients do a SET, they must set the MQTT5 user property __ts as an HLC representing its timestamp.      |
 | malformed timestamp                                                                                       | The timestamp in the __ts or the fencing token isn't legal.                                                 |
 | the key length is zero                                                                                    | Keys can't be zero length in state store.                                                                   |
+| malformed scan continuation token                                                                         | The continuation token in the SCAN request has been modified in some way. The token returned in the previous response must be used as-is. |
 
 ## Versioning and hybrid logical clocks
 

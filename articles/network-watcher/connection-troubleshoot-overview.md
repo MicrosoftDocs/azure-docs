@@ -3,10 +3,11 @@ title: Connection Troubleshoot Overview
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher connection troubleshoot tool, the issues it can detect, and the responses it gives.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 04/08/2026
+ms.custom: references_regions 
 
 # Customer intent: As an Azure administrator, I want to understand the capabilities of the Connection troubleshoot tool so that I can effectively diagnose and resolve network connectivity issues in my cloud infrastructure.
 ---
@@ -25,9 +26,9 @@ Connection troubleshoot reduces the Mean Time To Resolution (MTTR) by providing 
 - Graphical topology view from source to destination
 - Number of probes failed during the connection troubleshoot check
 
-## Agentless experience (preview)
+## Agentless experience 
 
-Connection troubleshoot now supports an agentless experience (currently in preview). You no longer need to install the Network Watcher agent virtual machine extension on your virtual machines to run connectivity tests. Features and functionality may change before general availability.
+Connection troubleshoot now supports an agentless experience. You no longer need to install the Network Watcher agent virtual machine extension on your virtual machines to run connectivity tests.
 
 Previously, connectivity tests with Connection troubleshoot required that the source virtual machine had the Network Watcher agent VM extension installed. This extension was necessary to run tests from the VM.
 
@@ -140,6 +141,55 @@ The following example shows an issue found on a hop.
     }
 ]
 ```
+
+## AI summary of test results (preview)
+
+Connection troubleshoot can generate an AI summary of your connectivity test results. After a test runs, the summary explains the issues that might be causing the connectivity problem and the actions it recommends to fix them. It's built from the same data the test returns, including connection status, hop-by-hop issues, network security group (NSG) rule analysis, route analysis, and fault types. It's designed to help you understand the results faster and reduce the time it takes to resolve the problem.
+
+> [!IMPORTANT]
+> The AI summary feature is currently in preview. Features and functionality might change before general availability. 
+
+### What the AI summary provides
+
+When you generate an AI summary for a connectivity test, it includes:
+
+- **Test outcome overview**: A plain-language summary of whether the destination is reachable, along with latency and probe results when available.
+- **Potential issues**: The likely causes of the connectivity problem, based on the issues and fault types the test detected. Examples include an NSG rule that denies traffic, a user-defined route that sends traffic to a `None` next hop, a guest OS firewall blocking traffic, a DNS resolution failure, or no process listening on the destination port.
+- **Where the issue occurs**: The hop or resource in the path from source to destination where the problem was found, and whether it affects inbound or outbound traffic.
+- **Recommended actions**: Steps you can take to fix each issue, such as updating or adding a security rule, correcting a route, or checking the state of the virtual machine (VM).
+
+> [!NOTE]
+> AI-generated content can be incorrect. Check the summary against the detailed test results, and confirm any recommended action before you change your network configuration.
+
+### Prerequisites
+
+- **Azure Copilot must be enabled for your tenant.** The AI summary uses Azure Copilot. If your tenant doesn't have access to Azure Copilot, or your user account isn't allowed to use it, you can't generate an AI summary. A global administrator can enable access in the **Azure Copilot admin center**. For more information, see [Manage access to Azure Copilot](/azure/copilot/manage-access).
+- **The source resource must be in a supported region.** During the preview, the AI summary is available only in the regions listed in [Region availability](#region-availability).
+
+### Generate an AI summary
+
+1. In the Azure portal, go to **Network Watcher** > **Connection troubleshoot**.
+1. Enter the source, destination, and probe settings, and then select **Run diagnostic tests**.
+1. Select **Generate AI Summary** and then select **Run diagnostic tests**.
+1. Review the potential issues and recommended actions in the summary. To see the full details, use the detailed test results and the topology view.
+
+### Region availability
+
+During the preview, the AI summary is available in the following regions:
+
+| Region display name | Region name |
+|---|---|
+| Chile Central | `chilecentral` |
+| Indonesia Central | `indonesiacentral` |
+| Israel Central | `israelcentral` |
+| Israel Northwest | `israelnorthwest` |
+| Malaysia West | `malaysiawest` |
+| Mexico Central | `mexicocentral` |
+| New Zealand North | `newzealandnorth` |
+| Qatar Central | `qatarcentral` |
+| Taiwan North | `taiwannorth` |
+| Taiwan Northwest | `taiwannorthwest` |
+
 
 ## Errors
 

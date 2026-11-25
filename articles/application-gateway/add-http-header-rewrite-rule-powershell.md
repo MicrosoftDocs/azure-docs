@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 08/03/2026
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to configure HTTP header rewrites using Azure PowerShell, so that I can efficiently modify headers in requests and responses for my Application Gateway."
@@ -23,7 +23,7 @@ Before you begin, ensure you have the following requirements:
 - **Azure PowerShell**: You need Azure PowerShell installed locally or access to Azure Cloud Shell. The Azure PowerShell Az module version 1.0.0 or later is required. To check your version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). 
 - **Azure connection**: After verifying the PowerShell version, run `Connect-AzAccount` to authenticate with Azure.
 - **Application Gateway v2**: You need an existing Application Gateway v2 SKU instance. Header rewriting is only supported in the v2 SKU (Standard_v2 or WAF_v2). If you don't have one, create an [Application Gateway v2 SKU](./tutorial-autoscale-ps.md) instance before you begin.
-- **Proper permissions**: Ensure you have Contributor or Owner permissions on the Application Gateway resource.
+- **Proper permissions**: Ensure you have Network Contributor or Contributor permissions on the resource group containing the Application Gateway. Owner permissions are required only if you also need to assign roles.
 
 > [!IMPORTANT]
 > Header rewrite functionality is only available with Application Gateway v2 SKU. The v1 SKU doesn't support this feature.
@@ -75,12 +75,12 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## Specify the HTTP header rewrite rule configuration
 
-In this example, we modify a redirection URL by rewriting the location header in the HTTP response whenever the location header contains a reference to azurewebsite.net. To do this modification, we add a condition to evaluate whether the location header in the response contains azurewebsite.net. We use the pattern `(https?)://.*azurewebsite.net(.*)$`. And we use `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. This value replaces *azurewebsite.net* with *contoso.com* in the location header.
+In this example, you modify a redirection URL by rewriting the location header in the HTTP response whenever the location header contains a reference to `azurewebsites.net`. To make this modification, add a condition to evaluate whether the location header in the response contains `azurewebsites.net`. Use the pattern `(https?)://.*azurewebsites.net(.*)$`. Use `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. This value replaces *azurewebsites.net* with *contoso.com* in the location header.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"
 $actionSet = New-AzApplicationGatewayRewriteRuleActionSet -ResponseHeaderConfiguration $responseHeaderConfiguration
-$condition = New-AzApplicationGatewayRewriteRuleCondition -Variable "http_resp_Location" -Pattern "(https?):\/\/.*azurewebsite\.net(.*)$" -IgnoreCase
+$condition = New-AzApplicationGatewayRewriteRuleCondition -Variable "http_resp_Location" -Pattern "(https?):\/\/.*azurewebsites\.net(.*)$" -IgnoreCase
 $rewriteRule = New-AzApplicationGatewayRewriteRule -Name LocationHeader -ActionSet $actionSet -Condition $condition
 $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name LocationHeaderRewrite -RewriteRule $rewriteRule
 ```

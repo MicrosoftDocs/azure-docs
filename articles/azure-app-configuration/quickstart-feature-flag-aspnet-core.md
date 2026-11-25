@@ -8,7 +8,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 11/21/2025
+ms.date: 07/15/2026
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -31,7 +31,7 @@ Follow the documents to create an ASP.NET Core app with dynamic configuration.
 Add a feature flag called *Beta* to the App Configuration store (created in the [Prerequisites](./quickstart-feature-flag-aspnet-core.md#prerequisites) steps), and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
-> ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
+> ![Enable feature flag named Beta](./media/quickstart-feature-flag-aspnet-core/add-beta-feature-flag.png)
 
 ## Use a feature flag
 
@@ -44,10 +44,12 @@ Add a feature flag called *Beta* to the App Configuration store (created in the 
 1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call. You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. The following code snippet demonstrates using Microsoft Entra ID.
 
     ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
     // Load configuration from Azure App Configuration
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
-        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential())
                 // Load all keys that start with `TestApp:` and have no label
                 .Select("TestApp:*", LabelFilter.Null)
                 // Configure to reload configuration if the registered sentinel key is modified

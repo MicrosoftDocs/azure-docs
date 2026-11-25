@@ -1,19 +1,19 @@
 ---
 title: Assessment Prerequisites
-description: This article lists the prerequisites to perform assessments in Azure Migrate.
+description: This article lists the prerequisites to perform assessments in Azure Catalyst.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 09/08/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1825-days
-# Customer intent: As a cloud administrator, I want to ensure that all prerequisites for Azure Migrate assessments are met so that I can obtain accurate readiness and sizing evaluations for our workloads before migration.
+# Customer intent: As a cloud administrator, I want to ensure that all prerequisites for Azure Catalyst assessments are met so that I can obtain accurate readiness and sizing evaluations for our workloads before migration.
 ---
 
 # Prerequisites for assessments
 
-Azure Migrate assessments identify the readiness and rightsized Azure targets by using the configuration and performance data collected from the source workloads. The quality of assessments depends on the quality of the data available for assessments. To get high-quality assessments, make sure that you meet all the prerequisites. Before you create the assessments, ensure that you:
+Azure Catalyst assessments identify the readiness and rightsized Azure targets by using the configuration and performance data collected from the source workloads. The quality of assessments depends on the quality of the data available for assessments. To get high-quality assessments, make sure that you meet all the prerequisites. Before you create the assessments, ensure that you:
 
 - Discovered the inventory of all the workloads and applications that you intend to assess.
 - Resolved any data collection issues for which your workloads were flagged.
@@ -25,14 +25,14 @@ Azure Migrate assessments identify the readiness and rightsized Azure targets by
 
 The discovery source might vary for different workloads depending on the data that's required to create the assessments. You can discover your on-premises servers by using one of the following methods:
 
-   - [Deploy](tutorial-discover-vmware.md) a lightweight Azure Migrate appliance to perform agentless discovery.
+   - [Deploy](tutorial-discover-vmware.md) a lightweight Azure Catalyst appliance to perform agentless discovery.
    - [Import](tutorial-import-vmware-using-rvtools-xlsx.md) the workload information by using predefined templates.
 
-We recommend the Azure Migrate appliance as the discovery source. It provides an in-depth view of your machines and ensures regular flow of configuration and performance data. It also accounts for changes in the source environment.
+We recommend the Azure Catalyst appliance as the discovery source. It provides an in-depth view of your machines and ensures regular flow of configuration and performance data. It also accounts for changes in the source environment.
 
 ## What data does the appliance collect?
 
-If you use the Azure Migrate appliance for assessment, see the [metadata and performance data](discovered-metadata.md) that's collected as an input for the assessment.
+If you use the Azure Catalyst appliance for assessment, see the [metadata and performance data](discovered-metadata.md) that's collected as an input for the assessment.
 
 ## Tag workloads correctly
 
@@ -40,7 +40,7 @@ Make sure that you tag all the servers and workloads correctly for the appropria
 
 If the workloads and servers operate in the dev/test environment, tag them with `AzM.Environment: Dev`. If this tag is absent on the servers or workloads, they're considered as production workloads by default.
 
-To retain or retire workloads and servers, tag them with `AzM.MigrationIntent: Retain` or `AzM.MigrationIntent: Retire`. If the tag isn't applied, Azure Migrate treats the server or workload as a candidate for migration or modernization. Apply the same tag consistently to servers and all associated workloads to ensure accurate recommendations. For example, if Server 1 must be retained, apply the `Retain` tag to the server and all hosted databases.
+To retain or retire workloads and servers, tag them with `AzM.MigrationIntent: Retain` or `AzM.MigrationIntent: Retire`. If the tag isn't applied, Azure Catalyst treats the server or workload as a candidate for migration or modernization. Apply the same tag consistently to servers and all associated workloads to ensure accurate recommendations. For example, if Server 1 must be retained, apply the `Retain` tag to the server and all hosted databases.
 
 ## Related content
 

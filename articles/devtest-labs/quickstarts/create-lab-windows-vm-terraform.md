@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 04/02/2025
 ms.custom: devx-track-terraform, UpdateFrequency2
 author: TomArcherMsft
-ms.author: tarcher
+ms.author: rabououn
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

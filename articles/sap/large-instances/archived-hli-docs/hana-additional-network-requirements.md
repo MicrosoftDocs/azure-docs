@@ -2,14 +2,14 @@
 title: Other network requirements for SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Learn about added network requirements for SAP HANA on Azure (Large Instances) that you might have.
 services: virtual-machines-linux
-author: jjaygbay1 
+author: mattmcinnes 
 manager: bburns
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 6/3/2021
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 ms.custom: H1Hack27Feb2017
 # Customer intent: As a network administrator, I want to manage the network requirements for SAP HANA on Azure (Large Instances), so that I can ensure proper connectivity and performance for my application's deployment.
 ---

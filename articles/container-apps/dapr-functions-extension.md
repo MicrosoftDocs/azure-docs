@@ -8,12 +8,14 @@ ms.reviewer: hannahhunter
 ms.service: azure-container-apps
 ms.subservice: dapr
 ms.topic: how-to
-ms.date: 02/02/2026
+ms.date: 10/13/2026
 ms.custom: references_regions
 # Customer Intent: I'm a developer who wants to use the Dapr extension for Azure Functions in my Dapr-enabled container app
 ---
 
 # Deploy the Dapr extension for Azure Functions in Azure Container Apps
+
+[!INCLUDE [dapr-support](../../includes/functions-dapr-support-limitations.md)]
 
 The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-dapr.md) allows you to easily interact with the Dapr APIs from an Azure Function by using triggers and bindings. In this guide, you learn how to:
 

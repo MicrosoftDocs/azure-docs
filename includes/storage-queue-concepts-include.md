@@ -3,7 +3,7 @@ author: tamram
 ms.service: azure-storage
 ms.topic: include
 ms.date: 08/21/2020
-ms.author: tamram
+ms.author: diberry
 ---
 
 ## What is Queue storage?

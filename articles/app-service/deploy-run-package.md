@@ -3,8 +3,8 @@ title: Run Your App from a ZIP Package
 description: Deploy your app's ZIP package with atomicity. Improve the predictability and reliability of your app's behavior during the ZIP deployment process.
 ms.topic: how-to
 ms.date: 04/07/2026
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 
 # Customer intent: As a developer, I want to deploy an app's ZIP package with atomicity so that I can improve the predictability and reliability of my app's behaviour during the ZIP deployment process. 

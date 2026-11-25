@@ -15,6 +15,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Throw an exception when email sending tier limit is reached
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to throw an exception when the email sending tier limit is reached using our Email SDKs.
 
 ::: zone pivot="programming-language-csharp"

@@ -5,7 +5,7 @@ author: Lakshmisha-KS
 ms.author: lakshmishaks
 ms.service: azure-data-manager-energy
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 11/09/2026
 ms.custom:
   - template-how-to
   - sfi-image-nochange
@@ -29,7 +29,39 @@ This article describes how to set up a private endpoint for Azure Data Manager f
 
 ## Prerequisites
 
-[Create a virtual network](../virtual-network/quick-create-portal.md) in the same subscription as the Azure Data Manager for Energy instance. This virtual network allows automatic approval of the Private Link endpoint.
+[Create a virtual network](../virtual-network/quick-create-portal.md) and subnet in the subscription that contains the private endpoint. The private endpoint must be in the same region as its virtual network. The Azure Data Manager for Energy instance can be in another region, subscription, or tenant.
+
+For automatic approval, use a virtual network in the same subscription as the Azure Data Manager for Energy instance. For a different subscription or tenant, follow [Create a private endpoint across subscriptions or tenants](#create-a-private-endpoint-across-subscriptions-or-tenants).
+
+### Register resource providers in both subscriptions
+
+Register the following providers in **both** the subscription that hosts the Azure Data Manager for Energy instance and the subscription that hosts the private endpoint:
+
+| Resource provider | Purpose |
+| --- | --- |
+| `Microsoft.OpenEnergyPlatform` | Azure Data Manager for Energy |
+| `Microsoft.Network` | Private endpoint and virtual network |
+
+This requirement also applies when the subscriptions belong to different tenants. Registering `Microsoft.OpenEnergyPlatform` in the private endpoint's subscription doesn't require creating an Azure Data Manager for Energy instance there. For background, see [Approve private endpoint connections across subscriptions](../private-link/how-to-approve-private-link-cross-subscription.md).
+
+An authorized administrator must check each subscription in its owning tenant. In PowerShell, repeat these Azure CLI commands for each subscription, replacing the tenant and subscription identifiers. If both resources use the same subscription, check it once.
+
+```powershell
+az login --tenant "<tenant-id>"
+$subscriptionId = "<subscription-id>"
+
+az provider show --subscription $subscriptionId --namespace Microsoft.OpenEnergyPlatform --query registrationState --output tsv
+az provider show --subscription $subscriptionId --namespace Microsoft.Network --query registrationState --output tsv
+```
+
+Both results must be `Registered`. Register any missing provider and wait for completion:
+
+```powershell
+az provider register --subscription $subscriptionId --namespace Microsoft.OpenEnergyPlatform --wait
+az provider register --subscription $subscriptionId --namespace Microsoft.Network --wait
+```
+
+Allow time for permissions to propagate. Registration doesn't automatically restart a failed approval; see [Recover a failed approval](#recover-a-failed-approval).
 
 ## Create a private endpoint during instance provisioning by using the Azure portal 
 
@@ -156,9 +188,114 @@ Use the following steps to create a private endpoint for an existing Azure Data 
     [![Screenshot of the Private Access tab with an automatically approved private endpoint connection.](media/how-to-manage-private-links/private-links-9-auto-approved.png)](media/how-to-manage-private-links/private-links-9-auto-approved.png#lightbox)
 
 > [!NOTE]
-> When the Azure Data Manager for Energy instance and the virtual network are in different tenants or subscriptions, you have to manually approve the request to create a private endpoint. The **Approve** and **Reject** buttons appear on the **Private Access** tab. 
+> When the Azure Data Manager for Energy instance and the virtual network are in different tenants or subscriptions, you need to manually approve the request. Follow [Create a private endpoint across subscriptions or tenants](#create-a-private-endpoint-across-subscriptions-or-tenants). The **Approve** and **Reject** buttons appear on the **Private Access** tab.
 >
 > [![Screenshot that shows options for rejecting or approving a request to create a private endpoint.](media/how-to-manage-private-links/private-links-10-awaiting-approval.png)](media/how-to-manage-private-links/private-links-10-awaiting-approval.png#lightbox)
+
+## Create a private endpoint across subscriptions or tenants
+
+Before creating the endpoint, complete the provider registration checks in [Prerequisites](#prerequisites).
+
+1. In the tenant that hosts the Azure Data Manager for Energy instance, open the instance's **JSON View** and copy its full resource ID.
+
+    ```text
+    /subscriptions/<service-subscription-id>/resourceGroups/<service-resource-group>/providers/Microsoft.OpenEnergyPlatform/energyServices/<instance-name>
+    ```
+
+1. Switch to the tenant and subscription that will host the private endpoint. Open **Private endpoints** and select **Create**. On **Basics**, select the consumer subscription, resource group, and the same region as the consumer virtual network.
+1. On **Resource**, select **Connect to an Azure resource by resource ID or alias**. Enter the instance resource ID and set **Target sub-resource** to **Azure Data Manager for Energy**. Don't enter `Microsoft.OpenEnergyPlatform/energyServices` as the target sub-resource; that's the resource type.
+1. On **Virtual Network**, select the consumer virtual network and subnet.
+1. On **DNS**, if automatic private DNS integration isn't available, select **No** and finish creation. You can [configure private DNS afterward](#configure-private-dns-after-endpoint-creation).
+1. In the instance's tenant, open **Azure Data Manager for Energy instance > Networking > Private Access**. Match the pending connection's private endpoint ID to the endpoint you created, and select **Approve**.
+1. Return to the consumer's private endpoint. Verify that its connection status is **Approved** and provisioning succeeded. Also check the service-side connection's provisioning state. Successful endpoint creation or a service-side Approved status alone doesn't prove that approval completed.
+
+## Configure private DNS after endpoint creation
+
+If you skipped automatic DNS integration, associate the endpoint with both of these private DNS zones:
+
+| Private DNS zone | Purpose |
+| --- | --- |
+| `privatelink.energy.azure.com` | Azure Data Manager for Energy endpoint |
+| `privatelink.blob.core.windows.net` | Backing storage endpoints |
+
+Reuse existing zones, including centrally managed zones in another subscription where you have permission to manage the association. If the zones don't exist, [create the private DNS zones](../dns/private-dns-getstarted-portal.md#create-a-private-dns-zone). Don't create duplicate zones with the same names just because the endpoint wizard didn't offer integration.
+
+### Associate the zones with the private endpoint
+
+Use **one** private DNS zone group for both zones. Creating zones alone doesn't associate them with the endpoint.
+
+The following PowerShell examples use Azure CLI and the full resource IDs of the zones. Sign in to the consumer tenant, then check for an existing zone group:
+
+```powershell
+$endpointSubscriptionId = "<consumer-subscription-id>"
+$endpointResourceGroup = "<endpoint-resource-group>"
+$endpointName = "<endpoint-name>"
+$energyZoneId = "<energy-private-dns-zone-resource-id>"
+$blobZoneId = "<blob-private-dns-zone-resource-id>"
+
+az network private-endpoint dns-zone-group list `
+  --subscription $endpointSubscriptionId --resource-group $endpointResourceGroup `
+  --endpoint-name $endpointName --output json
+```
+
+If no group exists, create one with the service zone, then add the storage zone:
+
+```powershell
+az network private-endpoint dns-zone-group create `
+  --subscription $endpointSubscriptionId --resource-group $endpointResourceGroup `
+  --endpoint-name $endpointName --name default `
+  --zone-name energy --private-dns-zone $energyZoneId
+
+az network private-endpoint dns-zone-group add `
+  --subscription $endpointSubscriptionId --resource-group $endpointResourceGroup `
+  --endpoint-name $endpointName --name default `
+  --zone-name blob --private-dns-zone $blobZoneId
+```
+
+If a group already exists, reuse its name and use `add` only for a missing zone association. Don't replace an existing group or create a second one. The `energy` and `blob` values are configuration names; the resource IDs identify the actual zones.
+
+Run `dns-zone-group list` again. Verify successful provisioning, references to both zone IDs, and populated records in the zones' **Recordsets** pages. Read the expected hostnames and private IP addresses from the endpoint's **DNS configuration**, network interface, and zone-group record information. Don't guess backing storage names or point every hostname to the same IP address.
+
+For command details, see [az network private-endpoint dns-zone-group](/cli/azure/network/private-endpoint/dns-zone-group).
+
+### Link client networks and verify resolution
+
+For each zone, open **Private DNS zones > zone > Virtual network links**. Verify that the client virtual network is linked and the link succeeded. If a link is missing, add it with **Enable auto registration** unchecked.
+
+Auto registration here registers virtual-machine names. It isn't the resource-provider registration required in [Prerequisites](#prerequisites).
+
+Virtual network peering alone doesn't share private DNS resolution. Link other client networks that use Azure-provided DNS, or follow your organization's central resolver design. For custom DNS servers, configure forwarding through an Azure-connected resolver and link the zones to the resolver's virtual network as required by that design. See [Private endpoint DNS integration](../private-link/private-endpoint-dns-integration.md).
+
+Test from an application host or virtual machine that uses the client's actual DNS path. Ordinary Azure Cloud Shell can run the management commands in this article, but doesn't test resolution from inside the client virtual network.
+
+For example, from a Windows host in the linked network:
+
+```powershell
+Resolve-DnsName "<instance-name>.energy.azure.com" -Type A
+Resolve-DnsName "<storage-hostname-reported-by-the-endpoint>" -Type A
+```
+
+The final address records must match the endpoint's private IP addresses for those names. If records exist but the host resolves public addresses or fails to resolve the names, check its DNS servers, zone links, and forwarding path.
+
+## Recover a failed approval
+
+An approval can fail before the private endpoint's connection state is updated. Don't infer success from the service-side Approved status alone. Check the original operation's result, the service-side connection's provisioning state, and the consumer endpoint's connection state.
+
+1. Review the error. A `403 AuthorizationFailed` when reading `Microsoft.Network/privateEndpoints/privateLinkServiceProxies` can prevent approval from completing. Check both provider registrations in both subscriptions and allow permissions to propagate. Registration isn't the only possible cause of a 403. If registration is complete and the error persists, contact Azure support with the correlation ID and denied action rather than granting broad subscription roles to the service application.
+1. Wait until the previous approval operation is terminal, correct the authorization issue, and submit approval again on the **same connection**. Registration alone doesn't restart the operation. Avoid overlapping retries.
+1. If an older connection shows **Approved** with provisioning state **Failed** and the portal doesn't offer approval, sign in to the instance's tenant and resubmit approval through Azure CLI using the full service-side private endpoint connection resource ID:
+
+    ```powershell
+    az login --tenant "<service-tenant-id>"
+    $connectionId = "/subscriptions/<service-subscription-id>/resourceGroups/<service-resource-group>/providers/Microsoft.OpenEnergyPlatform/energyServices/<instance-name>/privateEndpointConnections/<connection-name>"
+
+    az network private-endpoint-connection approve --id $connectionId `
+      --description "Approve after correcting authorization"
+    ```
+
+1. Read the connection and consumer endpoint again. Verify the consumer connection is **Approved** and provisioning succeeded before treating recovery as complete. Don't rely only on the initial approval command response.
+
+Don't reject the connection as a reset or recreate the endpoint just to retry approval. A rejected connection can't simply be approved again.
 
 ## Manage multiple endpoints in the same virtual network
 ### Access via IP vs DNS

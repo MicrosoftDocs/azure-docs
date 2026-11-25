@@ -56,11 +56,7 @@ Because you're using a Queue storage output binding, you must have the Storage b
 
 ::: zone pivot="programming-language-python,programming-language-powershell,programming-language-java"
 
-Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages.
-
-Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
-
-:::code language="json" source="~/functions-docs-python-v2/host.json":::
+[!INCLUDE [functions-extension-bundles-json-v4-element](../../includes/functions-extension-bundles-json-v4-element.md)]
 
 Now, you can add the storage output binding to your project.
 
@@ -68,11 +64,7 @@ Now, you can add the storage output binding to your project.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
-Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages.
-
-Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
-
-:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli-v4-programming-model/host.json":::
+[!INCLUDE [functions-extension-bundles-json-v4-element](../../includes/functions-extension-bundles-json-v4-element.md)]
 
 Now, you can add the storage output binding to your project.
 

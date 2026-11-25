@@ -15,7 +15,7 @@ The following steps show the steps required to prepare sample customer range (1.
 
 # [**PowerShell**](#tab/powershell)
 
-1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/), and [AFRINIC](https://www.afrinic.net/whois/rdap) sites. 
+1. Create a [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/), and [AFRINIC](https://www.afrinic.net/) sites. 
 
    Utilizing the OpenSSL toolkit, the following commands generate an RSA key pair and create an X509 certificate using the key pair that expires in six months.
     
@@ -34,7 +34,7 @@ The following steps show the steps required to prepare sample customer range (1.
     
     * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - edit the *Remarks* of the inetnum record using MyAPNIC.
     
-    * [AFRINIC](https://afrinic.net/support/my-afrinic-net) - edit the *Remarks* of the inetnum record using MyAFRINIC.
+    * [AFRINIC](https://afrinic.net/support.html) - edit the *Remarks* of the inetnum record by using MyAFRINIC.
     
     * For ranges from LACNIC registry, create a support ticket with Microsoft.
      
@@ -69,7 +69,7 @@ The following steps show the steps required to prepare sample customer range (1.
 
 # [**Console**](#tab/console)
 
-1. A [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) must be created to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/), and [AFRINIC](https://www.afrinic.net/whois/rdap) sites. 
+1. Create a [self-signed X509 certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) to add to the Whois/RDAP record for the prefix. For information about RDAP, see the [ARIN](https://www.arin.net/resources/registry/whois/rdap/), [RIPE](https://www.ripe.net/manage-ips-and-asns/db/registration-data-access-protocol-rdap), [APNIC](https://www.apnic.net/about-apnic/whois_search/about/rdap/), and [AFRINIC](https://www.afrinic.net/) sites. 
 
     When utilizing the OpenSSL toolkit, the following example commands generate an RSA key pair and create an X509 certificate using the key pair that expires in six months.
 
@@ -88,7 +88,7 @@ The following steps show the steps required to prepare sample customer range (1.
     
     * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - edit the *Remarks* of the inetnum record using MyAPNIC.
     
-    * [AFRINIC](https://afrinic.net/support/my-afrinic-net) - edit the *Remarks* of the inetnum record using MyAFRINIC.
+    * [AFRINIC](https://afrinic.net/support.html) - edit the *Remarks* of the inetnum record by using MyAFRINIC.
     
     * For ranges from LACNIC registry, create a support ticket with Microsoft.
      

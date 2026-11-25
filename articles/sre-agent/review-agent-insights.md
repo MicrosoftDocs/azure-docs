@@ -3,7 +3,7 @@ title: Review agent insights in Azure SRE Agent
 description: Review per-thread conversation summaries, qualitative evaluation, and learnings from your agent's investigations.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 05/12/2026
+ms.date: 10/28/2026
 author: dchelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -30,7 +30,7 @@ Your agent automatically generates a structured insight after each conversation 
 
 ## Where to find insights
 
-Go to **Monitor** > **Session Insights**. The dashboard shows a list of insights on the left (newest first) and the full detail on the right.
+Go to **Build + setup** > **Monitor** > **Session insights**. The dashboard shows a list of insights on the left (newest first) and the full detail on the right.
 
 :::image type="content" source="media/review-session-insights/session-insights-overview.png" alt-text="Screenshot of SRE Agent session insights dashboard." lightbox="media/review-session-insights/session-insights-overview.png":::
 
@@ -60,7 +60,7 @@ Your feedback helps improve future insights. The system analyzes comments for ac
 
 ## Get started
 
-Insights are generated automatically. Go to **Monitor** > **Session Insights** to start reviewing your agent's work.
+Insights are generated automatically. Go to **Build + setup** > **Monitor** > **Session insights** to start reviewing your agent's work.
 
 ## Related content
 

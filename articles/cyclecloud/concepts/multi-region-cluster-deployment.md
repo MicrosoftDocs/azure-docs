@@ -2,7 +2,7 @@
 title: Deploy a multi‑region HPC cluster
 description: Guidance to plan, deploy, operate, and recover a multi‑region HPC cluster on Azure, including architecture options, prerequisites, step‑by‑step deployment, day‑2 operations, DR strategy, and caveats.
 author: jemorey
-ms.author: padmalathas
+ms.author: mattmcinnes
 ms.reviewer: xpillons
 ms.date: 06/19/2026
 ms.topic: concept-article

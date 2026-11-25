@@ -1,15 +1,24 @@
 ---
 title: Azure private network connectivity options (ExpressRoute, VPN, SD-WAN)
-description: This concept article explains common options for connecting Azure to private networks (including on-premises and AWS), how they compare, and what to consider for latency, bandwidth, security, cost, and operational complexity.
-author: stevenmatthew
+description: This concept article explains common options for connecting Azure to private networks (including AWS, Google Cloud, and Oracle Cloud), how they compare, and what to consider for latency, bandwidth, security, cost, and operational complexity.
+author: rajsinghmsa
 ms.service: azure-storage-mover
 ms.topic: concept-article
-ms.author: shaas
-ms.date: 06/17/2026
+ms.author: singra
+ms.date: 07/10/2026
 zone_pivot_groups: storage-mover-multicloud
 ---
 
-# Migrate multicloud data from external sources using Azure Storage Mover private connections
+# Use Azure Storage Mover private connections for private-source migrations
+
+
+
+
+
+
+
+
+
 
 :::zone pivot="aws"
 
@@ -147,6 +156,12 @@ If you operate an SD-WAN platform in AWS (for example, FortiGate on EC2), you ca
 2. Attach WAN/LAN interfaces, associate an Elastic IP to the WAN interface, and disable source/destination checks if required by the appliance routing model.
 3. Configure security groups and route tables to allow Azure prefixes and steer traffic through the appliance.
 
+## Implementation details for AWS FSx private access (VPC endpoints)
+
+### Configure an AWS VPC endpoint (VPCE) for Amazon FSx
+
+An AWS VPC endpoint (VPCE) for FSx provides a private endpoint to an S3 service that allows your VPC to reach FSx privately. To create your FSx share and attach it to a VPC, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started.html). Make sure your share is within a VPC that has AWS connectivity and that FSx security allows secure traffic on port 445 by default.
+
 ## Implementation details for S3 private access (VPC endpoints)
 
 ### Configure an AWS VPC endpoint (VPCE) for Amazon S3
@@ -165,7 +180,8 @@ Example: S3 bucket policy restricted to a specific VPCE.
 
 :::image type="content" source="./media/cloud-to-cloud-networking/s3-bucket-policy.png" alt-text="Screenshot of bucket policy." lightbox="./media/cloud-to-cloud-networking/s3-bucket-policy.png":::
 
-**Note:** Record the VPCE private IP address; it is used as the destination IP for Azure Private Link Service Direct Connect.
+> [!NOTE]
+> Record the VPCE private IP address; it is used as the destination IP for Azure Private Link Service Direct Connect.
 
 #### Security group considerations
 
@@ -193,10 +209,50 @@ Private Link Service Direct Connect allows Azure to create outbound private conn
 
 After creating the Direct Connect resource, create a private connection in Storage Mover and approve it before use.
 
+### [Azure portal](#tab/portal)
+
 1. In **Storage Mover**, open **Storage Endpoints** and then the **Private Connections** tab.
 2. Create a private connection that references the Direct Connect private link service, then approve it so it can be associated to jobs.
 
+### [Azure CLI](#tab/CLI)
+
+Create a connection that references the Private Link Service Direct Connect resource:
+
+```azurecli
+az storage-mover connection create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --private-link-service-id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService" --description "Private S3 connection"
+```
+
+Get the resource ID of the private endpoint created for the connection:
+
+```azurecli
+az storage-mover connection show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --query properties.privateEndpointResourceId --output tsv
+```
+
+List the private endpoint connections on the Private Link Service and identify the entry whose private endpoint ID matches the Storage Mover connection:
+
+```azurecli
+az network private-endpoint-connection list --id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService" --query "[].{name:name,id:id,privateEndpointId:properties.privateEndpoint.id}" --output table
+```
+
+Approve the matching private endpoint connection:
+
+```azurecli
+az network private-endpoint-connection approve --id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService/privateEndpointConnections/<private-endpoint-connection-name>" --description "Approved for Azure Storage Mover"
+```
+
+Check the Storage Mover connection status:
+
+```azurecli
+az storage-mover connection show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --query properties.connectionStatus --output tsv
+```
+
+Only connections with an `Approved` status can be associated with a migration job.
+
+---
+
 ### Use private connections for cloud-to-cloud migration
+
+### [Azure portal](#tab/portal)
 
 1. Use the above Private connection as part of Create job operation. Select ‘Cloud to Cloud' migration type.
 2. When creating a cloud-to-cloud migration job, set the S3 bucket type to **Private** and associate the approved private connection.
@@ -204,12 +260,25 @@ After creating the Direct Connect resource, create a private connection in Stora
 4. Only private connections in **Approved** state can be selected.
 5. Remaining job steps are the same as a public S3-to-Blob migration.
 
+### [Azure CLI](#tab/CLI)
+
+Create the cloud-to-cloud job definition and pass the approved connection resource ID:
+
+```azurecli
+az storage-mover job-definition create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition" --job-type CloudToCloud --copy-mode Additive --source-name "my-s3-endpoint" --target-name "my-blob-endpoint" --source-subpath "/" --target-subpath "/" --connections "/subscriptions/<subscription-id>/resourceGroups/c2c-migration-rg/providers/Microsoft.StorageMover/storageMovers/myStorageMover/connections/private-connection" --description "Private S3 to Azure Blob Storage"
+```
+
+To use multiple approved connections, provide each connection resource ID after `--connections`.
+
+---
+
 ## Architecture
-### Cloud-to-cloud Migration flow (private networking)
+
+### Private migration flow (private networking)
 
 :::image type="content" source="./media/cloud-to-cloud-networking/cloud-to-cloud-private-networking.png" alt-text="Screenshot of cloud-to-cloud private networking architecture." lightbox="./media/cloud-to-cloud-networking/cloud-to-cloud-private-networking.png":::
 
-Above diagram shown with private networking to AWS but same applies for other private networking scenarios.
+The preceding diagram shows private networking to AWS, but the same private connection pattern applies to other supported private-source scenarios.
 
 ### Cloud-to-cloud Migration flow (public S3 bucket to Azure Blob)
 
@@ -242,7 +311,7 @@ Above diagram shown with private networking to AWS but same applies for other pr
 ### Regional alignment
 
 * **Region Scope Validation:** AWS VPC Endpoints for S3 are **region scoped**. A VPCE in `us-west` cannot route traffic to an S3 bucket located in `us-east`.
-* **Remediation:** If a regional mismatch is identified, the S3 bucket must be migrated to the same region as the VPCE, or a new VPCE must be established in the bucket's region (noting that this may require additional cross-region routing
+* **Remediation:** If you identify a regional mismatch, migrate the S3 bucket to the same region as the VPCE, or establish a new VPCE in the bucket's region. This approach might require extra cross-region routing.
 
 ## Limits
 
@@ -259,28 +328,22 @@ Above diagram shown with private networking to AWS but same applies for other pr
 | **2 FortiGate SDWANs each with VPN tunnel and Private Connection** | 2 Gbps * 2 |
 
 
+
+
+
 :::zone-end
+
+
+
+
+
+
+
+
 
 :::zone pivot="gcs"
 
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -405,6 +468,8 @@ After creating the PLS Direct Connect resource, create a private connection in S
 
 ### Create a private connection
 
+### [Azure portal](#tab/portal)
+
 1. Navigate to your Storage Mover resource in the Azure portal.
 1. Under Resource management, select Storage endpoints.
 1. Select the Private connections (Preview) tab.
@@ -416,7 +481,25 @@ After creating the PLS Direct Connect resource, create a private connection in S
 > [!TIP]
 > Create multiple private connections (each backed by a separate PLS Direct Connect resource) to maximize bandwidth and avoid single-connection throughput limits.
 
+### [Azure CLI](#tab/CLI)
+
+Create a connection that references the Private Link Service Direct Connect resource:
+
+```azurecli
+az storage-mover connection create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --private-link-service-id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService" --description "Private GCS connection"
+```
+
+Get the resource ID of the private endpoint created for the connection:
+
+```azurecli
+az storage-mover connection show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --query properties.privateEndpointResourceId --output tsv
+```
+
+---
+
 ### Approve the private connection
+
+### [Azure portal](#tab/portal)
 
 1. Select the checkbox next to your newly created private connection.
 1. Select Approve.
@@ -425,9 +508,33 @@ After creating the PLS Direct Connect resource, create a private connection in S
 > [!IMPORTANT]
 > Only private connections in Approved state can be used for migration jobs. Connections in pending, rejected, or disconnected states do not appear as options.
 
+### [Azure CLI](#tab/CLI)
+
+List the private endpoint connections on the Private Link Service and identify the entry whose private endpoint ID matches the Storage Mover connection:
+
+```azurecli
+az network private-endpoint-connection list --id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService" --query "[].{name:name,id:id,privateEndpointId:properties.privateEndpoint.id}" --output table
+```
+
+Approve the matching private endpoint connection:
+
+```azurecli
+az network private-endpoint-connection approve --id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService/privateEndpointConnections/<private-endpoint-connection-name>" --description "Approved for Azure Storage Mover"
+```
+
+Check the Storage Mover connection status:
+
+```azurecli
+az storage-mover connection show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --query properties.connectionStatus --output tsv
+```
+
+---
+
 ## Create a migration job with private connections
 
-### Basics tab
+### [Azure portal](#tab/portal)
+
+#### Basics tab
 
 | Field          | Value                             |
 |----------------|-----------------------------------|
@@ -437,17 +544,17 @@ After creating the PLS Direct Connect resource, create a private connection in S
 | Name           | A meaningful name for the job     |
 | Description    | (Optional) Up to 1024 characters  |
 
-#### In the Source section:
+##### In the Source section:
 
 - Source endpoint: select an existing GCS S3-compatible source endpoint, or select Add source endpoint to create one.
 - Source sub-path: (optional) specify a sub-folder to migrate only part of your bucket.
 
-#### In the Target section:
+##### In the Target section:
 
 - Target Endpoint: select an existing Azure Blob Storage target endpoint, or select Add target endpoint.
 - Target sub-path: (optional) specify a target sub-folder.
 
-#### In the Private connections (Preview) section:
+##### In the Private connections (Preview) section:
 
 > [!NOTE]
 > Private buckets require private connections. You can only add private connections in an approved state.
@@ -456,6 +563,18 @@ After creating the PLS Direct Connect resource, create a private connection in S
 - You can associate multiple private connections for load balancing.
 - Only connections in Approved state can be added.
 - Remaining job steps are the same as a public GCS-to-Blob migration.
+
+### [Azure CLI](#tab/CLI)
+
+Create the cloud-to-cloud job definition and pass the approved connection resource ID:
+
+```azurecli
+az storage-mover job-definition create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition" --job-type CloudToCloud --copy-mode Additive --source-name "my-gcs-endpoint" --target-name "my-blob-endpoint" --source-subpath "/" --target-subpath "/" --connections "/subscriptions/<subscription-id>/resourceGroups/c2c-migration-rg/providers/Microsoft.StorageMover/storageMovers/myStorageMover/connections/private-connection" --description "Private GCS to Azure Blob Storage"
+```
+
+To use multiple approved connections, provide each connection resource ID after `--connections`.
+
+---
 
 ## Troubleshooting
 
@@ -509,6 +628,7 @@ The following benchmarks were measured using Azure VPN Gateway with multiple IPs
 
 
 
+:::zone-end
 
 
 
@@ -516,6 +636,194 @@ The following benchmarks were measured using Azure VPN Gateway with multiple IPs
 
 
 
+
+
+
+:::zone pivot="oracle"
+
+
+
+
+## Prerequisites
+
+### Azure prerequisites
+
+- An active Azure subscription with permissions to create and manage Azure Storage Mover resources.
+- A Storage Mover resource deployed in your Azure subscription.
+- An Azure Key Vault to store your OCI Customer Secret Keys (Access Key and Secret Key).
+- Familiarity with the Azure Storage Mover resource hierarchy.
+
+### OCI prerequisites
+
+- An Oracle Cloud Infrastructure (OCI) tenancy with access to the Object Storage bucket you want to migrate.
+- Customer Secret Keys generated for an OCI user (Access Key ID + Secret Key).
+- An OCI Virtual Cloud Network (VCN) with connectivity to Azure (via Site-to-Site VPN or FastConnect).
+- An IAM policy granting the user or group read access to the target buckets and objects (for example: `Allow group <G> to read buckets in compartment <C>` and `Allow group <G> to read objects in compartment <C>`).
+- An OCI Object Storage private endpoint (or Service Gateway) that provides a stable private IP for Object Storage access inside your VCN.
+
+### Private networking prerequisites
+
+- A Private Link Service Direct Connect resource configured in Azure with the OCI Object Storage private endpoint IP as the destination.
+- Familiarity with Azure Private Link networking documentation.
+
+## Private network connectivity options
+
+To migrate data from a VCN-restricted OCI bucket, you first need a private network path between your OCI VCN and Azure. Azure supports several connectivity options:
+
+| Option | Connectivity path | Strengths | Tradeoffs |
+|---|---|---|---|
+| ExpressRoute + OCI FastConnect | Private circuit via provider (Equinix, Megaport) | Low latency, high throughput, predictable performance | Lead time, cost, provider dependencies |
+| Site-to-site IPsec VPN (Azure VPN Gateway + OCI Site-to-Site VPN) | Encrypted tunnels over public internet | Quick to deploy, lower cost | Variable performance; throughput limits per gateway SKU |
+
+For most scenarios, site-to-site VPN provides a good balance of cost and performance. For highest throughput, use ExpressRoute paired with OCI FastConnect.
+
+## Connectivity options in Azure
+
+### ExpressRoute
+
+**Learn more:** [ExpressRoute documentation](/azure/expressroute/)
+
+**Routing:** BGP is commonly used over private circuits to exchange prefixes between Azure and your network.
+
+**Connectivity providers:** ExpressRoute is typically provisioned through a colocation or connectivity provider (for example, Equinix, Megaport).
+
+### Site-to-site IPsec VPN (Azure VPN Gateway)
+
+**Overview:** Use Azure VPN Gateway for encrypted site-to-site IPsec tunnels over the public internet. For higher throughput and resiliency, select an appropriate gateway SKU (for example, Generation2 and zone-redundant SKUs where available).
+
+**Learn more:** [Tutorial - Create an S2S VPN connection](/azure/vpn-gateway/tutorial-site-to-site-portal)
+
+**Routing:** Use BGP to exchange routes and support active/active tunnels across multiple connections.
+
+## Implementation tips (VPN performance)
+
+Example custom IPsec/IKE settings (validate against your device compatibility): **GCMAES256** for IPsec encryption/integrity, **SHA256** for IKE integrity, **DHGroup14**, **PFS2048**.
+
+**Learn more:** [Configure custom IPsec/IKE connection policies](/azure/vpn-gateway/ipsec-ike-policy-howto).
+
+## Configure site-to-site VPN between Azure and OCI
+
+**On the OCI side:**
+
+- Create a **Dynamic Routing Gateway (DRG)** and attach it to your VCN.
+- Create a **Customer-Premises Equipment (CPE)** object for each Azure VPN Gateway public IP address.
+- Create an **IPSec connection** (Site-to-Site VPN) with tunnels to the Azure VPN Gateway public IP addresses.
+- Configure **BGP** (or static routing) on the DRG using the BGP peer IPs exchanged with Azure.
+- Ensure the Object Storage private endpoint subnet is reachable from Azure over the VPN tunnel; advertise your VCN subnets to Azure via BGP.
+
+> [!NOTE]
+> Validate the IPsec/IKE parameters on the OCI IPSec connection against the Azure VPN Gateway policy so both ends negotiate the same ciphers.
+
+**Learn more:** [OCI Site-to-Site VPN](https://docs.oracle.com/iaas/Content/Network/Tasks/managingIPsec.htm)
+
+## Configure private access to OCI Object Storage
+
+An OCI Object Storage private endpoint (or Service Gateway) provides a stable private IP address inside your VCN for accessing Object Storage. This IP address is the destination you configure in Azure Private Link Service Direct Connect.
+
+- In the OCI Console, navigate to **Networking** > **Virtual Cloud Networks**, and create an **Object Storage private endpoint** in your VCN.
+- Assign a private IP address from your VCN subnet.
+- Record this private IP address. You need it when configuring the Azure PLS Direct Connect resource.
+
+### Restrict OCI bucket access (optional)
+
+- Use OCI IAM policies to grant least-privilege read access, and set bucket visibility to **private**.
+- Optionally restrict access to your VCN by using the Object Storage private endpoint and network security rules.
+
+## Create the private link service direct connect resource
+
+Private Link Service (PLS) Direct Connect creates outbound private connectivity from Azure to a destination IP address. For OCI, the destination IP is the OCI Object Storage private endpoint IP in your VCN, reachable via your VPN or FastConnect tunnel.
+
+- In the Azure portal, navigate to **Home** > **Network foundation** > **Private Link services**.
+- Select **Create a private link service**.
+- On the **Basics** tab, select the same Azure region as your Storage Mover resource.
+- On the **Outbound settings** tab:
+  - Connection method: select **Destination IP address**.
+  - IP address: enter the OCI Object Storage private endpoint IP address that you recorded earlier.
+  - Source NAT Virtual network: select the VNet containing your Azure VPN Gateway.
+  - Source NAT subnet: select the subnet with VPN connectivity to OCI.
+  - Private IP address settings: configure at least 2 NAT IPs (even number required).
+- On the **Access security** tab: select the appropriate visibility setting (Role-based access control only is most restrictive).
+- Select **Review + create**.
+
+## Create and approve private connections
+
+After creating the PLS Direct Connect resource, create a private connection in Storage Mover and approve it before use.
+
+### Create a private connection
+
+1. Navigate to your Storage Mover resource in the Azure portal.
+1. Under **Resource management**, select **Storage endpoints**.
+1. Select the **Private connections (Preview)** tab.
+1. Select **Add private connections**.
+1. Enter a name for the private connection.
+1. Select the **Private Link Service Direct Connect** resource you created.
+1. Select **Create**. Provisioning takes 20-30 seconds. Refresh to see the connection in the grid.
+
+> [!TIP]
+> Create multiple private connections (each backed by a separate PLS Direct Connect resource) to maximize bandwidth and avoid single-connection throughput limits.
+
+### Approve the private connection
+
+1. Select the checkbox next to your newly created private connection.
+1. Select **Approve**.
+1. Wait for the **Private link service connection** status to change to **Approved**.
+
+> [!IMPORTANT]
+> Only private connections in **Approved** state can be used for migration jobs. Connections in pending, rejected, or disconnected states don't appear as options.
+
+## Create a migration job with private connections
+
+### Basics tab
+
+| Field | Value |
+|---|---|
+| Migration type | Multicloud migration |
+| Source type | OCI Object Storage - S3 (Preview) |
+| S3 bucket type | Private (Preview) |
+| Name | A meaningful name for the job |
+| Description | (Optional) Up to 1,024 characters |
+
+- **Source endpoint**: select an existing OCI S3-compatible source endpoint, or select **Add source endpoint** to create one.
+- **Target Endpoint**: select an existing Azure Blob Storage target endpoint, or select **Add target endpoint**.
+- In the **Private connections (Preview)** section, select **Add** to associate approved private connections with this job. You can associate multiple private connections for load balancing.
+- Remaining job steps are the same as a public OCI-to-Blob migration.
+
+## Troubleshooting
+
+### Connectivity and IP addressing
+
+- **Verify Destination IP in Azure PLS:** ensure PLS Direct Connect points to your OCI Object Storage private endpoint IP address. A mismatch prevents connectivity.
+- **Validate network path:** confirm the OCI Site-to-Site VPN tunnels (or FastConnect virtual circuit) show an **Up** status in the OCI Console.
+- **Check routing:** confirm the DRG BGP sessions are established and your VCN subnets (including the private endpoint subnet) are advertised to Azure.
+- **Verify private endpoint:** confirm the OCI Object Storage private endpoint is active and resolves to the expected private IP.
+- **Check region alignment:** PLS Direct Connect and Storage Mover must be in the same Azure region.
+
+### Authentication
+
+- Verify the Access Key and Secret Key (OCI Customer Secret Keys) in Azure Key Vault are active and correct.
+- Confirm the source endpoint managed identity has the **Key Vault Secrets User** role on your Key Vault.
+- Confirm the OCI user or group has an IAM policy granting read access to the target buckets and objects.
+- If S3 client initialization fails, use path-style URLs for buckets whose names contain `_` or `.`.
+
+## Known limits
+
+- Maximum 10 private connections per subscription per region (Approved + Pending + Disconnected combined).
+- PLS Direct Connect must be configured in the same region as the Storage Mover resource.
+- Scheduling is not available for the OCI source type. Jobs must be run manually.
+- Each migration job supports transfer of up to 500 million objects.
+- Only HTTPS access to the S3-compatible source is supported.
+- The S3-compatible source must support AWS Signature Version 4 (SigV4) authentication.
+- Buckets with DNS-incompatible names (`_`, `.`) must use path-style URLs.
+- Customer Secret Keys per OCI user are subject to OCI service limits (default is low; request an increase if needed). Verify the current limit in the OCI Console.
+
+## Performance
+
+The following benchmarks were measured using Azure VPN Gateway with multiple IPsec tunnels combined with Storage Mover private connections. Actual throughput depends on your VCN, VPN/FastConnect, and Object Storage limits.
+
+| Setup                                                                             | Approximate maximum throughput |
+|-----------------------------------------------------------------------------------|--------------------------------|
+| Azure VPN Gateway - 4 IPsec tunnels + 1 private connection (OCI private endpoint) | ~250-300 MB/s                  |
+| Azure VPN Gateway - 4 IPsec tunnels + 4 private connections | ~550 MB/s (~4-4.5 Gbps)                              |
 
 
 
@@ -537,8 +845,14 @@ The following benchmarks were measured using Azure VPN Gateway with multiple IPs
 - [Private Service Connect](https://cloud.google.com/vpc/docs/private-service-connect)    
 :::zone-end
 
+:::zone pivot="oracle"
 
 
+
+We need some "next step" links for Oracle migration.
+
+
+:::zone-end
 
 
 

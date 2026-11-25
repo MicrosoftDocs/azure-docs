@@ -3,7 +3,7 @@ author: mumian
 ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 12/02/2024
-ms.author: jgao
+ms.author: ashishj
 ---
 
 > [!NOTE]

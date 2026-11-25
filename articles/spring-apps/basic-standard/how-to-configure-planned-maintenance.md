@@ -1,8 +1,8 @@
 ---
 title: How to Configure Planned Maintenance for Azure Spring Apps
 description: Describes how to configure planned maintenance for Azure Spring Apps.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: haochuang
 ms.service: azure-spring-apps
 ms.topic: how-to

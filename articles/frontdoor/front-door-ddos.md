@@ -2,7 +2,7 @@
 title: DDoS Protection on Azure Front Door
 description: Learn how Azure Front Door provides robust protection against DDoS attacks, ensuring the security and performance of your web applications.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 04/30/2026
@@ -39,7 +39,7 @@ Use [Azure Web Application Firewall (WAF)](../web-application-firewall/afds/afds
 - Create [custom WAF rules](../web-application-firewall/afds/waf-front-door-custom-rules.md) to automatically block and rate limit HTTP or HTTPS attacks with known signatures.
 - The bot protection managed rule set protects your application from known bad bots. For more information, see [Configuring bot protection](../web-application-firewall/afds/waf-front-door-policy-configure-bot-protection.md).
 
-For guidance on using Azure WAF to protect against DDoS attacks, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+For guidance on using Azure WAF to protect against DDoS attacks, see [Application DDoS protection](../web-application-firewall/application-ddos-protection.md).
 
 ## Protect virtual network origins
 

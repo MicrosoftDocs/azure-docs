@@ -1,19 +1,21 @@
 ---
-title: How to move from classic to modernized VMware disaster recovery?
+title: Move resources from classic to modernized experience
 description: This article describes how to move from classic to modernized VMware disaster recovery.
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 02/13/2026
+ms.date: 09/21/2026
 ms.custom: engagement-fy23
 # Customer intent: "As a VMware administrator, I want to migrate replicated items from classic to modernized disaster recovery architecture, so that I can benefit from enhanced protection and efficiency without redoing the entire replication process."
 ---
 
-# How to move from classic to modernized VMware disaster recovery  
+# Move resources from classic to modernized experience  
 
-This article explains how to move or migrate your VMware or physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. By using this migration capability, you can transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. A smart replication mechanism guides this migration. It ensures that the complete initial replication isn't performed again for noncritical replicated items, and only the differential data is transferred. 
+The classic protection experience retired on March 30, 2026. You can't enable new classic protection. This article is retained for eligible existing replications where the **Upgrade to modernized VMware replication** action remains available. If the action isn't available, contact Microsoft Support for recovery guidance instead of following these steps.
+
+For eligible items, this migration transfers protection to the [modernized](./vmware-azure-architecture-modernized.md) architecture without repeating complete initial replication for noncritical items.
 
 > [!NOTE]
 > - Recovery plans aren't migrated and must be created again in the modernized Recovery Services vault.   
@@ -32,7 +34,7 @@ Follow these steps to move the replicated items from classic architecture to mod
 
    :::image type="Replicated items" source="media/migrate-tool/replicated-items-inline.png" alt-text="Screenshot showing replicated items." lightbox="media/migrate-tool/replicated-items-expanded.png":::
 
-1. Select **Upgrade to modernized VMware replication**. The portal displays the **Pre-requisites** details. Make sure you read through the prerequisites and then select **Next** to proceed to configure the migration settings.
+1. Select **Upgrade to modernized VMware replication**. The portal displays the **Prerequisites** details. Make sure you read through the prerequisites and then select **Next** to proceed to configure the migration settings.
 
     :::image type="Prerequisites" source="media/migrate-tool/prerequisites-inline.png" alt-text="Screenshot showing prerequisites." lightbox="media/migrate-tool/prerequisites-expanded.png":::
 

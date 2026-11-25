@@ -157,8 +157,9 @@ Add a `<NoWarn>` entry to your `.csproj` file to suppress a rule for the entire 
 
 A separate, older Roslyn analyzer exists for the [.NET in-process](../../azure-functions/functions-dotnet-class-library.md) programming model. This analyzer is part of the [`Microsoft.Azure.WebJobs.Extensions.DurableTask`](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) package and uses a different rule prefix (`DF` instead of `DURABLE`). The two analyzers are entirely separate packages and don't share rule IDs.
 
-> [!IMPORTANT]
-> The .NET in-process programming model is being retired. Use the [.NET isolated worker model](../../azure-functions/dotnet-isolated-process-guide.md) for new projects. The legacy in-process analyzer doesn't receive new rules or improvements.
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
+The legacy in-process analyzer doesn't receive new rules or improvements.
 
 For information about the in-process analyzer rules (DF0101–DF0307), see the [Analyzer v0.2.0 release page](https://github.com/Azure/azure-functions-durable-extension/releases/tag/Analyzer-v0.2.0).
 

@@ -57,8 +57,8 @@ The following common steps assume that you install the application server on a s
    1. Mount the File Systems
       :::zone pivot="azurefiles"
          ```bash
-         echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab
-         echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans  nfs noresvport,vers=4,minorversion=1,sec=sys  0  0" >> /etc/fstab
+         echo "sapnfsafs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1 nfs noresvport,nfsvers=4.1,sec=sys  0  0" >> /etc/fstab
+         echo "sapnfsafs.file.core.windows.net:/sapnfsafs/saptrans /usr/sap/trans nfs noresvport,nfsvers=4.1,sec=sys  0  0" >> /etc/fstab
          
          # Mount the file systems.
          mount -a
@@ -66,13 +66,13 @@ The following common steps assume that you install the application server on a s
       :::zone-end
       :::zone pivot="anf"
          ```bash
-         # If you're using NFSv3:
-         echo "10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs nfsvers=3,hard 0 0" >> /etc/fstab
-         echo "10.27.1.5:/saptrans /usr/sap/trans nfs nfsvers=3, hard 0 0" >> /etc/fstab
-         
-         # If you're using NFSv4.1:
+         # NFSv4.1:
          echo "10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs nfsvers=4.1,sec=sys,hard 0 0" >> /etc/fstab
          echo "10.27.1.5:/saptrans /usr/sap/trans nfs nfsvers=4.1,sec=sys,hard 0 0" >> /etc/fstab
+
+         # NFSv3:
+         echo "10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs nfsvers=3,hard 0 0" >> /etc/fstab
+         echo "10.27.1.5:/saptrans /usr/sap/trans nfs nfsvers=3,hard 0 0" >> /etc/fstab
          
          # Mount the file systems.
          mount -a

@@ -3,7 +3,7 @@ title: Cross-Origin Resource Sharing (CORS) and Application Gateway for Containe
 description: Learn how Cross-Origin Resource Sharing (CORS) works with Application Gateway for Containers.
 services: application gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
 ms.date: 06/24/2026
 ms.author: mbender

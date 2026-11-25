@@ -1,8 +1,8 @@
 ---
 title: How to Enable Automatic Scaling
 description: Learn how to scale automatically in Azure App Service with no configuration.
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.topic: how-to
 ms.date: 04/16/2026
 ms.custom: devx-track-azurecli
@@ -189,6 +189,10 @@ This process of scaling and prewarming continues until the maximum instance coun
 App Service automatic scaling periodically checks the `/admin/host/ping` endpoint along with other health check mechanisms that are inherent to the platform. Occasionally, due to existing platform configurations, these pings might return 404 errors. However, it's important to note that these 404 errors shouldn't affect your app's availability or scaling performance.
 
 If your web app returns a 5xx status, these endpoint pings might result in intermittent restarts, though this scenario is uncommon. Ensure that your web app doesn't return a 5xx status at this endpoint. These ping endpoints can't be customized.
+
+### Can I use App Service Health Check with automatic scaling?
+
+Yes. You can enable [Health Check](monitor-instances-health-check.md) and automatic scaling together. You don't need to disable Health Check when you turn on automatic scaling for your web app.
 
 ### How do I track the number of scaled-out instances during the automatic scaling event?
 

@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/14/2026
+ms.date: 10/29/2026
 ms.author: onwokolo
 ---
 
@@ -16,10 +16,10 @@ ms.author: onwokolo
 This article explains how savings plan permissions work and how users can view and manage savings plans in the Azure portal.
 
 ## Who can manage a savings plan by default
-Two different authorization methods control a user's ability to view, manage, and delegate permissions to savings plans. They're billing admin roles and savings plan role-based access control (RBAC) roles.
+Two authorization methods control a user's ability to view and manage savings plans and delegate permissions: billing admin roles and savings plan role-based access control (RBAC) roles.
 
 ## Billing admin roles
-You can view, manage, and delegate permissions to savings plans by using built-in billing admin roles. To learn more about Microsoft Customer Agreement and Enterprise Agreement billing roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](../manage/understand-mca-roles.md) and [Managing Azure Enterprise Agreement roles](../manage/understand-ea-roles.md), respectively.
+Use built-in billing admin roles to view and manage savings plans and delegate permissions. To learn more about Microsoft Customer Agreement and Enterprise Agreement billing roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](../manage/understand-mca-roles.md) and [Managing Azure Enterprise Agreement roles](../manage/understand-ea-roles.md), respectively.
 
 ### Billing admin roles required for savings plan actions
 
@@ -63,12 +63,12 @@ There are four savings plan-specific RBAC roles:
 
 - **Savings plan administrator**: Allows [management](manage-savings-plan.md) of one or more savings plans in a tenant and [delegation of RBAC roles](/azure/role-based-access-control/role-assignments-portal) to other users.
 - **Savings plan purchaser**: Allows purchase of savings plans with a specified subscription.
-    - Allows savings plans purchase or [reservation trade-in](reservation-trade-in.md) by nonbilling admins and nonsubscription owners.
+    - Allows nonbilling admins and nonsubscription owners to purchase savings plans or perform a [reservation trade-in](reservation-trade-in.md).
     - Savings plan purchasing by nonbilling admins must be enabled. For more information, see [Permissions to buy a savings plan](permission-buy-savings-plan.md).
 - **Savings plan contributor**: Allows management of one or more savings plans in a tenant but not delegation of RBAC roles to other users.
 - **Savings plan reader**: Allows read-only access to one or more savings plans in a tenant.
 
-These roles can be scoped to either a specific resource entity (for example, subscription or savings plan) or the Microsoft Entra tenant (directory). To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
+You can scope these roles to either a specific resource entity (for example, a subscription or savings plan) or the Microsoft Entra tenant (directory). To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 ### Savings plan RBAC roles required for savings plan actions
 
@@ -122,7 +122,7 @@ foreach ($savingsPlan in $savingsPlanObjects)
 }
 ```
 
-When you use the PowerShell script to assign the ownership role and it runs successfully, a success message isn't returned.
+When the PowerShell script successfully assigns the owner role, it doesn't return a success message.
 
 #### Parameters
 

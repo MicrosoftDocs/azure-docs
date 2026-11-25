@@ -1,15 +1,14 @@
 --- 
-title: Overview of Azure Migrate Assessment Report 
+title: Overview of Azure Catalyst assessment report
 description: Learn about assessment report, Azure readiness, and recommendations. 
-author: habibaum
-ms.author: v-uhabiba
+author: Jeronika-MS
+ms.reviewer: v-gajeronika
 ms.service: azure-migrate 
 ms.topic: concept-article 
 ms.date: 09/17/2025
 ms.custom: engagement-fy24 
 ms.update-cycle: 1825-days
-monikerRange:
-# Customer intent: As a cloud architect, I want to generate an Azure Migrate assessment report, so that I can evaluate workload readiness, receive sizing recommendations, and estimate migration costs effectively for a successful cloud transition.
+# Customer intent: As a cloud architect, I want to generate an Azure Catalyst assessment report, so that I can evaluate workload readiness, receive sizing recommendations, and estimate migration costs effectively for a successful cloud transition.
 --- 
 
 # Assessment report of Azure readiness
@@ -18,7 +17,7 @@ Each assessment provides four key outputs: Azure readiness, right sized target r
 
 ## Understanding Azure readiness 
 
-Not all workloads are suitable to run in Azure. An Azure Migrate assessment evaluates all workloads in the group and categorizes them based on their readiness.
+Not all workloads are suitable to run in Azure. An Azure Catalyst assessment evaluates all workloads in the group and categorizes them based on their readiness.
 
 - **Ready for Azure**: The workloads can be migrated as-is to Azure without any changes. It starts in Azure with full Azure support. 
 
@@ -26,7 +25,7 @@ Not all workloads are suitable to run in Azure. An Azure Migrate assessment eval
 
 - **Not ready for Azure**: The server won't start in Azure. For example, if an on-premises server's disk stores more than 64 TB, Azure can't host the server. Follow the remediation guidance to fix the problem before migration. 
 
-- **Readiness unknown**: Azure Migrate can't determine the readiness of the server because of insufficient metadata. 
+- **Readiness unknown**: Azure Catalyst can't determine the readiness of the server because of insufficient metadata. 
 
 Readiness calculations differ based on the source and targets and the methodology to calculate also differs across assessment types. 
 
@@ -51,11 +50,11 @@ This value is multiplied by the comfort factor(taken as an input in assessment s
 
 ### Monthly costs 
 
-After right-sizing target candidates are selected, and if more than one suitable candidate is available the recommended target is selected based on selected migration strategy. By default **Minimizing the cost** is the selected strategy. In the case of Azure VM and AVS assessment that is the only strategy. Once the targets are finalized a monthly cost is calculated by aggregating the cost of all resources, licenses and ancillary services like security. Based on the selected input from assessment settings the prices and offer details are fetched to arrive at the final cost. Learn more [about how pricing](cost-estimation.md) works in Azure Migrate assessments. 
+After right-sizing target candidates are selected, and if more than one suitable candidate is available the recommended target is selected based on selected migration strategy. By default **Minimizing the cost** is the selected strategy. In the case of Azure VM and AVS assessment that is the only strategy. Once the targets are finalized a monthly cost is calculated by aggregating the cost of all resources, licenses and ancillary services like security. Based on the selected input from assessment settings the prices and offer details are fetched to arrive at the final cost. Learn more [about how pricing](cost-estimation.md) works in Azure Catalyst assessments. 
 
 ### Performance coverage (performance-based)
 
-Each performance-based Azure VM assessment in Azure Migrate is associated with a performance coverage. The coverage ranges from 0-100%. The performance coverage helps you estimate the reliability of the size recommendations Azure Migrate provides.
+Each performance-based Azure VM assessment in Azure Catalyst is associated with a performance coverage. The coverage ranges from 0-100%. The performance coverage helps you estimate the reliability of the size recommendations Azure Catalyst provides.
 
 - The performance coverage is assigned to an assessment. The coverage is based on the availability of data points that are needed to compute the assessment.
 

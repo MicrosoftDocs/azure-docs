@@ -9,7 +9,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 08/23/2021
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
 ms.custom:

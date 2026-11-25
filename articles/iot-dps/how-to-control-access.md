@@ -2,11 +2,11 @@
 title: Access control and security for DPS with security tokens
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Control access to Azure IoT Hub Device Provisioning Service (DPS) for backend apps by using shared access signatures and security tokens.
-author: sethmanheim
+author: dimatx
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 08/07/2025
-ms.author: sethm
+ms.author: dimatokar
 ms.custom: devx-track-csharp
 ms.subservice: azure-iot-hub-dps
 ---
@@ -291,7 +291,7 @@ The following table lists the permissions you can use to control access to your 
 | --- | --- |
 | **ServiceConfig** |Grants access to change the service configurations. <br/>This permission is used by backend cloud services. |
 | **EnrollmentRead** |Grants read access to the device enrollments and enrollment groups. <br/>This permission is used by backend cloud services. |
-| **EnrollmentWrite** |Grants write access to the device enrollments and enrollment groups. <br/>This permission is used by backend cloud services. |
+| **EnrollmentWrite** |Grants read and write access to device enrollments and enrollment groups. <br/>Includes EnrollmentRead, RegistrationStatusRead, and RegistrationStatusWrite. <br/>This permission is used by backend cloud services. |
 | **RegistrationStatusRead** |Grants read access to the device registration status. <br/>This permission is used by backend cloud services. |
 | **RegistrationStatusWrite**  |Grants delete access to the device registration status. <br/>This permission is used by backend cloud services. |
 

@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/26/2021
-ms.author: alkohli
+ms.author: scompton
 ---
 
 | Port no.|	In or out |	Port scope|	Required | Notes |

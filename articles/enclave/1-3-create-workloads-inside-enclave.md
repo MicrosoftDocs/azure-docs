@@ -4,8 +4,9 @@ description: Create frontend and backend workloads in an Azure Enclave enclave b
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
-ms.date: 06/02/2026
+ms.service: azure-enclave
 ai-usage: ai-assisted
+ms.date: 09/08/2026
 ---
 
 # Tutorial 1-3: Create workloads in an enclave on Azure Enclave
@@ -31,7 +32,7 @@ Complete [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-in
 
 Before creating Azure resources in an enclave, create the Azure Enclave workload resources and associate them with workload resource groups. Azure Enclave applies enclave policy, guardrail, deny-assignment, and RBAC configuration to workload resource groups during creation.
 
-> [!Important]
+> [!IMPORTANT]
 > This tutorial uses sample names such as `wl-webapp-frontend`, `wl-webapp-backend`, `rg-webapp-frontend`, and `rg-webapp-backend`. If you use different names, update the later tutorials to match your environment.
 
 1. In the Azure portal, go to `Azure Enclave`.
@@ -57,7 +58,7 @@ Before creating Azure resources in an enclave, create the Azure Enclave workload
 
     > [!NOTE]
     > Choose workload and resource group names that match your organization's naming convention. For guidance, see [Define your naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
-    
+
     ![Screenshot showing the frontend workload creation screen with the tutorial inputs entered.](./media/tutorial-step-three-create-frontend-workload-screen-basics-input.png)
 
 1. Select `Review + create`, confirm the workload details, and then select `Create`.

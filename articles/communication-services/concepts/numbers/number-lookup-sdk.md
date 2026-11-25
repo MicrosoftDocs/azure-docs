@@ -14,6 +14,8 @@ ms.service: azure-communication-services
 
 # Number Lookup SDK overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services Number Lookup is part of the Phone Numbers SDK. You can use Number Lookup in your application to check numbers before sending an SMS or placing a call.
 
 ## Number Lookup SDK capabilities

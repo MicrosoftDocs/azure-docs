@@ -49,7 +49,7 @@ The [Network Policy Server (NPS)](/windows-server/networking/technologies/nps/np
 
 ## Verify your VPN gateway
 
-You must have a route-based VPN gateway that's compatible with the P2S configuration that you want to create and the connecting VPN clients. To help determine the P2S configuration that you need, see the [VPN client table](#type). If your gateway uses the Basic SKU, understand that the Basic SKU has P2S limitations and doesn't support IKEv2 or RADIUS authentication. For more information, see [About gateway SKUs](about-gateway-skus.md).
+You must have a route-based VPN gateway that's compatible with the P2S configuration that you want to create and the connecting VPN clients. To help determine the P2S configuration that you need, see the [VPN client table](#type). The Basic SKU doesn't support RADIUS authentication, so use a different gateway SKU for this configuration. For more information, see [About gateway SKUs](about-gateway-skus.md).
 
 If you don't yet have a functioning VPN gateway that's compatible with the P2S configuration that you want to create, see [Create and manage a VPN gateway](tutorial-create-gateway-portal.md). Create a compatible VPN gateway, then return to this article to configure P2S settings.
 
@@ -64,7 +64,7 @@ In this section, you specify the tunnel type and the authentication type. These 
 The tunnel type and the authentication type must correspond to the VPN client software you want use to connect to Azure. When you have various VPN clients connecting from different operating systems, planning the tunnel type and authentication type is important.
 
 > [!NOTE]
-> If you don't see tunnel type or authentication type on the **Point-to-site configuration** page, your gateway is using the Basic SKU. The Basic SKU doesn't support IKEv2 or RADIUS authentication. If you want to use these settings, you need to delete and re-create the gateway using a different gateway SKU.
+> Although the Basic SKU supports IKEv2 for P2S connections, it doesn't support RADIUS authentication. Use a gateway SKU that supports RADIUS authentication for the steps in this article.
 
 1. For **Tunnel type**, select the tunnel type that you want to use.
 
@@ -94,11 +94,7 @@ When you finish specifying your point-to-site configuration, select **Save** at 
 
 The VPN client profile configuration packages contain the settings that help you configure VPN client profiles for a connection to the Azure virtual network.
 
-To generate a VPN client configuration package and configure a VPN client, see one of the following articles:
-
-* [RADIUS - certificate authentication for VPN clients](point-to-site-vpn-client-configuration-radius-certificate.md)
-* [RADIUS - password authentication for VPN clients](point-to-site-vpn-client-configuration-radius-password.md)
-* [RADIUS - other authentication methods for VPN clients](point-to-site-vpn-client-configuration-radius-other.md)
+To generate a VPN client configuration package and configure a VPN client, see [Configure a VPN client for point-to-site: RADIUS authentication](point-to-site-vpn-client-configuration-radius.md).
 
 After you configure the VPN client, connect to Azure.
 

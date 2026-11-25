@@ -4,8 +4,8 @@ description: Learn how to retrieve, refresh, and extend session expiration for O
 ms.topic: how-to
 ms.date: 11/28/2025
 ms.custom: AppServiceIdentity
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ---
 

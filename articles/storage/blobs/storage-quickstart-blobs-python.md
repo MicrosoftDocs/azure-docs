@@ -2,8 +2,8 @@
 title: "Quickstart: Azure Blob Storage with Python"
 titleSuffix: Azure Storage
 description: Learn how to use the Azure Blob Storage client library for Python to create containers, upload and download blobs, and list data.
-author: stevenmatthew
-ms.author: shaas
+author: schoag-msft
+ms.author: schoag
 ms.date: 05/15/2026
 ms.topic: quickstart
 ms.service: azure-blob-storage

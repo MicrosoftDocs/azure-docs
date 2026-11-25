@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 
 # Create credentials for Simple Mail Transfer Protocol (SMTP) authentication
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to use a Microsoft Entra application to create the authentication credentials for using Simple Mail Transfer Protocol (SMTP) to send an email using Azure Communication Services.
 
 ## Prerequisites

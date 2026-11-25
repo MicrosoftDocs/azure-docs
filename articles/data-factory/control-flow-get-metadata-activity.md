@@ -14,6 +14,9 @@ ms.author: tinglee
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Get Metadata activity](/fabric/data-factory/get-metadata-activity).
+
 You can use the Get Metadata activity to retrieve the metadata of any data in Azure Data Factory or a Synapse pipeline. You can use the output from the Get Metadata activity in conditional expressions to perform validation, or consume the metadata in subsequent activities.
 
 ## Create a Get Metadata activity with UI

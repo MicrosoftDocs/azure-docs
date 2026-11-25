@@ -7,8 +7,8 @@ tags: buy-ssl-certificates
 ms.topic: how-to
 ms.date: 04/15/2026
 ms.reviewer: yutlin
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ms.custom:
   - devx-track-azurepowershell
@@ -108,6 +108,12 @@ By default, App Service forces a redirect from HTTP requests to HTTPS. To disabl
 #### How can I change the minimum TLS versions for the app?
 
 Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 by default. Industry standards such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) recommend this TLS level. To enforce different TLS versions, see [Configure general settings](configure-common.md#configure-general-settings).
+
+The minimum TLS version doesn't require post-quantum key exchange. For more information about platform-managed hybrid negotiation and classical fallback, see [Post-quantum hybrid key exchange](overview-tls.md#post-quantum-hybrid-key-exchange).
+
+#### Do I need to change my TLS certificate or binding for post-quantum key exchange?
+
+No. Hybrid key exchange supports custom domains when a compatible TLS 1.3 client and the App Service front end negotiate `X25519MLKEM768`. It changes how they establish TLS keys, but doesn't change your custom-domain certificate binding or your choice of SNI SSL or IP-based SSL. You don't need a post-quantum certificate. For more information, see [Post-quantum hybrid key exchange](overview-tls.md#post-quantum-hybrid-key-exchange).
 
 <a name="handle-tls-termination"></a>
 

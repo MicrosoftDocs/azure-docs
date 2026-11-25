@@ -14,6 +14,8 @@ services: azure-communication-services
 
 # Cost and connectivity options for Teams Phone extensibility
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Effective communication is essential for success in today's fast-paced business environment. Choosing the right public switched telephone network (PSTN) connectivity option for your organization's communication needs can significantly improve efficiency, reduce cost, and raise overall performance.
 
 As organizations increasingly adopt Microsoft Teams for their collaboration and communication needs, understanding the various PSTN connectivity options available becomes crucial. This article explores your options for Teams Phone extensibility and provides guidance on selecting the best fit for your specific requirements. Options include Calling Plans, Operator Connect, and Direct Routing.
@@ -23,7 +25,7 @@ This article also explores the business model for Teams Phone extensibility. We 
 ## PSTN connectivity options for Teams Phone extensibility
 
 There are three primary options available:
-- **Calling Plans** are an all-in-the-cloud solution in which Microsoft acts as your PSTN carrier. Calling Plans are the simplest option, ideal for organizations that doesn't need to retain their current PSTN carrier. With Calling Plans, you get Teams Phone with added Domestic or International Calling Plans for your solution to reach phone numbers around the world.
+- **Calling Plans** are an all-in-the-cloud solution in which Microsoft acts as your PSTN carrier. Calling Plans are the simplest option, ideal for organizations that don't need to retain their current PSTN carrier. With Calling Plans, you get Teams Phone with added Domestic or International Calling Plans for your solution to reach phone numbers around the world.
 
    This option doesn't require any on-premises deployment or maintenance. For more information, see [Microsoft Teams Calling Plans](/microsoftteams/calling-plans-for-office-365).
 

@@ -1,11 +1,11 @@
-﻿---
-title: Use deployment scripts in Azure Resource Manager templates 
+---
+title: Use deployment scripts in Azure Resource Manager templates
 description: Use deployment scripts in Azure Resource Manager templates.
 ms.custom:
   - devx-track-arm-template
   - build-2025
 ms.topic: article
-ms.date: 01/02/2026
+ms.date: 08/18/2026
 ---
 
 # Use deployment scripts in Azure Resource Manager templates
@@ -31,7 +31,7 @@ The benefits of deployment script:
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
 
-The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability). Currently, deployment script only uses public networking.
+The deployment script resource is only available in the regions where Azure Container Instance is available. See [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability). Currently, deployment script only uses public networking.
 
 
 The deployment script service creates two supporting resources - a storage account and a container instance - to run and troubleshoot scripts. The names of these resources are generated using a deterministic hash of the deployment script's resource ID, with the suffix azscripts appended (for example, *jgczqtxom5oreazscripts*). As a result, repeated executions of the same deployment script may reuse the same storage account.
@@ -118,7 +118,7 @@ The following JSON is an example. For more information, see the latest [template
       "storageAccountName": "myStorageAccount",
       "storageAccountKey": "myKey"
     },
-    "azPowerShellVersion": "14.0",  // or "azCliVersion": "2.47.0",
+    "azPowerShellVersion": "16.2",  // or "azCliVersion": "2.89.1",
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
@@ -149,7 +149,7 @@ The following JSON is an example. For more information, see the latest [template
 > The example is for demonstration purposes. The properties `scriptContent` and `primaryScriptUri` can't coexist in a template.
 
 > [!NOTE]
-> The _scriptContent_ shows a script with multiple lines.  The Azure portal and Azure DevOps pipeline can't parse a deployment script with multiple lines. You can either chain the PowerShell commands (by using semicolons or _\\r\\n_ or _\\n_) into one line, or use the `primaryScriptUri` property with an external script file. There are many free JSON string escape/unescape tools available. For example, [https://www.freeformatter.com/json-escape.html](https://www.freeformatter.com/json-escape.html).
+> The _scriptContent_ shows a script with multiple lines.  The Azure portal and Azure DevOps pipeline can't parse a deployment script with multiple lines. You can either chain the PowerShell commands (by using semicolons or _\\r\\n_ or _\\n_) into one line, or use the `primaryScriptUri` property with an external script file. Many free JSON string escape and unescape tools are available.
 
 Property value details:
 
@@ -232,7 +232,7 @@ The following template has one resource defined with the `Microsoft.Resources/de
       "kind": "AzurePowerShell",
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "azPowerShellVersion": "8.3",
+        "azPowerShellVersion": "16.2",
         "scriptContent": "
           param([string] $name)
           $output = \"Hello {0}\" -f $name
@@ -339,7 +339,7 @@ The following template shows how to pass values between two `deploymentScripts` 
       "kind": "AzurePowerShell",
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "azPowerShellVersion": "8.3",
+        "azPowerShellVersion": "16.2",
         "timeout": "PT1H",
         "arguments": "[concat('-name', ' ', concat('\\\"', parameters('name'), '\\\"'))]",
         "scriptContent": "
@@ -364,7 +364,7 @@ The following template shows how to pass values between two `deploymentScripts` 
       ],
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "azPowerShellVersion": "8.3",
+        "azPowerShellVersion": "16.2",
         "timeout": "PT1H",
         "arguments": "[concat('-textToEcho', ' ', concat('\\\"', reference('scriptInTemplate1').outputs.text, '\\\"'))]",
         "scriptContent": "
@@ -426,7 +426,7 @@ In contrast to the Azure PowerShell deployment scripts, CLI/bash doesn't expose 
       },
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "AzCliVersion": "2.40.0",
+        "AzCliVersion": "2.89.1",
         "timeout": "PT30M",
         "arguments": "'foo' 'bar'",
         "environmentVariables": [
@@ -478,6 +478,9 @@ A storage account and a container instance are needed for script execution and t
 - Storage account firewall rules aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares.
 - The `allowSharedKeyAccess` property of the storage account must be set to `true`. The only way to mount a storage account in Azure Container Instance(ACI) is via an access key.
+
+> [!IMPORTANT]
+> If you assign a managed identity with permissions that exceed the script's operational requirements, the script author is responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
 
 To specify an existing storage account, add the following JSON to the property element of `Microsoft.Resources/deploymentScripts`:
 
@@ -546,6 +549,9 @@ The user script, the execution results, and the stdout file are stored in the fi
 
 The output folder contains a _executionresult.json_ and the script output file. You can see the script execution error message in _executionresult.json_. The output file is created only when the script is executed successfully. The input folder contains a system PowerShell script file and the user deployment script files. You can replace the user deployment script file with a revised one, and rerun the deployment script from the Azure container instance.
 
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. You might retrieve this information through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that deployment script logs don't expose sensitive information.
+
 ### Use the Azure portal
 
 After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The following screenshot shows the **Overview** page of a deployment script resource:
@@ -572,11 +578,11 @@ Name                : runPowerShellInlineWithOutput
 Id                  : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput
 ResourceGroupName   : myds0618rg
 Location            : centralus
-SubscriptionId      : aaaabbbb-0000-cccc-1111-dddd2222eeee
+SubscriptionId      : ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0
 ProvisioningState   : Succeeded
 Identity            : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 14.0
+AzPowerShellVersion : 16.2
 StartTime           : 5/11/2023 7:46:45 PM
 EndTime             : 5/11/2023 7:49:45 PM
 ExpirationDate      : 5/12/2023 7:49:45 PM
@@ -607,7 +613,7 @@ The list command output is similar to:
 [
   {
     "arguments": "'foo' 'bar'",
-    "azCliVersion": "2.40.0",
+    "azCliVersion": "2.89.1",
     "cleanupPreference": "OnExpiration",
     "containerSettings": {
       "containerGroupName": null
@@ -621,7 +627,7 @@ The list command output is similar to:
       "userAssignedIdentities": {
         "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourcegroups/myidentity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
           "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
-          "principalId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
+          "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222"
         }
       }
     },
@@ -698,7 +704,7 @@ The output is similar to:
     "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "userAssignedIdentities": {
       "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
-        "principalId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
         "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444"
       }
     }
@@ -715,7 +721,7 @@ The output is similar to:
   "properties": {
     "provisioningState": "Succeeded",
     "forceUpdateTag": "20220625T025902Z",
-    "azPowerShellVersion": "14.0",
+    "azPowerShellVersion": "16.2",
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "arguments": "-name \\\"John Dole\\\"",
     "retentionInterval": "P1D",
@@ -1019,7 +1025,7 @@ You can use the following ARM template to test the deployment:
       "kind": "AzureCLI",
       "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
-        "azCliVersion": "2.47.0",
+        "azCliVersion": "2.89.1",
         "storageAccountSettings": {
           "storageAccountName": "[parameters('storageAccountName')]"
         },
@@ -1048,4 +1054,3 @@ In this article, you learned how to use deployment scripts. To walk through a de
 
 > [!div class="nextstepaction"]
 > [Learn module: Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/)
-

@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 03/30/2026
+ms.date: 08/10/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: "As a service provider, I want to configure an Azure Private Link Service for my application behind a standard load balancer, so that I can enable secure private access for consumers from their virtual networks."
@@ -35,7 +35,7 @@ Azure Private Link service is the reference to your own service that is powered 
 - Create a Private Link Service referencing the load balancer above. In the load balancer selection process, choose the frontend IP configuration where you want to receive the traffic. Choose a subnet for NAT IP addresses for the Private Link Service. It's recommended to have at least eight NAT IP addresses available in the subnet. All consumer traffic will appear to originate from this pool of private IP addresses to the service provider. Choose the appropriate properties/settings for the Private Link Service.
 
     > [!NOTE]
-    > Azure Private Link Service is only supported on Standard Load Balancer. 
+    > This requirement applies to standard Private Link service deployments that reference a load balancer: Azure Private Link service supports only Standard Load Balancer, not Basic Load Balancer. The [Private Link service Direct Connect](configure-private-link-service-direct-connect.md) feature (in public preview) is an exception, connecting to a privately routable destination IP address without requiring a load balancer.
     
 ### Share your service
 

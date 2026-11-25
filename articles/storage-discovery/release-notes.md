@@ -6,12 +6,31 @@ author: pthippeswamy
 ms.author: pthippeswamy
 ms.service: azure-storage-discovery
 ms.topic: release-notes
-ms.date: 10/23/2025
+ms.date: 10/22/2026
 ---
 
 # Release notes for the Azure Storage Discovery service
 
 Azure Storage Discovery is a fully managed Azure service, which continuously introduces new features and improvements.
+
+## 2026 October 22
+
+Preview release of [advanced capacity insights](analyze-blob-capacity-details.md). The **Capacity details** report provides insights into how Blob Storage data is tiered, retained, distributed, and changing across your storage estate.
+
+Features include:
+
+- Analysis of access tiers, data recency, object-size distribution, and minimum-retention exposure.
+- Storage composition and soft-deleted data insights.
+- Identification of the largest and fastest-changing storage resources.
+- Configurable prefixes for analyzing capacity below the container level.
+
+## 2026 March 27
+
+New features:
+
+- [Egress insights](egress-insights.md) provide visibility into egress patterns across your Azure Blob Storage estate.
+- Data protection insights help you understand the data protection configuration of your storage estate.
+- The **Consumption** report supports filtering by Blob access tier.
 
 ## 2025 October 15
 
@@ -30,7 +49,7 @@ Limitations:
 
 ## 2025 August 6
 
-Public Preview release notes for Azure Storage Discovery service.
+Preview release notes for Azure Storage Discovery service.
 Features included: 
 
 - 30 days of backfill for any newly created discovery scope in Standard SKU

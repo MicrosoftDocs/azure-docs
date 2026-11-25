@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 02/14/2025
 ms.reviewer: ushan
 ms.devlang: azurecli
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 zone_pivot_groups:  app-service-containers-github-actions
 ms.service: azure-app-service
 ms.custom:

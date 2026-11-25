@@ -5,7 +5,7 @@ description: "Azure Backup best practices: Enhance your data protection with acc
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 06/24/2026
+ms.date: 11/02/2026
 ms.topic: best-practice
 ms.service: azure-backup
 ---
@@ -16,7 +16,7 @@ Ransomware poses a serious risk by driving high recovery costs and operational d
 
 Microsoft prioritizes cyber safety. Azure security baselines align with industry standards such as Center for Internet Security (CIS) and National Institute of Standards and Technology (NIST). The Microsoft Cloud Security Benchmark (MCSB) defines these baselines. The MCSB provides prescriptive guidance to secure workloads, data, and services across Azure and multicloud environments. Its Backup and Recovery control area emphasizes configured, isolated, and monitored backups to protect against ransomware and destructive attacks.
 
-This article describes how Azure Backup helps organizations protect backup data, reduce ransomware risk, and ensure reliable recovery during security incidents. Azure Backup is a secure, cost-effective service that protects a broad range of workloads and stores data in Recovery Services vaults and Backup vaults. Built-in security, encryption, monitoring, and storage replication for Azure Backup help you maintain data confidentiality, integrity, and availability. With alignment to Microsoft’s Secure Future Initiative, Azure Backup includes capabilities such as multiuser authorization, immutability, soft delete, private endpoints, security alerts, and reporting. These capabilities create a logical air gap and enable continuous monitoring of backup security posture.
+This article describes how Azure Backup helps organizations protect backup data, reduce ransomware risk, and prepare for recovery during security incidents. Azure Backup protects workloads through Recovery Services vaults and Backup vaults. Its security, encryption, monitoring, and recovery capabilities support two related outcomes: **Logically air-gapped vault** protection for vaulted data and **Cyber recovery essentials** for assessing threats and preparing recovery operations. These outcomes build on existing service capabilities. Support varies by workload, vault, and region. For an overview, see [security and cyber recovery in Azure Backup](security-overview.md).
 
 Azure Backup helps protect backup data through four core security pillars:
 - **Access Control**: Helps you control who accesses your backup data
@@ -125,13 +125,15 @@ For Azure VMs, all communication and data transfer occur through the Azure fabri
 
 ## Pillar 3 - Data recoverability
 
-Backup data recoverability is critical for maintaining business continuity and minimizing downtime during data loss incidents. Immutable vaults safeguard backup data from deletion or modification, even during security compromises, whereas soft delete supports active recovery of backup data from accidental or malicious deletions. This section outlines the capabilities that help you ensure backup data remains recoverable when needed.
+Backup data recoverability is critical for maintaining business continuity and minimizing downtime during data loss incidents. Data redundancy and recovery across regions help support disaster recovery (DR). For the Logically air-gapped vault outcome, protect vaulted recovery points from premature deletion through either always-on soft delete or locked immutability, where supported. Soft delete protects deleted data for a configured retention period; it isn't indefinite retention. MUA adds authorization for critical operations but doesn't replace these data-protection mechanisms. Learn more about [Logically air-gapped vault protection](security-overview.md#logically-air-gapped-vault).
+
+Cyber recovery essentials complements DR planning by helping you prepare for cyber incidents. Prepare supported recovery destinations and validate recovery procedures; threat-detection signals can help inform recovery-point selection, but they don't replace a restore test or workload validation.
 
 - [Immutability for backup data](#immutability-for-backup-data): Protects backup data from deletion or modification by enforcing write‑once, read‑many (WORM) storage and vault lock states to prevent destructive operations.
 - [Soft delete for permanent deletion protection of backup data](#soft-delete-for-permanent-deletion-protection-of-backup-data): Retains deleted backup data for a configurable period, allowing recovery from accidental or malicious deletions.
 - [Data redundancy for backup data protection](#data-redundancy-for-backup-data-protection): Supports multiple data‑redundancy options to protect backup data against hardware failures and regional outages.
 - [Cross Subscription Restore for backup data recovery](#cross-subscription-restore-for-backup-data-recovery): Enables recovery of backup data to an isolated subscription when the primary subscription is compromised or untrusted.
-
+- [Cross-tenant restore for backup data recovery (preview)](#cross-tenant-restore-for-backup-data-recovery-preview): Enables recovery of vaulted backup data into a different tenant when access to the source tenant is lost or compromised.
 ### Immutability for backup data
 
 Immutable vaults ensure that once backup data is stored, deletion remains blocked until the defined retention period expires. This protection preserves data integrity and safeguards backups from both insider and external threats. Immutable vaults also block destructive operations such as reducing retention, stopping backups, or deleting backup data.
@@ -168,15 +170,9 @@ As best practices:
 
 - Choose Zone‑redundant storage (ZRS) during vault creation because Azure Backup operates as a zone‑redundant service for both Recovery Services vaults and Backup vaults. This redundancy keeps the vault operational during a zonal outage.
 
-- Select Geo‑redundant storage (GRS) when strict data isolation is required. Secondary copies of backup data reside in a different region and provide protection against region‑wide failures.
+- Select Geo-redundant storage (GRS) to replicate vault backup data to a paired secondary region for protection against region-wide outages. Where supported, enable Cross Region Restore (CRR) if you need to restore from the secondary region. GRS is storage redundancy; it doesn't create an independent backup copy or an offline copy.
 
-- Apply the 3‑2‑1‑1 backup strategy by maintaining three copies of data (one production and two backups), storing them on two different media types, and keeping one copy offsite along with one immutable and isolated backup. This workflow strengthens protection against ransomware threats.
-
-  The following backup protection workflow illustrates how Azure Backup implements the 3‑2‑1‑1 mechanism for Azure VM data protection.
-
-  1. The Azure VM hosts the primary data copy, while Azure Backup maintains the first backup copy in a Recovery Services vault. Backup data in the Recovery Services vault uses Azure Blob storage, where you can enable and lock immutability to prevent deletion or retention reduction before expiry. Multi‑user authorization (MUA) further strengthens security by enforcing approval‑based control over critical operations on the vault.
-
-  1. An isolated second backup copy adds resilience through Geo‑redundant storage (GRS). This mechanism replicates backup data to a physically separate secondary region and provides strong isolation from the primary environment. For scenarios that require separation across different media types, an offline backup copy on tapes offers more isolation and protection.
+- Plan for three copies of data, including production and at least two backups, and assess how each copy meets your requirements for storage type, offsite location, isolation, and recovery testing. Azure Backup supports parts of a 3-2-1-1-0 design through vaulted backups, Standard and Archive tiers for eligible recovery points, geo-redundant storage, immutability, monitoring, and restore automation. Storage replication and tiering don't automatically create independent backup copies or physical offline media. For a workload-by-workload mapping and support limits, see [Plan a 3-2-1-1-0 backup strategy with Azure Backup](azure-backup-3-2-1-1-0-strategy.md).
 
   Azure Backup integrates with **Azure Advisor** and **Microsoft Defender for Cloud** that recommend configuration of backup‑related security for production environments. You can find these recommendations under the **Security** section in both services.
 
@@ -189,6 +185,12 @@ If a subscription becomes compromised or you lose trust in the primary subscript
 Because restore operations can expose sensitive data, classify restore and cross-subscription restore actions as critical operations under Multi-user authorization (MUA). This control ensures that security admins can access and restore backup data.
 
 Learn how to enable cross-subscription restore for Azure Backup in [Recovery Services vault](backup-create-recovery-services-vault.md#set-cross-subscription-restore) and [Backup vault](manage-backup-vault.md#cross-subscription-restore-using-azure-portal).
+
+### Cross-tenant restore for backup data recovery (preview)
+
+If you lose access to the tenant that contains your vaults, for example due to a tenant lockout or ransomware attack, use cross-tenant restore to recover vaulted backup data into a different tenant that you control. You map the source vault to a target vault, and then restore from the target tenant. A Resource Guard in the target tenant protects the mapping operation through multi-user authorization (MUA).
+
+Learn more about [cross-tenant restore](cross-tenant-restore-overview.md) and how to [configure it](tutorial-cross-tenant-restore.md).
 
 
 ## Pillar 4 – Backup governance
@@ -239,11 +241,13 @@ Security alerts give you real-time visibility into the security state of your ba
 
 You can also configure an action group to receive notifications through voice calls, Short Message Service (SMS), or email when a security alert triggers. [Learn more about Azure Monitor action groups](/azure/azure-monitor/alerts/action-groups). Azure Backup reports help you analyze the health of your backup estate by allowing you to write custom queries on diagnostic logs. Azure Backup uses [Azure Monitor logs](/azure/azure-monitor/logs/log-analytics-tutorial) and [Azure workbooks](/azure/azure-monitor/visualize/workbooks-overview) to give you comprehensive insights across your entire backup environment.
 
+For Azure VM backups, [threat detection](threat-detection-overview.md) uses Microsoft Defender for Servers signals to identify potentially malicious or ransomware-infected recovery points. This capability is in preview and doesn't replace restore testing or workload validation.
+
 [Learn how to configure Azure Backup reports](configure-reports.md).
 
 ## Summary of data protection best practices
 
-Adoption of recommended best practices across each security capability strengthens ransomware readiness and response. This approach reduces ransomware risk, limits potential impact, and improves the security posture of your production backup datasources.
+Adopt these best practices to protect vaulted data, support business continuity and disaster recovery, and prepare your organization for cyber incidents through Cyber recovery essentials. Assess backup security settings, plan supported restore destinations, and test recovery procedures for your workloads.
 
 ## Related content
 

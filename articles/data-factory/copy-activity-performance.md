@@ -15,6 +15,8 @@ ms.date: 07/25/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Sometimes you want to perform a large-scale data migration from data lake or enterprise data warehouse (EDW), to Azure. Other times you want to ingest large amounts of data, from different sources into Azure, for big data analytics. In each case, it's critical to achieve optimal performance and scalability.
 
 Azure Data Factory and Azure Synapse Analytics pipelines provide a mechanism to ingest data, with the following advantages:

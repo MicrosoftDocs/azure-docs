@@ -3,7 +3,7 @@ title: 'Tutorial - Migrate web services from Google Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps
 author: sinnypan
 ms.author: sipa
-ms.date: 09/28/2023
+ms.date: 09/30/2026
 ms.topic: tutorial
 ms.service: azure-maps
 ms.subservice: rest-api
@@ -469,7 +469,7 @@ In addition to this API, Azure Maps provides many time zone APIs. These APIs con
 
 Azure Maps provides client libraries for the following programming languages:
 
-* JavaScript, TypeScript, Node.js – [Azure Maps services module] \| [npm package]
+* JavaScript, TypeScript, Node.js - [JavaScript/TypeScript REST SDK developer guide]. Install the package for the service you use, such as [Search package], [Route package], [Render package], or [Geolocation package].
 
 These Open-source client libraries are for other programming languages:
 
@@ -488,7 +488,6 @@ Learn more about Azure Maps REST services:
 
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps services module]: how-to-use-services-module.md
 [Basic snap to road logic]: https://samples.azuremaps.com/?sample=basic-snap-to-road-logic
 [best practices for routing]: how-to-use-best-practices-for-routing.md
 [best practices for search]: how-to-use-best-practices-for-search.md
@@ -513,9 +512,10 @@ Learn more about Azure Maps REST services:
 [Get Timezone IANA Version]: /rest/api/maps/timezone/get-timezone-iana-version
 [Get Timezone Windows To IANA]: /rest/api/maps/timezone/get-timezone-windows-to-iana
 [GitHub project]: https://github.com/perfahlen/AzureMapsRestServices
+[Geolocation package]: https://www.npmjs.com/package/@azure-rest/maps-geolocation
+[JavaScript/TypeScript REST SDK developer guide]: how-to-dev-guide-js-sdk.md
 [Localization support in Azure Maps]: supported-languages.md
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
-[npm package]: https://www.npmjs.com/package/azure-maps-rest
 [NuGet package]: https://www.nuget.org/packages/AzureMapsRestToolkit
 [Post Route Directions Batch]: /rest/api/maps/route/post-route-directions-batch
 [Post Route Matrix]: /rest/api/maps/route/post-route-matrix
@@ -526,10 +526,13 @@ Learn more about Azure Maps REST services:
 [Post Search Inside Geometry]: /rest/api/maps/search/post-search-inside-geometry?view=rest-maps-1.0&preserve-view=true
 [Render custom data on a raster map]: how-to-render-custom-data.md
 [Render]: /rest/api/maps/render/get-map-static-image
+[Render package]: https://www.npmjs.com/package/@azure-rest/maps-render
 [Reverse geocode a coordinate]: #reverse-geocode-a-coordinate
 [Route]: /rest/api/maps/route
+[Route package]: https://www.npmjs.com/package/@azure-rest/maps-route
 [Search for a location using Azure Maps Search services]: how-to-search-for-address.md
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
+[Search package]: https://www.npmjs.com/package/@azure-rest/maps-search
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Supported map styles]: supported-map-styles.md
 [supported search categories]: supported-search-categories.md

@@ -1,25 +1,27 @@
 ---
 title: 'Quickstart: Send custom events to an Azure function - Event Grid'
 description: Learn how to use Azure Event Grid and the Azure CLI or portal to publish a topic and subscribe to that event, by using an Azure function for the endpoint.
-ms.date: 06/12/2025
+ms.date: 08/26/2026
 ms.topic: quickstart
-ms.custom: mode-other, devx-track-azurecli 
+ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
+ai-usage: ai-assisted
 #customer intent: As an app developer, I want to route custom events by using Azure Event Grid to support interactions between functions in Azure and other components.
 ---
 
 # Quickstart: Route custom events to an Azure function by using Event Grid
 
-[Azure Event Grid](overview.md) is an event-routing service for the cloud. Azure Functions is one of the [supported event handlers](event-handlers.md).
+In this quickstart, you create a function with an Event Grid trigger in Visual Studio Code, create an Event Grid topic and an event subscription in the Azure portal, and then send a test event to see how Event Grid routes custom events to your Azure function.
 
-In this quickstart, you use the Azure portal to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to an Azure function.
+Azure Event Grid is an event-routing service for the cloud that delivers events from a source to a handler. Azure Functions is one of its supported event handlers. By connecting the two, you can run code automatically in response to events, without polling for changes or managing infrastructure.
 
 [!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-- [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms)
-- [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+- [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+- [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
+- [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or later, which the extension uses to build and deploy the C# function.
 
 ## Create a function with an Event Grid trigger by using Visual Studio Code
 
@@ -45,7 +47,7 @@ In this section, you use Visual Studio Code to create a function with an Event G
 
 1. For **Template for the function**, select **Azure Event Grid trigger**. Select **Enter**.
 
-1. For **Function name**, enter a name for your function. Select **Enter**.  
+1. For **Function name**, enter a name for your function. Select **Enter**.
 
 1. For **Namespace**, enter a name for the function's namespace. Select **Enter**.
 
@@ -99,15 +101,15 @@ In this section, you use Visual Studio Code to create a function with an Event G
 
    :::image type="content" source="./media/custom-event-to-function/function-logs-window.png" alt-text="Screenshot that shows the Logs tab for a function in the Azure portal."  lightbox="./media/custom-event-to-function/function-logs-window.png":::
 
-## Create a custom topic
+## Create an Event Grid custom topic
 
 An Event Grid topic provides a user-defined endpoint that you post your events to.
 
 1. On a new tab of the web browser window, sign in to the [Azure portal](https://portal.azure.com/).
 
-1. On the search bar at the topic, search for **Event Grid Topics**, and then select **Event Grid Topics**.
+1. On the search bar at the top, search for **Event Grid Topics**, and then select **Event Grid Topics**.
 
-   :::image type="content" source="./media/custom-event-to-function/select-topics.png" alt-text="Screenshot that shows the selection of Event Grid topics." lightbox="./media/custom-event-to-function/select-topics.png" :::
+   :::image type="content" source="./media/custom-event-to-function/select-topics.png" alt-text="Screenshot that shows the selection of Event Grid topics." lightbox="./media/custom-event-to-function/select-topics.png":::
 
 1. On the **Topics** page, select **+ Create** on the command bar.
 
@@ -132,7 +134,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
 
     :::image type="content" source="./media/custom-event-to-function/topic-home-page.png" lightbox="./media/custom-event-to-function/topic-home-page.png" alt-text="Screenshot that shows the page for an Event Grid custom topic.":::
 
-## Subscribe to a custom topic
+## Subscribe to the Event Grid custom topic
 
 You subscribe to an Event Grid topic to tell Event Grid which events you want to track, and where to send the events.
 
@@ -167,9 +169,9 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 
 1. On the **Create Event Subscription** pane, select **Create**.
 
-## Send an event to your topic
+## Send a test event to the Event Grid topic
 
-Now, trigger an event to see how Event Grid distributes the message to your endpoint. Use either the Azure CLI or Azure PowerShell to send a test event to your custom topic. Typically, an application or an Azure service would send the event data.
+Now, trigger an event to see how Event Grid distributes the message to your endpoint. Use either the Azure CLI or Azure PowerShell to send a test event to your custom topic. Typically, an application or an Azure service sends the event data.
 
 The first example uses the Azure CLI. It gets the URL and key for the custom topic and sample event data. Use your custom topic name for `topicname`. It creates sample event data.
 
@@ -217,7 +219,7 @@ The cURL tool sends HTTP requests. In this article, you use cURL to send the eve
 
 1. Run the following cURL command to post the event:
 
-   ```
+   ```bash
    curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
    ```
 

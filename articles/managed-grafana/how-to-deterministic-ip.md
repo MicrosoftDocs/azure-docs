@@ -6,15 +6,15 @@ ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 12/20/2024
+ms.date: 08/28/2026
 ms.custom: sfi-image-nochange
 --- 
 
 # Use deterministic outbound IPs
 
-In this guide, learn how to activate deterministic outbound IP support used by Azure Managed Grafana to communicate with data sources, disable public access and set up a firewall rule to allow inbound requests from your Grafana workspace.
+In this guide, learn how to activate deterministic outbound IP support for communication between Azure Managed Grafana and data sources. You also configure a data source firewall to allow requests from your Grafana workspace.
 
->[!NOTE]
+> [!NOTE]
 > The deterministic outbound IPs feature is only accessible for customers with a Standard plan. For more information about plans, go to [pricing plans](overview.md#service-tiers).
 
 ## Prerequisites
@@ -75,8 +75,8 @@ This example demonstrates how to disable public access to Azure Data Explorer an
 
    :::image type="content" source="media/deterministic-ips/add-ip-data-source-firewall.png" alt-text="Screenshot of the Azure platform. Add Disable public network access.":::
 
-1. Under **Firewall**, check the box  **Add your client IP address** and under **Address range**, enter the IP addresses found in your Azure Managed Grafana workspace.
-1. Select **Save** to finish adding the Azure Managed Grafana outbound IP addresses to the allowlist.
+1. Under **Firewall**, select **Add your client IP address**, and under **Address range**, enter the IP addresses found in your Azure Managed Grafana workspace.
+1. Select **Save** to finish adding the Azure Managed Grafana outbound IP addresses to the allow list.
 
 You have limited access to your data source by disabling public access, activating a firewall and allowing access from Azure Managed Grafana IP addresses.
 
@@ -88,9 +88,9 @@ Check if the Azure Managed Grafana endpoint can still access your data source.
 
 1. In the Azure portal, go to your workspace's **Overview** page and select the **Endpoint** URL.
 
-1. Go to **Configuration > Data Source > Azure Data Explorer Datasource > Settings** and at the bottom of the page, select **Save & test**:
+1. Go to **Connections** > **Data sources**, select your Azure Data Explorer data source, and then select **Save & test** at the bottom of the **Settings** page:
    - If the message "Success" is displayed, Azure Managed Grafana can access your data source.
-   - If the following error message is displayed, Azure Managed Grafana can't access the data source: `Post "https://<Azure-Data-Explorer-URI>/v1/rest/query": dial tcp ...: i/o timeout`. Make sure that you've entered the IP addresses correctly in the data source firewall allowlist.
+   - If the following error message is displayed, Azure Managed Grafana can't access the data source: `Post "https://<Azure-Data-Explorer-URI>/v1/rest/query": dial tcp ...: i/o timeout`. Make sure that you've entered the IP addresses correctly in the data source firewall allow list.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -100,10 +100,10 @@ Run the [az grafana data-source query](/cli/azure/grafana/data-source#az-grafana
 az grafana data-source query --name <azure-managed-grafana-name> --data-source <data-source-name> --output table
 ```
 
-If the following error message is displayed, Azure Managed Grafana can't access the data source: `"error": "Post \\"https://<Azure-Data-Explorer-URI>/v1/rest/query\\": dial tcp 13.90.24.175:443: i/o timeout"`. Make sure that you've entered the IP addresses correctly in the data source firewall allowlist.
+If the following error message is displayed, Azure Managed Grafana can't access the data source: `"error": "Post \\"https://<Azure-Data-Explorer-URI>/v1/rest/query\\": dial tcp <ip-address>:443: i/o timeout"`. Ensure that you enter the IP addresses correctly in the data source firewall allow list.
 
 > [!TIP]
-> You can get the name of your data sources by running `az grafana data-source list --name <azure-managed-grafana-workspace-name> --output table` 
+> Get the names of your data sources by running `az grafana data-source list --name <azure-managed-grafana-workspace-name> --output table`.
 
 ---
 

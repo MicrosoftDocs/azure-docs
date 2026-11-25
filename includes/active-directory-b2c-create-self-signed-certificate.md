@@ -4,7 +4,7 @@ ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 11/12/2021
-ms.author: kengaderdus
+ms.author: diberry
 # Used by the identity provider (IdP) setup articles under "Custom policy".
 ---
 

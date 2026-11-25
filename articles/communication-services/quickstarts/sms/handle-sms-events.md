@@ -17,6 +17,8 @@ ms.custom:
 ---
 # Handle SMS events
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services SMS events. After subscribing to SMS events such as inbound messages and delivery reports, you generate and receive these events.
 
 Completing this article incurs a small cost of a few USD cents or less in your Azure account.

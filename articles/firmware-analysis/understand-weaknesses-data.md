@@ -6,6 +6,7 @@ ms.author: karenguo
 ms.topic: article
 ms.date: 03/05/2026
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 ---
 
 # Understand and prioritize weaknesses data in firmware analysis

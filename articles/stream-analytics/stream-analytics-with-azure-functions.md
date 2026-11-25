@@ -43,7 +43,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 Before you start, make sure you complete the following steps:
 
 * If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* Download the **phone call event generator app**, [TelcoGenerator.zip](https://aka.ms/asatelcodatagen) from the Microsoft Download Center or get the source code from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGeneratorCore).
+* Install the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) and get the [TelcoGeneratorCore source](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGeneratorCore).
 
 [!INCLUDE [event-generator-app](./includes/event-generator-app.md)]
 
@@ -172,7 +172,7 @@ Before you start, make sure you complete the following steps:
 
 1. Provide a name for the output alias. In this tutorial, it's named **saop1**, but you can use any name of your choice. Fill in other details.
 
-1. Open your Stream Analytics job, and update the query to the following. 
+1. Open your Stream Analytics job, and update the query to the following.
 
     > [!IMPORTANT]
     > The following sample script assumes that you used **CallStream** for input name and **saop1** for the output name. If you used different names, update the query. 
@@ -195,7 +195,7 @@ Before you start, make sure you complete the following steps:
    ```
 
 1.	Start the Stream Analytics job.
-1. On the **Monitor** page for your Azure function, you see that the function is invoked. 
+1. On the **Monitor** page for your Azure function, you see that the function is invoked.
 
     :::image type="content" source="./media/stream-analytics-with-azure-functions/function-invocations.png" alt-text="Screenshot showing the Monitor page for Azure Functions with function invocations.":::
 1. On the **Azure Cache for Redis** page your cache, select **Metrics** on the left menu, add **Cache Write** metric, and set the duration to **last hour**. You see the chart similar to the following image.
@@ -205,7 +205,7 @@ Before you start, make sure you complete the following steps:
 ## Check Azure Cache for Redis for results
 
 ### Get the key from Azure Functions logs
-First, get the key for a record inserted into Azure Cache for Redis. In the code, the key is calculated in the Azure function as shown in the following code snippet: 
+First, get the key for a record inserted into Azure Cache for Redis. In the code, the key is calculated in the Azure function as shown in the following code snippet:
 
 ```csharp
 string key = data[i].Time + " - " + data[i].CallingNum1;
@@ -213,11 +213,11 @@ string key = data[i].Time + " - " + data[i].CallingNum1;
 db.StringSet(key, data[i].ToString());
 log.LogInformation($"Object put in database. Key is {key} and value is {data[i].ToString()}");
 ```
-1. Browse to the Azure portal, and find your Azure Functions app. 
+1. Browse to the Azure portal, and find your Azure Functions app.
 1. Select **Functions** on the left menu.
-1. Select **HTTPTrigger1** from the list of functions. 
+1. Select **HTTPTrigger1** from the list of functions.
 1. Select **Monitor** on the left menu.
-1. Switch to the **Logs** tab. 
+1. Switch to the **Logs** tab.
 1. Note down a key from the informational message as shown in the following screenshot. You use this key to find the value in Azure Cache for Redis.
 
     :::image type="content" source="./media/stream-analytics-with-azure-functions/key-azure-functions-log.png" alt-text="Screenshot showing the Monitor Logs page for the Azure function. ":::

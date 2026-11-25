@@ -49,8 +49,8 @@ The **HTTP version** setting restarts your application and configures the front 
 
 App Service requires an application setting that specifically listens for HTTP/2 traffic in addition to HTTP/1.1 traffic. Use **App settings** to define the HTTP/2 port.
 
-1. On the left navigation menu of your web app page, select **Settings** > **Environmental variables**.
-1. On the **App settings** tab of the **Environmental variables** page, select **Add**.
+1. On the left navigation menu of your web app page, select **Settings** > **Environment variables**.
+1. On the **App settings** tab of the **Environment variables** page, select **Add**.
 1. On the **Add/Edit application setting** screen, add the following app setting:
    - For **Name**, enter *HTTP20_ONLY_PORT*.
    - For **Value**, enter *8585*.

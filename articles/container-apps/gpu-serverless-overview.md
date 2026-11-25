@@ -9,7 +9,7 @@ ms.custom:
   - build-2025
   - references_regions
 ms.topic: how-to
-ms.date: 06/02/2025
+ms.date: 09/21/2026
 ms.author: cshoe
 ---
 
@@ -20,7 +20,7 @@ Azure Container Apps provides access to GPUs on demand without you having to man
 Serverless GPUs are supported only for Consumption workload profiles. The feature isn't supported for Consumption-only environments.
 
 > [!NOTE]
-> You must request GPU quotas to access GPUs. You can submit your GPU quota request via a [customer support case](./quota-requests.md#manual-requests).
+> You must create a workload profiles environment in a supported region before you can request the required [managed environment GPU quota](./quota-requests.md#managed-environment-quota-requests).
 
 ## Benefits
 
@@ -152,33 +152,9 @@ Serverless GPUs run on consumption GPU workload profiles. You manage a consumpti
 > [!NOTE]
 > Customers with enterprise agreements and pay-as-you-go customers have A100 and T4 quota enabled by default.
 
-You need serverless GPU quota to access this feature. You can submit your GPU quota request via a [customer support case](./quota-requests.md#manual-requests). When opening a support case for a GPU quota request, select the following options:
+You need serverless GPU quota to access this feature. First, create a workload profiles environment in one of the [supported regions](#supported-regions), and then check the environment's **Quota** page. If the available quota is insufficient, request an increase for either **Managed Environment Consumption NCA100 GPUs** or **Managed Environment Consumption T4 GPUs**. For instructions, see [Submit a managed environment quota request](./quota-requests.md#submit-a-managed-environment-quota-request).
 
-1. Open [New support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV4Blade/callerName/Quota/summary/Quota%20request) form in the Azure portal.
-
-1. Enter the following values into the form:
-
-    | Property | Value |
-    |---|---|
-    | Issue type | Select **Service and subscription limits (quotas)** |
-    | Subscription | Select your subscription.  |
-    | Quota type | Select **Container Apps**. |
-
-1. Select **Next**.
-
-1. In the *Additional details* window, select **Enter details** to open the request details window.
-
-    :::image type="content" source="media/quotas/azure-container-apps-qms-support-details.png" alt-text="Screenshot of Azure Quota Management System details window.":::
-
-1. For **Quota type**, select either **Managed Environment Consumption NCA100 Gpus** or **Managed Environment Consumption T4 Gpus**. Enter your other values.
-
-1. Select **Save and continue**.
-
-1. Fill out the rest of the relevant details in the *Additional details* window.
-
-1. Select **Next**.
-
-1. Select **Create**.
+If the GPU quota doesn't appear on the **Quota** page, the selected GPU type might not be available in the environment's region, or the environment type might not support serverless GPUs.
 
 ## Improve GPU cold start
 

@@ -37,35 +37,20 @@ There are various Microsoft solutions that you might consider as a direct replac
 - [What is Azure Virtual Desktop?](/azure/virtual-desktop/overview)
 - [Azure landing zones for Azure Virtual Desktop instances](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/ready)
 
-### Azure DevTest Labs
-[Azure DevTest Labs](https://azure.microsoft.com/products/devtest-lab/) simplifies creation, usage, and management of infrastructure-as-a-service (IaaS) virtual machines within a lab context with usage-based pricing. It's ideal for computer programming-related courses and those users familiar with the Azure portal. Azure DevTest Labs supports Linux and Windows CPU and GPU-based virtual machines, student admin access, network isolated labs, nested virtualization, and image management from Azure Marketplace or Azure compute gallery.
-
-For more information on transitioning from Azure Lab Services to Azure DevTest Labs, see the [Azure Lab Services to Azure DevTest Labs Transition Guide](/azure/lab-services/transition-devtest-labs-guidance).
-
-#### How can I get started with Azure DevTest Labs?
-- [What is Azure DevTest Labs?](/azure/devtest-labs/devtest-lab-overview)
-- [Popular scenarios for using Azure DevTest Labs](/azure/devtest-labs/devtest-lab-guidance-get-started)
-
 ### Windows 365 Cloud PC
 [Windows 365 Cloud PC](https://www.microsoft.com/windows-365) is a highly available, optimized, and scalable virtual machine that provides end users with a rich Windows desktop experience, hosted in the Windows 365 service. It's accessible from anywhere, on any device with predictable subscription pricing. Cloud PC virtual machines are Microsoft Entra ID joined and support centralized end-to-end management using Microsoft Intune. 
 
 #### How can I get started with Windows 365 Cloud PC?
 - [What is Windows 365?](/windows-365/enterprise/overview)
 
-### Microsoft Dev Box 
-[Microsoft Dev Box](https://azure.microsoft.com/products/dev-box/) offers cloud-based workstations preconfigured with tools and environments for developer workflow-specific tasks with usage-based pricing. It's ideal for facilitating hands-on learning where training leaders can use Dev Box supported images to create identical virtual machines for trainees. Dev Box virtual machines are Microsoft Entra ID joined and support centralized end-to-end management with Microsoft Intune.
-
-#### How can I get started with Microsoft Dev Box?
-- [What is Microsoft Dev Box?](/azure/dev-box/overview-what-is-microsoft-dev-box)
-
 ### Azure Partner solutions
 
 Our partners offer specialized, education-focused solutions for training and classrooms, all powered by Azure. Lab provisioning can be configured to specific Azure regions for low latency and data residency requirements. Each partner solution supports browser-based web access, large disks, cost controls, Azure compute gallery images, and CPU/GPU-based virtual machines. These solutions have [transition guides and support](#how-do-i-get-help-and-support-for-microsoft-solutions-that-can-be-used-as-a-replacement-for-azure-lab-services) to help you move your Azure Lab Services scenarios to their platform:
  
-- [Apporto](https://aka.ms/azlabs-apporto)  
-- [CloudLabs by Spektra Systems](https://aka.ms/azlabs-spektra) 
-- [Nerdio Manager for Enterprise (NME)](https://aka.ms/azlabs-nerdio) (requires and uses Azure Virtual Desktop)
-- [Skillable](https://aka.ms/azlabs-skillable)
+- [Apporto](https://aka.ms/azlabs-ret-apporto)  
+- [CloudLabs by Spektra Systems](https://aka.ms/azlabs-ret-spektra) 
+- [Nerdio Manager for Enterprise (NME)](https://aka.ms/azlabs-ret-nerdio) (requires and uses Azure Virtual Desktop)
+- [Skillable](https://aka.ms/azlabs-ret-skillable)
 
 Each partner solution supports browser-based web access, cost controls, Azure compute gallery images, and CPU/GPU-based virtual machines. Labs created with these partner solutions will be hosted on Azure, where provisioning can be configured to specific Azure regions for low latency and data residency requirements.
 
@@ -136,7 +121,3 @@ To ensure that you have the resources you require when you need them, you should
 
 ### Should I request the same number of Azure subscription core limits with my preferred transition solution?
 Make sure to review your lab usage trends and not assume you require the same volume of core limits. Keep in mind, the recommended transition solutions allow for more efficient use of lab resources which can reduce the overall number of cores needed. For example, multi-session VDI offerings enable multiple users to share the same VM. 
-
-## Related content
-
-- [Azure Lab Services to Azure DevTest Labs Transition Guide](/azure/lab-services/transition-devtest-labs-guidance)

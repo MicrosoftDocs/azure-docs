@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Manage domain suppression lists in the Azure portal
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to manage suppression lists for an Azure Communication Email Domain using the Azure portal.
 
 ## Prerequisites

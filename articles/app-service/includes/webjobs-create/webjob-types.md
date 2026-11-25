@@ -1,9 +1,9 @@
 ---
-author: msangapu-msft
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 05/01/2025
-ms.author: msangapu
+ms.author: byvinyal
 ---
 
 ### <a name="acceptablefiles"></a>Supported file types for scripts or programs

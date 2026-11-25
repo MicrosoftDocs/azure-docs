@@ -1,13 +1,13 @@
 ---
 title: Review Azure VM assessment
-description: Describes the properties of an Azure VM assessment in Azure Migrate
+description: Describes the properties of an Azure VM assessment in Azure Catalyst
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 04/17/2025
-monikerRange:
+ms.update-cycle: 365-days
 # Customer intent: "As a cloud architect, I want to review the assessment of on-premises VMs for Azure migration, so that I can ensure readiness, optimize sizing, and estimate costs effectively before proceeding with migration."
 ---
 
@@ -34,7 +34,7 @@ For each source server, you can review the Azure readiness. Azure readiness is d
 
 - **Not ready for Azure**: The server won't start in Azure. For example, if an on-premises server's disk stores more than 64 TB, Azure can't host the server. Follow the remediation guidance to fix the issues before migration. 
 
-- **Readiness unknown**: Azure Migrate can't determine the readiness of the server because of insufficient metadata. 
+- **Readiness unknown**: Azure Catalyst can't determine the readiness of the server because of insufficient metadata. 
 
 ## Right-sized recommendations 
 
@@ -73,13 +73,13 @@ If you don't want to use the performance data, reset the sizing criteria to as-i
 
 ### Storage sizing calculations 
 
-For storage sizing in an Azure VM assessment, Azure Migrate tries to map each disk that is attached to the server to an Azure disk. Sizing works as follows: 
+For storage sizing in an Azure VM assessment, Azure Catalyst tries to map each disk that is attached to the server to an Azure disk. Sizing works as follows: 
 
 1. The assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. For import-based assessments, you can provide the total IOPS, total throughput, and total number of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU.
    
-2. The disk size for the target disks are identified based on the actual utilization of storage allocated to the server on-premises. In case the machine has only one disk, the assessment provides two probable disk targets. One target disk  is of the size of allocated disk and the other is of the size calculated based on actual utilization. In case there are multiple disks attached to the server on-premises and the utilization is not available for each disk the recommended disk is identified by using total utilization at VM level and considering normal distribution across all the disks. For ease of migration three probables are provided sized at allocated size, at 50% of allocated size and at 25% of allocated size and you can choose the correct disk based on exact utilization. Migration using Azure Migrate server migration tool supports migration only to disks that of size equal to or greater than on-premises disks 
+2. The disk size for the target disks are identified based on the actual utilization of storage allocated to the server on-premises. In case the machine has only one disk, the assessment provides two probable disk targets. One target disk  is of the size of allocated disk and the other is of the size calculated based on actual utilization. In case there are multiple disks attached to the server on-premises and the utilization is not available for each disk the recommended disk is identified by using total utilization at VM level and considering normal distribution across all the disks. For ease of migration three probables are provided sized at allocated size, at 50% of allocated size and at 25% of allocated size and you can choose the correct disk based on exact utilization. Migration using Azure Catalyst server migration tool supports migration only to disks that of size equal to or greater than on-premises disks 
 > [!Note]
-> Migration using Azure Migrate server migration tool supports migration only to disks that are of size equal to or greater than on-premises disks. To migrate to the disk of recommended size that is smaller than the allocated disk, migration has to be done in two steps. First migrate to the disk equal to allocated size disk (target disk always available in the list of probables). Create a disk of recommended size, use _azcopy_ or _robocopy_ to move the data. Deallocate the disk and connect the new disk to Azure VM. 
+> Migration using Azure Catalyst server migration tool supports migration only to disks that are of size equal to or greater than on-premises disks. To migrate to the disk of recommended size that is smaller than the allocated disk, migration has to be done in two steps. First migrate to the disk equal to allocated size disk (target disk always available in the list of probables). Create a disk of recommended size, use _azcopy_ or _robocopy_ to move the data. Deallocate the disk and connect the new disk to Azure VM. 
 
 3. Disks are selected as follows: 
    - If assessment can't find a disk with the required IOPS and throughput, it marks the server as unsuitable for Azure. 
@@ -108,12 +108,12 @@ For an Azure VM assessment, the assessment tries to find an Azure VM that suppor
 
 After it calculates storage and network requirements, the assessment considers CPU and RAM requirements to find a suitable VM size in Azure. 
 
-- Azure Migrate considers the effective utilized cores (including [processor benchmark](common-questions-discovery-assessment.md#i-see-a-banner-on-my-assessment-that-the-assessment-now-also-considers-processor-parameters-what-will-be-the-impact-of-recalculating-the-assessment)) and RAM to find a suitable Azure VM size. 
+- Azure Catalyst considers the effective utilized cores (including [processor benchmark](common-questions-discovery-assessment.md#i-see-a-banner-on-my-assessment-that-the-assessment-now-also-considers-processor-parameters-what-will-be-the-impact-of-recalculating-the-assessment)) and RAM to find a suitable Azure VM size. 
 - If no suitable size is found, the server is marked as unsuitable for Azure. 
-- If a suitable size is found, Azure Migrate applies storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation. 
+- If a suitable size is found, Azure Catalyst applies storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation. 
 - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended. 
 
-After sizing recommendations are completed, an Azure VM assessment in Azure Migrate calculates compute and storage costs for migration. 
+After sizing recommendations are completed, an Azure VM assessment in Azure Catalyst calculates compute and storage costs for migration. 
 
 To right-size on-premises servers for B-Series VM targets, a minimum of seven days of performance data is required to establish the workload pattern. B-Series VMs are ideal for workloads that remain idle most of the time but occasionally require high CPU performance, such as development/test environments, small web servers, and batch jobs. These VMs use a CPU credit system that allows you to pay for baseline performance and burst when needed. When the workload runs below the base CPU level, credits accumulate and are stored up to a maximum limit; these credits are then consumed during spikes to enable higher performance. The assessment service analyzes seven days of performance data to ensure that the credits required during bursts are always less than the accumulated credits. If the on-premises VM passes this check, it is considered suitable for a B-Series target without risking performance degradation.
 Example:
@@ -121,7 +121,7 @@ If a VM has a baseline CPU of 20% and runs at 10% for most of the day, it earns 
 
 ## Compute cost 
 
-Azure Migrate uses the recommended Azure VM size and the Azure Billing API to calculate the monthly cost for the server. 
+Azure Catalyst uses the recommended Azure VM size and the Azure Billing API to calculate the monthly cost for the server. 
 
 The calculation considers the following: 
 
@@ -166,6 +166,11 @@ For each on-premises server, you can review if there are any data collection iss
 
 ## VM Security type
 
-Azure Migrate determines each VM’s compatibility with **Trusted Launch Virtual Machine (TVM)** requirements and recommends a VM security type, Trusted Launch or Standard. It verifies the supported operating systems, generation type (Gen 2), boot and disk configuration, and other prerequisites defined by Azure for Trusted Launch. If a VM meets the requirements, Azure Migrate recommends **Trusted Launch** by default to provide enhanced security features, such as **secure boot, vTPM**, and integrity monitoring at no extra cost. If the VM doesn't meet the criteria, it is assigned a **Standard security type**, ensuring compatibility while maintaining migration readiness.
+Azure Catalyst determines each VM’s compatibility with **Trusted Launch Virtual Machine (TVM)** requirements and recommends a VM security type, Trusted Launch or Standard. It verifies the supported operating systems, generation type (Gen 2), boot and disk configuration, and other prerequisites defined by Azure for Trusted Launch. 
+ - If a VM meets the requirements, Azure Catalyst recommends **Trusted Launch** by default to provide enhanced security features, such as **secure boot, vTPM**, and integrity monitoring at no extra cost. If the VM doesn't meet the criteria, it is assigned a **Standard security type**, ensuring compatibility while maintaining migration readiness.
+ - VMs that don't meet Trusted Launch requirements are assigned **Standard** security type to ensure migration compatibility.
 
-For more information on requirements for Trusted Launch Virtual Machines. [Learn more](/azure/virtual-machines/trusted-launch).
+For VMs requiring stronger security and compliance, you can also choose **Azure Confidential Virtual Machine (CVM)**, which provide hardware-backed memory encryption and trusted execution environments to help protect data in use. 
+ - VMs that don't meet **Confidential Virtual Machine** requirements are assigned **Standard** or **Trusted Launch** security type accordingly to ensure migration compatibility.
+
+For more information on these security types, see [Trusted Launch Virtual Machines](/azure/virtual-machines/trusted-launch) and [Confidential Virtual Machines](/azure/confidential-computing/confidential-vm-overview).

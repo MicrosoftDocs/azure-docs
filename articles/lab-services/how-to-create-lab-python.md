@@ -2,7 +2,6 @@
 title: Create a lab using Python
 titleSuffix: Azure Lab Services
 description: Learn how to create an Azure Lab Services lab using Python and the Azure Python libraries (SDK).
-author: RogerBestMSFT
 ms.topic: how-to
 ms.custom: devx-track-python
 ms.date: 02/15/2022

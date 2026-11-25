@@ -1,8 +1,8 @@
 ---
 title: WAF Custom Rule for Azure Front Door
 description: Learn how to use web application firewall (WAF) custom rules to protect your web applications from malicious attacks.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 02/25/2026
@@ -237,4 +237,5 @@ Custom rules can be duplicated within a given policy. When duplicating a rule, y
 
 - [Configure a WAF policy by using Azure PowerShell](waf-front-door-custom-rules-powershell.md)
 - [Azure Web Application Firewall on Azure Front Door](afds-overview.md)
+- [What is service tag matching for Azure Front Door?](service-tag-match-condition.md)
 - [Create an Azure Front Door instance](../../frontdoor/quickstart-create-front-door.md)

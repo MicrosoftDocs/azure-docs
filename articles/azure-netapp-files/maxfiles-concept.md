@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/27/2025
+ms.date: 11/02/2026
 ms.author: anfdocs
 # Customer intent: "As a cloud storage administrator, I want to understand the `maxfiles` limits for Azure NetApp Files, so that I can effectively manage volume capacity and avoid 'out of space' errors when creating new files."
 ---
@@ -15,8 +15,12 @@ Azure NetApp Files volumes have a value called `maxfiles` that refers to the max
 
 ## `maxfiles` limits for the Flexible, Premium, Standard, and Ultra service levels
 
-- For regular volumes less than or equal to 683 GiB, the default `maxfiles` limit is 21,251,126.
-- For regular volumes greater than 683 GiB, the default `maxfiles` limit is approximately one file (or inode) per 32 KiB of allocated volume capacity up to a maximum of 2,147,483,632.
+>[!NOTE]
+> For volumes you create with a size from 100 GiB through approximately 682.7 GiB, the `maxfiles` limit is set to 21,251,126. For volumes you create outside this range, calculate `maxfiles` based on the volume size as described in the following sections.
+>   
+> When you resize a volume, determine `maxfiles` based on the resulting volume size. Shrinking a volume doesn't reduce its existing `maxfiles` limit. As a result, volumes of the same size can have different `maxfiles` limits depending on their resize history.
+
+- For regular volumes, the default `maxfiles` limit is approximately one file (or inode) per 32 KiB of allocated volume capacity, up to a maximum of 2,147,483,632.
 - For [large volumes](large-volumes-requirements-considerations.md), the default `maxfiles` limit is approximately one file (or inode) per 32 KiB of allocated volume capacity up to a default maximum of 15,938,355,048.
 - Each inode uses roughly 288 bytes of capacity in the volume. Having many inodes in a volume can consume a non-trivial amount of physical space overhead on top of the capacity of the actual data.
     - If a file is less than 64 bytes in size, it's stored in the inode itself and doesn't use additional capacity. This capacity is only used when files are actually allocated to the volume.
@@ -29,7 +33,6 @@ The following table shows examples of the relationship `maxfiles` values based o
 
 | Volume size | Estimated `maxfiles` limit |
 | - | - |
-| 0 – 683 GiB | 21,251,126 |
 | 1 TiB (1,073,741,824 KiB) | 31,876,709 |
 | 10 TiB (10,737,418,240 KiB) | 318,767,099 |
 | 50 TiB (53,687,091,200 KiB)	| 1,593,835,519 |
@@ -51,7 +54,7 @@ To see the `maxfiles` allocation for a specific volume size, check the **Maximum
 >[!NOTE]
 >The maximum number of files metric is reported against the `maxfiles` account quota limit. The metric in Azure Monitor might reflect fewer files than metrics provided by the operating system mounting the volume. This behavior is expected. 
 
-
+<!-- 
 ## `maxfiles` limits for Elastic zone-redundant storage 
 
 

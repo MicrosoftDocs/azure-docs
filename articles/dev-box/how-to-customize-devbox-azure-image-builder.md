@@ -5,7 +5,7 @@ services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-azurepowershell
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 12/05/2025
 ms.topic: how-to
 ai-usage: ai-assisted

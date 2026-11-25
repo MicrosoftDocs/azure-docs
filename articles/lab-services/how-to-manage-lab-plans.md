@@ -5,7 +5,7 @@ description: Learn how to create an Azure Lab Services lab plan, view all lab pl
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 03/14/2023
 ---

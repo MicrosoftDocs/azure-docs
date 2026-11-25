@@ -3,7 +3,7 @@ title: Set Up the Teams Connector in Azure SRE Agent
 description: Connect your Azure SRE Agent to a Microsoft Teams channel so it can post updates, reply to conversation threads, and read channel messages.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 11/10/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -16,6 +16,11 @@ ms.custom: teams, connector, notifications, channels, microsoft teams, setup
 **Estimated time**: 5 minutes
 
 Connect your agent to a Microsoft Teams channel so it can post updates, reply to threads, and read messages. After you complete this tutorial, your agent can send contextual notifications to your team without leaving the SRE Agent portal.
+
+> [!NOTE]
+> This article covers the legacy Teams connector, which uses a managed identity and a Teams channel URL. To set up Teams with single sign-in, per-tool approval, and parameter locking, see [Connect a notification or work-tracking service](connect-notification-service.md). Use this article if you need the managed-identity path or your agent already relies on it.
+
+For agent-user chat, use the separate [Teams integration](teams-integration.md) (preview). This article covers notification connector setup.
 
 > [!TIP]
 > To learn how your agent uses Teams and Outlook for contextual notifications, see [Send notifications](send-notifications.md).
@@ -45,7 +50,7 @@ Before you begin, make sure you have the following resources and access:
 Open the connector configuration page in the SRE Agent portal.
 
 1. Open your agent in the [Azure SRE Agent portal](https://sre.azure.com).
-1. In the left sidebar, expand **Builder**.
+1. In the left sidebar, select **Build + setup**, and then expand **Extensions**.
 1. Select **Connectors**.
 
 ## Step 2: Add a Teams connector
@@ -171,5 +176,6 @@ Your agent now has an authenticated connection to a Microsoft Teams channel. It 
 ## Related content
 
 - [Send notifications](send-notifications.md): Learn how your agent uses Outlook and Teams for contextual notifications.
+- [Connect a notification or work-tracking service](connect-notification-service.md): Set up Teams through managed connectors.
 - [Connectors](connectors.md): Overview of all connector types.
 - [Scheduled tasks](scheduled-tasks.md): Automate Teams notifications on a schedule.

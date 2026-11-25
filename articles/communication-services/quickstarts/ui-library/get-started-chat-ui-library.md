@@ -13,6 +13,8 @@ ms.custom: mode-other
 
 # Use UI components for chat
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with Azure Communication Services UI Library to quickly integrate communication experiences into your applications. This article describes how to integrate UI Library chat composites into an application and set up the experience for your app users.
 
 Azure Communication Services UI Library renders a full chat experience right in your application. It takes care of connecting to Azure Communication Services chat services and updates a participant's presence automatically. As a developer, you need to decide where in your app's user experience you want the chat experience to start and create only the Azure Communication Services resources as required.

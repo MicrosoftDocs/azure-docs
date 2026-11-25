@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 07/25/2025
+ms.date: 09/05/2026
 ms.author: duau
 ms.custom:
   - reference_regions
@@ -164,7 +164,9 @@ You can upgrade between the following SKU types:
     [![Screenshot showing the Configuration page for upgrading availability zone-enabled gateway SKUs.](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)
 
 > [!NOTE]
-> For all other scenarios (such as downgrading SKUs or switching between availability zone and non-availability zone SKUs), you must delete and recreate the gateway. This process incurs downtime.
+> To move an eligible Standard, HighPerformance, or UltraPerformance gateway to an availability zone-enabled SKU, use the [ExpressRoute gateway migration experience](gateway-migration.md#supported-migration-scenarios).
+>
+> For unsupported SKU changes, such as downgrading or moving from an availability zone-enabled SKU to a non-availability zone SKU, you must delete and recreate the gateway. This process incurs downtime.
 
 ## Delete a gateway
 
@@ -184,5 +186,4 @@ If you no longer need your ExpressRoute gateway, you can delete it.
 - [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md)
 - [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
 - [About ExpressRoute scalable gateway](scalable-gateway.md)
-
 

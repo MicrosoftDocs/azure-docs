@@ -2,7 +2,7 @@
 title: Azure Notification Hubs encryption for data at rest
 description: Learn how data is encrypted at rest in Azure Notification Hubs. 
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-notification-hubs
 ms.topic: concept-article
 ms.date: 03/19/2022

@@ -3,7 +3,7 @@ title: Azure Monitor metrics for Application Gateway for Containers
 description: Learn how to use metrics to monitor performance of Application Gateway for Containers
 services: application-gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
 ms.date: 07/21/2025
 ms.author: mbender

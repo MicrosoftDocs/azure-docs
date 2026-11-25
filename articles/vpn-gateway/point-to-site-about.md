@@ -5,7 +5,7 @@ description: Learn about Point-to-Site VPN.
 author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 06/08/2026
+ms.date: 08/17/2026
 ms.author: duau
 ms.custom:
   - linux-related-content
@@ -20,11 +20,13 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 Point-to-site VPN can use one of the following protocols:
 
-* **OpenVPN® Protocol**, an SSL/TLS based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 10.13 and above). Supported versions are TLS 1.2 and TLS 1.3 based on TLS handshake.
+* **OpenVPN® Protocol**, an SSL/TLS based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. Use OpenVPN to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 13.0 and above). Supported versions are TLS 1.2 and TLS 1.3 based on TLS handshake.
 
-* **Secure Socket Tunneling Protocol (SSTP)**, a proprietary TLS-based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP and support TLS 1.2 (Windows 8.1 and later). 
+* **Secure Socket Tunneling Protocol (SSTP)**, a proprietary TLS-based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. SSTP is only supported on Windows devices. 
 
-* **IKEv2 VPN**, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
+* **IKEv2 VPN**, a standards-based IPsec VPN solution. Use IKEv2 VPN to connect from Mac devices (macOS versions 13.0 and above).
+
+P2S VPN gateways support IPv6 with IKEv2 and OpenVPN. P2S VPN gateways don't support IPv6 with SSTP.
 
 ## <a name="authentication"></a>How are P2S VPN clients authenticated?
 
@@ -101,7 +103,7 @@ For information about available Azure VPN Client versions, release dates, and wh
 See [About Gateway SKUs](about-gateway-skus.md) for the list of SKUs that support P2S VPN, and the number of tunnels and connections supported on each SKU.
 
 > [!NOTE]
-> The Basic SKU has limitations and does not support IKEv2, IPv6, or RADIUS authentication. For more information, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+> The Basic SKU supports IKEv2 for P2S connections but doesn't support IPv6 or RADIUS authentication. For existing Basic SKU gateways that use SSTP only, see [SSTP protocol retirement and connections migration](ikev2-openvpn-from-sstp.md). For other SKU limitations, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 ### <a name="certificate-migration"></a>What is P2S gateway root certificate migration?
 

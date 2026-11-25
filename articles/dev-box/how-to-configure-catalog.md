@@ -10,7 +10,7 @@ ms.custom:
   - ai-gen-title
   - ai-seo-date:07/08/2025
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 07/08/2025
 ms.topic: how-to
 ---

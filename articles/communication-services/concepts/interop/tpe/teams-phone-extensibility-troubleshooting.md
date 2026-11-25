@@ -15,6 +15,8 @@ services: azure-communication-services
 
 # Teams Phone extensibility troubleshooting
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to identify and resolve Teams Phone extensibility issues. Errors can stem from the application, Azure Communication Services SDKs, the user environment, or Microsoft Teams configuration settings.
 
 Whether you're experiencing problems with Call Automation or the Calling SDK, this article provides information to help you diagnose and fix these issues.
@@ -36,6 +38,10 @@ For troubleshooting issues related to the Calling SDK, see:
 - [VoIP Call Quality](../../voice-video-calling/troubleshoot-web-voip-quality.md): provides guidance on troubleshooting and improving VoIP call quality.
 
 ## Common Teams Phone extensibility issues
+
+### On-behalf-of calls to third-party SIP phones
+
+Teams Phone extensibility doesn't currently support agent-initiated calls to third-party SIP phones on behalf of a Teams resource account. These on-behalf-of (OBO) calls use [dual persona identities](./teams-phone-extensibility-faq.md#what-is-dual-persona-or-multi-persona).
 
 ### Consent blocked due to Microsoft Entra App permission
 

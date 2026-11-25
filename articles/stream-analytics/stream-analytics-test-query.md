@@ -21,7 +21,7 @@ Azure Stream Analytics automatically fetches events from your streaming inputs. 
 
 2. Locate and select your existing Stream Analytics job.
 
-3. On the Stream Analytics job page, under the **Job Topology** heading, select **Query** to open the Query editor window. 
+3. On the Stream Analytics job page, under the **Job Topology** heading, select **Query** to open the Query editor window.
 
 4. To see a sample list of incoming events, select the input with the file icon. The sample events automatically appear in **Input preview**.
 
@@ -71,7 +71,7 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 3. On the Stream Analytics job page, under the **Job Topology** heading, select **Query** to open the Query editor window.
 
-4. To test your query with a local file, select **Upload sample input** on the **Input preview** tab. 
+4. To test your query with a local file, select **Upload sample input** on the **Input preview** tab.
 
    ![Screenshot of the Upload sample input option in the Azure Stream Analytics Input preview tab.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
@@ -85,7 +85,7 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 8. Test results appear based on your query. You can change your query and select **Save query** to test the new query logic. This process allows you to iteratively modify your query and test it again to see how the output changes.
 
-9. When you use multiple outputs in the query, the results appear based on the selected output. 
+9. When you use multiple outputs in the query, the results appear based on the selected output.
 
    ![Screenshot of Azure Stream Analytics test results with a selected output destination.](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
@@ -118,7 +118,7 @@ If you get the error "The request size is too big. Please reduce the input data 
 
 ## Related content
 
-* [Build an IoT solution by using Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md)
+* [Detect fraud in real time with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md)
 * [Understand inputs for Azure Stream Analytics](stream-analytics-add-inputs.md)

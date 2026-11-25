@@ -4,7 +4,7 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.date: 02/06/2024
 ms.topic: sample
 author: spelluru
-ms.author: spelluru
+ms.author: aschhabria
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Event Hubs
@@ -16,7 +16,7 @@ page lists the **compliance domains** and **security controls** for Azure Event 
 the built-ins for a **security control** individually to help make your Azure resources compliant
 with the specific standard.
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](~/reusable-content/ce-skilling/azure/includes/policy/standards/intro-warning.md)]
 
 [!INCLUDE [azure-policy-compliancecontrols-eventhubs](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.eventhub.md)]
 

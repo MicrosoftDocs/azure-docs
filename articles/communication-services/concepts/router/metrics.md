@@ -14,6 +14,8 @@ ms.subservice: data
 
 # Job Router metrics overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ## Where to find metrics
 
 Primitives in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics tab under your Azure Communication Services resource. You can also create permanent dashboards using the workbooks tab under your Azure Communication Services resource.

@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 03/06/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As a storage administrator, I want to change the identity source configured on my storage account, so that I can switch to a different authentication method for Azure file shares.
 ---
 

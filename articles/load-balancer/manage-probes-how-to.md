@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 12/06/2024
+ms.date: 08/27/2026
 ms.custom: template-how-to
 # Customer intent: "As a network administrator, I want to manage health probes for my load balancer, so that I can ensure backend instances are monitored and remain operational."
 ---
@@ -16,7 +16,7 @@ Azure Load Balancer uses health probes to monitor the health of backend instance
 
 There are three types of health probes:
 
-| | Standard SKU | Basic SKU |
+| | Standard SKU | Basic SKU (retired) |
 | --- | --- | --- |
 | **Probe types** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **Probe down behavior** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
@@ -28,10 +28,9 @@ Health probes have the following properties:
 | Name | Name of the health probe. This is a name you get to define for your health probe |
 | Protocol | Protocol of health probe. This is the protocol type you would like the health probe to use. Available options are: TCP, HTTP, HTTPS |
 | Port | Port of the health probe. The destination port you would like the health probe to use when it connects to the virtual machine to check the virtual machine's health status. You must ensure that the virtual machine is also listening on this port (that is, the port is open). |
-| Interval (seconds) | Interval of health probe. The amount of time (in seconds) between consecutive health check attempts to the virtual machine |
+| Interval (seconds) | Interval of health probe. The amount of time in seconds between consecutive health check attempts to the virtual machine. The Azure portal pre-fills 5 seconds; the ARM, REST API, Azure CLI, and PowerShell default is 15 seconds (minimum 5 seconds). |
 | Used by | The list of load balancer rules using this specific health probe. You should have at least one rule using the health probe for it to be effective |
-| Path | The URI used for requesting health status from the virtual machine instance by the health probe (only applicable for HTTPS probes).
-
+| Path | The URI used for requesting health status from the virtual machine instance by the health probe. Applicable to HTTP and HTTPS probes, and required when the protocol is HTTP. |
 >[!IMPORTANT]
 >Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance as up. To see this probe traffic within your backend instance, review [the Azure Load Balancer FAQ](./load-balancer-faqs.yml).
 >

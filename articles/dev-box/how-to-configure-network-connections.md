@@ -5,7 +5,7 @@ description: Learn how to manage network connections for a dev center in Microso
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 08/27/2025
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage network connections so that I can enable dev boxes to connect to my existing networks and deploy them in the desired region.

@@ -3,6 +3,7 @@ title: Create vaults to back up and replicate resources
 description: In this article, you learn how to create Recovery Services vault (or Backup vault) that stores backups and replication data.
 ms.topic: how-to
 ms.date: 11/19/2025
+ms.update-cycle: 1825-days
 ms.service: resiliency
 ms.custom:
   - ignite-2023

@@ -14,6 +14,8 @@ services: azure-communication-services
 
 # Connect Azure Communication Services with Foundry Tools
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services Call Automation APIs allow developers to steer and control calls made through Azure Communication Services, including telephony, VoIP, and WebRTC. These APIs use real-time event triggers, which enable actions based on custom business logic that is specific to each developer’s domain. With Call Automation APIs, developers can use simple AI-powered features. For example, they can play personalized greetings, recognize spoken responses to gather information from customers, and analyze sentiment to improve service. These targeted APIs are managed through **Microsoft Foundry**, which allow developers to customize AI models. Importantly, developers do not need to deal with media streams or send them back to Azure for these AI functions—the processing happens seamlessly.
 
 All this functionality is possible with one click, allowing enterprises to access a secure solution and link their models through the portal. Furthermore, developers and enterprises don't need to manage credentials. Connecting your Foundry Tools uses managed identities to access user-owned resources. Developers can use managed identities to authenticate any resource that supports Microsoft Entra authentication.

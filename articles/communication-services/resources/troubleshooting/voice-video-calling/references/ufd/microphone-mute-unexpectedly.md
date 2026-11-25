@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # microphoneMuteUnexpectedly UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `microphoneMuteUnexpectedly` UFD event with a `true` value occurs when the SDK detects that the microphone track was muted. Keep in mind, that the event is related to the `mute` event of the microphone track, when it's triggered by an external source rather than by the SDK mute API. The underlying layer triggers the event, such as the audio stack muting the audio input session. The hardware mute button of some headset models can also trigger the `microphoneMuteUnexpectedly` UFD. Additionally, some browser platforms, such as iOS Safari browser, may mute the microphone when certain interruptions occur, such as an incoming phone call.
 
 | microphoneMuteUnexpectedly            | Details                |

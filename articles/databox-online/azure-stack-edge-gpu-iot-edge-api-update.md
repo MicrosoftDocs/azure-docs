@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 10/26/2020
-ms.author: sipastak
+ms.author: scompton
 ms.custom: sfi-ropc-nochange
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro is and how it works so I can use it to process and transform data before sending it to Azure.
 ---

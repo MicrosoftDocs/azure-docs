@@ -3,7 +3,7 @@ title: Configure CORS for Azure Application Gateway for Containers - Gateway API
 description: Learn how to configure Cross-Origin Resource Sharing (CORS) in Gateway API for Application Gateway for Containers.
 services: application gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
 ms.date: 06/24/2026
 ms.author: mbender

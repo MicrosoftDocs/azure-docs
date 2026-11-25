@@ -1,19 +1,22 @@
 ---
 title: Choose a file access strategy for Azure Functions
-description: Compare storage bindings, external databases, and Azure Files storage mounts to choose the right file access approach for your function app.
+description: Compare storage bindings and Azure Files storage mounts to choose the right file access approach for your function app.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 03/11/2026
+ms.date: 07/11/2026
 ms.custom:
   - devx-track-azurecli
-#customer intent: As a developer, I want to compare file access options (storage bindings, external databases, and Azure Files mounts) so I can choose the right approach for my function app.
+#customer intent: As a developer, I want to compare file access options (storage bindings and Azure Files mounts) so I can choose the right approach for my function app.
 ---
 
 # Choose a file access strategy for Azure Functions
 
-This article compares three ways to access files from Azure Functions: storage bindings, external databases, and Azure Files storage mounts. You learn the trade-offs between each approach, see when mounts are the right choice, and find patterns for real-world scenarios.
+This article compares two ways to access files from Azure Functions: storage bindings and Azure Files storage mounts. You learn the trade-offs between each approach, see when mounts are the right choice, and find patterns for real-world scenarios.
 
-Storage bindings and external databases work on all hosting plans. Storage mounts are Linux only and aren't supported on the [Consumption](./consumption-plan.md) plan.
+Storage bindings work on all hosting plans. Storage mounts are Linux only and aren't supported by the [Consumption](./consumption-plan.md) plan.
+
+> [!TIP]
+> If you need structured data storage rather than file access, Azure Functions provides binding extensions for [Azure SQL](./functions-bindings-azure-sql.md) and [Azure Cosmos DB](./functions-bindings-cosmosdb-v2.md), or you can use any database with an [SDK client connection](manage-connections.md#manage-sdk-client-connections).
 
 If you want to jump straight to working code, see the [Tutorial: Durable text analysis with a mounted Azure Files share](../durable-task/durable-functions/tutorial-durable-text-analysis-azure-files.md) for parallel file processing or [Tutorial: Process images by using FFmpeg on a mounted Azure Files share](./tutorial-ffmpeg-processing-azure-files.md) for hosting large binaries on a mount.
 
@@ -26,17 +29,16 @@ When you need to access files from your functions, you have three main options:
 | Approach | Pros | Cons | Best for | Learn more |
 | --- | --- | --- | --- | --- |
 | **Storage bindings** | Simple, cloud-native, secure | Network overhead, eventual consistency | Moving data to/from cloud services (queues, blobs) | [Blob](./functions-bindings-storage-blob.md), [Queue](./functions-bindings-storage-queue.md), [Table](./functions-bindings-storage-table.md) bindings |
-| **External database** | Flexible, transactional | Network calls, complexity | Structured data, complex queries | [Manage connections](manage-connections.md#manage-connections-in-azure-functions) |
 | **Storage mount (Azure Files)** | Direct file access, POSIX semantics, large binaries | Slower than local disk, Linux only | Large files, shared executables, frequent access | [What is a storage mount?](#what-is-a-storage-mount) |
 
 Not every option is available on every hosting plan:
 
-| Hosting plan | Storage bindings | External database | Storage mount (Azure Files) |
-| --- | :---: | :---: | :---: |
-| [Flex Consumption](./flex-consumption-plan.md) | ✅ | ✅ | ✅ |
-| [Elastic Premium](./functions-premium-plan.md) | ✅ | ✅ | ✅ |
-| [Dedicated (App Service)](./dedicated-plan.md) | ✅ | ✅ | ✅ |
-| [Consumption](./consumption-plan.md) (Windows only) | ✅ | ✅ | ❌ |
+| Hosting plan | Storage bindings | Storage mount (Azure Files) |
+| --- | :---: | :---: |
+| [Flex Consumption](./flex-consumption-plan.md) | ✅ | ✅ |
+| [Elastic Premium](./functions-premium-plan.md) | ✅ | ✅ |
+| [Dedicated (App Service)](./dedicated-plan.md) | ✅ | ✅ |
+| [Consumption](./consumption-plan.md) (Windows only) | ✅ | ❌ |
 
 The rest of this article focuses on mounts: when they're the right choice, and how to use them safely.
 
@@ -77,7 +79,7 @@ Mounts aren't the right choice for every scenario. Consider these alternatives:
 
 ## Compare storage options
 
-Consider the three main file access options when processing 1,000 images (1 MB each) stored in a reference folder:
+Consider these options when processing 1,000 images (1 MB each) stored in a reference folder:
 
 | Approach | Mechanism | Network calls | Relative cost | Best for |
 | ---- | ---- | ---- | ---- | ---- |
@@ -257,7 +259,7 @@ def process_video(video_file: str) -> str:
 
 > **Use case:** You have App A (data producer) and App B (data consumer) running in the same region. App A writes processed data, and App B reads it.
 
-**The problem:** Without mounts, you'd typically use Azure Blob Storage (decoupled, but with network overhead), Azure Queue Storage with message passing (eventual consistency), or Azure Cosmos DB (more complexity than simple file sharing needs).
+**The problem:** Without mounts, you'd typically use Azure Blob Storage (decoupled, but with network overhead) or Azure Queue Storage with message passing (eventual consistency).
 
 **The mount-based solution:** Both apps mount the same Azure Files share. App A writes, and App B reads. No message passing, no eventual consistency.
 
@@ -317,7 +319,7 @@ def read_results() -> dict:
 - Azure Files supports concurrent reads; writes should be sequential or locked.
 
 > [!WARNING]
-> Azure Files doesn't provide database-level transactions. If you need atomic writes and reads, consider Azure Cosmos DB or Azure SQL Database instead.
+> Azure Files doesn't provide database-level transactions. If you need atomic writes and reads, consider using an external database instead. For more information, see [Manage SDK client connections](manage-connections.md#manage-sdk-client-connections).
 
 ---
 

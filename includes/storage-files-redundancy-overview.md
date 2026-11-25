@@ -5,7 +5,8 @@
  author: khdownie
  ms.service: azure-file-storage
  ms.topic: include
- ms.date: 02/23/2025
+ ms.date: 11/17/2026
+ ai-usage: ai-assisted
  ms.author: kendownie
  ms.custom: Include file
 ---
@@ -20,6 +21,6 @@ To help protect data in your Azure file shares against data loss or corruption, 
   Because the replication between the primary and secondary regions is asynchronous, if a major disaster occurs, data not yet replicated to the secondary region is lost. You can also perform a manual failover of a geo-redundant storage account.
 - **Geo-zone-redundant storage (GZRS)**: With geo-zone redundancy, files are stored three times across three distinct storage clusters in the primary region. All writes are then asynchronously replicated to a Microsoft-defined secondary region. The failover process for geo-zone redundancy works the same as it does for geo redundancy.
 
-HDD file shares support all four redundancy types. SSD file shares support only LRS and ZRS.
+HDD SMB file shares support all four redundancy types. SSD file shares support only LRS and ZRS. NFS HDD file shares support only LRS.
 
 Pay-as-you-go storage accounts provide two other redundancy options that Azure Files doesn't support: read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS). You can provision Azure file shares in storage accounts with these options set, but Azure Files doesn't support reading from the secondary region. Azure file shares deployed into RA-GRS or RA-GZRS storage accounts are billed as geo redundant or geo-zone redundant, respectively.

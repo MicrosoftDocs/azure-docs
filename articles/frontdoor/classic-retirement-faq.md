@@ -2,7 +2,7 @@
 title: Azure Front Door (classic) retirement FAQ
 description: Common questions about the retirement of Azure Front Door (classic).
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: faq
 ms.date: 05/04/2026
@@ -13,21 +13,20 @@ ms.custom: ai-usage
 
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
-Azure Front Door introduced two new tiers named Standard and Premium on March 29, 2022. These tiers offer improvements over the current product offerings of Azure Front Door (Classic), incorporating capabilities such as Azure Private Link integration, Bot management, advanced Web Application Firewall (WAF) enhancements with DRS 2.1, anomaly scoring-based detection and bot management, out-of-the-box reports and enhanced diagnostic logs, a simplified pricing model, and much more.
+On March 29, 2022, Azure Front Door introduced two new tiers named Standard and Premium. These tiers offer improvements over the current product offerings of Azure Front Door (classic). They incorporate capabilities such as Azure Private Link integration, bot management, advanced Web Application Firewall (WAF) enhancements with DRS 2.1, anomaly scoring-based detection and bot management, out-of-the-box reports and enhanced diagnostic logs, a simplified pricing model, and much more.
 
-In our ongoing efforts to provide the best product experience and streamline our portfolio of products and tiers, we're announcing the retirement of the Azure Front Door (Classic) tier. This retirement affects the public cloud and the Azure Government regions of Arizona and Texas, effective March 31, 2027. We'll communicate retirement plan of Azure Front Door classic in Azure Government regions US DoD Central and US DoD East in a future announcement. To avoid service disruption, transition to Azure Front Door Standard or Premium.    
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-> [!IMPORTANT]
-> - Azure Front Door (classic) doesn't support profile creation, new domain onboarding, or managed certificates and retires on **March 31, 2027**. To avoid service disruption, ⁠[**migrate to Azure Front Door Standard or Premium**](/azure/frontdoor/tier-migration). For more information, see ⁠[Azure Front Door (classic) retirement](https://azure.microsoft.com/updates?id=azure-front-door-classic-will-be-retired-on-31-march-2027).
-> - If you migrate to Azure Front Door Standard or Premium after your managed certificates already expired, then after migration, the certificates change to *Pending Revalidation* state or start to rotate after 1-2 days. Alternatively, rotate the Front Door Standard and Premium managed certificates by refreshing the validation token using either **[Powershell](/powershell/module/az.cdn/update-azfrontdoorcdncustomdomainvalidationtoken)** or **[CLI](/cli/azure/afd/custom-domain#az-afd-custom-domain-regenerate-validation-token)**. After adding the new TXT record token to your DNS zone, the custom domain is revalidated and a new certificate is deployed.
+> [!NOTE]
+> If you migrate to Azure Front Door Standard or Premium after your managed certificates already expire, the certificates change to *Pending Revalidation* state or start to rotate after one to two days. Alternatively, rotate the Front Door Standard and Premium managed certificates by refreshing the validation token by using either **[PowerShell](/powershell/module/az.cdn/update-azfrontdoorcdncustomdomainvalidationtoken)** or **[CLI](/cli/azure/afd/custom-domain#az-afd-custom-domain-regenerate-validation-token)**. After adding the new TXT record token to your DNS zone, the custom domain is revalidated and a new certificate is deployed.
 
 ## Frequently asked questions
 
-### When is the retirement for Azure Front Door (classic)?
+### When is the retirement date for Azure Front Door (classic)?
 
 Azure Front Door (classic) retires on March 31, 2027. 
 
-### Why is Azure Front Door (classic) being retired?
+### Why is Microsoft retiring Azure Front Door (classic)?
 
 Azure Front Door (classic) is a legacy service that provides dynamic site acceleration and global load balancing capabilities. In March 2022, Microsoft announced the general availability of Azure Front Door Standard and Premium. These new tiers serve as a modern Content Delivery Network platform that supports both dynamic and static scenarios with enhanced Web Application Firewall capabilities, Private Link integration, simplified pricing model, and many more enhancements. As part of Microsoft's plans to offer the best product experience and simplify the product portfolio, Microsoft is retiring the Azure Front Door (classic) tier.
 
@@ -81,6 +80,10 @@ Currently, Azure Front Door (classic) retirement affects the public cloud and Az
 
 You can still update your existing Azure Front Door (classic) resources by using the Azure portal, Terraform, and all command line tools until March 31, 2027. However, you can't create new Azure Front Door (classic) resources starting April 1, 2025. Starting August 15, 2025, Azure Front Door (classic) no longer supports managed certificates. Migrate to Azure Front Door Standard or Premium tier as soon as possible. 
 
+### What happens to certificates that use a service principal to access Azure Key Vault?
+
+Azure Front Door (classic) uses a service principal (app registration) to read your certificates from Azure Key Vault. Service principal access to Key Vault retires on September 30, 2027. Because Azure Front Door (classic) retires before that date and doesn't support managed identities, migrate to Azure Front Door Standard or Premium. If you use your own certificate, migration requires you to enable a managed identity and grant it access to your key vault. For more information, see [Enable managed identities](migrate-tier.md#enable-managed-identities).
+
 ### Can I roll back to Azure Front Door (classic) after migration?
 
 No, once migration is completed successfully, you can't roll back to classic. If you encounter any issues, raise a support ticket for assistance.
@@ -98,7 +101,7 @@ If you have a support plan and need technical assistance, create a [support requ
 * *Service*, select **My services**, and then select **Front Door Service**. 
 * *Resource*, select the **Azure Front Door resource**.
 * *Summary*, describe the problem you're experiencing with the migration.
-* *Problem type*, select **Migrating Front Door Classic to Front Door Standard or Premium**.
+* *Problem type*, select **Migrating Front Door (classic) to Front Door Standard or Premium**.
 
 ## Next step
 

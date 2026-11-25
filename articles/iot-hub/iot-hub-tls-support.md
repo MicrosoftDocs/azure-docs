@@ -2,11 +2,11 @@
  title: Azure IoT Hub TLS support
  description: Learn about using secure TLS connections for devices and services communicating with IoT Hub
  services: iot-hub
- author: sethmanheim
+ author: meenag16
  ms.service: azure-iot-hub
  ms.topic: how-to
- ms.date: 05/26/2026
- ms.author: sethm
+ ms.date: 11/09/2026
+ ms.author: mgudapati
  ms.custom: references_regions
 ---
 
@@ -22,19 +22,20 @@ IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devic
 
 > [!IMPORTANT]
 >  It's important to distinguish between **TLS 1.2 support** and **TLS 1.2 enforcement**. All IoT Hubs support TLS 1.2, meaning that IoT Hubs can handle connections using the TLS 1.2 protocol. On the other hand, TLS 1.2 enforcement ensures that IoT Hub **only** accepts connections using TLS 1.2 or higher. When TLS 1.2 enforcement is enabled, the service also enforces the use of [strong cipher suites](#cipher-suites).
-> > Currently, TLS 1.2 enforcement is supported only in public cloud regions.
+> 
+> Currently, TLS 1.2 enforcement is supported only in public cloud regions.
 > 
 > To find out the version of TLS your IoT Hub devices are running, refer to [TLS 1.0 and 1.1 end of support guide](#check-tls-versions-and-cipher-suites-for-iot-hub-devices).
 
 ## Mutual TLS support
 
-Mutual TLS authentication ensures that the client _authenticates_ the server (IoT Hub) certificate and the server (IoT Hub) _authenticates_ the client using [X.509 client certificate or X.509 thumbprint](tutorial-x509-test-certs.md#create-a-client-certificate-for-a-device). IoT Hub performs _authorization_ after _authentication_ is complete.
+Mutual TLS authentication ensures that the client _authenticates_ the server (IoT Hub) certificate and the server (IoT Hub) _authenticates_ the client using [X.509 client certificate or X.509 thumbprint](../iot-hub/tutorial-x509-test-certs.md#create-a-client-certificate-for-a-device). IoT Hub performs _authorization_ after _authentication_ is complete.
 
 For Advanced Message Queuing Protocol (AMQP) and Message Queuing Telemetry Transport (MQTT) protocols, IoT Hub requests a client certificate in the initial TLS handshake. If one is provided, IoT Hub _authenticates_ the client certificate, and the client _authenticates_ the IoT Hub certificate. This process is called mutual TLS authentication. When IoT Hub receives an MQTT connect packet or an AMQP link opens, IoT Hub performs _authorization_ for the requesting client and determines if the client requires X.509 authentication. If mutual TLS authentication was completed and the client is authorized to connect as the device, it's allowed. However, if the client requires X.509 authentication and client authentication wasn't completed during the TLS handshake, then IoT Hub rejects the connection.
 
 For HTTP protocol, when the client makes its first request, IoT Hub checks if the client requires X.509 authentication and if client authentication was complete then IoT Hub performs authorization. If client authentication wasn't complete, then IoT Hub rejects the connection.
 
-After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Authenticate identities with X.509 certificates](authenticate-authorize-x509.md).
+After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Authenticate identities with X.509 certificates](../iot-hub/authenticate-authorize-x509.md).
 
 ### IoT Hub's server TLS certificate
 
@@ -255,32 +256,93 @@ Official SDK support for this public preview feature isn't yet available. To get
 
 [Certificate pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning) and filtering of the TLS server certificates and intermediate certificates associated with IoT Hub endpoints is strongly discouraged as Microsoft frequently rolls these certificates with little or no notice. If you must, only pin the root certificates as described in this [Azure IoT blog post](https://techcommunity.microsoft.com/t5/internet-of-things-blog/azure-iot-tls-critical-changes-are-almost-here-and-why-you/ba-p/2393169).
 
-## TLS 1.3 (Preview) behavior and requirements
+## TLS 1.3 support
 
-Azure IoT Hub supports TLS 1.3 through newly introduced endpoints. TLS 1.3 isn't exposed through the existing (classic) endpoint.
+Azure IoT Hub supports TLS 1.3 through new device and service endpoints available alongside the existing classic endpoint. These endpoints are provisioned automatically on all IoT hubs and can be adopted at your own pace.
 
-### Key behaviors
+### Endpoints
 
-- TLS 1.3 is available only via the new device and service endpoints (`<hub>.device.azure-devices.net` and `<hub>.service.azure-devices.net`).
-- The classic endpoint (`<hub>.azure-devices.net`) continues to support TLS 1.2.
+| Endpoint | Hostname | TLS support |
+|----------|----------|-------------|
+| Classic | `<hub>.azure-devices.net` | TLS 1.2 |
+| Device | `<hub>.device.azure-devices.net` | TLS 1.2 (restricted ciphers) + TLS 1.3 |
+| Service | `<hub>.service.azure-devices.net` | TLS 1.2 (restricted ciphers) + TLS 1.3 |
 
-### Requirements for new endpoints
+The classic endpoint remains fully supported and continues to be the default for existing workloads.
 
-The TLS 1.3-capable endpoints introduce stricter security requirements:
+### Requirements
 
-- Server Name Indication (SNI) is required.
-- Only restricted, security-compliant cipher suites are supported.
+The new endpoints have stricter requirements than the classic endpoint:
 
-### TLS 1.2 compatibility
+- **SNI is required.** Clients must send the Server Name Indication (SNI) extension in the TLS handshake.
+- **Restricted cipher suites.** Only security-compliant cipher suites are supported. Devices that rely on cipher suites not in this set fail to connect. For the list of supported cipher suites, see [Cipher suites](#cipher-suites).
+- **Devices using TLS 1.2 can connect** to the new endpoints if they support the required cipher suites.
 
-- Devices using TLS 1.2 can still connect to the new endpoints.
-- This support exists only if the client supports the required cipher suites.
+### Use the new endpoints
 
-### Migration guidance
+#### [Azure portal](#tab/portal)
 
-- Adoption of TLS 1.3 endpoints is optional and customer-controlled.
-- Customers can continue using the classic endpoint indefinitely.
-- Migration can be performed gradually, based on device and solution readiness.
+To view the endpoints and get connection strings for them in the Azure portal:
+
+1. Go to your IoT hub in the [Azure portal](https://portal.azure.com).
+
+1. On the **Overview** tab, the **Essentials** section shows the **Service hostname** and **Device hostname** for your hub.
+
+    :::image type="content" source="media/iot-hub-tls-support/tls-13-hub-endpoints.png" alt-text="Screenshot that shows the service hostname and device hostname in the Overview page of an IoT hub." lightbox="media/iot-hub-tls-support/tls-13-hub-endpoints.png":::
+
+1. To get a connection string, on the left menu, select **Security settings** > **Shared access policies**, and then select a policy. The policy pane lists connection strings for the **Device endpoint**, **Service endpoint**, and **Classic endpoint**.
+
+    :::image type="content" source="media/iot-hub-tls-support/tls-13-connection-strings.png" alt-text="Screenshot that shows the connection strings for the device, service, and classic endpoints in a shared access policy." lightbox="media/iot-hub-tls-support/tls-13-connection-strings.png":::
+
+#### [Azure CLI](#tab/cli)
+
+To retrieve connection strings for the new endpoints, use the `--hostname-type` parameter:
+
+```azurecli
+# Device connection string using the TLS 1.3-capable device endpoint
+az iot hub device-identity connection-string show \
+  --hub-name <hub-name> \
+  --resource-group <resource-group> \
+  --device-id <device-id> \
+  --hostname-type device
+
+# Hub connection string using the service endpoint
+az iot hub connection-string show \
+  --hub-name <hub-name> \
+  --resource-group <resource-group> \
+  --hostname-type service
+```
+
+To verify the endpoints available on your hub:
+
+```azurecli
+az iot hub show --name <hub-name> --resource-group <resource-group> \
+  --query "{classic:properties.hostName, device:properties.deviceHostName}" \
+  --output json
+```
+
+> [!NOTE]
+> The `service` hostname type isn't valid for device or module connection strings. Use `device` or `classic` for device-side connections.
+
+---
+
+### Migrate to the TLS 1.3 endpoints
+
+Adoption of the new endpoints is optional and customer-controlled. To migrate:
+
+1. Verify your devices and clients support SNI and the required cipher suites.
+1. Test connectivity using the device endpoint in a staging environment.
+1. Update your device connection strings to use `<hub>.device.azure-devices.net`.
+1. For backend services, update connection strings to use `<hub>.service.azure-devices.net`.
+
+To roll back, update connection strings to use the original `<hub>.azure-devices.net` hostname.
+
+If your IoT hub is reached over a private endpoint (Azure Private Link), the new device and service hostnames must also resolve to a private IP address in your virtual network. In most cases this happens automatically, but static IP allocation or a full subnet can require manual action. See [Update private endpoints to enable TLS 1.3](iot-hub-tls-1-3-update-private-endpoint.md).
+
+> [!IMPORTANT]
+> Don't use the service endpoint (`<hub>.service.azure-devices.net`) for device connections. It is intended for backend services only.
+
+For information about using the new endpoints with Device Provisioning Service (DPS), see [Manage linked IoT hubs in DPS](../iot-dps/how-to-manage-linked-iot-hubs.md).
 
 
 ## Next steps

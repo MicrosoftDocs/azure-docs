@@ -2,7 +2,7 @@
 title: Manage backed up SAP HANA databases on Azure VMs
 description: In this article, you'll learn common tasks for managing and monitoring SAP HANA databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 03/06/2026
+ms.date: 07/29/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -312,7 +312,7 @@ The delete operation from HANA native clients isn't supported by Azure Backup, b
 
 ### Clean up HANA catalog
 
-The Azure Backup service currently doesn't modify the HANA backup catalog as per the policy. Because you can store the backup locally (outside of Backint), you need to maintain the lifecycle of the catalog. You can clean up the catalog as per the [SAP documentation](https://help.sap.com/docs/HANA_SERVICE_CF/7c78579ce9b14a669c1f3295b0d8ca16/22275913eb9e4a5bb539fc8df3da77f1.html) and Azure Backup (the Backint service) places the subsequent catalog in the path specified by the `basepath_catalogbackup` parameter.
+The Azure Backup service currently doesn't modify the HANA backup catalog as per the policy. Because you can store the backup locally (outside of Backint), you need to maintain the lifecycle of the catalog. You can clean up the catalog as per the [SAP documentation](https://help.sap.com/docs/SAP_HANA_COCKPIT/afa922439b204e9caf22c78b6b69e4f2/cac903c28b0e4301b39814ef41dbf568.html?version=2.10.0.0) and Azure Backup (the Backint service) places the subsequent catalog in the path specified by the `basepath_catalogbackup` parameter. To keep catalog entries aligned with backup retention, clean up the backup catalog in accordance with the retention period configured in the Azure Backup policy.
 
 ## Next steps
 

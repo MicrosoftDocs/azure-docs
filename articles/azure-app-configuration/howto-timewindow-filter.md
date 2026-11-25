@@ -7,7 +7,7 @@ ms.devlang: csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 06/25/2026
+ms.date: 08/21/2026
 #customer intent: As an application developer, I want to enable a recurring time window filter in a feature flag so that I can enable or disable features on a schedule.
 ---
 
@@ -24,13 +24,11 @@ In this article, you learn how to add and configure a time window filter for you
 > [!NOTE] 
 > If you already created a *Beta* feature flag for testing other feature filters, consider creating a separate feature flag for the time window filter. Reusing the same flag can make evaluations harder to troubleshoot and might produce unexpected behavior when multiple filters are configured.
 
-1. In the **Edit** pane that opens, check the **Enable feature flag** checkbox if it's currently unchecked, then check the **Use feature filter** checkbox and select **Create**.
+1. In the **Edit** pane that opens, check the **Enable feature flag** checkbox if it's currently unchecked, and then select **Rollout** (or **Experiment**, depending on the purpose of the feature flag).
+    - Under **Rollout**, select **Conditions**.
+    - Under **Conditions**, select **Add schedule**.
 
-    :::image type="content" source="media/time-window-filters/edit-a-feature-flag.png" alt-text="Screenshot of the Azure portal showing how to edit a feature flag.":::
-
-1. The **Create a new filter** pane opens on the side. Under **Filter type**, select **Time window filter** in the dropdown.
-
-    :::image type="content" source="media/time-window-filters/add-timewindow-filter.png" alt-text="Screenshot of the Azure portal showing time window feature filter configuration.":::
+    :::image type="content" source="media/time-window-filters/rollout-conditions-add-schedule.png" alt-text="Screenshot of the Azure portal Edit feature flag dialog with Rollout selected, showing the Conditions tab with Add schedule selected, including Start time, End time, and Time zone fields.":::
 
 1. A time window filter includes a start time and/or an end time. Both **Start time** and **End time** checkboxes are checked by default.
    - Setting a start time allows you to enable the feature flag on a specific date and time. A time window filter with no start time is active as soon as you save the feature filter details. 
@@ -44,18 +42,11 @@ In this article, you learn how to add and configure a time window filter for you
 
    A recurring time window filter always has a start time and an end time, defining a base time window that recurs according to the recurrence pattern you specify. Enter a **Start time** and an **End time**, then select the **Enable recurrence** checkbox, and select the recurrence details, including a recurrence pattern and an **expiration time**.
 
-   In this example, you activate the *Beta* feature daily from 5:00 PM to 6:00 PM, starting November 25 and continuing until December 31. You can alternatively select a weekly frequency and select one or more days of the week for the recurrence.
+   In this example, you activate the *Beta* feature daily from 5:00 PM to 6:00 PM, starting August 21 and continuing until August 31. You can alternatively select a weekly frequency and select one or more days of the week for the recurrence.
 
-    :::image type="content" source="media/time-window-filters/add-timewindow-filter-recurrence.png" alt-text="Screenshot of the Azure portal showing feature filter recurrence.":::
+    :::image type="content" source="media/time-window-filters/rollout-conditions-recurrence.png" alt-text="Screenshot of the Azure portal Edit feature flag dialog with Rollout selected, showing the Conditions tab with a recurring schedule configured, including Start time, End time, Enable recurrence, Repeats, Every, and Set expiration time fields.":::
 
-
-1. Select **Add** to save the configuration of the time window filter and return to the **Edit feature flag** screen.
-
-1. The time window filter is now listed in the feature filter details, under **Feature filters**. Select **Apply** to save the feature flag with the new feature filter.
-
-    :::image type="content" source="media/time-window-filters/feature-flag-edit-apply-timewindow-filter.png" alt-text="Screenshot of the Azure portal, applying new time window filter.":::
-
-    Now, you successfully added a time window filter to a feature flag.
+1. Select **Review + update** at the bottom to save the configuration of the time window filter. Once validation passes, select **Update**. You successfully added a time window filter to a feature flag.
 
 1. Continue to the following instructions to use the feature flag with a time window filter in your application for the language or platform you are using.
 

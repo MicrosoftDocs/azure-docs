@@ -1,11 +1,11 @@
 ---
 title: Get Started with Azure App Service
 description: Take the first steps toward working with Azure App Service. Decide on a stack and choose from various actions to get your app running.
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.topic: get-started
 ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
-ms.date: 04/17/2026
+ms.date: 10/27/2026
 zone_pivot_groups: app-service-getting-started-stacks
 ms.service: azure-app-service
 ---
@@ -13,6 +13,9 @@ ms.service: azure-app-service
 # Get started with Azure App Service
 
 [Azure App Service](./overview.md) is a fully managed platform as a service (PaaS) for hosting web applications.
+
+> [!NOTE]
+> To deploy an app with App Service Builder, see [Get started with App Service Builder (preview)](app-service-builder-get-started.md). App Service Builder is in public preview.
 
 ::: zone pivot="stack-net"
 
@@ -135,7 +138,7 @@ Use the following resources to get started with PHP.
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add a TLS/SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | - [MySQL with PHP](./tutorial-php-mysql-app.md)|
 | **Custom containers** |- [Sidecar containers](tutorial-custom-container-sidecar.md)|
-| **Review best practices** | - [Scale your app]()<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual Network](./configure-vnet-integration-enable.md)|
+| **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual Network](./configure-vnet-integration-enable.md)|
 
 ::: zone-end
 

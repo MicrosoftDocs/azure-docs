@@ -2,7 +2,7 @@
 title: "Standalone Durable Functions PowerShell SDK: Setup and Migration Guide"
 description: "Learn how to install and migrate to the standalone Durable Functions PowerShell SDK for faster, more reliable orchestrations. Get started with this step-by-step guide."
 author: davidmrdavid
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.topic: feature-guide
 ms.service: durable-task
 ms.subservice: durable-functions
@@ -41,11 +41,11 @@ The standalone PowerShell SDK requires the following minimum versions:
 
 ### Enable the standalone SDK
 
-The following application setting is required to run the standalone PowerShell SDK: 
+For workers that don't enable the standalone PowerShell SDK by default, set the following application setting. If your supported worker already defaults to the external SDK, an explicit setting isn't required:
 - Name: `ExternalDurablePowerShellSDK`
-- Value: `"true"`
+- Value: `true` (without literal quote characters)
 
-This application setting disables the built-in Durable SDK for PowerShell versions 7.4 and above, forcing the worker to use the external SDK.
+Setting this value to `true` selects the external SDK instead of the built-in Durable SDK. Install the external module as described in the next section.
 
 If you're running locally using [Azure Functions Core Tools](../../azure-functions/functions-run-local.md), you should add this setting to your `local.settings.json` file. If you're running in Azure, follow these steps with the tool of your choice:
 
@@ -62,7 +62,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> --resource-grou
 Replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and resource group, respectively.
 
 ```azurepowershell
-Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"ExternalDurablePowerShellSDK" = "'true'"}
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"ExternalDurablePowerShellSDK" = "true"}
 ```
 
 # [VS Code](#tab/vs-code-set-indexing-flag)
@@ -71,7 +71,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 1. Press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azure Functions: Add New Setting...`.
 1. Choose your subscription and function app when prompted
 2. For the name, type `ExternalDurablePowerShellSDK` and press <kbd>Enter</kbd>. 
-3. For the value, type `"true"` and press <kbd>Enter</kbd>.
+3. For the value, type `true` without quotes and press <kbd>Enter</kbd>.
 ---
 
 ### Install the SDK package
@@ -91,7 +91,7 @@ First, ensure your `host.json` contains a `managedDependency` section with `enab
   },
   "extensionBundle": {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.*, 4.0.0)"
+    "version": "[4.*, 5.0.0)"
   }
 }
 ```

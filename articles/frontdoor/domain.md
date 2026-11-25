@@ -3,10 +3,10 @@ title: Domains
 titleSuffix: Azure Front Door
 description: Learn about custom domains in Azure Front Door, including subdomains, apex domains, and wildcard domains.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 07/09/2026
+ms.date: 10/19/2026
 ---
 
 # Domains in Azure Front Door
@@ -90,6 +90,8 @@ Azure Front Door supports using HTTPS with your own domains, and offloads transp
 
 For more information on how Azure Front Door works with TLS, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
+In addition to selecting a certificate, you can configure a domain's [TLS policy](tls-policy.md) for protocol versions and cipher suites and its [TLS key exchange policy](tls-key-exchange-policy.md) for classical and hybrid post-quantum supported groups. These policies control client-to-Front Door TLS negotiation, not certificate issuance or renewal. Hybrid post-quantum key exchange requires TLS 1.3. The domain's key exchange policy doesn't configure the separate Front Door-to-origin connection.
+
 ### Azure Front Door-managed TLS certificates
 
 Azure Front Door can automatically manage TLS certificates for subdomains and apex domains. When you use managed certificates, you don't need to create keys or certificate signing requests, and you don't need to upload, store, or install the certificates. Additionally, Azure Front Door can automatically rotate (renew) managed certificates without any human intervention. This process avoids downtime caused by a failure to renew your TLS certificates in time.
@@ -129,6 +131,7 @@ Sometimes, you need to provide your own TLS certificates. Common scenarios for p
 > - Azure Front Door supports Bring Your Own Certificates (BYOC) for domain ownership validation. Front Door approves the domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the certificate matches the custom domain.
 > - For custom domains created before BYOC based validation, and the domain validation status isn't **Approved**, you need to trigger the auto approval of the domain ownership validation by selecting the **Validation State** and clicking on the **Revalidate** button in the portal. If you use the command line tool, you can trigger domain validation by sending an empty PATCH request to the domain API.
 > - Azure managed certificates can be used with wildcard custom domains. When you select an Azure managed certificate, domain validation uses the DNS TXT record.
+> - Cross-signed certificates are supported only on Azure Front Door Standard and Premium. When you use a cross-signed certificate, upload the complete certificate chain to your key vault, including the cross-signed CA certificate that chains to the widely trusted root CA. Front Door serves the certificate chain that you provide, so the uploaded chain must terminate at the intended trusted root.
 
 #### Certificate requirements
 
@@ -136,7 +139,7 @@ To use your certificate with Azure Front Door, it must meet the following requir
 
 - **Complete certificate chain:** When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected. The root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests that involve that certificate aren't guaranteed to work as expected.
 - **Common name:** The common name (CN) of the certificate must match the domain configured in Azure Front Door.
-- **Algorithm:** Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms.
+- **Algorithm:** Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. This certificate requirement is separate from the elliptic-curve groups supported for [TLS key exchange](tls-key-exchange-policy.md).
 - **File (content) type:** You must upload your certificate to your key vault from a PFX file, which uses the `application/x-pkcs12` content type.
 
 #### Import a certificate to Azure Key Vault
@@ -160,6 +163,7 @@ You can configure access control on your key vault in two ways:
 
 * Azure Front Door can use a managed identity to access your key vault. You can use this approach when your key vault uses Microsoft Entra authentication. For more information, see [Use managed identities with Azure Front Door Standard/Premium](managed-identity.md).
 * Alternatively, you can grant Azure Front Door's service principal access to your key vault. You can use this approach when you use vault access policies.
+Azure Front Door uses a managed identity to access your key vault. You can grant the managed identity access by using Azure role-based access control or a vault access policy. For more information, see [Use managed identities with Azure Front Door Standard/Premium](managed-identity.md). App registration (service principal) access to Azure Key Vault retires on **September 30, 2027**.
 
 #### Add your custom certificate to Azure Front Door
 

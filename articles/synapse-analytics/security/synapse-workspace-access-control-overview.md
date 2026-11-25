@@ -6,7 +6,7 @@ ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: security
 ms.date: 02/05/2025
-ms.author: mesrivas
+ms.author: rakrish
 
 ---
 # Azure Synapse workspace access control overview

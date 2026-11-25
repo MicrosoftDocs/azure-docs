@@ -1,13 +1,14 @@
 ---
-title: Prepare Windows Server 2003 servers for migration with Azure Migrate
-description: Learn how to prepare Windows Server 2003 servers for migration with Azure Migrate.
-author: vijain
-ms.author: vijain
+title: Prepare Windows Server 2003 servers for migration with Azure Catalyst
+description: Learn how to prepare Windows Server 2003 servers for migration with Azure Catalyst.
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.manager: kmadnani
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 06/30/2023
+ms.update-cycle: 1825-days
 ms.custom: engagement-fy25
 # Customer intent: "As a system administrator, I want to prepare Windows Server 2003 machines for migration to Azure, so that I can ensure a smooth transition and take advantage of newer server features and support."
 ---
@@ -23,7 +24,7 @@ This article describes how to prepare machines running Windows Server 2003 for m
 
 [!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
-As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
+As a result, Azure Catalyst doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
 
 - You can use agentless migration to migrate [Hyper-V VMs](tutorial-migrate-hyper-v.md) and [VMware VMs](tutorial-migrate-vmware.md) to Azure.
 - In order to connect to Azure VMs after migration, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default.

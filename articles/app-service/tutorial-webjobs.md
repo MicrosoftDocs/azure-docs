@@ -3,8 +3,8 @@ title: 'Build a scheduled WebJob using your preferred language'
 description: WebJobs on App Service enable you to automate repetitive tasks on your app. Learn how to create scheduled WebJobs in Azure App Service.
 ms.topic: tutorial
 ms.date: 10/29/2025
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.reviewer: glenga
 zone_pivot_groups: app-service-webjobs
 #Customer intent: As a web developer, I want to leverage a scheduled background task to keep my application running smoothly.

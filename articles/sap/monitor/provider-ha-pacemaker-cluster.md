@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to
 ms.date: 03/18/2026
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 ms.custom: sfi-image-nochange
 # Customer intent: As a system administrator, I want to configure a high-availability Pacemaker cluster for Azure Monitor for SAP solutions, so that I can ensure reliable and continuous monitoring of my SAP systems.
 ---
@@ -33,6 +33,12 @@ For RHEL-based clusters, install Performance Co-Pilot (PCP) and the `pcp-pmda-ha
 ### Install an HA cluster exporter
 
 # [SUSE](#tab/suse)
+
+1. For SLES 16, connect to PackageHub.
+
+   ```bash
+   sudo SUSEConnect --product PackageHub/16.0/x86_64
+   ```
 
 1. Install the required packages for the Prometheus cluster exporter.
 

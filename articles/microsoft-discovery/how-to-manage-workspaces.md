@@ -5,12 +5,12 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 11/17/2026
 ---
 
 # Manage workspaces in Microsoft Discovery
 
-> **Applies to:** Microsoft Discovery (Public Preview)
+> **Applies to:** Microsoft Discovery
 
 This article describes how to create, update, browse, and delete a **Microsoft Discovery workspace** using the Azure portal.
 
@@ -28,15 +28,15 @@ After you create a workspace, you can:
 
 Before you begin, make sure the following requirements are met:
 
-- An active [Azure subscription](https://portal.azure.com) that is enabled for Microsoft Discovery **Public Preview** support.
+- An active [Azure subscription](https://portal.azure.com) that's enabled for Microsoft Discovery support.
 - **Microsoft Discovery Platform Administrator (Preview)** role or **Owner** role on the resource group.
-- A virtual network with the required subnets (`workspaceSubnet`, `privateEndpointSubnet`, `agentSubnet`). For more information, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md#c-create-a-virtual-network-and-subnets).
-- A **user-assigned managed identity (UAMI)** with the required role assignments. For more information, see [Create a User Assigned Managed Identity (UAMI)](quickstart-infrastructure-portal.md#d-create-a-user-assigned-managed-identity-uami).
+- A virtual network with the required subnets (`workspaceSubnet`, `privateEndpointSubnet`, `agentSubnet`). For more information, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure.md#b-create-a-virtual-network-and-subnets).
+- A **user-assigned managed identity (UAMI)** with the required role assignments. For more information, see [Create a User Assigned Managed Identity (UAMI)](quickstart-infrastructure.md#c-create-a-user-assigned-managed-identity-uami).
 - At least one **supercomputer** created and available for attachment. For more information, see [Manage Supercomputer and Nodepools](how-to-manage-supercomputers.md).
 
 ## Create a workspace
 
-For a complete step-by-step guide to creating a workspace along with all prerequisite resources, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md#4-create-a-workspace).
+For a complete step-by-step guide to creating a workspace along with all prerequisite resources, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure.md#4-create-a-workspace).
 
 The following steps summarize the workspace creation process:
 
@@ -108,7 +108,7 @@ You can enable or disable public network access for a workspace after creation.
 1. Select **Apply** to save the changes.
 
 > [!NOTE]
-> Disabled meaning restricts the workspace to private network connectivity only. Ensure that users and services can reach the workspace through private endpoints, VPN, or ExpressRoute before disabling public access.
+> **Disabled** restricts workspace data-plane API access to private endpoints. Before disabling public access, verify that users and services have a private network path to those endpoints and DNS that resolves the workspace API hostname to the private IP. Remote clients can use VPN or ExpressRoute to reach the virtual network. This setting doesn't make the public, Microsoft Entra-authenticated Studio website private.
 
 ## Browse workspace resources
 
@@ -130,7 +130,7 @@ To view the chat model deployments configured for your workspace:
 
 - In the workspace resource, in the left navigation pane, under **Settings**, select **Chat Model Deployments**.
 
-This page lists all model deployments associated with the workspace, including the model name, format, and deployment status. You can also create new chat model deployments from this page. For more information, see [Create Chat Model Deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment).
+This page lists all model deployments associated with the workspace, including the model name, format, and deployment status. You can also create new chat model deployments from this page. For more information, see [Create Chat Model Deployment](quickstart-infrastructure.md#6-create-chat-model-deployment).
 
 ### Projects
 
@@ -172,12 +172,12 @@ To delete a workspace:
 
 ### Networking issues
 
-- **Public access disabled but can't connect**: Ensure private endpoints, VPN, or ExpressRoute is configured for the workspace virtual network.
-- **Studio access errors**: If you disabled public network access, users must access [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) through a private network path.
+- **Public access disabled but can't connect**: Verify the client's private network path to the workspace private endpoint and DNS resolution to its private IP. For configuration steps, see [Configure network security](how-to-configure-network-security.md).
+- **Studio access errors**: [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) remains publicly reachable and requires Microsoft Entra authentication. If workspace public API access is disabled, the browser needs a private network path and DNS resolution to the workspace data-plane API, not a private Studio website. See [How private endpoints route data-plane traffic](concept-network-security.md#how-private-endpoints-route-data-plane-traffic).
 
 ## Related content
 
-- [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md)
+- [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure.md)
 - [Manage Supercomputer and Nodepools](how-to-manage-supercomputers.md)
 - [Quota reservations for Microsoft Discovery](concept-quota-reservation.md)
 - [Get started with agents and investigations in Microsoft Discovery Studio](quickstart-agents-studio.md)

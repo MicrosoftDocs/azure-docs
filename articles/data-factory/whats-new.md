@@ -1,8 +1,8 @@
 ---
 title: What's new in Azure Data Factory 
 description: This page highlights new features and recent improvements for Azure Data Factory. Data Factory is a managed cloud service that's built for complex hybrid extract-transform-and-load (ETL), extract-load-and-transform (ELT), and data integration projects.
-author: pennyzhou-msft
-ms.author: xupzhou
+author: kromerm
+ms.author: weetok
 ms.topic: overview
 ms.custom: references_regions
 ms.date: 03/26/2026
@@ -34,7 +34,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 ## January 2026
 
 ### Migration
-Assessing your Azure Data Factory and Synapse pipelines for migration to Fabric. [Learn more](how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md).
+Assessing Synapse pipelines for migration to Fabric. [Learn more](how-to-assess-your-synapse-pipelines-for-upgrade.md).
 
 ## December 2025
 

@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 03/24/2025
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge Mini R safety instructions

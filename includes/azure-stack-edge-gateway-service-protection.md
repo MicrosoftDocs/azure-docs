@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/16/2019
-ms.author: alkohli
+ms.author: scompton
 ---
 
 - To access the Data Box Edge service, your organization needs to have an Enterprise Agreement (EA) or Cloud Solution Provider (CSP) subscription. For more information, see [Sign up for an Azure subscription](https://www.youtube.com/watch?v=u5wf8KMD_M8).

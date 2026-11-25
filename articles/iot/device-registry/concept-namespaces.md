@@ -1,0 +1,73 @@
+---
+title: What is an Azure Device Registry namespace?
+titleSuffix: Azure Device Registry
+description: Learn what Azure Device Registry namespaces are, what they're used for, and the role they play for both Azure IoT Operations and Azure IoT Hub.
+author: dominicbetts
+ms.author: dobett
+ms.service: azure-iot
+ms.topic: concept-article
+ms.date: 11/09/2026
+ai-usage: ai-assisted
+#Customer intent: As an IoT solution architect, operator, or developer, I want to understand what an Azure Device Registry namespace is and how it works across Azure IoT services so that I can organize and govern my devices and assets effectively.
+---
+
+# What is an Azure Device Registry namespace?
+
+A *namespace* is the management and organizational boundary for devices and assets in [Azure Device Registry](overview-device-registry.md). Every device and asset belongs to exactly one namespace. A namespace groups related devices and assets, establishes a security boundary, and supports management at scale through role-based access control (RBAC), tags, and policies.
+
+Namespaces are the shared foundation that Azure Device Registry uses to organize your IoT inventory across Azure IoT Operations and linked Azure IoT Hub instances.
+
+## What namespaces are used for
+
+A namespace organizes devices and assets and gives you a consistent way to govern them through the Azure control plane. Because Azure Device Registry represents each device and asset as an Azure Resource Manager resource, the namespace becomes the boundary where you apply standard Azure management capabilities.
+
+Namespaces provide the following benefits:
+
+- **Organizational grouping.** A namespace groups related devices and assets so that you can manage them as a set. You typically align namespace boundaries with organizational, operational, or governance requirements, such as a site, a business unit, or an environment.
+- **Security boundary.** You apply RBAC at the namespace level, which gives you a clear boundary for controlling who can access a set of devices and assets. Namespaces also help maintain separation between environments, such as development, testing, and production, which reduces the risk of accidental changes across boundaries.
+- **Management at scale.** Use tags to organize devices and assets, Azure Policy to govern supported resource properties, and Azure Activity Log to audit management operations. Use Azure Resource Graph to query devices and assets across namespaces, subscriptions, and regions.
+- **Service-specific configuration.** Certain platform capabilities, such as certificate management policies, are enabled or configured at the namespace level. A namespace acts like a parent resource with its own managed identity and service-specific settings.
+
+## How namespaces relate to service instances
+
+A namespace is a long-lived boundary, so it's important to understand how namespaces map to Azure IoT Operations instances and Azure IoT Hub instances before you deploy:
+
+- Each Azure IoT Operations instance or linked IoT hub uses one namespace.
+- Multiple Azure IoT Operations instances or Azure IoT Hub instances can share the same namespace for broader management scenarios.
+
+Sharing a namespace across instances gives you unified visibility. For example, devices and assets connected through different instances at the same site can appear in a single registry.
+
+> [!IMPORTANT]
+> Namespace assignment is immutable. A device or asset can't be moved between namespaces after creation. You can recreate a resource in another namespace by using Azure Resource Manager or Bicep templates, but there's no direct move operation. Plan your namespace boundaries carefully before you deploy.
+
+For guidance on when to create a new namespace and when to reuse an existing one, see [Best practices for Azure Device Registry namespaces](best-practices-namespaces.md).
+
+## Namespaces for Azure IoT Operations
+
+For Azure IoT Operations, namespaces are generally available. A namespace organizes the devices and assets discovered and onboarded through Azure IoT Operations. Their Azure Resource Manager representation lets you govern, tag, and audit them alongside your other Azure resources.
+
+Each Azure Device Registry namespace can map to an Azure Event Grid instance, which provides consistent routing for capabilities such as [management actions](../../iot-operations/discover-manage-assets/howto-use-management-actions.md). In Azure IoT Operations, namespaces support scenarios where data flows use schemas to describe, transform, and serialize messages from edge assets.
+
+For more information about managing edge devices and assets, see [What is asset and device management in Azure IoT Operations?](../../iot-operations/discover-manage-assets/overview-manage-assets.md).
+
+## Namespaces for Azure IoT Hub
+
+For Azure IoT Hub, namespace support is generally available as part of Azure Device Registry integration. A namespace acts as a unified registry for IoT Hub-connected devices. Azure Device Registry represents each IoT Hub device as an Azure Resource Manager resource, which enables management across multiple Azure IoT Hub instances through a shared namespace.
+
+When you create a new Azure IoT Hub instance, you can link it to an existing namespace or create a new one. The IoT Hub instance uses the linked namespace as a registry for its devices, and multiple IoT Hub instances can share a namespace to support collective device management. Within a namespace, you can use Azure Resource Manager features such as resource groups, tags, RBAC, policies, logging, and auditing, and you can run cross-hub queries with Azure Resource Graph.
+
+Namespaces are also the boundary for certificate management and capabilities that operate on IoT Hub-connected devices at fleet scale. Certificate management is generally available. [Groups](concept-groups.md), [jobs](concept-jobs.md), and [software updates](concept-software-updates.md) remain in preview.
+
+For more information, see [Integration with Azure Device Registry](../../iot-hub/iot-hub-device-registry-overview.md).
+
+## Planning constraints and limits
+
+For Azure Device Registry quotas and limits, see [Azure Device Registry limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-device-registry-limits).
+
+## Related content
+
+- [What is Azure Device Registry?](overview-device-registry.md)
+- [Best practices for Azure Device Registry namespaces](best-practices-namespaces.md)
+- [Integration with Azure Device Registry - Azure IoT Hub](../../iot-hub/iot-hub-device-registry-overview.md)
+- [What is asset and device management in Azure IoT Operations?](../../iot-operations/discover-manage-assets/overview-manage-assets.md)
+- [Best practices for Azure Device Registry schema registries](best-practices-schema-registries.md)

@@ -4,7 +4,8 @@ description: Quick comparison guide to help you choose between Azure Firewall Ba
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 03/23/2026
+ms.date: 07/17/2026
+ai-usage: ai-assisted
 ms.author: duau
 # Customer intent: As a network security administrator, I want to compare Azure Firewall SKUs and use a decision framework, so that I can quickly choose the most suitable option for my organization's security and performance requirements.
 ---
@@ -16,6 +17,8 @@ Azure Firewall offers three SKUs to meet various customer needs:
 - **Azure Firewall Premium**: Secure highly sensitive applications, such as payment processing. It includes advanced threat protection features like malware and TLS inspection.
 - **Azure Firewall Standard**: Get Layer 3–Layer 7 firewall capabilities with autoscaling to manage peak traffic up to 30 Gbps. It includes enterprise features like threat intelligence, DNS proxy, custom DNS, and web categories.
 - **Azure Firewall Basic**: Throughput up to 250 Mbps.
+
+Azure Firewall Premium supports the optional [AI Security add-on (preview)](ai-security-concepts.md).
 
 For detailed information about all Azure Firewall features, see [Azure Firewall features by SKU](features-by-sku.md).
 
@@ -48,7 +51,6 @@ Compare the features of the three Azure Firewall versions:
 
 
 ## Flow chart
-
 Use the following flow chart to determine the best Azure Firewall version for your needs.
 
 <!-- Art Library Source# ConceptArt-0-000-011 -->
@@ -56,7 +58,15 @@ Use the following flow chart to determine the best Azure Firewall version for yo
 
 ## Pricing
 
-Azure Firewall pricing varies by SKU. For detailed pricing information, including deployment charges, data processing rates, and availability zone considerations, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/). You can also estimate costs for your specific scenario by using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+When you choose a SKU, weigh its features against your budget. Azure Firewall has two cost components for each SKU: a fixed **deployment charge** billed per firewall per hour, and a variable **data processing charge** billed per gigabyte of traffic processed. Overall cost increases from Basic to Standard to Premium. Rates also vary by region, so check the pricing page for the exact charges that apply to you.
+
+To keep costs aligned with your budget, choose the lowest SKU that meets your security and throughput requirements:
+
+- **Basic** is the lowest-cost option and suits small or medium-sized environments with throughput up to 250 Mbps.
+- **Standard** costs more and supports higher throughput (up to 30 Gbps) with enterprise security features.
+- **Premium** is the highest-cost option and adds advanced threat protection for sensitive workloads.
+
+For detailed pricing, including deployment charges, data processing rates, and availability zone considerations, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/). To estimate the cost for your specific throughput and traffic volume, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ## Next steps
 

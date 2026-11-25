@@ -15,6 +15,8 @@ zone_pivot_groups: acs-csharp-java
 
 # Hydrating messageId using EmailClient
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to hydrate messageId using EmailClient with our Email SDKs.
 
 ::: zone pivot="programming-language-csharp"

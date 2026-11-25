@@ -9,7 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 01/14/2026
+ms.date: 11/19/2026
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
@@ -22,6 +22,9 @@ If you have a Microsoft Customer Agreement (MCA), you must be a billing profile 
 Based on the type of subscription that you use, options to download your usage and charges vary.
 
 Your cost and usage data files show unrounded data. For more information about rounding, see [Cost rounding](../costs/understand-cost-mgt-data.md#cost-rounding).
+
+> [!NOTE]
+> The usage file that you download includes the `priceFactors` and `supplementalChargeDetails` columns at the end of the file. These columns explain how a charge was priced, such as when a savings plan or Flex Plan applies. For more information, see [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md). Downloaded usage files keep their schema version. To select a dataset version, such as 2026-10-01, use [exports](../costs/tutorial-improved-exports.md). For more information, see [Columns in downloaded usage files](#columns-in-downloaded-usage-files) and [Compare downloads and exports](compare-downloads-exports.md).
 
 If you want to get cost and usage data using the Azure CLI, see [Get usage data with the Azure CLI](../automate/get-usage-data-azure-cli.md).
 
@@ -89,6 +92,45 @@ To determine discount amount = `( paygCostInBillingCurrency) - ( costInBillingCu
 To determine discount percentage =  `( paygCostInBillingCurrency - costInBillingCurrency) / paygCostInBillingCurrency * 100`
 
 For more information on cost details fields, see: [Understand cost details fields](../automate/understand-usage-details-fields.md#list-of-fields-and-descriptions)
+
+## Download usage for an indirect Enterprise Agreement
+
+If a partner manages your enrollment (an indirect EA), partner administrators can download usage for the enrollment. Enterprise administrators of indirect enrollments use the steps in [Download usage for EA customers](#download-usage-for-ea-customers).
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for *Cost Management + Billing*.
+1. Select **Billing scopes**, and then select the billing account that you want to work with.
+1. Select **Billing profiles**, and then select the billing profile that you want to work with.
+1. Select **Usage + charges**.
+1. For the month you want to download, select **Download**.
+1. On the **Download Usage + Charges** page, under **Usage Details**, select the type of charges, and then select **Prepare document**.
+1. When it's ready for download, select **Download csv**.
+
+For more information, see [View your usage summary details and download reports for EA enrollments](../manage/direct-ea-azure-usage-charges-invoices.md#download-usage-charges-csv-file).
+
+## Download usage for a Microsoft Partner Agreement
+
+If you're a Cloud Solution Provider (CSP) partner with a Microsoft Partner Agreement (MPA), you must have the Admin Agent or billing admin role to download usage. You download usage for each billing profile's invoice.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for *Cost Management + Billing*.
+1. Select your billing account, select **Billing profiles**, and then select a billing profile.
+1. Select **Invoices**.
+1. In the invoice grid, select the ellipsis (`...`) at the end of the row for the invoice, and then select the option to download the Azure usage file.
+
+Customers of CSP partners can't download usage files from a billing account. If their partner turns on the cost visibility policy, they can view their costs at pay-as-you-go rates in cost analysis. For more information, see [Get started with Cost Management for partners](../costs/get-started-partners.md).
+
+## Columns in downloaded usage files
+
+You can't select a dataset version for a downloaded usage file, and its version doesn't change when a new dataset version is released for exports. When new columns are added, they're added at the end of the file. If you process the file with scripts or reports, read columns by name instead of by position.
+
+| Agreement type | Column descriptions | Flex Plan | Columns at the end of the file |
+| --- | --- | --- | --- |
+| EA (direct and indirect) | [EA cost and usage details](../dataset-schema/cost-usage-details-ea.md) | Not available | `priceFactors`, `supplementalChargeDetails` |
+| MCA | [MCA cost and usage details](../dataset-schema/cost-usage-details-mca.md) | `pricingModel` is `FlexPlan` for Flex Plan purchases and for usage that a Flex Plan covered | `priceFactors`, `supplementalChargeDetails` |
+| MPA | [MPA cost and usage details](../dataset-schema/cost-usage-details-mca-partner.md) | Same as MCA | `priceFactors`, `supplementalChargeDetails` |
+
+For more information about how downloads differ from exports, see [Compare downloads and exports](compare-downloads-exports.md).
 
 ## Get usage data with Azure CLI
 

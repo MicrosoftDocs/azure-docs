@@ -3,7 +3,7 @@ title: Secure a dedicated SQL pool (formerly SQL DW)
 description: Tips for securing a dedicated SQL pool (formerly SQL DW) and developing solutions in Azure Synapse Analytics.
 author: ajagadish-24
 ms.author: ajagadish
-ms.date: 04/17/2018
+ms.date: 10/06/2026
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: how-to
@@ -87,6 +87,10 @@ GRANT SELECT ON SCHEMA::Test to ApplicationUser
 
 Managing databases and servers from the Azure portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
+### Row-level security
+
+Row-Level Security enables you to control access to rows in a database table based on the characteristics of the user executing a query (for example, group membership or execution context). Use Row-Level Security to implement custom Label-based security concepts. For more information, see [Row-Level security](/sql/relational-databases/security/row-level-security?view=azure-sqldw-latest&preserve-view=true).
+
 ## Encryption
 
 Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by encrypting and decrypting your data at rest. When you encrypt your database, associated backups and transaction log files are encrypted without requiring any changes to your applications. TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key.
@@ -94,6 +98,25 @@ Transparent Data Encryption (TDE) helps protect against the threat of malicious 
 In SQL Database, the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each server. Microsoft automatically rotates these certificates at least every 90 days. The encryption algorithm used is AES-256. For a general description of TDE, see [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 You can encrypt your database using the [Azure portal](sql-data-warehouse-encryption-tde.md) or [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
+
+### Transparent data encryption (encryption-at-rest) with customer-managed keys
+
+If you need greater control over encryption keys, [Transparent Data Encryption for Azure Synapse Analytics](../sql/transparent-data-encryption-tde-overview.md) supports [customer-managed keys (CMK)](../sql/transparent-data-encryption-byok-overview.md). This CMK is associated with the logical server and wraps the database encryption keys for all databases within that server. By managing the CMK, you can control key rotation, revocation, and auditing, which is often necessary for compliance or strict security policies.
+
+### Transport Layer Security (encryption-in-transit)
+
+Azure Synapse Analytics secures customer data by encrypting data in motion with [Transport Layer Security (TLS)](/troubleshoot/sql/database-engine/connect/tls-1-2-support-microsoft-sql-server). Azure Synapse Analytics always enforces TLS encrypted connections to ensure all data is encrypted in transit between the client and server.
+
+Specifically, Azure Synapse Analytics sets the configuration flag `ForceEncryption` to `Yes`. Clients and drivers must support encrypted connections to connect to this service. The lowest version of the TDS protocol that can connect is TDS 7.1.
+
+As a best practice, if you have [TDS 8.0](/sql/relational-databases/security/networking/tds-8)-capable SQL drivers, use [Strict connection encryption](/sql/relational-databases/security/networking/tds-8#strict-connection-encryption). 
+
+If your drivers don't support TDS 8.0, use mandatory encryption and don't trust the server certificate. For example, when using the ADO.NET driver, use `Encrypt=True` and `TrustServerCertificate=False` in the connection string to accomplish this. The connection string you get from the Azure portal is already configured with these values.
+
+Avoid setting the parameter `TrustServerCertificate` to `True` in production use. `TrustServerCertificate=True` is too permissive and doesn't protect against man-in-the-middle attacks. Instead, if your client expects a different domain name in the server certificate, use the `HostNameInCertificate` parameter to provide the correct domain name for validation.
+
+> [!IMPORTANT]  
+> Some non-Microsoft drivers might not use TLS by default or might rely on an older version of TLS (earlier than 1.2) to function. In this case, the server still allows you to connect to your database. However, evaluate the security risks of allowing such drivers and applications to connect, especially if you store sensitive data.
 
 ## Next steps
 

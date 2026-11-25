@@ -8,7 +8,7 @@ author: aldairzamoramsft
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 09/12/2023
+ms.date: 08/27/2026
 ms.author: aldairzamora
 ---
 
@@ -42,11 +42,11 @@ Make sure that the virtual network address space in the remote tenant doesn't ov
 
 ### Working with Azure CLI
 
-This article uses Azure CLI commands. To run the commands, you can use Azure Cloud Shell. Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+This article uses Azure CLI commands. Run them from Azure CLI installed on your local machine. As stated earlier, the Azure portal doesn't support cross-tenant operations, so these commands don't work in the Azure portal or in Azure portal Cloud Shell.
 
-To open Cloud Shell, just select **Open Cloudshell** from the upper-right corner of a code block. You can also open Cloud Shell on a separate browser tab by going to [CloudShell](https://portal.azure.com/#cloudshell/). In the top left dropdown menu, select Bash instead of PowerShell.
+To install Azure CLI on your local machine, see [How to install the Azure CLI](/cli/azure/install-azure-cli). You also need the Virtual WAN CLI extension, version 0.3.0 or higher. For more information, see [Available Azure CLI extensions](/cli/azure/azure-cli-extensions-list).
 
-Select **Copy** to copy the blocks of code, paste them into Cloud Shell, and select the Enter key to run them.
+Sign in with `az login` before you run the commands in this article.
 
 ## <a name="rights"></a>Assign permissions
 
@@ -59,13 +59,13 @@ Select **Copy** to copy the blocks of code, paste them into Cloud Shell, and sel
 
 1. Run the following command to add the remote tenant subscription and the parent tenant subscription to the current session of console. If you're signed in to the parent, you need to run the command for only the remote tenant.
 
-   ```azurecli-interactive
+   ```azurecli
    az login --tenant "[tenant ID]"
    ```
 
 1. Verify that the role assignment is successful. Sign in to Azure CLI (if not already) by using the parent credentials and run the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    az account list -o table
    ```
 
@@ -77,13 +77,13 @@ In the following steps, you'll be using Azure CLI commands to link a virtual hub
 
 1. Make sure you're in the context of your virtual hub account:
 
-   ```azurecli-interactive
+   ```azurecli
    az account set --subscriptionId "[virtual hub subscription]"
    ```
 
 1. Connect the virtual network to the hub:
 
-   ```azurecli-interactive
+   ```azurecli
    az network vhub connection create --resource-group "[resource_group_name]" --name "[connection_name]" --vhub-name "[virtual_hub_name]" --remote-vnet "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rgName/providers/Microsoft.Network/virtualNetworks/vnetName"
    ```
 

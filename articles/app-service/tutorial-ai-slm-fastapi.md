@@ -1,9 +1,9 @@
 ---
 title: "Tutorial: FastAPI chatbot with SLM extension"
 description: "Learn how to deploy a FastAPI application integrated with a Phi-4 sidecar extension on Azure App Service."
-author: cephalin
-ms.author: cephalin
-ms.date: 11/18/2025
+author: btardif
+ms.author: byvinyal
+ms.date: 07/27/2026
 ms.topic: tutorial
 ms.custom:
   - build-2025
@@ -33,15 +33,54 @@ This tutorial guides you through deploying a FastAPI-based chatbot application i
     az login
     ```
 
-1. Open the terminal in the Codespace and run the following commands:
+1. Open the terminal in the Codespace. Set names for the resource group, plan, and globally unique web app, and choose an Azure region. Create a Linux App Service plan with the P3MV3 SKU and a Python 3.13 web app:
 
     ```azurecli
     cd use_sidecar_extension/fastapiapp
-    az webapp up --sku P3MV3
-    az webapp config set --startup-file "gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app"
+    RESOURCE_GROUP="<group-name>"
+    LOCATION="<azure-region>"
+    APPSERVICE_NAME="<globally-unique-app-name>"
+    PLAN_NAME="$APPSERVICE_NAME-plan"
+    az group create --name $RESOURCE_GROUP --location $LOCATION
+    az appservice plan create \
+      --resource-group $RESOURCE_GROUP \
+      --location $LOCATION \
+      --name $PLAN_NAME \
+      --sku P3MV3 \
+      --is-linux
+    az webapp create \
+      --resource-group $RESOURCE_GROUP \
+      --plan $PLAN_NAME \
+      --name $APPSERVICE_NAME \
+      --runtime "PYTHON:3.13"
+    az webapp config set \
+      --resource-group $RESOURCE_GROUP \
+      --name $APPSERVICE_NAME \
+      --startup-file "gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app"
+    az webapp config appsettings set \
+      --resource-group $RESOURCE_GROUP \
+      --name $APPSERVICE_NAME \
+      --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
     ```
 
-This startup command is a common setup for deploying FastAPI applications to Azure App Service. For more information, see [Quickstart: Deploy a Python (Django, Flask, or FastAPI) web app to Azure App Service](quickstart-python.md).
+   Build automation installs the dependencies in *requirements.txt* during deployment.
+
+1. Package the sample files.
+
+    ```azurecli
+    zip -r app.zip app main.py requirements.txt static templates
+    ```
+
+1. Deploy the package.
+
+    ```azurecli
+    az webapp deploy \
+      --resource-group $RESOURCE_GROUP \
+      --name $APPSERVICE_NAME \
+      --src-path app.zip
+    ```
+
+For more information, see [Quickstart: Deploy a Python (Django, Flask, or FastAPI) web app to Azure App Service](quickstart-python.md).
 
 [!INCLUDE [phi-4-extension-create-test](includes/tutorial-ai-slm/phi-4-extension-create-test.md)]
 

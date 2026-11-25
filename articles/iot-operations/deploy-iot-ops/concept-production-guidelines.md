@@ -4,7 +4,7 @@ description: Learn about the recommendations and guidelines for preparing Azure 
 author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
-ms.date: 06/10/2026
+ms.date: 11/19/2026
 ms.service: azure-iot-operations
 ai-usage: ai-assisted
 
@@ -31,10 +31,11 @@ Create an Arc-enabled cluster that meets the system requirements.
 
 * Use a [supported environment for Azure IoT Operations](../overview-support.md#supported-environments).
 * [Configure the cluster](./howto-prepare-cluster.md) according to documentation.
-* If you expect intermittent connectivity for your cluster, ensure that you allocate enough disk space to the cluster cache data and messages while the cluster is offline. Azure IoT Operations can operate offline for a maximum of 72 hours.
+* For intermittent cloud connectivity, plan for local processing and allocate enough storage to buffer the data you need to retain. Recovery after up to 45 days offline is validated in tested configurations. For certificate validity, storage sizing, persistence, expiry settings, and reconnection checks, see [Plan for offline operation and recovery](../deployment-plan/deployment-planning-offline-operation.md).
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
 * [Turn off autoupgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
 * *For multinode clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-azure-container-storage-enabled-by-azure-arc) to prepare for enabling fault tolerance during deployment.
+* *For clusters in regulated or disconnected environments*: Follow the steps in [Mirror deployment images to a private registry](../secure-iot-ops/howto-mirror-images-private-registry.md) to ensure that all required images are available in your environment.
 
 ### Security
 
@@ -64,19 +65,7 @@ For a production-ready deployment, include the following configurations during t
 
 In the Azure portal deployment wizard, the broker resource is set up in the **Configuration** tab.
 
-* [Configure cardinality settings](../deployment-plan/deployment-planning.md#understand-broker-cardinality) based on memory profile and needs for handling connections and messages. For example, the following settings could support a single-node or multi-node cluster:
-
-  | Setting | Single node | Multi node |
-  | ------- | ----------- | ---------- |
-  | **frontendReplicas** | 1 | 5 |
-  | **frontendWorkers** | 4 | 8 |
-  | **backendRedundancyFactor** | 2 | 2 |
-  | **backendWorkers** | 1 | 4 |
-  | **backendPartitions** | 1 | 5 |
-  | [Memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile) | Low | High |
-
-  > [!NOTE]
-  > The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support.
+* [Configure cardinality settings](../deployment-plan/deployment-planning.md#choose-your-cluster-topology) based on memory profile and needs for handling connections and messages.
 
 * [Encrypt internal traffic](../deployment-plan/deployment-planning-encryption.md).
 
@@ -206,5 +195,4 @@ When using data flows in production:
 * Always used managed identity authentication. When possible, [use user-assigned managed identity](../connect-to-cloud/howto-configure-mqtt-endpoint.md#user-assigned-managed-identity) in data flow endpoints for flexibility and auditability.
 * [Scale data flow profiles](../connect-to-cloud/howto-configure-dataflow-profile.md#scaling) to improve throughput and have high availability.
 * Group multiple data flows into data flow profiles and customize scaling for each profile accordingly. 
-
 

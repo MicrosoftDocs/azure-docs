@@ -340,7 +340,7 @@ connection.send("method1", "arg1", "arg2");
 
 ## Azure Functions configuration
 
-Azure Function apps that integrate with Azure SignalR Service can be deployed like any typical Azure Function app, using techniques such as [continuously deployment](../azure-functions/functions-continuous-deployment.md), [zip deployment](../azure-functions/deployment-zip-push.md), and [run from package](../azure-functions/run-functions-from-deployment-package.md).
+You can deploy Azure Function apps that integrate with Azure SignalR Service like any typical Azure Function app. Use techniques such as [continuous deployment](../azure-functions/functions-continuous-deployment.md) and [package-based deployment](../azure-functions/deployment-zip-push.md).
 
 However, there are a couple of special considerations for apps that use the SignalR Service bindings. If the client runs in a browser, CORS must be enabled. And if the app requires authentication, you can integrate the negotiation endpoint with App Service Authentication.
 

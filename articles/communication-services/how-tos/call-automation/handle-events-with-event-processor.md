@@ -12,6 +12,8 @@ ms.author: minwoolee
 
 # Handle events with the Call Automation event processor
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 After a call is established with Call Automation, a further update of the ongoing call is sent as a separate event via a [webhook callback](../../concepts/call-automation/call-automation.md#call-automation-webhook-events). These events have important information, such as the latest state of the call and the outcome of the request that was sent.
 
 The Call Automation event processor helps to easily process webhook callback events for your applications. It helps to correlate each event to its respective call so that you can build applications with ease.

@@ -14,6 +14,8 @@ zone_pivot_groups: acs-js-csharp
 
 # Tutorial: Enable inline image support in your Chat app
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The Chat SDK is designed to work with Microsoft Teams seamlessly. Specifically, Chat SDK provides a solution to receive inline images and send inline images to users from Microsoft Teams.
 
 ::: zone pivot="programming-language-javascript"

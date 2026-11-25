@@ -32,6 +32,18 @@ Two terms are used throughout the documentation:
 - **Deployment** — The instance, Arc extensions, custom locations, and all configurable resources (assets, devices, data flows).
 - **Instance** — The parent resource that bundles the services.
 
+## Choose your SKU
+
+Before deploying Azure IoT Operations, select the appropriate SKU based on your expected workload, performance requirements, and budget. The SKU determines the available features and resource limits for your deployment.
+
+- **Azure IoT Operations Essentials** provides a focused set of Azure IoT Operations capabilities for high-volume deployments. It offers a lower-cost option for scenarios that don't require the full functionality available with Azure IoT Operations Standard. Supports single-cluster deployments only. Support for the OPC UA connector isn't included. Available in Azure IoT Operations version 1.5.x (2610) and later.
+
+- **Azure IoT Operations Standard** provides the complete Azure IoT Operations feature set for scenarios that require the full breadth of product capabilities. Supports single-cluster and multi-cluster deployments. Support for the OPC UA connector is included. Available in all supported Azure IoT Operations versions.
+
+You can't change the SKU after deployment. Instead, you need to create a new deployment with the desired SKU and recreate your resources like devices, assets, and dataflows on the new Azure IoT Operations instance.
+
+For detailed information about the differences between the Azure IoT Operations SKUs, see [Azure IoT Operations versions, support, and licensing](../overview-support.md#supported-skus).
+
 ## Choose your cluster topology
 
 Before you deploy, decide whether you need a single-node or multi-node cluster. This decision determines the hardware requirements and the broker cardinality settings.
@@ -69,7 +81,7 @@ Backend pods handle message storage and delivery. There are three main settings 
 > The effectiveness of partition scaling depends on how evenly the topic space is spread across partitions. A highly skewed distribution can create hotspots on a single partition.
 
 > [!IMPORTANT]
-> The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling update support. Setting the redundancy factor to `1` results in a deployment validation error.
+> The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling update support.
 
 #### Throughput estimate
 
@@ -78,6 +90,8 @@ The performance of an individual partition depends heavily on the CPU characteri
 For detailed benchmark data, see [MQTT Broker performance benchmarking](https://techcommunity.microsoft.com/blog/iotblog/azure-iot-operations-mqtt-broker-performance-benchmarking-on-throughput-and-late/4405528).
 
 ### Single-node recommendations
+
+The following values provide optimal performance and require you to disable [`generateResourceLimits.cpu`](#cpu-resource-limits).
 
 - **Frontend replicas**: Set to **1**.
 - **Frontend workers**: Set to **half the number of CPU cores** per node.
@@ -93,7 +107,7 @@ For detailed benchmark data, see [MQTT Broker performance benchmarking](https://
 
 ### Multi-node recommendations
 
-The following values are recommended for optimal performance. For large clusters with low traffic, these values can be set lower than the recommendations without causing issues. More considerations such as memory (RAM) and performance characteristics are discussed in the following sections. Always test your configuration with the expected workload to confirm performance.
+The following values provide optimal performance and require [`generateResourceLimits.cpu`](#cpu-resource-limits) to be disabled. For large clusters with low traffic, you can set these values lower than the recommendations without causing issues. The following sections discuss considerations such as memory (RAM) and performance characteristics. Always test your configuration with the expected workload to confirm performance.
 
 - **Frontend replicas**: Set equal to the **number of nodes** in the cluster.
 - **Frontend workers**: Set to **half the number of CPU cores** per node.
@@ -118,7 +132,7 @@ The following values are recommended for optimal performance. For large clusters
 | | | Partitions | 5 |
 
 > [!IMPORTANT]
-> The total number of frontend and backend workers per node should not exceed the number of CPU cores available on that node. Over-provisioning workers beyond available cores can cause CPU contention and degrade performance.
+> Don't compare the total number of workers directly with the number of CPU cores. Backend workers consume twice the CPU of frontend workers, and replicas, partitions, and redundancy factor multiply worker requirements. Use the weighted total broker CPU formula and leave operational headroom.
 
 ### CPU resource limits
 

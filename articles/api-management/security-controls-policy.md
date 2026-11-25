@@ -15,7 +15,7 @@ provides Microsoft created and managed initiative definitions, known as _built-i
 > [!NOTE]
 > Azure Policy definitions are different from [API Management policies](api-management-howto-policies.md). API Management policies are runtime rules executed inside the gateway to transform, validate, secure, and route API requests and responses. In contrast, Azure Policy is a governance service that evaluates and enforces compliance of Azure resources such as API Management instances with organizational or regulatory requirements. 
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](~/reusable-content/ce-skilling/azure/includes/policy/standards/intro-warning.md)]
 
 [!INCLUDE [azure-policy-compliancecontrols-apim](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.apimanagement.md)]
 

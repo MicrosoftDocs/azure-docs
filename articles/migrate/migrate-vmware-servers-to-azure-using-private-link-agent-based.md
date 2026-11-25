@@ -1,11 +1,11 @@
 ---
 title: Migrate VMware servers to Azure using Private Link through agent-based replications
-description: Use Azure Migrate to migrate servers over a private network by using Azure Private Link.
-author: vijain
-ms.author: vijain
+description: Use Azure Catalyst to migrate servers over a private network by using Azure Private Link.
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 12/14/2022
 ms.custom: engagement-fy23
 # Customer intent: As a cloud architect, I want to migrate VMware servers to Azure using agent-based replication over a private network, so that I can ensure a secure and efficient transition without exposing data to the public internet.
@@ -13,7 +13,7 @@ ms.custom: engagement-fy23
 
 # Migrate VMware servers to Azure using Private Link (agent-based)
 
-This article describes how to use Azure Migrate to migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
+This article describes how to use Azure Catalyst to migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md) tool to connect privately and securely to Azure Catalyst over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
 
 
 This article shows a proof-of-concept deployment path for agent-based replications to migrate your [VMware VMs](tutorial-migrate-vmware-agent.md) using Azure private endpoints. 
@@ -28,14 +28,14 @@ The tool uses a replication appliance to replicate your servers to Azure. Follow
 1. In **Target region**, select and confirm the Azure region to which you want to migrate the machines.
 1. Select **Create resources** to create the required Azure resources. Don't close the page during the creation of resources.
     - This step creates a Recovery Services vault in the background and enables a managed identity for the vault. A Recovery Services vault is an entity that contains the replication information of servers and is used to trigger replication operations.
-    - If the Azure Migrate project has private endpoint connectivity, a private endpoint is created for the Recovery Services vault. This step adds five fully qualified domain names (FQDNs) to the private endpoint, one for each microservice linked to the Recovery Services vault.
+    - If the Azure Catalyst project has private endpoint connectivity, a private endpoint is created for the Recovery Services vault. This step adds five fully qualified domain names (FQDNs) to the private endpoint, one for each microservice linked to the Recovery Services vault.
     - The five domain names are formatted in this pattern:  *{Vault-ID}-asr-pod01-{type}-.{target-geo-code}*.privatelink.siterecovery.windowsazure.com
-    - By default, Azure Migrate automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS is then linked to the private endpoint virtual network.
+    - By default, Azure Catalyst automatically creates a private DNS zone and adds DNS A records for the Recovery Services vault microservices. The private DNS is then linked to the private endpoint virtual network.
 
 >[!Note]
 > Before you register the replication appliance, ensure that the vault's private link FQDNs are reachable from the machine that hosts the replication appliance. Additional DNS configuration can be required for the on-premises replication appliance to resolve the private link FQDNs to their private IP addresses. Learn more about [how to verify network connectivity](troubleshoot-network-connectivity.md#verify-dns-resolution). 
 
-After you verify the connectivity, download the appliance setup and key file, run the installation process, and register the appliance to Azure Migrate. Learn more about how to [set up the replication appliance](tutorial-migrate-vmware-agent.md#prepare-a-machine-for-the-replication-appliance). After you set up the replication appliance, follow these instructions to [install the mobility service](tutorial-migrate-physical-virtual-machines.md#install-the-mobility-service-agent) on the machines you want to migrate.
+After you verify the connectivity, download the appliance setup and key file, run the installation process, and register the appliance to Azure Catalyst. Learn more about how to [set up the replication appliance](tutorial-migrate-vmware-agent.md#prepare-a-machine-for-the-replication-appliance). After you set up the replication appliance, follow these instructions to [install the mobility service](tutorial-migrate-physical-virtual-machines.md#install-the-mobility-service-agent) on the machines you want to migrate.
 
 ## Replicate servers
 
@@ -44,9 +44,9 @@ Now, select machines for replication and migration.
 >[!Note]
 > You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10.
 
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
+1. In the Azure Catalyst project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
 1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Not virtualized/Other**. 
-1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up. 
+1. In **On-premises appliance**, select the name of the Azure Catalyst appliance that you set up. 
 1. In **Process Server**, select the name of the replication appliance. 
 1. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) to install the Mobility service manually (push install isn't supported). Then select **Next: Virtual machines.**
 1. In **Virtual machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
@@ -55,12 +55,12 @@ Now, select machines for replication and migration.
 1. In **Virtual network**, select the Azure VNet/subnet for the migrated  Azure VMs. 
 1. In **Cache storage account**, use the dropdown list to select a storage account to replicate over a private link.  
 
-1. Next, [**create a private endpoint for the storage account**](migrate-vmware-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account) and [**grant permissions to the Recovery Services vault managed identity**](#grant-access-permissions-to-the-recovery-services-vault) to access the storage account required by Azure Migrate. This is mandatory before you proceed.   
+1. Next, [**create a private endpoint for the storage account**](migrate-vmware-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account) and [**grant permissions to the Recovery Services vault managed identity**](#grant-access-permissions-to-the-recovery-services-vault) to access the storage account required by Azure Catalyst. This is mandatory before you proceed.   
 
     - Ensure that the server hosting the replication appliance has network connectivity to the storage accounts via the private endpoints before you proceed. Learn how to [verify network connectivity](troubleshoot-network-connectivity.md#verify-dns-resolution).     
     
         >[!Tip] 
-        > You can manually update the DNS records by editing the DNS hosts file on the Azure Migrate appliance with the private link FQDNs and private IP addresses of the storage account. 
+        > You can manually update the DNS records by editing the DNS hosts file on the Azure Catalyst appliance with the private link FQDNs and private IP addresses of the storage account. 
 
 1. In **Availability options**, select: 
 
@@ -81,7 +81,7 @@ Now, select machines for replication and migration.
     - Select **No** if you don't want to apply Azure Hybrid Benefit and select **Next**. 
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then select **Next**.
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements). 
-    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
+    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Catalyst picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
 
@@ -99,19 +99,19 @@ Now, select machines for replication and migration.
     > [!Note]
     > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
-   Next, follow the instructions to [perform migrations](tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).
+   Next, follow the instructions to [perform migrations](tutorial-migrate-vmware-agent.md#track-and-migrate-replicating-servers).
 
 ### Grant access permissions to the Recovery Services vault
 
 You must grant the permissions to the Recovery Services vault for authenticated access to the cache/replication storage account.
 
-To identify the Recovery Services vault created by Azure Migrate and grant the required permissions, follow these steps.
+To identify the Recovery Services vault created by Azure Catalyst and grant the required permissions, follow these steps.
 
 **Identify the Recovery Services vault and the managed identity object ID**
 
 You can find the details of the Recovery Services vault on the **Migration and modernization** page.
 
-1. Go to the **Azure Migrate** hub, and on the **Migration and modernization** tile, select **Overview**.
+1. Go to the **Azure Catalyst** hub, and on the **Migration and modernization** tile, select **Overview**.
 1. In the left pane, select **Properties**. Make a note of the Recovery Services vault name and managed identity ID. The vault will have **Private endpoint** as the **Connectivity type** and **Other** as the **Replication type**. You'll need this information when you provide access to the vault.
 
 **Permissions to access the storage account**
@@ -136,7 +136,7 @@ To replicate by using ExpressRoute with private peering, [create a private endpo
 >[!Note]
 > You can create private endpoints only on a general-purpose v2 storage account. For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
-Create the private endpoint for the storage account in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network.
+Create the private endpoint for the storage account in the same virtual network as the Azure Catalyst project private endpoint or another virtual network connected to this network.
 
 Select **Yes**, and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the virtual network. It also adds the DNS records for the resolution of new IPs and FQDNs that are created. Learn more about [private DNS zones](../dns/private-dns-overview.md).
 
@@ -149,6 +149,6 @@ After you've created the private endpoint, use the dropdown list in **Replicate*
 Ensure that the on-premises replication appliance has network connectivity to the storage account on its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the replication appliance and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](troubleshoot-network-connectivity.md#verify-dns-resolution)
 
 ## Next steps
-- [Migrate VMs](tutorial-migrate-vmware.md#migrate-vms)
-- Complete the [migration process](tutorial-migrate-vmware.md#complete-the-migration). 
-- Review the [post-migration best practices](tutorial-migrate-vmware.md#post-migration-best-practices)
+- [Migrate VMs](tutorial-migrate-vmware-agent.md#track-and-migrate-replicating-servers)
+- Complete the [migration process](tutorial-migrate-vmware-agent.md#track-and-migrate-replicating-servers). 
+- Review the [post-migration best practices](tutorial-migrate-vmware-agent.md#post-migration-best-practices)

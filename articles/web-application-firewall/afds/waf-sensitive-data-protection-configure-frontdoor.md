@@ -1,8 +1,8 @@
 ---
 title: How to mask sensitive data on Azure Web Application Firewall on Azure Front Door
 description: Learn how to mask sensitive data on Azure Web Application Firewall (WAF) for Azure Front Door using the log scrubbing feature.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 04/30/2025

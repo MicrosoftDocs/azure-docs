@@ -120,7 +120,7 @@ New-AzEventGridSystemTopicEventSubscription -EventSubscriptionName EVENTSUBSCRIP
 To delete the event subscription, use the [`az eventgrid system-topic event-subscription delete`](/cli/azure/eventgrid/system-topic/event-subscription#az-eventgrid-system-topic-event-subscription-delete) command. Here's an example:
 
 ```azurecli-interactive
-az eventgrid system-topic event-subscription delete --name EVENTSUBSCRIPTIONNAME --resourcegroup RESOURCEGROUPNAME --system-topic-name SYSTEMTOPICNAME
+az eventgrid system-topic event-subscription delete --name EVENTSUBSCRIPTIONNAME --resource-group RESOURCEGROUPNAME --system-topic-name SYSTEMTOPICNAME
 ```
 
 To delete the system topic, use the [`az eventgrid system-topic delete`](/cli/azure/eventgrid/system-topic#az-eventgrid-system-topic-delete) command. Here's an example:

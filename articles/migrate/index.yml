@@ -1,27 +1,27 @@
 ### YamlMime:Landing
 
-title: Azure Migrate documentation
-summary: Find articles to help you discover, assess, and migrate your on-premises environment using tools in the Azure Migrate hub.
+title: Azure Catalyst documentation
+summary: Find articles to help you discover, assess, and migrate your on-premises environment using tools in the Azure Catalyst hub.
 
 metadata:
-  title: Azure Migrate documentation
-  description: Find Azure migration tutorials, resources, and migration assessment tools. Learn how to use tools in the Azure Migrate hub to discover, assess, and migrate your on-premises environment to Azure.
+  title: Azure Catalyst documentation
+  description: Find Azure migration tutorials, resources, and migration assessment tools. Learn how to use capabilities of Azure Catalyst (formerly Azure Migrate) to discover, assess, and migrate your on-premises environment to Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
-  author: habibaum
-  ms.author: v-uhabiba
+  author: Jeronika-MS
+  ms.author: v-gajeronika
   ms.date: 03/15/2024
   ms.custom: seo-azure-migrate
-  keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
+  keywords: Azure Catalyst, azure migration, Azure Catalyst assessment tool, Azure Catalyst tool, Azure Catalyst documentation, azure migration documentation, azure catalyst
 
 landingContent:
-  - title: About Azure Migrate
+  - title: About Azure Catalyst
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Migrate?
+          - text: What is Azure Catalyst?
             url: ./migrate-services-overview.md
-          - text: What's new in Azure Migrate?
+          - text: What's new in Azure Catalyst?
             url: ./whats-new.md
           - text: Common questions
             url: ./resources-faq.md
@@ -54,9 +54,9 @@ landingContent:
         links:
           - text: Review best practices for Server Assessment
             url: ./best-practices-assessment.md
-          - text: Learn about Azure Migrate appliance deployment
+          - text: Learn about Azure Catalyst appliance deployment
             url: ./migrate-replication-appliance.md
-          - text: Review the Azure Migrate support matrix
+          - text: Review the Azure Catalyst support matrix
             url: migrate-support-matrix.md
           - text: Review the Hyper-V support matrix
             url: ./migrate-support-matrix-hyper-v.md

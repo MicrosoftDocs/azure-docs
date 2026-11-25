@@ -14,6 +14,8 @@ zone_pivot_groups: acs-programming-languages-javascript-java-swift-csharp
 
 # Enable Real Time Text (RTT)
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 >[!NOTE]
 >RTT is an accessibility compliance requirement for voice and video platforms in the EU starting June 30, 2025. For more information, see [Directive 2019/882](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882).
 

@@ -1,21 +1,22 @@
 ---
-title: Common issues in Azure Migrate assessments
-description: Get help with assessment issues in Azure Migrate.
+title: Common issues in Azure Catalyst assessments
+description: Get help with assessment issues in Azure Catalyst.
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 09/26/2024
+ms.update-cycle: 365-days
 ms.custom: engagement-fy24
-# Customer intent: As a cloud architect, I want to troubleshoot assessment errors in Azure Migrate, so that I can ensure successful migration and operation of applications in the cloud environment.
+# Customer intent: As a cloud architect, I want to troubleshoot assessment errors in Azure Catalyst, so that I can ensure successful migration and operation of applications in the cloud environment.
 ---
 
-# Common issues in Azure Migrate assessments
+# Common issues in Azure Catalyst assessments
 
-This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Migrate: Discovery and assessment](migrate-services-overview.md). See articles [Supported Scenarios](troubleshoot-assessment-supported-scenarios.md) for troubleshooting assessments scenarios and [FAQ](troubleshoot-assessment-faq.md) for commonly questions about troubleshoot issues with assessment.
+This article helps you troubleshoot issues with assessment and dependency visualization with [Azure Catalyst: Discovery and assessment](migrate-services-overview.md). See articles [Supported Scenarios](troubleshoot-assessment-supported-scenarios.md) for troubleshooting assessments scenarios and [FAQ](troubleshoot-assessment-faq.md) for commonly questions about troubleshoot issues with assessment.
 
 ## Common assessment errors
 
-Assessment service uses the [configuration data](discovered-metadata.md) and the [performance data](concepts-assessment-overview.md#how-does-the-appliance-aggregate-performance-data) for calculating the assessments. The data is fetched by the Azure Migrate appliance at specific intervals in case of appliance-based discovery and assessments.
+Assessment service uses the [configuration data](discovered-metadata.md) and the [performance data](concepts-assessment-overview.md#how-does-the-appliance-aggregate-performance-data) for calculating the assessments. The data is fetched by the Azure Catalyst appliance at specific intervals in case of appliance-based discovery and assessments.
 The following table summarizes the errors encountered while fetching the data by the assessment service. 
 
 ### Error Code: 60001:UnableToConnectToPhysicalServer	
@@ -27,7 +28,7 @@ Either the prerequisites to connect to the server have not been met or there are
 #### Recommended Action
 
 - Ensure that the server meets the prerequisites and port access requirements.
-- Add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the Azure Migrate appliance and retry the operation. This is to allow remote inbound connections on servers: *Windows: WinRM port 5985 (HTTP) and Linux: SSH port 22 (TCP)*.
+- Add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the Azure Catalyst appliance and retry the operation. This is to allow remote inbound connections on servers: *Windows: WinRM port 5985 (HTTP) and Linux: SSH port 22 (TCP)*.
 - Ensure that you have chosen the correct authentication method on the appliance to connect to the server. <br/><br/> - If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).
 
 ### Error Code: 60002: InvalidServerCredentials
@@ -115,7 +116,7 @@ Resolve the connectivity issue mentioned in the error message.
 
 #### Cause
 
-Azure Migrate is unable to collect performance data if the vCentre is not configured to give out the performance data.
+Azure Catalyst is unable to collect performance data if the vCentre is not configured to give out the performance data.
 
 #### Recommended Action
 
@@ -125,7 +126,7 @@ Configure the statistics level on VCentre server to 3 to make the performance da
 
 #### Cause
 
-The Azure Migrate service is unable to locate the specified virtual machine. This may occur if the virtual machine has been deleted by the administrator on the VMware environment.
+The Azure Catalyst service is unable to locate the specified virtual machine. This may occur if the virtual machine has been deleted by the administrator on the VMware environment.
 
 #### Recommended Action
 
@@ -135,7 +136,7 @@ Verify that the virtual machine still exists in the VMware environment.
 
 #### Cause
 
-Azure Migrate assessment service is unable to retrieve performance data. This could happen if the vCenter server is not reachable.
+Azure Catalyst assessment service is unable to retrieve performance data. This could happen if the vCenter server is not reachable.
 
 #### Recommended Action
 
@@ -147,7 +148,7 @@ Azure Migrate assessment service is unable to retrieve performance data. This co
 
 #### Cause
 
-Azure Migrate assessment service is unable to retrieve performance counters. This can happen due to multiple reasons. Check the error message to find the exact reason.
+Azure Catalyst assessment service is unable to retrieve performance counters. This can happen due to multiple reasons. Check the error message to find the exact reason.
 
 #### Recommended Action
 
@@ -157,7 +158,7 @@ Azure Migrate assessment service is unable to retrieve performance counters. Thi
 ### Error Code: 8002: Virtual Machine could not be found
 
 #### Cause
-Azure Migrate discovery service could not find the virtual machine. This could happen if the virtual machine is deleted or its UUID has changed.
+Azure Catalyst discovery service could not find the virtual machine. This could happen if the virtual machine is deleted or its UUID has changed.
 
 #### Recommended Action
 
@@ -222,7 +223,7 @@ The role associated with the credentials provided on the appliance or a group po
 
 #### Recommended Action
 
-Check if the credentials provided on the appliance have created file administrator privileges and have WMI enabled.<br/><br/> If the credentials on the appliance don't have the required permissions, either provide another set of credentials or edit an existing one. (Find the friendly name of the credentials tried by Azure Migrate in the possible causes.) <br/><br/> [Learn more](tutorial-discover-vmware.md#prepare-vmware) on how to remediate the issue.
+Check if the credentials provided on the appliance have created file administrator privileges and have WMI enabled.<br/><br/> If the credentials on the appliance don't have the required permissions, either provide another set of credentials or edit an existing one. (Find the friendly name of the credentials tried by Azure Catalyst in the possible causes.) <br/><br/> [Learn more](tutorial-discover-vmware.md#prepare-vmware) on how to remediate the issue.
 
 ## Azure VM assessment readiness issues
 
@@ -262,7 +263,7 @@ The server might start in Azure, but Azure provides no operating system support.
 
 #### Fix
 
-The operating system of the VM was specified as **Other** in vCenter Server or could not be identified as a known OS in Azure Migrate. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Ensure that the operating system is [supported](migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the server.
+The operating system of the VM was specified as **Other** in vCenter Server or could not be identified as a known OS in Azure Catalyst. This behavior blocks Azure Catalyst from verifying the Azure readiness of the VM. Ensure that the operating system is [supported](migrate-support-matrix-vmware-migration.md#azure-vm-requirements) by Azure before you migrate the server.
 
 ### Issue: Unsupported bit version
 
@@ -298,7 +299,7 @@ Use a different target location before migration.
 
 #### Fix
 
-One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assess the disks based on the disk limits for Ultra Disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra Disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
+One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Catalyst: Discovery and assessment assess the disks based on the disk limits for Ultra Disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra Disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
 
 ### Issue: One or more unsuitable network adapters
 
@@ -316,7 +317,7 @@ Remove unused disks from the server before migration.
 
 #### Fix
 
-Azure Migrate: Discovery and assessment support disks with up to 64 TB size (Ultra Disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits.
+Azure Catalyst: Discovery and assessment support disks with up to 64 TB size (Ultra Disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits.
 
 ### Issue: Disk unavailable in the specified location
 
@@ -384,7 +385,7 @@ Support for certain Operating System versions has been deprecated by VMware and 
 
 ## Common web apps discovery errors
 
-Azure Migrate provides options to assess discovered ASP.NET/Java web apps for migration to Azure App Service and Azure KubernetesService (AKS) by using the Azure Migrate: Discovery and assessment tool. Refer to the [assessment](tutorial-assess-webapps.md) tutorial to get started.
+Azure Catalyst provides options to assess discovered ASP.NET/Java web apps for migration to Azure App Service and Azure KubernetesService (AKS) by using the Azure Catalyst: Discovery and assessment tool. Refer to the [assessment](tutorial-assess-webapps.md) tutorial to get started.
 
 Here, typical App Service assessment errors are summarized.
 

@@ -15,6 +15,9 @@ ms.subservice: orchestration
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Azure HDInsight activity](/fabric/data-factory/azure-hdinsight-activity).
+
 The HDInsight Pig activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes Pig queries on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 To learn more, read through the introduction to [Azure Data Factory](introduction.md) or [Synapse Analytics](../synapse-analytics/overview-what-is.md) and do the [Tutorial: transform data](tutorial-transform-data-spark-powershell.md) before reading this article. 

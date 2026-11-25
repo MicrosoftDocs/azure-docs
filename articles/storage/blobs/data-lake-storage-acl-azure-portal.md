@@ -1,19 +1,19 @@
 ---
-title: Use the Azure portal to manage ACLs in Azure Data Lake Storage
+title: "Manage ACLs in Azure Data Lake Storage using Azure portal"
 titleSuffix: Azure Storage
-description: Use the Azure portal to manage access control lists (ACLs) in storage accounts that have a hierarchical namespace (HNS) enabled.
+description: "Learn to manage access control lists (ACLs) in Azure Data Lake Storage using the Azure portal. Control permissions and secure your data assets."
 author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 11/26/2024
+ms.date: 07/21/2026
 ms.author: normesta
 # Customer intent: "As a data administrator, I want to manage access control lists (ACLs) in Azure Data Lake Storage through the Azure portal, so that I can effectively control permissions and secure my data assets."
 ---
 
 # Use the Azure portal to manage ACLs in Azure Data Lake Storage
 
-This article shows you how to use [Azure portal](https://portal.azure.com/) to manage the access control list (ACL) of a directory or blob in storage accounts that have the hierarchical namespace featured enabled on them.
+This article shows you how to use [Azure portal](https://portal.azure.com/) to manage the access control list (ACL) of a directory or blob in storage accounts that have the hierarchical namespace feature enabled.
 
 For information about the structure of the ACL, see [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md).
 
@@ -23,65 +23,70 @@ To learn about how to use ACLs and Azure roles together, see [Access control mod
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has the hierarchical namespace featured enabled on it. Follow [these](create-data-lake-storage-account.md) instructions to create one.
+- A storage account that has the hierarchical namespace feature enabled. Follow [these instructions](create-data-lake-storage-account.md) to create one.
 
 - You must have one of the following security permissions:
 
-  - Your user identity has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of either the target container, storage account, parent resource group or subscription.
+  - Your user identity is assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of either the target container, storage account, parent resource group, or subscription.
 
   - You're the owning user of the target container, directory, or blob to which you plan to apply ACL settings.
 
-## Manage an ACL
+## Set access permissions
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) to get started.
+Use these steps to grant a user or group access to a specific directory.
 
-2. Locate your storage account and display the account overview.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-3. Select **Containers** under **Data storage**.
+1. Locate your storage account and display the account overview.
+
+1. Under **Data storage**, select **Containers**.
 
    The containers in the storage account appear.
 
-   > [!div class="mx-imgBorder"]
-   > ![location of storage account containers in the Azure portal](./media/data-lake-storage-acl-azure-portal/find-containers-in-azure-portal.png)
+   :::image type="content" source="./media/data-lake-storage-acl-azure-portal/find-containers-in-azure-portal.png" alt-text="Screenshot showing storage account containers listed in the Azure portal.":::
 
-5. Navigate to any container, directory, or blob. Right-click the object, and then select **Manage ACL**.
+1. Go to any container, directory, or blob. Right-click the object, and then select **Manage ACL**.
 
-   > [!div class="mx-imgBorder"]
-   > ![context menu for managing an acl](./media/data-lake-storage-acl-azure-portal/manage-acl-menu-item.png)
+   :::image type="content" source="./media/data-lake-storage-acl-azure-portal/manage-acl-menu-item.png" alt-text="Screenshot showing the right-click context menu with the Manage ACL option.":::
 
    The **Access permissions** tab of the **Manage ACL** page appears. Use the controls in this tab to manage access to the object.
 
-   > [!div class="mx-imgBorder"]
-   > ![access ACL tab of the Manage ACL page](./media/data-lake-storage-acl-azure-portal/access-acl-page.png)
+   :::image type="content" source="./media/data-lake-storage-acl-azure-portal/access-acl-page.png" alt-text="Screenshot showing the Access permissions tab of the Manage ACL page.":::
 
-7. To add a *security principal* to the ACL, select the **Add principal** button.
+1. To add a *security principal* to the ACL, select the **Add principal** button.
 
    > [!TIP]
-   > A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Microsoft Entra ID.
+   > A security principal is an object that represents a user, group, service principal, or managed identity defined in Microsoft Entra ID.
 
    Find the security principal by using the search box, and then select the **Select** button.
 
-   > [!div class="mx-imgBorder"]
-   > ![Add a security principal to the ACL](./media/data-lake-storage-acl-azure-portal/get-security-principal.png)
+   :::image type="content" source="./media/data-lake-storage-acl-azure-portal/get-security-principal.png" alt-text="Screenshot showing the search box for finding and adding a security principal.":::
 
    > [!NOTE]
-   > We recommend that you create a security group in Microsoft Entra ID, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
+   > Create a security group in Microsoft Entra ID, and maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
 
-8. To manage the *default ACL*, select the **default permissions** tab, and then select the **Configure default permissions** checkbox.
+   The security principal appears in the access control list with the permissions you assigned.
+
+## Set default permissions
+
+A default ACL is a template that determines the access permissions for child items created under a directory. Blobs don't have default ACLs.
+
+To set default permissions on a directory, go to the directory in your storage account, right-click it, select **Manage ACL**, and then:
+
+1. Select the **default permissions** tab, and then select the **Configure default permissions** checkbox.
 
    > [!TIP]
-   > A default ACL is a template of an ACL that determines the access ACLs for any child items that are created under a directory. A blob doesn't have a default ACL, so this tab appears only for directories.
+   > A blob doesn't have a default ACL, so this tab appears only for directories.
 
-   > [!div class="mx-imgBorder"]
-   > ![default ACL tab of the Manage ACL page](./media/data-lake-storage-acl-azure-portal/default-acl-page.png)
+   :::image type="content" source="./media/data-lake-storage-acl-azure-portal/default-acl-page.png" alt-text="Screenshot showing the Default permissions tab of the Manage ACL page.":::
 
-## Apply an ACL recursively
+## Apply ACL entries recursively
 
-You can apply ACL entries recursively on the existing child items of a parent directory without having to make these changes individually for each child item. However, you can't apply ACL entries recursively by using the Azure portal.
+You can apply ACL entries recursively on the existing child items of a parent directory without making these changes individually for each child item. However, you can't apply ACL entries recursively by using the Azure portal because the portal applies ACL entries to a single object at a time.
 
 To apply ACLs recursively, use Azure Storage Explorer, PowerShell, or the Azure CLI. If you prefer to write code, you can also use the .NET, Java, Python, or Node.js APIs.
 
-You can find the complete list of guides here: [How to set ACLs](data-lake-storage-access-control.md#how-to-set-acls).
+For the complete list of guides, see [How to set ACLs](data-lake-storage-access-control.md#how-to-set-acls).
 
 ## Next steps
 

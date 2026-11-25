@@ -28,9 +28,9 @@ The following table shows the largest MTU size supported on the Azure Network In
 | Operating System | Network Interface | Largest MTU for inter virtual network traffic |
 |------------------|-------------------|-----------------------------------------------|
 | Windows Server | Mellanox Cx-3, Cx-4, Cx-5 | 3900 </br> **When setting the MTU value with `Set-NetAdapterAdvancedProperty`, use the value `4088`.**. **To persist reboots, the value returned by `Test-Connection` must also be set with `Set-NetIPInterface`.** |
-| Windows Server | (Preview) Microsoft Azure Network Adapter MANA | 9000 </br> **When setting the MTU value with `Set-NetAdapterAdvancedProperty`, use the value `9014`.** **To persist reboots, the value returned by `Test-Connection` must also be set with `Set-NetIPInterface`.** | 
+| Windows Server | Microsoft Azure Network Adapter MANA | 9000 </br> **When setting the MTU value with `Set-NetAdapterAdvancedProperty`, use the value `9014`.** **To persist reboots, the value returned by `Test-Connection` must also be set with `Set-NetIPInterface`.** | 
 | Linux | Mellanox Cx-3, Cx-4, Cx-5 | 3900 |
-| Linux | (Preview) Microsoft Azure Network Adapter | 9000 | 
+| Linux | Microsoft Azure Network Adapter | 9000 | 
 
 ## Prerequisites
 
@@ -83,7 +83,7 @@ Use the following steps to set a larger MTU size on a source and destination vir
 
 The shell script is available in the Azure samples gallery. Download the script for Linux from the following link and save to **vm-1** and **vm-2**.
 
-- [GetPathMTU - Path MTU Discovery Sample Script](/samples/azure-samples/getpathmtu/getpathmtu/)
+- [GetPathMTU - Path MTU Discovery Sample Script](https://github.com/Azure-Samples/GetPathMTU)
 
 Use the following steps to change the MTU size on a Linux virtual machine:
 

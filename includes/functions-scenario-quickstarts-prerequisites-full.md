@@ -14,7 +14,7 @@ ms.author: glenga
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension requires [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md). When this tool isn't available locally, the extension tries to install it by using a package-based installer. You can also install or update the Core Tools package by running `Azure Functions: Install or Update Azure Functions Core Tools` from the command palette. If you don't have npm or Homebrew installed on your local computer, you must instead [manually install or update Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
 ::: zone pivot="programming-language-csharp"  
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
++ The [.NET SDK](https://dotnet.microsoft.com/download) that matches your template's target framework. Use a [supported .NET version using the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md#supported-versions).
 
 + [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
 ::: zone-end  
@@ -29,9 +29,9 @@ ms.author: glenga
 + [Node.js 22.x](https://nodejs.org/en/about/previous-releases) or above. Use the `node --version` command to check your version.
 ::: zone-end 
 ::: zone pivot="programming-language-powershell"  
-+ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell 7.6](/powershell/scripting/install/installing-powershell)
 
-+ [.NET 8 runtime](https://dotnet.microsoft.com/download/dotnet/8.0)     
++ [.NET 10 runtime](https://dotnet.microsoft.com/download/dotnet/10.0)
 
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
 ::: zone-end

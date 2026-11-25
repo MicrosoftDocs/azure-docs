@@ -1,8 +1,8 @@
 ---
 title: Deploy Delta Updates with Azure Device Update for IoT Hub | Microsoft Learn
 description: Generate, configure, import, and deploy delta or differential updates with Azure Device Update for IoT Hub.
-author: cwatson-cat
-ms.author: cwatson
+author: dimatx
+ms.author: dimatokar
 ms.date: 05/21/2026
 ms.topic: how-to
 ms.service: azure-iot-hub

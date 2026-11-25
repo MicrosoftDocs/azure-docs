@@ -5,7 +5,7 @@ author: cgillum
 ms.topic: reference
 ms.service: durable-task
 ms.subservice: durable-functions
-ms.date: 05/20/2026
+ms.date: 08/28/2026
 ms.author: azfuncdf
 ---
 
@@ -23,13 +23,13 @@ Before using these HTTP APIs, make sure you have:
 
 All HTTP APIs share the same base URL as your function app. When you develop locally using the [Azure Functions Core Tools](../../azure-functions/functions-run-local.md), the base URL is typically `http://localhost:7071`. In the Azure Functions hosted service, the base URL is typically `https://{appName}.azurewebsites.net`. The extension also supports custom hostnames if configured on your App Service app.
 
-All HTTP APIs implemented by the extension require the following parameters. The data type of all parameters is `string`.
+HTTP APIs implemented by the extension use the following common parameters. `taskHub` and `connection` are optional overrides. The data type of all parameters is `string`.
 
 | Parameter        | Parameter Type  | Description |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Query string    | The name of the [task hub](../common/durable-task-hubs.md). If not specified, the current function app's task hub name is assumed. |
 | **`connection`** | Query string    | The **name** of the connection app setting for the backend storage provider. If not specified, the default connection configuration for the function app is assumed. |
-| **`systemKey`**  | Query string    | The authorization key required to invoke the API. |
+| **`code`**       | Query string    | The Durable extension system key required to authorize the API request in Azure. The `{systemKey}` placeholder in the example URLs represents this value, not the query parameter name. |
 
 ### How to obtain parameter values
 
@@ -46,7 +46,7 @@ Generate complete URLs automatically using [orchestration client binding](durabl
   - Can also be configured via app settings using `%AppSettingName%` syntax
 
 - **`connection`**: Name of the app setting containing the storage connection. Retrieved from `host.json`:
-  - **v2.x**: `extensions.durableTask.storageProvider.connectionStringName` (defaults to `AzureWebJobsStorage` if not specified)
+  - **v2.x**: `extensions.durableTask.storageProvider.connectionName` (defaults to `AzureWebJobsStorage` if not specified; `connectionStringName` is a legacy alias)
   - **v1.x**: `durableTask.azureStorageConnectionStringName` (defaults to `AzureWebJobsStorage` if not specified)
   - Can use connection strings or [identity-based connections](durable-functions-azure-storage-provider.md#identity-based-connections) (Microsoft Entra authentication)
 
@@ -135,6 +135,7 @@ The response payload for the **HTTP 202** cases is a JSON object with the follow
 | **`sendEventPostUri`**      |The "raise event" URL of the orchestration instance. |
 | **`terminatePostUri`**      |The "terminate" URL of the orchestration instance. |
 | **`purgeHistoryDeleteUri`** |The "purge history" URL of the orchestration instance. |
+| **`restartPostUri`**        |The "restart" URL of the orchestration instance. |
 | **`rewindPostUri`**         |(preview) The "rewind" URL of the orchestration instance. |
 | **`suspendPostUri`**        |The "suspend" URL of the orchestration instance. |
 | **`resumePostUri`**         |The "resume" URL of the orchestration instance. |
@@ -150,6 +151,7 @@ Here is an example response payload for an orchestration instance with `abc123` 
     "sendEventPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/raiseEvent/{eventName}?code=XXX",
     "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123?code=XXX",
     "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/terminate?reason={text}&code=XXX",
+    "restartPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/restart?code=XXX",
     "suspendPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/suspend?reason={text}&code=XXX",
     "resumePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/resume?reason={text}&code=XXX"
 }
@@ -211,9 +213,9 @@ Request parameters for this API include the default set mentioned previously and
 
 Several possible status code values can be returned.
 
-- **HTTP 200 (OK)**: The specified instance is in a completed or failed state.
-- **HTTP 202 (Accepted)**: The specified instance is in progress.
-- **HTTP 400 (Bad Request)**: The specified instance failed or was terminated.
+- **HTTP 200 (OK)**: The specified instance is `Completed`, `Terminated`, or `Canceled`, or is `Failed` when `returnInternalServerErrorOnFailure` is omitted or `false`.
+- **HTTP 202 (Accepted)**: The specified instance is in progress, including `Pending`, `Running`, or `Suspended`.
+- **HTTP 400 (Bad Request)**: The request is malformed or contains invalid parameters, not merely because the instance failed or was terminated.
 - **HTTP 404 (Not Found)**: The specified instance doesn't exist or hasn't started running.
 - **HTTP 500 (Internal Server Error)**: Returned only when the `returnInternalServerErrorOnFailure` is set to `true` and the specified instance failed with an unhandled exception.
 
@@ -222,6 +224,7 @@ The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON objec
 | Field                 | Data type | Description |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*, *Suspended*. |
+| **`version`** | string | The version assigned when the instance was created. Available with Durable Functions extension 3.16.0 or later. Omitted if the version is null or empty. |
 | **`input`**           | JSON      | The JSON data used to initialize the instance. This field is `null` if the `showInput` query string parameter is set to `false`.|
 | **`customStatus`**    | JSON      | The JSON data used for custom orchestration status. This field is `null` if not set. |
 | **`output`**          | JSON      | The JSON output of the instance. This field is `null` if the instance is not in a completed state. |
@@ -331,7 +334,7 @@ Request parameters for this API include the default set mentioned previously and
 | **`createdTimeFrom`**   | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or after the given ISO8601 timestamp.|
 | **`createdTimeTo`**     | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or before the given ISO8601 timestamp.|
 | **`runtimeStatus`**     | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](../common/durable-task-instance-management.md) article. |
-| **`instanceIdPrefix`**  | Query string    | Optional parameter. When specified, filters the list of returned instances to include only instances whose instance ID starts with the specified prefix string.  Available starting with [version 2.7.2](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.7.2) of the extension. |
+| **`instanceIdPrefix`**  | Query string    | Optional parameter. When specified, filters the list of returned instances to include only instances whose instance ID starts with the specified prefix string. Available starting with [version 2.7.2](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.7.2) of the extension. |
 | **`top`**               | Query string    | Optional parameter. When specified, limits the number of instances returned by the query. |
 
 ### Response
@@ -612,6 +615,51 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 The responses for this API don't contain any content.
 
+## Restart instance
+
+Starts a new execution of an existing orchestration instance using the original input.
+
+> [!NOTE]
+> This API is available in Durable Functions extension version 2.4.0 and later.
+
+### Request
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/restart
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &restartWithNewInstanceId=[true|false]
+    &timeout={seconds}
+    &pollingInterval={seconds}
+```
+
+The request has no body. Request parameters for this API include the default set mentioned previously and the following unique parameters:
+
+| Field                          | Parameter type | Description |
+|--------------------------------|----------------|-------------|
+| **`instanceId`**               | URL            | The ID of the orchestration instance to restart. |
+| **`restartWithNewInstanceId`** | Query string   | Optional. If `true`, the restarted orchestration uses a newly generated instance ID. If `false`, it reuses the original instance ID. The default is `true`. |
+| **`timeout`**                  | Query string   | Optional. The total number of seconds to wait for the restarted orchestration to complete. Synchronous waiting is enabled only when `pollingInterval` is also specified. |
+| **`pollingInterval`**          | Query string   | Optional. The number of seconds between checks for completion. Synchronous waiting is enabled only when `timeout` is also specified. |
+
+### Response
+
+Several possible status code values can be returned.
+
+- **HTTP 200 (OK)**: The restarted orchestration completed within the specified `timeout`. The JSON response body contains only the orchestration output, and the response doesn't include a `Location` header.
+- **HTTP 202 (Accepted)**: The restart request was accepted. The response contains the standard check-status management payload for the restarted instance. This response is also returned if synchronous waiting isn't enabled or the instance doesn't complete before the timeout.
+- **HTTP 400 (Bad Request)**: The specified instance ID doesn't identify a valid orchestration instance, or the orchestrator function isn't available.
+- **HTTP 409 (Conflict)**: The request tries to reuse an instance ID that belongs to a nonterminal instance.
+
+The restarted orchestration preserves the original input. The `id` field and management URLs in an HTTP 202 response refer to the restarted instance, which has a new ID by default.
+
+Here is an example request that restarts an instance and reuses its instance ID:
+
+```http
+POST /runtime/webhooks/durabletask/instances/abc123/restart?restartWithNewInstanceId=false&code=XXX
+```
+
 ## Suspend instance
 
 Pauses a running orchestration instance without terminating it. The instance can be resumed later using the `resume` operation.
@@ -728,7 +776,7 @@ The responses for this API don't contain any content.
 Sends a one-way operation message to a [Durable Entity](../common/programming-model-overview.md#entities). If the entity doesn't exist, it's created automatically. Entity operations are processed sequentially and durably persisted.
 
 > [!NOTE]
-> Durable entities are available starting in Durable Functions 2.0.
+> Durable entities are available starting in Durable Functions 2.0. Use a compatible storage provider with durable entity support.
 
 ### Request
 
@@ -905,6 +953,33 @@ The response JSON might look like the following (formatted for readability):
     }
 ]
 ```
+
+## Make the current app primary
+
+Requests that the current function app become the primary app for a task hub. Call this API on the app that you want to make primary. You can use this operation in an active-passive deployment to return processing to an app after a failover without restarting either app.
+
+> [!IMPORTANT]
+> This API is available in [Durable Functions extension version 2.5.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.5.0) and later. It works only with the [Azure Storage provider](durable-functions-azure-storage-provider.md) when the [`useAppLease`](durable-functions-host-json-settings.md) setting is `true`.
+
+### Request
+
+```http
+POST /runtime/webhooks/durabletask/makeprimary
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+This API has no unique request parameters and doesn't accept request content.
+
+### Response
+
+Several possible status code values can be returned.
+
+- **HTTP 200 (OK)**: The app lease handoff was initiated, or the current app was already primary.
+- **HTTP 500 (Internal Server Error)**: The operation couldn't be started, such as when app leases are disabled or the configured storage provider doesn't support app leases.
+
+A successful response doesn't contain any content. An HTTP 200 response confirms only that the handoff was initiated, not that the current app has acquired the app lease.
 
 ## Complete workflow example
 

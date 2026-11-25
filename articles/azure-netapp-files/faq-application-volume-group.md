@@ -32,6 +32,10 @@ Yes, you can clone a volume created by the application volume group. You can do 
 * The cloned volume is always placed on the same storage endpoint as the source volume.
 * To achieve the lowest latency for the cloned volume, you need to mount with the same IP address as the source volume.
 
+### Are there any restrictions related to volume names, and can I use the same volume name more than once?
+
+Volume names created through application volume group must be unique across your Azure subscription.
+
 ### How long does it take to create a volume group?
 
 Creating a volume group involves many different steps, and not all of them can be done in parallel. Especially when you create the first volume group for a given location, it might take 9-12 minutes for completion. Subsequent volume groups should take less time to create.

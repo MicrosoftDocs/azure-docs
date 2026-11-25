@@ -5,7 +5,7 @@ author: reburkea
 title: Microsoft Discovery & the Microsoft Discovery app
 description: Conceptual overview comparing Microsoft Discovery and the Microsoft Discovery app
 ms.topic: concept-article
-ms.date: 05/28/2026
+ms.date: 11/17/2026
 ---
 
 # Microsoft Discovery & the Microsoft Discovery app
@@ -31,10 +31,12 @@ The Microsoft Discovery platform is a cloud-based, production-grade platform dep
   </tr>
   <tr>
     <td align="center">
-      <strong>User Installer</strong> <a href="https://aka.ms/discovery/download/current"><strong>x64</strong></a> <a href="https://aka.ms/discovery/download/arm64/current"><strong>Arm64</strong></a>
+      <strong>User Installer</strong> <strong>Windows:</strong> <a href="https://aka.ms/discovery/download/current"><strong>x64</strong></a> <a href="https://aka.ms/discovery/download/arm64/current"><strong>Arm64</strong></a> <strong>macOS:</strong> <a href="https://aka.ms/discovery/download/osx/current"><strong>Arm64</strong></a> <strong>RHEL:</strong> <a href="https://github.com/microsoft/discovery/blob/main/docs/discovery-app/install.md"><strong>x64 installation guidance</strong></a>
     </td>
   </tr>
 </table>
+
+For prerequisites and setup instructions, see [Install Microsoft Discovery](https://github.com/microsoft/discovery/blob/main/docs/discovery-app/install.md).
 
 ## Single platform strategy
 Microsoft Discovery and the Discovery app share core concepts and features such as an agentic framework, the ability to invoke models and tools, a Bookshelf for indexing and reasoning over knowledge, and a Discovery Engine for orchestration. As a lightweight on-ramp to agentic R&D, the Discovery app enables rapid, bottom-up experimentation and exploration, while the Discovery platform enables enterprise-grade scale.
@@ -69,7 +71,7 @@ The following table provides a side-by-side comparison of the two experiences:
 |---|---|---|---|
 | **Differences** | Availability | Generally available | In preview |
 | | Support & SLA | Fully supported for production use under Microsoft's enterprise support agreements | Community-based support via GitHub |
-| | Deployment & setup | Requires an Azure subscription and enterprise cloud resources for setup | Downloadable app for Windows; only requires a GitHub Copilot account for setup (any tier) |
+| | Deployment & setup | Requires an Azure subscription and enterprise cloud resources for setup | Downloadable app for Windows, macOS, and Red Hat Enterprise Linux (RHEL) x64; only requires a GitHub Copilot account for setup (any tier) |
 | | IT/Admin experience | Manage cloud resources in Azure portal. Manage project resources in [Discovery Studio](/azure/microsoft-discovery/concept-studio) | N/A |
 | | Architecture | Runs as a cloud service in Azure | Runs locally on your machine |
 | | Compute & scale | Scalable Azure compute infrastructure including high performance CPUs, GPUs, and specialized hardware across clusters for large-scale or parallel investigations | Uses your device's compute |
@@ -125,6 +127,6 @@ In many cases, an individual or team will start with the Discovery app and then 
 
 * **Get started with the Microsoft Discovery platform:** Contact your Microsoft account representative. 
 
-* **Get started with the Microsoft Discovery app:** Download the app and review documentation on [GitHub](https://github.com/microsoft/discovery). Ensure you have a GitHub Copilot account (or a compatible license) before launching the app.
+* **Get started with the Microsoft Discovery app:** Follow the [Microsoft Discovery app installation guide](https://github.com/microsoft/discovery/blob/main/docs/discovery-app/install.md). Ensure you have a GitHub Copilot account (or a compatible license) before launching the app.
 
 You can begin your journey with whichever experience fits your current needs, knowing that both are part of the same Microsoft Discovery family. As your projects advance, you can seamlessly move from local exploration to enterprise-grade deployments, applying the strengths of each to accelerate your R&D.

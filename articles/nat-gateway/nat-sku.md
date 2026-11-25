@@ -1,7 +1,7 @@
 ---
 title: Azure NAT Gateway SKUs
 description: Overview of available Azure NAT Gateway SKUs and their differences.
-ms.date: 05/15/2026
+ms.date: 10/29/2026
 ms.topic: overview
 ms.service: azure-nat-gateway
 author: alittleton
@@ -24,16 +24,20 @@ Azure NAT Gateway has two stock-keeping units (SKUs): Standard and StandardV2. T
 | | Port reuse timer | Supported | Supported |
 | | Protocols | TCP, UDP | TCP, UDP, ICMP Echo Request and Reply (ping) |
 | | Public IP version | IPv4 | IPv4, IPv6 |
+| | NAT64 | Not supported | Supported |
 | | Attach point | Subnet | Subnet |
 | Scalability | Public IP addresses | 16 IPv4 addresses | 16 IPv4 addresses, 16 IPv6 addresses |
 | | Public IP prefixes | /28 IPv4 prefix | /28 IPv4 prefix, /124 IPv6 prefix |
 | | Virtual networks | 1 | 1 |
 | | Subnets | 800 | 800 |
 | Monitoring | Metrics | Supported | Supported |
-| Limits | Bandwidth | 50 Gbps per NAT gateway | 100 Gbps per NAT gateway, 1 Gbps per connection |
-| | Packets per second | 5 million packets per second | 10 million packets per second, 100,000 packets per second per connection |
+| Security | Azure DDoS Protection for public IP addresses | Not supported | Public preview |
+| Limits | Bandwidth | 50 Gbps per NAT gateway (split 25/25 Gbps per direction | 100 Gbps per NAT gateway, 1 Gbps per connection |
+| | Packets per second | 5 million packets per second (split 2.5M/2.5M PPS per direction) | 10 million packets per second, 100,000 packets per second per connection |
 | | Connections per IP per destination | 50,000 | 50,000 |
 | | Total connections | 2 million | 2 million |
+
+For a Standard SKU NAT gateway resource, the total bandwidth supported is 50 Gbps split 25 Gbps per direction for outbound and inbound (return) data. Packets per second (PPS) is also split per direction at 2.5M PPS for outbound and 2.5M PPS for inbound (return).
 
 ## Pricing and SLA
 
@@ -67,6 +71,18 @@ You can attach a StandardV2 NAT gateway to 16 IPv6 public IPs and 16 IPv4 public
 
 A StandardV2 NAT gateway supports flow logs through Azure Monitor. Flow logs provide visibility into the traffic that flows through the NAT gateway. For more information, see [Manage StandardV2 NAT gateway flow logs](./nat-gateway-flow-logs.md).
 
+### NAT64
+
+NAT64 is a translation feature available exclusively on StandardV2 NAT gateways. It enables IPv6 workloads to communicate with IPv4-only destinations by translating outbound IPv6 traffic destined for the well-known prefix 64:ff9b::/96 into IPv4 traffic.
+> [!NOTE]
+> NAT64 requires a third-party DNS64 solution to synthesize AAAA records for IPv4-only destinations.
+
+### DDoS protection (preview)
+
+StandardV2 IPv4 and IPv6 public IP addresses associated with a StandardV2 NAT gateway can use Azure DDoS Network Protection or IP Protection. Custom policies for NAT Gateway aren't supported in this preview. Protection is configured on the associated virtual network or individual public IP, not on the gateway or a public IP prefix. Network Protection inheritance requires the gateway to be associated with a subnet in the protected virtual network.
+
+Public IP prefixes associated with a StandardV2 NAT gateway inherit DDoS Network Protection from the virtual network. Direct IP Protection on a prefix isn't supported; use an eligible individual StandardV2 public IP address instead. Confirm region and cloud availability. For details, see [DDoS protection for NAT Gateway StandardV2](../ddos-protection/ddos-protection-nat-gateway-standardv2.md).
+
 ### Known limitations
 
 * The StandardV2 SKU requires StandardV2 public IP addresses and prefixes. Standard public IPs aren't supported.
@@ -77,12 +93,8 @@ A StandardV2 NAT gateway supports flow logs through Azure Monitor. Flow logs pro
 
 * The following regions don't support StandardV2 NAT gateways:
 
-  * Canada East  
-  * Chile Central  
-  * Indonesia Central  
-  * Israel Northwest  
-  * Malaysia West  
-  * Qatar Central
+  * Canada East   
+  * India South Central 
   * Sweden South
   * West India
 

@@ -4,7 +4,7 @@ description: Learn about Microsoft Dev Box, a self-service cloud-based developme
 services: dev-box
 ms.service: dev-box
 ms.topic: overview
-ms.author: rosemalcolm
+ms.author: rabououn
 author: RoseHJM
 ms.date: 10/31/2025
 adobe-target: true

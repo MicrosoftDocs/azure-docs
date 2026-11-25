@@ -1,9 +1,9 @@
 ---
-author: msangapu-msft
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 02/09/2026
-ms.author: msangapu
+ms.author: byvinyal
 ---
 
 Azure Storage is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for data objects in the cloud. This guide shows how to mount Azure Storage Files as a network share in Windows code (noncontainer) in Azure App Service. 
@@ -63,6 +63,7 @@ Here are the three options to mount Azure storage to your app:
 - Mapping */mounts*, *mounts/name1/name2*, */*, and */mounts/name.ext/* to custom-mounted storage isn't supported. You can only use */mounts/pathname* for mounting custom storage to your web app.
 - Storage mounts aren't included in [backups](../../manage-backup.md). Be sure to follow best practices to back up Azure Storage accounts.
 - With virtual network integration on your app, the mounted drive uses an RFC1918 IP address and not an IP address from your virtual network.
+- Storage Accounts that have key-based authentication disabled are not supported.
 
 ## Prepare for mounting
 

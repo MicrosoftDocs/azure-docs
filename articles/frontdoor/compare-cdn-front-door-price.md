@@ -2,7 +2,7 @@
 title: Compare the pricing of Azure CDN Standard Microsoft and Azure Front Door
 description: This article compares the pricing of Azure CDN Standard Microsoft (classic) and Azure Front Door.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 05/04/2026
@@ -12,8 +12,7 @@ ms.date: 05/04/2026
 
 **Applies to:** :heavy_check_mark: CDN Standard from Microsoft (classic)
 
-> [!IMPORTANT]
-> Azure CDN Standard from Microsoft (Classic) doesn't support profile creation, new domain onboarding, or managed certificates and retires on **September 30, 2027**. To avoid service disruption, ⁠[**migrate to Azure Front Door Standard or Premium**](/azure/cdn/migrate-tier). For more information, see ⁠[**Azure CDN Standard from Microsoft (classic) retirement**](https://azure.microsoft.com/updates?id=Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027).
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 > [!NOTE]
 > The prices presented in this article serve as examples and are intended solely for illustration purposes. For region-specific pricing information, see the pricing pages of [Azure Front Door](https://azure.microsoft.com/pricing/details/frontdoor/) and [Azure CDN](https://azure.microsoft.com/pricing/details/cdn).

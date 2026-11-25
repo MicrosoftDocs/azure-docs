@@ -91,7 +91,7 @@ This procedure guides you through creating a virtual network and configuring coe
 
     :::image type="content" source="media/how-to-configure-coexisting-gateway-portal/vnet-ip-addresses.png" alt-text="Screenshot of IP addresses tab for creating a virtual network.":::
 
-1. Create the Site-to-Site VPN gateway and local network gateway. For more information about the VPN gateway configuration, see [Configure a virtual network with a Site-to-Site connection](../vpn-gateway/tutorial-site-to-site-portal.md#VNetGateway). The GatewaySku is only supported for *VpnGw1*, *VpnGw2*, *VpnGw3*, *Standard*, and *HighPerformance* VPN gateways. ExpressRoute-VPN Gateway coexist configurations aren't supported on the Basic SKU. The VpnType must be *RouteBased*.
+1. Create the Site-to-Site VPN gateway and local network gateway. For more information about the VPN gateway configuration, see [Configure a virtual network with a Site-to-Site connection](../vpn-gateway/tutorial-site-to-site-portal.md#VNetGateway). The GatewaySku is only supported for *VpnGw1*, *VpnGw2*, and *VpnGw3* VPN gateways. ExpressRoute-VPN Gateway coexist configurations aren't supported on the Basic SKU. The VpnType must be *RouteBased*.
 
 1. Configure your local VPN device to connect to the new Azure VPN gateway. For more information about VPN device configuration, see [VPN Device Configuration](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 

@@ -32,7 +32,7 @@ The following table compares these two architecture options and can help you dec
 |**On-prem connectivity**     |VPN Gateway up to 10 Gbps and 30 S2S connections; ExpressRoute|More scalable VPN Gateway up 20 Gbps and 1000 S2S connections; Express Route|
 |**Automated branch connectivity using SDWAN**      |Not supported|Supported|
 |**Hubs per region**     |Multiple Virtual Networks per region|Multiple Virtual Hubs per region|
-|**Azure Firewall – multiple public IP addresses**      |Customer provided|Auto generated|
+|**Azure Firewall – multiple public IP addresses**      |Customer provided|Auto generated, or [customer provided](../firewall/secured-hub-customer-public-ip.md) (preview)|
 |**Azure Firewall Availability Zones**     |Supported|Supported|
 |**Advanced Internet security with third-party Security as a Service partners**     |Customer established and managed VPN connectivity to partner service of choice|Automated via security partner provider flow and partner management experience|
 |**Centralized route management to route traffic to the hub**     |Customer-managed User Defined Route|Supported using BGP|

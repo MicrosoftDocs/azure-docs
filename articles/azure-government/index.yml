@@ -10,7 +10,7 @@ metadata:
   ms.service: azure-government
   ms.topic: landing-page
   author: anaharris-ms
-  ms.author: eliotgra 
+  ms.author: diberry 
   ms.date: 05/07/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -83,8 +83,6 @@ landingContent:
             url: documentation-government-developer-guide.md
           - text: Impact Level 5 isolation guidance
             url: documentation-government-impact-level-5.md
-          - text: Azure secure isolation guidance
-            url: azure-secure-isolation-guidance.md
           - text: Secure Azure computing architecture
             url: ./compliance/secure-azure-computing-architecture.md
           - text: Develop with Storage API

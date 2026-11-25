@@ -1,8 +1,8 @@
 ---
 title: Create an environment with Azure Developer CLI
 description: Use an `azd` template to provision application infrastructure and deploy application code to the new infrastructure.
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.service: azure-deployment-environments
 ms.topic: how-to
 ms.date: 05/22/2026

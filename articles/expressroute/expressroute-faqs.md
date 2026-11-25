@@ -27,6 +27,8 @@ For service location and availability, see [ExpressRoute partners and locations]
 
 You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations and then peer with Microsoft at the provider location. See [connect through another service provider](expressroute-locations.md#connectivity-through-additional-service-providers) to see if your service provider is present in any of the exchange locations. You can order an ExpressRoute circuit through the service provider to connect to Azure.
 
+If your provider does not support ExpressRoute or does not support the location you would like to use, please reach out to the provider to request that they add support.
+
 ### How much does ExpressRoute cost?
 
 For a breakdown of ExpressRoute cost, see [pricing details](https://azure.microsoft.com/pricing/details/expressroute/).
@@ -208,6 +210,12 @@ You can achieve high availability by connecting up to 4 ExpressRoute circuits in
 > [!NOTE]
 > - Although it's possible to connect up to 16 circuits to your virtual network, you can use Equal-Cost Multipath (ECMP) across a maximum of four circuits to load-balance outgoing traffic from your virtual network.
 > - Equal-Cost Multipath (ECMP) in ExpressRoute uses the Per-Flow (based on 5-tuple) load balancing method. Accordingly, traffic flow between a given source and destination host pair is guaranteed to take the same path, even if multiple ECMP paths are available.
+
+### Which resiliency option should I choose for my ExpressRoute Circuit? 
+
+ExpressRoute Circuits are available in 3 different resiliency tiers: standard, high, and max. The best option will depend on your specific requirements and use case, but Microsoft recommends high resiliency at minimum for all production workloads. In some locations, the creation of standard resiliency has been disabled for service providers that support high resiliency. This policy is in place to ensure that customers use the optimal service architecture – as ExpressRoute Metro (high resiliency) offers improved availability at the same cost as a standard resiliency ExpressRoute Circuit. 
+
+For more information, see [designing for high availability with ExpressRoute](./designing-for-high-availability-with-expressroute.md).
 
 ### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering is preferred on the ExpressRoute path?
 

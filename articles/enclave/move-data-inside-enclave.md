@@ -1,51 +1,37 @@
 ---
-title: Transfer or move data into my enclave
+title: Transfer data into an enclave
 titleSuffix: Azure Enclave
-description: Transfer or move data into my enclave
+description: Learn how to configure connectivity and transfer data from an external Azure Storage account into an enclave.
 author: jadean-msft
 ms.author: jadean
-ms.topic: overview
-ms.date: 9/30/2025
+ms.topic: how-to
+ms.date: 09/29/2026
+ms.service: azure-enclave
+ai-usage: ai-assisted
 ---
 
-# Transferring data into an enclave
+# Transfer data into an enclave
 
-By default, all network traffic within an [enclave](./what-enclave.md) is permitted by Azure Enclave product design. This means that all resources and hosts within an enclave can reach, discover, and communicate with each other. However, this poses a potential issue for community and enclave owners when first creating their Azure Enclave-related resources on how to initially migrate or bring their data into their enclaves.
+Traffic within an individual enclave subnet is allowed by default. Communication across enclave subnets is disabled by default (`allowSubnetCommunication: false`); enable it only when needed. The Admin VM's management subnet has separate, scoped rules. Network reachability doesn't guarantee service discovery. For more information, see [What is an enclave?](./what-enclave.md)
 
-## Overview
-If the data that needs to be moved into an enclave resides in an Azure Storage Account, you'll need to create a connection to the data source, optionally download an application to help download/copy/move, and then perform the download/copy/move operation. Follow these detailed steps:
-1. Log into [Admin VM](./understand-admin-vm.md), or any other resource located in the enclave private network. 
-1. Create an Endpoint (at either the community or Enclave level) and Connection (targeting the enclave/community and Endpoint created) to where the data is.
-      - How to make a [community endpoint](./create-community-endpoint-portal.md) or [enclave endpoint](./create-enclave-endpoint-portal.md) for your IP Data Source / External Data Network (an example of this could look like this: `name: ep-mydatasource`, `source: 172.168.10.0/16`, `protocol: https`, `port: 443`).
-      - [How to make a Connection](./create-enclave-connection-portal.md) connecting either a community or an enclave to the Endpoint created above.
-1. Use [AzCopy](https://aka.ms/azcopy), [Azure portal](https://aka.ms/azureportal), or [Azure Storage Explorer](https://aka.ms/storageexplorer) while on Enclave Admin VM to transfer data from location specified above into the enclave.
-      - By default these tools aren't installed on Admin VMs or other machines. To install these tools onto resources residing in the enclave private network, you must create an endpoint and connection to the download location of these tools.
-      - Azure Enclave recommends downloading these tools using [Azure Toolbox](https://aka.ms/aztoolbox).
+## Configure connectivity to the data source
+
+To allow an enclave to reach an external storage account or tool host over HTTPS, create a community endpoint and an enclave connection:
+
+1. Identify the storage account's endpoint host. For Azure Storage, use the host for the service that contains your data, such as the account's Blob service endpoint.
+1. Create a [community endpoint](./create-community-endpoint-portal.md) for the destination host. Configure the endpoint rule with the destination host, the `HTTPS` protocol, and port `443`. The Mission Management REST API versions `2025-05-01-preview`, `2025-11-01-preview`, and `2026-03-01-preview` support endpoint destinations as IP addresses, CIDR ranges, or fully qualified domain names (FQDNs).
+1. Create an [enclave connection](./create-enclave-connection-portal.md) from the enclave that will access the data to the community endpoint.
+
+An enclave endpoint is intended for destinations in another enclave; its protocol options differ from community endpoints. For details, see [Create an enclave endpoint](./create-enclave-endpoint-portal.md).
+
+## Transfer the data
+
+1. Connect to the [Admin VM](./understand-admin-vm.md) or another resource in the enclave that can reach the data source.
+1. Choose a transfer tool supported in your environment, such as [AzCopy](https://aka.ms/azcopy), the [Azure portal](https://aka.ms/azureportal), or [Azure Storage Explorer](https://aka.ms/storageexplorer). Confirm the tool's availability, network path, and required Azure Storage permissions for your environment.
+1. Copy the data from the storage account to the intended destination in the enclave. Follow the selected tool's instructions and verify that the expected files are present at the destination.
+
+Azure Enclave lists AzCopy as an Azure Toolbox artifact. Check the current environment's availability and network requirements before relying on the artifact. For more information, see [Azure Toolbox](https://aka.ms/aztoolbox).
 
 ![Diagram showing an enclave connecting to a storage account outside the community.](./media/data-movement-connection-storage-account.png)
 
-## Downloading tools from Azure Toolbox
-To download tools from Azure Toolbox into an enclave, Azure Enclave recommends that either an enclave or community endpoint be created to Azure Toolbox. Furthermore, enclave owners should then also create a connection from the enclave or community to the Azure Toolbox endpoint. This is an example of how to creation the connection and endpoint:
-- How to make a [community endpoint](./create-community-endpoint-portal.md) or [enclave endpoint](./create-enclave-endpoint-portal.md) for your IP Data Source / External Data Network (an example of this could look like this: `name: ep-aztoolbox`, `source: <aztoolbox-fqdn>`, `protocol: https`, `port: 443`). This is a table with the current environments and their respective FQDNs needed to connect to Azure Toolbox.
-
-|Environment| FQDN  |
-|--|--|
-| Test | prod.api.toolbox.azure-test.net |
-| US Sec |  |
-| US Nat |  |
-
-
-- [How to make a Connection](./create-enclave-connection-portal.md) connecting either a community or an enclave to the Endpoint created above
-![Diagram showing an enclave connecting to the Azure Toolbox outside the community.](./media/data-movement-connection-azure-toolbox.png)
-
-Should further troubleshooting be required to investigate making Connections, see [Create a Connection from the Azure portal](./create-enclave-connection-portal.md) or contact [Azure Support](https://azure.microsoft.com/support/).
-
-## References
-- [What is Azure Enclave?](./what-azure-enclave.md)
-- [Best Practices](./best-practices.md)
-- [What is an enclave?](./what-enclave.md)
-- [Understanding Admin VM](./understand-admin-vm.md)
-- [Create an enclave endpoint](./create-enclave-endpoint-portal.md)
-- [Create a community endpoint](./create-community-endpoint-portal.md)
-- [Create a Connection from the Azure portal](./create-enclave-connection-portal.md)
-- [Azure Support](https://azure.microsoft.com/support/)
+If you have trouble creating a connection, see [Create a connection from the Azure portal](./create-enclave-connection-portal.md) or contact [Azure Support](https://azure.microsoft.com/support/).

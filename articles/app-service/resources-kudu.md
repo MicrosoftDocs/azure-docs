@@ -1,9 +1,9 @@
 ---
 title: Kudu service overview
 description: Learn about the engine that powers continuous deployment in App Service and its features.
-author: msangapu-msft
-ms.author: msangapu
-ms.date: 03/17/2021
+author: btardif
+ms.author: byvinyal
+ms.date: 10/08/2026
 ms.topic: reference
 ms.service: azure-app-service
 ---
@@ -42,13 +42,19 @@ It also provides features like these:
 - Generate [custom deployment scripts](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 - Allow access with a [REST API](https://github.com/projectkudu/kudu/wiki/REST-API).
 
+For Linux Kudu `POST /api/command`, don't assume semicolon-chained commands are implicitly interpreted as shell syntax. Prefer separate requests for diagnostic commands. Don't concatenate untrusted input into command strings; explicitly invoking a shell adds parsing and command-injection risk.
+
+An HTTP success response doesn't establish remote command success. Inspect `Output` and `Error`, and require a valid `ExitCode` of `0` to confirm success.
+
+For Linux apps, Kudu also provides an authenticated proxy for container access without requiring an SSH server or an embedded SSH password in a custom image. The preview `az webapp exec` command opens a shell in the main app container, or in the Kudu container with `--target kudu`. These are separate environments. Detached execution targets only the main app container. For examples and limitations, see [Open a container shell (SSH) and run commands](configure-linux-open-ssh-session.md?pivots=container-linux).
+
 ## RBAC permissions required to access Kudu
 
 To access Kudu in the browser by using Microsoft Entra authentication, you need to be assigned an appropriate built-in or custom role over the scope of the application. The assigned role must include permission for the `Microsoft.Web/sites/publish/Action` resource provider operation. The following table shows example built-in roles that include this permission.
 
 | Role type | Example built-in roles | 
 |-|-|
-| Job function roles | [Website Contributor](../role-based-access-control//built-in-roles/web-and-mobile.md#website-contributor)<br/>[Logic Apps Standard Developer (Preview)](../role-based-access-control//built-in-roles/integration.md#logic-apps-standard-developer-preview)  |
+| Job function roles | [Website Contributor](../role-based-access-control//built-in-roles/web-and-mobile.md#website-contributor)<br/>[Logic Apps Standard Developer](../role-based-access-control//built-in-roles/integration.md#logic-apps-standard-developer)  |
 | Privileged administrator roles<sup>1</sup> | [Owner](../role-based-access-control//built-in-roles/privileged.md#owner)<br/>[Contributor](../role-based-access-control//built-in-roles/privileged.md#contributor) |
 
 <sup>1</sup> Privileged administrator roles grant much more permission than is needed to access Kudu. If need to create a new role assignment, consider if a job function role with less access can be used instead.

@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 02/26/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Proactive log collection on your Azure Stack Edge device

@@ -4,7 +4,7 @@ description: Get answers to common questions about Azure Data Manager for Agricu
 ms.service: azure-data-manager-agriculture
 ms.topic: faq
 ms.date: 10/03/2023
-ms.author: akhatri
+ms.author: diberry
 author: akhatri
 ---
 

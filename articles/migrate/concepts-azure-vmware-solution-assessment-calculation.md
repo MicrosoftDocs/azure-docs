@@ -1,26 +1,26 @@
 ---
-title: Azure VMware Solution assessment calculations in Azure Migrate | Microsoft Docs
-description: Provides an overview of Azure VMware Solution assessment calculations in the Azure Migrate service.
+title: Azure VMware Solution assessment calculations in Azure Catalyst | Microsoft Docs
+description: Provides an overview of Azure VMware Solution assessment calculations in the Azure Catalyst service.
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 12/06/2024
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.custom: engagement-fy25
 # Customer intent: "As an IT administrator, I want to assess the suitability of my on-premises vSphere servers for migration to Azure VMware Solution, so that I can make informed decisions on resource allocation and cost estimation for successful migration."
 ---
 
 # Assessment overview (migrate to Azure VMware Solution)
 
-[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads. It also tracks your private and public cloud instances to Azure. The hub offers Azure Migrate tools for assessment and migration, along with partner independent software vendor (ISV) offerings.
+[Azure Catalyst](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads. It also tracks your private and public cloud instances to Azure. The hub offers Azure Catalyst tools for assessment and migration, along with partner independent software vendor (ISV) offerings.
 
-Discovery and assessment tool in Azure Migrate assesses on-premises servers for migration to Azure virtual machines and Azure VMware Solution. This article provides information about how Azure VMware Solution assessments are calculated.
+Discovery and assessment tool in Azure Catalyst assesses on-premises servers for migration to Azure virtual machines and Azure VMware Solution. This article provides information about how Azure VMware Solution assessments are calculated.
 
 > [!NOTE]
 > Azure VMware Solution assessment can be created for VMware vSphere VMs only.
 
 ## Types of assessments
 
-Assessments you create with Azure Migrate are a point-in-time snapshot of data. There are four types of assessments you can create using Azure Migrate:
+Assessments you create with Azure Catalyst are a point-in-time snapshot of data. There are four types of assessments you can create using Azure Catalyst:
 
 **Assessment Type** | **Details**
 --- | --- 
@@ -45,35 +45,35 @@ There are a couple of ways to run an assessment.
 
 - Assess servers by using server metadata that's imported in an RVTools XLSX file.
 - Assess servers by using server metadata that's imported in a comma-separated values (CSV) format.
-- Assess servers by using server metadata collected by a lightweight Azure Migrate appliance. The appliance discovers on-premises servers and sends the metadata and performance data to Azure Migrate, allowing for more precision.
+- Assess servers by using server metadata collected by a lightweight Azure Catalyst appliance. The appliance discovers on-premises servers and sends the metadata and performance data to Azure Catalyst, allowing for more precision.
 
 
 ## How do I assess with data imported using an RVTools file?
 
 If you're assessing servers by using an RVTools file, you don't need an appliance. Instead, do the following steps:
 
-1. Set up Azure to work with Azure Migrate.
-2. For your first assessment, create an Azure Migrate project and add the Discovery and assessment tool to it.
-3. Import your RVTools XLSX file into Azure Migrate.
+1. Set up Azure to work with Azure Catalyst.
+2. For your first assessment, create an Azure Catalyst project and add the Discovery and assessment tool to it.
+3. Import your RVTools XLSX file into Azure Catalyst.
 4. Discover servers added with the import, gather them into a group, and run an assessment for the group with assessment type **Azure VMware Solution (AVS)**.
 
 ## How do I assess with data using a CSV file?
 
 If you're assessing servers by using a CSV file, you don't need an appliance. Instead, do the following steps:
 
-1. Set up Azure to work with Azure Migrate.
+1. Set up Azure to work with Azure Catalyst.
 2. For your first assessment, create an Azure project and add the Discovery and assessment tool to it.
 3. Download a CSV template and add server data to it.
-4. Import the template into Azure Migrate.
+4. Import the template into Azure Catalyst.
 5. Discover the servers added with the import, group them, and run an assessment for the group with the assessment type **Azure VMware Solution (AVS)**.
 
 ## How do I assess with the appliance?
 
-To deploy an Azure Migrate appliance to discover on-premises servers, follow these steps:
+To deploy an Azure Catalyst appliance to discover on-premises servers, follow these steps:
 
-1. Set up Azure and your on-premises environment to work with Azure Migrate.
+1. Set up Azure and your on-premises environment to work with Azure Catalyst.
 2. Create an Azure project and add the Discovery and assessment tool if this is your first assessment.
-3. Deploy a lightweight Azure Migrate appliance, which continuously discovers on-premises vSphere servers and sends their metadata and performance data to Azure Migrate. Deploy the appliance as a VM; you don't need to install anything on the servers you want to assess.
+3. Deploy a lightweight Azure Catalyst appliance, which continuously discovers on-premises vSphere servers and sends their metadata and performance data to Azure Catalyst. Deploy the appliance as a VM; you don't need to install anything on the servers you want to assess.
 
 After the appliance begins discovering servers, you can group the servers you want to assess and run an assessment for the group with the assessment type **Azure VMware Solution (AVS)**.
 
@@ -81,7 +81,7 @@ Follow these steps to create your first [Azure VMware Solution assessment](how-t
 
 ## What data does the appliance collect?
 
-If you're using the Azure Migrate appliance for assessment, learn about the metadata and performance data that's collected for [VMware vSphere](discovered-metadata.md#collected-metadata-for-vmware-servers).
+If you're using the Azure Catalyst appliance for assessment, learn about the metadata and performance data that's collected for [VMware vSphere](discovered-metadata.md#collected-metadata-for-vmware-servers).
 
 ## How does the appliance calculate performance data?
 
@@ -91,7 +91,7 @@ If you use the appliance for discovery, it collects performance data for compute
 
    - **VMware vSphere VMs**: A sample point is collected every 20 seconds.
 2. The appliance combines the sample points to create a single data point every 10 minutes. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure.
-3. Azure Migrate stores all the 10-minute data points for the last month.
+3. Azure Catalyst stores all the 10-minute data points for the last month.
 4. When you create an assessment, the assessment identifies the appropriate data point to use for rightsizing. Identification is based on the percentile values for *performance history* and *percentile utilization*.
 
    - For example, if the performance history is one week and the percentile utilization is the 95th percentile, the assessment sorts the 10-minute sample points for the last week. It sorts them in ascending order and picks the 95th percentile value for rightsizing.
@@ -109,7 +109,7 @@ The following performance data is collected but not used in sizing recommendatio
 
 ## How are Azure VMware Solution assessments calculated?
 
-Azure VMware Solution assessment uses the on-premises vSphere servers' metadata and performance data to calculate assessments. If you deploy the Azure Migrate appliance, assessment uses the data the appliance collects. But if you run an assessment imported using a CSV file, you provide the metadata for the calculation.
+Azure VMware Solution assessment uses the on-premises vSphere servers' metadata and performance data to calculate assessments. If you deploy the Azure Catalyst appliance, assessment uses the data the appliance collects. But if you run an assessment imported using a CSV file, you provide the metadata for the calculation.
 
 Calculations occur in these three stages:
 
@@ -133,8 +133,8 @@ Here's what's included in an Azure VMware Solution assessment:
 **Sizing criterion** | Sets the criteria to be used to determine memory, cpu, and storage requirements for Azure VMware Solution nodes. You can opt for *performance-based* sizing or *as on-premises* without considering the performance history. To lift and shift, choose as on-premises. To obtain usage based sizing, choose performance based.
 **Performance history** | Sets the duration to consider in evaluating the performance data of servers. This property is applicable only when the sizing criteria are *performance-based*.
 **Percentile utilization** | Specifies the percentile value of the performance sample set to be considered for right-sizing. This property is applicable only when the sizing is performance-based.
-**Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of server utilization data for VMs (CPU, memory, and disk). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage. For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. 
-**Offer** | Displays the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in. Azure Migrate estimates the cost accordingly. 
+**Comfort factor** | Azure Catalyst considers a buffer (comfort factor) during assessment. This buffer is applied on top of server utilization data for VMs (CPU, memory, and disk). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage. For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. 
+**Offer** | Displays the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in. Azure Catalyst estimates the cost accordingly. 
 **Currency** | Shows the billing currency for your account. 
 **Discount (%)** | Lists any subscription-specific discount you receive on top of the Azure offer. The default setting is 0%. 
 **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Although it has no impact on Azure VMware Solution pricing due to the node-based price, customers can still apply the on-premises OS or SQL licenses (Microsoft based) in Azure VMware Solution using Azure Hybrid Benefits. Other software OS vendors have to provide their own licensing terms, such as RHEL for example. 
@@ -155,7 +155,7 @@ Azure VMware Solution assessments assess each on-premises vSphere VM for its sui
 - **Ready for AVS**: The server can be migrated as-is to Azure VMware Solution without any changes. It starts in Azure VMware Solution with full support.
 - **Ready with conditions**: There might be some compatibility issues example internet protocol or deprecated OS in VMware vSphere and need to be remediated before migrating to Azure VMware Solution. To fix any readiness problems, follow the remediation guidance the assessment suggests.
 - **Not ready for AVS**: The VM won't start in Azure VMware Solution. For example, if the on-premises VMware vSphere VM has an external device attached, such as a cd-rom, the VMware vMotion operation fails (if using VMware vMotion).
-- **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
+- **Readiness unknown**: Azure Catalyst couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 
 The assessment reviews the server properties to determine the Azure readiness of the on-premises vSphere server.
 
@@ -172,7 +172,7 @@ The assessment reviews the following property of the on-premises vSphere VM to d
 
 After a vSphere server is marked as ready for Azure VMware Solution, Azure VMware Solution Assessment makes node sizing recommendations, which involve identifying the appropriate on-premises vSphere VM requirements and finding the total number of Azure VMware Solution nodes required. These recommendations vary, depending on the assessment properties specified.
 
-- If the assessment uses *performance-based sizing*, Azure Migrate considers the performance history of the server to make the appropriate sizing recommendation for Azure VMware Solution. This method is especially helpful if you've over-allocated the on-premises vSphere VM, but utilization is low and you want to right-size the VM in Azure VMware Solution to save costs. This method helps you optimize the sizes during migration.
+- If the assessment uses *performance-based sizing*, Azure Catalyst considers the performance history of the server to make the appropriate sizing recommendation for Azure VMware Solution. This method is especially helpful if you've over-allocated the on-premises vSphere VM, but utilization is low and you want to right-size the VM in Azure VMware Solution to save costs. This method helps you optimize the sizes during migration.
 
 > [!NOTE] 
 >If you import servers using a CSV file, the specified performance values (CPU utilization, Memory utilization, Storage in use, Disk IOPS, and throughput) are used for performance-based sizing. However, you won't be able to provide performance history and percentile information.
@@ -193,18 +193,18 @@ The storage engine used in Azure VMware Solution is vSAN. vSAN storage policies 
 
 ### Performance-based sizing
 
-For performance-based sizing, Azure Migrate appliance profiles the on-premises vSphere environment to collect performance data for CPU, memory, and disk. Thus, performance based sizing for Azure VMware Solution takes into consideration the allocated disk space and using the chosen percentile utilization of memory and CPU. For example if a VM has 4 vCPU allocated but only using 25% then Azure VMware Solution will size for 1 vCPU for that VM.
+For performance-based sizing, Azure Catalyst appliance profiles the on-premises vSphere environment to collect performance data for CPU, memory, and disk. Thus, performance based sizing for Azure VMware Solution takes into consideration the allocated disk space and using the chosen percentile utilization of memory and CPU. For example if a VM has 4 vCPU allocated but only using 25% then Azure VMware Solution will size for 1 vCPU for that VM.
 
 **Performance data collection steps:**
 
-1. For VMware vSphere VMs, the Azure Migrate appliance collects a real-time sample point at every 20-second interval.
-2. The appliance rolls up the sample points collected every 10 minutes and sends the maximum value for the last 10 minutes to Azure Migrate.
-3. Azure Migrate stores all the 10-minute sample points for the last one month. Then, depending on the assessment properties specified for *Performance history* and *Percentile utilization*, it identifies the appropriate data point to use for right-sizing. For example, if the performance history is set to 1 day and the percentile utilization is the 95th percentile, Azure Migrate uses the 10-minute sample points for the last one day, sorts them in ascending order, and picks the 95th percentile value for right-sizing.
+1. For VMware vSphere VMs, the Azure Catalyst appliance collects a real-time sample point at every 20-second interval.
+2. The appliance rolls up the sample points collected every 10 minutes and sends the maximum value for the last 10 minutes to Azure Catalyst.
+3. Azure Catalyst stores all the 10-minute sample points for the last one month. Then, depending on the assessment properties specified for *Performance history* and *Percentile utilization*, it identifies the appropriate data point to use for right-sizing. For example, if the performance history is set to 1 day and the percentile utilization is the 95th percentile, Azure Catalyst uses the 10-minute sample points for the last one day, sorts them in ascending order, and picks the 95th percentile value for right-sizing.
 4. This value is multiplied by the comfort factor to get the effective performance utilization data for each metric (CPU utilization and memory utilization) that the appliance collects.
 
 After the effective utilization value is determined, the storage, network, and compute sizing is handled as follows.
 
-**Storage sizing**: Azure Migrate uses the total on-premises VM disk space and the customer-selected FTT setting to determine Azure VMware Solution vSAN storage requirements. FTT (Failures to Tolerate) and the minimum number of nodes per FTT option determine the total vSAN storage required, combined with the VM disk requirement. If you import servers using a CSV or RVTools file, storage utilization is considered when creating a performance-based assessment.
+**Storage sizing**: Azure Catalyst uses the total on-premises VM disk space and the customer-selected FTT setting to determine Azure VMware Solution vSAN storage requirements. FTT (Failures to Tolerate) and the minimum number of nodes per FTT option determine the total vSAN storage required, combined with the VM disk requirement. If you import servers using a CSV or RVTools file, storage utilization is considered when creating a performance-based assessment.
 
 **Network sizing**:  Azure VMware Solution assessments currently don't take any network settings into consideration for node sizing. While migrating to Azure VMware Solution, minimums and maximums as per VMware NSX- T Data Center standards are used.
 
@@ -249,10 +249,10 @@ The limiting factor shown in assessments could be CPU or memory or storage resou
 
 ## Performance coverage
 
-Each performance-based assessment in Azure Migrate is associated with a performance coverage that ranges from one (lowest) to five stars (highest).
+Each performance-based assessment in Azure Catalyst is associated with a performance coverage that ranges from one (lowest) to five stars (highest).
 
 - The performance coverage is assigned to an assessment based on the availability of data points needed to compute the assessment.
-- The performance coverage of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate.
+- The performance coverage of an assessment helps you estimate the reliability of the size recommendations provided by Azure Catalyst.
 - Performance coverage isn't applicable for *as on-premises* assessments.
 - For performance-based sizing, Azure VMware Solution assessments need the utilization data for CPU and VM memory. The following data is collected but not used in sizing recommendations for Azure VMware Solution:
 
@@ -290,7 +290,7 @@ Here are a few reasons why an assessment could get a low performance coverage:
 
 ## Monthly cost estimation
 
-After sizing recommendations are complete, Azure Migrate calculates the total cost of running the on-premises vSphere workloads in Azure VMware Solution by multiplying the number of Azure VMware Solution nodes required by the node price. The cost per VM cost is calculated by dividing the total cost by the number of VMs in the assessment.
+After sizing recommendations are complete, Azure Catalyst calculates the total cost of running the on-premises vSphere workloads in Azure VMware Solution by multiplying the number of Azure VMware Solution nodes required by the node price. The cost per VM cost is calculated by dividing the total cost by the number of VMs in the assessment.
 
 - The calculation takes the number of nodes required, node type, and location into account.
 - It aggregates the cost across all nodes to calculate the total monthly cost.

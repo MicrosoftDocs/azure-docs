@@ -4,7 +4,7 @@ ms.reviewer: v-gajeronika
 description: This article summarizes the costs disaster recovery and migration deployment scenarios.
 ms.topic: overview
 ms.service: azure-site-recovery
-ms.date: 11/28/2025
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: As a cloud architect, I want to analyze the cost components of Azure Site Recovery for managed disks, so that I can effectively budget for disaster recovery and optimize overall expenses.
@@ -47,17 +47,14 @@ Network egress costs, also known as outbound data transfer charges, occur when r
 
 ## Snapshot cost
 
-**ASR takes snapshots for both source disks in source region and replica disks in target region.**
+Site Recovery creates snapshots of source disks in the source region and recovery-point snapshots of replica disks in the target region. Existing customer-created snapshots aren't replicated.
 
-This cost includes:
-
-- **Source**:
-  - For Premium SSDs, incremental snapshots are charged.
-  - For Standard and Premium SSD v2 disks, one full snapshot followed by incremental snapshots is charged.
-  - For Pv2 disks, one full snapshot followed by incremental snapshots is charged.
-  - Pricing details align with Page Blob Snapshots. Learn more. You can refer to the 'Premium Page Blobs' section and the 'Standard Page Blob' section, respectively.
-- **Target**:
-  - Snapshot costs are associated with the recovery points created by Azure Site Recovery. These snapshots capture the replica storage at a point in time and are charged based on the consumed capacity. Pricing details align with Page Blob Snapshots. [Learn more](https://azure.microsoft.com/pricing/details/storage/page-blobs/#:~:text=Note%3A%20Snapshots%20are%20charged,at%20%240.12%20%2FGB%20per%20month.?msockid=3816c7206e2268e7035dd3316f7069f4).
+Disk family | Source snapshot behavior | Target recovery-point behavior | Additional cost considerations
+--- | --- | --- | ---
+Standard HDD and Standard SSD | One full snapshot followed by incremental snapshots | Charged on consumed snapshot capacity | A deleted snapshot can require resynchronization.
+Premium SSD v1 | Incremental snapshots | Charged on consumed snapshot capacity | Snapshot encryption follows the disk configuration.
+Premium SSD v2 | One full snapshot followed by incremental snapshots | Charged on consumed snapshot capacity | Initial replication can include snapshot background-copy activity. A 4-KiB source remains subject to 4-KiB snapshot compatibility.
+Ultra Disk | One full snapshot followed by incremental snapshots | Charged on consumed snapshot capacity | Initial replication can include snapshot background-copy activity. A 4-KiB source remains subject to 4-KiB snapshot compatibility.
 
 
 ## Temporary Source Disk cost

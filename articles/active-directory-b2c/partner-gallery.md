@@ -10,7 +10,7 @@ ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 01/11/2024
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 
 
@@ -24,7 +24,7 @@ ms.subservice: b2c
 
 Our ISV partner network extends our solution capabilities to help you build seamless end-user experiences. With Azure AD B2C, you can integrate with ISV partners to enable multifactor authentication (MFA) methods, do role-based access control, enable identity verification and proofing, improve security with bot detection and fraud protection, and meet Payment Services Directive 2 (PSD2) Secure Customer Authentication (SCA) requirements. Use our detailed sample walkthroughs to learn how to integrate apps with the ISV partners. 
 
-To be considered into this sample documentation, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx). For any additional questions, send an email to [SaaSApplicationIntegrations@service.microsoft.com](mailto:SaaSApplicationIntegrations@service.microsoft.com).
+To be considered into this sample documentation, submit your application request in the [Microsoft Application Network portal](/entra/identity/enterprise-apps/v2-howto-app-gallery-listing). For any additional questions, send an email to [SaaSApplicationIntegrations@service.microsoft.com](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
 >[!NOTE]
 >The [Azure Active Directory B2C community site on GitHub](https://github.com/azure-ad-b2c/partner-integrations) also provides sample custom policies from the community.

@@ -4,7 +4,7 @@ description: Describes the properties that are provided for Azure API Center eve
 ms.topic: reference
 ms.date: 03/05/2024
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ---
 
 # Azure API Center as an Event Grid source (Preview)

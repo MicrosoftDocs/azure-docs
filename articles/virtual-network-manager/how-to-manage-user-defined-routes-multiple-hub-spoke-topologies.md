@@ -3,7 +3,7 @@ title: "Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologi
 description: Learn to manage User Defined Routes (UDRs) across multiple hub-and-spoke topologies with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.date: 11/07/2024
+ms.date: 07/29/2026
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.custom: sfi-image-nochange
@@ -74,7 +74,7 @@ In this step, you create two connectivity configurations in your network manager
   |-------|-------|
   | **Topology** | Select **Hub and spoke**. |
   | **Hub** | Choose **Select a hub** and select the hub virtual network in region 1. |
-  | **Spoke network groups** | Select **Add*.</br> In the **Add network groups** window, select the spoke network groups from region 1: **ng-spoke-*\<region1\>***,**ng-spoke-*\<region2\>*** |
+  | **Spoke network groups** | Select **Add**.<br> In **Add network groups**, select the spoke network group from region 1: **ng-spoke-*\<region1\>***. |
 
 6. Select the **Visualization** tab or **Next: Visualization** to review the topology.
 7. Select **Review + create** then **Create and start deployment** to deploy the connectivity configuration.
@@ -119,7 +119,7 @@ In this step, you create a routing configuration containing four rule collection
 In these steps, you create routing rules in each rule collection to manage traffic between the spoke virtual networks and the Azure Firewall subnets in each region.
 
 ### Create a routing rule for spoke virtual networks in region 1
-In this step, you create a routing rule for the spoke virtual networks in region 1 allowing communication with the Azure Firewall subnet in region 1.
+In this step, you create a routing rule for the spoke virtual networks in region 1 that allows communication with the Azure Firewall subnet in region 1. For more background on this default-route-to-Azure-Firewall pattern, see [How to deploy hub and spoke topology with Azure Firewall](how-to-deploy-hub-spoke-topology-with-azure-firewall.md).
 
 1. In your network manager instance, navigate to **Configurations** under **Settings**.
 2. Select the routing configuration you created for the spoke virtual networks in region 1.

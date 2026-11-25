@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 06/26/2024
-ms.author: alkohli
+ms.author: scompton
 ---
 
 Here's a list of the supported operating systems for clients or hosts connected to your device. These operating system versions were tested in-house.

@@ -7,7 +7,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: best-practice
 ms.date: 07/30/2020
-ms.author: jinglou
+ms.author: normesta
 ms.reviewer: cralvord,richardgao
 # Customer intent: As a cloud administrator, I want to implement security best practices for Azure Storage Explorer, so that I can protect sensitive data and ensure safe access to storage resources.
 ---
@@ -85,7 +85,7 @@ Storage account keys grant unrestricted access to the services and resources wit
 
 Some Azure roles grant permission to retrieve storage account keys. Individuals with these roles can effectively circumvent permissions granted or denied by Azure RBAC. We recommend not granting this permission unless it's necessary.
 
-Storage Explorer attempts to use storage account keys, if available, to authenticate requests. You can disable this feature in Settings (**Services > Storage Accounts > Disable Usage of Keys**). Some features don't support Azure RBAC, such as working with Classic storage accounts. This setting doesn't affect features that still require keys.
+Storage Explorer attempts to use storage account keys, if available, to authenticate requests. You can disable this feature in Settings (**Services > Storage Accounts > Disable Usage of Keys**). Some features don't support Azure RBAC. This setting doesn't affect features that still require keys.
 
 If you must use keys to access your storage resources, we recommend the following guidelines:
 

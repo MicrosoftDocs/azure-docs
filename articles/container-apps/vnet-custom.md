@@ -208,7 +208,7 @@ The following table describes the parameters used with `containerapp env create`
 | `logs-workspace-key` | The Log Analytics client secret. Required if using an existing workspace. |
 | `location` | The Azure location where the environment is to deploy. |
 | `infrastructure-subnet-resource-id` | Resource ID of a subnet for infrastructure components and user application containers. |
-| `internal-only` | (Optional) The environment doesn't use a public static IP, only internal IP addresses available in the custom VNet. (Requires an infrastructure subnet resource ID.) |
+| `internal-only` | (Optional) The environment doesn't use a public static IP, only internal IP addresses available in the custom VNet. (Requires an infrastructure subnet resource ID.) After you create an internal environment, set each app's ingress to external so that clients in your virtual network can reach it. For more information, see [Restrict an app to virtual network access only](ingress-overview.md#restrict-an-app-to-virtual-network-access-only). |
 
 # [PowerShell](#tab/powershell)
 

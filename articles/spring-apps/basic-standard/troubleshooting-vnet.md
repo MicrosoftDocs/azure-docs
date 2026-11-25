@@ -1,12 +1,12 @@
 ---
 title: Troubleshooting Azure Spring Apps in Virtual Network
 description: Troubleshooting guide for Azure Spring Apps virtual network.
-author: KarlErickson
+author: sandeep-sen
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
-ms.author: karler
+ms.author: sandeepsen
 ms.custom: devx-track-java
 ---
 

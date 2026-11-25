@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/14/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As a system administrator, I want to configure directory-level and file-level permissions for SMB Azure file shares by using Windows ACLs, so that I can ensure granular access control and enhance security for users accessing shared files."
 ---
 
@@ -19,7 +19,7 @@ Before you can configure directory-level and file-level permissions, you must [a
 
 Consult the following table to determine which tool can be used to configure ACLs for which authentication type.
 
-| Tool                            | AD DS (Hybrid)           | Entra Domain Services (Hybrid) | Entra Kerberos (Hybrid)  | Entra Kerberos (Cloud-only) |
+| Tool                            | AD DS (Hybrid)           | Microsoft Entra Domain Services (Hybrid) | Microsoft Entra Kerberos (Hybrid)  | Microsoft Entra Kerberos (Cloud-only) |
 |---------------------------------|:------------------------:|:------------------------------:|:------------------------:|:------------------------------------:|
 | Windows File Explorer           | :heavy_check_mark:       | :heavy_check_mark:             | :heavy_check_mark:       | ⛔             |
 | icacls                          | :heavy_check_mark:       | :heavy_check_mark:             | :heavy_check_mark:       | ⛔             |
@@ -83,7 +83,7 @@ Before you configure Windows ACLs by using File Explorer or icacls, mount the fi
 
 You have two options for mounting the file share with admin-level access:
 
-- **Use the Windows permission model for SMB admin (recommended)**: Assign the built-in RBAC role [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) to admin users who will configure ACLs. Then mount the file share by using [identity-based authentication](storage-files-active-directory-overview.md) and configure ACLs. If an existing ACL on a file or directory denies the admin access, the admin can use the Windows `takeown` command to take ownership of the file or directory and then modify the ACL. This approach is more secure because it doesn't require your storage account key to mount the file share.
+- **Use the Windows permission model for SMB admin (recommended)**: Assign the built-in RBAC role [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) to admin users who configure ACLs. Then mount the file share by using [identity-based authentication](storage-files-active-directory-overview.md) and configure ACLs. If an existing ACL on a file or directory denies the admin access, the admin can use the Windows `takeown` command to take ownership of the file or directory and then modify the ACL. This approach is more secure because it doesn't require your storage account key to mount the file share.
 
 - **Use the storage account key (less secure)**: Use your storage account key to mount the file share and then configure ACLs. Mounting with a storage account key gives you immediate full access without needing to take ownership of files or directories. The storage account key is a sensitive credential. For security reasons, use this option only if you can't use identity-based authentication.
 
@@ -91,7 +91,7 @@ If a user has the Full Control ACL and the [Storage File Data SMB Share Elevated
 
 ### Use the Storage File Data SMB Admin role to mount the share
 
-Use the Windows permission model for SMB admin instead of the storage account key. This feature enables you to assign the built-in RBAC role [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) to admin users, so they can mount the share using identity-based authentication and configure ACLs.
+Use the Windows permission model for SMB admin instead of the storage account key. This feature enables you to assign the built-in RBAC role [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) to admin users, so they can mount the share by using identity-based authentication and configure ACLs.
 
 If an existing ACL on a file or directory grants the admin sufficient permissions (such as Modify or Full Control), the admin can configure ACLs directly. If the existing ACL denies access, the admin can use the Windows [`takeown`](/windows-server/administration/windows-commands/takeown) command to take ownership of the target file or directory, and then modify the ACL to grant the appropriate access permissions.
 
@@ -155,7 +155,7 @@ The process for configuring Windows ACLs varies depending on whether you're auth
 > [!IMPORTANT]
 > Using icacls doesn't work for cloud-only identities.
 
-To grant full permissions to all directories and files under the file share, including the root directory, run the following Windows command from a machine that has unimpeded network connectivity to the Active Directory domain controller. Remember to replace the placeholder values in the example with your own values. If your identity source is Microsoft Entra Domain Services, then `<user-upn>` is `<user-email>`.
+To grant full permissions to all directories and files under the file share, including the root directory, run the following Windows command from a machine that has unimpeded network connectivity to the Active Directory domain controller. Replace the placeholder values in the example with your own values. If your identity source is Microsoft Entra Domain Services, then `<user-upn>` is `<user-email>`.
 
 ```
 icacls <mapped-drive-letter>: /grant <user-upn>:(f)
@@ -212,9 +212,20 @@ If you configure Microsoft Entra Kerberos as the identity source for your storag
 
 1. Edit the permissions. **Deny** always takes precedence over **Allow** when both are set. When neither is set, default permissions are inherited.
 
-   :::image type="content" source="media/configure-file-level-permissions/edit-permissions.png" alt-text="Screenshot of the Azure portal that shows how to add or edit permissions for an Entra user or group." lightbox="media/configure-file-level-permissions/edit-permissions.png" border="true":::
+   :::image type="content" source="media/configure-file-level-permissions/edit-permissions.png" alt-text="Screenshot of the Azure portal that shows how to add or edit permissions for a Microsoft Entra user or group." lightbox="media/configure-file-level-permissions/edit-permissions.png" border="true":::
 
 1. Select **Save** to set the ACL.
+
+When you edit inheritable permissions on a folder by using the Azure portal, the permissions apply only to _future_ direct subfiles and subfolders. They don't automatically apply to _existing_ subfiles and subfolders. To apply the inheritable permission to all existing items under the folder, use the `Restore-AzFileAclInheritance` command from the [RestSetAcls PowerShell module](https://www.powershellgallery.com/packages/RestSetAcls/). Select the **Manage Inheritance** button to generate a copy-pasteable script that applies the inheritable permission recursively to all items under the folder.
+
+```powershell
+Install-Module RestSetAcls
+$AccountName = "<storage-account-name>" # replace with the storage account name 
+$AccountKey = "<storage-account-key>" # replace with the storage account key 
+$FolderPath = "/path/to/folder" # replace with the folder path within the file share
+$context = New-AzStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey 
+Restore-AzFileAclInheritance -Context $context -FileShareName "test" -Path $FolderPath -Recursive
+```
 
 ### Configure Windows ACLs for cloud-only identities by using PowerShell
 

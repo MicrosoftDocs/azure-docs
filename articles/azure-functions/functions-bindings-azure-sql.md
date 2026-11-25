@@ -1,7 +1,6 @@
 ---
 title: Azure SQL bindings for Functions
 description: Understand how to use Azure SQL bindings in Azure Functions.
-author: JetterMcTedder
 ms.topic: reference
 ms.custom:
   - build-2023
@@ -10,7 +9,6 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.date: 12/06/2024
-ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -102,18 +100,8 @@ Add the [Azure Functions Java SQL Types package](https://mvnrepository.com/artif
 
 ::: zone-end
 
-## SQL connection string
 
-Azure SQL bindings for Azure Functions have a required property for the connection string on all bindings and triggers. These pass the connection string to the Microsoft.Data.SqlClient library and supports the connection string as defined in the [SqlClient ConnectionString documentation](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString).  
-
-[!INCLUDE [functions-sql-database-authentication-note](../../includes/functions-sql-database-authentication-note.md)]
-
-Notable keywords include:
-
-- `Authentication`: allows a function to connect to Azure SQL with Microsoft Entra ID and managed identities. For more information, see [Connect a function app to Azure SQL with managed identity and SQL bindings](functions-identity-access-azure-sql-with-managed-identity.md).
-- `Command timeout`: allows a function to wait for specified amount of time in seconds before terminating a query (default 30 seconds)
-- `ConnectRetryCount`: allows a function to automatically make additional reconnection attempts, especially applicable to Azure SQL Database serverless tier (default 1)
-- `Pooling`: allows a function to reuse connections to the database, which can improve performance (default `true`). Additional settings for connection pooling include `Connection Lifetime`, `Max Pool Size`, and `Min Pool Size`. Learn more about connection pooling in the [ADO.NET documentation](/sql/connect/ado-net/sql-server-connection-pooling)
+[!INCLUDE [functions-sql-connections](../../includes/functions-sql-connections.md)]
 
 ## Considerations
 
@@ -121,17 +109,15 @@ Notable keywords include:
 - Source code for the Azure SQL bindings can be found in [this GitHub repository](https://github.com/Azure/azure-functions-sql-extension).
 - This binding requires connectivity to an Azure SQL or SQL Server database.
 - Output bindings against tables with columns of data types `NTEXT`, `TEXT`, or `IMAGE` aren't supported and data upserts will fail. These types [will be removed](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) in a future version of SQL Server and aren't compatible with the `OPENJSON` function used by this Azure Functions binding.
-- Use [managed identities](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity) instead of usernames and passwords.
+- Use [managed identities](/azure/synapse-analytics/sql/authentication-azure-ad-user-assigned-managed-identity) instead of usernames and passwords.
 - Consider using an [Azure Key Value](/azure/app-service/app-service-key-vault-references) to store application settings.
 
 ## Samples
 
 In addition to the samples for C#, Java, JavaScript, PowerShell, and Python available in the [Azure SQL bindings GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples), more are available in Azure Samples:
 
-- [C# ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)
+- [ToDo API sample with Azure SQL bindings (C#)](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)
 - [Use SQL bindings in Azure Stream Analytics](../stream-analytics/sql-database-upsert.md#option-1-update-by-key-with-the-azure-function-sql-binding)
-- [Send data from Azure SQL with Python](/samples/azure-samples/sqlbindings-python-datatransfer/sample-load-data-from-sql-using-python-and-azure-functions/)
-
 
 ## Next steps
 

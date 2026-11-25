@@ -2,10 +2,10 @@
 title: Azure Elastic SAN configuration best practices
 description: Learn best practices for optimizing Azure Elastic SAN performance. Get recommendations for client-side settings, MPIO, iSCSI configurations, and deployment sizing
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 04/23/2026
-ms.author: rogarana
+ms.author: normesta
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud infrastructure administrator, I want to implement best practices for configuring an Elastic SAN, so that I can achieve optimal performance and resource efficiency for my storage solutions in a cloud environment.
 ---
@@ -51,7 +51,10 @@ This article provides guidance on how to get optimal performance with an environ
 > Configuring your nodes to use seven iSCSI sessions ensures that if you need to attach an extra node (for maintenance) then you have available iSCSI sessions.
 
 #### Azure VMWare Solution Gen2 Private Cloud 
-- Configure one Private Endpoint on the ESAN volume group to create 7 iSCSI sessions from AVS host to Elastic SAN volume. 
+- Configure one Private Endpoint on the ESAN volume group to create 7 iSCSI sessions from AVS host to Elastic SAN volume.
+
+#### SQL Server
+- Add delayed start for SQL Services to ensure iSCSI connectivity is established prior to SQL services starting up.
 
 ### MPIO
 

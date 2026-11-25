@@ -58,10 +58,13 @@ The ingress visibility setting controls whether your app is reachable from outsi
 
 | Visibility | FQDN pattern | Reachable from |
 |---|---|---|
-| **External** | `<APP_NAME>.<ENVIRONMENT_UNIQUE_ID>.<REGION>.azurecontainerapps.io` | Anywhere (public internet) |
-| **Internal** | `<APP_NAME>.internal.<ENVIRONMENT_UNIQUE_ID>.<REGION>.azurecontainerapps.io` | Same environment only |
+| **External** | `<APP_NAME>.<ENVIRONMENT_UNIQUE_ID>.<REGION>.azurecontainerapps.io` | The environment's network boundary, which is the public internet or your virtual network depending on the environment type, plus other apps in the same environment |
+| **Internal** | `<APP_NAME>.internal.<ENVIRONMENT_UNIQUE_ID>.<REGION>.azurecontainerapps.io` | Only other apps within the same Container Apps environment |
 
-When you set ingress to **internal**, the FQDN includes an `.internal.` segment. Other container apps in the same environment can still reach the app using this address, but requests from outside the environment receive a `404` response from the environment's proxy. The DNS name resolves to the environment's shared IP, but the proxy rejects the request because the app is internal-only. <!-- Source: Q1 -->
+When you set ingress to **internal**, the FQDN includes an `.internal.` segment. Other container apps in the same environment can still reach the app using this address, but requests from outside the environment receive a `404` response from the environment's proxy. The DNS name resolves to the environment's inbound IP address, and the TLS handshake succeeds, but the proxy rejects the request because the app is limited to the environment. <!-- Source: Q1 -->
+
+> [!IMPORTANT]
+> On an internal environment, requests from your own virtual network count as requests from outside the environment. Setting ingress to **internal** doesn't mean "reachable from the virtual network," it means "reachable only from other container apps in this environment." To let clients in your virtual network reach the app, set ingress to **external**. Since an internal environment has no public endpoint, this setting doesn't expose the app to the internet. For more information, see [How ingress visibility interacts with the environment type](ingress-overview.md#how-ingress-visibility-interacts-with-the-environment-type).
 
 [!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 

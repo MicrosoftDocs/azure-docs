@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 05/09/2022
+ms.date: 10/15/2026
 ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
@@ -44,6 +44,8 @@ For REST calls, clients can use the following headers to securely pass encryptio
 |`x-ms-encryption-algorithm` | Required for write requests, optional for read requests. Specifies the algorithm to use when encrypting data using the given key.  The value of this header must be `AES256`. |
 
 Specifying encryption keys on the request is optional. However, if you specify one of the headers listed above for a write operation, then you must specify all of them.
+
+If you're using a user delegation SAS and the `signedVersion` (`sv`) is set to 2026-04-06 or later, you can use the srh and srq query parameters to require specific headers and query parameters on any request that uses the SAS, with Azure Storage validating their values against canonicalized strings included in the string-to-sign. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 ## Blob storage operations supporting customer-provided keys
 

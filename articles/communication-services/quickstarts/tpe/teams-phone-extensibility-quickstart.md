@@ -6,13 +6,15 @@ author: radubulboaca
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.topic: tutorial
-ms.date: 09/02/2025
+ms.date: 12/10/2025
 ms.author: radubulboaca
 ms.custom: general_availability
 services: azure-communication-services
 ---
 
 # Teams Phone System extensibility quick start
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 
 
 This article describes how an independent software vendor (ISV) can provision Teams Phone for the scope of Teams Phone extensibility (TPE). This article also describes how an ISV can guide their customers because there are operations in Teams that a tenant needs to implement.
@@ -26,8 +28,8 @@ This article describes how an independent software vendor (ISV) can provision Te
 - ISV’s Customer has access to Microsoft 365 Admin Center.
 - ISV has access to change Azure Communication Services Resource settings.
 - You grant Teams Tenant access to a CCaaS service for Graph API usage.
-- ISV uses the .NET, JavaScript, or Java ACS Call Automation SDK version 1.5.0 or above (Python version will be released soon).
-- ISV uses the JavaScript ACS Client SDK version 1.37 and above.
+- ISV uses the latest .NET, JavaScript, Python, or Java ACS Call Automation SDK version (1.5.0 and above).
+- ISV uses the latest JavaScript ACS Client SDK version (1.37 and above).
 
 
 ## Quick start
@@ -93,13 +95,13 @@ New-AzBotService -ResourceGroupName <your RG name here> -Name "<name of Teams Ph
 Example:
 
 ```azurecli
-New-AzBotService -ResourceGroupName teamsphonetest-rg -Name "teamsPhoneBot" -ApplicationId aa123456-1234-1234-1234-aaa123456789 -Location "global" -Sku S1 -Description "My Teams Phone Test Bot" 
+New-AzBotService -ResourceGroupName teamsphonetest-rg -Name "teamsPhoneBot" -ApplicationId 00001111-aaaa-2222-bbbb-3333cccc4444 -Location "global" -Sku S1 -Description "My Teams Phone Test Bot" 
 ```
 
-For this step, when you configure Teams, the webhook can be any URL. Enter any valid URL such as `https://mycompanydomain.com`.
+For this step, when you configure Teams, set the webhook to `https://eventgrid.azure.net`. This value determines how your application receives incoming call notifications. When you configure the Event Grid URL, incoming call notifications are delivered through Azure Event Grid. If you set a different URL, notifications are delivered directly to that webhook instead. Use `https://eventgrid.azure.net` unless you specifically set up a direct webhook endpoint to handle incoming call notifications.
 
 > [!NOTE]
-> In the future, we expect to remove this dependency on URL.
+> This webhook URL is currently required. Until the dependency is removed, set it to `https://eventgrid.azure.net` to route incoming call notifications through Azure Event Grid.
 
 ### Teams Admin: Provision Resource Account
 
@@ -120,7 +122,7 @@ Use the [New-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell
 Example:
 
 ```azurecli
- New-CsOnlineApplicationInstance -UserPrincipalName myteamsphoneresourceaccount@contoso.com -ApplicationId aa123456-1234-1234-1234-aaa123456789 -DisplayName "My Teams Phone Resource Account" 
+ New-CsOnlineApplicationInstance -UserPrincipalName myteamsphoneresourceaccount@contoso.com -ApplicationId 00001111-aaaa-2222-bbbb-3333cccc4444 -DisplayName "My Teams Phone Resource Account" 
 ```
 
 Use the updated [Set-CSonlineApplicationInstance](/powershell/module/teams/set-csonlineapplicationinstance) command to assign the Resource Account to your Azure Communication Services Resource. This command routes calls to that Azure Communication Services Resource. It's up to the CCaaS developer on how to communicate the `ACSResourceID` to the Teams Tenant.
@@ -128,7 +130,7 @@ Use the updated [Set-CSonlineApplicationInstance](/powershell/module/teams/set-c
 Example:
 
 ```azurecli
-Set-CsOnlineApplicationInstance -Identity myteamsphoneresourceaccount@contoso.com -ApplicationId aa123456-1234-1234-1234-aaa123456789 -AcsResourceId bb567890-1234-1234-1234-bbb123456789 
+Set-CsOnlineApplicationInstance -Identity myteamsphoneresourceaccount@contoso.com -ApplicationId 00001111-aaaa-2222-bbbb-3333cccc4444 -AcsResourceId 11112222-bbbb-3333-cccc-4444dddd5555 
 ```
 
 Use the updated [Sync-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/sync-csonlineapplicationinstance) command to sync the Resource Account to your Agent Provisioning Service. This command routes calls to that Azure Communication Services Resource. There's no change for Teams Phone extensibility in this command.
@@ -136,7 +138,7 @@ Use the updated [Sync-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/p
 Example:
 
 ```azurecli
-Sync-CsOnlineApplicationInstance -ObjectId cc123456-5678-5678-1234-ccc123456789 -ApplicationId aa123456-1234-1234-1234-aaa123456789  
+Sync-CsOnlineApplicationInstance -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ApplicationId 00001111-aaaa-2222-bbbb-3333cccc4444  
 ```
 
 Optionally, you can use the [Get-CsOnlineApplicationInstance (MicrosoftTeamsPowerShell)](/powershell/module/teams/get-csonlineapplicationinstance) cmdlet to return the provisioned Resource Account.
@@ -222,7 +224,7 @@ You can extend the base query with OData options such as:
 The following example returns only Resource Accounts that are associated with a specific ACS Resource ID:
 
 ```rest
-GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$filter=acsResourceId eq 'aa123456-1234-1234-1234-aaa123456789'
+GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$filter=acsResourceId eq '00001111-aaaa-2222-bbbb-3333cccc4444'
 ```
 
 Successful response:
@@ -232,12 +234,12 @@ Successful response:
   "@odata.context": "https://graph.microsoft.com/beta/$metadata#admin/teams/resourceAccounts",
   "value": [
     {
-      "id": "aa123456-1234-1234-1234-aaa123456789",
+      "id": "00001111-aaaa-2222-bbbb-3333cccc4444",
       "userPrincipalName": "myteamsphoneresourceaccount@contoso.com",
       "displayName": "My RA Name",
-      "appId": "aa123456-1234-1234-1234-aaa123456789",
+      "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
       "phoneNumber": "tel:+1234567890",
-      "acsResourceId": "aa123456-1234-1234-1234-aaa123456789"
+      "acsResourceId": "00001111-aaaa-2222-bbbb-3333cccc4444"
     }
   ]
 }
@@ -274,7 +276,7 @@ To continue paging, call the URL in the @odata.nextLink field until it's no long
 Developers can combine $top and $filter to retrieve a filtered, paginated list:
 
 ```rest
-GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$top=5&$filter=acsResourceId eq 'aa123456-1234-1234-1234-aaa123456789'
+GET https://graph.microsoft.com/beta/admin/teams/resourceAccounts?$top=5&$filter=acsResourceId eq '00001111-aaaa-2222-bbbb-3333cccc4444'
 ```
 This query returns up to five Resource Accounts that match the specified ACS Resource ID.
 
@@ -456,7 +458,7 @@ Sample Incoming Call Event with Teams Resource Account Identifier and custom con
 { 
   "to": { 
     "kind": "unknown", 
-    "rawId": "28:orgid:cc123456-5678-5678-1234-ccc123456789" 
+    "rawId": "28:orgid:aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" 
   }, 
   "from": { 
     "kind": "phoneNumber", 
@@ -475,9 +477,16 @@ Sample Incoming Call Event with Teams Resource Account Identifier and custom con
         }
   },
   "incomingCallContext": "<CALL_CONTEXT VALUE>", 
-  "correlationId": "2e0fa6fe-bf3e-4351-9beb-568add4f5315" 
+  "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd" 
 } 
 ```
+ > [!NOTE]
+ > A Teams Phone Extensibility (TPE) `Microsoft.Communication.IncomingCall` event can include the optional `data.callArrivalDisplayInfo` object with `teamsTenantId` and `destinationPhoneNumber`. Use these properties to improve display and client experiences, such as showing the dialed service number or tenant context.
+ >
+ > Don't use `destinationPhoneNumber` as a stable routing, authorization, or resource-account identity. Phone numbers can be reassigned and aren't available in every call scenario. Continue to use the Teams resource-account identity in `data.to` and your provisioned application configuration for routing and identity decisions.
+ >
+ > For the payload format and omission rules, see [Microsoft.Communication.IncomingCall](../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationincomingcall).
+
 
 ### CCaaS Developer: How to access media directly
 
@@ -661,4 +670,4 @@ Response<RecordingStateResult> response = await callAutomationClient.GetCallReco
 ## Related articles
 
 - [Teams Phone extensibility overview](../../concepts/interop/tpe/teams-phone-extensibility-overview.md)
-- [REST API for Teams Phone extensibility](./teams-phone-extensiblity-rest-api.md)
+- [REST API for Teams Phone extensibility](./teams-phone-extensibility-rest-api.md)

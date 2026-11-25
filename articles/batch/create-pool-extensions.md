@@ -3,7 +3,7 @@ title: Use extensions with Batch pools
 description: Extensions are small applications that facilitate post-provisioning configuration and setup on Batch compute nodes.
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 11/11/2025
+ms.date: 08/31/2026
 # Customer intent: "As a cloud engineer, I want to implement and manage extensions on Batch compute nodes so that I can ensure proper configuration and optimize post-provisioning operations for my applications."
 ---
 
@@ -30,8 +30,6 @@ The following extensions can currently be installed when creating a Batch pool:
 
 - [Azure Key Vault extension for Linux](/azure/virtual-machines/extensions/key-vault-linux)
 - [Azure Key Vault extension for Windows](/azure/virtual-machines/extensions/key-vault-windows)
-- [Azure Monitor Logs analytics and monitoring extension for Linux](/azure/virtual-machines/extensions/oms-linux)
-- [Azure Monitor Logs analytics and monitoring extension for Windows](/azure/virtual-machines/extensions/oms-windows)
 - [Azure Desired State Configuration (DSC) extension](/azure/virtual-machines/extensions/dsc-overview)
 - [Azure Diagnostics extension for Windows VMs](/azure/virtual-machines/windows/extensions-diagnostics)
 - [HPC GPU driver extension for Windows on AMD](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows)
@@ -42,6 +40,9 @@ The following extensions can currently be installed when creating a Batch pool:
 - [Azure Monitor agent for Windows](/azure/azure-monitor/agents/azure-monitor-agent-manage)
 - [Application Health extension](/azure/virtual-machines/extensions/health-extension)
 - [Guest Attestation extension](/azure/virtual-machines/boot-integrity-monitoring-overview)
+
+> [!NOTE]
+> The Log Analytics agent, also known as the Microsoft Monitoring Agent (MMA) or Operations Management Suite (OMS) agent, is retired and isn't supported. Use Azure Monitor Agent for new monitoring configurations. For Batch-specific guidance, see [Monitor Azure Batch pool compute nodes with Azure Monitor Agent](monitor-batch-pool-nodes.md).
 
 You can request support for other publishers and/or extension types by opening a support request.
 

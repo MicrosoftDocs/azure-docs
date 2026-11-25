@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/25/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As a storage administrator, I want to update the password of the Active Directory Domain Services identity that represents my storage account, so that I can maintain Kerberos authentication and ensure uninterrupted access to Azure file shares.
 ---
 

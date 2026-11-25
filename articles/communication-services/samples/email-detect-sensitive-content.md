@@ -6,7 +6,7 @@ author: MsftPMACS
 manager: darmour
 services: azure-communication-services
 
-ms.author: maniss
+ms.author: diberry
 ms.date: 10/30/2024
 ms.topic: tutorial
 ms.service: azure-communication-services
@@ -15,6 +15,8 @@ ms.custom: sfi-ropc-nochange
 ---
 
 # Detect sensitive data using Azure AI
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 This article describes presend email analysis, which detects sensitive data and inappropriate content using Azure AI.
 

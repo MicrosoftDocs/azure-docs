@@ -3,7 +3,7 @@ title: 'Private Endpoints Overview: Version 2 Experience'
 description: This article explains the concept of private endpoints for Azure Backup, which can help you perform backups while maintaining the security of your resources.
 ms.topic: overview
 ms.service: azure-backup
-ms.date: 09/09/2025
+ms.date: 06/16/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: sfi-image-nochange
@@ -70,10 +70,6 @@ The following table lists the scenarios and recommendations:
 
 > [!NOTE]
 > Private endpoints are supported only with DPM 2022, Microsoft Azure Backup Server (MABS) v4, and later.
-
-## Unsupported scenario
-
-For backup and restore operations, a private endpoint-enabled Recovery Services vault is not compatible with a private endpoint-enabled Azure key vault to store CMKs in a Recovery Services vault.
 
 ## Difference in network connections for private endpoints
 

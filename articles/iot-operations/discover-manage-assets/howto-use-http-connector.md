@@ -1,15 +1,15 @@
 ---
 title: How to use the connector for HTTP/REST
-description: Use the operations experience web UI or the Azure CLI to configure assets and devices for connections to HTTP endpoints.
+description: Use the operations experience, Azure CLI, or Bicep to configure HTTP/REST devices, datasets, and management actions.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 05/28/2026
+ms.date: 11/06/2026
 ai-usage: ai-assisted
 
-#CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from HTTP/REST endpoints.
+#CustomerIntent: As an industrial edge IT or operations user, I want to configure my Azure IoT Operations environment so that I can collect data from HTTP/REST endpoints and invoke operations on them.
 ---
 
 # Configure the connector for HTTP/REST
@@ -29,9 +29,10 @@ The following table summarizes the features the connector for HTTP/REST currentl
 | Anonymous access | Yes | For testing purposes |
 | Southbound certificate trust list | Yes | For secure TLS connections to the HTTP endpoint |
 | OpenTelemetry integration | Yes | |
-| Automatic retries | Yes | Reports failed status for nonretryable errors |
-| WASM data transformation | Yes | Optionally transform incoming data |
-| Schema generation | Yes | Registers inferred schema with the schema registry |
+| Management actions | Yes | On-demand HTTP requests using `Call` actions with GET, POST, PUT, PATCH, or DELETE |
+| Automatic retries | Yes | Dataset sampling supports retries. For management actions, automatic retries apply only to GET, PUT, and DELETE. |
+| WASM data transformation | Yes | Optionally transform incoming dataset data |
+| Schema generation | Yes | Registers inferred dataset schemas with the schema registry |
 
 For each configured dataset, the connector for HTTP/REST:
 
@@ -43,6 +44,7 @@ This article explains how to use the connector for HTTP/REST to perform tasks su
 
 - Define the devices that connect HTTP sources to your Azure IoT Operations instance.
 - Add assets, and define the data points to enable the data flow from the HTTP source to the MQTT broker or [broker state store](../develop-edge-apps/overview-state-store.md).
+- Configure and run management actions to invoke HTTP operations on demand.
 
 ## Prerequisites
 
@@ -95,9 +97,9 @@ To configure the connector for HTTP/REST, first create a device that defines the
 Run the following commands:
 
 ```azurecli
-az iot ops ns device create -n rest-http-connector-cli -g {your resource group name} --instance {your instance name} 
+az iot ops ns device create -n http-connector -g {your resource group name} --instance {your instance name} 
 
-az iot ops ns device endpoint inbound add rest --device rest-http-connector-cli -g {your resource group name} -i {your instance name}  --name rest-http-connector-0 --endpoint-address "https://rest-http-connector-0"
+az iot ops ns device endpoint inbound add rest --device http-connector -g {your resource group name} -i {your instance name}  --name http-connector-0 --endpoint-address "https://rest-http-connector-0"
 ```
 
 To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
@@ -192,7 +194,7 @@ To define an asset that publishes data points from the HTTP endpoint, follow the
 
 1. Select the inbound endpoint for the connector for HTTP/REST that you created in the previous section.
 
-1. Enter a name for your asset, such as `my-http-source`.
+1. Enter a name for your asset, such as `myrestasset`.
 
 1. Add any custom properties you want to associate with the asset. For example, you might add a property to indicate the manufacturer of the camera. Select **Next** to continue.
 
@@ -220,9 +222,9 @@ A dataset defines where the connector sends the data it collects from a collecti
 Run the following commands:
 
 ```azurecli
-az iot ops ns asset rest create --name myrestasset --instance {your instance name} -g {your resource group name} --device rest-http-connector-cli --endpoint rest-http-connector-0
+az iot ops ns asset rest create --name myrestasset --instance {your instance name} -g {your resource group name} --device http-connector --endpoint http-connector-0
 
-az iot ops ns asset rest dataset add --asset myrestasset --instance {your instance name} -g {your resource group name} --name weatherdata --data-source "/api/weather" --dest topic="azure-iot-operations/data/erp" retain=Never qos=Qos1 ttl=3600 --sampling-int 30000
+az iot ops ns asset rest dataset add --asset myrestasset --instance {your instance name} -g {your resource group name} --name weatherdata --data-source "/api/weather" --dest topic="azure-iot-operations/data/env" retain=Never qos=Qos1 ttl=3600 --sampling-int 30000
 ```
 
 For more information, see [az iot ops ns asset rest](/cli/azure/iot/ops/ns/asset/rest).
@@ -273,7 +275,7 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
           {
             target: 'Mqtt'
             configuration: {
-              topic: 'azure-iot-operations/data/erp'
+              topic: 'azure-iot-operations/data/env'
               qos: 'Qos1'
               retain: 'Never'
               ttl: 3600
@@ -289,6 +291,130 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
 
 ---
 
+## Configure and run management actions
+
+Management actions let you make on-demand HTTP requests independently of periodic dataset sampling. An asset can have both datasets and management groups. Each management group contains the actions that you want to expose.
+
+The connector for HTTP/REST supports the `Call` action type only. Use `Call` for every supported HTTP method, including GET and DELETE. Select the HTTP method by setting `httpMethod` in the action configuration; don't select the `Read` or `Write` action type for an HTTP operation. The only supported property in the action configuration is `httpMethod`.
+
+### Management action prerequisites
+
+- Create a device and asset as described earlier in this article. Actions reuse the device endpoint's URL, authentication, and connector certificate trust list.
+- Before you run actions from the operations experience or Azure CLI, [enable management actions on your Azure IoT Operations instance](howto-use-management-actions.md#enable-management-actions). Defining an action doesn't provision the cloud request and response routing. Use `az iot ops mgmt-actions show` as described in that article to verify the setup.
+
+The following examples use the asset `myrestasset` and a management group named `http-actions`. If you use different names, update the commands and MQTT topics to match.
+
+Use your HTTP API's documentation to choose the operation's path, HTTP method, and request payload. The following example defines a `Call` action named `invoke-operation` using POST and an illustrative path, `api/operation`. Replace the path, method, and payload with values supported by your API.
+
+An action's **Target URI** identifies the HTTP path, resolved against the device endpoint URL. The target must use the same scheme, host, and port as the device endpoint. HTTP redirects aren't followed.
+
+Its **Topic** is the MQTT request topic on the Azure IoT Operations broker, not an HTTP path or a telemetry destination. The example uses `azure-iot-operations/asset-operations/myrestasset/http-actions/invoke-operation`.
+
+### Configure a management group and action
+
+Choose one of the following configuration methods.
+
+# [Operations experience](#tab/portal)
+
+1. In the operations experience, select **Assets** and open `myrestasset`.
+
+1. Select the **Management groups** tab, and then select **Add management group**. Name the group `http-actions` and set its default timeout to 30 seconds.
+
+1. Within the group, select **Add action**. Configure the action:
+
+    - **Name**: `invoke-operation`
+    - **Action type**: `Call`
+    - **Target URI**: `api/operation`
+    - **Topic**: `azure-iot-operations/asset-operations/myrestasset/http-actions/invoke-operation`
+    - In the action configuration, set `httpMethod` to `POST`.
+
+1. Save your changes.
+
+# [Azure CLI](#tab/cli)
+
+Create the management group:
+
+```azurecli
+az iot ops ns asset mgmt-group add \
+    --instance "<instance-name>" \
+    --resource-group "<resource-group>" \
+    --asset myrestasset \
+    --name http-actions \
+    --default-timeout 30
+```
+
+Add the action:
+
+```azurecli
+az iot ops ns asset mgmt-action add \
+    --instance "<instance-name>" \
+    --resource-group "<resource-group>" \
+    --asset myrestasset \
+    --group http-actions \
+    --name invoke-operation \
+    --action-type Call \
+    --target-uri api/operation \
+    --topic azure-iot-operations/asset-operations/myrestasset/http-actions/invoke-operation \
+    --action-config '{"actionConfiguration":{"httpMethod":"POST"}}'
+```
+
+The `--action-config` input wraps the connector configuration in an `actionConfiguration` object. The CLI validates the configuration against the connector template and serializes it for the asset.
+
+For more information, see [az iot ops ns asset mgmt-group](/cli/azure/iot/ops/ns/asset/mgmt-group) and [az iot ops ns asset mgmt-action](/cli/azure/iot/ops/ns/asset/mgmt-action).
+
+# [Bicep](#tab/bicep)
+
+Add the following `managementGroups` property inside the asset resource's `properties` block in the template from [Create an asset](#create-an-asset):
+
+```bicep
+managementGroups: [
+  {
+    name: 'http-actions'
+    defaultTimeoutInSeconds: 30
+    actions: [
+      {
+        name: 'invoke-operation'
+        actionType: 'Call'
+        targetUri: 'api/operation'
+        topic: 'azure-iot-operations/asset-operations/myrestasset/http-actions/invoke-operation'
+        actionConfiguration: '{"httpMethod":"POST"}'
+      }
+    ]
+  }
+]
+```
+
+Unlike the CLI input wrapper, the Bicep `actionConfiguration` property contains a JSON-encoded string.
+
+Keep the asset's existing device reference, datasets, and other configuration in the template, then redeploy it. For deployment steps, see [Deploy resources with Bicep and Azure CLI](/azure/azure-resource-manager/bicep/deploy-cli).
+
+---
+
+### Execute a management action
+
+Follow [Execute a management action](howto-use-management-actions.md#execute-a-management-action) to invoke an action from the operations experience or Azure CLI. For the example in this article, use asset `myrestasset`, group `http-actions`, and action `invoke-operation`. Deploying a Bicep definition doesn't execute the action.
+
+Supply the request payload required by your HTTP API. For GET and DELETE, leave the payload empty and omit the CLI's `--payload` option. Don't submit `{}`: it's a nonempty payload and the connector rejects it.
+
+### Management action behavior and limitations
+
+| HTTP method | Request payload | Automatic retries |
+|-------------|-----------------|-------------------|
+| GET, DELETE | Must be empty. The connector doesn't send a request body or Content-Type header. | Yes |
+| PUT | Forwards the invocation payload and content type. | Yes |
+| POST, PATCH | Forwards the invocation payload and content type. | No |
+
+The HTTP timeout uses the action's `timeoutInSeconds`, otherwise the group's `defaultTimeoutInSeconds`, otherwise 30 seconds.
+
+The connector returns the API's response body and content type, defaulting to `application/json` if the content type is missing. HTTP 4xx and 5xx responses report an application error and preserve the response body when available. Transport failures and timeouts report an error without a response body.
+
+Dataset WASM transformations and inferred schemas don't apply to management actions.
+
 ## Transform incoming data
 
 [!INCLUDE [connector-transform-incoming-data](../includes/connector-transform-incoming-data.md)]
+
+## Related content
+
+- [Enable and run management actions](howto-use-management-actions.md)
+- [Understand assets and devices](concept-assets-devices.md)

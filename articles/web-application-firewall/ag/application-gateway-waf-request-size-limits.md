@@ -2,7 +2,7 @@
 title: WAF Request Size Limits in Azure Application Gateway
 description: This article provides information on Web Application Firewall request size limits in Application Gateway with the Azure portal.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 02/25/2026
@@ -12,7 +12,7 @@ ms.date: 02/25/2026
 
 # Web Application Firewall request and file upload size limits
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 Web Application Firewall allows you to configure request size limits within a lower and upper boundary. Application Gateways Web Application Firewalls running Core Rule Set 3.2 or later have more request and file upload size controls, including the ability to disable max size enforcement for requests and/or file uploads.
 

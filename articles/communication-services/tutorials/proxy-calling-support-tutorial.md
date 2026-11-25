@@ -16,6 +16,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Proxy your calling traffic
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to proxy your Azure Communication Services calling traffic across your own servers.
 
 In certain situations, it might be useful to have all your client traffic proxied to a server that you can control. When the SDK is initializing, you can provide the details of your servers that you want the traffic to route to. Once enabled, all the media traffic (audio/video/screen sharing) travels through the provided TURN servers instead of the Azure Communication Services defaults.

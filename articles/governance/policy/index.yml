@@ -8,8 +8,8 @@ metadata:
   description: Azure Policy helps you manage and prevent IT issues with policy definitions that enforce rules and effects for your resources.
   ms.service: azure-policy
   ms.topic: landing-page
-  author: lauradolan
-  ms.author: ladolan
+  author: kgremban
+  ms.author: kgremban
   ms.date: 03/24/2025
 
 landingContent:
@@ -77,6 +77,8 @@ landingContent:
             url: ./tutorials/govern-tags.md
       - linkListType: how-to-guide
         links:
+          - text: Create and test policy definitions with Azure Copilot (preview)
+            url: ./how-to/author-policy-with-copilot.md
           - text: Create policy with SDK
             url: ./how-to/programmatically-create.md
           - text: Author policies for arrays

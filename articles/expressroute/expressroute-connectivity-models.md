@@ -5,13 +5,15 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 06/23/2026
+ms.date: 08/27/2026
 ms.author: duau
 ---
 
 # ExpressRoute connectivity models
 
 You can connect your on-premises network to the Microsoft cloud in four ways: [CloudExchange Colocation](#CloudExchange), [Point-to-point Ethernet Connection](#Ethernet), [Any-to-any (IPVPN) Connection](#IPVPN), and [ExpressRoute Direct](#Direct). Connectivity providers might offer more than one connectivity model. Work with your connectivity provider to pick the model that works best for you.
+
+Most ExpressRoute capabilities and features are the same across all connectivity models. FastPath is the exception. ExpressRoute Direct supports FastPath capabilities that provider circuits don't, including IPv6 FastPath, virtual network peering over FastPath, User-Defined Routes (UDRs) over FastPath, and Private Link and private endpoints. For per-model FastPath support, see [About ExpressRoute FastPath](about-fastpath.md).
 
 :::image type="content" source="./media/expressroute-connectivity-models/expressroute-connectivity-models-diagram.png" alt-text="ExpressRoute connectivity model diagram":::
 
@@ -25,7 +27,7 @@ You can connect your on-premises datacenters or offices to the Microsoft cloud t
 
 ## <a name="IPVPN"></a>Any-to-any (IPVPN) networks
 
-You can integrate your WAN with the Microsoft cloud. IPVPN providers (typically MPLS VPN) offer any-to-any connectivity between your branch offices and datacenters. You can interconnect the Microsoft cloud with your WAN so it appears like any other branch office. WAN providers typically offer managed Layer 3 connectivity. ExpressRoute capabilities and features are identical across all connectivity models.
+You can integrate your WAN with the Microsoft cloud. IPVPN providers (typically MPLS VPN) offer any-to-any connectivity between your branch offices and datacenters. You can interconnect the Microsoft cloud with your WAN so it appears like any other branch office. WAN providers typically offer managed Layer 3 connectivity.
 
 ## <a name="Direct"></a>Direct from ExpressRoute sites
 

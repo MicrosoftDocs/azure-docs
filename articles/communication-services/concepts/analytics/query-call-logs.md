@@ -14,6 +14,8 @@ ms.subservice: data
 
 # Query call logs
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ## Overview and access
 
 Before you can take advantage of [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) for your Communications Services logs, you must first follow the steps outlined in [Enable logging in Diagnostic Settings](enable-logging.md). Once you've enabled your logs and a [Log Analytics Workspace](/azure/azure-monitor/logs/workspace-design), you will have access to many helpful [default query packs](/azure/azure-monitor/logs/query-packs#default-query-pack) that will help you quickly visualize and understand the data available in your logs, which are described below. Through Log Analytics, you also get access to more Communications Services Insights via Azure Monitor Workbooks, the ability to create our own queries and Workbooks, [Log Analytics APIs overview](/azure/azure-monitor/logs/api/overview) to any query. 

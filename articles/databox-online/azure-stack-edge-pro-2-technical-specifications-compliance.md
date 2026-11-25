@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: reference
 ms.date: 04/12/2023
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Technical specifications and compliance for Azure Stack Edge Pro 2

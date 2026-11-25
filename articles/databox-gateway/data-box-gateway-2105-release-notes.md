@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: azure-data-box-gateway
 ms.topic: release-notes
 ms.date: 01/07/2022
-ms.author: shaas
+ms.author: bchakra
 # Customer intent: "As an IT administrator, I want to review the release notes for the Azure Data Box Gateway 2105, so that I can understand the critical issues and bug fixes before deploying the update."
 ---
 

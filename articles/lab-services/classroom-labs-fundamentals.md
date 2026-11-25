@@ -5,7 +5,7 @@ description: This article covers the fundamental resources used by Azure Lab Ser
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: concept-article
 ms.date: 04/24/2023
 ---

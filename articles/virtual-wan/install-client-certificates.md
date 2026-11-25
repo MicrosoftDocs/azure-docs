@@ -31,7 +31,7 @@ The Linux client certificate is installed on the client as part of the client co
 
 To continue configuration, go back to the VPN client instructions that you were working with. You can use this table to locate the link:
 
-[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
+[!INCLUDE [P2S client configuration articles](../networking/includes/virtual-wan/vpn-client-install-articles.md)]
 
 ## Next steps
 

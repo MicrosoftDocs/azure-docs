@@ -1,11 +1,11 @@
 ---
 title: Build RAG pipelines with Qdrant and Azure Files
 description: Use Qdrant as a vector database to build retrieval-augmented generation (RAG) pipelines using data stored in Azure Files.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 04/09/2026
-ms.author: kendownie
+ms.author: normesta
 ---
 
 # Qdrant with Azure Files

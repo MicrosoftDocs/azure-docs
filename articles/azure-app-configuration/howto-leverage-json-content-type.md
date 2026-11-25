@@ -130,7 +130,7 @@ az appconfig kv import -s file --format json --path "~/Import.json" --content-ty
 
 The JSON key-values you created should look like this in App Configuration:
 
-:::image type="content" source="./media/create-json-settings.png" alt-text="Screenshot that shows the Config store containing JSON key-values.":::
+:::image type="content" source="./media/howto-leverage-json-content-type/create-json-settings.png" alt-text="Screenshot that shows the Config store containing JSON key-values.":::
 
 To check this, open your App Configuration resource in the Azure portal and go to **Configuration explorer**.
 

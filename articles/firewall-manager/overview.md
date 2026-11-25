@@ -62,7 +62,7 @@ Easily route traffic to your secured hub for filtering and logging without the n
 
 This feature is available only with secured virtual hub deployments.
 
-You can use partner providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to virtual network (B2V), virtual network to virtual network (V2V) and virtual network to Internet (V2I).
+You can use partner providers for virtual network to Internet (V2I) and Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for private traffic such as Branch to virtual network (B2V) and virtual network to virtual network (V2V). For the supported provider combinations, see [What are security partner providers?](trusted-security-partners.md#key-scenarios).
 
 ### DDoS protection plan
 

@@ -1,9 +1,9 @@
 ---
-title: Troubleshoot Azure Backup Server
-description: Troubleshoot installation, registration of Azure Backup Server, and back up and restore application workloads.
+title: Troubleshoot Microsoft Azure Backup Server (MABS) errors
+description: Learn how to troubleshoot Microsoft Azure Backup Server (MABS) installation, registration, agent, backup, vault credential, and replica errors.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 09/09/2025
+ms.date: 09/18/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -11,9 +11,9 @@ ms.custom: sfi-ropc-nochange
 # Customer intent: As a system administrator, I want to troubleshoot installation and operational issues of Azure Backup Server, so that I can ensure backup and restore processes are running smoothly and efficiently.
 ---
 
-# Troubleshoot Azure Backup Server
+# Troubleshoot Microsoft Azure Backup Server (MABS) errors
 
-Use the information in the following tables to troubleshoot errors that you encounter while using Azure Backup Server.
+This article helps you troubleshoot common Microsoft Azure Backup Server (MABS) errors. Resolve installation, registration, DPM agent communication, backup, vault credential, recovery point, and replica consistency issues.
 
 ## Basic troubleshooting
 

@@ -14,6 +14,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Manage a queue
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This guide outlines the steps to create and manage a Job Router queue.
 
 ## Prerequisites

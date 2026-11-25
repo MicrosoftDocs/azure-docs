@@ -5,7 +5,7 @@ description: Learn how to set up disaster recovery to Azure for Azure VMware Sol
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 12/08/2025
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 ms.custom: MVC, engagement-fy23
 
@@ -86,6 +86,7 @@ The license provided with the OVA template is an evaluation license that's valid
 3. On the **Select an OVF template** page, enter the location of the downloaded OVF file.
 
    :::image type="content" source="./media/vmware-azure-tutorial/vcenter-wizard.png" alt-text="Screenshot of the first page of the wizard for deploying an OVF template in the VMware vSphere client.":::
+
 4. On the **Select name and folder** and **Select a compute resource** pages, accept the default settings.
 5. On the **Review details** page, select **Next**.
 6. On the **Select storage** page, for best performance, select **Thick Provision Eager Zeroed** in **Select virtual disk format**.
@@ -189,7 +190,7 @@ Enable replication for VMs as follows:
 4. In **vCenter/vSphere Hypervisor**, select the vCenter Server that manages the host.
 5. Select the process server (installed by default on the configuration server VM). Then select **OK**.
 
-   The health status of each process server appears, based on recommended limits and other parameters. Choose a healthy process server. You can't choose a [critical](vmware-physical-azure-monitor-process-server.md#process-server-alerts) process server. You can either [troubleshoot and resolve](vmware-physical-azure-troubleshoot-process-server.md) the errors *or* set up a [scale-out process server](vmware-azure-set-up-process-server-scale.md).
+   The health status of each process server appears, based on recommended limits and other parameters. Choose a healthy process server. You can't choose a [critical](vmware-physical-azure-monitor-process-server.md#process-server-alerts) process server. You can either [troubleshoot and resolve](vmware-physical-azure-monitor-process-server.md#process-server-alerts) the errors *or* set up a [scale-out process server](vmware-azure-set-up-process-server-scale.md).
 6. In **Target**, select the subscription and the resource group in which you want to create the failed-over VMs. This tutorial uses the Resource Manager deployment model.
 7. Select the Azure network and subnet to which Azure VMs connect when they're created after failover.
 8. Select **Configure now for selected machines** to apply the network setting to all VMs on which you enable replication. Select **Configure later** to select the Azure network per machine.

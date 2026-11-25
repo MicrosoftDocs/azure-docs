@@ -3,8 +3,8 @@ title: Publish apps from Visual Studio to a lab VM
 titleSuffix: Azure DevTest Labs
 description: Learn how to publish an app from Visual Studio to an Azure file share for testing from a DevTest Labs virtual machine.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 09/30/2023
 ms.custom:
   - engagement-fy23

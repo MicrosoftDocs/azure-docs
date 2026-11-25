@@ -3,7 +3,7 @@ title: Customize rules using PowerShell
 titleSuffix: Azure Web Application Firewall
 description: This article provides information on how to customize Web Application Firewall rules in Application Gateway with PowerShell.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 11/14/2019

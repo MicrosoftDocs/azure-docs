@@ -16,6 +16,8 @@ ms.custom: ai-usage
 
 Resiliency validation is a feature that assesses the resiliency of network connectivity for ExpressRoute-enabled workloads. You can perform site failovers for your ExpressRoute connections to the gateway to evaluate network resiliency during outages. You can also validate your setup during migrations by testing failover mechanisms. By proactively testing your network, you can maintain continuous connectivity to Azure workloads and strengthen your connections.
 
+This article applies to ExpressRoute virtual network gateways and ExpressRoute gateways in Azure Virtual WAN. Resiliency Validation is in preview for Virtual WAN. The validation workflow is the same for both gateway types; the steps to open the gateway differ.
+
 ## Key features
 
 - **Test circuit failover**: Connections are temporarily disconnected from the gateway to the selected ExpressRoute circuit to validate failover from one peering location to another.
@@ -41,20 +43,34 @@ Resiliency validation is a feature that assesses the resiliency of network conne
 
 ## Prerequisites
 
-- You must have an ExpressRoute circuit in at least two distinct peering locations and an ExpressRoute virtual network gateway connected to those circuits.
+- You must have ExpressRoute circuits in at least two distinct peering locations and an ExpressRoute gateway connected to those circuits. The gateway can be a virtual network gateway or an ExpressRoute gateway in a Virtual WAN hub.
 - You must have Contributor-level authorization to access this feature.
 
 ## Run the resiliency validation test
 
 > [!IMPORTANT]
-> - During the test, the ExpressRoute virtual network gateway disconnects from the target ExpressRoute circuit, resulting in a temporary loss of connectivity for nonredundant routes. Make sure your routing policies are configured to enable traffic failover.
-> - The targeted ExpressRoute circuit remains connected to other ExpressRoute virtual network gateways, and the gateway performing the test stays connected to other ExpressRoute circuits.
+> - During the test, the ExpressRoute gateway disconnects from the target ExpressRoute circuit, resulting in a temporary loss of connectivity for nonredundant routes. Ensure your routing policies are configured to enable traffic failover.
+> - The targeted ExpressRoute circuit remains connected to other ExpressRoute gateways, and the gateway performing the test stays connected to other ExpressRoute circuits.
 
-You can access the gateway resiliency validation from any ExpressRoute gateway resource. In the left menu, go to the **Monitoring** section.
+Open Resiliency Validation for your gateway type:
+
+**ExpressRoute virtual network gateway**
+
+Open the gateway resource in the Azure portal. Under **Monitoring**, select **Resiliency Validation**.
+
+**ExpressRoute gateway in Virtual WAN**
+
+1. In the Azure portal, open your Virtual WAN resource.
+2. Under **Connectivity**, select **Hubs**, and then select the hub.
+3. On the hub overview, select **ExpressRoute**.
+4. Select the gateway name to open the gateway resource.
+5. Under **Monitoring**, select **Resiliency Validation (Preview)**.
+
+The following screenshots show the virtual network gateway experience. Use the same validation steps for an ExpressRoute gateway in Virtual WAN.
 
 :::image type="content" source="media/resiliency-validation/resiliency-validation.png" alt-text="Screenshot of the Resiliency Validation feature, accessible under the Monitoring section in the left menu of the ExpressRoute gateway resource.":::
 
-The dashboard provides a detailed overview of all ExpressRoute circuits connected to the ExpressRoute virtual network gateway, categorized by peering location. It displays the most recent test status, the timestamp of the last test conducted, the results of the latest test, and an action button to configure a new test.
+The dashboard provides a detailed overview of all ExpressRoute circuits connected to the ExpressRoute gateway, categorized by peering location. It displays the most recent test status, the timestamp of the last test conducted, the results of the latest test, and an action button to configure a new test.
 
 ### Start the test
 
@@ -103,43 +119,43 @@ The dashboard provides a detailed overview of all ExpressRoute circuits connecte
 
 ## FAQ
 
-1. Why can't I see the Resiliency Validation feature in my ExpressRoute gateway?
+- Why can't I see the Resiliency Validation feature in my ExpressRoute gateway?
 
-   This feature is only available for ExpressRoute virtual network gateways configured in a Max Resiliency model. It isn't supported for Virtual WAN ExpressRoute gateways.
+   For an ExpressRoute virtual network gateway, this feature is available when the gateway is configured in a Max Resiliency model. For an ExpressRoute gateway in Virtual WAN, the feature is in preview. Open the ExpressRoute gateway resource from the hub's **ExpressRoute** page, and then select **Monitoring** > **Resiliency Validation (Preview)**. To perform validation, the gateway must have connections to circuits in at least two distinct peering locations.
 
-1. Why is the Route List not updated to the latest?
+- Why isn't the Route List updated to the latest version?
 
    The **Route List** tab is designed to flag missing route redundancy. It retrieves route resiliency status from Resiliency Insights, so it might display cached results for up to one hour after the last update.
 
-1. Does the feature support Microsoft Peering or VPN connectivity?
+- Does the feature support Microsoft Peering or VPN connectivity?
 
    No, the Resiliency Insights feature supports only ExpressRoute Private Peering connectivity. It doesn't support Microsoft Peering or VPN connectivity.
 
-1. Can I control the gateway validation tests other than the Azure portal?
+- Can I control the gateway validation tests other than the Azure portal?
 
    Yes, you can use REST API, PowerShell, and CLI to start and stop the gateway resiliency validation tests.
 
-1. What happens if I don't terminate a test?
+- What happens if I don't terminate a test?
 
    The test continues to run indefinitely.
 
-1. What metrics or alerts can I monitor during the resiliency validation test?
+- What metrics or alerts can I monitor during the resiliency validation test?
 
    To ensure network resilience during outages, configure redundant connections. During a failover, if the backup circuit exceeds 100% of its bandwidth, packet drops might occur. Use [Circuit QoS](monitor-expressroute-reference.md#category-circuit-qos) metrics to monitor packet drops caused by rate limiting. Additionally, the **Test Status** tab in the Resiliency Validation feature provides traffic monitoring for the connections. Make sure alerts are configured to validate their effectiveness during the test.
 
-1. Can I control traffic on demand using the gateway resiliency validation tool?
+- Can I control traffic on demand using the gateway resiliency validation tool?
 
    Yes, if the routes are advertised redundantly through circuits in different peering locations, the gateway resiliency validation tool allows you to control traffic on demand by failing traffic over to connections in an alternative site.
 
-1. Does this feature support FastPath and Private Link?
+- Does this feature support FastPath and Private Link?
 
    For FastPath, while the data path bypasses the gateway, the gateway still handles control plane activities like route management. During a disconnect between the ExpressRoute circuit and the gateway, routes are withdrawn from the affected circuit. However, if redundant circuits are properly configured, connectivity for failover connections to FastPath and Private Link is maintained during the failover.
 
-1. Is packet loss expected during a failover simulation?
+- Is packet loss expected during a failover simulation?
 
    A brief connectivity disruption occurs during the failover simulation as BGP (Border Gateway Protocol) reconverges. Performance tests using iPerf on TCP (up to 500 Mbps) show no packet loss during the simulation. However, in an actual outage scenario, some packet loss can occur until traffic successfully fails over.
 
-1. How long does a failover take?
+- How long does a failover take?
 
    After the simulation begins, traffic failover typically completes within 15 seconds.
 

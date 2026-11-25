@@ -216,7 +216,7 @@ To stop the Azure Synapse Link connection in Synapse Studio, do the following:
 
 ## Related content
 
-- [Get or set a managed identity for an Azure SQL Database logical server or managed instance](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity#get-or-set-a-managed-identity-for-a-logical-server-or-managed-instance)
+- [Managed identity authentication for Azure Synapse SQL](../sql/authentication-azure-ad-user-assigned-managed-identity.md)
 - [Azure Synapse Link for SQL FAQ](faq.yml)
 - [Configure Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/configure-synapse-link?context=/azure/synapse-analytics/context/context)
 - [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)

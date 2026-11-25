@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 04/10/2024
-ms.author: sipastak
+ms.author: scompton
 ---
 # Erase data from your Azure Stack Edge
 

@@ -3,9 +3,9 @@ title: Get Started with Azure Blob Storage and .NET
 titleSuffix: Azure Storage
 description: Learn how to connect a .NET app to Azure Blob Storage, set up secure authorization, and start building now with this step-by-step guide.
 services: storage
-author: stevenmatthew
+author: schoag-msft
 
-ms.author: shaas
+ms.author: schoag
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/02/2026

@@ -5,7 +5,7 @@ description: Learn how to configure Application Gateway with a frontend public I
 services: application-gateway
 author: mbender-ms
 ms.topic: how-to
-ms.date: 03/17/2026
+ms.date: 08/04/2026
 ms.author: mbender
 ms.service: azure-application-gateway
 ms.custom:
@@ -44,6 +44,7 @@ The IPv6 Application Gateway is available to all public cloud regions where Appl
 ## Limitations
 
 * Only v2 SKU supports a frontend with both IPv4 and IPv6 addresses
+* A public IPv6 listener and a private IPv6 listener can't share a frontend port. Configure them with different frontend ports.
 * IPv6 backends are currently not supported
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
@@ -52,9 +53,6 @@ The IPv6 Application Gateway is available to all public cloud regions where Appl
 * The following limitations apply to WAF custom rules when IPv6 traffic is involved:
     - Custom rules that use IP address-based match conditions do not support IPv6 traffic.
     - Geo-based custom rules are not supported for IPv6 traffic.
-
-> [!NOTE]
-> Geo-based custom rules can be defined in a WAF policy. However, associating a policy that includes geo-based rules with a dual-stack (IPv4 + IPv6) Application Gateway may fail.
 
 ## Prerequisites
 
@@ -87,7 +85,7 @@ Create the application gateway using the tabs on the **Create application gatewa
     Application Gateway instances are created in separate subnets. One dual-stack subnet and one IPv4-only are created in this example: The IPv4 and IPv6 subnets (provisioned as one dual-stack subnet) are assigned to the application gateway. The IPv4 subnet is for the backend servers.
 
     > [!NOTE]
-    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
     <a name="dual-stack"></a>
     Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** pane, enter the following values to create the virtual network and two subnets:
 

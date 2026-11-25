@@ -6,7 +6,7 @@ ms.date: 05/15/2024
 ms.topic: how-to
 ms.subservice: authoring
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -14,6 +14,8 @@ ms.custom:
 
 # Iterative development and debugging with Azure Data Factory and Synapse Analytics pipelines
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Azure Data Factory and Synapse Analytics supports iterative development and debugging of pipelines. These features allow you to test your changes before creating a pull request or publishing them to the service. 
 

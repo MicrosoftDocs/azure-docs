@@ -6,7 +6,7 @@ author: spelluru
 contributors: null
 ms.topic: concept-article
 ms.date: 07/30/2025
-ms.author: spelluru
+ms.author: seshanmugam
 ms.reviewer: spelluru
 ms.custom:
   - ai-gen-docs-bap
@@ -83,7 +83,7 @@ The following table describes how HTTP request parts map to MQTT PUBLISH packet 
 | Correlation data         | Base64 string          | Header `mqtt-correlation-data`             | No                 | Extra data for tracking       |
 | User properties          | Base64 JSON array      | Header `mqtt-user-properties`              | No                 | Custom user properties        |
 | Content type             | String                 | Header `content-type`                      | No                 | Payload type                 |
-| Message expiry interval  | Unsigned integer       | Header `mqtt-message-expiry`               | No                 | Retention period in seconds  |
+| Message expiry interval  | Unsigned integer       | Header `mqtt-message-expiry-interval`      | No                 | Retention period in seconds  |
 | Payload format indicator | 0 or 1                 | Header `mqtt-payload-format-indicator`     | No [default = 0]   | Format indicator              |
 | Payload                  | Bytes                  | HTTP body                                  | No                 | Message body                  |
 

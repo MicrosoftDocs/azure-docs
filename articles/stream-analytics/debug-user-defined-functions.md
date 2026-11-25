@@ -1,8 +1,8 @@
 ---
 title: Debug user-defined functions in Azure Stream Analytics 
 description: This article describes how to debug user-defined functions in Azure Stream Analytics.
-author: spelluru
-ms.author: spelluru
+author: skommajo
+ms.author: skommajosula
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 06/24/2020

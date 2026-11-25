@@ -37,7 +37,7 @@ For information about IP Groups, see [IP Groups in Azure Firewall](../firewall/i
 ## Review and Implement the Terraform code
 
 > [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-front-door-classic). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-front-door-classic/TestRecord.md).
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azfw-with-fwpolicy). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azfw-with-fwpolicy/TestRecord.md).
 >
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 

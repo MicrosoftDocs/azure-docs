@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # noNetwork UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `noNetwork` UFD event with a `true` value occurs when there's no network available for ICE candidates being gathered, which means there are network setup issues in the local environment, such as a disconnected Wi-Fi or Ethernet cable.
 Additionally, if the adapter fails to acquire an IP address and there are no other networks available, this situation can also result in `noNetwork` UFD event.
 

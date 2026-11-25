@@ -2,10 +2,10 @@
 title: Options for using Azure Elastic SAN with Azure Kubernetes Service
 description: Learn about the deployment options you have for using Azure Elastic SAN as the backing storage for Azure Kubernetes Service.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 01/08/2026
-ms.author: rogarana
+ms.author: normesta
 # Customer intent: As a Kubernetes administrator, I want to choose between Azure Container Storage and the iSCSI CSI driver for deploying Azure Elastic SAN with AKS, so that I can optimize storage management based on my workload requirements and support options.
 ---
 

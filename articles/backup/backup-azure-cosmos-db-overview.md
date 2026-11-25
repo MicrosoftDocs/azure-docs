@@ -2,7 +2,7 @@
 title: About Azure Cosmos DB backup
 description: An overview on Azure Cosmos DB backup
 ms.topic: overview
-ms.date: 5/15/2026
+ms.date: 8/27/2026
 ms.service: azure-backup
 ms.custom:
   - build-2026
@@ -11,9 +11,9 @@ ms.author: v-mallicka
 # Customer intent: As a database administrator, I want to implement a backup solution for Azure Cosmos DB, so that I can ensure long-term data retention and protection against data loss events like accidental deletions or ransomware attacks.
 ---
 
-# About Azure Cosmos DB vaulted backup (preview)
+# About Azure Cosmos DB vaulted backup
 
-Azure Backup for Cosmos DB (preview) provides a centralized, secure, and compliant way to protect [Azure Cosmos DB accounts](/azure/cosmos-db/overview) using vaulted, long‑term backups managed by the Azure Backup service. This capability complements Cosmos DB’s [native short‑term retention backups](/azure/cosmos-db/online-backup-and-restore) by enabling off‑platform, immutable backups with retention of up to **10 years**, helping customers meet regulatory, cyber‑resiliency, and enterprise governance requirements. 
+Azure Backup for Cosmos DB provides a centralized, secure, and compliant way to protect [Azure Cosmos DB accounts](/azure/cosmos-db/overview) using vaulted, long‑term backups managed by the Azure Backup service. This capability complements Cosmos DB’s [native short‑term retention backups](/azure/cosmos-db/online-backup-and-restore) by enabling off‑platform, immutable backups with retention of up to **10 years**, helping customers meet regulatory, cyber‑resiliency, and enterprise governance requirements. 
 
 Azure Backup for Cosmos DB is designed for the following scenarios: 
 
@@ -22,7 +22,7 @@ Azure Backup for Cosmos DB is designed for the following scenarios:
 - Centralized governance across multiple workloads 
 - Protection against accidental or malicious deletion (ransomware scenarios) 
 
-Learn about the [supported regions, scenarios, and the limitations](backup-azure-cosmos-db-support-matrix.md) for Azure Cosmos DB backup (preview). 
+Learn about the [supported regions, scenarios, and the limitations](backup-azure-cosmos-db-support-matrix.md) for Azure Cosmos DB backup. 
 
 ## Why use Azure Backup for Cosmos DB? 
 
@@ -37,7 +37,7 @@ Azure Backup for Cosmos DB provides:
 
 ## How Azure Backup for Cosmos DB works 
 
-Azure Backup for Cosmos DB integrates with Cosmos DB’s transactionally consistent backup streams and transfers backup data into a Backup vault based on a defined backup policy. Backups are taken at the Cosmos DB account level and include all databases and containers in the account. 
+Azure Backup for Cosmos DB integrates with Cosmos DB's transactionally consistent backup streams and transfers scheduled backups into a Backup vault based on a defined backup policy. A policy can combine a weekly full backup with daily incremental backups to provide a 1-day recovery point objective (RPO); each incremental backup copies only the data that changed since the previous backup. Backups are taken at the Cosmos DB account level and include all databases and containers in the account. 
 
 To perform the backup and restore operations for Azure Cosmos DB:
 
@@ -46,6 +46,19 @@ To perform the backup and restore operations for Azure Cosmos DB:
 - Azure Backup streams consistent backups from Cosmos DB into the vault. 
 - Azure Backup stores the recovery points securely and isolates them from the source account. 
 - Azure Backup triggers the restore operation from the vault to a target Cosmos DB account. 
+
+### Supported backup types  for Azure Cosmos DB
+
+Azure Backup for Cosmos DB supports two backup types within a single backup policy: 
+
+- **Full backup**: A complete copy of the Cosmos DB account. Each full backup is independent and anchors the incremental backups that follow it.
+- **Incremental backup**: Captures only the data that changed since the previous backup (full or incremental). Incremental backups are smaller and faster, which lowers cost and enables a shorter RPO. 
+
+A typical policy takes one full backup per week and an incremental backup on each remaining day, forming a backup chain. Every policy must include a weekly full backup; incremental-only policies aren't supported. Restoring an incremental recovery point automatically uses its full backup and all incremental backups up to the selected point.
+
+### Backup reliability
+
+If a scheduled backup fails because of a transient issue, Azure Backup automatically retries it (auto-heal) to help maintain your RPO, with no manual action required. Auto-healed jobs appear in the Backup jobs view. 
 
 ## Backup vaults and storage isolation 
 
@@ -80,7 +93,7 @@ Azure Backup for Cosmos DB functions parallelly with the native Cosmos DB backup
 
 ## Backup costs
 
-For Cosmos DB vaulted backup (preview), you incur the following costs from, 1 July 2026:
+For Cosmos DB vaulted backup, you incur the following costs from July 1, 2026:
 
 - Protected Instance (PI) fee: A fixed management fee charged per protected account, based on the size of source data being backed up.
 - Backup data storage fee: A variable charge based on the amount of backup data stored in the Backup vault (per GB per month).
@@ -90,4 +103,4 @@ For more information, see the [Azure Backup pricing](https://azure.microsoft.com
 
 ## Next steps
 
-[Back up Azure Cosmos DB using Azure portal (preview)](backup-azure-cosmos-db.md).
+[Back up Azure Cosmos DB by using Azure portal](backup-azure-cosmos-db.md).

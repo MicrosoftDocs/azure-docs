@@ -5,7 +5,7 @@ keywords: vnet integration
 author: seligj95
 ms.author: jordanselig
 ms.topic: how-to
-ms.date: 03/05/2026
+ms.date: 10/06/2026
 ms.tool: azure-cli, azure-powershell
 ms.service: azure-app-service
 ms.custom:
@@ -32,6 +32,8 @@ This article describes how to integrate Azure Virtual Network with [Azure App Se
    - The subnet must be empty, which means no network interface cards (NICs), virtual machines, private endpoints, and so on.
 
    - The subnet must be delegated to `Microsoft.Web/serverFarms`. If you don't delegate before integration, the provisioning process configures this delegation.
+
+- For Windows apps, plan the address ranges of subnets containing destination resources so they don't overlap with App Service worker infrastructure ranges. A connection fails if the destination IP address matches a worker infrastructure IP address, because Windows treats the connection as local. See [Windows worker IP address overlap](overview-vnet-integration.md#windows-worker-ip-address-overlap).
 
 - If the specified virtual network is in different subscription than your app, confirm the virtual network subscription is registered with the `Microsoft.Web` resource provider.
 

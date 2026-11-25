@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to 
-ms.date: 04/17/2024
+ms.date: 07/29/2026
 ms.custom: template-how-to, references_regions
 #Customer intent: As a network administrator, I want to deploy security admin rules using network groups in Azure Virtual Network Manager so that I can define the source and destination of the traffic for the security admin rule.
 ---
@@ -53,15 +53,19 @@ To create a security admin configuration, follow these steps:
 
     | **Setting** | **Value** |
     | --- | --- |
-    | **Deployment option for NIP virtual networks** | |
+    | **Deployment option for network intent policy (NIP) virtual networks** | |
     | Deployment option | Select **None**. |
     | **Option to use network group as source and destination** | |
     | Network group address space aggregation option | Select **Manual**. |
 
     :::image type="content" source="media/how-to-create-security-admin-rules-network-groups/create-configuration-with-aggregation-options.png" alt-text="Screenshot of create a security admin configuration deployment options selecting manual aggregation option.":::
 
-    > [!NOTE]
-    > The **Network group address space aggregation option** setting allows you to reference network groups in your security admin rules. Once elected, the virtual network manager instance will aggregate the CIDR ranges of the network groups referenced as the source and destination of the security admin rules in the configuration. With the manual aggregation option, the CIDR ranges in the network group are aggregated only when you deploy the security admin configuration. This allows you to commit the CIDR ranges on your schedule.
+    The **Network group address space aggregation option** setting determines whether the rules in this configuration can reference network groups as their source and destination. It takes the following values:
+
+    | Value | Description |
+    | --- | --- |
+    | **Manual** | Lets the rules in this configuration reference network groups as the source and destination. The virtual network manager instance aggregates the CIDR ranges of those network groups only when you deploy the security admin configuration, so you commit CIDR range changes on your own schedule. |
+    | **None** | Doesn't aggregate network group address spaces. The rules in this configuration can't reference network groups as the source or destination. |
 
 2. Select **Rule collections** or **Next: Rule collections >**.
 3. In the Rule collections tab, select **Add**.

@@ -5,8 +5,8 @@ ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: how-to
 ms.date: 07/10/2025
 ms.custom: fasttrack-edit, AppServiceIdentity
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ---
 

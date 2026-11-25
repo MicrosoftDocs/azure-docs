@@ -4,7 +4,7 @@ description: Learn about important system requirements for your Azure Data Box a
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: concept-article
 ms.date: 03/06/2025
 ms.author: shaas

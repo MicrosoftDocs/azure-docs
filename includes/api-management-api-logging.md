@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 02/24/2025
-ms.author: danlep
+ms.author: srthirth
 ms.custom:
   - build-2025
 ---

@@ -3,7 +3,7 @@ title: Troubleshoot failback in VMware VM disaster recovery with Azure Site Reco
 description: This article describes ways to troubleshoot failback and reprotection issues during VMware VM disaster recovery to Azure with Azure Site Recovery.
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 02/27/2026
+ms.date: 10/15/2026
 author: Jeronika-MS
 ms.author: v-gajeronika 
 
@@ -18,7 +18,7 @@ Failback essentially involves two main steps. For the first step, after failover
 
 ## Common issues
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
 - If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. During reprotection, failover fails because the datastores can't be discovered. A symptom is that the datastores aren't listed during reprotection. To resolve this problem, you can update the vCenter credentials with an appropriate account that has permissions and then retry the job.
 - When you fail back a Linux virtual machine and run it on-premises, you can see that the Network Manager package has been uninstalled from the machine. This uninstallation occurs because the Network Manager package is removed when the virtual machine is recovered in Azure.

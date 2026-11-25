@@ -1,6 +1,6 @@
 ---
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-iot-edge
 ms.topic: include
 ms.date: 06/10/2024

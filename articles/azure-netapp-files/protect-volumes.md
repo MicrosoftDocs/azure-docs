@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Enable backup by default for Azure NetApp Files new volumes (preview)
 
-You can protect your new volumes by enabling backup protection for the volume. This enhances data protection with an additional layer of protection without the need for manual setup.
+You can protect your new volumes by enabling backup protection for the volume. This feature enhances data protection by adding an extra layer of protection.
 
 ## Register the feature 
 
@@ -23,29 +23,8 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackup
 ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
 
-## Enable backup by default
+## Next steps 
 
-1. From the **Volumes** page, right-click the volume for which you want to enable backup protection and select **Data Protection**.
-
-   
-1. Specify the parameters for the volume:
-
-    **Backup vault**      
-        Specify the backup vault for the volume or [create a new backup vault](backup-vault-manage.md). 
-        
-    **Backup policy**  
-        Specify the backup policy for the volume or [create a new backup policy](backup-configure-policy-based.md). 
-
-    **Policy state**  
-        Select the state of the backup policy.  
-
-    **Daily backups retained**  
-        Specifies the number of backups that can be retained on a daily basis.
-
-    **Weekly backups retained**  
-        Specifies the number of backups that can be retained on a weekly basis. 
-
-    **Monthly backups retained**  
-        Specifies the number of backups that can be retained on a monthly basis.
-
-1. Click **Ok**.
+* [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)
+* [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
+* [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)

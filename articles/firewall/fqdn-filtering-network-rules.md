@@ -6,16 +6,15 @@ ms.author: duau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 03/28/2026
-ms.custom: engagement-fy23
-# Customer intent: "As a network administrator, I want to implement FQDN filtering in Azure Firewall network rules, so that I can control outbound traffic based on domain names and ensure security for various protocols without using wildcards."
+ms.custom: engagement-fy23, references_regions
+# Customer intent: "As a network administrator, I want to implement FQDN filtering in Azure Firewall network rules, so that I can control outbound traffic based on domain names and ensure security for various protocols, including wildcard domains."
 ---
 
 # Use FQDN filtering in network rules
 
 A fully qualified domain name (FQDN) represents the complete domain name of a host or one or more IP addresses. In Azure Firewall and Firewall policy, you can use FQDNs in network rules based on DNS resolution. This feature allows you to filter outbound traffic by using any TCP or UDP protocol, including NTP, SSH, and RDP. To use FQDNs in your network rules, you must enable DNS Proxy. For more information, see [Azure Firewall DNS settings](dns-settings.md).
 
-> [!NOTE]
-> FQDN filtering in network rules doesn't support wildcards by design.
+You can specify an exact FQDN, such as `www.contoso.com`, or a wildcard FQDN, such as `*.contoso.com`. For more information, see [Use wildcard FQDNs in network rules](#use-wildcard-fqdns-in-network-rules).
 
 ## How it works
 
@@ -31,6 +30,21 @@ When a new DNS resolution occurs, new IP addresses are added to the firewall rul
   - For HTTP/S or MSSQL protocols, use application rules for FQDN filtering.
   - For services like AzureBackup and HDInsight, use application rules with FQDN tags.
   - For other protocols, use network rules for FQDN filtering.
+
+## Use wildcard FQDNs in network rules
+
+You can use a wildcard FQDN, such as `*.contoso.com`, in a network rule to allow or deny traffic. This capability is useful when a service continuously adds or removes endpoints under a domain.
+
+Wildcard FQDNs in network rules have the following behavior and requirements:
+
+- **Syntax**: Wildcards are supported everywhere within the domain name, but consecutive wildcards aren't allowed.
+- **Performance**: For best results, use prefix and suffix wildcards as they are more efficient than complex wildcards, which might affect performance.
+- **DNS proxy is required**: Azure Firewall discovers the IP addresses for matching subdomains from the DNS responses it observes. Enable DNS proxy and configure client virtual machines to use Azure Firewall as their DNS server so that all DNS traffic passes through the firewall. For more information, see [Azure Firewall DNS settings](dns-settings.md).
+- **Learned addresses**: Because the firewall learns IP addresses from observed DNS responses, the initial connection to a newly resolved subdomain might be briefly delayed until the firewall programs the address.
+
+> [!NOTE]
+> Wildcard domains in network rules are supported in the following regions currently - West Central US, East Asia, and UK South.  
+ 
 
 ## Next steps
 

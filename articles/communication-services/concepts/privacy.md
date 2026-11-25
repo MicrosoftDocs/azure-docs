@@ -15,6 +15,8 @@ ms.custom: references_regions
 
 # Data residency and user privacy
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services is committed to helping our customers meet their privacy and personal data requirements. As a developer using Communication Services with a direct relationship with humans using the application, you're potentially a controller of their data. Since Azure Communication Services is storing and encrypting this data at rest on your behalf, we're most likely a processor of this data. This page summarizes how the service retains data and how you can identify, export, and delete this data.
 
 ## Data residency

@@ -1,7 +1,7 @@
 ---
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/21/2020
+ms.date: 09/16/2026
 author: v1212
 ms.author: wujia
 ms.custom:
@@ -57,17 +57,11 @@ Supports the original Event Hubs binding parameter type of [Microsoft.Azure.Even
 
 Add the extension to your project by installing the [NuGet package], version 3.x or 4.x.
 
-### [Functions v1.x](#tab/functionsv1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](./functions-runtime-1x-retirement-note.md)]
-
-Version 1.x of the Functions runtime doesn't require an extension. 
-
 ### [Extension v6.x+](#tab/extensionv6/isolated-process)
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](../articles/azure-functions/dotnet-aspire-integration.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [Aspire integration](../articles/azure-functions/aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs), version 6.x.
 
@@ -75,17 +69,13 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](../articles/azure-functions/dotnet-aspire-integration.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [Aspire integration](../articles/azure-functions/aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs), version 5.x.
 
 ### [Extension v3.x+](#tab/extensionv3/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs), version 4.x.
-
-### [Functions v1.x](#tab/functionsv1/isolated-process)
-
-Version 1.x of the Functions runtime doesn't support running in an isolated worker process. 
 
 ---
 
@@ -136,20 +126,6 @@ This version of the extension supports parameter types according to the table be
 
 <sup>1</sup> Events containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
 
-### [Functions v1.x](#tab/functionsv1/in-process)
-
-Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.EventHubs] namespace. Newer types from [Azure.Messaging.EventHubs] are exclusive to **Extension v5.x+**.
-
-This version of the extension supports parameter types according to the table below.
-
-|Binding scenario | Parameter types |
-|-|-|
-| Event Hubs trigger (single event) | [Microsoft.Azure.EventHubs.EventData]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]` |
-| Event Hubs trigger (batch of events) | `EventData[]`<br/>`string[]` |
-| Event Hubs output  | [Microsoft.Azure.EventHubs.EventData]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]` |
-
-<sup>1</sup> Events containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
-
 ### [Extension v6.x+](#tab/extensionv6/isolated-process)
 
 [!INCLUDE [functions-event-hubs-extensionv5-isolated](functions-event-hubs-extensionv5-isolated.md)]
@@ -162,16 +138,10 @@ This version of the extension supports parameter types according to the table be
 
 Earlier versions of the extension in the isolated worker process only support binding to strings and JSON serializable types. More options are available to  **Extension v5.x+**.
 
-### [Functions v1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support the isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
-
 ---
 
 [Azure.Messaging.EventHubs.EventData]: /dotnet/api/azure.messaging.eventhubs.eventdata
 [Microsoft.Azure.EventHubs.EventData]: /dotnet/api/microsoft.azure.eventhubs.eventdata
-
-[upgrade your application to Functions 4.x]: ../articles/azure-functions/migrate-version-1-version-4.md
 
 ::: zone-end
 
@@ -181,9 +151,9 @@ For Go, Event Hubs trigger handlers receive `bindings.EventHubMessage`. Register
 
 ::: zone pivot="programming-language-python"
 
-## SDK Binding Types
+## SDK binding types
 
-SDK Types for Azure EventHub are in Preview. Follow the [Python SDK Bindings for EventHub Sample](https://github.com/Azure-Samples/azure-functions-eventhub-sdk-bindings-python) to get started with SDK Types for Event Hubs in Python. 
+SDK types for Azure Event Hubs are in preview. To get started with SDK types for Event Hubs in Python, see the [Python SDK bindings for Event Hubs sample](https://github.com/Azure-Samples/azure-functions-eventhub-sdk-bindings-python).
 > [!IMPORTANT]  
 > Using SDK type bindings requires the [Python v2 programming model](../articles/azure-functions/functions-reference-python.md#sdk-type-bindings).
 
@@ -295,26 +265,6 @@ For a reference of host.json in Azure Functions 2.x and beyond, see [host.json r
 <sup>1</sup> Support for `initialOffsetOptions` begins with [EventHubs v4.2.0](https://github.com/Azure/azure-functions-eventhubs-extension/releases/tag/v4.2.0).
 
 For a reference of host.json in Azure Functions 2.x and beyond, see [host.json reference for Azure Functions](../articles/azure-functions/functions-host-json.md).
-
-### [Functions v1.x](#tab/functionsv1)
-
-```json
-{
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|maxBatchSize|64|The maximum event count received per receive loop.|
-|prefetchCount| 300 |The default prefetch that will be used by the underlying `EventProcessorHost`.| 
-|batchCheckpointFrequency|1|The number of event batches to process before creating an Event Hubs cursor checkpoint.<br/><br/>**NOTE:** Setting this value above 1 for hosting plans supported by [target based scaling](../articles/azure-functions/functions-target-based-scaling.md#considerations) can cause incorrect scaling behavior. The platform calculates unprocessed queue size as "current position - checkpointed position", which may incorrectly indicate unprocessed messages when batches have been processed but not yet checkpointed, preventing proper scale-in when no messages remain.| 
-
-For a reference of host.json in Azure Functions 1.x, see [host.json reference for Azure Functions 1.x](../articles/azure-functions/functions-host-json-v1.md).
 
 ---
 

@@ -1,0 +1,165 @@
+---
+title: Configure secure networking for a Microsoft Discovery Supercomputer
+description: Learn how to set up secure networking for a Microsoft Discovery Supercomputer, including virtual network, subnets, and egress controls.
+ms.service: azure
+ms.topic: how-to
+ms.date: 10/24/2026
+ms.author: oshenton
+author: oshenton
+ms.custom: networking
+---
+
+# Configure secure networking for a Microsoft Discovery Supercomputer
+
+By default, supercomputer instances have unrestricted outbound internet access, so workloads can access the resources they need to operate. All supercomputer instances have outbound dependencies defined by FQDNs, such as to download container images from Microsoft Artifact Registry (MAR/MCR). Because of this dependency, Network Security Groups can't properly restrict egress traffic for supercomputer.
+This article explains how to set up secure networking for a Microsoft Discovery Supercomputer so that its nodepools and management plane run within your virtual network with controlled egress.
+
+## Prerequisites
+
+For onboarding automation, first [plan the network mode and egress](how-to-plan-deployment-network.md). The tool's `managedcluster` role identifies the undelegated system-node `aksSubnet`; it isn't the separately delegated UDR management subnet (`spare` in the tool configuration). Keep these subnet IDs distinct.
+
+To control egress traffic from a supercomputer instance, you need a virtual network with user defined routing configured, and an egress point that can allowlist IPs and FQDNs, such as [Azure Firewall](/azure/firewall/overview).
+When user defined routing is enabled, traffic between the management plane and the workload nodepools must reside within your virtual network. To support this, you must create a subnet delegated to `Microsoft.ContainerService/managedClusters`, as well as the existing subnet for nodepools.
+
+If you're creating a private supercomputer, you must disable private link service network policies on the supercomputer's subnet to allow Discovery to manage the supercomputer over private link.
+If you're not creating a private supercomputer, you must enable the `Microsoft.ContainerService/EnableServiceTagAuthorizedIPPreview` feature flag to enable IP allow listing controls on the supercomputer management plane. When enabled, this feature automatically adds networking restrictions to isolate access to the supercomputer management plane to only the Microsoft Discovery service.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az feature register --namespace Microsoft.ContainerService --name EnableServiceTagAuthorizedIPPreview
+```
+
+---
+
+## Enable connectivity to platform services
+
+A default/static [Stage 3 readiness report](how-to-validate-deployment-readiness.md) inspects configuration; it doesn't prove successful outbound traffic. Verify DNS, TCP/TLS, routing, firewall rules, SNAT, and image downloads from the required compute-subnet paths before provisioning.
+
+After setting up your virtual network with user defined routing, you must configure certain allowlisting rules to ensure that your Microsoft Discovery Supercomputer instance continues to function. Configure these rules before you create the Supercomputer resource to ensure successful creation.
+
+### Core dependencies
+
+Microsoft Discovery Supercomputer is built on top of [Azure Kubernetes Service](/azure/aks/what-is-aks), which maintains its own list of dependent FQDNs and IPs. See [this article](/azure/aks/outbound-rules-control-egress) for the full list. The core requirements for Microsoft Discovery are:
+
+- `mcr.microsoft.com`, `*.data.mcr.microsoft.com`, and `mcr-0001.mcr-msedge.net` provide container images for core features of the Supercomputer.
+- `management.azure.com` is required for Kubernetes operations against the Azure API.
+- `login.microsoftonline.com` is required for identity management.
+- `packages.microsoft.com` is required for OS package management.
+- `packages.aks.azure.com` and `acs-mirror.azureedge.net` are required for managing core Kubernetes software.
+
+### Specialized nodepool SKUs
+
+- If your supercomputer includes nodepools with GPU-enabled SKUs, follow the instructions in [this article](/azure/aks/outbound-rules-control-egress#gpu-enabled-aks-clusters-required-fqdn--application-rules).
+- If your supercomputer includes nodepools with Infiniband-enabled SKUs, no additional rules are currently required.
+
+### Auxiliary functionality
+
+- Discovery uses Azure Monitor to set up supercomputer observability. Follow the instructions in [this article](/azure/aks/outbound-rules-control-egress#azure-public-cloud-required-fqdn--application-rules) to enable access.
+- `*.pki.core.windows.net` and `crl.microsoft.com` are used for Microsoft-issued certificate management and revocation checks.
+- If your Azure subscription configuration automatically installs additional software like Microsoft Defender for Containers onto all compute resources, ensure that you enable access as defined in [this article](/azure/aks/outbound-rules-control-egress#microsoft-defender-for-containers-required-fqdn--application-rules).
+- `umsa*.blob.core.windows.net` is used for Azure Linux VM Agent and Extensions manifests, as described in [this article](/azure/virtual-machines/extensions/features-linux?tabs=azure-cli#network-access). This access isn't essential for Discovery functionality.
+- `md-*.blob.storage.azure.net` is used for internal components of Azure Managed Disks. This access isn't essential for Discovery functionality.
+
+### Tool functionality
+
+Certain tools that you use on Microsoft Discovery require network connectivity. This requirement includes any Azure resources for which you don't provision private IP connectivity to the virtual network of your nodepools (for example, by using Private Endpoint). You're responsible for understanding, verifying, and configuring network rules to allow any public outbound connectivity required for your tools. This requirement might include access to public container registries or FQDNs accessed during runtime.
+
+## Create a Microsoft Discovery supercomputer
+
+When you create a supercomputer, the `outboundType` setting controls how outbound (egress) traffic leaves the nodepools. To route egress through your own virtual network and egress point, set `outboundType` to `UserDefinedRouting`.
+
+### outboundType: UserDefinedRouting
+
+`UserDefinedRouting` directs the supercomputer to send all outbound traffic through the user defined routing configured on the nodepool subnet, rather than through a Microsoft-managed public load balancer. This routing option lets you direct egress through an appliance such as Azure Firewall, where you allowlist the required IPs and FQDNs.
+
+:::image type="content" source="./media/how-to-configure-supercomputer-network-security/create-supercomputer-udr-networking.jpg" alt-text="Screenshot of Azure portal showing supercomputer creation with UserDefinedRouting outbound type." lightbox="./media/how-to-configure-supercomputer-network-security/create-supercomputer-udr-networking.jpg":::
+
+When you select `UserDefinedRouting`:
+
+- You must configure the nodepool subnet with an appropriate route table.
+- You must configure a management subnet (see [managementSubnetId](#managementsubnetid-required)) so that traffic between the management plane and the nodepools stays inside your virtual network.
+- The egress point must allow the supercomputer to reach outbound dependencies documented earlier in this article.
+- No public IP or managed outbound load balancer is provisioned for egress; all traffic exits through your virtual network.
+
+### managementSubnetId (required)
+
+When you set `outboundType` to `UserDefinedRouting`, you must configure a `managementSubnetId`. This setting places the cluster management plane within your virtual network so that traffic between the management plane and the workload nodepools stays inside your network. Set `managementSubnetId` to the resource ID of a subnet delegated to `Microsoft.ContainerService/managedClusters` (see [Prerequisites](#prerequisites)).
+
+- The management subnet must be separate from the nodepool subnet and delegated to `Microsoft.ContainerService/managedClusters`.
+- If you use private supercomputer, access to the management plane by nodes and by the Discovery Service is always through this subnet. Otherwise, the management plane provides a public IP for ingress, restricted to the Discovery service when the `Microsoft.ContainerService/EnableServiceTagAuthorizedIPPreview` feature is enabled.
+
+### Private Supercomputer
+
+A private supercomputer removes the public IP address from the supercomputer management plane. The Microsoft Discovery service provisions and manages an Azure Private Link into the supercomputer's assigned subnet to access the management plane instead. You need to enable User Defined Routing and provide a management subnet to enable this feature.
+
+To enable a private supercomputer when you create the supercomputer, add the following resource tag:
+
+| Name | Value |
+|---|---|
+| `discovery.enableprivatecluster` | `true` |
+
+> [!IMPORTANT]
+> You can't change this tag after supercomputer creation. Adding the tag doesn't remove the outbound connectivity requirements for node pools and tools described earlier in this article.
+
+#### Important considerations
+
+1. Ensure that the Discovery control-plane service App (Discovery first-party service principal) has the Reader role at the subscription level.
+
+2. A management subnet is required and must be separate from the nodepool subnet and delegated to Microsoft.ContainerService/managedClusters.
+
+3. Disable Private Link service network policies on the subnet used for Discovery private management-plane connectivity. Use the following CLI command:
+
+```azurecli
+az network vnet subnet update --resource-group <resource-group-name> \
+  --vnet-name <vnet-name> \
+  --name <subnet-name> \
+  --private-link-service-network-policies Disabled
+```
+
+4. Ensure that there is a default route to Azure Firewall or another supported network virtual appliance. NAT Gateway isn't supported for private supercomputer.
+
+5. Configure firewall rules
+
+At minimum, allow the following core FQDNs:
+- `mcr.microsoft.com`, `*.data.mcr.microsoft.com`, and `mcr-0001.mcr-msedge.net` provide container images for core features of the Supercomputer.
+- `management.azure.com` is required for Kubernetes operations against the Azure API.
+- `login.microsoftonline.com` is required for identity management.
+- `packages.microsoft.com` is required for OS package management.
+- `packages.aks.azure.com` and `acs-mirror.azureedge.net` are required for managing core Kubernetes software.
+
+6. Configure private DNS
+
+If the virtual network uses custom DNS:
+
+- Ensure system and node-pool subnets can reach the DNS servers over both UDP and TCP port 53.
+- Ensure the DNS servers listen and respond over both protocols.
+- Configure a conditional forwarder for the management-plane private DNS zone.
+- Forward the zone to Azure DNS at `168.63.129.16` from a DNS server hosted in Azure, or use Azure DNS Private Resolver in a virtual network linked to the private DNS zone.
+- Verify that NSGs, firewalls, NVAs, and routes don't block either DNS protocol.
+- Link any hub, spoke, or administrator VNet that must resolve the private endpoint.
+
+Don't delete or modify a Discovery-managed private endpoint, private link, DNS record, or private DNS zone unless the Microsoft Discovery documentation explicitly instructs you to do so. Changing these resources can make the underlying cluster inoperable.
+
+7. Before deployment, confirm that:
+
+- The management subnet has the required delegation.
+- Private Link service network policies are disabled on the required subnet.
+- The system and node-pool subnets have the expected route table.
+- Custom DNS responds over UDP and TCP.
+- The firewall allows all required platform dependencies.
+- No required subnet overlaps with another connected network.
+
+8. Deploy the supercomputer with the following tag:
+
+| Name | Value |
+|---|---|
+| `discovery.enableprivatecluster` | `true` |
+
+## Related content
+
+- [Microsoft Discovery Supercomputer](concept-supercomputer.md)
+- [Configure network security for Microsoft Discovery workspaces](how-to-configure-network-security.md)
+- [Virtual networks and subnets](concept-virtual-networks.md)
+- [Virtual networks user defined routing](/azure/virtual-network/virtual-networks-udr-overview)
+- [Configuring Azure Firewall with AKS](/azure/aks/limit-egress-traffic?pivots=user)

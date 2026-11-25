@@ -3,7 +3,7 @@ title: Azure Functions Scale and Hosting
 description: Compare the various options you need to consider when choosing a hosting plan in which to run your function app in Azure Functions.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: limits-and-quotas
-ms.date: 12/09/2025
+ms.date: 11/09/2026
 ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024, ignite-2024
 #customer intent: As a cloud developer or platform engineer, I want guidance on Functions scaling and hosting so I can choose the best hosting plan for performance and cost-efficiency when running my code in Azure.
 ---
@@ -13,7 +13,7 @@ When you create a function app in Azure, you must choose a hosting option for yo
 
 | Hosting option | Service | Availability | Container support |
 | --- | --- | --- | --- | 
-| **[Flex Consumption plan]** | Azure Functions | Generally available (GA) |  None | 
+| **[Flex Consumption plan]** | Azure Functions | Generally available (GA) | [Linux (worker-only preview)](flex-consumption-os-level-dependencies.md) |
 | **[Premium plan]** | Azure Functions | GA | Linux |
 | **[Dedicated plan]** | Azure Functions | GA | Linux |
 | **[Container Apps]** | Azure Container Apps | GA | Linux |
@@ -35,15 +35,15 @@ This article provides a detailed comparison between the various hosting options.
 
 ## Overview of plans
 
-The following table summarizes the benefits of the various options for Azure functions hosting.
+The following table summarizes the benefits of the various options for Azure Functions hosting.
 
 | Option | Benefits |
 | --- | --- |  
-|**[Flex Consumption plan]**|Experience fast horizontal scaling, with flexible compute options, virtual network integration, and serverless pay-as-you-go billing.<br/><br/>In the Flex Consumption plan, function instances dynamically scale out (up to 1,000) based on configured per-instance concurrency, incoming events, and per-function workloads for optimal efficiency.<br/><br/>Consider the Flex Consumption plan when:<br/><br/>✔ You need a serverless host for your function code, paying only for on-demand executions.<br/>✔ You require virtual network connectivity for secure access to Azure resources.<br/>✔ Your workloads are variable and can go from no activity to demanding rapid, event-driven scaling.<br/>✔ You want to customize compute with memory sizes (512 MB, 2,048 MB, or 4,096 MB) and reduce cold starts via one or more pre-provisioned (always-ready) instances.| 
+|**[Flex Consumption plan]**|Experience fast horizontal scaling, with flexible compute options, virtual network integration, and serverless pay-as-you-go billing.<br/><br/>In the Flex Consumption plan, function instances dynamically scale out (up to 1,000) based on configured per-instance concurrency, incoming events, and per-function workloads for optimal efficiency.<br/><br/>Consider the Flex Consumption plan when:<br/><br/>✔ You need a serverless host for your function code, paying only for on-demand executions.<br/>✔ You require virtual network connectivity for secure access to Azure resources.<br/>✔ Your workloads are variable and can go from no activity to demanding rapid, event-driven scaling.<br/>✔ You want to customize compute with memory sizes (512 MB, 2,048 MB, or 4,096 MB) and reduce cold starts via one or more pre-provisioned (always-ready) instances.<br/>✔ Your app requires [OS-level dependencies supplied through a container image](flex-consumption-os-level-dependencies.md).|
 |**[Premium plan]**|Automatically scales based on demand using prewarmed workers, which run applications with no delay after being idle, runs on more powerful instances, and connects to virtual networks. <br/><br/>Consider the Azure Functions Premium plan in the following situations: <br/><br/>✔ Your function apps run continuously, or nearly continuously.<br/>✔ You want more control of your instances and want to deploy multiple function apps on the same plan with event-driven scaling.<br/>✔ You have a high number of small executions and a high execution bill, but low GB seconds in the Consumption plan.<br/>✔ You need more CPU or memory options than are provided by consumption plans.<br/>✔ Your code needs to run longer than the maximum execution time allowed on the Consumption plan.<br/>✔ You require virtual network connectivity for secure access to Azure resources.<br/>✔ You want to provide a custom Linux image in which to run your functions. |  
 |**[Dedicated plan]** |Run your functions within an App Service plan at regular [App Service plan rates](https://azure.microsoft.com/pricing/details/app-service/windows/).<br/><br/>Best for long-running scenarios where [Durable Functions](../durable-task/common/what-is-durable-task.md) can't be used. Consider an App Service plan in the following situations:<br/><br/>✔ You have existing and underutilized virtual machines that are already running other App Service instances.<br/>✔ You must have fully predictable billing, or you need to manually scale instances.<br/>✔ You want to run multiple web apps and function apps on the same plan<br/>✔ You need access to larger compute size choices.<br/>✔ Full compute isolation and secure network access provided by an App Service Environment (ASE).<br/>✔ Very high memory usage and high scale (ASE).|  
 | **[Container Apps]** | Create and deploy containerized function apps in a fully managed environment hosted by Azure Container Apps.<br/><br/>Use the Azure Functions programming model to build event-driven, serverless, cloud native function apps. Run your functions alongside other microservices, APIs, websites, and workflows as container-hosted programs. Consider hosting your functions on Container Apps in the following situations:<br/><br/>✔ You want control of the container image and want to package custom libraries with your function code to support line-of-business apps.<br/>✔ You need to migrate code execution from on-premises or legacy apps to cloud native microservices running in containers.<br/>✔ When you want to avoid the overhead and complexity of managing Kubernetes clusters and dedicated compute.<br/>✔ Your functions need high-end processing power provided by dedicated GPU compute resources. |  
-|**[Consumption plan]** (legacy)| Pay for compute resources only when your functions are running (pay-as-you-go) with automatic scale on Windows.<br/><br/>On the Consumption plan, function instances are dynamically added and removed based on the number of incoming events.<br/><br/>Consider the Consumption plan when:<br/><br/>✔ You have a dependency on Windows. For example, using the v1 runtime, the full .NET Framework, or Windows-specific features like certain PowerShell modules.<br/>✔ You want a serverless billing model and pay only when your functions are running.<br/><br/>For new serverless function apps, use the [Flex Consumption plan] instead.|
+|**[Consumption plan]** (legacy)| Pay for compute resources only when your functions are running (pay-as-you-go) with automatic scale on Windows.<br/><br/>On the Consumption plan, function instances are dynamically added and removed based on the number of incoming events.<br/><br/>Consider the Consumption plan when:<br/><br/>✔ You have a dependency on Windows. For example, using the full .NET Framework or Windows-specific features like certain PowerShell modules.<br/>✔ You want a serverless billing model and pay only when your functions are running.<br/><br/>For new serverless function apps, use the [Flex Consumption plan] instead.|
 
 The remaining tables in this article compare hosting options based on various features and behaviors. 
 
@@ -53,7 +53,7 @@ This table shows operating system support for the hosting options.
 
 | Hosting | Linux<sup>1</sup> deployment| Windows<sup>2</sup> deployment | 
 | --- | --- | --- | 
-| **[Flex Consumption plan]** | ✅ Code-only<br/>❌ Container (not supported) | ❌ Not supported |
+| **[Flex Consumption plan]** | ✅ Code-only<br/>✅ [Container (worker-only preview)](flex-consumption-os-level-dependencies.md) | ❌ Not supported |
 | **[Premium plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only | 
 | **[Dedicated plan]** | ✅ Code-only<br/>✅ Container | ✅ Code-only |
 | **[Container Apps]** | ✅ Container-only | ❌ Not supported |
@@ -73,16 +73,15 @@ The following table shows the default and maximum values (in minutes) for specif
 | Plan | Default | Maximum<sup>1</sup> |  
 | ------ | --------- | --------- |
 | **[Flex Consumption plan](flex-consumption-plan.md)** | 30 | Unbounded<sup>2</sup> |
-| **[Premium plan](functions-premium-plan.md)** | 30<sup>4</sup> | Unbounded<sup>2</sup> |  
-| **[Dedicated plan](dedicated-plan.md)** | 30<sup>4</sup> | Unbounded<sup>3</sup> |  
-| **[Container Apps](../container-apps/functions-overview.md)** | 30 | Unbounded<sup>5</sup> | 
+| **[Premium plan](functions-premium-plan.md)** | 30 | Unbounded<sup>2</sup> |
+| **[Dedicated plan](dedicated-plan.md)** | 30 | Unbounded<sup>3</sup> |
+| **[Container Apps](../container-apps/functions-overview.md)** | 30 | Unbounded<sup>4</sup> |
 | **[Consumption plan](consumption-plan.md)** | 5 | 10 |  
 
 1. Regardless of the function app timeout setting, 230 seconds is the maximum amount of time that an HTTP triggered function can take to respond to a request. This limit exists because of the [default idle timeout of Azure Load Balancer](../app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds). For longer processing times, consider using the [Durable Functions async pattern](../durable-task/durable-functions/durable-functions-http-features.md#async-operation-tracking) or [defer the actual work and return an immediate response](performance-reliability.md#avoid-long-running-functions).
 2. There's no maximum execution timeout duration enforced. However, the grace period given to a function execution is 60 minutes [during scale in](event-driven-scaling.md#scale-in-behaviors) for the Flex Consumption and Premium plans, and a grace period of 10 minutes is given during platform updates.
 3. Requires the App Service plan be set to [Always On](/azure/azure-functions/dedicated-plan#always-on). A grace period of 10 minutes is given during platform updates.
-4. The default timeout for version 1.x of the Functions host runtime is _unbounded_. 
-5. When the [minimum number of replicas](../container-apps/scale-app.md#scale-definition) is set to zero, the default timeout depends on the specific triggers used in the app.  
+4. When the [minimum number of replicas](../container-apps/scale-app.md#scale-definition) is set to zero, the default timeout depends on the specific triggers used in the app.
 
 These values assume that the Azure Functions host process starts and runs correctly. There's a maximum timeout of 60 seconds for the language-specific worker process to also start. The worker process startup timeout isn't currently configurable.
 
@@ -93,7 +92,7 @@ For details on current native language stack support in Functions, see [Supporte
 ## Scale
 
 The following table compares the scaling behaviors of the various hosting plans.  
-Maximum instances are given on a per-function app (Consumption) or per-plan (Premium/Dedicated) basis, unless otherwise indicated. 
+Maximum instances are given on a per-function app (Consumption), per-plan (Premium/Dedicated), or per-function group (Flex Consumption) basis, unless otherwise indicated. In the [Flex Consumption plan](flex-consumption-plan.md), the maximum instance count applies to the on-demand instances in each [function group](./flex-consumption-plan.md#per-function-scaling) rather than to the app's combined instances, and it doesn't include [always ready instances](flex-consumption-plan.md#always-ready-instances). 
 
 | Plan | Scale out | Max # instances | 
 | --- | --- | --- |
@@ -132,7 +131,7 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 
 You need to manage certificates when you use a custom domain name with your function app, when your function code authenticates to an external service using a client certificate, or when you require mutual TLS (mTLS). The default `*.azurewebsites.net` domain already has a platform-managed certificate. The following table shows certificate support across hosting plans:
 
-| Feature | [Flex Consumption plan](flex-consumption-how-to.md#configure-site-scoped-certificates)<sup>3</sup> | [Premium plan](../app-service/configure-ssl-certificate.md) | [Dedicated plan/ASE](../app-service/configure-ssl-certificate.md) | [Container Apps] | [Consumption plan](../app-service/configure-ssl-certificate.md) |
+| Feature | [Flex Consumption plan](flex-consumption-how-to.md#configure-site-scoped-certificates) | [Premium plan](../app-service/configure-ssl-certificate.md) | [Dedicated plan/ASE](../app-service/configure-ssl-certificate.md) | [Container Apps] | [Consumption plan](../app-service/configure-ssl-certificate.md) |
 | --- | --- | --- | --- | --- | --- |
 | Managed certificates | ✅ <sup>2</sup> | ✅ | ✅ | ✅ | ✅ |
 | Private certificates (.pfx) | ✅ (3 per app) | ✅ (unlimited<sup>1</sup>) | ✅ (unlimited<sup>1</sup>) | [✅](../container-apps/custom-domains-certificates.md) | ✅ (unlimited<sup>1</sup>) |
@@ -143,7 +142,21 @@ You need to manage certificates when you use a custom domain name with your func
 
 1. Subject to [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 2. Certificates imported from Key Vault are automatically synced within 24 hours after renewal.
-3. Flex Consumption certificate support is currently in preview.
+
+## Post-quantum TLS key exchange
+
+In public Azure, post-quantum TLS key exchange is a platform front-end capability for App Service-hosted function apps. This capability is separate from the certificate model for each hosting option. It applies to both Windows and Linux function apps. Clients that support TLS 1.3 and the hybrid group can negotiate `X25519MLKEM768` automatically. Clients that don't support the group use a supported classical key exchange.
+
+| Hosting option | Post-quantum TLS key exchange |
+| --- | --- |
+| Flex Consumption | Platform managed; automatic negotiation with compatible clients, with classical fallback |
+| Consumption | Platform managed; automatic negotiation with compatible clients, with classical fallback |
+| Premium | Platform managed; automatic negotiation with compatible clients, with classical fallback |
+| Dedicated App Service plan | Platform managed; automatic negotiation with compatible clients, with classical fallback |
+| App Service Environment | Platform managed; automatic negotiation with compatible clients, with classical fallback |
+| Azure Container Apps | Not supported; uses Azure Container Apps ingress instead of App Service front ends |
+
+For protocol details, see [Post-quantum hybrid key exchange in Azure App Service](../app-service/overview-tls.md#post-quantum-hybrid-key-exchange).
 
 ## Billing
 

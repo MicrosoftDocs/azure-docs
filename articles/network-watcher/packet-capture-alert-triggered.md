@@ -2,7 +2,7 @@
 title: Use Packet Capture to Proactively Monitor Your Network
 description: Learn how to create an alert-triggered packet capture by using Azure Network Watcher and Azure Functions.
 author: halkazwini
-ms.author: halkazwini 
+ms.author: hufurnit 
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 02/25/2026
@@ -25,7 +25,7 @@ By using Network Watcher alerts and functions from within the Azure ecosystem, y
 
 - The latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell).
 - An existing instance of Network Watcher. If you don't already have one, [create an instance of Network Watcher](network-watcher-create.md).
-- An existing virtual machine in the same region as Network Watcher with the [Windows extension](network-watcher-agent-windows.md) or [Linux virtual machine extension](network-watcher-agent-linux.md).
+- An existing virtual machine in the same region as Network Watcher with the [Network Watcher Agent extension](network-watcher-agent-manage.md) installed.
 
 ## Scenario
 

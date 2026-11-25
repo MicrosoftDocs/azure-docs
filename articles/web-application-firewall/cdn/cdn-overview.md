@@ -2,8 +2,8 @@
 title: What Is Azure Web Application Firewall on Azure Content Delivery Network?
 description: Learn how Azure Web Application Firewall on the Azure Content Delivery Network service helps protect your web applications from malicious attacks.
 services: web-application-firewall
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 10/16/2023

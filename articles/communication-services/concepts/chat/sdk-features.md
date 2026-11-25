@@ -16,6 +16,8 @@ ms.custom: devx-track-js
 
 # Chat SDK overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services Chat SDKs can be used to add rich, real-time chat to your applications.
 
 ## Chat SDK capabilities

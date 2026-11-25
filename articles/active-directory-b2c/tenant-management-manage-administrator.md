@@ -8,7 +8,7 @@ ms.service: entra-id
 ms.topic: tutorial
 ms.date: 04/18/2025
 ms.reviewer: yoelh
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 ms.custom:
   - b2c-docs-improvements

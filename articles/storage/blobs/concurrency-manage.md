@@ -3,12 +3,12 @@ title: Manage concurrency in Blob Storage
 titleSuffix: Azure Storage
 description: Learn how to manage multiple writers to a blob by implementing either optimistic or pessimistic concurrency in your application. Optimistic concurrency checks the ETag value for a blob and compares it to the ETag provided. Pessimistic concurrency uses an exclusive lease to lock the blob to other writers.
 services: storage
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 03/25/2025
-ms.author: shaas
+ms.author: schoag
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 # Customer intent: As a developer managing data updates in my application, I want to implement concurrency control strategies for blob storage, so that I can ensure data integrity and provide a predictable experience for users when multiple writers access the same data.

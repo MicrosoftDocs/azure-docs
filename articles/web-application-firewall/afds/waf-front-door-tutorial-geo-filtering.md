@@ -1,8 +1,8 @@
 ---
 title: Configure a geo-filtering WAF policy for Azure Front Door
 description: In this tutorial, you learn how to create a geo-filtering policy and associate the policy with your existing Azure Front Door front-end host.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 03/10/2020

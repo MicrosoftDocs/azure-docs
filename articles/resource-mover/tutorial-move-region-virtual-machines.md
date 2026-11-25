@@ -4,8 +4,9 @@ description: Learn how to move Azure VMs to another region with Azure Resource M
 ms.service: azure-resource-mover
 ms.topic: tutorial
 author: RochakSingh-blr
-ms.author: v-rochak2
+ms.author: bhappayy
 ms.date: 07/31/2025
+ms.update-cycle: 1095-days
 ms.custom:
   - mvc
   - engagement-fy23

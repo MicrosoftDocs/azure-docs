@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 09/14/2025
 ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 #customer intent: As an app developer who uses PHP, I want to understand how to configure my PHP web apps in Azure App Service.
 ms.service: azure-app-service
 ---
@@ -301,6 +301,15 @@ cp /home/site/wwwroot/default /etc/nginx/sites-available/default && service ngin
 ```
 
 This command replaces the default NGINX configuration file with a file named `default` in your repository root, and it restarts NGINX.
+
+> [!NOTE]
+> Use line feed (LF) rather than carriage return and line feed (CRLF) line endings in startup shell scripts, especially scripts you create or package on Windows. If CRLF causes a shell failure, the intended NGINX document-root command might not run. Add this rule to your application's `.gitattributes`:
+>
+> ```gitattributes
+> *.sh text eol=lf
+> ```
+>
+> This rule doesn't automatically convert deployed files. Save scripts with LF before packaging and redeploying. After deployment, check startup logs and verify that the expected endpoint returns the intended content.
 
 ::: zone-end
 

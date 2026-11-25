@@ -4,7 +4,7 @@ description: "This article provides troubleshooting guidance for management issu
 ms.subservice: integration-services
 ms.topic: troubleshooting-general
 author: whhender
-ms.author: whhender
+ms.author: weetok
 ms.reviewer: chugugrace
 ms.date: 05/15/2024
 ---
@@ -12,6 +12,8 @@ ms.date: 05/15/2024
 # Troubleshoot SSIS Integration Runtime management
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article provides troubleshooting guidance for management issues in Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR), also known as SSIS IR.
 

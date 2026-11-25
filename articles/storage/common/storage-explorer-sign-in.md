@@ -7,7 +7,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: article
 ms.date: 04/01/2021
-ms.author: jinglou
+ms.author: normesta
 ms.reviewer: cralvord,richardgao
 # Customer intent: As a cloud storage user, I want to sign in to Azure Storage Explorer so that I can manage my Azure storage resources effectively using role-based access control and permissions.
 ---

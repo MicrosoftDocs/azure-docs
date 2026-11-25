@@ -7,8 +7,8 @@ tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 06/04/2026
 ms.reviewer: yutlin
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ms.custom: sfi-image-nochange
 #customer intent: As an app developer or platform engineer, I want clear, step-by-step guidance for adding, importing, and renewing TLS/SSL certificates in Azure App Service so that I can secure custom domains, automate renewals, and avoid downtime.
@@ -142,13 +142,13 @@ If you use Key Vault to manage your certificates, you can import a PKCS12 certif
 By default, the App Service resource provider doesn't have access to your key vault. To use a key vault for a certificate deployment, you must authorize read access for the resource provider (App Service) to the key vault. You can grant access with an access policy or role-based access control (RBAC).
 
 > [!NOTE]
-> In Azure Resource Manager and RBAC role definitions, App Service is represented by the resource provider namespace `Microsoft.Web`. In automation scripts and some APIs, the service principal might be referenced as `Microsoft.Azure.WebSites`.
+> In Azure Resource Manager and RBAC role definitions, App Service is represented by the resource provider namespace `Microsoft.Web`. In automation scripts and some APIs, the service principal might be referenced as `Microsoft.Azure.WebSites`. Use the sample Azure CLI command or Azure PowerShell script below to grant the required permission to the Key Vault.
 
 ### [RBAC permissions](#tab/rbac)
 
 | Resource provider | Service principal app ID / assignee | Key Vault RBAC role |
 |--|--|--|
-| Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Certificate User |
+| Microsoft Azure App Service, Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Certificate User |
 
 The service principal app ID or assignee value is the application (client) ID for the App Service resource provider.
 
@@ -156,7 +156,7 @@ The service principal app ID or assignee value is the application (client) ID fo
 
 | Resource provider | Service principal app ID | Key Vault secret permissions | Key Vault certificate permissions |
 |--|--|--|--|
-| Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Get | Get |
+| Microsoft Azure App Service, Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Get | Get |
 
 The service principal app ID or assignee value is the ID for the App Service resource provider. To learn how to authorize Key Vault permissions for the App Service resource provider by using an access policy, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
 
@@ -360,6 +360,10 @@ After the certificate renews in your key vault, App Service automatically syncs 
 1. Under **Bring your own certificates (.pfx)**, select the **...** button for the imported key vault certificate, and then select **Sync**.
 
 ## Frequently asked questions
+
+### Do I need a post-quantum certificate to use post-quantum TLS key exchange?
+
+No. `X25519MLKEM768` combines classical and post-quantum key exchange to establish TLS keys. The certificate authenticates your app through a separate part of the TLS handshake. Hybrid key exchange supports custom domains when a compatible TLS 1.3 client and the App Service front end negotiate the group. It doesn't introduce post-quantum certificate signatures or require a post-quantum certificate. Existing certificate requirements, validation, and binding workflows remain unchanged. For more information, see [Post-quantum hybrid key exchange](overview-tls.md#post-quantum-hybrid-key-exchange).
 
 ### How can I automate the process of adding a bring-your-own certificate to an app?
 

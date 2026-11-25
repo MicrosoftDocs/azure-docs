@@ -2,7 +2,7 @@
 title: Dapr Input Bindings trigger for Azure Functions
 description: Learn how to run Azure Functions as Dapr input binding data changes.
 ms.topic: reference
-ms.date: 05/10/2024
+ms.date: 10/13/2026
 ms.author: nigreenf
 ms.reviewer: hannahhunter
 ms.subservice: dapr
@@ -13,6 +13,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Dapr Input Bindings trigger for Azure Functions
+
+[!INCLUDE [dapr-support](../../includes/functions-dapr-support-limitations.md)]
 
 Azure Functions can be triggered on a Dapr input binding using the following Dapr events.
 

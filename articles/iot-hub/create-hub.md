@@ -2,8 +2,8 @@
 title: Create an Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: Learn how to create, manage, and delete Azure IoT hubs through the Azure portal, the Azure CLI, and PowerShell. Includes information about retrieving the service connection string.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 06/25/2025
@@ -14,7 +14,7 @@ ms.custom:
 
 # Create and manage Azure IoT hubs
 
-This article explains how to create an IoT hub without Azure Device Registry and certificate management integration. If you want to create an IoT hub integrated with these preview features, see [Get started with Device Registry and certificate management in IoT Hub (Preview)](iot-hub-device-registry-setup.md).
+This article explains how to create an IoT hub without Azure Device Registry and certificate management integration. If you want to create an IoT hub integrated with these features, see [Get started with Azure Device Registry for Azure IoT Hub](../iot/device-registry/get-started-azure-device-registry.md).
 
 ## Prerequisites
 

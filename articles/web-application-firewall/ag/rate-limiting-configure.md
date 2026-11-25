@@ -3,7 +3,7 @@ title: Create rate limiting custom rules for Application Gateway WAF v2
 titleSuffix: Azure Web Application Firewall
 description: Learn how to configure rate limit custom rules for Application Gateway WAF v2.
 author: joeolerich
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to 
 ms.date: 01/22/2025
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Create rate limiting custom rules for Application Gateway WAF v2
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 Rate limiting enables you to detect and block abnormally high levels of traffic destined for your application. Rate Limiting works by counting all traffic that matches the configured Rate Limit rule and performing the configured action for traffic matching that rule which exceeds the configured threshold. For more information, see [Rate limiting overview](rate-limiting-overview.md).
 

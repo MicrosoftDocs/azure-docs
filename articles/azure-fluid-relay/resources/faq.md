@@ -2,7 +2,7 @@
 title: Azure Fluid Relay FAQ
 description: Frequently asked questions about Fluid Relay
 ms.date: 6/1/2022
-ms.service: azure-fluid
+ms.service: fluid-framework
 ms.topic: reference
 ---
 

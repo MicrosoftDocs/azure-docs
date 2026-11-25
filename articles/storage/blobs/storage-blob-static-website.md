@@ -1,10 +1,10 @@
 ---
 title: Static website hosting in Azure Storage
 description: Azure Storage static website hosting, providing a cost-effective, scalable solution for hosting modern web applications.
-author: stevenmatthew
+author: schoag-msft
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.author: shaas
+ms.author: schoag
 ms.date: 06/16/2026
 # Customer intent: "As a web developer, I want to host a static website using cloud storage, so that I can efficiently serve content without the need for a traditional web server while maintaining scalability and performance."
 ---
@@ -161,5 +161,4 @@ Enabling a private endpoint for blobs in a storage account restricts access to t
 - [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
 - [Azure Functions](../../azure-functions/functions-overview.md)
 - [Azure App Service](../../app-service/overview.md)
-- [Build your first serverless web app](/samples/azure-samples/azure-opensource-labs/azure-opensource-labs/)
 - [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

@@ -25,8 +25,8 @@ Microsoft Entra ID extends on-premises Active Directory into the cloud. Users ca
 
 For more information, see the following articles:
 
-* [What is single sign-on in Microsoft Entra ID?](/entra/identity/enterprise-apps/what-is-single-sign-on).
-* [Plan a single sign-on deployment](/entra/identity/enterprise-apps/plan-sso-deployment).
+- [What is single sign-on in Microsoft Entra ID?](/entra/identity/enterprise-apps/what-is-single-sign-on)
+- [Plan a single sign-on deployment](/entra/identity/enterprise-apps/plan-sso-deployment)
 
 ## Multifactor authentication
 
@@ -34,19 +34,19 @@ Microsoft Entra multifactor authentication (MFA) adds a critical second layer of
 
 Verification methods include:
 
-* Microsoft Authenticator app.
-* Windows Hello for Business.
-* FIDO2 security keys.
-* Certificate-based authentication.
-* OATH hardware and software tokens.
-* SMS and voice call.
+- Microsoft Authenticator app
+- Windows Hello for Business
+- FIDO2 security keys
+- Certificate-based authentication
+- OATH hardware and software tokens
+- SMS and voice call
 
 Microsoft Entra ID P1 and P2 licenses support Conditional Access policies that enforce MFA based on user, location, device, and application context.
 
 For more information, see the following articles:
 
-* [How Microsoft Entra multifactor authentication works](/entra/identity/authentication/concept-mfa-howitworks).
-* [Plan a Microsoft Entra multifactor authentication deployment](/entra/identity/authentication/howto-mfa-getstarted).
+- [How Microsoft Entra multifactor authentication works](/entra/identity/authentication/concept-mfa-howitworks)
+- [Plan a Microsoft Entra multifactor authentication deployment](/entra/identity/authentication/howto-mfa-getstarted)
 
 ## Azure role-based access control
 
@@ -54,18 +54,18 @@ Azure role-based access control (Azure RBAC) provides fine-grained access manage
 
 Azure RBAC includes built-in roles:
 
-* **Owner**: Full access to all resources, including the right to delegate access.
-* **Contributor**: Create and manage all types of Azure resources, but can't grant access.
-* **Reader**: View existing Azure resources.
-* **User Access Administrator**: Manage user access to Azure resources.
+- **Owner**: Full access to all resources, including the right to delegate access
+- **Contributor**: Create and manage all types of Azure resources, but can't grant access
+- **Reader**: View existing Azure resources
+- **User Access Administrator**: Manage user access to Azure resources
 
 You can also create custom roles tailored to your specific needs.
 
 For more information, see the following articles:
 
-* [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
-* [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
-* [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
+- [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 
 ## Application Proxy
 
@@ -75,8 +75,8 @@ Application Proxy supports SSO and can integrate with existing on-premises authe
 
 For more information, see the following articles:
 
-* [Microsoft Entra application proxy overview](/entra/identity/app-proxy/overview-what-is-app-proxy).
-* [Publish on-premises apps with Microsoft Entra application proxy](/entra/identity/app-proxy/application-proxy-add-on-premises-application).
+- [Microsoft Entra application proxy overview](/entra/identity/app-proxy/overview-what-is-app-proxy)
+- [Publish on-premises apps with Microsoft Entra application proxy](/entra/identity/app-proxy/application-proxy-add-on-premises-application)
 
 ## Privileged Identity Management
 
@@ -84,18 +84,18 @@ Microsoft Entra Privileged Identity Management (PIM) helps you manage, control, 
 
 By using PIM, you can:
 
-* Provide time-bound access to Azure and Microsoft Entra roles.
-* Require approval to activate privileged roles.
-* Enforce multifactor authentication for role activation.
-* Require justification for role activation.
-* Receive notifications for privileged role activations.
-* Conduct access reviews to ensure users still need privileged roles.
-* Generate audit reports for compliance.
+- Provide time-bound access to Azure and Microsoft Entra roles
+- Require approval to activate privileged roles
+- Enforce multifactor authentication for role activation
+- Require justification for role activation
+- Receive notifications for privileged role activations
+- Conduct access reviews to ensure users still need privileged roles
+- Generate audit reports for compliance
 
 For more information, see the following articles:
 
-* [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure).
-* [Plan a Privileged Identity Management deployment](/entra/id-governance/privileged-identity-management/pim-deployment-plan).
+- [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure)
+- [Plan a Privileged Identity Management deployment](/entra/id-governance/privileged-identity-management/pim-deployment-plan)
 
 ## Identity Protection
 
@@ -103,15 +103,15 @@ Microsoft Entra ID Protection detects potential vulnerabilities and risky activi
 
 Identity Protection provides:
 
-* **Risk-based Conditional Access**: Policies that respond to detected risks in real time.
-* **Risk detection**: Identification of suspicious activities, including anonymous IP address usage, atypical travel, and malware-linked IP addresses.
-* **Investigation tools**: Reports and dashboards for analyzing risks.
-* **Automated remediation**: Risk-based policies that can automatically require password changes or block access.
+- **Risk-based Conditional Access**: Policies that respond to detected risks in real time.
+- **Risk detection**: Identification of suspicious activities, including anonymous IP address usage, atypical travel, and malware-linked IP addresses.
+- **Investigation tools**: Reports and dashboards for analyzing risks.
+- **Automated remediation**: Risk-based policies that can automatically require password changes or block access.
 
 For more information, see the following articles:
 
-* [What is Microsoft Entra ID Protection?](/entra/id-protection/overview-identity-protection).
-* [Investigate risk with Identity Protection](/entra/id-protection/howto-identity-protection-investigate-risk).
+- [What is Microsoft Entra ID Protection?](/entra/id-protection/overview-identity-protection)
+- [Investigate risk with Identity Protection](/entra/id-protection/howto-identity-protection-investigate-risk)
 
 ## Microsoft Entra access reviews
 
@@ -119,16 +119,16 @@ Microsoft Entra access reviews enable efficient management of group memberships,
 
 Access reviews support:
 
-* **Automated reviews**: Scheduled recurring reviews with customizable frequency.
-* **Delegated reviews**: Business owners and managers can review access for their teams.
-* **Self-attestation**: Users can confirm they still need access.
-* **Recommendations**: Machine learning suggests which users should lose access based on sign-in activity.
-* **Automated actions**: Remove access automatically when reviews complete.
+- **Automated reviews**: Scheduled recurring reviews with customizable frequency.
+- **Delegated reviews**: Business owners and managers can review access for their teams.
+- **Self-attestation**: Users can confirm they still need access.
+- **Recommendations**: Machine learning suggests which users should lose access based on sign-in activity.
+- **Automated actions**: Remove access automatically when reviews complete.
 
 For more information, see the following articles:
 
-* [What are Microsoft Entra access reviews?](/entra/id-governance/access-reviews-overview).
-* [Plan a Microsoft Entra access reviews deployment](/entra/id-governance/deploy-access-reviews).
+- [What are Microsoft Entra access reviews?](/entra/id-governance/access-reviews-overview)
+- [Plan a Microsoft Entra access reviews deployment](/entra/id-governance/deploy-access-reviews)
 
 ## Hybrid identity management
 
@@ -136,24 +136,24 @@ For organizations with on-premises Active Directory, Microsoft provides hybrid i
 
 **Microsoft Entra Connect**, which is in maintenance mode, synchronizes on-premises Active Directory Domain Services identities to Microsoft Entra ID. It runs on an on-premises server and provides:
 
-* Directory synchronization for users, groups, and contacts.
-* Password hash synchronization or pass-through authentication.
-* Federation integration with Active Directory Federation Services.
-* Health monitoring.
+- Directory synchronization for users, groups, and contacts
+- Password hash synchronization or pass-through authentication
+- Federation integration with Active Directory Federation Services
+- Health monitoring
 
 **Microsoft Entra Cloud Sync** is the modern, cloud-based synchronization solution that uses lightweight provisioning agents:
 
-* Simplified deployment by using lightweight agents.
-* Support for multi-forest disconnected environments.
-* High availability through multiple agents.
-* Cloud-based configuration and management.
+- Simplified deployment by using lightweight agents
+- Support for multiforest disconnected environments
+- High availability through multiple agents
+- Cloud-based configuration and management
 
 Microsoft recommends Cloud Sync for new hybrid identity deployments.
 
 For more information, see the following articles:
 
-* [What is Microsoft Entra Cloud Sync?](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync).
-* [Choose the right sync client for Microsoft Entra ID](/entra/identity/hybrid/sync-tools).
+- [What is Microsoft Entra Cloud Sync?](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)
+- [Choose the right sync client for Microsoft Entra ID](/entra/identity/hybrid/sync-tools)
 
 ## Device registration
 
@@ -163,9 +163,9 @@ When you combine device registration with mobile device management solutions suc
 
 For more information, see the following articles:
 
-* [Plan your Microsoft Entra device deployment](/entra/identity/devices/plan-device-deployment).
-* [Microsoft Entra joined devices](/entra/identity/devices/concept-directory-join).
-* [Microsoft Entra hybrid joined devices](/entra/identity/devices/concept-hybrid-join).
+- [Plan your Microsoft Entra device deployment](/entra/identity/devices/plan-device-deployment)
+- [Microsoft Entra joined devices](/entra/identity/devices/concept-directory-join)
+- [Microsoft Entra hybrid joined devices](/entra/identity/devices/concept-hybrid-join)
 
 ## External identities
 
@@ -175,12 +175,12 @@ For B2B collaboration, External ID enables secure sharing of applications and re
 
 For more information, see the following articles:
 
-* [Microsoft Entra External ID overview](/entra/external-id/external-identities-overview).
-* [B2B collaboration overview](/entra/external-id/what-is-b2b).
+- [Microsoft Entra External ID overview](/entra/external-id/external-identities-overview)
+- [B2B collaboration overview](/entra/external-id/what-is-b2b)
 
 ## Next steps
 
-* [Azure security best practices and patterns](best-practices-and-patterns.md).
-* [Network security overview](network-overview.md).
-* [Threat detection and protection](threat-detection.md).
-* [Key management in Azure](key-management.md).
+- [Azure security best practices and patterns](best-practices-and-patterns.md)
+- [Network security overview](network-overview.md)
+- [Threat detection and protection](threat-detection.md)
+- [Key management in Azure](key-management.md)

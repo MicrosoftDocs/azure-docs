@@ -7,7 +7,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: concept-article
 ms.date: 08/30/2021
-ms.author: jinglou
+ms.author: normesta
 ms.reviewer: cralvord,richardgao
 # Customer intent: "As a storage administrator, I want to configure and manage soft delete policies in Azure Storage Explorer, so that I can recover accidentally deleted critical data and ensure data integrity across my storage accounts."
 ---

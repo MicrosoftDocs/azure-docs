@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: overview
-ms.date: 04/22/2026
+ms.date: 11/06/2026
 ai-usage: ai-assisted
 ms.custom: sfi-image-nochange
 
@@ -86,7 +86,9 @@ Azure IoT Operations includes several services that help you manage devices and 
 
 ### Azure Device Registry
 
-Azure Device Registry is a back-end service that enables the cloud and edge management of devices and assets from the Azure portal.
+Azure Device Registry is a back-end service that enables the cloud and edge management of devices and assets from the Azure portal and the Azure IoT Operations CLI.
+
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
 
 Device Registry maps assets from your edge environment to Azure resources in the cloud. It offers a unified registry so that apps and services that interact with your assets connect to a single source. Device Registry syncs assets in the cloud with custom resources in Kubernetes on the edge.
 
@@ -129,9 +131,11 @@ Connectors include:
 
 - **Connector for ONVIF**. A service that discovers and registers ONVIF assets like cameras. You can use the connector to manage and control ONVIF assets connected to your cluster.
 
-- **Connector for HTTP/REST**. A service for connecting to HTTP/REST endpoints and publishing data to the MQTT broker.
+- **Connector for HTTP/REST**. A service for connecting to HTTP/REST endpoints, publishing data to the MQTT broker, and invoking HTTP operations through management actions.
 
 - **Connector for SSE**. A service for connecting to server-sent event (SSE) endpoints and publishing event data to the MQTT broker.
+
+- **Connector for SQL Server**. A service for connecting to SQL Server endpoints, querying databases, and publishing the data to the MQTT broker or the broker state store.
 
 - **Connector for MQTT**. A service for subscribing to topics on MQTT brokers and publishing data to the Azure IoT Operations MQTT broker. This connector is designed for connecting to other MQTT brokers in your environment.
 
@@ -139,14 +143,7 @@ Connectors include:
 
 - **Custom connectors**. Services that you create to connect to other data sources and publish data to the MQTT broker. Use the Azure IoT Operations SDKs to create custom connectors that meet your specific requirements.
 
-Each connector organizes asset data using one or more of the following types:
-
-- **Datasets**: A logical grouping of telemetry data points that defines what data is collected and routes it to a destination MQTT topic.
-- **Event groups**: A logical container for related discrete events from an asset, such as state changes or alerts, routed to a destination MQTT topic.
-- **Management groups**: A logical grouping of read, write, or call actions that can be invoked against an asset.
-- **Streams**: A continuous flow of media data, such as video or audio, from an asset such as a camera.
-
-For detailed descriptions of each data type, see [Assets and devices](concept-assets-devices.md#assets).
+Each connector organizes asset data into datasets, event groups, management groups, and streams. For detailed descriptions of each data type, see [Assets and devices](concept-assets-devices.md#assets).
 
 The following table summarizes which data types each connector supports.
 
@@ -155,8 +152,9 @@ The following table summarizes which data types each connector supports.
 | OPC UA          | Yes      | Yes          | Yes               |         |
 | ONVIF           |          | Yes          | Yes               |         |
 | Media           |          |              |                   | Yes     |
-| HTTP/REST       | Yes      |              |                   |         |
+| HTTP/REST       | Yes      |              | Yes               |         |
 | SSE             | Yes      | Yes          |                   |         |
+| SQL Server      | Yes      | Yes          |                   |         |
 | MQTT            | Yes      |              | Yes               |         |
 
 > [!TIP]
@@ -179,6 +177,8 @@ The operations experience is a web UI where OT users can create and configure de
 :::image type="content" source="media/overview-manage-assets/operations-experience.png" alt-text="Screenshot of the operations experience web UI." lightbox="media/overview-manage-assets/operations-experience.png":::
 
 ### Azure portal
+
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
 
 The Azure portal is a web-based application where IT users can manage Azure resources from a unified console. Use the Azure portal to create and manage Azure IoT Operations instances, monitor IoT solutions, manage assets and devices, and troubleshoot problems. Device Registry is integrated with the Azure portal, so you can view and manage your namespaces, schemas registries, assets, and devices in the cloud.
 

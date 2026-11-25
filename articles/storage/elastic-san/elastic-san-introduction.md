@@ -2,10 +2,10 @@
 title: Introduction to Azure Elastic SAN
 description: Learn how Azure Elastic SAN simplifies storage management for multiple compute resources with high performance and cost optimization.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: overview
 ms.date: 01/07/2026
-ms.author: rogarana
+ms.author: normesta
 ms.custom:
   - ignite-2023-elastic-SAN
 # Customer intent: "As a cloud architect, I want to deploy and manage a centralized storage solution using Elastic SAN, so that I can optimize performance and reduce costs for my organization's multiple compute resources."

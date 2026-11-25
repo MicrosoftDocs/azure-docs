@@ -15,6 +15,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Send email to multiple recipients
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to send email to multiple recipients using Email SDKs.
 
 ::: zone pivot="programming-language-csharp"

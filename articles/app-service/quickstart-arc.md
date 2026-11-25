@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 10/07/2025
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ROBOTS: NOINDEX
 ms.service: azure-app-service
 ---
@@ -83,9 +83,6 @@ Supported runtimes:
 ```
 
 ## 4. Deploy some code
-
-> [!NOTE]
-> `az webapp up` is not supported during the public preview.
 
 Get a sample Node.js app using Git and deploy it using [ZIP deploy](deploy-zip.md). Replace `<app-name>` with your web app name.
 

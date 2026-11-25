@@ -1,23 +1,24 @@
 ---
 title: PostgreSQL Assessment properties
-description: Describes the components of a PostgreSQL assessment in Azure Migrate
+description: Describes the components of a PostgreSQL assessment in Azure Catalyst
 author: ankitsurkar06
-ms.author: v-uhabiba
+ms.author: v-gajeronika
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 08/11/2025
 ms.update-cycle: 1825-days
-monikerRange:
 # Customer intent: As a cloud architect, I want to configure assessment properties for workload migration, so that I can ensure optimal resource allocation, cost management, and security compliance in Azure.
 ---
 
-# General assessment properties in Azure Migrate (preview)
+# General assessment properties in Azure Catalyst (preview)
 
 This article explains the assessment properties on the **General** tab that you can use when creating an assessment. These general properties apply to all workloads in an application or for cross-workload assessments. They also apply to individual workload assessments. 
 
-## Assessment settings in Azure Migrate
+<a name="assessment-settings-in-azure-migrate"></a>
 
-General assessment properties in Azure Migrate (preview) help set up key configurations for migration, including target region, sizing options, pricing preferences, and security readiness. These settings apply across workloads and ensure accurate recommendations and cost estimates.
+## Assessment settings in Azure Catalyst
+
+General assessment properties in Azure Catalyst (preview) help set up key configurations for migration, including target region, sizing options, pricing preferences, and security readiness. These settings apply across workloads and ensure accurate recommendations and cost estimates.
 
 | **Setting Category**  | **Default Setting** | **Details** |                
 |-------------------|---------|--------  |                                                     

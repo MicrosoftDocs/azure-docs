@@ -1,22 +1,19 @@
 ---
-title: Advanced platform metrics for Azure Blob Storage (preview)
+title: Advanced platform metrics for Azure Blob Storage
 description: Learn how to use advanced platform metrics to gain container-level capacity insights for Azure Blob Storage, including per-container storage size and object count.
 recommendations: false
 author: derdanu
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.author: normesta
-ms.date: 03/10/2026
+ms.date: 11/16/2026
 ms.custom:
   - "monitoring"
   - sfi-image-nochange
 # Customer intent: "As a storage administrator, I want to use advanced platform metrics to monitor container-level capacity in Azure Blob Storage, so that I can optimize performance, manage costs, and support operational planning."
 ---
 
-# Advanced platform metrics for Azure Blob Storage (preview)
-
-> [!IMPORTANT]
-> Advanced platform metrics for Azure Blob Storage is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Advanced platform metrics for Azure Blob Storage
 
 Advanced platform metrics provides container-level capacity insights for Azure Blob Storage. This feature extends Azure Monitor's platform metrics to include per-container storage size and object count, helping you optimize performance, manage costs, and support operational planning.
 
@@ -41,29 +38,16 @@ The following container-level metrics are available with advanced platform metri
 | Container Blob Capacity | The amount of storage used by a container. | Bytes |
 | Container Blob Count | The number of blob objects in a container. | Count |
 
-Both metrics support the **ContainerName** dimension, which you use to split and filter results by individual containers.
+Both metrics support the **ContainerName** dimension, which you use to split and filter results by individual containers. The metrics include current versions, previous versions, and soft-deleted blobs.
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/).
 - An Azure Storage account with Blob Storage. If you need to create one, see [Create a storage account](/azure/storage/common/storage-account-create).
-- PowerShell 5.1 or later, or Azure CLI installed.
-- Install the **Az.Storage** preview PowerShell module (with admin privileges):
-
-  1. Install the latest PowerShellGet:
-
-     ```powershell
-     Install-Module PowerShellGet -Repository PSGallery -Force
-     ```
-
-  2. Close and reopen the PowerShell console.
-
-  3. Install Az.Storage preview module:
-
-     ```powershell
-     Install-Module Az.Storage -Repository PsGallery -RequiredVersion 9.6.3-preview -AllowClobber -AllowPrerelease -Force
-     ```
-
+- One of the following: 
+  - **Azure portal** (no additional tools required).
+  - **Azure PowerShell** with the `Az.Storage` module installed (latest version recommended).
+  - **Azure CLI** (latest version recommended).
  
 ## Enable advanced platform metrics
 
@@ -161,7 +145,15 @@ az storage advanced-platform-metric create \
 
 ### [Portal](#tab/azure-portal)
 
-Portal support for creating advanced platform metrics rules isn't yet available. Use PowerShell to create and manage advanced platform metrics rules.
+To enable advanced platform metrics in the Azure portal:
+
+1. Go to your **Storage Account** in the [Azure portal](https://portal.azure.com).
+1. Under **Monitoring**, select **Advanced platform metrics**.
+1. Select **Add rule** to create a new rule.
+1. In the **Add metric rule** pane, configure the rule filter type and filter values.
+1. Select **Save**.
+
+:::image type="content" source="./media/advanced-platform-metrics/enable-metrics-rule.png" alt-text="Screenshot of the Azure portal showing the Advanced platform metrics page with the Add metric rule pane.":::
 
 ---
 
@@ -189,7 +181,13 @@ az storage advanced-platform-metric list \
 
 ### [Portal](#tab/azure-portal)
 
-Portal support for viewing advanced platform metrics rules isn't yet available. Use PowerShell to view advanced platform metrics rules.
+To view and manage advanced platform metrics rules in the Azure portal:
+
+1. Go to your **Storage Account** in the [Azure portal](https://portal.azure.com).
+1. Under **Monitoring**, select **Advanced platform metrics**.
+1. Review the list of configured rules.
+
+:::image type="content" source="./media/advanced-platform-metrics/view-metrics-rules.png" alt-text="Screenshot of the Azure portal Advanced platform metrics page showing configured rules.":::
 
 ---
 
@@ -221,7 +219,15 @@ az storage advanced-platform-metric update \
 
 ### [Portal](#tab/azure-portal)
 
-Portal support for updating advanced platform metrics rules isn't yet available. Use PowerShell to update advanced platform metrics rules.
+To update advanced platform metrics rules in the Azure portal:
+
+1. Go to your **Storage Account** in the [Azure portal](https://portal.azure.com).
+1. Under **Monitoring**, select **Advanced platform metrics**.
+1. Select the rule that you want to update, and then select **Edit**.
+1. Update the filter type or filter values.
+1. Select **Save**.
+
+:::image type="content" source="./media/advanced-platform-metrics/edit-metrics-rule.png" alt-text="Screenshot of the Azure portal showing the Edit rule experience for advanced platform metrics.":::
 
 ---
 
@@ -317,6 +323,8 @@ If you have **50 containers** in your storage account:
 The actual number of data points depends on your specific configuration, including the number of containers, enabled metrics, and the blob types and access tiers in use.
 
 ## Limits and considerations
+> [!NOTE]
+> Advanced platform metrics is supported only on storage accounts that support Azure Blob Storage. Premium Azure Files accounts, and Premium Page Blob accounts aren't supported.
 
 The following limit applies when using advanced platform metrics:
 

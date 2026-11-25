@@ -3,8 +3,7 @@ title: Azure Service Bus Emulator Overview and Key Features
 description: This article describes benefits, features, limitations, and other overview information for the Azure Service Bus emulator.
 #customer intent: As a developer, I want to understand the features of the Azure Service Bus emulator so that I can determine if it meets my local development needs.
 ms.topic: article
-ms.author: Saglodha
-ms.date: 02/05/2026
+ms.date: 09/18/2026
 ---
 
 
@@ -74,7 +73,7 @@ Like the Service Bus cloud service, the emulator provides the following quotas f
 | Number of entities(queues/topics) in a namespace| 50| Yes
 | Number of Subscriptions per topic | 50 | Yes
 | Number of correlation filters per topic | 1,000 | Yes 
-| Number of SQL Filters | 20 | Yes
+| Number of SQL filters per topic | 70 | Yes |
 | Length of filter condition or rule action string | 1,024 | Yes
 | Number of expressions per rule action | 32 | Yes  
 | Number of concurrent connections to namespace| 10 |Yes
@@ -83,6 +82,7 @@ Like the Service Bus cloud service, the emulator provides the following quotas f
 | Queue or topic size  | 100 MB | No
 | Message Time to Live | 1hr | Yes
 
+The SQL filter limit applies per topic and is shared across all subscriptions on that topic.
 
 
 ## Create and manage entities within Service Bus emulator

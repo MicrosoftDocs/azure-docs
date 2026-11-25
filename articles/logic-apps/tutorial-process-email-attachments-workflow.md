@@ -6,7 +6,7 @@ ms.reviewers: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-ms.date: 07/10/2026
+ms.date: 07/21/2026
 ms.custom:
   - mvc
   - devx-track-csharp
@@ -18,7 +18,7 @@ ms.custom:
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-This tutorial shows how to build an example workflow that integrates Azure Functions and Azure Storage by using Azure Logic Apps. This example specifically creates a Consumption logic app workflow that handles incoming emails and any attachments, analyzes the email content using Azure Functions, saves the content to Azure storage, and sends email for reviewing the content.
+This tutorial shows how to build an example workflow that integrates Azure Functions and Azure Storage by using Azure Logic Apps. This example specifically creates a Consumption logic app workflow that handles incoming emails and any attachments. The workflow analyzes the email content by using Azure Functions, saves the content to Azure storage, and sends an email for reviewing the content.
 
 When you finish, your workflow looks like the following high level example:
 
@@ -96,7 +96,7 @@ The following steps set up [Azure storage](../storage/common/storage-introductio
 
    1. On the storage account menu, under **Data storage**, select **Containers**.
 
-   1. On the **Containers** page toolbar, select **Container**.
+   1. On the **Containers** page toolbar, select **+ Add container**.
 
    1. On the **New container** pane, provide the following information:
    
@@ -173,7 +173,7 @@ The following steps create an Azure function that your workflow calls to remove 
       | **Runtime stack** | Yes | <*programming-language*> | The runtime for your preferred function programming language. For C# and F# functions, select **.NET**. <br><br>This example uses **.NET**. <br><br>In-portal editing is only available for the following languages: <br><br>- JavaScript <br>- PowerShell <br>- TypeScript <br>- C# script <br><br>You must [locally develop](../azure-functions/functions-develop-local.md#local-development-environments) any C# class library, Java, and Python functions. |
       | **Version** | Yes | <*version-number*> | Select the version for your installed runtime. |
       | **Region** | Yes | <*Azure-region*> | The same region that you previously used. <br><br>This example uses **West US**. |
-      | **Operating System** | Yes | <*your-operating-system*> | An operating system is preselected for you based on your runtime stack selection, but you can select the operating system that supports your favorite function programming language. In-portal editing is only supported on Windows. <br><br>This example selects **Windows**. |
+      | **Operating System** | Yes | <*your-operating-system*> | An operating system is preselected for you based on your runtime stack selection. However, you can select the operating system that supports your favorite function programming language. In-portal editing is only supported on Windows. <br><br>This example selects **Windows**. |
 
    1. Select **Next: Storage**. On the **Storage** tab, provide the following information:
 
@@ -303,7 +303,7 @@ The following steps add a trigger that waits for incoming emails that have attac
 
    When you finish, the trigger looks similar to the following example:
 
-   :::image type="content" source="media/tutorial-process-email-attachments-workflow/trigger-information.png" alt-text="Screenshot shows Consumption workflow and Office 365 Outlook trigger.":::
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/trigger-information.png" alt-text="Screenshot shows Consumption workflow and Office 365 Outlook trigger." lightbox="media/tutorial-process-email-attachments-workflow/trigger-information.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -327,7 +327,7 @@ The following steps add a condition that selects only emails that have attachmen
 
       :::image type="content" source="media/tutorial-process-email-attachments-workflow/has-attachment.png" alt-text="Screenshot shows condition action, second row with cursor in leftmost box, open dynamic content list, and Has Attachment selected." lightbox="media/tutorial-process-email-attachments-workflow/has-attachment.png":::
 
-   1. In the middle box, keep the operator named **is equal to**.
+   1. In the middle box, keep the equals (**=**) operator.
 
    1. In the right box, enter **true**, which is the value to compare with the **Has Attachment** output value from the trigger. If both values are equal, the email has at least one attachment, the condition passes, and the workflow continues.
 
@@ -553,7 +553,7 @@ The following steps add an action to create a blob for each attachment.
    > If you select an output that has an array, such as the **Content** output, which is an array 
    > that includes attachments, the designer automatically adds a **For each** loop around the action 
    > that references that output. That way, your workflow can perform that action on each array item.
-   > To remove loop, move the action that references the output to outside the loop, and delete the loop.
+   > To remove the loop, move the action that references the output to outside the loop, and delete the loop.
 
    The following screenshot shows the outputs to select for the **Create blob for email attachment** action:
 
@@ -623,7 +623,7 @@ The following steps add an action so that your workflow sends email to review th
    > If you select an output that has an array, such as the **Content** output, which is an array 
    > that includes attachments, the designer automatically adds a **For each** loop around the action 
    > that references that output. That way, your workflow can perform that action on each array item.
-   > To remove loop, move the action that references the output to outside the loop, and delete the loop.
+   > To remove the loop, move the action that references the output to outside the loop, and delete the loop.
 
    The following screenshot shows the finished **Send an email** action:
 

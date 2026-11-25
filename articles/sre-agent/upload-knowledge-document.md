@@ -3,7 +3,7 @@ title: Upload Knowledge Documents to Azure SRE Agent
 description: Create and upload runbooks, troubleshooting guides, and documentation to Knowledge settings during conversations to capture institutional knowledge automatically.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 04/24/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -87,7 +87,7 @@ Drag files into any chat to give your agent immediate context for analysis - tro
 
 ### Knowledge settings uploads
 
-To persist documents for your agent to reference in future conversations, upload files through **Builder → Knowledge settings → Add file**. The system indexes uploaded files for semantic search.
+To persist documents for your agent to reference in future conversations, upload files through **Build + setup > Context > Knowledge sources → Add file**. The system indexes uploaded files for semantic search.
 
 | Category | Extensions |
 |----------|-----------|
@@ -160,8 +160,8 @@ The next time a similar CPU issue occurs, your agent automatically references th
 | Scenario | Better approach |
 |----------|----------------|
 | Connecting live wiki content that stays in sync | [ADO Wiki Knowledge](azure-devops-wiki-knowledge.md) |
-| Uploading binary files (PDF, Word, images) | Upload through **Builder → Knowledge settings → Add file** |
-| Bulk importing many documents at once | Upload multiple files through **Builder → Knowledge settings → Add file** |
+| Uploading binary files (PDF, Word, images) | Upload through **Build + setup > Context > Knowledge sources → Add file** |
+| Bulk importing many documents at once | Upload multiple files through **Build + setup > Context > Knowledge sources → Add file** |
 | Keeping code repositories up to date automatically | Connect a GitHub or ADO connector |
 
 ## Related capabilities

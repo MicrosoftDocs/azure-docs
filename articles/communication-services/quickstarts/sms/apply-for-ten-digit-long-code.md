@@ -16,6 +16,8 @@ ms.custom: mode-other
 
 # Apply for 10DLC brand registration and campaign registration
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to register a brand and campaign for 10-digit long code (10DLC) messaging in Azure Communication Services. This process ensures compliance with carrier requirements and enables reliable, high-quality message delivery. For more information about how to complete the registration form, see [10DLC registration guidelines](../../concepts/sms/ten-digit-long-code-guidelines.md).
 
 You need to complete brand registration and receive approval first. Approval of brand registration might take two to three business days. Then you can continue with campaign registration, which might take three to five business days.

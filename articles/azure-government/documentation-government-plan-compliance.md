@@ -3,7 +3,7 @@ title: Azure Government compliance
 description: Provides an overview of the available compliance assurances for Azure Government
 ms.service: azure-government
 ms.topic: article
-ms.author: eliotgra
+ms.author: diberry
 author: EliotSeattle
 ms.custom: references_regions
 recommendations: false

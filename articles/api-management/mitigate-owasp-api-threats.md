@@ -16,7 +16,7 @@ ms.custom: sfi-ropc-nochange
 
 The Open Web Application Security Project ([OWASP](https://owasp.org/about/)) Foundation works to improve software security through its community-led open source software projects, hundreds of chapters worldwide, tens of thousands of members, and by hosting local and global conferences.
 
-The OWASP [API Security Project](https://owasp.org/www-project-api-security/) focuses on strategies and solutions to understand and mitigate the unique *vulnerabilities and security risks of APIs*. In this article, we discuss the latest recommendations to mitigate the top 10 API threats identified by OWASP in their *2023* list using Azure API Management.
+The OWASP [API Security Project](https://owasp.org/projects/api-security-project) focuses on strategies and solutions to understand and mitigate the unique *vulnerabilities and security risks of APIs*. In this article, we discuss the latest recommendations to mitigate the top 10 API threats identified by OWASP in their *2023* list using Azure API Management.
 
 Even though API Management provides comprehensive controls for API security, other Microsoft services provide complementary functionality to detect or protect against OWASP API threats:
 
@@ -191,7 +191,7 @@ More information about this threat: [API8:2023 Security misconfiguration](https
 - Use Key Vault integration to manage all certificates. This centralizes certificate management and can help to ease operations management tasks such as certificate renewal or revocation. Use managed identity to authenticate to key vaults.
 - When using the [self-hosted-gateway](/azure/api-management/self-hosted-gateway-overview), ensure that there's a process in place to update the image to the latest version periodically.
 - Represent backend services as [backend entities](/azure/api-management/backends). Configure authorization credentials, certificate chain validation, and certificate name validation where applicable.
-- Ensure your backends are protected against path traversal (directory traversal) attacks. API Management may forward requests containing `..%2f` in the URL path to a backend. If the backend decodes it to `../`, it could be susceptible to a path traversal attack. You can also apply a policy in API Management to detect and block requests such as those containing `..%2f` in the path. 
+- Ensure your backends are protected against path traversal (directory traversal) attacks. API Management might forward requests containing `..%2f` or similar disguised traversal sequences (for example `%2e%2e` or `..;`) in the URL path to a backend. If the backend decodes them to `../`, it could be susceptible to a path traversal attack. You can also apply a policy in API Management to detect and block requests containing such sequences in the path.
 - Where possible, use credential manager or managed identity to authenticate against backend services.
 - When using the [developer portal](/azure/api-management/api-management-howto-developer-portal):
     - If you choose to [self-host](/azure/api-management/developer-portal-self-host) the developer portal, ensure there's a process in place to periodically update the self-hosted portal to the latest version. Updates for the default managed version are automatic.

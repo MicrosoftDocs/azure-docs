@@ -28,8 +28,14 @@ items:
       href: tutorial-seismic-ddms-sdutil.md
     - name: Use Seismic Store DDMS APIs
       href: tutorial-seismic-ddms.md
-    - name: Change tier for seismic workloads
-      href: tutorial-seismic-change-tier.md
+    - name: Manage seismic datasets
+      items:
+        - name: Change tier for seismic workloads
+          href: tutorial-seismic-change-tier.md
+        - name: Restore a seismic dataset
+          href: tutorial-seismic-restore-dataset.md
+        - name: Schedule seismic analytics reports
+          href: tutorial-seismic-analytics.md
     - name: Use Wellbore DDMS APIs
       href: tutorial-wellbore-ddms.md
     - name: Use Well Delivery DDMS APIs
@@ -71,12 +77,16 @@ items:
       href: concepts-reference-data-values.md
     - name: Analytics consumption zone (ACZ)
       href: concepts-analytics-consumption-zone.md
+    - name: Monitoring data reference
+      href: concepts-monitor-data-reference.md
 - name: How-to guides
   items:
     - name: Administration
       items:
         - name: Manage users
           href: how-to-manage-users.md
+        - name: Manage permissions with Microsoft Entra ID groups
+          href: how-to-manage-microsoft-entra-id-groups.md
         - name: Manage ACLs
           href: how-to-manage-acls.md
         - name: Manage legal tags
@@ -99,6 +109,8 @@ items:
           href: how-to-enable-analytics-consumption-zone.md
     - name: Monitoring
       items:
+        - name: Monitor Azure Data Manager for Energy
+          href: how-to-monitor-data-manager-energy.md
         - name: Airflow task logs integration with Azure Monitor
           href: how-to-integrate-airflow-logs-with-azure-monitor.md
         - name: Elastic logs integration with Azure Monitor
@@ -107,6 +119,8 @@ items:
           href: how-to-integrate-osdu-service-logs-with-azure-monitor.md
     - name: Security
       items:
+        - name: Analytics consumption zone entitlements export (preview)
+          href: concepts-analytics-consumption-zone-entitlements.md
         - name: Set up Private Links
           href: how-to-set-up-private-links.md
         - name: Set up Customer managed encryption keys (CMEK)
@@ -135,6 +149,8 @@ items:
       href: how-to-connect-analytics-consumption-zone-to-fabric.md
     - name: Connect Analytics Consumption Zone (ACZ) to Azure Databricks
       href: how-to-connect-analytics-consumption-zone-to-databricks.md
+    - name: Connect Analytics Consumption Zone (ACZ) to Snowflake
+      href: how-to-connect-analytics-consumption-zone-to-snowflake.md
 - name: References
   items:
   - name: REST API

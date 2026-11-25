@@ -4,7 +4,7 @@ description: This article covers common use cases for customers who use Azure Vi
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 07/11/2025
+ms.date: 07/17/2026
 ms.custom: template-overview
 ms.service: azure-virtual-network-manager
 # Customer Intent: As a network admin, I need to know when I should use Azure Virtual Network Manager in my organization for managing virtual networks across my organization in a scalable, flexible, and secure manner with minimal administrative overhead.
@@ -41,9 +41,7 @@ When you make changes to your infrastructure, Azure Virtual Network Manager auto
 
 ## Security
 
-With Azure Virtual Network Manager, you create [security admin rules](concept-security-admins.md) to enforce security policies across virtual networks in your organization. Security admin rules take precedence over rules that network security groups define. Security admin rules are applied first in traffic analysis, as shown in the following diagram:
-
-:::image type="content" source="media/concept-security-admins/traffic-evaluation.png" alt-text="Diagram that shows the order of evaluation for network traffic with security admin rules and network security rules.":::
+By using Azure Virtual Network Manager, you can create [security admin rules](concept-security-admins.md) to enforce security policies across virtual networks in your organization. Security admin rules take precedence over network security group (NSG) rules. For details on how Azure Virtual Network Manager evaluates security admin rules against NSGs, see [Security admin rules](concept-security-admins.md#how-security-admin-rules-and-network-security-groups-nsgs-are-evaluated).
 
 Common uses include:
 

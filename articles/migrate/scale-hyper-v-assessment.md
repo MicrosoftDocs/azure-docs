@@ -1,8 +1,8 @@
 ---
-title: Assess large numbers of servers in Hyper-V environment for migration to Azure with Azure Migrate | Microsoft Docs
-description: Describes how to assess large numbers of servers in Hyper-V environment for migration to Azure using the Azure Migrate service.
+title: Assess large numbers of servers in Hyper-V environment for migration to Azure with Azure Catalyst | Microsoft Docs
+description: Describes how to assess large numbers of servers in Hyper-V environment for migration to Azure using the Azure Catalyst service.
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.topic: how-to
 ms.date: 02/06/2025
 ms.update-cycle: 1095-days
@@ -12,16 +12,16 @@ ms.update-cycle: 1095-days
 
 # Assess large numbers of servers in Hyper-V environment for migration to Azure
 
-This article describes how to assess large numbers of on-premises servers in Hyper-V environment for migration to Azure, using the Azure Migrate: Discovery and assessment tool.
+This article describes how to assess large numbers of on-premises servers in Hyper-V environment for migration to Azure, using the Azure Catalyst: Discovery and assessment tool.
 
-[Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
+[Azure Catalyst](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Catalyst tools, and third-party independent software vendor (ISV) offerings. 
 
 
 In this article, you learn how to:
 > [!div class="checklist"]
 > * Plan for assessment at scale.
 > * Configure Azure permissions and prepare Hyper-V for assessment.
-> * Create an Azure Migrate project and create an assessment.
+> * Create an Azure Catalyst project and create an assessment.
 > * Review the assessment as you plan for migration.
 
 
@@ -32,8 +32,8 @@ In this article, you learn how to:
 
 When planning for assessment of a large number of servers in Hyper-V environment, there are a couple of things to think about:
 
-- **Plan Azure Migrate projects**: Figure out how to deploy Azure Migrate projects. For example, if your data centers are in different geographies, or if you need to store discovery, assessment, or migration-related metadata in a different geography, you might need multiple projects.
-- **Plan appliances**: Azure Migrate uses an on-premises Azure Migrate appliance, deployed as a Hyper-V VM, to continually discover servers for assessment and migration. The appliance monitors environment changes such as adding servers, disks, or network adapters. It also sends metadata and performance data about them to Azure. You need to figure out how many appliances to deploy.
+- **Plan Azure Catalyst projects**: Figure out how to deploy Azure Catalyst projects. For example, if your data centers are in different geographies, or if you need to store discovery, assessment, or migration-related metadata in a different geography, you might need multiple projects.
+- **Plan appliances**: Azure Catalyst uses an on-premises Azure Catalyst appliance, deployed as a Hyper-V VM, to continually discover servers for assessment and migration. The appliance monitors environment changes such as adding servers, disks, or network adapters. It also sends metadata and performance data about them to Azure. You need to figure out how many appliances to deploy.
 
 
 ## Planning limits
@@ -42,10 +42,10 @@ Use the limits summarized in this table for planning.
 
 **Planning** | **Limits**
 --- | --- 
-**Azure Migrate projects** | Assess up to 35,000 servers in a project.
-**Azure Migrate appliance** | An appliance can discover up to 5000 servers.<br/> An appliance can connect to up to 300 Hyper-V hosts.<br/> An appliance can only be associated with a single Azure Migrate project.<br/> Any number of appliances can be associated with a single Azure Migrate project. <br/><br/> 
+**Azure Catalyst projects** | Assess up to 35,000 servers in a project.
+**Azure Catalyst appliance** | An appliance can discover up to 5000 servers.<br/> An appliance can connect to up to 300 Hyper-V hosts.<br/> An appliance can only be associated with a single Azure Catalyst project.<br/> Any number of appliances can be associated with a single Azure Catalyst project. <br/><br/> 
 **Group** | You can add up to 35,000 servers in a single group.
-**Azure Migrate assessment** | You can assess up to 35,000 servers in a single assessment.
+**Azure Catalyst assessment** | You can assess up to 35,000 servers in a single assessment.
 
 
 
@@ -59,7 +59,7 @@ Use the limits summarized in this table for planning.
 Prepare Azure and Hyper-V for the Discovery and assessment tool: 
 
 1. Verify [Hyper-V support requirements and limitations](migrate-support-matrix-hyper-v.md).
-2. Set up permissions for your Azure account to interact with Azure Migrate.
+2. Set up permissions for your Azure account to interact with Azure Catalyst.
 3. Prepare Hyper-V hosts and servers.
 
 Follow the instructions in [this tutorial](./tutorial-discover-hyper-v.md) to configure these settings.
@@ -68,8 +68,8 @@ Follow the instructions in [this tutorial](./tutorial-discover-hyper-v.md) to co
 
 In accordance with your planning requirements, do the following:
 
-1. Create an Azure Migrate projects.
-2. Add the Azure Migrate Discovery and assessment tool to the projects.
+1. Create an Azure Catalyst projects.
+2. Add the Azure Catalyst Discovery and assessment tool to the projects.
 
 [Learn more](./create-manage-projects.md) about creating a project.
 
@@ -86,9 +86,9 @@ In accordance with your planning requirements, do the following:
 In this article, you:
  
 > [!div class="checklist"] 
-> * Planned to scale Azure Migrate assessments for servers in Hyper-V environment
+> * Planned to scale Azure Catalyst assessments for servers in Hyper-V environment
 > * Prepared Azure and Hyper-V for assessment
-> * Created an Azure Migrate project and ran assessments
+> * Created an Azure Catalyst project and ran assessments
 > * Reviewed assessments in preparation for migration.
 
 Now, [learn how](concepts-assessment-calculation.md) assessments are calculated, and how to [modify assessments](how-to-modify-assessment.md).

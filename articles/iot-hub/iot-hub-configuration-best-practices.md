@@ -1,8 +1,8 @@
 ---
 title: Device configuration best practices for Azure IoT Hub | Microsoft Docs 
 description: Learn about best practices for using automatic device management to minimize repetitive and complex tasks involved in managing IoT devices at scale.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 08/05/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub
@@ -33,7 +33,7 @@ Automatic device management includes the many benefits of [device twins](iot-hub
 
 The following are best practices for hardware manufacturers and integrators dealing with embedded software development:
 
-* **Implement [device twins](iot-hub-devguide-device-twins.md):** Device twins enable synchronizing desired configuration from the cloud and for reporting current configuration and device properties. The best way to implement device twins within embedded applications is through the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks). Device twins are best suited for configuration because they:
+* **Implement [device twins](iot-hub-devguide-device-twins.md):** Device twins enable synchronizing desired configuration from the cloud and for reporting current configuration and device properties. The best way to implement device twins within embedded applications is through the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdk). Device twins are best suited for configuration because they:
 
     * Support bi-directional communication.
     * Allow for both connected and disconnected device states.
@@ -50,7 +50,7 @@ The following are best practices for hardware manufacturers and integrators deal
 
 The following are best practices for IoT solution developers who are building systems based in Azure:
 
-* **Implement [device twins](iot-hub-devguide-device-twins.md):** Device twins enable synchronizing desired configuration from the cloud and for reporting current configuration and device properties. The best way to implement device twins within cloud solutions applications is through the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks). Device twins are best suited for configuration because they:
+* **Implement [device twins](iot-hub-devguide-device-twins.md):** Device twins enable synchronizing desired configuration from the cloud and for reporting current configuration and device properties. The best way to implement device twins within cloud solutions applications is through the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdk). Device twins are best suited for configuration because they:
 
     * Support bi-directional communication.
     * Allow for both connected and disconnected device states.

@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 # Your application disposes the video renderer while subscribing to a video
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 The [`createView`](/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-videostreamrenderer-createview) API doesn't resolve immediately, as there are multiple underlying asynchronous operations involved in the video subscription process and thus this API response is an asynchronous response.
 
 If your application disposes of the render object while the video subscription is in progress, the [`createView`](/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-videostreamrenderer-createview) API throws an error.

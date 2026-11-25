@@ -2,8 +2,8 @@
 title: Extend Azure DevTest Labs with Azure Functions
 description: Learn how to extend Azure DevTest Labs by using Azure Functions, and build, publish, and test a sample function application.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 06/18/2024
 ms.custom:
   - UpdateFrequency2

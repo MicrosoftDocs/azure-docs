@@ -1,30 +1,29 @@
 ---
 title: Centralized Issue Tracking
-description: Learn how to use Action Center in Azure Migrate for centralized issue tracking, real-time alerts, and faster resolution across migration projects.
+description: Learn how to use Action Center in Azure Catalyst for centralized issue tracking, real-time alerts, and faster resolution across migration projects.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 08/18/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1825-days
-monikerRange:
 # Customer intent: As a migration project manager, I want to use a centralized issue tracking system, so that I can efficiently manage and resolve migration-related problems, ensuring a smoother transition to Azure.
 ---
 
 # Use Action Center for Centralized issue tracking and resolution
 
-This article describes how you can use Action Center in Azure Migrate as a centralized issue resolution hub.
+This article describes how you can use Action Center in Azure Catalyst as a centralized issue resolution hub.
 
 ## Overview
 
-Azure Migrate offers a comprehensive platform for migrating, modernizing, and optimizing resources in Azure. It allows users to create projects to discover datacenter inventory, conduct assessments, analyze dependencies, replicate workloads, and perform test migrations. However, managing issues and actions across these components can be challenging, particularly when users are dealing with complex environments involving numerous servers, applications, and data sources.
+Azure Catalyst offers a comprehensive platform for migrating, modernizing, and optimizing resources in Azure. It allows users to create projects to discover datacenter inventory, conduct assessments, analyze dependencies, replicate workloads, and perform test migrations. However, managing issues and actions across these components can be challenging, particularly when users are dealing with complex environments involving numerous servers, applications, and data sources.
 
-The new **Action Center** feature in Azure Migrate addresses this challenge by offering a **centralized hub** where users can view and manage all migration-related issues, pending actions, and jobs across their projects. This includes issues related to **discovery**, **dependency visualization**, and **assessments**, streamlining the troubleshooting process by bringing together different types of issues in a single interface. This unified view helps users stay organized and prioritize their actions effectively, enabling faster issue resolution and a smoother migration experience.
+The new **Action Center** feature in Azure Catalyst addresses this challenge by offering a **centralized hub** where users can view and manage all migration-related issues, pending actions, and jobs across their projects. This includes issues related to **discovery**, **dependency visualization**, and **assessments**, streamlining the troubleshooting process by bringing together different types of issues in a single interface. This unified view helps users stay organized and prioritize their actions effectively, enabling faster issue resolution and a smoother migration experience.
 
 ## Access Action Center
 
-The Action Center can be accessed directly from the Azure Migrate dashboard, providing an integrated and accessible solution for managing migration issues and actions.
+The Action Center can be accessed directly from the Azure Catalyst dashboard, providing an integrated and accessible solution for managing migration issues and actions.
 
 ## Key features
 
@@ -36,7 +35,7 @@ The Action Center can be accessed directly from the Azure Migrate dashboard, pro
 
     [ ![Screenshot of affected workloads view.](./media/centralized-issue-tracking/view-affected-workloads-inline.png) ](./media/centralized-issue-tracking/view-affected-workloads-expanded.png#lightbox)
 
-- **Easy accessibility from Azure Migrate dashboard:** Action Center is accessible directly from the Azure Migrate dashboard, ensuring a seamless experience for users managing their migration projects.
+- **Easy accessibility from Azure Catalyst dashboard:** Action Center is accessible directly from the Azure Catalyst dashboard, ensuring a seamless experience for users managing their migration projects.
 
     [ ![Screenshot of Azure Migrate dashboard with Action Center tile.](./media/centralized-issue-tracking/migrate-dashboard-inline.png) ](./media/centralized-issue-tracking/migrate-dashboard-expanded.png#lightbox)
 
@@ -46,11 +45,11 @@ The Action Center can be accessed directly from the Azure Migrate dashboard, pro
 
 - **Integrated remediation resources:** The Action Center provides links to resources and troubleshooting documentation for specific issue types:
 
-   - **Discovery issues:** [Troubleshoot Discovery Issues in Azure Migrate](/azure/migrate/troubleshoot-discovery).
+   - **Discovery issues:** [Troubleshoot Discovery Issues in Azure Catalyst](/azure/migrate/troubleshoot-discovery).
   
-   - **Dependency visualization issues:** [Troubleshoot Dependency Visualization Issues in Azure Migrate](/azure/migrate/troubleshoot-dependencies).
+   - **Dependency visualization issues:** [Troubleshoot Dependency Visualization Issues in Azure Catalyst](/azure/migrate/troubleshoot-dependencies).
   
-   - **Assessment issues:** [Troubleshoot Assessment Issues in Azure Migrate](/azure/migrate/troubleshoot-assessment).
+   - **Assessment issues:** [Troubleshoot Assessment Issues in Azure Catalyst](/azure/migrate/troubleshoot-assessment).
    
     These resources guide users in addressing issues, helping to minimize delays in the migration process.
 

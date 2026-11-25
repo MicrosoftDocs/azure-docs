@@ -6,7 +6,7 @@ services: api-management
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 06/03/2026
+ms.date: 11/02/2026
 ms.custom:
   - engagement-fy23
   - build-2025
@@ -77,6 +77,9 @@ If you already have a private certificate from a third-party provider, you can u
 * Contains private key at least 2048 bits long
 * Contains all intermediate certificates and the root certificate in the certificate chain.
 
+> [!IMPORTANT]
+> If the certificate chain uses a cross-signed certificate, API Management might return any of the valid chains, and you can't guarantee or control which one is returned. Ensure clients are configured to trust every possible valid chain rather than relying on a specific one.
+
 # [Key Vault](#tab/key-vault)
 
 We recommend using Azure Key Vault to [manage your certificates](/azure/key-vault/certificates/about-certificates) and setting them to `autorenew`.
@@ -98,12 +101,17 @@ If the certificate is set to `autorenew` and your API Management tier has an SLA
 
 For more information about synchronization and help with troubleshooting Azure Key Vault certificate access issues, see [Certificate synchronization and troubleshooting for Azure Key Vault-backed certificates](#certificate-synchronization-and-troubleshooting-for-azure-key-vault-backed-certificates) later in this article.
 
+> [!IMPORTANT]
+> * The certificate PFX file in key vault must contain all intermediate certificates and the root certificate in the chain.
+> * If the certificate chain uses a cross-signed certificate, API Management might return any of the valid chains, and you can't guarantee or control which one is returned. Ensure clients are configured to trust every possible valid chain rather than relying on a specific one.
+
+
 # [Managed](#tab/managed)
 
 API Management offers a free, managed TLS certificate for your domain, if you don't wish to purchase and manage your own certificate. The certificate is autorenewed automatically.
 
 > [!IMPORTANT]
-> **Creation of managed certificates for custom domains in API Management will be temporarily unavailable from August 15, 2025 to June 30, 2026.** Our Certificate Authority (CA), DigiCert, will migrate to a new validation platform to meet Multi-Perspective Issuance Corroboration (MPIC) requirements for issuing certificates. This migration requires us to temporarily suspend the creation of managed certificates for custom domains. [Learn more](breaking-changes/managed-certificates-suspension-august-2025.md)
+> **Creation of managed certificates for custom domains in API Management is temporarily unavailable from August 15, 2025, to November 30, 2026.** Our Certificate Authority (CA), DigiCert, is migrating to a new validation platform to meet Multi-Perspective Issuance Corroboration (MPIC) requirements for issuing certificates. This migration requires us to temporarily suspend the creation of managed certificates for custom domains. [Learn more](breaking-changes/managed-certificates-suspension-august-2025.md)
 >
 > Existing managed certificates will be autorenewed and remain unaffected.
 >

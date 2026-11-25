@@ -1,6 +1,6 @@
 ---
-title: Manage sync of Arc resources to Azure Migrate project
-description: Learn how to sync Arc-enabled resources, manage project scope, and configure automatic synchronization in Azure Migrate.
+title: Manage sync of Arc resources to Azure Catalyst project
+description: Learn how to sync Arc-enabled resources, manage project scope, and configure automatic synchronization in Azure Catalyst.
 author: snehithm
 ms.author: snmuvva
 ms.service: azure-migrate
@@ -11,25 +11,25 @@ ms.update-cycle: 1095-days
 monikerRange: migrate
 ---
 
-# Manage sync of Arc resources to Azure Migrate project
+# Manage sync of Arc resources to Azure Catalyst project
 
-This article describes how to sync Arc-enabled resources in Azure Migrate, manage project scope, and configure automatic synchronization.
+This article describes how to sync Arc-enabled resources in Azure Catalyst, manage project scope, and configure automatic synchronization.
 
-When you create an Azure Migrate project for Arc resources, it syncs metadata from your Arc-enabled servers and SQL Server instances. As your environment changes, you need to sync the project to ensure assessments, and business cases reflect the current state of your infrastructure.
+When you create an Azure Catalyst project for Arc resources, it syncs metadata from your Arc-enabled servers and SQL Server instances. As your environment changes, you need to sync the project to ensure assessments, and business cases reflect the current state of your infrastructure.
 
 ## Prerequisites
 
-- You need an existing Azure Migrate project created for Arc resources. If you don't have one, see [Create a migrate project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md).
+- You need an existing Azure Catalyst project created for Arc resources. If you don't have one, see [Create a Azure Catalyst project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md).
 - You also need **Migrate Arc Discovery Reader - Preview** role on subscriptions containing Arc resources you want to sync.
 
 ## Sync types
-Azure Migrate supports the following sync types
+Azure Catalyst supports the following sync types
 - Manual sync
 - Automatic sync
 
 ## Manual sync
 
-Manual sync allows you to immediately refresh your Azure Migrate project with the latest data from your Arc-enabled resources.
+Manual sync allows you to immediately refresh your Azure Catalyst project with the latest data from your Arc-enabled resources.
 
 ### When to use manual sync
 
@@ -52,30 +52,30 @@ Use manual sync when:
 5. You receive a notification when the sync completes successfully.
 
 > [!NOTE]
-> During sync, Azure Migrate collects metadata about your Arc-enabled resources but doesn't change the resources. When you perform an on-demand sync, change sync type, enable/disable tag sync or edit project scope, along with data sync, Azure Migrate also recalculates the default assessments and business cases.
+> During sync, Azure Catalyst collects metadata about your Arc-enabled resources but doesn't change the resources. When you perform an on-demand sync, change sync type, enable/disable tag sync or edit project scope, along with data sync, Azure Catalyst also recalculates the default assessments and business cases.
 
 ## Automatic sync
 
-Automatic sync configures your Azure Migrate project to periodically sync Arc resource data without manual intervention. This setting ensures your assessments and business cases always reflect the current state of your infrastructure.
+Automatic sync configures your Azure Catalyst project to periodically sync Arc resource data without manual intervention. This setting ensures your assessments and business cases always reflect the current state of your infrastructure.
 
 ### How automatic sync works
 
 When you enable automatic sync:
-- Azure Migrate uses the project's managed identity to access Arc resources
+- Azure Catalyst uses the project's managed identity to access Arc resources
 - The managed identity is automatically enabled when you create a project with Arc resources
 - Automatic sync runs once every 24 hours. 
-- You can manually trigger a sync anytime. Manual sync uses your identity, while automatic (periodic) sync uses the Azure Migrate project managed identity to perform the sync.
+- You can manually trigger a sync anytime. Manual sync uses your identity, while automatic (periodic) sync uses the Azure Catalyst project managed identity to perform the sync.
 
 
 ### Configure automatic sync
 
-To configure automatic sync, you must first ensure the Azure Migrate project managed identity has appropriate permissions. 
+To configure automatic sync, you must first ensure the Azure Catalyst project managed identity has appropriate permissions. 
 
 #### Step 1: Assign managed identity permissions
 
-The Azure Migrate project has a system-assigned managed identity that must be granted access to your Arc resources.
+The Azure Catalyst project has a system-assigned managed identity that must be granted access to your Arc resources.
 
-1. Navigate to your Azure Migrate project in the Azure portal.
+1. Navigate to your Azure Catalyst project in the Azure portal.
 
 2. Note the **Project name** as you'll need it to find the managed identity.
 
@@ -97,7 +97,7 @@ The Azure Migrate project has a system-assigned managed identity that must be gr
    
    8. In the **Managed identity** dropdown, select **Migrate Project**.
    
-   9. Search for and select your Azure Migrate project name.
+   9. Search for and select your Azure Catalyst project name.
    
    10. Select **Select**.
    
@@ -144,13 +144,13 @@ To disable automatic sync:
 
 ## Configure tag synchronization
 
-Azure Migrate can synchronize Azure Resource Manager tags from your Arc-enabled resources to the Migrate inventory. Tag syncing helps you organize and filter resources in assessments and business cases.
+Azure Catalyst can synchronize Azure Resource Manager tags from your Arc-enabled resources to the Azure Catalyst inventory. Tag syncing helps you organize and filter resources in assessments and business cases.
 
 ### About tag synchronization
 
 - **Default behavior**: Tag sync is enabled by default when you create a project
 - **Sync scope**: Tags synced from Arc-enabled servers and SQL Server instances
-- **Tag format**: Tags appear in Azure Migrate inventory with the same key-value pairs as in Azure Resource Manager
+- **Tag format**: Tags appear in Azure Catalyst inventory with the same key-value pairs as in Azure Resource Manager
 - **Update frequency**: Tags sync during manual or automatic sync operations
 - **Use cases**: Filter resources by environment, application, cost center, or other organizational criteria
 
@@ -170,10 +170,10 @@ Azure Migrate can synchronize Azure Resource Manager tags from your Arc-enabled 
 
 
 > [!NOTE]
-> - Disabling tag sync doesn't remove existing tags from the Migrate inventory. It only stops syncing new or updated tags.
-> - To remove existing tags from the inventory, disable tag sync, then manually remove tags from resources in the Migrate inventory view.
+> - Disabling tag sync doesn't remove existing tags from the Azure Catalyst inventory. It only stops syncing new or updated tags.
+> - To remove existing tags from the inventory, disable tag sync, then manually remove tags from resources in the Azure Catalyst inventory view.
 
-After tags are synced, you can use them to create scoped assessments and business case in Azure Migrate. 
+After tags are synced, you can use them to create scoped assessments and business case in Azure Catalyst. 
 
 ### View synced tags
 
@@ -189,7 +189,7 @@ After tags are synced:
 
 ## View and edit project scope
 
-The project scope determines which subscriptions' Arc resources are included in your Azure Migrate project.
+The project scope determines which subscriptions' Arc resources are included in your Azure Catalyst project.
 
 ### View current scope
 
@@ -207,7 +207,7 @@ To view which Arc resources are currently included in your project:
 
 1. Select **View/Edit scope** > **View Azure Arc resources in this project**.
 
-2. You're redirected to the Azure Migrate inventory page showing:
+2. You're redirected to the Azure Catalyst inventory page showing:
    - All Arc-enabled servers in scope
    - All Arc-enabled SQL Server instances in scope
    - Configuration details

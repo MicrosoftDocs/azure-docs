@@ -5,33 +5,33 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/29/2025
+ms.date: 09/21/2026
 ms.author: cshoe
 ---
 
 # Request quota changes for Azure Container Apps
 
-Azure Container Apps has default quotas and limits that apply to your resources. As your application needs grow, you might need to increase these limits. This article explains how to request quota changes for Azure Container Apps through integrated and manual request processes. Follow these procedures when you need to expand your resource capacity beyond the default limits.
+Azure Container Apps has default quotas and limits that apply to your resources. As your application needs grow, you might need to increase these limits. The request process depends on whether the quota applies to the selected subscription and region or to one managed environment (Container Apps environment).
 
-## Integrated requests
+## Subscription quota requests
 
-Integrated requests use the [Azure Quota Management System](https://ms.portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas) (QMS) to automate most quota change requests. Most requests are processed within a few minutes, while a limited number requests are converted into support ticket for further evaluation.
+Submit quota requests that apply to the selected subscription and region through the [Azure Quota Management System](https://ms.portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas) (QMS). The request might be fulfilled automatically or routed to Azure Support for further review.
 
-Make an integrated request for the following quotas:
+Use this process for the following subscription quotas:
 
 - Managed environment count
 - Session pools
 - Subscription NCA 100 GPUs
 
-### Make an integrated request
+### Submit a subscription quota request
 
-Use the following steps to make an integrated request for a quota change.
+To request a subscription quota change:
 
 1. Go to the [Quota Management System](https://ms.portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas) in the Azure portal.
 
-1. Select the *Provider* drop down and select **Azure Container Apps**.
+1. In the **Provider** dropdown list, select **Azure Container Apps**.
 
-1. Select the  *Subscription* drop down and select your Azure subscription.
+1. In the **Subscription** dropdown list, select your Azure subscription.
 
 1. Use the search box to filter for the quota item that matches your request.
 
@@ -39,49 +39,45 @@ Use the following steps to make an integrated request for a quota change.
 
 1. Select the pencil icon (:::image type="icon" source="media/quotas/edit-icon.png" border="false":::) to initiate a request.
 
-1. In the *New Quota Request* window, enter the new limit value you're requesting in the *New limit* box.
+1. In the **New Quota Request** window, enter the requested value in the **New limit** box.
 
 1. Select **Submit**.
 
-Once your request is approved, then you'll see a success message that resembles the following example.
+After your request is approved, a success message appears.
 
 :::image type="content" source="media/quotas/azure-container-apps-quota-success.png" alt-text="Screenshot of successful quota request.":::
 
-## Manual requests
+## Managed environment quota requests
 
-Manual requests could take up to a few days to complete. Use this option for the following quotas:
+Submit quota requests that apply to one managed environment from that environment's **Quota** page. Azure might fulfill the request automatically or route it to Azure Support for further review.
+
+Use this process for the following managed environment quotas:
 
 - Managed environment consumption cores
 - Managed environment general purpose cores
 - Managed environment memory optimized cores
-- Managed environment consumption NCA100 Gpus
+- Managed environment consumption NCA100 GPUs
 - Managed environment consumption T4 GPUs
 
-### Make a manual request
+### Submit a managed environment quota request
 
-1. Open [New support request](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV4Blade/callerName/Quota/summary/Quota%20request) form in the Azure portal.
+Before you can request a managed environment quota increase, you must [create a Container Apps environment](environment.md).
 
-1. Enter the following values into the form:
+1. In the Azure portal, open your Container Apps environment.
 
-    | Property | Value |
-    |---|---|
-    | Issue type | Select **Service and subscription limits (quotas)** |
-    | Subscription | Select your subscription.  |
-    | Quota type | Select **Container Apps**. |
+1. Under **Settings**, select **Quota**.
 
-1. Select **Next**.
+    :::image type="content" source="media/quotas/azure-container-apps-environment-quota-list.png" alt-text="Screenshot of the Quota page for a Container Apps environment, showing CPU and GPU quota types.":::
 
-1. In the *Additional details* window, select **Enter details** to open the request details window and enter your values.
+1. Select the quota that you want to increase.
 
-    :::image type="content" source="media/quotas/azure-container-apps-qms-support-details.png" alt-text="Screenshot of Azure Quota Management System details window.":::
+1. In the **New Quota Request** pane, enter the requested value in the **New limit** box.
 
-1. Select **Save and continue**.
+    :::image type="content" source="media/quotas/azure-container-apps-environment-quota-request.png" alt-text="Screenshot of a new managed environment quota request with a value entered in the New limit box.":::
 
-1. Fill out the rest the relevant details in the *Additional details* window.
+1. Select **Submit**.
 
-1. Select **Next**.
-
-1. Select **Create**.
+If a quota doesn't appear on the **Quota** page, it might not be available for the environment. Availability can depend on the region or environment type. For example, GPU quotas are available only in certain regions. Managed environment memory optimized cores are available only for workload profiles environments, not consumption-only environments.
 
 ## Related content
 

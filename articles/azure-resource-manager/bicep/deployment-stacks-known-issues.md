@@ -3,7 +3,7 @@ title: Known issues for deployment stacks
 description: Learn about the known limitations and known issues for Azure deployment stacks, and the recommended workarounds.
 ms.topic: troubleshooting-known-issue
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 06/11/2026
+ms.date: 11/09/2026
 ---
 
 # Known issues for deployment stacks
@@ -46,6 +46,16 @@ along with recommended workarounds when available.
   Move operations. Deployment stack operations continue to work with the read-only lock in place -
   for example, reading the stack and the stack's deny-delete protection still function. To update
   the stack, temporarily remove the lock for the duration of the change and reapply it afterward.
+- **Deny settings don't apply to child scopes by default.** Deny settings protect the resources
+  that a deployment stack manages. By default, they don't apply to child resources, so they don't
+  protect a child resource that the stack doesn't manage. For example, if a stack manages a network
+  security group but not its security rules, the deny settings don't block adding, changing, or
+  deleting security rules in that network security group. Azure CLI and Azure PowerShell apply deny
+  settings to child scopes only if you include `--deny-settings-apply-to-child-scopes` (Azure CLI)
+  or `-DenySettingsApplyToChildScopes` (Azure PowerShell) when you create or update the stack. In
+  the REST API, `denySettings.applyToChildScopes` is optional, and the stack uses `false` if you
+  leave it out. Set it to `true` to apply deny settings to child scopes. For more information, see
+  [Protect managed resources](./deployment-stacks.md#protect-managed-resources).
 - **A management group-scoped stack can't deploy to another management group.** It can only deploy
   to the management group of the stack itself, or to a child subscription.
 - **`DeleteResourcesAndResourceGroups` value is being removed.** The Azure PowerShell command help
@@ -58,8 +68,6 @@ along with recommended workarounds when available.
   response.
 - **Microsoft Graph provider isn't supported.** The [Microsoft Graph provider](https://aka.ms/graphbicep)
   doesn't support deployment stacks.
-- **What-if isn't yet available.** The [what-if operation](./deploy-what-if.md) isn't yet supported for
-  deployment stacks.
 
 ## Handle the stack-out-of-sync error
 

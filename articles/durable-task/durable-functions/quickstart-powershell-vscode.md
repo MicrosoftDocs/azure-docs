@@ -2,7 +2,7 @@
 title: "Quickstart: Create a PowerShell Durable Functions app"
 description: Run a PowerShell Durable Functions sample app with function chaining and fan-out/fan-in patterns using the Durable Task Scheduler emulator. Get started now.
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.topic: quickstart
 ms.service: durable-task
 ms.subservice: durable-functions
@@ -29,7 +29,7 @@ By the end, you'll have both orchestrations running locally with the [Durable Ta
 
 ## Prerequisites
 
-- [PowerShell 7.4+](/powershell/scripting/install/installing-powershell) installed.
+- [PowerShell 7.6](/powershell/scripting/install/installing-powershell) installed.
 - [Azure Functions Core Tools](../../azure-functions/functions-run-local.md) v4 or later.
 - [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator and Azurite.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.

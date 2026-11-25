@@ -4,7 +4,7 @@ description: This article provides information on using schemas in a schema regi
 ms.topic: concept-article
 ms.date: 04/26/2023
 author: spelluru
-ms.author: spelluru
+ms.author: aschhabria
 ---
 
 # Client-side schema enforcement

@@ -1,11 +1,11 @@
 ---
-title: 'Verify resource reachability with Virtual Network Verifier - Azure portal'
-description: 'Learn how to use Virtual Network Verifier in the Azure portal to verify the reachability from one VM to another VM based on your applied network policies.'
+title: 'Verify resource reachability with network verifier - Azure portal'
+description: 'Learn how to use network verifier in the Azure portal to verify the reachability from one VM to another VM based on your applied network policies.'
 author: mbender-ms
 ms.author: mbender
 ms.topic: how-to
 ms.service: azure-virtual-network-manager
-ms.date: 03/13/2025
+ms.date: 07/29/2026
 ms.custom:
   - references_regions
   - sfi-image-nochange
@@ -24,7 +24,7 @@ In this article, you learn how to use network verifier in the Azure portal to ve
   - A verifier workspace is a child resource of a network manager, so it must be created from a network manager instance. Once a verifier workspace exists, it can be accessed directly from the Azure portal by searching **Verifier workspaces**.
 - Resources to verify reachability between. In this example, two virtual machines are used.
 
-## Create a Virtual Network Verifier
+## Create a verifier workspace
 
 In this step, you create a verifier workspace in your network manager to set up the reachability analysis intent needed to verify whether your virtual machine can reach your other virtual machine.
 
@@ -101,7 +101,7 @@ In this step, you view the results of the analysis you started in the previous s
 
 ## Delegate a verifier workspace to other users
 
-Optionally, you can delegate a verifier workspace to other users. This allows other users to use a network verifier's capability by granting them access to the verifier workspace, reachability analysis intents, analysis ability, and reachability analysis results. Each verifier workspace in a network manager has its own permissions, so granting a user access to one verifier workspace doesn't result in access to all verifier workspaces under the same network manager. Granting a user permission to a verifier workspace also doesn't result in any access to the rest of the parent network manager.
+Optionally, you can delegate a verifier workspace to other users. When you grant access to the verifier workspace, you give other users the ability to use network verifier, including reachability analysis intents, analysis ability, and reachability analysis results. Each verifier workspace in a network manager has its own permissions, so granting a user access to one verifier workspace doesn't grant access to all verifier workspaces under the same network manager. Granting a user permission to a verifier workspace doesn't grant any access to the rest of the parent network manager.
 
 1. In the verifier workspace, select **Access control (IAM)**.
 2. Select **+ Add** and **Add role assignment**.

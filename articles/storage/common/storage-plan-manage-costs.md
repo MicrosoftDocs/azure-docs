@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 10/01/2025
+ms.date: 11/03/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization, copilot-scenario-highlight
@@ -38,6 +38,7 @@ When you create or use Blob Storage resources, you're charged for the following 
 | Blob index tags | Per tag<sup>4   |
 | Change feed | Per logged change<sup>4  |
 | SSH File Transfer Protocol (SFTP) | Per hour<sup>4 |
+| Blob access points | Per hour, and per GB for private connections<sup>5</sup> |
 | Blob inventory | Per million objects scanned<sup>4 | 
 | Encryption scopes | Per month<sup>4  |
 | Query acceleration | Per GB scanned & Per GB returned |
@@ -47,6 +48,7 @@ When you create or use Blob Storage resources, you're charged for the following 
 <sup>2</sup> Applies only when copying data to another region.<br />
 <sup>3</sup> Applies only to the cool, cold, and archive tiers.<br />
 <sup>4</sup> Applies only if you enable the feature.<br />
+<sup>5</sup> Applies to each active blob access point configuration.<br />
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Blob Storage costs. There's a separate line item for each meter. 
 
@@ -87,7 +89,7 @@ Network bandwidth fees apply when a workload or object replication policy copies
 
 #### Feature-related meters
 
-There's no cost to enable Blob Storage features. There are only three features that incur a passive charge after you enable them (SFTP support, encryption scopes, and blob index tags). For all other features, you're billed for the storage space that is occupied by the output of a feature and the operations executed as a result of using the feature. For example, if you enable versioning, your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions. Some features have added meters. For a complete list, see the [How you're charged for Azure Blob Storage](#how-youre-charged-for-azure-blob-storage) section of this article. 
+There's no cost to enable Blob Storage features. Only four features incur a passive charge. SFTP support, encryption scopes, and blob index tags incur a charge after you enable them. [Blob access points](../blobs/blob-access-points-overview.md#pricing-and-billing) incur a charge for each hour that a configuration is active. For all other features, you're billed for the storage space that is occupied by the output of a feature and the operations executed as a result of using the feature. For example, if you enable versioning, your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions. Some features have added meters. For a complete list, see the [How you're charged for Azure Blob Storage](#how-youre-charged-for-azure-blob-storage) section of this article. 
 
 You can prorate time-based meters if you use those features for less than a month. For example, Encryption scopes are billed on a monthly basis. Encryption scopes in place for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
 
@@ -235,6 +237,7 @@ Some actions, such as changing the default access tier of your account, can lead
 | Access tiers | Rehydrating from archive  | High priority rehydration from archive can lead to higher than normal bills. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations. <br><br>For more information, see [Rehydration priority](../blobs/archive-rehydrate-overview.md#rehydration-priority).|
 | Access tiers | Deleting, overwriting, or moving a blob to another tier | Tools or applications that use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to update a blob will overwrite the blob. Blobs are subject to an early deletion penalty if they're deleted, overwritten, or moved to a different tier before the minimum number of days required by the tier have transpired.  |
 | Application development | Uploading to a stream in Blob Storage | You can incur significant transaction costs if you open a stream in Blob Storage and write to it frequently in cases where object replication is enabled on the account.<br> Each write to the stream creates a new version of the zip file, and each version is copied to the destination account. The same is true if Azure Blob vaulted backup is enabled because vaulted backup uses object replication. |
+| Blob access points | Leaving a blob access point configuration active | Each active blob access point configuration is billed for every hour, even when no one reads data through it. An inactive configuration isn't billed. Deactivate configurations that you don't use.<br><br>For more information, see [Deactivate or activate a configuration](../blobs/blob-access-points-manage.md#deactivate-or-activate-a-configuration). |
 | Data protection | Enabling blob soft delete | Overwriting blobs can lead to blob snapshots. Unlike the case where a blob is deleted, the creation of these snapshots isn't logged. This can lead to unexpected storage costs. Consider whether data that is frequently overwritten should be placed in an account that doesn't have soft delete enabled.<br><br>For more information, see [How overwrites are handled when soft delete is enabled](../blobs/soft-delete-blob-overview.md#how-overwrites-are-handled-when-soft-delete-is-enabled).|
 | Data protection | Enabling blob versioning | Every write operation on a blob creates a new version. As is the case with enabling blob soft delete, consider whether data that is frequently overwritten should be placed in an account that doesn't have versioning enabled. <br><br>For more information, see [Versioning on write operations](../blobs/versioning-overview.md#versioning-on-write-operations). |
 | Monitoring | Enabling Storage Analytics logs (classic logs)| Storage analytics logs can accumulate in your account over time if the retention policy isn't set. Make sure to set the retention policy to avoid log buildup which can lead to unexpected capacity charges.<br><br>For more information, see [Modify log data retention period](manage-storage-analytics-logs.md#modify-log-data-retention-period) |
@@ -242,7 +245,9 @@ Some actions, such as changing the default access tier of your account, can lead
 
 ## Frequently asked questions (FAQ)
 
-See [Managing costs FAQ](../blobs/storage-blob-faq.yml#managing-costs).
+### If I use Azure Blob Storage for only a few days a month, is the cost prorated?
+
+Storage capacity for Blob Storage is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
 
 ## Next steps
 

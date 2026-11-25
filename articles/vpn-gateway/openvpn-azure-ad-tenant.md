@@ -58,7 +58,7 @@ If you already have an existing P2S gateway, the steps in this article help you 
 
 1. If you don't already have a functioning point-to-site environment, follow the instruction to create one. See [Create a point-to-site VPN](point-to-site-certificate-gateway.md) to create and configure a point-to-site VPN gateway. When you create a VPN gateway, the Basic SKU isn't supported for OpenVPN.
 
-1. Go to the virtual network gateway. In the left pane, click **Point-to-site configuration**.
+1. Go to the virtual network gateway. In the left pane, select **Point-to-site configuration**.
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/configuration.png" alt-text="Screenshot showing settings for Tunnel type, Authentication type, and Microsoft Entra settings.":::
 
@@ -88,7 +88,7 @@ If you already have an existing P2S gateway, the steps in this article help you 
 
      * `https://sts.windows.net/{TenantID}/`
 
-1. Once you finish configuring settings, click **Save** at the top of the page.
+1. When you finish configuring settings, select **Save** at the top of the page.
 
 ## Download the Azure VPN Client profile configuration package
 
@@ -98,5 +98,5 @@ In this section, you generate and download the Azure VPN Client profile configur
 
 ## Next steps
 
-* To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S VPN connections- Windows](point-to-site-entra-vpn-client-windows.md) or [Configure a VPN client for P2S VPN connections- macOS](point-to-site-entra-vpn-client-mac.md).
+* To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S Microsoft Entra ID authentication connections](point-to-site-entra-vpn-client.md).
 * For frequently asked questions, see the **Point-to-site** section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).

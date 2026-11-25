@@ -5,7 +5,7 @@ description: "Learn how the Azure Storage provider for Durable Functions stores 
 author: cgillum
 reviewer: hhunter-ms
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 09/22/2026
 ms.author: azfuncdf
 ms.service: durable-task
 ms.subservice: durable-functions
@@ -14,7 +14,7 @@ ms.custom: devx-track-extended-storage
 
 # Azure Storage provider for Durable Functions
 
-When you use Durable Functions, the Azure Storage provider is your default option for managing state and orchestration. The Azure Storage provider optimizes performance and scalability for your applications by storing your instance states and queues in an Azure Storage account. 
+When you use Durable Functions, consider the Azure Storage provider for managing state and orchestration. The Azure Storage provider optimizes performance and scalability for your applications by storing your instance states and queues in an Azure Storage account. 
 
 With the Azure Storage provider:
 - Azure Queues drive all function execution. 
@@ -165,7 +165,7 @@ Storing payloads to local disks is *not* recommended, since on-disk state isn't 
 
 ## Configure the Azure Storage provider
 
-The Azure Storage provider is the default storage provider and doesn't require any explicit configuration, NuGet package references, or extension bundle references. You can find the full set of [Durable Functions host.json configuration options](durable-functions-host-json-settings.md) under the `extensions/durableTask/storageProvider` path.
+The Azure Storage provider doesn't require any explicit configuration, NuGet package references, or extension bundle references. You can find the full set of [Durable Functions host.json configuration options](durable-functions-host-json-settings.md) under the `extensions/durableTask/storageProvider` path.
 
 ### Connections
 
@@ -178,7 +178,7 @@ If the configured value is both an exact match for a single setting and a prefix
 
 ### Identity-based connections 
 
-If you are using [version 2.7.0 or higher of the extension](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.7.0) and the Azure storage provider, instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](/entra/fundamentals/what-is-entra). To do this, you would define settings under a common prefix which maps to the `connectionName` property in the trigger and binding configuration.
+If you are using [version 2.7.0 or higher of the extension](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.7.0) and the Azure storage provider, instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](/entra/fundamentals/what-is-entra). To do this, you would define settings under a common prefix which maps to the `connectionName` property in the trigger and binding configuration. See [Identity-based connections](durable-functions-configure-managed-identity.md) for configuration guidance.
 
 To use an identity-based connection for Durable Functions, configure the following app settings:
 
@@ -232,7 +232,7 @@ Keep these considerations in mind when choosing the storage account for your Dur
 
 - For performance-sensitive workloads, configure a storage account other than the default account (`AzureWebJobsStorage`). Since Durable Functions uses Azure Storage heavily, using a dedicated storage account isolates Durable Functions storage usage from the internal usage by the Azure Functions host.
 - You need standard general purpose Azure Storage accounts when using the Azure Storage provider. All other storage account types aren't currently supported. 
-- Legacy v1 general purpose storage accounts for Durable Functions are recommended. The newer v2 storage accounts can be more expensive for Durable Functions workloads. [Learn more about Azure Storage account types](../../storage/common/storage-account-overview.md).
+- Use a standard general-purpose v2 (GPv2) storage account for new deployments. General-purpose v1 (GPv1) accounts were retired in October 2026; see the [GPv1 migration policy](../../storage/common/general-purpose-version-1-account-migration-overview.md). Transaction costs depend on your workload, region, and current pricing. Review queue, table, and blob transactions when estimating costs, and consider [table-based partition management](#partitions-table-for-worker-distribution) to reduce partition-management costs rather than selecting a retired account type. [Learn more about Azure Storage account types](../../storage/common/storage-account-overview.md).
 
 ## Orchestrator scale-out
 
@@ -272,6 +272,9 @@ You define the number of control queues in your `host.json` file. The following 
 
 You can configure a task hub with between 1 and 16 partitions. If you don't specify a value, the default partition count is **four**.
 
+> [!WARNING]
+> Set `partitionCount` before creating a task hub. Changing it on an existing task hub is unsupported, whether you increase or decrease the value. To use a different count, [configure a new task hub](#changing-the-partition-count).
+
 During low traffic scenarios, your application scales in, so few workers manage your partitions. For example, in the following diagram, you can see that orchestrators 1 through 6 are load-balanced across partitions. Similarly, partitions, like activities, are load-balanced across workers. Your partitions load-balance across workers, regardless of how many orchestrators get started.
 
 :::image type="content" source="./media/durable-functions-perf-and-scale/scale-progression-1.png" alt-text="Diagram showing scale-in orchestrations with partitions managed by a small number of workers.":::
@@ -304,7 +307,24 @@ All virtual machines compete for messages on the work-item queue. However, only 
 
 Orchestration instances and entities are distributed across all control queue instances. The distribution happens by hashing the instance ID of the orchestration or the entity name and key pair. Since orchestration instance IDs are random GUIDs by default, instances are equally distributed across all control queues.
 
+### Changing the partition count
+
+Changing `partitionCount` doesn't recreate a task hub's existing partition resources and ownership metadata, even if you restart the function app. For example, reducing the count from 8 to 4 routes new orchestration and entity messages to only four control queues, but old partitions can still be assigned to workers. This condition can cause inefficient load balancing and unnecessary storage operations. The change also alters instance routing and can affect in-flight work.
+
+Existing control queues can still contain pending messages, including timers. Don't try to change the partition count by manually deleting queues, blobs, or partition table rows.
+
+To use a different partition count, configure a new task hub:
+
+1. Choose a [new, unused task hub name](../common/durable-task-hubs.md#task-hub-names). Set `hubName` and the desired `partitionCount` before the new hub is created.
+2. Deploy workers for the new hub and direct new orchestration starts to it. Ensure [client configuration](../common/durable-task-hubs.md#task-hub-names) matches the new hub's name, storage connection, and partition count.
+3. If existing work must finish, keep workers and clients configured for the old hub with its original partition count. Continue targeting events and management operations for existing instances to that hub. Changing `hubName` on your only running app doesn't keep workers processing the old hub.
+
+Changing `hubName` doesn't migrate existing orchestration history, pending work, or entity state. Retire the old hub's resources only when you no longer need them.
+
 ## Extended sessions
+
+> [!IMPORTANT]
+> The following caching recipe describes .NET in-process scenarios. Don't enable `extendedSessionsEnabled` for JavaScript, Python, Java, or PowerShell apps: the Durable Functions extension rejects this setting for those worker runtimes. Even when the extension accepts the setting for `dotnet-isolated`, acceptance alone doesn't establish equivalent isolated-worker caching or performance benefits; verify support for your extension and worker combination before relying on those behaviors.
 
 *Extended sessions* is a [caching mechanism](durable-functions-perf-and-scale.md#instance-caching) that keeps your orchestrations and entities in memory even after they finish processing messages. When you enable extended sessions, you typically see reduced I/O against the underlying durable store and overall improved throughput.
 

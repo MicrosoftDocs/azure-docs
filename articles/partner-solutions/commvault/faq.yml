@@ -1,0 +1,47 @@
+### YamlMime:FAQ
+metadata:
+  title: "Azure Native Commvault Cloud: Frequently asked questions"
+  description: Frequently asked questions about Azure Native Commvault Cloud.
+  author: agrimayadav
+  ms.author: agrimayadav
+  ms.topic: faq
+  ms.date: 08/25/2026
+
+title: "FAQ: Azure Native Commvault Cloud"
+summary: |
+  This article answers frequently asked questions about Azure Native Commvault Cloud, a fully managed integration that lets you provision and manage Commvault data-protection resources directly from Azure.
+
+sections:
+  - name: Getting started
+    questions:
+      - question: What is Azure Native Commvault Cloud?
+        answer: |
+          Azure Native Commvault Cloud lets you create and manage Commvault data-protection resources as native Azure resources through the [Azure portal](https://portal.azure.com/). For more information, see [What is Azure Native Commvault Cloud?](overview.md).
+
+      - question: How many Commvault Cloud accounts can I create in a subscription?
+        answer: |
+          You can create only one Commvault Cloud account per Azure subscription. Create the Commvault Cloud account before you create storage, backup plans, or protection groups.
+
+      - question: What Azure resources does Azure Native Commvault Cloud currently protect?
+        answer: |
+          Azure Native Commvault Cloud currently supports backup and recovery for Azure virtual machines. To get started, see [Create an Azure Native Commvault Cloud resource](create.md).
+
+  - name: Managing resources
+    questions:
+      - question: What is Compliance Lock?
+        answer: |
+          Compliance Lock helps protect backup copies from accidental or malicious modification or deletion. Azure Native Commvault Cloud enables Compliance Lock by default when you create storage. For more information, see [Manage Azure Native Commvault Cloud resources](manage.md).
+
+      - question: Can I reduce the retention period of a backup plan?
+        answer: |
+          You can't reduce the retention period of a backup plan that uses storage with Compliance Lock enabled. You can still increase the retention period.
+
+      - question: Why can't I delete my storage, backup plan, or Commvault Cloud account?
+        answer: |
+          A resource that has active dependencies, such as storage with Compliance Lock enabled or a Commvault Cloud account that still has child resources, can't be deleted until you resolve those dependencies. For more information, see [Troubleshoot Azure Native Commvault Cloud](troubleshoot.md).
+
+  - name: Support
+    questions:
+      - question: Where can I get help if I run into an issue?
+        answer: |
+          See [Troubleshoot Azure Native Commvault Cloud](troubleshoot.md) for guidance on resolving common onboarding, authorization, provisioning, and resource-management issues.

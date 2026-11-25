@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 07/17/2026
 ms.author: primittal
 # customer intent: As a billing administrator, I want to learn about saving costs with Azure DocumentDB Reservations and buy one.
 ---

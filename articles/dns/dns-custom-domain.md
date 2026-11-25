@@ -15,7 +15,7 @@ ms.custom: sfi-image-nochange
 
 Azure DNS provides name resolution for any of your Azure resources that support custom domains, or that have a fully qualified domain name (FQDN). For example, you might have an Azure web app you want your users to access using `contoso.com` or `www.contoso.com` as the FQDN. This article walks you through configuring Azure DNS to access your Azure service with custom domains.
 
-You can configure a vanity or custom domain for Azure Function Apps, Public IP addresses, App Service (Web Apps), Blob storage, and Azure CDN
+You can configure a vanity or custom domain for Azure Function Apps, Public IP addresses, App Service (Web Apps), Blob storage, and Azure CDN.
 
 ## Prerequisites
 
@@ -51,7 +51,9 @@ To configure a custom domain for Azure function apps, a [CNAME record](dns-zones
 
 ## Public IP address
 
-To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, an A record is used. An A record (address record) maps a domain name to an IP address. In this case, you create a new A record in your public domain and configure it to have an IP address corresponding to the public IP address of your Azure service. 
+To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and Classic VMs, use an A record when the public IP address is statically allocated. An A record (address record) maps a domain name to an IP address. In this case, you create a new A record in your public domain and configure it to have an IP address corresponding to the public IP address of your Azure service.
+
+If the public IP address is dynamically allocated, use a CNAME record that points to the Azure-provided DNS name for the resource instead. A dynamically allocated address can change, which breaks an A record. For example, a Cloud Service is reached through a `cloudapp.net` name, so you create a CNAME record that aliases your custom domain to that name. For the record types supported for each Azure service, see [Use Azure DNS to provide custom domain settings for an Azure service](dns-for-azure-services.md).
 
 1. Navigate to the Public IP resource and select **Configuration**. Note the IP address shown.
 
@@ -64,7 +66,7 @@ To configure a custom domain for services that use a public IP address resource 
     | Property | Value | Description |
     | -------- | ----- | ------------|
     | Name | webserver1 | This value along with the domain name label is the FQDN for the custom domain name. |
-    | Type | A | Use an A record as the resource is an IP address. |
+    | Type | A | Use an A record because the public IP address is statically allocated. |
     | TTL | 1 | 1 is used for 1 hour |
     | TTL unit | Hours | Hours are used as the time measurement |
     | IP Address | `<your ip address>` | The public IP address. |
@@ -75,7 +77,7 @@ To configure a custom domain for services that use a public IP address resource 
 
 ## App Service (Web Apps)
 
-The following steps take you through configuring a custom domain for an app service web app.
+The following steps take you through configuring a custom domain for an App Service web app.
 
 1. Navigate to **App Service** and select the resource you're configuring a custom domain name, and select **Custom domains** under *Settings*. Note the **current url** under *assigned custom domains*, this address is used as the alias for the DNS record created.
 

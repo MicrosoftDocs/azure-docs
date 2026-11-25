@@ -1,14 +1,14 @@
 ---
 title: Connect to FTP Servers from Workflows
-description: Learn to access FTP servers from workflows in Azure Logic Apps. For example, a workflow can detect changes in an FTP repo as a trigger to send email about the changes.
-services: logic-apps
+description: Connect to FTP servers from workflows in Azure Logic Apps. For example, a workflow can detect changes in an FTP repo as a trigger to send email about the changes.
+services: azure-logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 10/09/2025
+ms.update-cycle: 365-days
+ms.date: 09/16/2026
 ms.custom: sfi-image-nochange
-#Customer intent: As an integration developer, I want to know about file changes on our FTP server by creating a workflow that detects those changes and sends notifications from Azure Logic Apps.
-
+#Customer intent: As an automation and integration developer who works with Azure Logic Apps, I want to connect my workflows to FTP servers so I can monitor changes and perform management tasks.
 ---
 
 # Connect to FTP servers from workflows in Azure Logic Apps
@@ -34,7 +34,7 @@ If you're new to Azure Logic Apps, see the following documentation:
 The FTP connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
 | Logic app type (plan) | Environment | Connector version |
-|------------------------|-------------|-------------------|
+| --- | --- | --- |
 | **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery with the **Shared** filter. For more information, see: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | - Managed connector, which appears in the connector gallery with the **Shared** filter. <br>- Built-in connector, which appears in the connector gallery with the **Built-in** filter and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string. For more information, see: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [FTP built-in connector operations](/azure/logic-apps/connectors/built-in/reference/ftp/) <br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
@@ -54,7 +54,7 @@ The FTP connector has different versions, based on [logic app type and host envi
 
 - The FTP managed connector can create a limited number of connections to the FTP server. The limit is based on the connection capacity in the Azure region where your logic app resource exists. If this limit poses a problem in a Consumption logic app workflow, create a Standard logic app workflow that uses the FTP built-in connector.
 
-* Both the built-in and managed FTP connector support only explicit FTP over FTPS, which is an extension of TLS. Neither connector version supports implicit FTPS.
+- Both the built-in and managed FTP connector support only explicit FTP over FTPS, which is an extension of TLS. Neither connector version supports implicit FTPS.
 
 ## Prerequisites
 
@@ -63,6 +63,37 @@ The FTP connector has different versions, based on [logic app type and host envi
 - The logic app workflow where you want to access your FTP account. To start your workflow with an FTP trigger, you have to start with a blank workflow. To use an FTP action, start your workflow with another trigger, such as the **Recurrence** trigger.
 
 - For more requirements that apply to both the FTP managed connector and built-in connector, see the [FTP managed connector reference - Requirements](/connectors/ftp/#requirements).
+
+## Access App Service site files with FTPS
+
+You can use the FTP connector to access site files for a Standard logic app, function app, or App Service app that supports FTP/S deployment. Before you create the FTP connection, complete the following tasks for the app that contains the files:
+
+1. Enable both **SCM Basic Auth Publishing Credentials** and **FTP Basic Auth Publishing Credentials**. Basic authentication is disabled by default for new apps.
+
+   For more information, see [Manage deployment credentials for Azure App Service](../app-service/deploy-configure-credentials.md).
+
+1. Set the app's **FTP state** to **FTPS only**, and enforce TLS 1.2 or later.
+
+   For more information, see [Enforce FTPS in Azure App Service](../app-service/deploy-ftp.md#enforce-ftps).
+
+1. From the app's **Deployment Center**, get the FTP/S endpoint and application-scope or user-scope deployment credentials.
+
+When you create the FTP connector connection, use the following values:
+
+| Property | Value |
+| --- | --- |
+| **Server address** | The hostname from the FTP/S endpoint. Omit the `ftp://` or `ftps://` scheme and the `/site/wwwroot` path. |
+| **Username** and **Password** | The application-scope or user-scope deployment credentials exactly as shown in the app's **Deployment Center**. |
+| **Port number** | `21`, which the connector uses for explicit FTPS. |
+| **Enable TLS/SSL** or **Enable SSL** | Selected. |
+
+After you create the connection, use `/site/wwwroot` as the folder path to access the app's site files. For an end-to-end example, see [Access Logic Apps and App Services site files with FTPS using Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/access-logic-apps--app-services-site-files-with-ftps-using-logic-apps/4391908).
+
+> [!IMPORTANT]
+>
+> Basic authentication is less secure than other authentication methods. Protect deployment credentials and disable FTP basic authentication when you no longer need FTP/S access. For Standard workflows, you can protect secrets in app settings by using [Azure Key Vault references](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings).
+>
+> Writing to or deleting files in the site directory can affect a running app. FTP/S deployment doesn't provide build automation or atomic deployment. For application deployment, use a supported deployment method or a staging slot. For more information, see [Deploy content using FTP/S](../app-service/deploy-ftp.md).
 
 <a name="known-issues"></a>
 
@@ -138,7 +169,7 @@ When you save your workflow, Azure publishes your updates to your deployed and l
 To add a managed connector trigger to a Consumption or Standard workflow:
 
 1. In the [Azure portal](https://portal.azure.com), find and open your logic app resource.
- 
+
 1. Based on whether you have a Consumption or Standard logic app:
 
    - Consumption: On the resource sidebar menu, under **Development Tools**, select the designer to open the workflow.
@@ -147,7 +178,7 @@ To add a managed connector trigger to a Consumption or Standard workflow:
 
 1. On the workflow designer, select **Add a trigger**.
 
-1. Follow the [general steps](../logic-apps/add-trigger-action-workflow.md#add-trigger) to add the FTP trigger **When a filed is added or modified (properties only)**.
+1. Follow the [general steps](../logic-apps/add-trigger-action-workflow.md#add-trigger) to add the FTP trigger **When a file is added or modified (properties only)**.
 
 1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create new**.
 
@@ -156,7 +187,6 @@ To add a managed connector trigger to a Consumption or Standard workflow:
    > [!NOTE]
    >
    > By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, select the binary transport option.
-
 
 1. When the trigger information pane opens, find the folder that you want to monitor for new or edited files.
 

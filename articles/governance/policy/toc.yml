@@ -58,6 +58,9 @@ items:
   - name: Apply MFA self-enforcement through Azure Policy
     displayName: assign, definition, enforce
     href: ./tutorials/mfa-enforcement.md
+  - name: Assign Azure Baseline Security
+    displayName: assign, definition, enforce
+    href: ./tutorials/assign-absm.md
 - name: Samples
   items:
   - name: Index
@@ -215,6 +218,16 @@ items:
         href: ./samples/guest-configuration-baseline-windows.md
       - name: Windows security 2025 baseline
         href: ./samples/guest-configuration-baseline-windows-server-2025.md  
+      - name: DISA STIG Benchmarks for Linux Workloads
+        items:
+        - name: Overview
+          href: samples/guest-configuration-baseline-stig-linux.md
+        - name: Oracle Linux
+          href: samples/stig-linux/oracle-ado.md
+        - name: Red Hat Enterprise Linux
+          href: samples/stig-linux/rhel-ado.md
+        - name: Ubuntu
+          href: samples/stig-linux/ubuntu-ado.md
 - name: Concepts
   items:
   - name: Definition structure
@@ -281,6 +294,9 @@ items:
   - name: Exemption structure
     displayName: waiver, mitigated, compliance
     href: ./concepts/exemption-structure.md
+  - name: Enrollment structure
+    displayName: enroll, enrollment, enforcementmode
+    href: ./concepts/enrollment-structure.md
   - name: Applicability
     displayName: policy, applicability, scope
     href: ./concepts/policy-applicability.md
@@ -317,6 +333,9 @@ items:
       href: /security/benchmark/azure/baselines/azure-policy-security-baseline?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: How-to guides
   items:
+  - name: Create and test policy definitions with Azure Copilot (preview)
+    displayName: authoring, generate, simulate, what-if
+    href: ./how-to/author-policy-with-copilot.md
   - name: Safe deployment of Azure Policy assignments
     displayName: policy, assignments, sdp
     href: ./how-to/policy-safe-deployment-practices.md

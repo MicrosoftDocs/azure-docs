@@ -3,7 +3,7 @@ title: Azure Web Application Firewall on Application Gateway for Containers
 description: This article provides an overview of Azure Web Application Firewall on Application Gateway for Containers, including setup, limitations, and pricing.
 services: application-gateway
 author: jackstromberg
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
 ms.date: 11/10/2025
 ms.author: jstrom

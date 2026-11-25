@@ -3,7 +3,7 @@ title: "Durable Task Programming Model: Orchestrators, Activities, and Entities"
 description: Explore the Durable Task programming model, including orchestrators, activities, entities, and client APIs. Build stateful, fault-tolerant workflows with Durable Functions or Durable Task SDKs. Get started today.
 author: cgillum
 ms.topic: concept-article
-ms.date: 04/22/2026
+ms.date: 11/10/2026
 ms.author: azfuncdf
 ms.reviewer: hannahhunter
 ms.service: durable-task
@@ -44,8 +44,8 @@ The following table summarizes the core programming components and their roles:
 | - | - | - |
 | [Orchestrator](#orchestrators) | Coordinates workflow logic | A class or function registered with the worker |
 | [Activity](#activities) | Performs a single unit of work | A class or function registered with the worker |
-| [Entity](#entities) | Manages a small piece of state | A class registered with the worker |
-| [Client](#client) | Starts and manages orchestrations and entities | `DurableTaskClient` API |
+| [Entity](#entities) | Manages a small piece of state | A class or function registered with the worker |
+| [Client](#client) | Starts and manages orchestrations and entities | The SDK's client API |
 
 ::: zone-end
 
@@ -102,7 +102,9 @@ You define an activity by implementing a class or function and registering it wi
 ::: zone-end
 
 > [!NOTE]
-> Because activities guarantee only at-least-once execution, make your activity logic [idempotent](https://en.wikipedia.org/wiki/Idempotence) whenever possible. For example, use "upserts" instead of inserts, or check for existing results before creating new resources.
+> Because activities guarantee only at-least-once execution, make your activity logic [idempotent](https://en.wikipedia.org/wiki/Idempotence). Use stable, operation-specific idempotency keys and atomic service-side deduplication for external changes. A separate check for an existing result before writing isn't sufficient to prevent concurrent duplicates.
+
+A successfully recorded activity result is reused during orchestrator replay; replay doesn't rerun that activity to refresh external data. For example, a recorded stock-availability result isn't a stock reservation. See [Coordinate changes to external business data](durable-task-orchestrations.md#coordinate-changes-to-external-business-data).
 
 Activities can run [serially](durable-task-sequence.md), in [parallel](durable-task-fan-in-fan-out.md), or in a combination of both.
 
@@ -129,10 +131,10 @@ You define an entity function by using the [entity trigger binding](../durable-f
 
 ::: zone pivot="durable-task-sdks"
 
-You define an entity by implementing a class and registering it with the Durable Task worker.
+You define an entity by implementing a class or function and registering it with the Durable Task worker. The Go SDK supports function-based entities through `task.EntityContext`.
 
 > [!NOTE]
-> Entity support is available in the .NET, JavaScript/TypeScript, and Python SDKs. The Java SDK doesn't currently support entities.
+> Entity support is available in the .NET, JavaScript/TypeScript, Python, Java, and Go (beta) SDKs.
 
 ::: zone-end
 
@@ -159,7 +161,7 @@ The durable client binding also provides APIs for interacting with [entities](du
 
 ::: zone pivot="durable-task-sdks"
 
-In the Durable Task SDKs, you interact with orchestrations and entities through the `DurableTaskClient` class. You create a client instance in your application code and call its methods to start, query, or manage orchestration and entity instances. The client can be used from any part of your application — an HTTP endpoint, a background service, a console app, or any other code.
+In the Durable Task SDKs, you create a client instance in your application code and call its methods to start, query, or manage orchestration and entity instances. For example, .NET uses `DurableTaskClient`, and Go uses `durabletaskscheduler.NewClient`. You can use the client from any part of your application — an HTTP endpoint, a background service, a console app, or any other code.
 
 ::: zone-end
 
@@ -188,6 +190,7 @@ Get started by creating your first Durable Function app:
 Get started with the Durable Task SDKs:
 
 - [Durable Task SDK quickstart](../sdks/quickstart-portable-durable-task-sdks.md)
+- [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md)
 - [Host a Durable Task SDK app on Azure Container Apps](../sdks/quickstart-container-apps-durable-task-sdk.md)
 
 > [!div class="nextstepaction"]

@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 04/17/2020
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Configure business continuity and disaster recovery for Azure Stack Edge VPN

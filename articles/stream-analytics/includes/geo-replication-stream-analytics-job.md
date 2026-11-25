@@ -4,7 +4,7 @@ description: This article has important notes about the behavior of Azure Stream
 author: spelluru
 ms.topic: include
 ms.date: 04/29/2026
-ms.author: spelluru
+ms.author: skommajosula
 ---
 
 ## Considerations when using the Event Hubs Geo-replication feature

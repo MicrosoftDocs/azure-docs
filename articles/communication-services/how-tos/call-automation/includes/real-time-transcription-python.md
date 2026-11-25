@@ -253,10 +253,10 @@ When transcription is enabled during a call, Azure Communication Services emits 
 {
   "kind": "TranscriptionMetadata",
   "transcriptionMetadata": {
-    "subscriptionId": "863b5e55-de0d-4fc3-8e58-2d68e976b5ad",
+    "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "locale": "en-US",
     "callConnectionId": "02009180-9dc2-429b-a3eb-d544b7b6a0e1",
-    "correlationId": "62c8215b-5276-4d3c-bb6d-06a1b114651b",
+    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "speechModelEndpointId": null,
     "locales": [],
     "enableSentimentAnalysis": true,

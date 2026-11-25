@@ -2,7 +2,7 @@
 title: Dedupe rows and find nulls by using data flow snippets
 description: Learn how to easily dedupe rows and find nulls by using code snippets in data flows
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.topic: how-to
 ms.date: 10/03/2024
 ms.subservice: data-flows
@@ -11,6 +11,8 @@ ms.subservice: data-flows
 # Dedupe rows and find nulls by using data flow snippets
 
 [!INCLUDE [appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 By using code snippets in mapping data flows, you can easily perform common tasks such as data deduplication and null filtering. This article explains how to easily add those functions to your pipelines by using data flow script snippets.
 <br>

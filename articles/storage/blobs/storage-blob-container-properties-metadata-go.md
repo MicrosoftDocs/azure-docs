@@ -3,12 +3,12 @@ title: Use Go to manage properties and metadata for a blob container
 titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blob containers in your Azure Storage account using the Go client library.
 services: storage
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: shaas
+ms.author: schoag
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
 # Customer intent: As a Go developer, I want to manage blob container properties and metadata using the Azure Storage client library, so that I can efficiently store and retrieve custom data alongside my blobs.

@@ -5,7 +5,7 @@ author: simranparkhe
 ms.service: azure-confidential-computing
 ms.topic: how-to
 ms.date: 08/02/2023
-ms.author: simranparkhe
+ms.author: sgallagher
 ms.custom:
   - build-2025
 # Customer intent: As a cloud developer, I want to utilize virtual Trusted Platform Modules in confidential VMs, so that I can enhance security and trust through hardware-based attestation and secure measurement extensions.
@@ -115,5 +115,5 @@ Using the steps mentioned in this document allows you to extend any arbitrary ru
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create a custom image for Azure confidential VMs](how-to-create-custom-image-confidential-vm.md)
+- [Attest a Linux workload with dm-verity and IMA](how-to-attest-linux-workload.md).
+- [Create a custom image for Azure confidential VMs](how-to-create-custom-image-confidential-vm.md).

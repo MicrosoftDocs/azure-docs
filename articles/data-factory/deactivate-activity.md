@@ -3,7 +3,7 @@ title: Deactivate an Activity in Azure Data Factory
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to deactivate an activity to exclude from pipeline run and validation
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: concept-article
@@ -13,6 +13,8 @@ ms.date: 01/05/2024
 # Deactivate an Activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 You can now deactivate one or more activities from a pipeline, and we skip them during validation and during pipeline run. This feature significantly improves pipeline developer efficiency, allowing customers to comment out part of the pipeline, without deleting it from the canvas. You may choose to reactivate them at a later time.
 

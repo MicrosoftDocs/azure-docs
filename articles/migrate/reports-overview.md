@@ -1,22 +1,24 @@
 ---
-title: Azure Migrate Reports Overview 
-description: Learn how Azure Migrate Reports help you create decision‑ready reports with insights into security, readiness, cost, ROI, and migration strategies for Azure planning
-author: habibaum
-ms.author: v-uhabiba
+title: Azure Catalyst Reports Overview 
+description: Learn how Azure Catalyst Reports help you create decision‑ready reports with insights into security, readiness, cost, ROI, and migration strategies for Azure planning
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 03/25/2026
-monikerRange:
+ms.update-cycle: 365-days
 # Customer intent: As an IT administrator managing migration resources, I want to tag workloads with relevant attributes, so that I can enhance resource organization and visibility during the migration process.
 ---
 
-# Overview of Azure Migrate reports (preview)
+# Overview of Azure Catalyst reports (preview)
 
-Azure Migrate reports provide a summarized view of Migration and modernization opportunities to Azure. They include insights on workload readiness, security, and costs to help you prioritize workloads and make informed migration and modernization decisions. Reports can be generated after successful discovery and inventory enrichment.
+Azure Catalyst reports provide a summarized view of migration and modernization opportunities to Azure. They include insights on workload readiness, security, and costs to help you prioritize workloads and make informed migration and modernization decisions. Generate reports after successful discovery and inventory enrichment.
  
-## What are Azure Migrate reports? 
+<a name="what-are-azure-migrate-reports"></a>
 
-Reports in Azure Migrate provide decision-ready insights by summarizing your discovered estate and highlighting migration and modernization opportunities across applications, infrastructure, and data to support planning and stakeholder decision-making.
+## What are Azure Catalyst reports? 
+
+Reports in Azure Catalyst provide decision-ready insights by summarizing your discovered estate and highlighting migration and modernization opportunities across applications, infrastructure, and data to support planning and stakeholder decision-making.
 
 Depending on the selected report type and scenario, reports can summarize insights such as:
 - Workload and application summary across your discovered estate, including web apps, databases, and file servers.
@@ -31,7 +33,7 @@ Depending on the selected report type and scenario, reports can summarize insigh
  
 ## Types of reports 
 
-Azure Migrate provides the following reports to help you assess your environment and plan your migration and modernization journey:
+Azure Catalyst provides the following reports to help you assess your environment and plan your migration and modernization journey:
 
 - [Azure modernization and migration report](#azure-modernization-and-migration-report).
 - [Security insights report](#security-insights-report).
@@ -59,13 +61,15 @@ This report helps you:
 - Understand your overall security posture
 - Identify vulnerabilities in your on-premises environment
 
-## Migration preferences in Azure Migrate reports
+<a name="migration-preferences-in-azure-migrate-reports"></a>
+
+## Migration preferences in Azure Catalyst reports
 
 When you build a report, choose from two migration preferences:
 
 | **Migration Strategy** |  **Details**  | **Assessment insights**|
 | --- | --- | --- |
-| **Modernize (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets.<br><br>General servers are recommended with a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the Recommended report with optimization strategy - *Modernize to PaaS* from Azure SQL assessment.<br><br>For web apps, sizing and cost comes from Azure App Service and Azure Kubernetes Service assessments, with a preference to App Service. For general servers, sizing and cost comes from Azure VM assessment.<br><br>All of these recommendations are aggregated using the heterogeneous assessments. |
+| **Modernize (Platform as a Service)** | You can get a PaaS preferred recommendation that means, the logic identifies workloads best fit for PaaS targets.<br><br>General servers are recommended with a quick lift and shift recommendation to Azure IaaS. | For SQL Servers, sizing and cost comes from the Recommended report with optimization strategy - *Modernize to PaaS* from Azure SQL assessment.<br><br>For web apps, sizing and cost comes from Azure App Service, Azure Container Apps and Azure Kubernetes Service assessments, with a preference to App Service. For general servers, sizing and cost comes from Azure VM assessment.<br><br>All of these recommendations are aggregated using the heterogeneous assessments. |
 | **Migrate (Infrastructure as a Service)** | You can get a quick lift and shift recommendation to Azure IaaS (Azure VM or Azure AVS). | **When Lift and Shift to Azure VM is selected:**<br>For SQL Servers, sizing and cost comes from the *Instance to SQL Server on Azure VM report*.<br><br>For general servers and servers hosting web apps, sizing and cost comes from Azure VM assessment.<br><br>All of these recommendations are aggregated using heterogeneous assessments.<br><br>**When Lift and Shift to Azure VMware Solution is selected:**<br>For all general servers, hosted on VMware, sizing and cost comes from Azure VMware Solution (AVS) assessment.<br><br>All of these recommendations are aggregated using the heterogeneous assessments. |
 
 Reports surface Azure recommendations from heterogeneous assessments and provide direct access to those assessments. To review sizing, readiness, and Azure cost estimates in detail, open the relevant assessment for the selected applications or workloads.
@@ -74,7 +78,7 @@ Reports surface Azure recommendations from heterogeneous assessments and provide
 
 Create a report using either of the following discovery methods:
 
-- **Azure Migrate appliance or Azure Migrate collector–based discovery**: Provides the most accurate inventory, metadata, and performance data.
+- **Azure Catalyst appliance or Azure Catalyst Collector–based discovery**: Provides the most accurate inventory, metadata, and performance data.
 - **CSV import**: Provides a quick estimate when inventory data is available in CSV format.
 
 ### Report configuration

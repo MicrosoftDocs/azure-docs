@@ -6,7 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
-ms.date: 04/18/2023
+ms.date: 07/16/2026
 ms.author: steveesp
 # Customer intent: "As a system administrator managing Linux and FreeBSD VMs, I want to configure and monitor Accelerated Networking so that I can optimize network performance and reduce latency for my applications running in Azure."
 ---
@@ -15,13 +15,13 @@ ms.author: steveesp
 
 When a virtual machine (VM) is created in Azure, a synthetic network interface is created for each virtual NIC in its configuration. The synthetic interface is a VMbus device and uses the netvsc driver. Network packets that use this synthetic interface flow through the virtual switch in the Azure host and onto the datacenter's physical network.
 
-If the VM is configured with Accelerated Networking, a second network interface is created for each virtual NIC that's configured. The second interface is an SR-IOV virtual function (VF) offered by the physical network's NIC in the Azure host. The VF interface shows up in the Linux guest as a PCI device. It uses the Mellanox mlx4 or mlx5 driver in Linux, because Azure hosts use physical NICs from Mellanox.
+If you configure the VM with Accelerated Networking, the platform creates a second network interface for each virtual NIC. This second interface is an SR-IOV virtual function (VF) offered by the physical network's NIC in the Azure host. The VF interface appears in the Linux guest as a PCI device. Depending on the underlying host hardware, the VF is backed by either an NVIDIA/Mellanox ConnectX NIC, which uses the `mlx4` or `mlx5` driver, or a Microsoft Azure Network Adapter (MANA), which uses the MANA driver. For more information about MANA, see [Microsoft Azure Network Adapter (MANA) overview](accelerated-networking-mana-overview.md).
 
 Most network packets go directly between the Linux guest and the physical NIC without traversing the virtual switch or any other software that runs on the host. Because of the direct access to the hardware, network latency is lower and less CPU time is used to process network packets, when compared with the synthetic interface.
 
-Different Azure hosts use different models of Mellanox physical NIC. Linux automatically determines whether to use the mlx4 or mlx5 driver. The Azure infrastructure controls the placement of the VM on the Azure host. With no customer option to specify which physical NIC a VM deployment uses, the VMs must include both drivers. If a VM is stopped or deallocated and then restarted, it might be redeployed on hardware with a different model of Mellanox physical NIC. Therefore, it might use the other Mellanox driver.
+Different Azure hosts use different NIC hardware. On NVIDIA/Mellanox-backed hosts, Linux automatically determines whether to use the `mlx4` or `mlx5` driver. MANA-backed hosts use the MANA driver. The Azure infrastructure controls the placement of the VM on the Azure host. You can't specify which physical NIC a VM deployment uses. The VMs must include the drivers for all supported NIC types. If you stop or deallocate and then restart a VM, the VM might be redeployed on hardware with a different NIC model. Therefore, it might use a different driver.
 
-If a VM image doesn't include a driver for the Mellanox physical NIC, networking capabilities continue to work at the slower speeds of the virtual NIC. The portal, the Azure CLI, and Azure PowerShell display the Accelerated Networking feature as _enabled_.
+If a VM image doesn't include a driver for the host's physical NIC, networking continues to work through the virtual NIC, and the portal, the Azure CLI, and Azure PowerShell continue to display Accelerated Networking as _enabled_. The performance impact depends on the host hardware. On NVIDIA/Mellanox-backed hosts, networking runs at the slower speeds of the virtual NIC. On MANA-backed hosts, the VM keeps networking connectivity and near-line-rate performance through the virtual NIC. To achieve the networking performance specified for the VM size, install the MANA driver in the guest operating system.
 
 FreeBSD provides the same support for Accelerated Networking as Linux when it's running in Azure. The remainder of this article describes Linux and uses Linux examples, but the same functionality is available in FreeBSD.
 
@@ -65,7 +65,7 @@ You can determine whether a particular interface is synthetic or VF by using a s
 $ ethtool -i <interface name> | grep driver
 ```
 
-If the driver is `hv_netvsc`, it's the synthetic interface. The VF interface has a driver name that contains "mlx." The VF interface is also identifiable because its `flags` field includes `SLAVE`. This flag indicates that it's under the control of the synthetic interface that has the same MAC address.
+If the driver is `hv_netvsc`, it's the synthetic interface. The VF interface uses a hardware-specific driver: an NVIDIA/Mellanox VF has a driver name that contains "mlx," and a MANA VF uses the "mana" driver. The VF interface is also identifiable because its `flags` field includes `SLAVE`. This flag indicates that it's under the control of the synthetic interface that has the same MAC address.
 
 IP addresses are assigned only to the synthetic interface. The output of `ifconfig` or `ip addr` also shows this distinction.
 
@@ -100,7 +100,7 @@ U1804:~# lspci
 cf63:00:02.0 Ethernet controller: Mellanox Technologies MT27710 Family [ConnectX-4 Lx Virtual Function] (rev 80)
 ```
 
-In this example, the last line of output identifies a VF from the Mellanox ConnectX-4 physical NIC.
+In this example, the last line of output identifies a VF from an NVIDIA/Mellanox ConnectX-4 physical NIC. On MANA-backed hardware, the `lspci` output instead identifies a Microsoft Azure Network Adapter VF.
 
 The `ethtool -l` or `ethtool -L` command (to get and set the number of transmit and receive queues) is an exception to the guidance to interact with the `eth<n>` interface. You can use this command directly against the VF interface to control the number of queues for the VF interface. The number of queues for the VF interface is independent of the number of queues for the synthetic interface.
 

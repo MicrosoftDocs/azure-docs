@@ -31,8 +31,10 @@ This setup lets you Arc-enable clusters at every layer and keep them connected w
 You can deploy Azure IoT Operations components across layers based on your architecture and data flow needs:
 
 - **Connector for OPC UA** — place at the lower layer, closer to your assets and OPC UA servers.
-- **MQTT broker** — deploy at each layer to transfer data upward toward the cloud.
+- **MQTT broker** — deploy at the layers where you want to enrich, consume, or transfer data toward the cloud. You don't need to deploy a broker at every layer.
 - **Data Flows** — place on nodes with enough compute resources, as this component typically uses more compute. With extra configuration, Data Flows can also route traffic east-west between components at the same or upper levels.
+
+This article describes an architecture where Azure IoT Operations runs on levels 2, 3, and 4. This specific architecture is one option, not a requirement. The enterprise layer (level 4) can instead run only an Envoy proxy as an egress node, with no Azure IoT Operations components and no Azure Arc enablement. In that variant, the topmost Azure IoT Operations instance is at level 3, and its data flow sends data to the cloud through the level 4 Envoy proxy. The [tutorial](../end-to-end-tutorials/tutorial-layered-network-private-connectivity.md) uses this level 4 egress-only variant.
 
 ## How telemetry flows through layers
 
@@ -44,7 +46,9 @@ The flow works as follows:
 1. **Level 3 (operations layer):** The level 3 MQTT broker receives the messages from level 2. A Data Flow at this layer can add further context (for example, production line details) and forwards the enriched messages to the MQTT broker at level 4.
 1. **Level 4 (enterprise layer):** The level 4 MQTT broker receives the messages from level 3. A final Data Flow adds any remaining context (for example, factory identifiers) and sends the messages to a cloud destination such as Azure Event Hubs or Azure Event Grid through the private or public connectivity path.
 
-At every layer, the data is fully terminated on the local MQTT broker, it isn't tunneled or pass-through. This gives you the ability to:
+The example above places the final, cloud-bound Data Flow at level 4. If level 4 is an egress-only Envoy Proxy node (as in the [tutorial](../end-to-end-tutorials/tutorial-layered-network-private-connectivity.md)), the final Data Flow runs at level 3 instead and sends data to the cloud through the level 4 Envoy Proxy. In that case, level 4 forwards traffic (pass-through) rather than terminating it.
+
+At every layer where an MQTT broker is deployed, the data is fully terminated on that broker, it isn't tunneled or pass-through. This architecture gives you the ability to:
 
 - **Enrich data at each level** — add contextual metadata (product, line, factory) that lower-layer assets don't know about.
 - **Filter or aggregate** — reduce data volume or drop irrelevant messages before forwarding upward.

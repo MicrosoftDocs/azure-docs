@@ -14,6 +14,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 If you want Microsoft to debug Azure Data Factory issues with your SAP CDC connector, send us your self-hosted integration runtime logs, and then contact us.
 
 ## Send logs to Microsoft

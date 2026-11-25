@@ -147,7 +147,7 @@ items:
   - name: Databases
     items:
     - name: Cache for Redis
-      href: ../../redis/redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/redis/redis-cache-arm-provision?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Azure Cosmos DB
       href: /azure/cosmos-db/sql/quick-create-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MariaDB

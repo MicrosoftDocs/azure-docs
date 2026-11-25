@@ -1,6 +1,6 @@
 ---
 title: Build a custom remote MCP server using Azure Functions
-description: "Learn how to create and deploy a custom Model Context Protocol (MCP) server using Azure Functions. This quickstart uses the Azure Developer CLI to deploy an MCP server project that enables AI clients to access custom tools hosted on Azures Flex Consumption plan."
+description: "Learn how to create and deploy a custom Model Context Protocol (MCP) server using Azure Functions. This quickstart uses the Azure Developer CLI to deploy an MCP server project that enables AI clients to access custom tools hosted on the Azure Functions Flex Consumption plan."
 ms.date: 04/06/2026
 ms.update-cycle: 180-days
 ms.topic: quickstart
@@ -35,7 +35,7 @@ This article supports version 2 of the Python programming model for Azure Functi
 ## Prerequisites
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
++ The [.NET SDK](https://dotnet.microsoft.com/download) that matches your template's target framework. Use a [supported .NET version using the isolated worker model](dotnet-isolated-process-guide.md#supported-versions).
 ::: zone-end
 ::: zone pivot="programming-language-java"
 + [Java 17 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
@@ -48,9 +48,9 @@ This article supports version 2 of the Python programming model for Azure Functi
 ::: zone-end
 <!--- remove when supported
 ::: zone pivot="programming-language-powershell"
-+ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell 7.6](/powershell/scripting/install/installing-powershell)
 
-+ [.NET 8 runtime](https://dotnet.microsoft.com/download/dotnet/8.0)
++ [.NET 10 runtime](https://dotnet.microsoft.com/download/dotnet/10.0)
 ::: zone-end
 -->
 ::: zone pivot="programming-language-python"
@@ -253,4 +253,3 @@ You can now have GitHub Copilot use your remote MCP tools just as you did locall
 
 > [!div class="nextstepaction"]
 > [Configure built-in MCP server authorization](../app-service/configure-authentication-mcp.md)
-

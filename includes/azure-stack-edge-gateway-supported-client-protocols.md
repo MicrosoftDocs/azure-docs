@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 03/24/2022
-ms.author: alkohli
+ms.author: scompton
 ---
 
 Here are the supported protocols for clients accessing your device.

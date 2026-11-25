@@ -9,17 +9,15 @@ ms.service: connector-namespace
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.update-cycle: 365-days
-ms.date: 06/02/2026
+ms.date: 09/04/2026
 ms.custom:
   - build-2026
 # Customer intent: As a backend developer who works with Azure, I want to create resuable connections in my connector namespace so my solutions can access other services, systems, apps, and data without having to manage authentication or credentails.
 ---
 
-# Create reusable connections for integration with other services through Connector Namespace (preview)
+# Create reusable connections for integration with other services through Connector Namespace
 
-> [!IMPORTANT]
->
-> This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is only available in Azure public regions.
+This capability is only available in Azure public regions.
 
 When your apps need to connect and integrate with other services, systems, apps, or data, you first need a secure way to store and manage authentication information. However, setting up and managing authentication yourself for each integration adds overhead and complexity. Connector Namespace reduces these hurdles because you can create reusable connections to supported services and other sources so your integrations can subscribe to triggers and call actions without having each app separately handle and manage connections and authentication.
 
@@ -72,9 +70,8 @@ This guide shows how to create, authenticate, authorize, and use a connection in
 
 - [Create and manage connector namespaces for integration](create-connector-namespace.md)  
 - [What is Connector Namespace?](connector-namespace-overview.md)
+- [Connect Azure Functions to more services with connectors](../azure-functions/functions-connectors-overview.md)
 
 <!--
 - Subscribe to connector triggers
-- Call connector actions from Azure Functions using Connectors SDK
 -->
-

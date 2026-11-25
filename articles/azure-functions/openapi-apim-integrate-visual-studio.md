@@ -44,13 +44,13 @@ The Azure Functions project template in Visual Studio creates a project that you
 
     ### [Isolated worker model](#tab/isolated-process)
 
-    **.NET 8.0 Isolated (Long Term Support)**: Your C# functions run in the isolated worker model, which is recommended. For more information, see the [isolated worker model guide](dotnet-isolated-process-guide.md).
+    **A supported .NET version using the isolated worker model**: Your C# functions run in the isolated worker model, which is recommended. For version requirements, see [Supported versions](dotnet-isolated-process-guide.md#supported-versions).
 
     ### [In-process](#tab/in-process)
 
     [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-    **.NET 8.0 (Long Term Support)**: Your C# functions run in the [in-process model](functions-dotnet-class-library.md), which will be retired. To learn more, see the [in-process model guide](functions-dotnet-class-library.md).
+    **A supported .NET version using the in-process model**: Your C# functions run in the [in-process model](functions-dotnet-class-library.md), which will be retired. For this model's version requirements, see the [in-process model guide](functions-dotnet-class-library.md#supported-versions).
 
     ---
 
@@ -173,7 +173,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
 1. Select **Create** to create a function app and its related resources in Azure. Status of resource creation is shown in the lower left of the window.
 
-1. Back in **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed using [Zip Deploy](functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](run-functions-from-deployment-package.md) mode enabled. This deployment method is recommended for your functions project, since it results in better performance.
+1. Back in **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed by using [ZIP deployment](functions-deployment-technologies.md#zip-deployment) with [run-from-package](deployment-zip-push.md#run-functions-from-the-deployment-package) mode enabled. This deployment method is recommended for your functions project, since it results in better performance.
 
 1. Select **Next**, and in the **API Management** page, also choose **+ Create new** or **Create a new instance**.
 

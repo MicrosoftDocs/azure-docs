@@ -1,21 +1,21 @@
 ---
-title: Questions about Business case in Azure Migrate
-description: Get answers to common questions about Business case in Azure Migrate.
+title: Questions about Business case in Azure Catalyst
+description: Get answers to common questions about Business case in Azure Catalyst.
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 09/19/2025
 ms.update-cycle: 365-days
 ms.custom: references_regions, engagement-fy23
-# Customer intent: As a cloud architect, I want to understand how to create and export a business case in Azure Migrate, so that I can effectively analyze on-premises costs and determine potential savings for my organization's cloud migration strategy.
+# Customer intent: As a cloud architect, I want to understand how to create and export a business case in Azure Catalyst, so that I can effectively analyze on-premises costs and determine potential savings for my organization's cloud migration strategy.
 ---
 
 # Business case (preview) - Common questions
 
-This article answers common questions about Business case in Azure Migrate. If you have other questions, check these resources:
+This article answers common questions about the Business case in Azure Catalyst. If you have other questions, check these resources:
 
-- [General questions](resources-faq.md) about Azure Migrate.
-- Questions about the [Azure Migrate appliance](common-questions-appliance.md).
+- [General questions](resources-faq.md) about Azure Catalyst.
+- Questions about the [Azure Catalyst appliance](common-questions-appliance.md).
 
 ## General
 
@@ -43,7 +43,7 @@ Business case creates assessments in the background, which could take some time 
 
 ### How do I build a business case?
 
-Currently, you can create a Business case on servers and workloads discovered using a lightweight Azure Migrate appliance in your VMware, Hyper-V, and Physical/Baremetal environment or servers discovered using a .csv or RVTools .xlsx import. The appliance discovers on-premises servers and workloads. It then sends server metadata and performance data to Azure Migrate.
+Currently, you can create a business case for servers and workloads that you discover by using a lightweight Azure Catalyst appliance in your VMware, Hyper-V, and physical or bare-metal environment. You can also create a business case for servers that you discover by importing a .csv or RVTools .xlsx file. The appliance discovers on-premises servers and workloads. It sends server metadata and performance data to Azure Catalyst.
 
 ### Why can’t I build business case from my project?
 
@@ -54,8 +54,8 @@ Germany West Central and Sweden Central
 To verify in an existing project:
 
 1. You can use the https://portal.azure.com/ URL to get started
-2. In Azure Migrate, go to **Servers, databases and webapps** > **Migration goals**.
-3. On the **Azure Migrate: Discovery and assessment** tool, select **Overview**.
+2. In Azure Catalyst, go to **Servers, databases and webapps** > **Migration goals**.
+3. On the **Azure Catalyst: Discovery and assessment** tool, select **Overview**.
 4. Under Project details, select **Properties**.
 5. Check the Project location.
 6. The Business case feature isn't supported in the following regions:
@@ -88,7 +88,7 @@ To fetch latest discovery data, recalculate by selecting the **Recalculate** but
 
 ### Why are all or some of the servers marked as unknown in the utilization insights?
 
-We couldn't collect sufficient data points to classify these servers. We recommend that you wait at least a day after starting discovery so that the Business case has enough utilization data points. Also, review the notifications/resolve issues blades on Azure Migrate hub to identify any discovery related issues prior to Business case computation. Reviewing issues prior to building a Business case will ensure that the IT estate in your datacenter is represented more accurately.
+We couldn't collect sufficient data points to classify these servers. Wait at least a day after starting discovery so that the business case has enough utilization data points. Also, review the notifications and resolve issues blades on Azure Catalyst hub to identify any discovery related issues prior to business case computation. Reviewing issues prior to building a business case ensures that the IT estate in your datacenter is represented more accurately.
 
 ### Was the readiness taken into consideration in the recommendations?
 

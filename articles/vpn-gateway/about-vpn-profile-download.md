@@ -18,10 +18,6 @@ This article helps you generate and extract VPN client profile configuration fil
 
 ## Next steps
 
-Configure VPN clients.
-
-* [Linux ](point-to-site-entra-vpn-client-linux.md)
-* [Windows](point-to-site-entra-vpn-client-windows.md)
-* [macOS](point-to-site-entra-vpn-client-mac.md)
+Configure the Azure VPN client. See [Configure a VPN client for P2S Microsoft Entra ID authentication connections](point-to-site-entra-vpn-client.md).
 
 For more information about point-to-site, see [About point-to-site](point-to-site-about.md).

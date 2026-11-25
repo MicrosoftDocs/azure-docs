@@ -1,13 +1,13 @@
 ---
 title: Region availability for Oracle AI Database@Azure
 description: Learn about region availability for Oracle AI Database@Azure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: concept-article
 ms.date: 9/24/2024
 ms.custom: references-regions
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: As a cloud architect, I want to understand the regional availability of Oracle AI Database services on Azure, so that I can plan the deployment of these databases in the appropriate locations for optimal performance and disaster recovery.
 ---
 
@@ -55,7 +55,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Spain Central | 	Spain Central (Madrid) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |   Dual    |
 | Sweden Central | 	Sweden Central (Stockholm) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |   Dual    |
 | Switzerland North | Switzerland North (Zurich) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |   Dual    |
-| UAE Central | UAE Central (Abu Dhabi) | ✓  | ✓| ✓ | ✓ | | | ✓ |   Single    |
+| UAE Central | UAE Central (Abu Dhabi) | ✓  | ✓| ✓ | ✓ | ✓ | ✓ | ✓ |   Single    |
 | UAE North | UAE North (Dubai) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |   Dual    |
 | UK South| UK South (London)   | ✓   | ✓| ✓   | ✓ | ✓ | ✓ | ✓ | Dual |
 | UK West | UK West (Newport)	   | ✓   | ✓ | ✓  | ✓ | ✓ | ✓ | ✓ | Single |

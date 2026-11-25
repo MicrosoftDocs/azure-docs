@@ -4,8 +4,9 @@ description: Understand Azure Enclave core concepts.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
-ms.date: 9/30/2025
+ms.service: azure-enclave
 ai-usage: ai-assisted
+ms.date: 7/23/2026
 ---
 
 # Learn about Azure Enclave

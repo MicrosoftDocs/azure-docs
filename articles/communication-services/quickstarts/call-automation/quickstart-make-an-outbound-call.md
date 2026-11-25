@@ -14,6 +14,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Quickstart: Make an outbound call using Call Automation
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services Call Automation APIs are a powerful way to create interactive calling experiences. In this quick start, we cover a way to make an outbound call and recognize various events in the call.
 
 ::: zone pivot="programming-language-csharp"

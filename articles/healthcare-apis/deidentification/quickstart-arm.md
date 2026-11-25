@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Health Data Services de-identification service by using Azure Resource Manager template (ARM template)
-description: Learn how to create an Azure Health Data Services de-identification service by using Azure Resource Manager template (ARM template).
+title: Deploy a De-identification Service Using an ARM Template
+description: Deploy an Azure Health Data Services de-identification service quickly by using an ARM template. Follow the steps to create, verify, and clean up resources.
 services: azure-resource-manager
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
@@ -8,15 +8,15 @@ author: jovinson-ms
 ms.author: jovinson
 ms.topic: quickstart-arm
 ms.custom: subject-armqs
-ms.date: 06/19/2025
+ms.date: 10/01/2026
 
 # Customer intent: As a cloud administrator, I want a quick method to deploy an Azure resource for production environments or to evaluate the service's functionality.
 ---
 
-# Quickstart: Deploy the de-identification service using an ARM template
+# Quickstart: Deploy the de-identification service by using an ARM template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create
-an Azure Health Data Services de-identification service.
+an Azure Health Data Services de-identification service. By using a template, you can deploy the service quickly and consistently for evaluation or production environments.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -37,7 +37,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](/sampl
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.healthdataaiservices/deidentification-service-create/azuredeploy.json":::
 
-One Azure resource is defined in the template:
+The template defines one Azure resource:
 
 - [Microsoft.HealthDataAIServices/deidServices](/azure/templates/microsoft.healthdataaiservices/deidservices?pivots=deployment-language-arm-template): Create a de-identification service.
 
@@ -57,6 +57,7 @@ When the deployment finishes, you should see a message indicating the deployment
 ## Review deployed resources
 
 Review your resource with Azure CLI, replacing **\<deid-service-name\>** with the name you choose for your de-identification service:
+
 ```azurecli
 az resource show -g exampleRG -n <deid-service-name> --resource-type "Microsoft.HealthDataAIServices/deidServices"
 ```
@@ -65,6 +66,7 @@ az resource show -g exampleRG -n <deid-service-name> --resource-type "Microsoft.
 
 When no longer needed, delete the resource group. The resource group and all the resources in the
 resource group are deleted.
+
 ```azurecli
 az group delete --name exampleRG
 ```

@@ -5,13 +5,13 @@ description: Learn how to adjust the size, cost, and performance characteristics
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/16/2026
-ms.author: kendownie
+ms.date: 10/26/2026
+ms.author: normesta
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to adjust the size, cost, or performance characteristics my Azure file share, or delete the file share."
 ---
 
-# How to modify an Azure file share
+# Modify an Azure file share
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
@@ -25,19 +25,17 @@ After creating your classic file share, you might need to adjust the provisionin
 
 ### Provisioned v2 billing model
 
-After creating your provisioned v2 classic file share, you can change one or all three of the provisioned quantities of your file share. You can dynamically scale up or down the amount of storage, IOPS, and throughput you provision as your needs change. However, you can only decrease a provisioned quantity after 24 hours elapse since your last quantity increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
+After creating your provisioned v2 classic file share, you can change one or all three of the provisioned quantities of your file share. You can dynamically scale up or down the amount of storage, IOPS, and throughput you provision as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
 
 # [Portal](#tab/azure-portal)
 
-Follow these instructions to update the provisioning for your file share.
+Follow these steps to update the provisioning for your file share.
 
 1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
 1. In the file share listing, select the file share for which you want to change the provisioning.
 
 1. In the file share overview, select **Change size and performance**.
-
-   ![A screenshot of the Change size and performance button in the file share overview.](./media/storage-how-to-create-file-share/change-provisioned-v2-0.png)
 
 1. The **Size and performance** pop-out dialog has the following options:
 
@@ -98,7 +96,7 @@ provisionedThroughputMibPerSec=2048
 # Update the file share provisioning.
 az storage share-rm update \
         --resource-group $resourceGroupName \
-        --name $shareName \
+        --name $fileShareName \
         --storage-account $storageAccountName \
         --quota $provisionedStorageGib \
         --provisioned-iops $provisionedIops \
@@ -113,15 +111,13 @@ After creating your provisioned v1 file share, you can change the provisioned st
 
 # [Portal](#tab/azure-portal)
 
-Follow these instructions to update the provisioning for your file share.
+Follow these steps to update the provisioning for your file share.
 
 1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
 1. In the file share listing, select the file share for which you want to change the provisioning.
 
 1. In the file share overview, select **Change size and performance**.
-
-   ![A screenshot of the Change size and performance button in the file share overview.](./media/storage-how-to-create-file-share/change-provisioned-v2-0.png)
 
 1. The **Size and performance** dialog has a single option, **Provisioned storage (GiB)**. If you need more IOPS or throughput than the given amount of provisioned storage provides, you can increase your provisioned storage capacity to get extra IOPS and throughput.
 
@@ -130,7 +126,7 @@ Follow these instructions to update the provisioning for your file share.
 1. Select **Save** to apply the provisioning changes.
 
 > [!NOTE]
-> You can use PowerShell and CLI to enable or disable paid bursting. Paid bursting is an advanced feature of the provisioned v1 billing model. See [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling paid bursting.
+> Use PowerShell and CLI to enable or disable paid bursting. Paid bursting is an advanced feature of the provisioned v1 billing model. See [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling paid bursting.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -227,7 +223,7 @@ To update the access tier of your file share by using the Azure portal, follow t
 
 1. In the file share overview, select **Change tier**.
 
-1. Select the desired **Access tier** from the provided drop-down list.
+1. Select the desired **Access tier** from the drop-down list.
 
 1. Select **Apply** to save the access tier change.
 
@@ -239,9 +235,9 @@ To update the quota of your file share by using the Azure portal, follow these s
 
 1. In the file share overview, select **Edit quota**.
 
-1. In the **Edit quota** pop-out, enter the desired maximum size of the share or select **Set to maximum**. There's no cost implication of setting the share to the maximum size.
+1. In the **Edit quota** pane, enter the desired maximum size of the share or select **Set to maximum**. There's no cost implication of setting the share to the maximum size.
 
-1. Select **OK** to save quota changes. The new quota is effective within a few minutes.
+1. Select **OK** to save quota changes. The new quota takes effect within a few minutes.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -299,11 +295,100 @@ $command
 
 ---
 
-## Change the cost and performance characteristics of a file share (Microsoft.FileShares)
+## Change the billing model of a storage account
+
+You can convert an existing SSD storage account of kind `FileStorage` from the provisioned v1 billing model to provisioned v2. This feature is available in **limited public preview** and requires completing a [survey](https://forms.cloud.microsoft/r/tkjpMwPPvU) before use.
+
+The conversion applies to all classic file shares in the storage account. Each share's existing provisioned storage, IOPS, and throughput carry over unchanged and are billed under the provisioned v2 model. After conversion, you can adjust these quantities independently. For more information about the billing models, see [Provisioned v1](understanding-billing.md#provisioned-v1-model) and [Provisioned v2](understanding-billing.md#provisioned-v2-model).
+
+> [!IMPORTANT]
+> Conversion is one-way. You can't convert the storage account back to provisioned v1. You also can't change redundancy options during the conversion.<br>
+> Currently, this feature is available in the following regions:
+ > - West Central US
+ > - East Asia
+ > - Southeast Asia
+
+### Prerequisites
+- Complete the [survey](https://forms.cloud.microsoft/r/tkjpMwPPvU) required to use the limited public preview.
+- Use an existing SSD `FileStorage` storage account with a provisioned v1 SKU of `Premium_LRS` or `Premium_ZRS`. This conversion doesn't apply to HDD storage accounts or file shares created with the `Microsoft.FileShares` resource provider.
+- Choose the provisioned v2 SKU that matches your account's existing redundancy configuration, as shown in the following table.
+
+| Current provisioned v1 SKU | Target provisioned v2 SKU | Redundancy |
+|---|---|---|
+| `Premium_LRS` | `PremiumV2_LRS` | Locally redundant storage (LRS) |
+| `Premium_ZRS` | `PremiumV2_ZRS` | Zone-redundant storage (ZRS) |
+
+- To proceed, all of the following requirements must be met on your Provisioned v1 storage account:
+  - Provisioned storage is 256 TiB or less
+  - Provisioned IOPS is 102,400 or less
+  - Provisioned throughput is 10,340 MiB/s or less
+  - The storage account contains fewer than 35 file shares
+  - Paid bursting feature is disabled
+
+If one or more of these requirements are not met, the upgrade will fail. Update your Provisioned v1 storage account to satisfy all eligibility requirements, then retry the upgrade.
 
 # [Portal](#tab/azure-portal)
 
-Follow these instructions to change the size and performance of a file share (Microsoft.FileShares) by using the Azure portal. You can dynamically scale the amount of storage, IOPS, and throughput up or down as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
+Portal experience coming soon, to use the feature, use PowerShell or Azure CLI.
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the [`Set-AzStorageAccount`](/powershell/module/az.storage/set-azstorageaccount) cmdlet to change the storage account SKU. Replace the resource group and storage account placeholders with the names of your existing resources. Set `$skuName` to `PremiumV2_LRS` for an account currently using `Premium_LRS`, or `PremiumV2_ZRS` for an account currently using `Premium_ZRS`.
+
+```powershell
+$resourceGroupName = "<resource-group-name>"
+$storageAccountName = "<storage-account-name>"
+$skuName = "PremiumV2_LRS"
+
+Set-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName `
+    -SkuName $skuName
+```
+
+After the request completes, check the storage account SKU:
+
+```powershell
+Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName |
+    Select-Object StorageAccountName, @{Name='SkuName';Expression={$_.Sku.Name}}, ProvisioningState
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the [`az storage account update`](/cli/azure/storage/account#az-storage-account-update) command to change the storage account SKU. The following example uses Bash syntax, such as in an Azure Cloud Shell Bash session. Replace the resource group and storage account placeholders with the names of your existing resources. Set `skuName` to `PremiumV2_LRS` for an account currently using `Premium_LRS`, or `PremiumV2_ZRS` for an account currently using `Premium_ZRS`.
+
+```bash
+resourceGroupName="<resource-group-name>"
+storageAccountName="<storage-account-name>"
+skuName="PremiumV2_LRS"
+
+az storage account update \
+    --resource-group "$resourceGroupName" \
+    --name "$storageAccountName" \
+    --sku "$skuName"
+```
+
+After the request finishes, check the storage account SKU:
+
+```bash
+az storage account show \
+    --resource-group "$resourceGroupName" \
+    --name "$storageAccountName" \
+    --query sku.name \
+    --output tsv
+```
+
+---
+
+The returned SKU should match the target provisioned v2 SKU you selected. To adjust individual shares after conversion, see [change the cost and performance characteristics of a classic file share](#change-the-cost-and-performance-characteristics-of-a-classic-file-share).
+
+## Change the cost and performance characteristics of a file share (Microsoft.FileShares)
+
+After you create a file share with the Microsoft.FileShares resource provider, you can change the provisioned storage, IOPS, and throughput. You can scale up or down dynamically as your needs change, but you can only decrease a provisioned quantity after 24 hours have elapsed since your last increase.
+
+# [Portal](#tab/azure-portal)
+
+Follow these steps to change the size and performance of a file share (Microsoft.FileShares) by using the Azure portal. You can dynamically scale the amount of storage, IOPS, and throughput up or down as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
 
 1. Select the file share you want to modify.
 1. From the context menu, select **Settings**.
@@ -327,12 +412,9 @@ Follow these instructions to change the size and performance of a file share (Mi
 
 # [PowerShell](#tab/azure-powershell)
 
-To change the size and performance of a file share (Microsoft.FileShares) by using Azure PowerShell, use the following commands. Replace the variables with your intended values.
+To change the size and performance of a file share (Microsoft.FileShares) by using Azure PowerShell, use the following commands. Replace the variables with your intended values. You need the [Az PowerShell module](/powershell/azure/install-azure-powershell) version 16.0.0 or later. This version includes the Az.FileShare module.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
-Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
-
 $resourceGroup = "<resource-group>"
 $shareName = "<file-share-name>"
 
@@ -352,12 +434,9 @@ Get-AzFileShare -ResourceGroupName $resourceGroup -ResourceName $shareName
 
 # [Azure CLI](#tab/azure-cli)
 
-To change the size and performance of a file share (Microsoft.FileShares) by using Azure CLI, use the following commands.
+To change the size and performance of a file share (Microsoft.FileShares) by using Azure CLI, use the following commands. You need the `fileshare` extension for the Azure CLI. To install it, run `az extension add --name fileshare`.
 
 ```bash
-# Install the fileshare extension
-az extension add --name fileshare
-
 # Specify your values
 shareName="<your-file-share-name>"
 resourceGroup="<your-resource-group-name>"
@@ -388,7 +467,7 @@ You might want to delete unused or outdated file shares. You can recover file sh
 
 # [Portal](#tab/azure-portal)
 
-Follow these instructions to delete a classic file share by using the Azure portal.
+Follow these steps to delete a classic file share by using the Azure portal.
 
 1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
@@ -435,7 +514,7 @@ az storage share-rm delete \
 
 ## Delete a file share (Microsoft.FileShares)
 
-Before deleting a file share that you created with the Microsoft.FileShares resource provider, make sure you delete or disconnect its associated private endpoint. File share deletion fails if the private endpoint is still present.
+Before deleting a file share that you created with the Microsoft.FileShares resource provider, ensure you delete or disconnect its associated private endpoint. File share deletion fails if the private endpoint is still present.
 
 # [Portal](#tab/azure-portal)
 
@@ -447,18 +526,15 @@ To delete a file share (Microsoft.FileShares) by using the Azure portal, follow 
 
     ![A screenshot of the delete confirmation dialog for a Microsoft.FileShares file share in the Azure portal.](./media/storage-how-to-create-file-share/delete-file-share.png)
 
-1. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this survey, but the product team appreciates any feedback you provide, particularly if something isn't working properly for you. If your file share has dependent resources such as snapshots, the deletion process also deletes the snapshots, and the action is non-recoverable. If your file share has associated resources like private endpoints, the portal helps you remove them before you can delete the file share.
+1. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this survey, but the product team appreciates any feedback you provide, particularly if something isn't working properly for you. If your file share has dependent resources such as snapshots, the deletion process also deletes the snapshots, and the action is unrecoverable. If your file share has associated resources like private endpoints, the portal helps you remove them before you can delete the file share.
 
 1. Enter the file share name to confirm deletion and then select **Delete**.
 
 # [PowerShell](#tab/azure-powershell)
 
-To delete a file share (Microsoft.FileShares) by using Azure PowerShell, run the following command. Make sure you replace the variables with your intended values.
+To delete a file share (Microsoft.FileShares) by using Azure PowerShell, run the following command. Replace the variables with your values. You need the [Az PowerShell module](/powershell/azure/install-azure-powershell) version 16.0.0 or later. This version includes the Az.FileShare module.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
-Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
-
 $resourceGroup = "<resource-group>"
 $shareName = "<file-share-name>"
 
@@ -467,12 +543,9 @@ Remove-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup
 
 # [Azure CLI](#tab/azure-cli)
 
-To delete a file share (Microsoft.FileShares) by using Azure CLI, run the following command.
+To delete a file share (Microsoft.FileShares) by using Azure CLI, run the following command. You need the `fileshare` extension for the Azure CLI. To install it, run `az extension add --name fileshare`.
 
 ```bash
-# Install the fileshare extension
-az extension add --name fileshare
-
 # Delete the file share
 az fileshare delete --name <file-share-name> --resource-group <your-resource-group-name> -y
 ```

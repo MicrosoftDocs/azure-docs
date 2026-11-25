@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Hub device and service SDKs
 description: Links to the Azure IoT Hub SDKs that you can use to build device apps and back-end apps.
-author: sethmanheim
+author: dimatx
 
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 02/27/2025
+ms.date: 09/22/2026
 ms.custom: [mqtt, 'Role: IoT Device', 'Role: Cloud Development']
 ---
 
@@ -23,6 +23,9 @@ IoT Hub provides three categories of software development kits (SDKs) to help yo
 Microsoft also provides a set of SDKs for provisioning devices through and building backend services for the Device Provisioning Service. To learn more, see [Microsoft SDKs for IoT Hub Device Provisioning Service](../iot-dps/libraries-sdks.md).
 
 Learn about the [benefits of developing using Azure IoT SDKs](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/).
+
+> [!NOTE]
+> If your devices use IoT Hub and Device Provisioning Service (DPS) instances that are integrated with Azure Device Registry, see [Unified Azure IoT SDKs (preview) for IoT Hub and Azure Device Registry](../iot/device-registry/concept-unified-iot-sdks.md). The unified SDKs are separate .NET and C device SDKs that combine provisioning, connectivity, credential management, and device operations in one programming model. For IoT Hub and DPS deployments that aren't integrated with Azure Device Registry, continue to use the device SDKs listed in this article.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 

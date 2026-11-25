@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: deploy the Azure Health Data Services de-identification service with Bicep"
-description: "Quickstart: deploy the Azure Health Data Services de-identification service with Bicep."
+title: "Quickstart: Deploy De-identification Service with Bicep"
+description: Learn how to deploy the Azure Health Data Services de-identification service with a Bicep file by using Azure CLI or PowerShell. Get started now.
 author: jovinson-ms
 ms.author: jovinson
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: quickstart-bicep
 ms.custom: subject-bicepqs
-ms.date: 06/19/2025
+ms.date: 10/01/2026
 ---
 
 # Quickstart: Deploy the Azure Health Data Services de-identification service with Bicep
 
-In this quickstart, you use a Bicep definition to deploy a de-identification service.
+In this quickstart, you use a Bicep file to deploy the Azure Health Data Services de-identification service. Deploying with Bicep lets you create the service in a repeatable, automated way by using Azure CLI or Azure PowerShell.
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -23,14 +23,14 @@ If your environment meets the prerequisites and you're familiar with using Bicep
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 [!INCLUDE [include](~/reusable-content//azure-powershell/azure-powershell-requirements-no-header.md)]
+- Bicep CLI version 0.20.0 or later. For more information, see [Install Bicep](/azure/azure-resource-manager/bicep/install).
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from
-[Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/deidentification-service-create/).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/deidentification-service-create/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.healthdataaiservices/deidentification-service-create/main.bicep":::
 
@@ -44,21 +44,22 @@ The following Azure resources are defined in the Bicep file:
 
 1. Deploy the Bicep file by using either Azure CLI or Azure PowerShell, replacing `<deid-service-name>` with a name for your de-identification service.
 
-    # [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
-    This command requires Azure CLI version 2.6 or later. You can check the currently installed version by running `az --version`.
+This command requires Azure CLI version 2.6 or later. You can check the currently installed version by running `az --version`.
 
-    ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters deidServiceName=<deid-service-name>
-    ```
-    
-    # [Azure PowerShell](#tab/azure-powershell)
-    
-    ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -deidServiceName "<deid-service-name>"
-    ```
+```azurecli
+az group create --name exampleRG --location eastus
+az deployment group create --resource-group exampleRG --template-file main.bicep --parameters deidServiceName=<deid-service-name>
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroup -Name exampleRG -Location eastus
+New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -deidServiceName "<deid-service-name>"
+```
+
 ---
 
 ## Review deployed resources

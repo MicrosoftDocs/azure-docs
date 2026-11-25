@@ -7,7 +7,7 @@ ms.subservice: desired-state-config
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 11/17/2025
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

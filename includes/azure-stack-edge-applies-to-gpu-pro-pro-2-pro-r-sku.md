@@ -1,7 +1,7 @@
 ---
 author: alkohli
-ms.service: azure-databox
-ms.author: alkohli
+ms.service: azure-data-box
+ms.author: scompton
 ms.topic: "include"
 ms.date: 06/23/2022
 ---

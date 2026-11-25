@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: azure-data-box-gateway
 ms.topic: tutorial
 ms.date: 07/06/2021
-ms.author: shaas
+ms.author: bchakra
 ms.custom: sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Gateway so I can use it to transfer data to Azure.
 # Customer intent: "As an IT admin, I want to learn how to add and connect shares on the Data Box Gateway, so that I can successfully transfer data to Azure efficiently."
@@ -118,7 +118,7 @@ On your Linux client connected to your device, do the following procedure:
 
    `sudo apt-get install nfs-common`
 
-    For more information, go to [Install NFSv4 client](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client).
+    For more information, go to [Install NFSv4 client](https://github.com/ubuntu/wiki-archives/blob/e1d802e604443adbdd264c281bec7fbcef2a0f34/UbuntuCommunityHelpWiki/S/SettingUpNFSHowTo.wiki#user-content-NFSv4_client).
 
 2. After the NFS client is installed, use the following command to mount the NFS share you created on your Data Box Gateway device:
 

@@ -2,14 +2,17 @@
 title: "PowerShell script: Accept invitation from an Azure Data Share"
 description: This PowerShell script accepts invitations from an existing data share.
 author: chvukosw
-ms.author: chvukosw
+ms.author: diberry
 ms.service: azure-data-share
 ms.topic: article
-ms.date: 01/23/2026
-ms.custom: devx-track-azurepowershell
+ms.date: 10/13/2026
+ms.custom: devx-track-azurepowershell, msecd-doc-authoring-1030
+ai-usage: ai-assisted
 ---
 
 # Use PowerShell to accept a data share invitation
+
+[!INCLUDE [Azure Data Share retirement notice](../../includes/data-share-retirement.md)]
 
 This PowerShell script accepts invitations sent to a consumer.
 

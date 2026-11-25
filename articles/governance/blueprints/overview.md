@@ -1,12 +1,17 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-ms.date: 09/07/2023
+ms.date: 10/30/2026
 ms.topic: overview
 ---
 # What is Azure Blueprints (Preview)?
 
 [!INCLUDE [Blueprints deprecation note](../../../includes/blueprints-deprecation-note.md)]
+
+> [!TIP]
+> To help with your migration from Azure Blueprints, the [Azure Blueprints migration skill for GitHub Copilot](https://github.com/Azure/azure-blueprints/tree/master/skills/azure-blueprints-migration) provides guidance for inventory assessment, exporting resources, converting artifacts to Template Specs and Deployment Stacks, validation, and cutover.
+>
+> The skill is MIT-licensed sample content. It isn't a Microsoft product or service, and it isn't covered by any Azure service level agreement or support agreement. The skill directs an AI assistant, whose output is nondeterministic and might be inaccurate or incomplete, and it can generate commands that permanently delete blueprint definitions, assignments, and other resources. Review, understand, and test everything it generates in a nonproduction subscription before you run it. For full terms, see [legal notices and disclaimers](https://github.com/Azure/azure-blueprints/blob/master/skills/azure-blueprints-migration/SKILL.md#legal-notices-and-disclaimers).
 
 Just as a blueprint allows an engineer or an architect to sketch a project's design parameters,
 Azure Blueprints enables cloud architects and central information technology groups to define a
@@ -217,7 +222,7 @@ on Channel 9.
 ## Azure Blueprints retirement
 
 Azure Blueprints (Preview) is being retired on **January 31, 2027**, with a phased retirement
-beginning July 31, 2026. Migrate your blueprint definitions and assignments to
+that began July 31, 2026. Migrate your blueprint definitions and assignments to
 [Azure Deployment Stacks](../../azure-resource-manager/bicep/deployment-stacks.md) (recommended) and
 [template specs](../../azure-resource-manager/bicep/template-specs.md) before the retirement date.
 For the phased timeline, impact, and migration guidance, see:

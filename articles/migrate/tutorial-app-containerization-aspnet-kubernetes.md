@@ -1,8 +1,8 @@
 ---
 title: Azure App Containerization ASP.NET; Containerization and migration of ASP.NET applications to Azure Kubernetes.
 description: Tutorial - Containerize & migrate ASP.NET applications to Azure Kubernetes Service.
-author: habibaum
-ms.author: v-uhabiba
+author: Jeronika-MS
+ms.author: nikitabajaj
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/06/2025
@@ -15,23 +15,23 @@ ms.custom:
 ---
 # ASP.NET app containerization and migration to Azure Kubernetes Service
 
-In this article, you'll learn how to containerize ASP.NET applications and migrate them to [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) using the Azure Migrate: App Containerization tool. The containerization process doesn't require access to your codebase and provides an easy way to containerize existing applications. The tool works by using the running state of the applications on a server to determine the application components and helps you package them in a container image. The containerized application can then be deployed on Azure Kubernetes Service (AKS).
+In this article, you'll learn how to containerize ASP.NET applications and migrate them to [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) using the Azure Catalyst: App Containerization tool. The containerization process doesn't require access to your codebase and provides an easy way to containerize existing applications. The tool works by using the running state of the applications on a server to determine the application components and helps you package them in a container image. The containerized application can then be deployed on Azure Kubernetes Service (AKS).
 
-The Azure Migrate: App Containerization tool currently supports:
+The Azure Catalyst: App Containerization tool currently supports:
 
 - Containerizing ASP.NET apps and deploying them on Windows containers on Azure Kubernetes Service.
 - Containerizing ASP.NET apps and deploying them on Windows containers on Azure App Service. [Learn more](./tutorial-app-containerization-aspnet-app-service.md).
 - Containerizing Java Web apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on AKS. [Learn more](./tutorial-app-containerization-java-kubernetes.md).
 - Containerizing Java Web apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on App Service. [Learn more](./tutorial-app-containerization-java-app-service.md).
 
-The Azure Migrate: App Containerization tool helps you to:
+The Azure Catalyst: App Containerization tool helps you to:
 
 - **Discover your application**: The tool remotely connects to the application servers running your ASP.NET application and discovers the application components. The tool creates a Dockerfile that can be used to create a container image for the application.
 - **Build the container image**: You can inspect and further customize the Dockerfile as per your application requirements and use that to build your application container image. The application container image is pushed to an Azure Container Registry you specify.
 - **Deploy to Azure Kubernetes Service**:  The tool then generates the Kubernetes resource definition YAML files needed to deploy the containerized application to your Azure Kubernetes Service cluster. You can customize the YAML files and use them to deploy the application on AKS.
 
 > [!NOTE]
-> The Azure Migrate: App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Migrate: Discovery and assessment capability. [Learn more](./tutorial-discover-vmware.md)
+> The Azure Catalyst: App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Catalyst: Discovery and assessment capability. [Learn more](./tutorial-discover-vmware.md)
 
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
 
@@ -45,7 +45,7 @@ In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Set up an Azure account.
-> * Install the Azure Migrate: App Containerization tool.
+> * Install the Azure Catalyst: App Containerization tool.
 > * Discover your ASP.NET application.
 > * Build the container image.
 > * Deploy the containerized application on AKS.
@@ -59,7 +59,7 @@ Before you begin this tutorial, you should:
 
 **Requirement** | **Details**
 --- | ---
-**Identify a machine to install the tool** | A Windows machine to install and run the Azure Migrate: App Containerization tool. The Windows machine could be a server (Windows Server 2016 or later) or client (Windows 10) operating system, meaning that the tool can run on your desktop as well. <br/><br/> The Windows machine running the tool should have network connectivity to the servers/virtual machines hosting the ASP.NET applications to be containerized.<br/><br/> Ensure that 6-GB space is available on the Windows machine running the Azure Migrate: App Containerization tool for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy. <br/> <br/>Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6).
+**Identify a machine to install the tool** | A Windows machine to install and run the Azure Catalyst: App Containerization tool. The Windows machine could be a server (Windows Server 2016 or later) or client (Windows 10) operating system, meaning that the tool can run on your desktop as well. <br/><br/> The Windows machine running the tool should have network connectivity to the servers/virtual machines hosting the ASP.NET applications to be containerized.<br/><br/> Ensure that 6-GB space is available on the Windows machine running the Azure Catalyst: App Containerization tool for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy. <br/> <br/>Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6).
 **Application servers** | Enable PowerShell remoting on the application servers: Sign in to the application server and follow [these](/powershell/module/microsoft.powershell.core/enable-psremoting) instructions to turn on PowerShell remoting. <br/><br/> Ensure that PowerShell 5.1 is installed on the application server. Follow the instruction in [Install and Configure WMF 5.1](/previous-versions/powershell/scripting/windows-powershell/wmf/setup/install-configure) to download and install PowerShell 5.1 on the application server. <br/><br/> Install the Microsoft Web Deploy tool on the machine running the App Containerization helper tool and application server if not already installed. You can download the tool from [here](https://aka.ms/webdeploy3.6).
 **ASP.NET application** | The tool currently supports:<br/> - ASP.NET applications using Microsoft .NET framework 3.5 or later. <br/>- Application servers running Windows Server 2012 R2 or later (application servers should be running PowerShell version 5.1). <br/>- Applications running on Internet Information Services (IIS) 7.5 or later. <br/><br/> The tool currently doesn't support: <br/>- Applications requiring Windows authentication (The App Containerization tool currently doesn't support gMSA). <br/>- Applications that depend on other Windows services hosted outside IIS.
 
@@ -78,7 +78,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Screenshot of search box to search for the Azure subscription.](./media/tutorial-discover-vmware/search-subscription.png)
 
-1. In the **Subscriptions** page, select the subscription in which you want to create an Azure Migrate project.
+1. In the **Subscriptions** page, select the subscription in which you want to create an Azure Catalyst project.
 
 1. Select **Access control (IAM)**.
 
@@ -106,9 +106,11 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Microsoft Entra App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-## Download and install Azure Migrate: App Containerization tool
+<a name="download-and-install-azure-migrate-app-containerization-tool"></a>
 
-1. [Download](https://go.microsoft.com/fwlink/?linkid=2134571) the Azure Migrate: App Containerization installer on a Windows machine.
+## Download and install Azure Catalyst: App Containerization tool
+
+1. [Download](https://go.microsoft.com/fwlink/?linkid=2134571) the Azure Catalyst: App Containerization installer on a Windows machine.
 2. Launch PowerShell in administrator mode and change the PowerShell directory to the folder containing the installer.
 3. Run the installation script using the command
 
@@ -141,7 +143,7 @@ If you just created a free Azure account, you're the owner of your subscription.
      - Only HTTP proxy is supported.
      - If you've added proxy details or disabled the proxy and/or authentication, select **Save** to trigger connectivity check again.
    - **Install updates**: The tool will automatically check for latest updates and install them. You can also manually install the latest version of the tool from [here](https://go.microsoft.com/fwlink/?linkid=2134571).
-   - **Install Microsoft Web Deploy tool**: The tool will check that the Microsoft Web Deploy tool is installed on the Windows machine running the Azure Migrate: App Containerization tool.
+   - **Install Microsoft Web Deploy tool**: The tool will check that the Microsoft Web Deploy tool is installed on the Windows machine running the Azure Catalyst: App Containerization tool.
    - **Enable PowerShell remoting**: The tool will inform you to ensure that PowerShell remoting is enabled on the application servers running the ASP.NET applications to be containerized.
 
 
@@ -260,7 +262,7 @@ Once the container image is built, the next step is to deploy the application as
          - If you don't have an Azure Key Vault or would like to create a new Key Vault, you can choose to create on from the tool by selecting **Create new Azure Key Vault**.
          - The tool will automatically assign the necessary permissions for managing secrets through the Key Vault.
 
-3. **Specify Azure file share**: If you had added more folders and selected the Persistent Volume option, then specify the Azure file share that should be used by Azure Migrate: App Containerization tool during the deployment process. The tool will create new directories in this Azure file share to copy over the application folders that are configured for Persistent Volume storage. Once the application deployment is complete, the tool will clean up the Azure file share by deleting the directories it had created.
+3. **Specify Azure file share**: If you had added more folders and selected the Persistent Volume option, then specify the Azure file share that should be used by Azure Catalyst: App Containerization tool during the deployment process. The tool will create new directories in this Azure file share to copy over the application folders that are configured for Persistent Volume storage. Once the application deployment is complete, the tool will clean up the Azure file share by deleting the directories it had created.
 
      - If you don't have an Azure file share or would like to create a new Azure file share, you can choose to create on from the tool by selecting **Create new Storage Account and file share**.
 
@@ -287,13 +289,13 @@ Once the container image is built, the next step is to deploy the application as
 
 ## Download generated artifacts
 
-All artifacts that are used to build and deploy the application into AKS, including the Dockerfile and Kubernetes YAML specification files, are stored on the machine running the tool. The artifacts are located at *C:\ProgramData\Microsoft Azure Migrate App Containerization*.
+All artifacts that are used to build and deploy the application into AKS, including the Dockerfile and Kubernetes YAML specification files, are stored on the machine running the tool. The artifacts are located at *C:\ProgramData\Microsoft Azure Catalyst App Containerization*.
 
 A single folder is created for each application server. You can view and download all intermediate artifacts used in the containerization process by navigating to this folder. The folder, corresponding to the application server, will be cleaned up at the start of each run of the tool for a particular server.
 
 ## Troubleshoot issues
 
-To troubleshoot any issues with the tool, you can look at the log files on the Windows machine running the App Containerization tool. Tool log files are located at *C:\ProgramData\Microsoft Azure Migrate App Containerization\Logs* folder.
+To troubleshoot any issues with the tool, you can look at the log files on the Windows machine running the App Containerization tool. Tool log files are located at *C:\ProgramData\Microsoft Azure Catalyst App Containerization\Logs* folder.
 
 ## Next steps
 

@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 09/08/2023
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Create a new virtual switch in Azure Stack Edge Pro GPU via PowerShell

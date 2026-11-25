@@ -12,6 +12,8 @@ audience: admin
 
 # Azure Communication Services direct routing: SIP protocol details
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how direct routing implements the Session Initiation Protocol (SIP) to ensure proper traffic routes between a Session Border Controller (SBC) and the SIP proxy. It also highlights the importance of certain SIP parameters that require specific values. This article is intended for voice administrators who are responsible for configuring the connection between the SBC and the SIP proxy service.
 
 ## Processing the incoming request: finding the Communication Services resource

@@ -1,28 +1,28 @@
 ---
-title: Build a Business Case with Azure Migrate | Microsoft Docs
-description: This article describes how to build a business case with Azure Migrate.
+title: Build a Business Case with Azure Catalyst | Microsoft Docs
+description: This article describes how to build a business case with Azure Catalyst.
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/20/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1825-days
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
 
-# Customer intent: "As a cloud architect, I want to build a business case by using Azure Migrate so that I can assess the cost and benefits of migrating on-premises workloads to Azure for effective decision-making."
+# Customer intent: "As a cloud architect, I want to build a business case by using Azure Catalyst so that I can assess the cost and benefits of migrating on-premises workloads to Azure for effective decision-making."
 ---
 
 # Build a business case (preview)
 
-This article describes how to build a business case for on-premises servers and workloads in your datacenter with the Azure Migrate Discovery and Assessment tool.
+This article describes how to build a business case for on-premises servers and workloads in your datacenter with the Azure Catalyst Discovery and Assessment tool.
 
-[Azure Migrate](migrate-services-overview.md) helps you to plan and execute migration and modernization projects to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, and non-Microsoft software development company offerings.
+[Azure Catalyst](migrate-services-overview.md) helps you to plan and execute migration and modernization projects to Azure. Azure Catalyst provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, and non-Microsoft software development company offerings.
 
 ## Prerequisites
 
-- Make sure that you [created](./create-manage-projects.md) an Azure Migrate project. You can also reuse an existing project to use this capability.
-- After you create a project, the Azure Migrate Discovery and Assessment tool is automatically added to the project.
+- Make sure that you [created](./create-manage-projects.md) an Azure Catalyst project. You can also reuse an existing project to use this capability.
+- After you create a project, the Azure Catalyst Discovery and Assessment tool is automatically added to the project.
 - Before you build the business case, you need to first discover your IT estate. You can choose one of the two [discovery sources](./concepts-business-case-calculation.md#discovery-sources) based on your use case.
 
 ## Business case overview
@@ -59,7 +59,7 @@ To build a business case, follow these steps:
     :::image type="content" source="./media/how-to-build-a-business-case/build-a-business-case.png" alt-text="Screenshot that shows the Build business case card.":::
 
     > [!Note]
-    > We recommend that you wait at least a day after you start discovery before you build a business case. This period allows for adequate performance and resource utilization data collection. Also, review the **Action Center** pane on the Azure Migrate **Overview** page to identify any discovery-related issues. This check ensures a more accurate representation of your datacenter's IT estate, which makes the business case recommendations more valuable.
+    > We recommend that you wait at least a day after you start discovery before you build a business case. This period allows for adequate performance and resource utilization data collection. Also, review the **Action Center** pane on the Azure Catalyst **Overview** page to identify any discovery-related issues. This check ensures a more accurate representation of your datacenter's IT estate, which makes the business case recommendations more valuable.
 
 1. For **Business case name**, specify a name for the business case. Make sure that the business case name is unique within a project. Otherwise, the previous business case with the same name gets recomputed.
 

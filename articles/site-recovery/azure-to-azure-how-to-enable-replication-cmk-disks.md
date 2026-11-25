@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 10/31/2025
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 # Customer intent: "As a cloud administrator, I want to configure replication for Azure VMs with customer-managed key enabled disks, so that I can ensure data protection and disaster recovery across regions."
 ---
@@ -18,7 +18,17 @@ This article describes how to replicate Azure VMs with Customer-Managed Keys (CM
 You must create the Disk Encryption set(s) in the target region for the target subscription before enabling replication for your virtual machines that have CMK-enabled managed disks.
 
 > [!NOTE]
-> Azure Site Recovery doesn't support rotating the key for an encrypted virtual machine while it is protected. If you rotate the keys, you must disable and re-enable the replication.
+> Azure Site Recovery doesn't apply encryption-key changes to an encrypted virtual machine while it's protected. This restriction includes automatic or manual rotation to a new key version, changing the key URL, and replacing the disk encryption set. To use the new configuration for replica disks, recovery points, failover, reprotection, and failback, disable and re-enable replication.
+
+## Encryption compatibility
+
+VM security type | Disk encryption | Support
+--- | --- | ---
+Standard | Platform-managed keys | Supported.
+Standard | Customer-managed keys or double encryption | Supported. Pre-create a compatible disk encryption set in the target region.
+Trusted Launch | Platform-managed keys, customer-managed keys, or double encryption | Supported when the VM meets the [Trusted Launch requirements](concepts-trusted-vm.md).
+Confidential VM | Any confidential VM disk-encryption profile | Not supported.
+Azure Disk Encryption | Guest-based encryption | Follow the [Azure Disk Encryption replication guidance](azure-to-azure-how-to-enable-replication-ade-vms.md).
 
 ## Enable replication
 
@@ -35,6 +45,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
    - **Disaster recovery between availability zones**: Select **Yes** if you want to perform zonal disaster recovery on virtual machines.
 
      :::image type="fields needed to configure replication" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/source.png" alt-text="Screenshot that highlights the fields needed to configure replication.":::
+
 1. Select **Next**.
 1. In **Virtual machines**, select each VM that you want to replicate. You can only select machines for which replication can be enabled. You can select up to ten VMs. Then select **Next**.
 
@@ -85,7 +96,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
     1. **Storage encryption settings**: Site Recovery needs the disk encryption set(s)(DES) to be used for replica and target managed disks. You must pre-create Disk encryption sets in the target subscription and the target region before enabling the replication. By default, a Disk encryption set is not selected. You must select **View/edit configuration** to choose a Disk encryption set per source disk.
        
        >[!Note]
-       >Ensure that the Target DES is present in the Target Resource Group, and that the Target DES has Get, Wrap Key, Unwrap Key access to a Key Vault in the same region.
+       >Ensure that the target disk encryption set is in the target resource group and has **Get**, **Wrap Key**, and **Unwrap Key** access to a key vault in the same region.
     
         :::image type="Storage encryption settings" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/storage-encryption-settings.png" alt-text="Screenshot of storage encryption settings.":::
 

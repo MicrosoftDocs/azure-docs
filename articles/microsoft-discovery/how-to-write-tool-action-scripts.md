@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/07/2026
+ms.date: 11/10/2026
 
 #CustomerIntent: As a tool publisher, I want to write well-structured action scripts so that my tool exposes reliable, deterministic operations that Discovery agents can invoke predictably.
 ---
@@ -15,6 +15,8 @@ ms.date: 04/07/2026
 Action scripts implement the operations that your tool exposes to Discovery agents. Each action maps to a script (or a command dispatched by a central entrypoint) that the Discovery platform calls when an agent invokes that action.
 
 This article describes how to structure action scripts, handle multiple input formats, implement batch processing, and produce consistent output, using a molecular analysis tool as a reference example.
+
+The snippets are implementation patterns, not a complete scientific application. Combine them with your action modules and logging, input-processing, and validation helpers before running the local tests.
 
 > [!NOTE]
 > This article applies to **action-based** and **hybrid** tools. If you're building a code environment tool, see [Create a tool definition](how-to-create-tool-definition.md) instead.
@@ -48,8 +50,8 @@ import argparse
 import sys
 
 AVAILABLE_ACTIONS = {
-    'action_one': {'description': 'Performs the first action'},
-    'action_two': {'description': 'Performs the second action'},
+    'identify_functional_groups': {'description': 'Identifies functional groups'},
+    'identify_hazardous_groups': {'description': 'Screens for hazardous groups'},
 }
 
 def parse_arguments():
@@ -60,16 +62,24 @@ def parse_arguments():
                         help='Path to input directory or file')
     parser.add_argument('--output', required=True,
                         help='Path to output directory')
+    parser.add_argument('--column-name', default='smiles',
+                        help='SMILES column in CSV or JSON input')
+    parser.add_argument('--batch-size', type=int, default=100,
+                        help='Maximum items per batch')
+    parser.add_argument('--file-pattern', default='*.*',
+                        help='Glob pattern for input files')
+    parser.add_argument('--categories', default='all',
+                        help='Comma-separated hazard categories, or all')
     # Add action-specific optional parameters here
     return parser.parse_args()
 
 def main():
     args = parse_arguments()
 
-    if args.action == 'action_one':
-        success = run_action_one(args.input, args.output, vars(args))
-    elif args.action == 'action_two':
-        success = run_action_two(args.input, args.output, vars(args))
+    if args.action == 'identify_functional_groups':
+        success = run_identify_functional_groups(args.input, args.output, vars(args))
+    elif args.action == 'identify_hazardous_groups':
+        success = run_identify_hazardous_groups(args.input, args.output, vars(args))
     else:
         print(f"Unknown action: {args.action}", file=sys.stderr)
         return 1
@@ -91,9 +101,9 @@ if __name__ == "__main__":
 Each action function follows a consistent pattern: validate inputs, process data, write outputs, and return a boolean result.
 
 ```python
-def run_action_one(input_path: str, output_path: str, params: dict) -> bool:
+def run_identify_functional_groups(input_path: str, output_path: str, params: dict) -> bool:
     """
-    Run action_one.
+    Run identify_functional_groups.
 
     Args:
         input_path: Path to the input directory or file (mounted by Discovery platform).
@@ -105,7 +115,7 @@ def run_action_one(input_path: str, output_path: str, params: dict) -> bool:
     """
     try:
         # 1. Set up logging
-        setup_logger('action_one', output_path)
+        setup_logger('identify_functional_groups', output_path)
 
         # 2. Find and validate input files
         input_files = find_input_files(input_path, params)
@@ -120,12 +130,12 @@ def run_action_one(input_path: str, output_path: str, params: dict) -> bool:
             results.extend(file_results)
 
         # 4. Write structured output
-        write_results(output_path, results)
+        write_results(output_path, results, 'identify_functional_groups', params)
 
         return True
 
     except Exception as e:
-        log_error(f"Error in action_one: {e}")
+        log_error(f"Error in identify_functional_groups: {e}")
         return False
 ```
 
@@ -138,7 +148,7 @@ Design your scripts to handle the input file formats your users are likely to pr
 
 **Example: supporting SMILES, CSV, and JSON inputs**
 
-```python
+```text
 # Plain SMILES file (one SMILES string per line)
 # molecules.smi
 CCO
@@ -148,7 +158,6 @@ CN1C=NC2=C1C(=O)N(C(=O)N2C)C
 ```
 
 ```csv
-# CSV file with named columns
 smiles,name
 CCO,ethanol
 CC(=O)O,acetic acid
@@ -163,9 +172,11 @@ c1ccccc1,benzene
 ```
 
 ```python
+import os
+
 def find_input_files(input_path: str, params: dict) -> list:
-    """Return a list of supported input files from a directory or single file path."""
-    import os, glob
+    """Return matching files from a directory or a single file path."""
+    import glob
 
     if os.path.isfile(input_path):
         return [input_path]
@@ -210,6 +221,9 @@ def process_in_batches(items: list, batch_size: int, process_fn) -> list:
     Returns:
         Aggregated results across all batches.
     """
+    if batch_size <= 0:
+        raise ValueError("batch_size must be a positive integer")
+
     results = []
     total = len(items)
 
@@ -292,10 +306,10 @@ Before building your container image, verify that the scripts work as expected l
 
 ```bash
 # Test a single action
-python app/entrypoint.py \
+python "$(pwd)/app/entrypoint.py" \
   --action identify_functional_groups \
-  --input ./sample-input/ \
-  --output ./sample-output/
+  --input "$(pwd)/sample-input/" \
+  --output "$(pwd)/sample-output/"
 
 # Verify output was written
 ls ./sample-output/
@@ -324,7 +338,8 @@ actions:
           type: string
           description: "For CSV files, the column containing SMILES strings. Defaults to 'smiles'."
         batch_size:
-          type: number
+          type: integer
+          minimum: 1
           description: "Molecules per batch. Defaults to 100."
       required:
         - input_directory
@@ -332,9 +347,9 @@ actions:
     command: >
       python3 /app/entrypoint.py
       --action identify_functional_groups
-      --input {{input_directory}}
-      --output {{output_directory}}
-      {{#if column_name}}--column-name {{column_name}}{{/if}}
+      --input "{{input_directory}}"
+      --output "{{output_directory}}"
+      {{#if column_name}}--column-name "{{column_name}}"{{/if}}
       {{#if batch_size}}--batch-size {{batch_size}}{{/if}}
 ```
 

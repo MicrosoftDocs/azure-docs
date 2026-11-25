@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The getMicrophones API doesn't return detailed microphone list
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 If a user reports they can't see the detailed microphone list,
 it's likely because the user didn't grant permission to access the microphone.
 When the permission state is `prompt` or `denied`, the browser doesn't provide detailed information about the microphone devices.

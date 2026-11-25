@@ -1,6 +1,6 @@
 ---
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-monitor
 ms.topic: include
 ms.date: 09/11/2023

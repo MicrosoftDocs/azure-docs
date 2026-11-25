@@ -6,7 +6,7 @@ ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
 manager: pmwongera
-ms.author: rolyon
+ms.author: diberry
 ms.date: 07/01/2026
 ms.custom: generated
 ---
@@ -2222,6 +2222,7 @@ Grants full access to manage AI projects and accounts. Includes an ABAC conditio
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/logDefinitions/read | Read log definitions |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricdefinitions/read | Read metric definitions |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metrics/read | Read metrics |
+> | [Microsoft.PolicyInsights](../permissions/management-and-governance.md#microsoftpolicyinsights)/*/read |  |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
@@ -2262,6 +2263,7 @@ Grants full access to manage AI projects and accounts. Includes an ABAC conditio
         "Microsoft.Insights/logDefinitions/read",
         "Microsoft.Insights/metricdefinitions/read",
         "Microsoft.Insights/metrics/read",
+        "Microsoft.PolicyInsights/*/read",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/deployments/operations/read",
@@ -2279,6 +2281,47 @@ Grants full access to manage AI projects and accounts. Includes an ABAC conditio
     }
   ],
   "roleName": "Foundry Account Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Foundry Agent Consumer
+
+Allows interacting with Foundry agents at runtime.
+
+[Learn more](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/AIServices/endpoints/interact/action |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows interacting with Foundry agents at runtime.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/eed3b665-ab3a-47b6-8f48-c9382fb1dad6",
+  "name": "eed3b665-ab3a-47b6-8f48-c9382fb1dad6",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/AIServices/endpoints/interact/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Foundry Agent Consumer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -2305,6 +2348,7 @@ Grants full to manage AI project and accounts. Grants reader access to AI projec
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/activityLogAlerts/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricalerts/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/scheduledqueryrules/* |  |
+> | [Microsoft.PolicyInsights](../permissions/management-and-governance.md#microsoftpolicyinsights)/*/read |  |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
@@ -2345,6 +2389,7 @@ Grants full to manage AI project and accounts. Grants reader access to AI projec
         "Microsoft.Insights/activityLogAlerts/*",
         "Microsoft.Insights/metricalerts/*",
         "Microsoft.Insights/scheduledqueryrules/*",
+        "Microsoft.PolicyInsights/*/read",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/deployments/operations/read",
@@ -2385,6 +2430,7 @@ Lets you perform developer actions and management actions on Foundry Projects. I
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/locations/*/read |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.PolicyInsights](../permissions/management-and-governance.md#microsoftpolicyinsights)/*/read |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
@@ -2414,6 +2460,7 @@ Lets you perform developer actions and management actions on Foundry Projects. I
         "Microsoft.CognitiveServices/locations/*/read",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
+        "Microsoft.PolicyInsights/*/read",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
@@ -2427,6 +2474,51 @@ Lets you perform developer actions and management actions on Foundry Projects. I
     }
   ],
   "roleName": "Foundry Project Manager",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Foundry Project Runtime User
+
+Allows interacting with Foundry agents at runtime with minimal required permissions.
+
+[Learn more](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/AIServices/responses/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/AIServices/responses/write |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/AIServices/responses/delete |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows interacting with Foundry agents at runtime with minimal required permissions.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/142bfaed-a13f-4c2d-bed2-6db62c4a1009",
+  "name": "142bfaed-a13f-4c2d-bed2-6db62c4a1009",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/AIServices/responses/read",
+        "Microsoft.CognitiveServices/accounts/AIServices/responses/write",
+        "Microsoft.CognitiveServices/accounts/AIServices/responses/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Foundry Project Runtime User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -2449,6 +2541,7 @@ Grants reader access to Foundry projects, reader access to Foundry accounts, and
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/logDefinitions/read | Read log definitions |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricdefinitions/read | Read metric definitions |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metrics/read | Read metrics |
+> | [Microsoft.PolicyInsights](../permissions/management-and-governance.md#microsoftpolicyinsights)/*/read |  |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
@@ -2481,6 +2574,7 @@ Grants reader access to Foundry projects, reader access to Foundry accounts, and
         "Microsoft.Insights/logDefinitions/read",
         "Microsoft.Insights/metricdefinitions/read",
         "Microsoft.Insights/metrics/read",
+        "Microsoft.PolicyInsights/*/read",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/operationresults/read",
@@ -2728,7 +2822,7 @@ Users with reader access can sign in, have read-only access to the bot resources
 
 ## Search Index Data Contributor
 
-Grants full access to Azure Cognitive Search index data.
+Grants full access to Azure AI Search index data.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2747,7 +2841,7 @@ Grants full access to Azure Cognitive Search index data.
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants full access to Azure Cognitive Search index data.",
+  "description": "Grants full access to Azure AI Search index data.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/8ebe5a00-799e-43f5-93ac-243d3dce84a7",
   "name": "8ebe5a00-799e-43f5-93ac-243d3dce84a7",
   "permissions": [
@@ -2769,7 +2863,7 @@ Grants full access to Azure Cognitive Search index data.
 
 ## Search Index Data Reader
 
-Grants read access to Azure Cognitive Search index data.
+Grants read access to Azure AI Search index data.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2787,7 +2881,7 @@ Grants read access to Azure Cognitive Search index data.
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants read access to Azure Cognitive Search index data.",
+  "description": "Grants read access to Azure AI Search index data.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/1407120a-92aa-4202-b7e9-c0e197c71c8f",
   "name": "1407120a-92aa-4202-b7e9-c0e197c71c8f",
   "permissions": [
@@ -2808,7 +2902,7 @@ Grants read access to Azure Cognitive Search index data.
 
 ## Search Service Contributor
 
-Lets you manage Search services, but not access to them.
+Lets you manage Azure AI Search services, including retrieving admin and query API keys. An admin key provides full access to the service's data plane. A query key provides read-only access.
 
 [Learn more](/azure/search/search-security-rbac)
 
@@ -2834,7 +2928,7 @@ Lets you manage Search services, but not access to them.
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage Search services, but not access to them.",
+  "description": "Lets you manage Azure AI Search services, including retrieving admin and query API keys. An admin key provides full access to the service's data plane. A query key provides read-only access.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/7ca78c08-252a-4471-8644-bb5ff32d4ba0",
   "name": "7ca78c08-252a-4471-8644-bb5ff32d4ba0",
   "permissions": [

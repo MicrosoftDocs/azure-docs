@@ -16,6 +16,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Join a teams meeting
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services SDKs can allow your users to join regular Microsoft Teams meetings. Here's how!
 
 ## Prerequisites

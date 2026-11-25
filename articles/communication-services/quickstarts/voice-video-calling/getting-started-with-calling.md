@@ -14,6 +14,8 @@ ms.custom: mode-other, devx-track-js, devx-track-azurecli
 
 # Add voice calling to your app
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with Azure Communication Services by using the Calling SDK to add voice and video calling to your app.
 
 ::: zone pivot="platform-windows"
@@ -44,5 +46,5 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 - Check out our [calling hero sample](../../samples/calling-hero-sample.md)
 - Get started with the [UI Library](../../concepts/ui-library/ui-library-overview.md)
-- Learn about [Calling SDK capabilities]()
+- Learn about [Calling SDK capabilities](../../concepts/interop/guest/calling-capabilities.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

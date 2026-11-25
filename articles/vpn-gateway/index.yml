@@ -80,7 +80,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure BGP
-            url: bgp-howto.md
+            url: configure-bgp.md
           - text: Configure forced tunneling
             url: vpn-gateway-forced-tunneling-rm.md
           - text: Change a gateway to active-active mode

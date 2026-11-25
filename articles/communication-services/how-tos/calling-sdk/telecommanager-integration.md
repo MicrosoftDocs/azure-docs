@@ -12,6 +12,8 @@ ms.subservice: calling
 
 # Integrate with TelecomManager
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to integrate TelecomManager with your Android application. 
   
 ## Prerequisites

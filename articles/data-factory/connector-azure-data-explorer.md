@@ -7,7 +7,7 @@ author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -16,6 +16,9 @@ ms.custom:
 # Copy data to or from Azure Data Explorer using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [KQL activity](/fabric/data-factory/kql-activity).
 
 This article describes how to use the copy activity in Azure Data Factory and Synapse Analytics pipelines to copy data to or from [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). It builds on the [copy activity overview](copy-activity-overview.md) article, which offers a general overview of copy activity.
 

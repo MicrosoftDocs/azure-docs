@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/10/2026
+ms.date: 08/09/2026
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to configure inactive data to move from a hot tier to a cool tier in Azure NetApp Files, so that I can optimize storage costs while maintaining accessibility to archived data.
@@ -72,36 +72,14 @@ For existing volumes in capacity pools where cool access was enabled prior to th
 | Premium | Quota in TiB * 36 MiB/s |  Quota in TiB * 64 MiB/s 
 | Ultra | Quota in TiB * 68 MiB/s |  Quota in TiB * 128 MiB/s 
 
-For example, a 10-TiB volume on the Premium service regularly delivers throughput of 640 MiB/s (10 TiB * 64 MiB/s). With cool access enabled regardless of the amount of data tiered, throughput is 360 MiB/s (10 TiB * 36 MiB/s).
+For example, a 10 TiB volume on the Premium service regularly delivers throughput of 640 MiB/s (10 TiB * 64 MiB/s). For regular volumes, when you enable cool access, throughput is 360 MiB/s (10 TiB * 36 MiB/s) regardless of how much data is tiered. Throughput remains at 360 MiB/s even if you later disable cool access. For large volumes, if you disable cool access, throughput reverts to 640 MiB/s (10 TiB * 64 MiB/s).
 
 > [!NOTE]
 > You should create a new capacity pool and move the old volumes to the new capacity pools to use the updated QoS limit. 
 
 With either throughput calculation, increasing the volume quota increases the throughput limit because throughput scales linearly with the provisioned capacity.
 
-### Supported regions for cool access throughput for premium and ultra service levels feature
-
-* Australia Southeast
-* Brazil South
-* Brazil Southeast
-* Canada Central
-* Canada East
-* Central US
-* East Asia
-* Germany North 
-* Germany West Central
-* Israel Central 
-* Japan East
-* Korea South
-* North Central US
-* Norway East
-* Qatar Central
-* Southeast Asia
-* Sweden Central
-* Switzerland West
-* UAE Central
-* UK West
-* West US
+The cool access throughput for Premium and Ultra service levels feature is supported in all Azure NetApp Files-enabled regions.
 
 ## Billing 
 

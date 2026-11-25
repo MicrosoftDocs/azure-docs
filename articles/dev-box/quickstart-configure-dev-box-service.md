@@ -5,7 +5,7 @@ services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.update-cycle: 90-days
 ms.date: 09/23/2025
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.
@@ -172,7 +172,7 @@ To let users manage projects, assign them the DevCenter Project Admin role. Foll
 ## Discover more about Microsoft Dev Box
 
 - Find out [What's new in Microsoft Dev Box](https://aka.ms/devbox/WhatsNew)
-- Discover what's coming up next in Microsoft Dev Box: [Microsoft Dev Box roadmap](dev-box-roadmap.md)
+- Review the [Microsoft Dev Box retirement guide](dev-box-retirement-guide.md)
 - [Learn how Microsoft Dev Box impacts developer productivity](https://azure.microsoft.com/blog/study-showcases-how-microsoft-dev-box-impacts-developer-productivity/)
 
 ## Next step

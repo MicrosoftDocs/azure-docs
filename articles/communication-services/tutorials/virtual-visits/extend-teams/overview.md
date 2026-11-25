@@ -14,6 +14,8 @@ ms.subservice: teams-interop
 
 # Extend Microsoft Teams Virtual appointments with Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article focuses on the available options for extending Microsoft Teams out-of-the-box experience for Virtual appointments with Azure Communication Services and Microsoft Graph. To learn more about the current experience provided by Microsoft Teams, click [here](https://guidedtour.microsoft.com/guidedtour/industry-longform/virtual-appointments/1/1). 
 
 Microsoft provides three main approaches to Virtual appointments:

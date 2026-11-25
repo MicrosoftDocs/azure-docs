@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/25/2018
-ms.author: alkohli
+ms.author: scompton
 ---
 
 Here is a list of the supported storage accounts for your device.

@@ -7,8 +7,9 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
-ms.date: 02/04/2025
+ms.date: 08/28/2026
 ms.author: malev
+ai-usage: ai-assisted
 #Customer intent: As a .NET Framework developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a .NET Framework app with Azure App Configuration
@@ -49,9 +50,9 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the latest stable versions of following NuGet packages to your project.
 
-    - Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration
-    - Microsoft.Configuration.ConfigurationBuilders.Environment
-    - System.Configuration.ConfigurationManager
+    - `Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration`
+    - `Microsoft.Configuration.ConfigurationBuilders.Environment`
+    - `System.Configuration.ConfigurationManager`
 
 1. Update the *App.config* file of your project as follows. You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
 
@@ -166,7 +167,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
 1. Restart Visual Studio to allow the change to take effect.
 
-1. Press Ctrl + F5 to build and run the console app. You should see the message from App Configuration outputs in the console.
+1. Press Ctrl+F5 to build and run the console app. You see the message from App Configuration in the console.
 
 ## Clean up resources
 

@@ -5,7 +5,7 @@ author: surajmb
 title: Use GitHub Copilot in Microsoft Discovery
 description: Learn how to enable and use GitHub Copilot within the Microsoft Discovery Studio preview experience for AI-assisted scientific research.
 ms.topic: how-to
-ms.date: 06/05/2026
+ms.date: 11/17/2026
 ---
 
 
@@ -16,10 +16,13 @@ The [Microsoft Discovery Studio preview experience](/azure/microsoft-discovery/c
 > [!IMPORTANT]
 > GitHub Copilot in Microsoft Discovery is currently in **preview**. You need a GitHub account to use AI features with GitHub-hosted models.
 
+> [!NOTE]
+> The Workbench preview experience is intended for testing and evaluation only. Don't use it for production workloads.
+
 ## Prerequisites
 
 - An Azure subscription with access to [Microsoft Discovery](overview-what-is-microsoft-discovery.md)
-- A [Microsoft Discovery workspace](/azure/microsoft-discovery/quickstart-infrastructure-portal#4-create-a-workspace)
+- A [Microsoft Discovery workspace](quickstart-infrastructure.md#4-create-a-workspace)
 - A GitHub account (required for GitHub Copilot features)
 - **Microsoft Discovery Platform Administrator** role assignment to manage workspace tags in the Azure portal
 
@@ -27,7 +30,7 @@ The [Microsoft Discovery Studio preview experience](/azure/microsoft-discovery/c
 
 GitHub Copilot integration affects your Microsoft Discovery workspace's security posture. Review the [Microsoft Discovery network security concepts](concept-network-security.md) to understand how enabling GitHub Copilot affects data access and connectivity.
 
-Administrators can enforce feature availability by using **Azure Policy** at the subscription level to maintain organizational control. To learn more, see [build policies to enforce compliance](https://learn.microsoft.com/azure/governance/policy/tutorials/create-and-manage).
+Administrators can enforce feature availability by using **Azure Policy** at the subscription level to maintain organizational control. To learn more, see [build policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
 ## Enable GitHub Copilot for a workspace
 
@@ -40,10 +43,12 @@ The following tags control feature availability:
 | `discovery.workbench.enableGhcpAiFeatures` | Enables GitHub Copilot and AI features | `false` |
 | `discovery.workbench.enableExtensions` | Enables the VS Code Extension Marketplace | `false` |
 
+You can update these two feature tags on an existing workspace. Set `NetworkIsolation` when you create the workspace; updating the feature tags doesn't change network isolation.
+
 ### Steps to enable
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Go to your Microsoft Discovery workspace resource. You can [create a new workspace](/azure/microsoft-discovery/quickstart-infrastructure-portal#4-create-a-workspace) or search for an existing one.
+1. Go to your Microsoft Discovery workspace resource. You can [create a new workspace](quickstart-infrastructure.md#4-create-a-workspace) or search for an existing one.
 3. On the workspace **Overview** page, select **Tags** > **Edit**.
 4. Add the following tag:
    - **Name:** `discovery.workbench.enableGhcpAiFeatures`
@@ -64,10 +69,10 @@ The following tags control feature availability:
 After enabling the tags, open the preview experience from Microsoft Discovery Studio:
 
 1. Go to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com).
-2. Select the **Workspaces** tab and open the workspace where you enabled GitHub Copilot. Or select **Projects** tab to list all projects.
-3. [Create a new project](/azure/microsoft-discovery/quickstart-infrastructure-portal#9-create-a-project) or select an existing project.
-4. Select the **...** (more actions) menu on the project.
-5. Select **Open in preview experience**.
+1. Select the **Projects** tab. The **Open in preview experience** option is available from this tab.
+1. Locate an existing project in the workspace where you enabled GitHub Copilot.
+1. Select the **...** (more actions) menu on the project.
+1. Select **Open in preview experience**.
 
    :::image type="content" source="media/how-to-copilot/open-preview-experience.jpg" alt-text="Screenshot showing the project list page with option to open project in preview experience." lightbox="media/how-to-copilot/open-preview-experience.jpg":::
 
@@ -101,7 +106,7 @@ Files persist in your Microsoft Discovery workspace's managed resource group acr
 
 ### Shared across the project
 
-All users within the same project and workspace can access the following resources:
+You can share the following resources within a project. Access depends on effective role assignments on the project and each linked resource. Project membership alone doesn't grant access to all shared resources:
 
 - Shared sessions (investigations) and their chat history
 - Storage containers and storage assets
@@ -109,11 +114,13 @@ All users within the same project and workspace can access the following resourc
 - Tools
 - Knowledge bases
 
+Pair project roles with the required resource roles. See [Project-level access control](concept-project-rbac.md#pair-project-roles-with-resource-roles).
+
 > [!NOTE]
 > You can continue to access shared sessions through the Microsoft Discovery Studio UI alongside GitHub Copilot. Use Copilot as the orchestrator for your Foundry agents to combine the interactive UI experience with AI-powered automation.
 
 ## Related content
 
 - [Microsoft Discovery overview](overview-what-is-microsoft-discovery.md)
-- [Create Microsoft Discovery infrastructure](/azure/microsoft-discovery/quickstart-infrastructure-portal)
+- [Create Microsoft Discovery infrastructure](quickstart-infrastructure.md)
 - [Microsoft Discovery network security](/azure/microsoft-discovery/concept-network-security)

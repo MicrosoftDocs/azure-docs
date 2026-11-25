@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # capturerStartFailed UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `capturerStartFailed` UFD event with a `true` value occurs when the SDK is unable to acquire the screen sharing stream because the source is unavailable.
 This issue can happen when the underlying layer prevents the sharing of the selected source.
 

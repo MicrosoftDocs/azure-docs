@@ -2,7 +2,7 @@
 title: Replicate Azure Stack Hub to Azure using Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for Azure Stack Hub with the Azure Site Recovery service.
 ms.topic: how-to
-ms.date: 02/27/2026
+ms.date: 10/15/2026
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 ms.custom:
@@ -10,6 +10,7 @@ ms.custom:
   - sfi-image-nochange
 # Customer intent: "As a cloud architect, I want to set up disaster recovery for Azure Stack VMs to Azure using site recovery, so that I can ensure business continuity during outages and maintain access to critical workloads."
 ---
+
 # Replicate Azure Stack VMs to Azure using Azure Site Recovery
 
 This article shows you how to set up disaster recovery Azure Stack VMs to Azure, using the [Azure Site Recovery service](site-recovery-overview.md).
@@ -21,15 +22,14 @@ Site Recovery contributes to your business continuity and disaster recovery (BCD
 - On failover, Azure VMs are created from the stored VM data, and users can continue accessing workloads running on those Azure VMs.
 - When everything's up and running again, you can fail back Azure VMs to your primary site, and start replicating to Azure storage again.
 
-
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * **Step 1: Prepare Azure stack VMs for replication**. Check that VMs comply with Site Recovery requirements, and prepare for installation of the Site Recovery Mobility service. This service is installed on each VM you want to replicate.
+> * **Step 1: Prepare Azure Stack VMs for replication**. Check that VMs comply with Site Recovery requirements, and prepare for installation of the Site Recovery Mobility service. This service is installed on each VM you want to replicate.
 > * **Step 2: Set up a Recovery Services vault**. Set up a vault for Site Recovery, and specify what you want to replicate. Site Recovery components and actions are configured and managed in the vault.
 > * **Step 3: Set up the source replication environment**. Set up a Site Recovery configuration server. The configuration server is a single Azure Stack VM that runs all the components needed by Site Recovery. After you've set up the configuration server, you register it in the vault.
 > * **Step 4: Set up the target replication environment**. Select your Azure account, and the Azure storage account and network that you want to use. During replication, VM data is copied to Azure storage. After failover, Azure VMs are joined to the specified network.
-> * **Step 5: Enable replication**. Configure replication settings, and enable replication for VMs. The Mobility service will be installed on a VM when replication is enabled. Site Recovery performs an initial replication of the VM, and then ongoing replication begins. Learn how to [install the Mobility service using command prompt (Modernized)](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-modernized).   
+> * **Step 5: Enable replication**. Configure replication settings, and enable replication for VMs. The Mobility service will be installed on a VM when replication is enabled. Site Recovery performs an initial replication of the VM, and then ongoing replication begins. Learn how to [install the Mobility service using command prompt (Modernized)](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt).   
 > * **Step 6: Run a disaster recovery drill**: After replication is up and running, you verify that failover will work as expected by running a drill. To initiate the drill, you run a test failover in Site Recovery. The test failover doesn't impact your production environment.
 
 With these steps complete, you can then run a full failover to Azure as and when you need to.
@@ -44,7 +44,6 @@ With these steps complete, you can then run a full failover to Azure as and when
 **Mobility service** | Installed on each VM you want to replicate. | In the steps in this article, we prepare an account so that the Mobility service is installed automatically on a VM when replication is enabled. If you don't want to install the service automatically, there are a number of other methods you can use. [Learn more](vmware-azure-install-mobility-service.md).
 **Azure** | In Azure you need a Recovery Services vault, a storage account, and a virtual network. |  Replicated data is stored in the storage account. Azure VMs are added to the Azure network when failover occurs.
 
-
 Replication works as follows:
 
 1. In the vault, you specify the replication source and target, set up the configuration server, create a replication policy, and enable replication.
@@ -53,7 +52,7 @@ Replication works as follows:
 4. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in an .hrl file.
 5. The configuration server orchestrates replication management with Azure (port HTTPS 443 outbound).
 6. The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure storage (port 443 outbound).
-7. Replicated machines communicate with the configuration server (port HTTPS 443 inbound, for replication management. Machines send replication data to the process server (port HTTPS 9443 inbound - can be modified).
+7. Replicated machines communicate with the configuration server (port HTTPS 443 inbound), for replication management. Machines send replication data to the process server (port HTTPS 9443 inbound - can be modified).
 8. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute public peering or Azure Peering Service. Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
 
 ## Prerequisites
@@ -66,12 +65,9 @@ Here's what you need to set up this scenario.
 **Azure account permissions** | The Azure account you use needs permissions to:<br/><br/> - Create a Recovery Service vault<br/><br/> - Create a virtual machine in the resource group and virtual network you use for the scenario<br/><br/> - Write to the storage account you specify<br/><br/> Note that:<br/><br/> -If you create an account, you're the administrator of your subscription and can perform all actions.<br/><br/> - If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.<br/><br/> - If you need more granular permissions, review [this article](site-recovery-role-based-linked-access-control.md).
 **Azure Stack VM** | You need an Azure Stack VM in the tenant subscription, that will be deployed as the Site Recovery configuration server.
 
-
 ### Prerequisites for the configuration server
 
 [!INCLUDE [site-recovery-config-server-reqs-physical](../../includes/site-recovery-config-server-reqs-physical.md)]
-
-
 
 ## Step 1: Prepare Azure Stack VMs
 
@@ -79,7 +75,10 @@ Here's what you need to set up this scenario.
 
 Make sure that the VMs are running one of the operating systems summarized in the table.
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+> [!IMPORTANT]
+> The following list shows the intentionally narrower set of operating systems that are validated for this Azure Stack Hub scenario as of September 11, 2026.
+
+[!INCLUDE [end-of-support-notes-windows-servers-and-windows.md](./includes/end-of-support-notes-windows-servers-and-windows.md)]
 
 **Operating system** | **Details**
 --- | ---
@@ -104,7 +103,6 @@ Every VM you want to replicate must have the Mobility service installed. In orde
     - To do this, run **wf.msc** to open the Windows Firewall console. Right click **Inbound Rules** > **New Rule**. Select **Predefined**, and choose **File and Printer sharing** from the list. Complete the wizard, select to allow the connection > **Finish**.
     - For domain computers, you can use a GPO to do this.
 
-
 #### Linux machines
 
 - Ensure that there's network connectivity between the Linux computer and the process server.
@@ -123,7 +121,6 @@ Every VM you want to replicate must have the Mobility service installed. In orde
 
     4. Restart the sshd service.
 
-
 ### Note the VM private IP address
 
 For each machine you want to replicate, find the IP address:
@@ -133,7 +130,6 @@ For each machine you want to replicate, find the IP address:
 3. Note down the private IP address.
 
     ![Private IP address](./media/azure-stack-site-recovery/private-ip.png)
-
 
 ## Step 2: Create a vault and select a replication goal
 
@@ -196,7 +192,6 @@ Select and verify target resources.
 2. Specify the target deployment model.
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks. If it doesn't find them, you need to create at least one storage account and virtual network, in order to complete the wizard.
 
-
 ## Step 5: Enable replication
 
 ### Create a replication policy
@@ -213,12 +208,9 @@ Select and verify target resources.
     - Volume Shadow Copy Service (VSS) ensures that apps on the VM are in a consistent state when the snapshot is taken.
 6. Select **OK** to create the policy.
 
-
 ### Confirm deployment planning
 
 You can skip this step right now. In **Deployment Planning** dropdown list, click **Yes, I have done it**.
-
-
 
 ### Enable replication
 
@@ -249,7 +241,6 @@ Make sure you've completed all the tasks in [Step 1: Prepare machine](#step-1-pr
 >
 > To monitor VMs you add, check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**. To add VMs without waiting for the scheduled discovery, highlight the configuration server (don't select it) and select **Refresh**.
 
-
 ## Step 6: Run a disaster recovery drill
 
 You run a test failover to Azure to make sure that everything's working as expected. This failover won't affect your production environment.
@@ -265,7 +256,6 @@ Before you run a test failover, verify the machine properties, and make sure tha
     - You can modify the Azure VM name, resource group, target size, [availability set](/azure/virtual-machines/windows/tutorial-availability-sets), and managed disk settings.
     - You can also view and modify network settings. These include the network/subnet to which the Azure VM is joined after failover, and the IP address that will be assigned to the VM.
 1. In **Disks**, view information about the operating system and data disks on the VM.
-
 
 ### Run a test failover
 
@@ -300,7 +290,6 @@ Before you run a failover, if you want to connect to the machine in Azure after 
 
 Then run a failover as follows:
 
-
 1. In **Settings** > **Replicated Items**, click the machine > **Failover**.
 2. Select the recovery point that you want to use.
 3. In **Test Failover**, select the target Azure network.
@@ -311,7 +300,6 @@ Then run a failover as follows:
 
 > [!WARNING]
 > Don't cancel a failover in progress: Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
-
 
 ### Fail back to Azure Stack
 

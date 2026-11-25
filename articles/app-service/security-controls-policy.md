@@ -6,8 +6,8 @@ ms.update-cycle: 1095-days
 ms.topic: sample
 ms.service: azure-app-service
 ms.custom: "UpdateFrequency3, subject-policy-compliancecontrols"
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ---
 # Azure Policy Regulatory Compliance controls for Azure App Service
 
@@ -17,7 +17,7 @@ page lists the **compliance domains** and **security controls** for Azure App Se
 assign the built-ins for a **security control** individually to help make your Azure resources
 compliant with the specific standard.
 
-[!INCLUDE [Azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [Azure-policy-compliancecontrols-introwarning](~/reusable-content/ce-skilling/azure/includes/policy/standards/intro-warning.md)]
 
 [!INCLUDE [Azure-policy-compliancecontrols-appservice](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.web.md)]
 

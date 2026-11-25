@@ -6,7 +6,7 @@ ms.author: mbender
 ms.reviewer: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 07/08/2026
+ms.date: 09/16/2026
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
@@ -21,7 +21,7 @@ Azure Virtual Network Manager simplifies the management of connectivity, securit
 
 ## Connectivity configuration
 
-With *connectivity configurations*, you can create and maintain different network topologies based on your network needs. You have two topologies to choose from: mesh and hub-and-spoke. Your connectivity configuration's settings define connectivity between your virtual networks. You define the virtual networks for which you want to establish connectivity via [network groups](concept-network-groups.md). Your connectivity configuration then uses the network groups to establish connectivity as described by your desired topology among the virtual networks in the network groups.
+By using *connectivity configurations*, you can create and maintain different network topologies based on your network needs. You have two topologies to choose from: mesh and hub-and-spoke. Your connectivity configuration's settings define connectivity between your virtual networks. You define the virtual networks for which you want to establish connectivity via [network groups](concept-network-groups.md). Your connectivity configuration then uses the network groups to establish connectivity as described by your desired topology among the virtual networks in the network groups.
 
 If you enable *delete existing peerings* for your connectivity configuration, Azure Virtual Network Manager removes any peerings that don't match the contents of this connectivity configuration, even if you manually created these peerings after deploying this configuration. If you remove a virtual network from a network group used in the configuration, your Azure Virtual Network Manager instance removes only the connectivity that it created.
 
@@ -31,7 +31,7 @@ When you deploy a connectivity configuration, Azure Virtual Network Manager esta
 - For hub-and-spoke with a hub virtual network, connectivity is established by using virtual network peerings.
 - For hub-and-spoke with a Virtual WAN hub, connectivity is established by creating or updating Virtual WAN virtual network connections.
 
-This connectivity is established according to the settings you define and network groups included in your connectivity configuration.
+You establish this connectivity according to the settings you define and network groups included in your connectivity configuration.
 
 ## Mesh topology
 
@@ -53,9 +53,9 @@ When you create a mesh topology or enable direct connectivity in a hub-and-spoke
 > [!NOTE]
 > A virtual network can be part of up to two connected groups, meaning it can be part of up to two mesh topologies.
 
-### Enable high-scale private endpoints in Azure Virtual Network Manager connected groups
+### <a name="enable-high-scale-private-endpoints-in-azure-virtual-network-manager-connected-groups"></a>Enable up to 20,000 private endpoints in a connected group
 
-Azure Virtual Network Manager's high-scale private endpoint feature in connected group feature empowers you to extend your network capacity. Use the following steps to enable this feature to support up to 20,000 private endpoints across the connected group.
+The high-scale private endpoint feature extends the private endpoint capacity of a connected group. Use the following steps to enable this feature to support up to 20,000 private endpoints across the connected group.
 
 #### Prepare each virtual network in the connected group
 
@@ -76,13 +76,13 @@ In this step, you configure the connectivity configuration's mesh topology setti
 > [!NOTE]
 > Mesh topology for high-scale private endpoints isn't supported when virtual networks in the mesh have overlapping IP addresses.
 
-### Enable high-scale connectivity in Azure Virtual Network Manager connected groups
+### <a name="enable-high-scale-connectivity-in-azure-virtual-network-manager-connected-groups"></a>Enable up to 3,000 virtual networks in a connected group
 
-Azure Virtual Network Manager's high-scale connectivity feature in connected group feature empowers you to extend your network capacity. To use this feature, register the preview feature "AllowHighScaleConnectedGroup" (you can find it with the Display Name of "Enable High Scale Connected Group"). This feature allows a connected group in the supported regions to contain up to 5,000 virtual networks.
+The high-scale connected group feature extends the number of virtual networks a connected group can contain. To use this feature, register the `AllowHighScaleConnectedGroup` preview feature on your subscription. Its display name is **Enable High Scale Connected Group**. For the steps to register a preview feature, see [Set up preview features in an Azure subscription](../azure-resource-manager/management/preview-features.md), and then submit the [high-scale connected group enablement form](https://forms.cloud.microsoft.com/r/1Je8uWNkXJ) for approval. After the feature is registered, a connected group can contain up to 3,000 virtual networks.
 
 ## Hub-and-spoke topology
 
-A hub and spoke topology defines connectivity between a selected hub and spoke virtual networks that are members of one or more selected spoke network groups. The selected hub can be either a hub virtual network or a Virtual WAN hub.
+A hub-and-spoke topology defines connectivity between a selected hub and spoke virtual networks that are members of one or more selected spoke network groups. The selected hub can be either a hub virtual network or a Virtual WAN hub.
 
 - If you select a hub virtual network, Azure Virtual Network Manager creates virtual network peerings between the hub and each spoke virtual network.
 - If you select a Virtual WAN hub, Azure Virtual Network Manager creates or updates Virtual WAN virtual network connections between the hub and each spoke virtual network.
@@ -93,9 +93,9 @@ This topology is useful for isolating a virtual network while maintaining connec
 
 [!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../../includes/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
 
-When you select a Virtual WAN hub as the hub in a hub and spoke connectivity configuration, Azure Virtual Network Manager connects virtual networks in the selected spoke network groups to the Virtual WAN hub and applies the selected connection policy.
+When you select a Virtual WAN hub as the hub in a hub-and-spoke connectivity configuration, Azure Virtual Network Manager connects virtual networks in the selected spoke network groups to the Virtual WAN hub and applies the selected connection policy.
 
-To configure this experience in the Azure portal, create a hub and spoke connectivity configuration, select a Virtual WAN hub, select or create a connection policy, and add one or more spoke network groups. Then deploy the configuration to apply the changes.
+To configure this experience in the Azure portal, create a hub-and-spoke connectivity configuration, select a Virtual WAN hub, select or create a connection policy, and add one or more spoke network groups. Then deploy the configuration to apply the changes.
 
 :::image type="content" source="./media/concept-configuration-types/hub-and-spoke.png" alt-text="Screenshot of a hub-and-spoke topology diagram showing a hub virtual network connected to multiple spoke virtual networks.":::
 
@@ -200,5 +200,5 @@ To remove enforcement:
 - [Create a secured hub-and-spoke topology in this tutorial](tutorial-create-secured-hub-and-spoke.md).
 - [Learn how to deploy a hub-and-spoke topology with Azure Firewall](how-to-deploy-hub-spoke-topology-with-azure-firewall.md).
 - [Understand configuration deployments](concept-deployments.md) to effectively manage your network settings.
-- [Block unwanted network traffic](how-to-block-network-traffic-portal.md) using security admin configurations.
+- [Block unwanted network traffic](how-to-block-network-traffic-portal.md) by using security admin configurations.
 - [Deploy Azure Virtual Network Manager using Terraform](create-virtual-network-manager-terraform.md) to quickly set up your environment.

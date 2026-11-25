@@ -6,7 +6,7 @@ author: cjk7989
 ms.author: jikunchen
 ms.service: azure-static-web-apps
 ms.topic: concept-article
-ms.date: 06/28/2024
+ms.date: 09/21/2026
 ---
 
 # Custom authentication in Azure Static Web Apps
@@ -83,6 +83,53 @@ Make sure to replace `<TENANT_ID>` with your Microsoft Entra tenant ID.
 ```
 
 Make sure to replace `<TENANT_ID>` with your Microsoft Entra tenant ID.
+
+### Use a managed identity instead of a secret
+
+Instead of configuring a client secret for your app registration, you can configure the app registration to trust a user-assigned managed identity. The managed identity is used as a federated identity credential and removes the need to manage a client secret. This option is available only for workforce configurations.
+
+The following steps assume that you already configured a Microsoft Entra app registration for your static web app.
+
+1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
+
+1. In the Azure portal, open your static web app.
+
+1. Under **Settings**, select **Identity**.
+
+1. On the **User assigned** tab, select **Add**, select the managed identity, and then select **Add**.
+
+   > [!IMPORTANT]
+   > Assign the user-assigned managed identity only to the static web app that uses this app registration. Assigning the identity to another resource gives that resource access to the app registration.
+
+1. Record the **Object ID** and **Client ID** of the managed identity. You use the object ID to create the federated identity credential and the client ID to configure the static web app.
+
+1. [Configure a federated identity credential on the existing app registration](/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity#configure-a-federated-identity-credential-on-an-existing-application). You can skip the steps for updating application code.
+
+1. In your static web app, under **Settings**, select **Environment variables**.
+
+1. Add an application setting named `OVERRIDE_USE_MI_FIC_ASSERTION_CLIENTID`. Set its value to the **Client ID** of the managed identity. Don't use the client ID of the app registration.
+
+1. In the `azureActiveDirectory` registration section of your *staticwebapp.config.json* file, set `clientSecretSettingName` to `OVERRIDE_USE_MI_FIC_ASSERTION_CLIENTID`. For example:
+
+   ```json
+   {
+     "auth": {
+       "identityProviders": {
+         "azureActiveDirectory": {
+           "registration": {
+             "openIdIssuer": "https://login.microsoftonline.com/<TENANT_ID>/v2.0",
+             "clientIdSettingName": "AZURE_CLIENT_ID",
+             "clientSecretSettingName": "OVERRIDE_USE_MI_FIC_ASSERTION_CLIENTID"
+           }
+         }
+       }
+     }
+   }
+   ```
+
+1. Deploy the updated configuration and verify that users can sign in.
+
+After you verify the configuration, remove the application setting that contains the previous client secret, and then remove the client secret from the app registration.
 
 For more information on how to configure Microsoft Entra ID, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md#-option-2-use-an-existing-registration-created-separately) on using an existing registration.
 

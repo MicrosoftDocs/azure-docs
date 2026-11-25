@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Set up one-to-one calling and push notifications in the UI Library
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The UI Library provides out-of-the-box support for making one-to-one calls by using Azure Communication Services participant identifiers. To support one-to-one calling, the UI Library provides incoming call notifications. You can also use Azure Communication Services as an Azure Event Grid event source for calls.
 
 In this article, you learn how to make one-to-one calls correctly by using the UI Library in your application.

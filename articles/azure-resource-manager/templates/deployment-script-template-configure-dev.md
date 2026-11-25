@@ -2,7 +2,7 @@
 title: Configure development environment for deployment scripts in templates | Microsoft Docs
 description: Configure development environment for deployment scripts in Azure Resource Manager templates (ARM templates).
 ms.topic: how-to
-ms.date: 06/26/2026
+ms.date: 08/17/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
@@ -10,6 +10,9 @@ ms.devlang: azurecli
 # Configure development environment for deployment scripts in ARM templates
 
 Learn how to create a development environment for developing and testing ARM template deployment scripts with a deployment script image. You can either create an [Azure container instance](/azure/container-instances/container-instances-overview) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
+
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. You might retrieve this information through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that deployment script logs don't expose sensitive information.
 
 ## Prerequisites
 

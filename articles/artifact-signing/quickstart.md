@@ -3,7 +3,7 @@ title: "Quickstart: Set up Artifact Signing"
 description: This quickstart helps you get started with using Artifact Signing to sign your files.
 author: TacoTechSharma
 ms.author: mesharm 
-ms.service: trusted-signing 
+ms.service: azure-artifact-signing
 ms.topic: quickstart 
 ms.date: 05/21/2026
 ms.custom:
@@ -26,11 +26,12 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 ## Prerequisites
 
 > [!NOTE]
-> For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
+> Public Trust certificates are available to organizations in the United States, Canada, the European Union, the United Kingdom, Australia, New Zealand, Japan, South Korea, Singapore, Switzerland, Norway, and Israel. Individual developers must be located in the United States or Canada. These geographic restrictions do not apply to Private Trust certificates.
 
 >[!Note]
->  For a Public Identity for individual identity validation details are automatically sourced from your Azure billing account under the subscription used to register this resource provider. The billing account type must match the identity validation type: a billing account with an Account Type of "Individual" can only be used for individual identity validation. You cannot use an individual billing account to validate an organization identity, or vice versa.
->Before starting the identity validation process, ensure that all billing account information—including legal name, and billing address details—exactly matches the information you intend to appear on your Artifact Signing Public Trust certificate profile. Any discrepancies between the billing profile and the intended certificate subject may result in incorrect information being reflected on the certificate. To review or update your billing account information, see [Manage billing accounts](/microsoft-365/commerce/manage-billing-accounts?toc=/azure/artifact-signing/toc.json&bc=/azure/artifact-signing/breadcrumb/toc.json).
+> For Public Trust individual identity validation, Artifact Signing automatically sources identity details from the Azure billing account associated with the subscription used to create the Artifact Signing resource. The billing account must have an Account Type of Individual. The legal name and sold-to address on the billing account must match the information on the government-issued ID used for identity validation.
+> Before starting validation, review and update the legal name and sold-to address as needed. This information appears on the Public Trust certificate profile. For instructions, see [Manage billing accounts](/microsoft-365/commerce/manage-billing-accounts?toc=/azure/artifact-signing/toc.json&bc=/azure/artifact-signing/breadcrumb/toc.json).
+> This billing account type requirement applies only to individual identity validation. Organization identity validation doesn't require an Azure billing account with an Account Type of Organization. 
 
 
 To complete this quickstart, you need:
@@ -292,7 +293,7 @@ To create an identity validation request for an Organization or a DBA:
     | **Organization Name**          | For public identity validation, provide the legal business entity to which the certificate is issued. For private identity validation, the value defaults to your Microsoft Entra tenant name. |
     | **(Private Identity Type only) Organizational Unit**          | Enter the relevant information. |
     | **Website url**          | Enter the website that belongs to the legal business entity. |
-    | **Primary Email**           | Enter the email address associated with the legal business entity undergoing validation. Part of the Identity Validation process, a verification link is sent to this email address and the link expires in seven days. Ensure that the email address can receive emails(with links) from external email addresses. This is the email address to which the links for completing Verified Credentials and email verification are sent.  |
+    | **Primary Email**           | Enter a monitored email address that belongs to an individual (not a shared mailbox or distribution list), on a domain owned by the legal business entity going through the validation process. Verified Credentials and email verification links are sent to this address and expire in seven days. The mailbox must accept links from external senders.  |
     | **Secondary Email**          | This email address must be different from the primary email address (distribution lists are accepted). For organizations, the domain must match the email address that is provided in the primary email address. Ensure that the email address can receive emails from external email addresses that have links.|
     | **Business Identifier**           | Enter a business identifier for the legal business entity. |
     | **Seller ID**          | Applies only to Microsoft Store customers. Find your Seller ID in the Partner Center portal. |
@@ -324,7 +325,7 @@ To create an identity validation request for an Organization or a DBA:
 | Accuracy             | Ensure that you provide the correct information for public identity validation. If you need to make any changes after it's created, you must complete a new identity validation request. This change affects the associated certificates that are being used for signing. |
 | Failed email verification            | If email verification fails, you must initiate a new identity validation request. |
 | Identity validation status            | You're notified through email when there's an update to the identity validation status. You can also check the status in the Azure portal at any time. |
-| Processing time            | Processing your identity validation request takes from 1 to 20 business days (possibly longer if we need to request more documentation from you). |
+| Processing time            | Processing your identity validation request takes from 1 to 30 business days (possibly longer if we need to request more documentation from you). |
 | More documentation            | If we need more documentation to process the identity validation request, you're notified through email. You can upload the documents in the Azure portal. For documentation upload, there are three attempts. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. <br> - All documents submitted must be issued within the previous 12 months and where the expiration date is a future date that is at least two months away. <br>  - If it isn't possible to provide additional documentation, update your account information to match any legal documents already provided or your official Company registration details. <br>  - When providing official business document, such as business registration form, business charter, or articles of incorporation that list the company name and address as it is provided at the time of Identity Validation request creation. <br>  - Ensure the domain registration or domain invoice from registration or renewal that lists the entity and contact name and all the domains that are included/mentioned in the request.|
 
 # [Identity Validation - Individual Developer](#tab/indiedevvalidation)
@@ -495,7 +496,7 @@ To create a certificate profile in the Azure portal:
       For more information, see [Naming constraints for certificate profiles](#naming-constraints-for-certificate-profiles).
 
       The value for **Certificate Type** is autopopulated based on the certificate profile type you selected.
-      For **Program Type**, keep the default None. Change it only if you're enrolled in the Windows endpoint security platform program.
+      For **Program Type**, keep the default None. Change it only if you're enrolled in the Windows endpoint security platform or [windows recovery environment](/windows-hardware/manufacture/desktop/winre-remote-recovery-management-overview) program.
    
    b. For **Verified CN and O**, select an identity validation that must be displayed on the certificate.
    - If the street address must be displayed on the certificate, select the **Include street address** checkbox.
@@ -609,6 +610,7 @@ To delete Artifact Signing resources by using the Azure portal:
 2. In the search box, enter and then select **Artifact Signing Accounts**.
 3. On **Artifact Signing Accounts**, select the Artifact Signing account that you want to delete.
 4. On the command bar, select **Delete**.
+5. Deleting an Artifact Signing account also deletes its associated certificate profiles. Identity validation requests remain available because they're scoped at the subscription level.
 
 > [!NOTE]
 > This action removes all certificate profiles that are linked to this account. Any signing processes that are associated with the certificate profiles stops.

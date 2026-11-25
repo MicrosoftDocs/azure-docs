@@ -2,7 +2,7 @@
 title: Delta lake ETL with data flows
 description: This tutorial provides step-by-step instructions for using data flows to transform and analyze data in delta lake
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 06/24/2024
@@ -11,6 +11,8 @@ ms.date: 06/24/2024
 # Transform data in delta lake using mapping data flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 

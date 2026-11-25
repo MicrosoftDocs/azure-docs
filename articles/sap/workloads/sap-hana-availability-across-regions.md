@@ -35,7 +35,7 @@ If you're using the scenario of sharing the disaster recovery target with a QA s
 
 - There are two [operation modes](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) with `delta_datashipping` and `logreplay`, which are available for such a scenario
 - Both operation modes have different memory requirements without preloading data
-- `delta_datashipping` might require drastically less memory without the preload option than `logreplay` could require. See chapter 4.3 of the SAP document [How To Perform System Replication for SAP HANA](https://www.sap.com/documents/2016/06/0ec37684-7a7c-0010-82c7-eda71af511fa.html)
+- `delta_datashipping` might require drastically less memory without the preload option than `logreplay` could require. See chapter 4.3 of the SAP document [How To Perform System Replication for SAP HANA](https://help.sap.com/docs/SAP_HANA_PLATFORM/4e9b18c116aa42fc84c7dbfd02111aba/afac7100bc6d47729ae8eae32da5fdec.html)
 - The memory requirement of `logreplay` operation mode without preload isn't deterministic and depends on the columnstore structures loaded. In extreme cases, you might require 50% of the memory of the primary instance. The memory for `logreplay` operation mode is independent on whether you chose to have the data preloaded set or not.
 
 ![A diagram of two Azure VMs across two regions.](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.png)

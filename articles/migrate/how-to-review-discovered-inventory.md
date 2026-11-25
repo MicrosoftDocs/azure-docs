@@ -1,23 +1,23 @@
 ---
-title: Review Discovered Inventory (Preview) in Azure Migrate 
+title: Review Discovered Inventory (Preview) in Azure Catalyst 
 description: This article describes how to review discovered inventory across infrastructure, databases, and web applications. 
 author: vikram1988
 ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 04/11/2025
-ms.reviewer: v-uhabiba
-ms.custom: engagement-fy23
+ms.date: 07/13/2026
 ms.update-cycle: 365-days
+ms.reviewer: v-gajeronika
+ms.custom: engagement-fy23
 monikerRange: migrate
 
 # Customer intent: As a cloud administrator, I want to review the discovered inventory of my datacenter assets in a unified view so that I can efficiently manage and assess the workloads, databases, and web applications for migration planning.
 ---
 
-# Review discovered inventory (preview) in Azure Migrate
+# Review discovered inventory (preview) in Azure Catalyst
 
-This article describes the new experience to review the inventory that you discover by using the Azure Migrate Discovery and Assessment tool. This capability is in preview.
+This article describes the new experience to review the inventory that you discover by using the Azure Catalyst Discovery and Assessment tool. This capability is in preview.
 
 ## What's new?
 
@@ -29,18 +29,19 @@ You can do the following tasks in the new experience:
 - Add and edit tags at scale for the discovered workloads from the inventory views.
 - Export the inventory of your entire datacenter to review the details offline.
 - Review the discovered inventory specifically for your infrastructure (servers), databases, and web applications by switching to the inventory views.
+- Review the network-attached storage (NAS) clusters and the file shares they host, including protocols and capacity, alongside your other workloads.
 
 How you open the new experience depends on whether you're an existing or new user.
 
 # [Existing user](#tab/existing)
 
-If you're an existing user who already created an Azure Migrate project and performed discovery of your datacenter assets, you can switch to the new **Overview** tab by using the prompt in your existing project. On the **Overview** tab, select the count of workloads to review the discovered inventory across your datacenter.
+If you're an existing user who already created an Azure Catalyst project and performed discovery of your datacenter assets, you can switch to the new **Overview** tab by using the prompt in your existing project. On the **Overview** tab, select the count of workloads to review the discovered inventory across your datacenter.
 
 # [New user](#tab/new)
 
 Ensure that you meet the following prerequisites:
 
-- [Create a project](./create-manage-projects.md) with the Azure Migrate Discovery and Assessment tool added to it.
+- [Create a project](./create-manage-projects.md) with the Azure Catalyst Discovery and Assessment tool added to it.
 - Review the requirements based on your environment and the appliance that you set up to perform the inventory:
 
   Environment | Requirements
@@ -53,9 +54,11 @@ Ensure that you meet the following prerequisites:
 
 ---
 
-## Deploy and configure the Azure Migrate appliance
+<a name="deploy-and-configure-the-azure-migrate-appliance"></a>
 
-You must deploy the Azure Migrate appliance to start discovery. To deploy the appliance, use the [deployment method](migrate-appliance.md#deployment-methods) that your environment requires. After you deploy the appliance, register it with the project and configure it to initiate the discovery.
+## Deploy and configure the Azure Catalyst appliance
+
+You must deploy the Azure Catalyst appliance to start discovery. To deploy the appliance, use the [deployment method](migrate-appliance.md#deployment-methods) that your environment requires. After you deploy the appliance, register it with the project and configure it to initiate the discovery.
 
 As you configure the appliance, you must specify the following values in the appliance configuration manager:
 
@@ -88,7 +91,7 @@ After the discovery is complete, go to the Azure portal and refresh the **Overvi
 
 ## Review all inventory
 
-You can select the count of workloads on the **Overview** tab of your project. Or, you can select **All inventory** > **Explore inventory** on the left menu to see the list of workloads discovered from your environment through either the [Azure Migrate appliance](migrate-appliance.md) or CSV import.
+You can select the count of workloads on the **Overview** tab of your project. Or, you can select **All inventory** > **Explore inventory** on the left menu to see the list of workloads discovered from your environment through either the [Azure Catalyst appliance](migrate-appliance.md) or CSV import.
 
 The **All Inventory** view helps you review all the workloads discovered from your datacenter. The list includes workloads running on servers (VMware VMs, Hyper-V VMs, physical servers, and servers running on other public clouds), databases, and web applications. You can find these workloads inline by expanding the server.
 
@@ -112,16 +115,101 @@ Attribute name | Details
 **Dependencies** | Network dependencies of the server. <br><br/> Dependency analysis is automatically enabled on up to 1,000 servers per appliance, if the validation checks succeed.
 **Support Status** | Support status for the servers and databases to indicate if they're in mainstream support, end of support, or extended support. [Learn more](tutorial-discover-vmware.md#view-support-status).
 **Discovery source** | Source of discovery of the workload (appliance or import).
-**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Migrate supports custom tags only.
+**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Catalyst supports custom tags only.
 
 # [Optional columns](#tab/optional-col)
 
-To view more attributes that Azure Migrate gathers during the discovery process, select **Columns** on the command bar. Then, select more attributes that you want to review.
+To view more attributes that Azure Catalyst gathers during the discovery process, select **Columns** on the command bar. Then, select more attributes that you want to review.
 
 > [!NOTE]
-> The [details of exported inventory data](#export-all-inventory-data) in this article show a complete list of attributes that Azure Migrate discovers.
+> The [details of exported inventory data](#export-all-inventory-data) in this article show a complete list of attributes that Azure Catalyst discovers.
 
 ---
+
+In **All inventory**, VMware servers include extra network information. The **Subnet** column shows the subnet associated with each workload. The **Network associations** column displays related network resources, such as load balancers, NSX segments, and port groups.
+
+  :::image type="content" source="./media/how-to-review-discovered-inventory/all-inventory.png" alt-text="Screenshot shows the all inventory VMware servers that include additionl network information when NSX credentials are provided." lightbox="./media/how-to-review-discovered-inventory/all-inventory.png":::
+
+The **Network associations** show workloads associated with the selected network resource. Review workload-to-network relationships, including associations with NSX segments, VMware port groups, and load balancers.
+
+  :::image type="content" source="./media/how-to-review-discovered-inventory/network-association.png" alt-text="Screenshot shows the network association details." lightbox="./media/how-to-review-discovered-inventory/network-association.png":::
+
+## Review networking resources under infrastructure 
+
+To view discovered networking resources, follow these steps:
+
+Go to **Infrastructure** > **Network**. The **Network** page provides an inventory of discovered network resources and their relationships to workloads.
+
+The **Network** page includes the following tabs:
+
+- **[Components](#components)**: View discovered network resources, such as networks, subnets, and load balancers.
+- **[Policies](#policies)**: View network policies associated with discovered workloads and resources.
+- **[Logical groups](#logical-groups)**: View logical groupings of network resources and their associated workloads. 
+
+### Components 
+
+The **Components** tab shows the core networking components discovered in your environment, including: 
+
+- NSX Tier-0 Gateways
+- NSX Tier-1 Gateways 
+- Load Balancers 
+
+Select a component to view detailed information, including its associated resources and workload relationships.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/components.png" alt-text="Screenshot shows the core networking components." lightbox="./media/how-to-review-discovered-inventory/components.png":::
+
+Use the **Associated VMs** pane to review the virtual machines connected to the selected networking resource. The pane lists each VM name and its associated IP address range.
+
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/associate-vms.png" alt-text="Screenshot shows the associated VMs." lightbox="./media/how-to-review-discovered-inventory/associate-vms.png":::
+
+Select a load balancer to view its configuration, associated network resources, and the workloads that use the load balancer for traffic distribution.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/load-balancer.png" alt-text="Screenshot shows the details of the load balancer." lightbox="./media/how-to-review-discovered-inventory/load-balancer.png":::
+
+### Policies
+
+The **Policies** tab shows discovered networking and security policies, including:
+
+- Gateway policies
+- Gateway firewall rules
+- Distributed firewall policies
+- Distributed firewall rules
+- NAT rules
+
+For firewall policies and rules, select an item to view details such as source, destination, services, scope, and tags. For NAT rules, you can view match conditions and translation details.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/policies.png" alt-text="Screenshot shows the details of the policies." lightbox="./media/how-to-review-discovered-inventory/policies.png":::
+
+## View distributed firewall rule details
+
+View detailed information about a distributed firewall rule to understand how traffic is filtered and controlled for discovered workloads.
+
+Select a distributed firewall rule to view its source, destination, services, scope, action, and associated tags. This view helps you understand how network traffic is controlled for discovered workloads.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/distributed-firewall-rule.png" alt-text="Screenshot shows the details of the distributed firewall rule." lightbox="./media/how-to-review-discovered-inventory/distributed-firewall-rule.png":::
+
+Select a NAT rule to view its match conditions, translation details, and associated network resources.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/nat-rule.png" alt-text="Screenshot shows the details of the NAT rule." lightbox="./media/how-to-review-discovered-inventory/nat-rule.png":::
+
+### Logical groups
+
+The **Logical Groups** tab shows logical network constructs and workload groupings, including:
+
+- VMware port groups
+- NSX segments
+- NS groups
+
+Select a logical group to view its associated workloads and understand the relationships between workloads and network resources.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/logical-groups.png" alt-text="Screenshot shows the details of the logical groups." lightbox="./media/how-to-review-discovered-inventory/logical-groups.png":::
+
+Select an NSX segment to view its properties, network configuration, and connected workloads. 
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/segment.png" alt-text="Screenshot shows the details of the NSX segment." lightbox="./media/how-to-review-discovered-inventory/segment.png":::
+
+Use the Network experience to review networking resources discovered in your VMware environment. 
 
 ## Perform actions
 
@@ -179,7 +267,7 @@ Attribute name | Details
 **Dependencies** | Network dependencies of the server. <br><br/> This attribute shows the status of the dependency analysis, such as **Enabled**, **Disabled**, or **Failed validation**.
 **Support Status** | Support status for the servers and databases to indicate if they're in mainstream support, end of support, or extended support.
 **Discovery source** | Source of discovery of the workload (appliance or import).
-**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Migrate supports custom tags.
+**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Catalyst supports custom tags.
 **Cores** | Number of processor cores allocated to the server.
 **Memory (MBs)** | Total RAM, in megabytes, allocated to the server.
 **Disks** | Number of disks allocated to the server.
@@ -197,7 +285,7 @@ Attribute name | Details
 
 ## Review the infrastructure inventory
 
-To view the list of infrastructure workloads discovered from your environment through either [the Azure Migrate appliance](migrate-appliance.md) or CSV import, select **Explore inventory** > **Infrastructure inventory** on the left menu.
+To view the list of infrastructure workloads discovered from your environment through either [the Azure Catalyst appliance](migrate-appliance.md) or CSV import, select **Explore inventory** > **Infrastructure inventory** on the left menu.
 
 The **Infrastructure inventory** view helps you review all the servers discovered from your datacenter, including VMware VMs, Hyper-V VMs,  physical servers, or servers running on other public clouds.
 
@@ -215,14 +303,14 @@ Attribute name | Details
 **Web app** | Number of web apps running on the server.
 **Issues** | Number of discovery problems reported on the server.
 **Support Status** | Support status for the servers and databases to indicate if they're in mainstream support, end of support, or extended support. [Learn more](tutorial-discover-vmware.md#view-support-status).
-**Tags** | Tags applied to the server. <br><br/> Currently, Azure Migrate supports custom tags.
+**Tags** | Tags applied to the server. <br><br/> Currently, Azure Catalyst supports custom tags.
 
 # [Optional columns](#tab/optional)
 
-To view more attributes that Azure Migrate gathers during the discovery process, select **Columns** on the command bar. Then, select more attributes that you want to review.
+To view more attributes that Azure Catalyst gathers during the discovery process, select **Columns** on the command bar. Then, select more attributes that you want to review.
 
 > [!NOTE]
-> The [details of exported inventory data](#export-all-inventory-data) in this article show a complete list of attributes that Azure Migrate discovers.
+> The [details of exported inventory data](#export-all-inventory-data) in this article show a complete list of attributes that Azure Catalyst discovers.
 
 ---
 
@@ -290,6 +378,103 @@ Attribute name | Details
 **Support ends in (Days)** | Number of days before support ends.
 **Appliance name** | Name of the appliance used to discover the workload.
 
+## Review the NAS inventory
+
+After the Azure Catalyst appliance discovers your network-attached storage (NAS) systems, the clusters and the shares they host appear as inventory objects in your project. Each cluster is listed with its shares grouped beneath it, so you can see how storage is distributed across platforms, protocols, and administrative boundaries in a single place.
+
+NAS systems and their shares appear in multiple views. Use the view that matches what you want to do:
+
+View | Path | Use it to
+--- | --- | ---
+**All inventory** | **Explore inventory** > **All inventory** | See NAS clusters, file shares, servers, databases, and web apps together, and filter across all of them.
+**Infrastructure** | **Explore inventory** > **Infrastructure** | See counts for servers, file shares, and networks, and browse a flat list of every discovered file share.
+**NAS cluster details** | Select a cluster from either view | Review cluster hardware, capacity, discovery details, and the shares it hosts.
+**File share details** | Select a share from any view | Review the share's host, volume, protocol versions, size, and discovery details.
+
+### Find NAS systems and shares in All inventory
+
+The **All inventory** view lists every workload in the project. To focus on storage, filter the view by type:
+
+1. In the Azure Catalyst project, select **Explore inventory** > **All inventory**.
+1. Select **Add filter**.
+1. Set **Filter** to **Type** and **Operator** to **Equals**.
+1. In **Value**, select **NAS** and **File share**, and then select **Apply**.
+
+The list shows your NAS systems (such as NetApp ONTAP and Dell Isilon OneFS) alongside the Windows and Linux file servers that host SMB and NFS shares. The view includes the following key columns:
+
+Column | Description
+--- | ---
+**Workload** | Name of the NAS cluster, file share, or server. Select it to open the details page.
+**Category** | **Storage** for NAS clusters and file shares. Servers appear as **Server**.
+**Type** | **NAS** for a discovered cluster, **File share** for an individual share.
+**Operating system** | The platform operating system, for example NetApp ONTAP or Dell Isilon OneFS.
+**Application** | Any application the workload is associated with.
+
+> [!NOTE]
+> Use the **Show associated workloads** toggle to switch between a flat list and a grouped list. When the toggle is on, you can expand each NAS cluster and server to show the shares it hosts, so you can see how many shares sit behind each system.
+
+### Browse file shares from the Infrastructure view
+
+The **Infrastructure** view provides a count-first entry point and a flat list of every discovered file share, whether it's hosted on a NAS cluster or on a Windows or Linux server.
+
+1. Select **Explore inventory** > **Infrastructure**.
+1. Review the **Servers**, **File share**, and **Network** tiles at the top of the page for a quick count of what's discovered.
+1. Select the **File share** tile to list every discovered share.
+
+The file share list includes the following columns:
+
+Column | Description
+--- | ---
+**Fileshare** | The share or bucket name. Select it to open the share details page.
+**Host** | The NAS cluster or server that hosts the share. Select it to open the host.
+**Volume** | The underlying volume on the source system.
+**Operating system** | The host platform, for example NetApp ONTAP or Dell Isilon OneFS.
+**Estimated used size** | Used capacity, in GB. A dash indicates that a size wasn't reported for the share.
+**Protocol** | SMB, NFS, S3, or MultiProtocol.
+**Tags** | Any tags applied to the share.
+
+### Review a NAS cluster
+
+Select a NAS cluster from any inventory view to open its details page. The details page has an **Overview** tab, a **File share** tab, and a **Tags** tab.
+
+The **Overview** tab includes the following sections:
+
+Section | Details
+--- | ---
+**Basics** | Cluster name, NAS product, operating system, model, and the number of nodes in the cluster.
+**Size / Storage (GiB)** | Total capacity, used capacity, and the number of NFS, SMB, and S3 shares.
+**Discovery details** | Discovery source, the name of the appliance that discovered the cluster, the last update time, and the first discovered time.
+**Associated inventory** | The number of file shares hosted on the cluster. Select the count to list them.
+**Tags** | Tags applied to the cluster.
+
+The **File share** tab lists every share and bucket on the cluster, with its volume, estimated used size, protocol, and tags. The tab label includes the share count, so you can confirm that it matches what you expect from the source system.
+
+> [!NOTE]
+> Shares that are exposed through more than one protocol - for example, SMB and S3, or NFS and S3 - are listed with a protocol of **MultiProtocol**. Confirm which protocol a multiprotocol share is served from before you plan its migration, because the protocol affects which Azure targets are appropriate.
+
+### Review a file share
+
+Select a share from any view to open its details page, which includes the following sections:
+
+Section | Details
+--- | ---
+**Basics** | Share name, the host that serves it, the underlying volume, and the supported protocol versions - for example, SMB 2.0, 3.0, or NFS 3.0, 4.0, 4.1.
+**Size** | Estimated used size, in GB.
+**Discovery details** | Discovery source, appliance name, last update time, and first discovered time.
+**Tags** | Tags applied to the share.
+
+Select the host name in **Basics** to go back to the NAS cluster that serves the share.
+
+### Things to know about NAS inventory
+
+- Discovery is iterative. As new metadata is discovered for an existing item, the item is updated. A share can appear with partial detail in one cycle and be completed in a later one.
+- Sizes are estimates. Capacity values are reported as estimated used size. A dash means that no size was reported for that share.
+- File contents aren't inspected. Discovery collects system and share metadata only. There's no file-level crawling, access control list analysis, or content or sensitivity scanning.
+- Last access time and client lists aren't collected in this release, so you can't use the inventory to identify dormant shares or the clients connected to them.
+
+> [!NOTE]
+> If a NAS cluster or its shares don't appear after a full discovery cycle, check the credential and connectivity state in the appliance. Without valid read-only cluster credentials, no inventory is generated for that source.
+
 ## Review the web app inventory
 
 Select the name of a web app to see all the attributes and other metadata discovered for that workload in a detailed view. You can also add tags to an individual server. The following table lists the details to review each web app:
@@ -329,7 +514,7 @@ Use the **Databases Inventory** view to review all the discovered SQL Server dat
 > [!NOTE]
 > If you can't see all the discovered databases, ensure that the software inventory is completed for all servers. [Learn more](add-server-credentials.md).
 
-# [Default columns](#tab/default-col)
+# [Default columns](#tab/default)
 
 The default view shows the discovered databases, along with the following set of attributes:
 
@@ -343,13 +528,13 @@ Attribute name | Details
 **Issues** | Number of discovery problems reported on the database.
 **Instance HADR participants** | Number of database instances nodes that are part of an HADR cluster.
 **Database HADR participants** | Number of databases that are part of an HADR cluster.
-**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Migrate supports custom tags only. [Learn more](resource-tagging.md).
+**Tags** | Tags applied to the workload. <br><br/> Currently, Azure Catalyst supports custom tags only. [Learn more](resource-tagging.md).
 **HADR configuration** | Name of the HADR configuration.
 **Discovery Source** | Method of discovery for the database (appliance or import).
 **Appliance Name** | Name of the appliance.
 **Total database size (MB)** | Size of the database instance in megabytes.
 
-# [Optional columns](#tab/optional-col)
+# [Optional columns](#tab/optional)
 
 The optional view shows the following optional columns:
 
@@ -359,11 +544,11 @@ Attribute name | Details
 **Edition** | Edition of the database instance.
 **Total DB size (MB)** | Size of the database instance in megabytes.
 **Max server memory (MB)** | Maximum memory of the server on which the database is hosted.
-**Azure Migrate connection status** | Indication of whether the Azure Migrate appliance successfully connected to the SQL Server instance to gather information. If the value is **Not Connected**, the available information is either incomplete or outdated.
+**Azure Catalyst connection status** | Indication of whether the Azure Catalyst appliance successfully connected to the SQL Server instance to gather information. If the value is **Not Connected**, the available information is either incomplete or outdated.
 **DB engine status** | Power status of database engine if it's running or stopped.
 **HADR enabled** | Status of enabling high availability and disaster recovery.
 **First discovery time** | Time stamp of when the database was first discovered.
-**Last updated time** | Time stamp of when Azure Migrate last received the payload for the database.
+**Last updated time** | Time stamp of when Azure Catalyst last received the payload for the database.
 
 ---
 

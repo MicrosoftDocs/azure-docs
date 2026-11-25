@@ -3,7 +3,7 @@ title: Nested activities
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about nested activities in Azure Data Factory and Azure Synapse Analytics.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: concept-article
@@ -13,6 +13,8 @@ ms.date: 03/31/2025
 # Nested activities in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article helps you understand nested activities in Azure Data Factory and Azure Synapse Analytics and how to use them, limitations, and best practices.
 

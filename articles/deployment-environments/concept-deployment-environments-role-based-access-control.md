@@ -3,8 +3,8 @@ title: Plan Azure Role-Based Access Control
 titleSuffix: Azure Deployment Environments
 description: Learn how Azure Deployment Environments provides protection with Azure role-based access control (Azure RBAC) integration.
 ms.service: azure-deployment-environments
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.topic: concept-article
 ms.date: 05/04/2026
 

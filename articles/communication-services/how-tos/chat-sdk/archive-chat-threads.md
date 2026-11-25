@@ -15,6 +15,8 @@ ms.subservice: chat
 
 #  Archiving chat threads into your preferred storage solution
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In this guide, learn how to move chat messages into your own storage in real-time or chat threads once conversations are complete. Developers are able to maintain an archive of chat threads or messages for compliance reasons or to integrate with Azure OpenAI or both.
 
 ## Prerequisites 

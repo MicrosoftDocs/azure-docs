@@ -42,7 +42,7 @@ The article helps you integrate Network Policy Server (NPS) with Azure VPN Gatew
 
 ## Configure the VPN gateway
 
-[!INCLUDE [Configure gateway](../../includes/vpn-gateway-add-gw-radius-include.md)]
+[!INCLUDE [Configure gateway](../networking/includes/vpn-gateway/add-gw-radius.md)]
 
 After the settings are saved, you can click **Download VPN Client** to download the VPN client configuration package and use the settings to configure the VPN client. For more information about P2S VPN client configuration, see the [Point-to-site client configuration requirements](point-to-site-about.md#client) table.
 

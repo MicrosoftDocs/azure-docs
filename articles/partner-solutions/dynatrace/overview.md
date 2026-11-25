@@ -15,7 +15,7 @@ ms.date: 03/13/2025
 
 Microsoft and [Dynatrace](https://www.dynatrace.com/) developed this service and manage it together.
 
-You can find Azure Native Dynatrace Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview).
+You can find Azure Native Dynatrace Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors).
 
 Dynatrace is a monitoring solution that provides deep cloud observability, advanced AIOps, and continuous runtime application security capabilities in Azure.
 

@@ -2,8 +2,8 @@
 title: Create custom images for lab VMs from VHD files
 description: Use the Azure portal to create an Azure DevTest Labs virtual machine (VM) custom image from a virtual hard disk (VHD) file.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/31/2025
 ms.custom: UpdateFrequency2
 

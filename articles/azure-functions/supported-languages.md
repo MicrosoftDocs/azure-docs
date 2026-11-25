@@ -3,7 +3,7 @@ title: Supported Languages in Azure Functions
 description: Find out which languages are supported for developing function apps in Azure, the support level of the various language versions, and end-of-support dates.
 ms.topic: concept-article
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 08/21/2025
+ms.date: 11/24/2026
 zone_pivot_groups: programming-languages-set-functions
 # customer intent: As a developer, I want to find information about Azure Functions support for languages and language versions so that I can check whether my function app code is supported and stay informed about when I need to update it.
 ---
@@ -16,7 +16,20 @@ This article explains the levels of support offered for your preferred language 
 
 ## Languages by runtime version
 
-[!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)] 
+[!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
+
+## Managed Linux images for affected existing apps
+
+Existing function apps keep their selected managed Linux image until you change the app configuration. If an existing Python 3.11 or Java 8, 11, or 17 app on an Elastic Premium or Dedicated (App Service) plan uses Debian Bullseye, use the following values to select a newer Linux distribution while retaining the same language version:
+
+| Language version | Debian Bullseye value | Newer distribution | Newer image value |
+| --- | --- | --- | --- |
+| Python 3.11 | <code>Python&#124;3.11&#124;2.0</code> | Debian Bookworm | <code>Python&#124;3.11&#124;3.0</code> |
+| Java 8 | <code>Java&#124;8&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;8&#124;4.0</code> |
+| Java 11 | <code>Java&#124;11&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;11&#124;4.0</code> |
+| Java 17 | <code>Java&#124;17&#124;2.0</code> | Ubuntu Noble | <code>Java&#124;17&#124;4.0</code> |
+
+For instructions to test and change the managed image, see [Update the managed Linux image](set-runtime-version.md?pivots=platform-linux#update-the-managed-linux-image). For apps on the Linux Consumption plan, [migrate to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md?pivots=platform-linux).
 
 ## Language support details
 
@@ -24,20 +37,19 @@ The following table shows which languages supported by Functions can run on Linu
 
 | Language | Runtime stack | Linux | Windows | In-portal editing<sup>1</sup> |
 |:--- |:-- |:--|:--- |:--- |
-| [C# (isolated worker model)](dotnet-isolated-process-guide.md) |.NET|✓ |✓ | |
-| [C# (in-process model)](functions-dotnet-class-library.md)|.NET|✓ |✓ | <sup>2</sup> |
+| [C# (isolated worker model)](dotnet-isolated-process-guide.md)<sup>3</sup> |.NET|✓ |✓ | |
 | [JavaScript](functions-reference-node.md?tabs=javascript) | Node.js |✓ |✓ | ✓ |
-| [Python](functions-reference-python.md) | Python |✓ |X|✓ <sup>1</sup> |
+| [Python](functions-reference-python.md) | Python |✓ |X|✓ <sup>2</sup> |
 | [Java](functions-reference-java.md) | Java |✓ |✓ | |
 | [PowerShell](functions-reference-powershell.md) |PowerShell Core |✓ |✓ |✓ |
 | [TypeScript](functions-reference-node.md?tabs=typescript) | Node.js |✓ |✓ |  |
-| [Go (Preview)](functions-reference-go.md) | Go |✓ | | |
+| [Go](functions-reference-go.md) | Go |✓ | | |
 | [Rust/other](functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
 
 1. In-portal editing isn't currently supported when running in the [Flex Consumption plan](./flex-consumption-plan.md). When in-portal editing isn't available, you must instead [develop your function apps locally](functions-develop-local.md#local-development-environments).
-2. Although we recommend local development for C# apps, you can use the portal to develop and test C# script functions that use the in-process model. For more information, see [Create a C# script app](functions-reference-csharp.md#create-a-c-script-app).
-3. In-portal editing for Python is only supported when running in the Consumption plan. 
- 
+2. In-portal editing for Python is only supported when running in the Consumption plan.
+3. [The in-process model is retired as of November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model). To continue receiving full support, [migrate your apps to the isolated worker model](migrate-dotnet-to-isolated-model.md?tabs=net8).
+
 [!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 For more information on operating system and language support, see [Operating system support](functions-scale.md#operating-systemruntime).
@@ -49,7 +61,7 @@ For more information about how to maintain full-support coverage while running y
 Functions provides a guarantee of support for the major versions of supported programming languages. For most languages, there are minor or patch versions released to update a supported major version. Examples of minor or patch versions include Python 3.9.1 and Node 14.17. After new minor versions of supported languages become available, the minor versions used by your function apps are automatically upgraded to these newer minor or patch versions.
 
 > [!NOTE]
-> Functions can remove the support of older minor versions after a new minor version is available. For this reason, you shouldn't pin your function apps to a specific minor or patch version of a programming language.  
+> Functions can remove support for older minor versions after a new minor version is available. For this reason, don't pin your function apps to a specific minor or patch version of a programming language.
 
 ## Custom handlers
 
@@ -71,19 +83,9 @@ The following table lists the support that Open Database Connectivity (ODBC) dri
 
 ::: zone-end
 ## Next steps
-::: zone pivot="programming-language-csharp"  
-### [Isolated worker model](#tab/isolated-process)
-
+::: zone pivot="programming-language-csharp"
 > [!div class="nextstepaction"]
 > [.NET isolated worker process reference](dotnet-isolated-process-guide.md).
-
-### [In-process model](#tab/in-process)
-
-> [!div class="nextstepaction"]
-> [In-process C# developer reference](functions-dotnet-class-library.md)
-
----
-
 ::: zone-end
 ::: zone pivot="programming-language-java"
 > [!div class="nextstepaction"]

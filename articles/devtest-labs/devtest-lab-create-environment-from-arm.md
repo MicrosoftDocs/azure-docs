@@ -3,8 +3,8 @@ title: Create environments from ARM templates
 titleSuffix: Azure DevTest Labs
 description: Create multi-VM and platform-as-a-service (PaaS) environments by using Azure Resource Manager (ARM) templates in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 07/14/2026
 ms.custom:
   - engagement-fy23

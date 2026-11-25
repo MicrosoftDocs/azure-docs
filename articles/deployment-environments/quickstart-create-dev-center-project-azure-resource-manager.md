@@ -2,8 +2,8 @@
 title: Create a Dev Center and Project by using an ARM template
 description: Learn how to create and configure a dev center and project for Azure Deployment Environments by using an ARM template.
 ms.service: azure-deployment-environments
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.topic: quickstart-arm
 ms.custom: subject-armqs, devx-track-arm-template
 ms.date: 05/19/2026
@@ -12,7 +12,7 @@ ms.date: 05/19/2026
 
 # Quickstart: Create a dev center and project by using an ARM template
 
-[!INCLUDE [note-deployment-environments-maintenance-mode](includes/note-deployment-environments-maintenance-mode.md)]
+[!INCLUDE [note-deployment-environments-retirement](includes/note-deployment-environments-retirement.md)]
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create and configure an Azure Deployment Environments dev center and project for creating an environment.
 

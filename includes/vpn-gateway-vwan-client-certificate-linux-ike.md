@@ -38,7 +38,7 @@ For more information about certificates for Linux, see the following articles:
 
 [!INCLUDE [Install strongSwan](vpn-gateway-strongswan-install-include.md)]
 
-## View VPN client profile configuration files
+## View strongSwan VPN client profile configuration files
 
 When you generate a VPN client profile configuration package, all the necessary configuration settings for VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
@@ -47,7 +47,7 @@ Locate and unzip the VPN client profile configuration package you generated and 
 If you don't see the Generic folder, check the following items, then generate the zip file again.
 
 * Check the tunnel type for your configuration. It's likely that IKEv2 wasn’t selected as a tunnel type.
-* On the VPN gateway, verify that the SKU isn’t Basic. The VPN Gateway Basic SKU doesn’t support IKEv2. Then, select IKEv2 and generate the zip file again to retrieve the Generic folder.
+* If your VPN gateway uses the Basic SKU with SSTP only, enable IKEv2, then generate the zip file again to retrieve the Generic folder. For steps, see [SSTP protocol retirement and connections migration](../articles/vpn-gateway/ikev2-openvpn-from-sstp.md).
 
 The Generic folder contains the following files:
 

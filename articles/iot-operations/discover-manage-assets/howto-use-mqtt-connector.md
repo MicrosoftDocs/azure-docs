@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 07/14/2026
+ms.date: 08/18/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from MQTT topics.
@@ -26,7 +26,6 @@ The following table summarizes the features that the connector for MQTT supports
 |---------|:---------:|-------|
 | Username/password authentication | Yes | Basic HTTP authentication |
 | X.509 user certificates (mTLS) | Yes | Certificates for client authentication and authorization |
-| Anonymous access | Yes | For testing purposes |
 | Southbound certificate trust list | Yes | MQTTS for secure communications with the inbound endpoint |
 | OpenTelemetry integration | Yes | |
 | WASM data transformation | Yes | Optionally transform incoming data using WebAssembly modules |
@@ -50,6 +49,8 @@ This article explains how to use the connector for MQTT to perform tasks such as
 - Configure data transformations by using WebAssembly (WASM) modules.
 
 ## Prerequisites
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
 
 [!INCLUDE [enable-resource-sync-rules](../includes/enable-resource-sync-rules.md)]
 
@@ -76,11 +77,11 @@ To configure the connector for MQTT, first create a device that defines the conn
 
 The connector also discovers assets from MQTT topics based on a topic filter and forwards data to a unified namespace path defined by a topic mapping prefix:
 
-- The **topic filter** specifies which topics the connector subscribes to. The filter supports the single-level wildcard (`+`). The connector detects a new asset each time a message arrives on a topic that matches the filter at the wildcard position. For example, the filter `A/B/+` detects `A/B/asset1` and `A/B/asset2` as separate assets.
+- The **topic filter** specifies which topics the connector subscribes to. The filter supports the single-level wildcard (`+`). The connector detects a new asset each time a message arrives on a topic that matches the filter at the wildcard position. For example, the filter `A/B/+` detects `A/B/asset1` and `A/B/asset2` as separate assets. Topic filters don't support the multilevel wildcard (`#`) or system topics (topics that start with `$SYS/`).
 - The **topic mapping prefix** maps the incoming topic to a unified namespace path. For example, if the prefix is `X/Y` and the incoming topic is `A/B/asset1`, the connector forwards data to `X/Y/A/B/asset1`.
 
 > [!IMPORTANT]
-> Configure the topic filter carefully before creating the device. After the device is created, you can't change the asset discovery configuration unless you delete and recreate the device. If the filter is misconfigured, no assets are discovered and no error is reported. Messages that don't match the filter are silently ignored.
+> Design the topic filter carefully before creating the device. After you create the device, you can't change the asset discovery configuration unless you delete and recreate the device. The connector silently ignores messages sent to topics that don't match the topic filter and doesn't create discovered assets from them.
 
 # [Operations experience](#tab/portal)
 
@@ -91,9 +92,9 @@ The connector also discovers assets from MQTT topics based on a topic filter and
 1. On the **Basic** page, add the endpoint details:
 
     - **External MQTT broker**: Add an endpoint name, server URL, and any authentication credentials.
-    - **Built-in MQTT broker**: Add a name for the endpoint, `mqtt://aio-broker:18883` as the server URL, and **Anonymous** for the authentication credentials.
+    - **Built-in MQTT broker**: Add a name for the endpoint, `mqtt://aio-broker:18883` as the server URL, and **Anonymous** for the authentication option.
 
-        > [!TIP]
+        > [!IMPORTANT]
         > The built-in MQTT broker configuration doesn't require authentication values and has a known URL. The values you enter are ignored.
 
 1. On the **Advanced** page, configure the topic discovery and broker connection settings:
@@ -215,6 +216,9 @@ This configuration deploys a new `device` resource called `mqtt-connector` to th
 
 The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password.
 
+> [!IMPORTANT]
+> Anonymous authentication is only supported for connections to the built-in MQTT broker. It's not a supported option for external broker connections. The connector throws a config error if you choose it.
+
 To use the `Username password` authentication mode, complete the following steps:
 
 # [Operations experience](#tab/portal)
@@ -254,17 +258,17 @@ To use the `Username password` authentication mode, complete the following steps
 
 When you send a message to a topic that matches the topic filter on the asset discovery configuration for a device, the connector for MQTT detects the new topic and creates a _detected asset_ custom resource. For example, if you specify the topic filter as `A/B/+`, and you send a message to the topic `A/B/asset1`, the connector for MQTT detects the new topic and creates a _discovered asset_ that you can view in the operations experience web UI:
 
-:::image type="content" source="media/howto-use-mqtt-connector/detected-asset.png" alt-text="Screenshot that shows the list of detected assets." lightbox="media/howto-use-mqtt-connector/detected-asset.png":::
+:::image type="content" source="media/howto-use-mqtt-connector/detected-asset.png" alt-text="Screenshot that shows the list of discovered assets." lightbox="media/howto-use-mqtt-connector/detected-asset.png":::
 
-To create an asset from the detected asset, follow these steps:
+To create an asset from the discovered asset, follow these steps:
 
-1. In the operations experience, select the detected asset from the list and then select **Import and create asset**.
+1. In the operations experience, select the discovered asset from the list and then select **Import and create asset**.
 
 1. On the **Asset details** page, the inbound endpoint is already selected from the device. Add a name, a description, and any custom properties you want to associate with the asset. Then select **Next** to continue.
 
-1. On the **Datasets** page, you see a dataset that the connector created automatically from the detected asset using the topic filter and asset name:
+1. On the **Datasets** page, you see a dataset that the connector created automatically from the discovered asset using the topic filter and asset name:
 
-    :::image type="content" source="media/howto-use-mqtt-connector/detected-asset-dataset.png" alt-text="Screenshot that shows the dataset created from the detected asset." lightbox="media/howto-use-mqtt-connector/detected-asset-dataset.png":::
+    :::image type="content" source="media/howto-use-mqtt-connector/detected-asset-dataset.png" alt-text="Screenshot that shows the dataset created from the discovered asset." lightbox="media/howto-use-mqtt-connector/detected-asset-dataset.png":::
 
     Select **Next** to continue.
 
@@ -308,6 +312,9 @@ For background on how management groups and actions work across connectors, see:
 - [Manage and control the camera](howto-use-onvif-connector.md#manage-and-control-the-camera) — shows how a similar pattern is used for the connector for ONVIF.
 
 ## Transform incoming data
+
+> [!IMPORTANT]
+> To prevent collisions with reserved cloud headers, the connector doesn't propagate MQTT user properties from incoming messages to outgoing messages. To preserve the user properties, use the [user properties to payload sample](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm-user-props-to-payload/README.md) to add them to the message payload. The sample requires a top-level JSON object payload and adds the properties under the `_user_properties` key.
 
 [!INCLUDE [connector-transform-incoming-data](../includes/connector-transform-incoming-data.md)]
 

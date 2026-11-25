@@ -6,7 +6,7 @@ ms.subservice: data-movement
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 02/13/2025
-ms.author: whhender
+ms.author: weetok
 ms.reviewer: jianleishen
 ms.custom:
   - devx-track-azurepowershell
@@ -18,6 +18,8 @@ ms.custom:
 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure Synapse Analytics for business intelligence (BI) applications to consume.
 

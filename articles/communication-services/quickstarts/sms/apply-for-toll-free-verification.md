@@ -16,6 +16,8 @@ ms.custom: mode-other
 
 # Apply for toll-free verification
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with reliable SMS service using toll-free numbers by submitting a toll-free verification. Toll-free verification maximizes deliverability of messages with low to no traffic filtering.
 
 > [!TIP]

@@ -2,7 +2,7 @@
 title: Get started with PowerShell
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 ms.topic: how-to
-ms.date: 06/16/2026
+ms.date: 10/30/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a cloud administrator, I want to use PowerShell cmdlets to manage Azure Batch resources, so that I can automate the creation, modification, and querying of Batch accounts, pools, jobs, tasks, and application packages efficiently.
 ---
@@ -112,16 +112,16 @@ When using many of these cmdlets, in addition to passing a BatchContext object, 
 
 ### Create a Batch pool
 
-When creating or updating a Batch pool, you specify a [configuration](nodes-and-pools.md#configurations). Pools should generally be configured with Virtual Machine Configuration, which lets you either specify one of the supported Linux or Windows VM images listed in the [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or provide a custom image that you have prepared. Cloud Services Configuration pools provide only Windows compute nodes and do not support all Batch features.
+When you create or update a Batch pool, specify a [configuration](nodes-and-pools.md#configurations). Configure pools with Virtual Machine Configuration, which you use to either specify one of the supported Linux or Windows VM images listed in the [Azure Virtual Machines Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or provide a custom image from an [Azure Compute Gallery](batch-sig-images.md).
 
-When you run **New-AzBatchPool**, pass the operating system settings in a PSVirtualMachineConfiguration or PSCloudServiceConfiguration object. For example, the following snippet creates a Batch pool with size Standard_A1 compute nodes in the virtual machine configuration, imaged with Ubuntu Server 20.04-LTS. Here, the **VirtualMachineConfiguration** parameter specifies the *$configuration* variable as the PSVirtualMachineConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
+When you run **New-AzBatchPool**, pass the operating system settings in a PSVirtualMachineConfiguration object. For example, the following snippet creates a Batch pool with size Standard_D4ds_v5 compute nodes in the virtual machine configuration, imaged with Ubuntu Server 24.04 LTS. The **VirtualMachineConfiguration** parameter specifies the *$configuration* variable as the PSVirtualMachineConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
 
 ```powershell
-$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","20.04-LTS")
+$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("ubuntu-24_04-lts","Canonical","server")
 
-$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 20.04")
+$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 24.04")
 
-New-AzBatchPool -Id "mypspool" -VirtualMachineSize "Standard_a1" -VirtualMachineConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
+New-AzBatchPool -Id "mypspool" -VirtualMachineSize "Standard_D4ds_v5" -VirtualMachineConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 ```
 
 The target number of compute nodes in the new pool is calculated by an autoscaling formula. In this case, the formula is simply **$TargetDedicated=4**, indicating the number of compute nodes in the pool is 4 at most.
@@ -214,9 +214,7 @@ Set-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group
 **List** an application's packages
 
 ```powershell
-$application = Get-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
-
-$application.ApplicationPackages
+Get-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
 **Delete** an application package
@@ -251,7 +249,7 @@ $appPackageReference.Version = "1.0"
 Now create the pool, and specify the package reference object as the argument to the `ApplicationPackageReferences` option:
 
 ```powershell
-New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -VirtualMachineConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
+New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Standard_D4ds_v5" -VirtualMachineConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 
 You can find more information on application packages in [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).

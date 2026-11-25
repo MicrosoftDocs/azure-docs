@@ -85,7 +85,7 @@ The batch receiver collects messages until the specified criteria are met to rel
 
    > [!NOTE]
    >
-   > This example doesn't set up a partition for the batch. Each batch uses the same partition key. For more information about partitions, see [Create batch sender](logic-apps-batch-process-send-receive-messages.md#batch-sender).
+   > This example doesn't set up a partition for the batch. Each batch uses the same partition key. For more information about partitions, see [Create batch sender](logic-apps-batch-process-send-receive-messages.md#create-batch-sender).
 
 1. Add an action that encodes each batch:
 

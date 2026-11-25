@@ -2,8 +2,8 @@
 title: How to delete and export personal data
 description: Learn how to delete and export personal data from the Azure DevLast Labs service to support your obligations under the General Data Protection Regulation (GDPR). 
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 06/26/2020
 ms.custom:
   - UpdateFrequency2

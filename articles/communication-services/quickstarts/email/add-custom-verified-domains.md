@@ -16,6 +16,8 @@ ms.devlang: azurecli
 
 # Add custom verified email domains
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to provision a custom verified email domain in Azure Communication Services.
 
 ::: zone pivot="platform-azp"

@@ -1,10 +1,10 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.devlang: java
 ms.topic: include
 ms.date: 04/02/2026
-ms.author: cephalin
+ms.author: byvinyal
 ms.custom: sfi-ropc-nochange
 ---
 > [!NOTE]

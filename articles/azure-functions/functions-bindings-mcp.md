@@ -2,7 +2,7 @@
 title: Model context protocol bindings for Azure Functions
 description: Learn how you can expose your functions as model context protocol (MCP) tools using bindings in Azure Functions.
 ms.topic: reference
-ms.date: 04/01/2026
+ms.date: 08/25/2026
 ms.update-cycle: 180-days
 ms.custom: 
   - build-2025
@@ -31,7 +31,7 @@ The Azure Functions MCP extension enables you to use Azure Functions to create r
 + When running locally, the MCP extension requires version 4.0.7030 of the [Azure Functions Core Tools](functions-run-local.md), or a later version.
 ::: zone pivot="programming-language-csharp"
 + Requires version 2.1.0 or later of the `Microsoft.Azure.Functions.Worker` package.
-+ Requires version 2.0.2 or later of the `Microsoft.Azure.Functions.Worker.Sdk` package.
++ Requires version 1.0.0 or later of the `Azure.Functions.Sdk` project SDK.
 
 ## Install extension
 

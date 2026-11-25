@@ -14,6 +14,8 @@ ms.custom: devx-track-dotnet
 
 # Overview of Durable Functions in the .NET isolated worker
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 The .NET isolated worker lets you run Durable Functions on any supported .NET version independently of the Azure Functions host process. This model gives you full control over dependency injection, middleware, and .NET versioning.
 
 In this article, you learn about:
@@ -77,13 +79,14 @@ Add the source generator NuGet package to your project:
 The package provides two capabilities:
 
 - **Class-based activities and orchestrations** — strongly typed classes that inherit `TaskOrchestrator<TInput, TOutput>` and `TaskActivity<TInput, TOutput>`.
-- **Strongly typed extension methods** — compile-time–safe methods for invoking sub-orchestrations and activities. These extension methods also work from function-based orchestrations.
+- **Strongly typed extension methods** — compile-time–safe methods for invoking sub-orchestrations and activities, and for scheduling orchestrations from a client. Activity and sub-orchestration helpers also work from function-based orchestrations.
 
 ### Example
 
-The following example shows a class-based orchestration that calls a class-based activity:
+The following example uses the generated `CallMyActivityAsync` helper instead of a string task name. Its input and output types come from `TaskActivity<string, string>`:
 
 ```csharp
+using System.Threading.Tasks;
 using Microsoft.DurableTask;
 
 [DurableTask]
@@ -91,7 +94,7 @@ public class MyOrchestration : TaskOrchestrator<string, string>
 {
     public override async Task<string> RunAsync(TaskOrchestrationContext context, string input)
     {
-        return await context.CallActivityAsync<string>(nameof(MyActivity), input);
+        return await context.CallMyActivityAsync(input);
     }
 }
 
@@ -101,6 +104,22 @@ public class MyActivity : TaskActivity<string, string>
     public override Task<string> RunAsync(TaskActivityContext context, string input)
     {
         return Task.FromResult($"Processed: {input}");
+    }
+}
+```
+
+To start this orchestration, use the generated client helper. Both generated helpers are in the `Microsoft.DurableTask` namespace; `DurableTaskClient` is in `Microsoft.DurableTask.Client`. The scheduling call accepts the orchestration's `string` input and returns the new instance ID:
+
+```csharp
+using System.Threading.Tasks;
+using Microsoft.DurableTask;
+using Microsoft.DurableTask.Client;
+
+public static class MyOrchestrationClient
+{
+    public static Task<string> StartAsync(DurableTaskClient client, string input)
+    {
+        return client.ScheduleNewMyOrchestrationInstanceAsync(input);
     }
 }
 ```

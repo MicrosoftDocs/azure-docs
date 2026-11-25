@@ -4,7 +4,8 @@ description: "Discover what durable entities are and how to use them to manage s
 author: cgillum
 ms.topic: overview
 ms.service: durable-task
-ms.date: 05/19/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
@@ -16,6 +17,8 @@ zone_pivot_groups: azure-durable-approach
 # Durable entities
 
 ::: zone pivot="durable-functions"
+
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
 
 Entity functions define operations that read and update small pieces of state, called *durable entities*. Like orchestrator functions, entity functions use a special trigger type called the *entity trigger*. Unlike orchestrator functions, entity functions manage entity state explicitly instead of representing state through control flow.
 Entities help you scale out apps by distributing work across many entities, each with modest state.
@@ -32,7 +35,7 @@ Entities define operations that read and update small pieces of state, called *d
 
 ::: zone pivot="durable-functions"
 
-Entity functions and related features are available in [Durable Functions 2.0](../durable-functions/durable-functions-versions.md#migrate-from-1x-to-2x) and later.
+Entity functions and related features are available in [Durable Functions 2.0](../durable-functions/durable-functions-versions.md#migrate-from-1x-to-2x) and later. Use a storage backend that supports Durable Entities, such as Durable Task Scheduler or Azure Storage. For supported providers and configuration requirements, see the [storage-provider comparison](durable-task-storage-providers.md#compare-storage-providers).
 
 | Programming language | Support for durable entities |
 | -------------------- | ---------------------------- |
@@ -54,6 +57,7 @@ Entity functions and related features are available in [Durable Functions 2.0](.
 | Java | ✅ |
 | Python | ✅ |
 | JavaScript | ✅ |
+| Go (beta) | ✅ |
 | PowerShell | ❌ |
 
 ::: zone-end
@@ -114,69 +118,7 @@ Use one of two APIs to define entities in .NET:
 The APIs you use depend on where your C# functions run. An _isolated worker process_ is recommended, but you can also run in the host process.
 
 <details>
-<summary><b>In-process function-based example:</b></summary>
-
-This example shows a simple `Counter` entity implemented as a durable function. It defines three operations—`add`, `reset`, and `get`—that use an integer state.
-
-```csharp
-[FunctionName("Counter")]
-public static void Counter([EntityTrigger] IDurableEntityContext ctx)
-{
-    switch (ctx.OperationName.ToLowerInvariant())
-    {
-        case "add":
-            ctx.SetState(ctx.GetState<int>() + ctx.GetInput<int>());
-            break;
-        case "reset":
-            ctx.SetState(0);
-            break;
-        case "get":
-            ctx.Return(ctx.GetState<int>());
-            break;
-    }
-}
-```
-
-For more information, see [Function-based syntax](../durable-functions/durable-functions-dotnet-entities.md#function-based-syntax).
-
-</details>
-
-<br>
-
-<details>
-<summary><b>In-process class-based example:</b></summary>
-
-This example shows the same `Counter` entity implemented by using classes and methods.
-
-```csharp
-[JsonObject(MemberSerialization.OptIn)]
-public class Counter
-{
-    [JsonProperty("value")]
-    public int CurrentValue { get; set; }
-
-    public void Add(int amount) => this.CurrentValue += amount;
-
-    public void Reset() => this.CurrentValue = 0;
-
-    public int Get() => this.CurrentValue;
-
-    [FunctionName(nameof(Counter))]
-    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
-        => ctx.DispatchAsync<Counter>();
-}
-```
-
-This entity stores state in a `Counter` object that holds the current counter value. Durable Functions serializes and deserializes this object by using the [Json.NET](https://www.newtonsoft.com/json) library.
-
-For more information, see [Defining entity classes](../durable-functions/durable-functions-dotnet-entities.md#define-entity-classes).
-
-</details>
-
-<br>
-
-<details>
-<summary><b>Isolated worker process function-based example:</b></summary>
+<summary><b>Isolated worker process function-based example</b></summary>
 
 The following example shows a function-based `Counter` entity in an isolated worker process. It supports `add`, `reset`, `get`, and `delete`.
 
@@ -218,7 +160,7 @@ public static Task Counter([EntityTrigger] TaskEntityDispatcher dispatcher)
 <br>
 
 <details>
-<summary><b>Isolated worker process class-based example:</b></summary>
+<summary><b>Isolated worker process class-based example</b></summary>
 
 The following example shows the implementation of the `Counter` entity using classes and methods.
 
@@ -248,9 +190,71 @@ public class Counter : TaskEntity<int>
 
 </details>
 
+<br>
+
+<details>
+<summary><b>In-process function-based example</b></summary>
+
+This example shows a simple `Counter` entity implemented as a durable function. It defines three operations—`add`, `reset`, and `get`—that use an integer state.
+
+```csharp
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
+{
+    switch (ctx.OperationName.ToLowerInvariant())
+    {
+        case "add":
+            ctx.SetState(ctx.GetState<int>() + ctx.GetInput<int>());
+            break;
+        case "reset":
+            ctx.SetState(0);
+            break;
+        case "get":
+            ctx.Return(ctx.GetState<int>());
+            break;
+    }
+}
+```
+
+For more information, see [Function-based syntax](../durable-functions/durable-functions-dotnet-entities.md#function-based-syntax).
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process class-based example</b></summary>
+
+This example shows the same `Counter` entity implemented by using classes and methods.
+
+```csharp
+[JsonObject(MemberSerialization.OptIn)]
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+
+    public void Reset() => this.CurrentValue = 0;
+
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
+}
+```
+
+This entity stores state in a `Counter` object that holds the current counter value. Durable Functions serializes and deserializes this object by using the [Json.NET](https://www.newtonsoft.com/json) library.
+
+For more information, see [Defining entity classes](../durable-functions/durable-functions-dotnet-entities.md#define-entity-classes).
+
+</details>
+
 # [JavaScript](#tab/javascript)
 
-Durable entities are available in JavaScript in version `1.3.0` and later of the `durable-functions` npm package. This example shows the `Counter` entity implemented as a durable function in JavaScript.
+JavaScript supports durable entities starting with version `1.3.0` of the `durable-functions` npm package. This example shows the `Counter` entity implemented as a durable function in JavaScript.
 
 **Counter/function.json**
 
@@ -292,7 +296,7 @@ module.exports = df.entity(function(context) {
 
 # [Python](#tab/python)
 
-The following code is the `Counter` entity implemented as a durable function written in Python.
+The following code shows the `Counter` entity implemented as a durable function written in Python.
 
 ```python
 import azure.functions as func
@@ -315,11 +319,11 @@ def Counter(context):
 
 # [PowerShell](#tab/powershell)
 
-Entity functions aren't currently supported in PowerShell.
+PowerShell doesn't currently support entity functions.
 
 # [Java](#tab/java)
 
-Durable Functions for Java (from version 1.9.0) supports defining entities using a class-based syntax. You can extend the `AbstractTaskEntity<TState>` base class to define your entity.
+Starting with version 1.9.0, Durable Functions for Java supports defining entities by using a class-based syntax. You can extend the `AbstractTaskEntity<TState>` base class to define your entity. Use a compatible Functions host and storage provider with out-of-process entity support.
 
 The following example shows a `Counter` entity implemented as a durable function in Java.
 
@@ -369,6 +373,10 @@ public String counterEntity(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -377,7 +385,7 @@ public String counterEntity(
 
 # [C#](#tab/csharp)
 
-The Durable Task SDK for .NET supports defining entities using a class-based syntax. You can implement the `TaskEntity<TState>` base class to define your entity.
+The Durable Task SDK for .NET supports defining entities using a class-based syntax. Implement the `TaskEntity<TState>` base class to define your entity.
 
 The following example shows a `Counter` entity implemented using the Durable Task SDK:
 
@@ -427,7 +435,7 @@ public class EntityOrchestration : TaskOrchestrator<string, int>
 
 # [JavaScript](#tab/javascript)
 
-The Durable Task SDK for JavaScript/TypeScript supports defining entities using a class-based syntax. You can extend the `TaskEntity<TState>` base class to define your entity.
+The Durable Task SDK for JavaScript/TypeScript supports defining entities using a class-based syntax. Extend the `TaskEntity<TState>` base class to define your entity.
 
 The following example shows a `Counter` entity implemented using the Durable Task SDK:
 
@@ -500,7 +508,7 @@ with DurableTaskSchedulerWorker(
 
 # [PowerShell](#tab/powershell)
 
-PowerShell support for durable entities is not yet available. Check back for future updates.
+PowerShell support for durable entities isn't yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
@@ -564,6 +572,94 @@ return ctx -> {
 };
 ```
 
+# [Go](#tab/go)
+
+The Go SDK supports function-based entities. This counter reads existing state, handles an operation, and persists updates:
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func counter(ctx *task.EntityContext) (any, error) {
+	var value int
+	if ctx.HasState() {
+		if err := ctx.GetState(&value); err != nil {
+			return nil, err
+		}
+	}
+	switch ctx.Operation {
+	case "get":
+		return value, nil
+	case "add":
+		var amount int
+		if err := ctx.GetInput(&amount); err != nil {
+			return nil, err
+		}
+		value += amount
+	case "reset":
+		value = 0
+	case "delete":
+		ctx.DeleteState()
+		return nil, nil
+	default:
+		return nil, fmt.Errorf("unknown counter operation %q", ctx.Operation)
+	}
+	if err := ctx.SetState(value); err != nil {
+		return nil, err
+	}
+	return value, nil
+}
+```
+
+Save the following functions in another file in the same package. Call `registerCounter` on the worker's registry before creating the worker. Start `UseCounter` with a unique entity key as its string input.
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/api"
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func useCounter(ctx *task.OrchestrationContext) (any, error) {
+	var key string
+	if err := ctx.GetInput(&key); err != nil {
+		return nil, err
+	}
+	if key == "" {
+		return nil, fmt.Errorf("entity key must not be empty")
+	}
+	id := api.NewEntityID("Counter", key)
+	if err := ctx.SignalEntity(id, "add", task.WithSignalEntityInput(1)); err != nil {
+		return nil, err
+	}
+	var value int
+	if err := ctx.CallEntity(id, "get").Await(&value); err != nil {
+		return nil, err
+	}
+	return value, nil
+}
+
+func registerCounter(registry *task.TaskRegistry) error {
+	if err := registry.AddEntityN("Counter", counter); err != nil {
+		return err
+	}
+	return registry.AddOrchestratorN("UseCounter", useCounter)
+}
+```
+
+Signals don't return operation results. Calls wait for a result. Operations for one entity instance execute serially. For registration models, factories, and locked transfers, see the [Go SDK entity sample](https://github.com/microsoft/durabletask-go/tree/main/samples/entity).
+
+> [!WARNING]
+> Go and Python use a different multi-entity lock ordering from .NET. Don't concurrently acquire overlapping lock sets from Go/Python and .NET orchestrations.
+
 ---
 
 ::: zone-end
@@ -605,7 +701,7 @@ The following examples show how to access entities.
 
 ::: zone pivot="durable-functions"
 
-To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](../durable-functions/durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
+To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](../durable-functions/durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity by using this binding.
 
 # [C#](#tab/csharp)
 
@@ -673,7 +769,7 @@ async def http_set(req: func.HttpRequest, client):
 
 # [PowerShell](#tab/powershell)
 
-Entity functions aren't currently supported in PowerShell.
+PowerShell doesn't currently support entity functions.
 
 # [Java](#tab/java)
 
@@ -703,6 +799,10 @@ public HttpResponseMessage signalCounter(
         .build();
 }
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -740,7 +840,7 @@ client.signal_entity(entity_id, "add", 1)
 
 # [PowerShell](#tab/powershell)
 
-PowerShell support for durable entities is not yet available. Check back for future updates.
+PowerShell support for durable entities isn't yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
@@ -749,6 +849,10 @@ PowerShell support for durable entities is not yet available. Check back for fut
 EntityInstanceId counterId = new EntityInstanceId("Counter", "myCounter");
 client.getEntities().signalEntity(counterId, "add", 1);
 ```
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -831,7 +935,7 @@ async def http_read(req: func.HttpRequest, client):
 
 # [PowerShell](#tab/powershell)
 
-Entity functions aren't currently supported in PowerShell.
+PowerShell doesn't currently support entity functions.
 
 # [Java](#tab/java)
 
@@ -861,6 +965,10 @@ public HttpResponseMessage getCounter(
         .build();
 }
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -904,7 +1012,7 @@ if state is not None:
 
 # [PowerShell](#tab/powershell)
 
-PowerShell support for durable entities is not yet available. Check back for future updates.
+PowerShell support for durable entities isn't yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
@@ -918,11 +1026,15 @@ if (entityMetadata != null) {
 }
 ```
 
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
+
 ---
 
 ::: zone-end
 
-Entity state queries are sent to the durable tracking store and return the entity's most recently persisted state. This state is always a "committed" state, that is, it's never a temporary intermediate state assumed in the middle of executing an operation. But this state can be stale compared to the entity's in-memory state. Only orchestrations can read an entity's in-memory state, as described in the following section.
+Entity state queries go to the durable tracking store and return the entity's most recently persisted state. This state is always a "committed" state, so it's never a temporary intermediate state assumed in the middle of executing an operation. But this state can be stale compared to the entity's in-memory state. Only orchestrations can read an entity's in-memory state, as described in the following section.
 
 ### Example: orchestration signals and calls an entity
 
@@ -1000,7 +1112,7 @@ def orchestrator(context: df.DurableOrchestrationContext):
 
 # [PowerShell](#tab/powershell)
 
-Entity functions aren't currently supported in PowerShell.
+PowerShell doesn't currently support entity functions.
 
 # [Java](#tab/java)
 
@@ -1024,6 +1136,10 @@ public String counterOrchestration(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 Only orchestrations can call entities and get a response, which can be a return value or an exception. Client functions that use the [client binding](../durable-functions/durable-functions-bindings.md#entity-client) can only signal entities.
@@ -1032,7 +1148,7 @@ Only orchestrations can call entities and get a response, which can be a return 
 
 ::: zone pivot="durable-task-sdks"
 
-Orchestrators can access entities using the context's Entities API:
+Orchestrators can access entities by using the context's Entities API:
 
 # [C#](#tab/csharp)
 
@@ -1093,7 +1209,7 @@ def counter_orchestration(ctx: task.OrchestrationContext, entity_key: str):
 
 # [PowerShell](#tab/powershell)
 
-PowerShell support for durable entities is not yet available. Check back for future updates.
+PowerShell support for durable entities isn't yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
@@ -1112,6 +1228,10 @@ return ctx -> {
     ctx.complete(currentValue);
 };
 ```
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -1181,7 +1301,7 @@ case "add":
 
 # [PowerShell](#tab/powershell)
 
-Entity functions aren't currently supported in PowerShell.
+PowerShell doesn't currently support entity functions.
 
 # [Java](#tab/java)
 
@@ -1217,6 +1337,10 @@ public class AccountEntity extends AbstractTaskEntity<Integer> {
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -1227,12 +1351,16 @@ public class AccountEntity extends AbstractTaskEntity<Integer> {
 
 Sometimes you need to coordinate operations across multiple entities. For example, in a banking application, entities can represent individual bank accounts. When you transfer funds from one account to another, you need to make sure the source account has enough funds. You also need to update both accounts as one consistent operation.
 
-### Example: Transfer funds (C#)
+### Example: Transfer funds
 
-The following example code transfers funds between two account entities by using an orchestrator function. To coordinate entity updates, use the `LockAsync` method to create a _critical section_ in the orchestration.
+The following example code transfers funds between two account entities by using an orchestrator function. To coordinate entity updates, use a lock to create a _critical section_ in the orchestration.
 
 > [!NOTE]
 > For simplicity, this example reuses the `Counter` entity defined previously. In a real application, it's better to define a more detailed `BankAccount` entity.
+
+# [C#](#tab/csharp)
+
+Use the `LockAsync` method to create the critical section.
 
 ```csharp
 // This is a method called by an orchestrator function
@@ -1276,12 +1404,75 @@ public static async Task<bool> TransferFundsAsync(
 
 In .NET, `LockAsync` returns `IDisposable`. Disposing it ends the critical section. Use it with a `using` block to represent the critical section.
 
-In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `LockAsync` method locked both the source and destination account entities. This locking ensured that no other client could query or modify the state of either account until the orchestration logic exited the critical section at the end of the `using` statement. This behavior prevents overdrafts on the source account.
+In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `LockAsync` method locks both the source and destination account entities. This locking ensures that no other client can query or modify the state of either account until the orchestration logic exits the critical section at the end of the `using` statement. This behavior prevents overdrafts on the source account.
+
+# [JavaScript](#tab/javascript)
+
+Use the `context.df.lock` method to create the critical section.
+
+```javascript
+const df = require("durable-functions");
+
+// This is an orchestrator function
+module.exports = df.orchestrator(function* (context) {
+    const { sourceId, destinationId, transferAmount } = context.df.getInput();
+    const sourceEntity = new df.EntityId("Counter", sourceId);
+    const destinationEntity = new df.EntityId("Counter", destinationId);
+
+    // Create a critical section to avoid race conditions.
+    // No operations can be performed on either the source or
+    // destination accounts until the lock is released.
+    const lock = yield context.df.lock(sourceEntity, destinationEntity);
+    try {
+        const sourceBalance = yield context.df.callEntity(sourceEntity, "get");
+
+        if (sourceBalance >= transferAmount) {
+            yield context.df.callEntity(sourceEntity, "add", -transferAmount);
+            yield context.df.callEntity(destinationEntity, "add", transferAmount);
+
+            // the transfer succeeded
+            return true;
+        } else {
+            // the transfer failed due to insufficient funds
+            return false;
+        }
+    } finally {
+        lock.release();
+    }
+});
+```
+
+In JavaScript, `context.df.lock` returns a `DurableLock`. Call `release` on it to end the critical section, or let the runtime release the lock automatically when the orchestration ends.
+
+In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `lock` method locks both the source and destination account entities. This locking ensures that no other client can query or modify the state of either account until the orchestration logic releases the lock. This behavior prevents overdrafts on the source account.
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Python doesn't currently support critical sections.
+
+# [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> PowerShell doesn't currently support critical sections.
+
+# [Java](#tab/java)
+
+> [!NOTE]
+> Acquire entity locks with `ctx.getEntities().lockEntities(...)`. Await the durable task to acquire the locks, and close the returned `AutoCloseable` to release them. Entity critical sections require out-of-process entity support in both the Functions host and storage provider.
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
+---
 
 > [!NOTE]
 > When an orchestration ends, either normally or with an error, any critical sections in progress end implicitly, and the system releases all locks.
 
 ### Critical section behavior
+
+# [C#](#tab/csharp)
 
 The `LockAsync` method creates a critical section in an orchestration. These critical sections prevent other orchestrations from making overlapping changes to a specified set of entities. Internally, the `LockAsync` API sends "lock" operations to the entities and returns after it receives a "lock acquired" response from each entity. Both lock and unlock are built-in operations supported by all entities.
 
@@ -1294,17 +1485,95 @@ Locks on entities are durable, so they persist even if the executing process is 
 
 Unlike transactions, critical sections don't automatically roll back changes when errors occur. Instead, write error handling, such as rollback or retry, for example by catching errors or exceptions. This design choice is intentional. Automatically rolling back all the effects of an orchestration is difficult or impossible in general, because orchestrations might run activities and make calls to external services that can't be rolled back. Also, attempts to roll back might themselves fail and require further error handling.
 
+# [JavaScript](#tab/javascript)
+
+The `context.df.lock` method creates a critical section in an orchestration. These critical sections prevent other orchestrations from making overlapping changes to a specified set of entities. Internally, the `lock` API sends "lock" operations to the entities and returns a `DurableLock` after it receives a "lock acquired" response from each entity. Both lock and unlock are built-in operations supported by all entities.
+
+> [!NOTE]
+> The `context.df.lock` API requires version `3.4.0` or later of the `durable-functions` npm package and version `3.13.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension. [Update the SDK and extension or bundle](../durable-functions/durable-functions-extension-upgrade.md) together. If your supported bundle doesn't include the required extension version, [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version).
+>
+> [See when version releases are available for the extension bundle.](https://github.com/Azure/azure-functions-extension-bundles/releases) 
+
+To end the critical section, call `release` on the returned `DurableLock`, or let the runtime release the lock automatically when the orchestration ends. Releasing the lock as soon as the critical work finishes lets other orchestrations acquire it sooner. Use `context.df.isLocked` to check whether a lock is currently held.
+
+```javascript
+const lock = yield context.df.lock(sourceEntity, destinationEntity);
+try {
+    yield context.df.callEntity(sourceEntity, "add", -amount);
+    yield context.df.callEntity(destinationEntity, "add", amount);
+} finally {
+    lock.release();
+}
+```
+
+Other clients can't run operations on an entity while it's locked. This behavior ensures that only one orchestration instance can lock an entity at a time. If a caller tries to invoke an operation on an entity while it's locked by an orchestration, that operation is placed in a pending operation queue. No pending operations are processed until after the holding orchestration releases its lock.
+
+> [!NOTE]
+> This behavior is slightly different from synchronization primitives used in most programming languages. Entities don't require all callers to explicitly acquire a lock. If any caller locks an entity, all other operations on that entity are blocked and queued behind that lock.
+
+Locks on entities are durable, so they persist even if the executing process is recycled. The system persists locks as part of an entity's durable state.
+
+Unlike transactions, critical sections don't automatically roll back changes when errors occur. Instead, write error handling, such as rollback or retry, for example by catching errors. This design choice is intentional. Automatically rolling back all the effects of an orchestration is difficult or impossible in general, because orchestrations might run activities and make calls to external services that can't be rolled back. Also, attempts to roll back might themselves fail and require further error handling.
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Python doesn't currently support critical sections.
+
+# [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> Critical sections aren't currently supported in PowerShell.
+
+# [Java](#tab/java)
+
+> [!NOTE]
+> Critical sections don't automatically roll back entity changes when an operation fails; implement application-specific error handling.
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
+---
+
 ### Critical section rules
 
-Unlike low-level locking primitives in most programming languages, critical sections are *guaranteed not to deadlock*. To prevent deadlocks, we enforce the following restrictions:
+Unlike low-level locking primitives in most programming languages, critical sections *guarantee no deadlock*. To prevent deadlocks, the system enforces the following restrictions:
 
-* Critical sections can't be nested.
-* Critical sections can't create suborchestrations.
-* Critical sections can call only the entities they lock.
-* Critical sections can't call the same entity using multiple parallel calls.
-* Critical sections can signal only entities outside the lock set.
+* You can't nest critical sections.
+* You can't create suborchestrations in critical sections.
+* You can only call the entities that you lock in critical sections.
+* You can't call the same entity by using multiple parallel calls in critical sections.
+* You can only signal entities outside the lock set in critical sections.
 
-Any violations of these rules cause a runtime error, such as `LockingRulesViolationException` in .NET, which includes a message that explains what rule was broken.
+# [C#](#tab/csharp)
+
+If you violate any of these rules, the runtime throws an error, such as `LockingRulesViolationException` in .NET. The error message explains what rule was broken.
+
+# [JavaScript](#tab/javascript)
+
+If you violate any of these rules, the runtime throws an error. The error message explains what rule was broken.
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Python doesn't currently support critical sections.
+
+# [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> Critical sections aren't currently supported in PowerShell.
+
+# [Java](#tab/java)
+
+> [!NOTE]
+> Use `ctx.getEntities().isInCriticalSection()` to check whether the orchestration holds locks. The critical section rules in this section also apply to Java.
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
+---
 
 ::: zone-end
 

@@ -1,8 +1,8 @@
 ---
 title: How to create nested Azure IoT Edge device hierarchies
 description: How to create a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
@@ -116,7 +116,7 @@ For example, these commands create a root CA certificate, a parent device certif
     ```bash
     # !!! For test only - do not use in production !!!
     
-    # Create the the root CA test certificate
+    # Create the root CA test certificate
     ./certGen.sh create_root_and_intermediate
     
     # Create the parent (gateway) device test certificate 

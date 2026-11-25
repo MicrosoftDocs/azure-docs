@@ -6,8 +6,8 @@ ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
 manager: pmwongera
-ms.author: rolyon
-ms.date: 07/01/2026
+ms.author: diberry
+ms.date: 10/29/2026
 ms.custom: generated
 ---
 
@@ -2064,6 +2064,7 @@ Role allows user or principal to perform bulk operations
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/import/action | Import FHIR resources in batch. |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/hardDelete/action | Hard Delete (including version history). |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/bulkOperator/action | Allows user to perform bulk operations |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/editProfileDefinitions/action | Allows user to perform Create Update Delete operations on profile resources. |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/write | Write FHIR resources (includes create and update). |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/delete | Delete FHIR resources (soft delete). |
@@ -2072,6 +2073,7 @@ Role allows user or principal to perform bulk operations
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/import/action | Import FHIR resources in batch. |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/hardDelete/action | Hard Delete (including version history). |
 > | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/bulkOperator/action | Allows user to perform bulk operations |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/editProfileDefinitions/action | Allows user to perform Create Update Delete operations on profile resources. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -2096,6 +2098,7 @@ Role allows user or principal to perform bulk operations
         "Microsoft.HealthcareApis/services/fhir/resources/import/action",
         "Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action",
         "Microsoft.HealthcareApis/services/fhir/resources/bulkOperator/action",
+        "Microsoft.HealthcareApis/services/fhir/resources/editProfileDefinitions/action",
         "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
         "Microsoft.HealthcareApis/workspaces/fhirservices/resources/write",
         "Microsoft.HealthcareApis/workspaces/fhirservices/resources/delete",
@@ -2103,7 +2106,8 @@ Role allows user or principal to perform bulk operations
         "Microsoft.HealthcareApis/workspaces/fhirservices/resources/reindex/action",
         "Microsoft.HealthcareApis/workspaces/fhirservices/resources/import/action",
         "Microsoft.HealthcareApis/workspaces/fhirservices/resources/hardDelete/action",
-        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/bulkOperator/action"
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/bulkOperator/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/editProfileDefinitions/action"
       ],
       "notDataActions": []
     }
@@ -2764,7 +2768,7 @@ Lets you read, enable, and disable logic apps, but not edit or update them.
 }
 ```
 
-## Logic Apps Standard Contributor (Preview)
+## Logic Apps Standard Contributor
 
 You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership.
 
@@ -2823,13 +2827,13 @@ You can manage all aspects of a Standard logic app and workflows. You can't chan
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Contributor (Preview)",
+  "roleName": "Logic Apps Standard Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Logic Apps Standard Developer (Preview)
+## Logic Apps Standard Developer
 
 You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope.
 
@@ -2912,13 +2916,13 @@ You can create and edit workflows, connections, and settings for a Standard logi
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Developer (Preview)",
+  "roleName": "Logic Apps Standard Developer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Logic Apps Standard Operator (Preview)
+## Logic Apps Standard Operator
 
 You can enable and disable the logic app, resubmit workflow runs, as well as create connections. You can't edit workflows or settings.
 
@@ -2993,13 +2997,13 @@ You can enable and disable the logic app, resubmit workflow runs, as well as cre
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Operator (Preview)",
+  "roleName": "Logic Apps Standard Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Logic Apps Standard Reader (Preview)
+## Logic Apps Standard Reader
 
 You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history.
 
@@ -3046,7 +3050,7 @@ You have read-only access to all resources in a Standard logic app and workflows
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Reader (Preview)",
+  "roleName": "Logic Apps Standard Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

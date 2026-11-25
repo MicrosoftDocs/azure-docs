@@ -18,8 +18,6 @@ The Flex Consumption plan currently supports these update strategies:
 - **Recreate**: Restarts all running instances after updating your app with the latest changes. This approach might cause brief downtime while instances are recycled and preserves the default behavior from other Azure Functions hosting plans.
 - **Rolling update**: Provides zero-downtime deployments by draining and replacing instances in batches. In-progress executions complete naturally without forced termination.
 
-[!INCLUDE [functions-flex-rolling-updates-preview-note](../../includes/functions-flex-rolling-updates-preview-note.md)]
-
 ## Strategy comparison
 
 This table compares the two site update strategies:

@@ -648,7 +648,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-[!INCLUDE [functions-azure-signalr-authorization-note](../../includes/functions-azure-signalr-authorization-note.md)] 
+[!INCLUDE [functions-signalr-connections](../../includes/functions-signalr-connections.md)] 
 
 ## Next steps
 

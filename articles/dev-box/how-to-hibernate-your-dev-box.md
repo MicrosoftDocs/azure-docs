@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - build-2025
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 03/20/2025
 ms.topic: how-to
 #Customer intent: As a developer, I want to be able to hibernate my dev boxes so that I can resume work where I left off.

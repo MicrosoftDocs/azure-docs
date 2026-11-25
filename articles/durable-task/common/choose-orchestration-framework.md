@@ -4,7 +4,7 @@ description: Learn how to choose between Durable Functions and the standalone Du
 author: cgillum
 ms.author: cgillum
 ms.reviewer: hannahhunter
-ms.date: 05/04/2026
+ms.date: 10/12/2026
 ms.topic: concept-article
 ms.service: durable-task
 titleSuffix: Durable Task
@@ -51,7 +51,7 @@ The following table summarizes the key differences between the two hosting model
 | **Scaling** | Automatic, managed by the Azure Functions managed scale infrastructure | You manage scaling yourself, or use platform-native autoscaling (for example, [KEDA](https://keda.sh/) on Kubernetes) |
 | **Triggers** | Built-in support for HTTP, Queue, Timer, Event Grid, and [other Azure Functions triggers](../../azure-functions/functions-triggers-bindings.md) | You define your own entry points (for example, HTTP endpoints, message consumers, etc.) |
 | **State storage** | [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) (recommended), [Azure Storage](../durable-functions/durable-functions-azure-storage-provider.md), [MSSQL](durable-task-storage-providers.md#mssql), [Netherite](durable-task-storage-providers.md#netherite) | [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) |
-| **Languages** | .NET (C#/F#), JavaScript/TypeScript, Python, Java, PowerShell | .NET (C#/F#), JavaScript/TypeScript, Python, Java |
+| **Languages** | .NET (C#/F#), JavaScript/TypeScript, Python, Java, PowerShell | .NET (C#/F#), JavaScript/TypeScript, Python, Java, [Go (beta)](../sdks/durable-task-go.md) |
 | **Monitoring** | Built-in integration with Azure portal, Application Insights | You set up your own monitoring solution (for example, Azure Monitor, Prometheus, or Grafana) |
 
 > [!NOTE]

@@ -2,7 +2,7 @@
 title: Azure Web Application Firewall (WAF) Geomatch Custom Rules
 description: This article is an overview of Web Application Firewall (WAF) geomatch custom rules on Azure Application Gateway.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 06/30/2026
@@ -12,7 +12,7 @@ ms.date: 06/30/2026
 
 # Geomatch custom rules
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 Custom rules let you create tailored rules to suit the exact needs of your applications and security policies. You can now restrict access to your web applications by country or region. As with all custom rules, you can combine this logic with other rules to suit the needs of your application.
 

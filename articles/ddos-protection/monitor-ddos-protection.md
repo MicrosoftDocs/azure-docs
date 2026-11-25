@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure DDoS Protection
 description: Learn how to monitor Azure DDoS Protection using Azure Monitor, including data collection, analysis, and alerting.
-ms.date: 03/17/2026
+ms.date: 10/21/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: duongau
@@ -28,13 +28,25 @@ This table describes how you can collect data to monitor your service, and what 
 
 ## Built in monitoring for Azure DDoS Protection
 
-Azure DDoS Protection offers in-depth insights and visualizations of attack patterns through DDoS Attack Analytics. It provides customers with comprehensive visibility into attack traffic and mitigation actions via reports and flow logs. During a DDoS attack, detailed metrics are available through Azure Monitor, which also allows alert configurations based on these metrics.
+Azure DDoS Protection provides visibility into attack traffic and mitigation actions through metrics, reports, and flow logs. For eligible protected public IP addresses, peacetime telemetry also makes DDoS metrics available during normal operation, when mitigation isn't active.
 
-You can view and configure Azure DDoS protection telemetry.
+> [!NOTE]
+> Upcoming changes to the diagnostic log schema (starting ~mid-August 2026) retire `DDoSMitigationReports` and add new fields to `DDoSMitigationFlowLogs`. For the full migration guidance, see [DDoS Mitigation Reports](ddos-view-diagnostic-logs.md#ddos-mitigation-reports).
 
-Telemetry for an attack is provided through Azure Monitor in real time. While [mitigation triggers](#view-ddos-mitigation-policies) for TCP SYN, TCP & UDP are available during peace-time, other telemetry is available only when a public IP address has been under mitigation.
+Use Azure Monitor to view metrics, compare traffic patterns, and configure alerts. Peacetime metric availability doesn't change when mitigation flow logs, reports, or protection notifications are generated.
 
-You can view DDoS telemetry for a protected public IP address through three different resource types: DDoS protection plan, virtual network, and public IP address.
+### Peacetime telemetry availability (preview)
+
+Peacetime telemetry extends the availability of the existing DDoS-specific metrics to normal operation for eligible protected public IP addresses. This scope includes incoming, forwarded, and dropped traffic, mitigation triggers, and attack status. Traffic metrics can contain data while **Under DDoS attack or not** reports **0**. The mitigation-trigger metrics already support peacetime monitoring.
+
+Peacetime telemetry supports the same [resource types as Azure DDoS Protection](ddos-protection-reference-architectures.md#protected-resources). It is enabled automatically for supported resources protected by either DDoS Network Protection or DDoS IP Protection.
+
+> [!IMPORTANT]
+> Peacetime telemetry is in public preview. Use a protected public IP address that's eligible for the feature. Protection alone doesn't establish preview availability for every region, cloud, or IP version. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for applicable terms.
+
+Peacetime telemetry uses the existing metric names and monitoring interfaces. It doesn't change the underlying protection or mitigation-policy behavior. For metric definitions and supported aggregations, see the [monitoring data reference](monitor-ddos-protection-reference.md#supported-metrics-for-microsoftnetworkpublicipaddresses).
+
+You can open the monitoring experience from a DDoS protection plan, virtual network, or public IP address. Confirm that the metric scope identifies the intended protected public IP address.
 
 Logging can be further integrated with [Microsoft Sentinel](/azure/sentinel/data-connectors-reference#azure-ddos-protection), Splunk (Azure Event Hubs), OMS Log Analytics, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
@@ -90,18 +102,37 @@ You can see the policy limits within your public IP address metrics by choosing 
 
 ### View peace time traffic telemetry
 
-It's important to keep an eye on the metrics for TCP SYN, UDP, and TCP detection triggers. These metrics help you know when DDoS protection starts. Make sure these triggers reflect the normal traffic levels when there's no attack. 
+Use peacetime telemetry to understand normal TCP, UDP, SYN, and aggregate traffic patterns without waiting for an attack. You need an eligible protected public IP address and permission to read its metrics. A Log Analytics workspace or diagnostic setting isn't required to view platform metrics.
 
-You can make a chart for the public IP address resource. In this chart, include the Packet Count and SYN Count metrics. The Packet count includes both TCP and UDP Packets. This shows you the sum of traffic. 
+1. In the [Azure portal](https://portal.azure.com/), open **Public IP addresses** and select the protected public IP address.
+1. Under **Monitoring**, select **Metrics**. Confirm that **Scope** identifies the intended public IP address.
+1. Select a recent time range, such as the last hour. Set **Time granularity** to **1 minute** and apply the settings.
+1. Add **Inbound TCP packets DDoS** with **Max** aggregation.
+1. Add **Inbound UDP packets DDoS** and **Inbound SYN packets DDoS**, also with **Max** aggregation.
+1. Add a separate chart for **Under DDoS attack or not**, using the same public IP address, time range, granularity, and **Max** aggregation.
+1. Compare traffic and attack status. During normal operation, traffic metrics can contain data while the attack-status metric reports **0**.
 
-:::image type="content" source="./media/manage-ddos-protection/ddos-baseline-metrics.png" alt-text="Screenshot of viewing peace time telemetry." lightbox="./media/manage-ddos-protection/ddos-baseline-metrics.png":::
+For aggregate traffic, use **Inbound packets DDoS** or **Inbound bytes DDoS**. Add the corresponding forwarded and dropped metrics when investigating filtering. Keep packet rates, byte rates, and attack status on separate charts.
+
+For traffic that isn't TCP or UDP, use the existing **Inbound other packets DDoS** and **Inbound other bytes DDoS** metrics.
 
 > [!NOTE]
-> To make a fair comparison, you need to convert the data to packets-per-second. You can do this conversion by dividing the number you see by 60, as the data represents the number of packets, bytes, or SYN packets collected over 60 seconds. For example, if you have 91,000 packets collected over 60 seconds, divide 91,000 by 60 to get approximately 1,500 packets-per-second (pps).
+> DDoS traffic metrics already report bytes per second or packets per second. Don't divide these rates by 60. General public-IP metrics such as **Packet Count**, **SYN Count**, and **Byte Count** are separate measurements with different units and aggregations.
+
+A reported attack-status value of **0** means no attack was reported for that measurement; **1** means an attack was reported. With **Max**, a displayed **1** means at least one reported value in that chart interval was **1**, not necessarily that an attack is still active when you view the chart.
+
+Missing data isn't the same as zero. If no data points appear, check protection and feature eligibility, public-IP scope, permissions, the selected time range, and reporting delay. Don't generate an attack to make metrics appear. For interpretation and timing guidance, see [Interpret DDoS metrics](monitor-ddos-protection-reference.md#interpret-ddos-metrics).
 
 ### Validate and test
 
-To simulate a DDoS attack to validate DDoS protection telemetry, see [Validate DDoS detection](test-through-simulations.md).
+Validate peacetime visibility with ordinary application traffic:
+
+1. Select an eligible protected test resource that's receiving ordinary application traffic.
+1. Follow the [peacetime viewing procedure](#view-peace-time-traffic-telemetry) and allow for reporting delay.
+1. Confirm that relevant traffic metrics contain data and that **Under DDoS attack or not** reports **0** for the test period.
+1. Investigate missing values by checking feature eligibility, scope, permissions, the time range, and reporting delay.
+
+This test validates metric visibility, not mitigation effectiveness or application health. Attack and mitigation validation are separate activities. Follow the approved [DDoS simulation-testing process](test-through-simulations.md) for those tests.
 
 [!INCLUDE [azmon-horz-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-tools.md)]
 

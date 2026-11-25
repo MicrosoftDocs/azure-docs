@@ -1,25 +1,27 @@
 ---
-title: Questions about assessments in Azure Migrate
-description: Get answers to common questions about assessments in Azure Migrate.
+title: Questions about Assessments in Azure Catalyst
+description: Get answers to common questions about assessments in Azure Catalyst.
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 05/08/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.custom: engagement-fy25
 ms.update-cycle: 365-days
-# Customer intent: As a cloud migration planner, I want to find detailed answers to common questions regarding assessments in Azure Migrate, so that I can effectively evaluate and prepare my on-premises servers for migration to Azure environments.
+# Customer intent: As a cloud migration planner, I want to find detailed answers to common questions regarding assessments in Azure Catalyst, so that I can effectively evaluate and prepare my on-premises servers for migration to Azure environments.
 ---
 
 # Assessment - Common questions
 
-This article answers common questions about assessments in Azure Migrate. If you have other questions, check these resources:
+This article answers common questions about assessments in Azure Catalyst. If you have other questions, check these resources:
 
-- [General questions](resources-faq.md) about Azure Migrate
-- Questions about the [Azure Migrate appliance](common-questions-appliance.md)
+- [General questions](resources-faq.md) about Azure Catalyst
+- Questions about the [Azure Catalyst appliance](common-questions-appliance.md)
 - Questions about [Migration and modernization](common-questions-server-migration.md)
-- Get questions answered in the [Azure Migrate forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate)
+- Get questions answered in the [Azure Catalyst forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate)
 
-## What geographies are supported for discovery and assessment with Azure Migrate?
+<a name="what-geographies-are-supported-for-discovery-and-assessment-with-azure-migrate"></a>
+
+## What geographies are supported for discovery and assessment with Azure Catalyst?
 
 Review the supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
@@ -33,11 +35,11 @@ You can discover up to 10,000 servers from VMware environment, up to 5,000 serve
 - Use assessment type **Azure SQL** when you want to assess your on-premises SQL Server in your VMware, Microsoft Hyper-V, and Physical/Bare metal environments as well as IaaS Servers of other public clouds such as AWS, GCP, etc. for migration to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance. [Learn More](concepts-azure-sql-assessment-calculation.md).
 - Use assessment type **Azure App Service** when you want to assess your on-premises ASP.NET web apps running on IIS web server from your VMware environment for migration to Azure App Service. [Learn More](concepts-assessment-calculation.md).
 - Use **Azure VMware Solution (AVS)** assessments when you want to assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
-- You can use a common group with VMware machines only to run both types of assessments. If you're running AVS assessments in Azure Migrate for the first time, it's advisable to create a new group of VMware machines.
+- You can use a common group with VMware machines only to run both types of assessments. If you're running AVS assessments in Azure Catalyst for the first time, it's advisable to create a new group of VMware machines.
 
 ## Why is performance data missing for some/all servers in my Azure VM and/or AVS assessment report?
 
-For "Performance-based" assessment, the assessment report export says "PercentageOfCoresUtilizedMissing" or "PercentageOfMemoryUtilizedMissing" when the Azure Migrate appliance can't collect performance data for the on-premises servers. You can check the *Resolve issues* tab on the Azure Migrate hub page for detailed issues or check the following manually:
+For "Performance-based" assessment, the assessment report export says "PercentageOfCoresUtilizedMissing" or "PercentageOfMemoryUtilizedMissing" when the Azure Catalyst appliance can't collect performance data for the on-premises servers. You can check the *Resolve issues* tab on the Azure Catalyst hub page for detailed issues or check the following manually:
 
 - If the servers are powered on for the duration for which you're creating the assessment
 - If only memory counters are missing and you're trying to assess servers in Hyper-V environment. In this scenario, enable dynamic memory on the servers and 'Recalculate' the assessment to reflect the latest changes. The appliance can collect memory utilization values for severs in Hyper-V environment only when the server has dynamic memory enabled.
@@ -45,13 +47,13 @@ For "Performance-based" assessment, the assessment report export says "Percentag
 - If all the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
     > [!Note]
-    > If any of the performance counters are missing, Azure Migrate: Server Assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
+    > If any of the performance counters are missing, Azure Catalyst: Server Assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
 
 ## How can I understand details of errors causing performance data collection issues?
 
 You can now understand what errors you need to remediate to resolve performance data collection issues in Azure VM and Azure VMware Solution assessments. Follow these steps:
 
-- Go to Azure Migrate > **Servers, databases and web apps** > **Migration goals**, select **Resolve issues** on the Discovery and assessment tool.
+- Go to Azure Catalyst > **Servers, databases and web apps** > **Migration goals**, select **Resolve issues** on the Discovery and assessment tool.
 - Select **Affected objects** next to the assessment and select the link in the error ID column to review the error details and remediation actions.
 
 You can also review these errors/issues while creating the assessment in the **Select servers to assess** step or in the readiness tab of an existing assessment. If you don't see any errors/issues in the assessment but see non-zero errors in the Resolve issues tab, recalculate the assessment to see the issues within the Assessment tab. 
@@ -61,8 +63,8 @@ You can also review these errors/issues while creating the assessment in the **S
 To ensure performance data is collected, check:
 
 - If the SQL Servers are powered on for the duration for which you're creating the assessment.
-- If the connection status of the SQL agent in Azure Migrate is "Connected", and check the last heartbeat. 
-- If Azure Migrate connection status for all SQL instances is "Connected" in the discovered SQL instance section.
+- If the connection status of the SQL agent in Azure Catalyst is "Connected", and check the last heartbeat. 
+- If Azure Catalyst connection status for all SQL instances is "Connected" in the discovered SQL instance section.
 - If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
 If any of the performance counters are missing, Azure SQL assessment falls back to As on-premises sizing and recommends an Azure SQL configuration based on the allocated cores, memory, and total database size on-premises.
@@ -80,8 +82,8 @@ The performance coverage is calculated for **Performance-based** assessments bas
     - Servers are powered on for the duration of the assessment
     - Outbound connections on ports 443 are allowed
     - For Hyper-V Servers, dynamic memory is enabled
-    - The connection status of agents in Azure Migrate are 'Connected' and check the last heartbeat
-    - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is **Connected** in the discovered SQL instance section.
+    - The connection status of agents in Azure Catalyst are 'Connected' and check the last heartbeat
+    - For Azure SQL assessments, Azure Catalyst connection status for all SQL instances is **Connected** in the discovered SQL instance section.
 
     **Recalculate** the assessment to reflect the latest changes in confidence rating.
 
@@ -130,13 +132,13 @@ Discovery and assessment of .NET web apps running in your VMware environment is 
 
 - Azure SQL assessment can only be done on servers running where SQL instances were discovered. If you don't see the servers and SQL instances that you wish to assess, wait for some time for the discovery, and then create the assessment.
 - If you're not able to see a previously created group while creating the assessment, remove any server without a SQL instance from the group.
-- If you're running Azure SQL assessments in Azure Migrate for the first time, it's advisable to create a new group of servers.
+- If you're running Azure SQL assessments in Azure Catalyst for the first time, it's advisable to create a new group of servers.
 
 ## I can't see some servers when I'm creating an Azure App Service assessment
 
 - Azure App Service assessment can only be done on servers running where web server role was discovered. If you don't see the servers that you wish to assess, wait for some time for the discovery to get completed, and then create the assessment.
 - If you're not able to see a previously created group while creating the assessment, remove any non-VMware server or any server without a web app from the group.
-- If you're running Azure App Service assessments in Azure Migrate for the first time, it's advisable to create a new group of servers.
+- If you're running Azure App Service assessments in Azure Catalyst for the first time, it's advisable to create a new group of servers.
 
 ## I want to understand how was the readiness for my instance computed?
 
@@ -194,7 +196,7 @@ If there are changes to on-premises SQL instances and databases that are in a gr
 
 ## Why was I recommended a particular target deployment type?
 
-Azure Migrate recommends a specific Azure SQL deployment type that is compatible with your SQL instance. Migrating to a Microsoft recommended target reduces your overall migration effort. This Azure SQL configuration (SKU) has been recommended after considering the performance characteristics of your SQL instance and the databases it manages. If multiple Azure SQL configurations are eligible, we recommend the one, which is the most cost effective. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment).
+Azure Catalyst recommends a specific Azure SQL deployment type that is compatible with your SQL instance. Migrating to a Microsoft recommended target reduces your overall migration effort. This Azure SQL configuration (SKU) has been recommended after considering the performance characteristics of your SQL instance and the databases it manages. If multiple Azure SQL configurations are eligible, we recommend the one, which is the most cost effective. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment).
 
 ## What deployment target should I choose if my SQL instance is ready for Azure SQL DB and Azure SQL MI?
 
@@ -215,13 +217,15 @@ For Azure SQL Managed Instance, there's no storage cost added for the first 32 G
 ## I can't see some groups when I'm creating an Azure VMware Solution (AVS) assessment
 
 - AVS assessment can be done on groups that have only VMware machines. Remove any non-VMware machine from the group if you intend to perform an AVS assessment.
-- If you're running AVS assessments in Azure Migrate for the first time, it's advisable to create a new group of VMware machines.
+- If you're running AVS assessments in Azure Catalyst for the first time, it's advisable to create a new group of VMware machines.
 
 ## Queries regarding Ultra Disks
 
-### Can I migrate my disks to Ultra Disk using Azure Migrate?
+<a name="can-i-migrate-my-disks-to-ultra-disk-using-azure-migrate"></a>
 
-No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra Disks. Find steps to deploy Ultra Disk [here](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
+### Can I migrate my disks to Ultra Disk using Azure Catalyst?
+
+No. Currently, both Azure Catalyst and Azure Site Recovery don't support migration to Ultra Disks. Find steps to deploy Ultra Disk [here](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk)
 
 ### Why are the provisioned IOPS and throughput in my Ultra Disk more than my on-premises IOPS and throughput?
 
@@ -245,20 +249,20 @@ VM types and sizes supported for assessment and migration depend on availability
 
 ## The size of my server changed. Can I run an assessment again?
 
-The Azure Migrate appliance continuously collects information about the on-premises environment.  An assessment is a point-in-time snapshot of on-premises servers. If you change the settings on a server that you want to assess, use the recalculate option to update the assessment with the latest changes.
+The Azure Catalyst appliance continuously collects information about the on-premises environment.  An assessment is a point-in-time snapshot of on-premises servers. If you change the settings on a server that you want to assess, use the recalculate option to update the assessment with the latest changes.
 
 ## How do I discover servers in a multitenant environment?
 
-- **VMware**: If an environment is shared across tenants and you don't want to discover a tenant's servers in another tenant's subscription, create VMware vCenter Server credentials that can access only the servers you want to discover. Then, use those credentials when you start discovery in the Azure Migrate appliance.
+- **VMware**: If an environment is shared across tenants and you don't want to discover a tenant's servers in another tenant's subscription, create VMware vCenter Server credentials that can access only the servers you want to discover. Then, use those credentials when you start discovery in the Azure Catalyst appliance.
 - **Hyper-V**: Discovery uses Hyper-V host credentials. If servers share the same Hyper-V host, there's currently no way to separate the discovery.  
 
 ## Do I need vCenter Server?
 
-Yes, Azure Migrate requires vCenter Server in a VMware environment to perform discovery. Azure Migrate doesn't support discovery of ESXi hosts that aren't managed by vCenter Server.
+Yes, Azure Catalyst requires vCenter Server in a VMware environment to perform discovery. Azure Catalyst doesn't support discovery of ESXi hosts that aren't managed by vCenter Server.
 
 ## What are the sizing options in an Azure VM assessment?
 
-With as-on-premises sizing, Azure Migrate doesn't consider server performance data for assessment. Azure Migrate assesses VM sizes based on the on-premises configuration. With performance-based sizing, sizing is based on utilization data.
+With as-on-premises sizing, Azure Catalyst doesn't consider server performance data for assessment. Azure Catalyst assesses VM sizes based on the on-premises configuration. With performance-based sizing, sizing is based on utilization data.
 
 For example, if an on-premises server has 4 cores and 8 GB of memory at 50% CPU utilization and 50% memory utilization:
 
@@ -267,8 +271,8 @@ For example, if an on-premises server has 4 cores and 8 GB of memory at 50% CPU 
 
 Similarly, disk sizing depends on sizing criteria and storage type:
 
-- If the sizing criteria are "performance-based" and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard, Premium, or Ultra Disk).
-- If the sizing criteria are "as on premises" and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard, Premium, or Ultra Disk.
+- If the sizing criteria are "performance-based" and the storage type is automatic, Azure Catalyst takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard, Premium, or Ultra Disk).
+- If the sizing criteria are "as on premises" and the storage type is Premium, Azure Catalyst recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard, Premium, or Ultra Disk.
 
 ## Does performance history and utilization affect sizing in an Azure VM assessment?
 
@@ -276,7 +280,7 @@ Yes, performance history and utilization affect sizing in an Azure VM assessment
 
 ### Performance history
 
-For performance-based sizing only, Azure Migrate collects the performance history of on-premises machines, and then uses it to recommend the VM size and disk type in Azure:
+For performance-based sizing only, Azure Catalyst collects the performance history of on-premises machines, and then uses it to recommend the VM size and disk type in Azure:
 
 1. The appliance continuously profiles the on-premises environment to gather real-time utilization data every 20 seconds.
 2. The appliance rolls up the collected 20-second samples and uses them to create a single data point every 15 minutes.
@@ -285,15 +289,15 @@ For performance-based sizing only, Azure Migrate collects the performance histor
 
 ### Utilization
 
-When you create an assessment in Azure, depending on performance duration and the performance history percentile value that is set, Azure Migrate calculates the effective utilization value, and then uses it for sizing.
+When you create an assessment in Azure, depending on performance duration and the performance history percentile value that is set, Azure Catalyst calculates the effective utilization value, and then uses it for sizing.
 
-For example, if you set the performance duration to one day and the percentile value to 95th percentile, Azure Migrate sorts the 15-minute sample points sent by the collector for the past day in ascending order. It picks the 95th percentile value as the effective utilization.
+For example, if you set the performance duration to one day and the percentile value to 95th percentile, Azure Catalyst sorts the 15-minute sample points sent by the collector for the past day in ascending order. It picks the 95th percentile value as the effective utilization.
 
-Using the 95th percentile value ensures that outliers are ignored. Outliers might be included if your Azure Migrate uses the 99th percentile. To pick the peak usage for the period without missing any outliers, set Azure Migrate to use the 99th percentile.
+Using the 95th percentile value ensures that outliers are ignored. Outliers might be included if your Azure Catalyst uses the 99th percentile. To pick the peak usage for the period without missing any outliers, set Azure Catalyst to use the 99th percentile.
 
 ## How are import-based assessments different from assessments with discovery source as appliance?
 
-Import-based Azure VM assessments are assessments created with machines that are imported into Azure Migrate using a CSV file. Only four fields are mandatory to import: Server name, cores, memory, and operating system. Here are some things to note:
+Import-based Azure VM assessments are assessments created with machines that are imported into Azure Catalyst using a CSV file. Only four fields are mandatory to import: Server name, cores, memory, and operating system. Here are some things to note:
 
  - The readiness criteria are less stringent in import-based assessments on the boot type parameter. If the boot type isn't provided, it's assumed the machine has BIOS boot type, and the machine isn't marked as **Conditionally Ready**. In assessments with discovery source as appliance, the readiness is marked as **Conditionally Ready** if the boot type is missing. This difference in readiness calculation is because users might not have all information on the machines in the early stages of migration planning when import-based assessments are done.
  - Performance-based import assessments use the utilization value provided by the user for right-sizing calculations. Since the utilization value is provided by the user, the **Performance history** and **Percentile utilization** options are disabled in the assessment properties. In assessments with discovery source as appliance, the chosen percentile value is picked from the performance data collected by the appliance.
@@ -302,13 +306,17 @@ Import-based Azure VM assessments are assessments created with machines that are
 
 For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it's recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/install-vmware-hcx.md).
 
-## Can I upload assessment data to Azure Migrate from third-party tools?
+<a name="can-i-upload-assessment-data-to-azure-migrate-from-third-party-tools"></a>
 
-No, you can't upload assessment data from third-party tools. You can upload your inventory using a CSV file, but all assessments must be done within the Azure Migrate project.
+## Can I upload assessment data to Azure Catalyst from third-party tools?
 
-## Can I create an Azure Migrate assessment for a specific time interval?
+No, you can't upload assessment data from third-party tools. You can upload your inventory using a CSV file, but all assessments must be done within the Azure Catalyst project.
 
-You can't create an assessment based on a specific time interval. However, you can deploy an Azure Migrate appliance for a set period, like 1 day or 1 week. The inventory data collected during that time is then used to create the assessment.
+<a name="can-i-create-an-azure-migrate-assessment-for-a-specific-time-interval"></a>
+
+## Can I create an Azure Catalyst assessment for a specific time interval?
+
+You can't create an assessment based on a specific time interval. However, you can deploy an Azure Catalyst appliance for a set period, like 1 day or 1 week. The inventory data collected during that time is then used to create the assessment.
 
 ## Next steps
 

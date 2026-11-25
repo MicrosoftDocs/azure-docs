@@ -1,8 +1,8 @@
 ---
 title: Job in Azure Spring Apps
 description: Learn more about the Job concept in Azure Spring Apps.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: ninpan
 ms.service: azure-spring-apps
 ms.topic: concept-article

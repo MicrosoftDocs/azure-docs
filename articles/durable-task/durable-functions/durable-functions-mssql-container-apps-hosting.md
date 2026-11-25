@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: "Host a Durable Functions app with MSSQL backend in Azure Container Apps (Preview)"
 description: "Learn how to containerize and deploy a Durable Functions app using the Microsoft SQL (MSSQL) storage provider to Azure Container Apps with autoscaling and managed identity."
 ms.topic: how-to

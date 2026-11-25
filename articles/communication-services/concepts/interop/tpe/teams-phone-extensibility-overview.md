@@ -14,6 +14,8 @@ services: azure-communication-services
 
 # Teams Phone extensibility
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes features of Teams Phone extensibility (TPE).
 
 Artificial intelligence (AI) technologies increase the complexity of customer engagements, requiring businesses to adopt more sophisticated strategies to manage and improve customer interaction.

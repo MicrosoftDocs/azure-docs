@@ -5,7 +5,7 @@ description: Learn how to deploy linked ARM templates with Azure DevOps Services
 author: whhender
 ms.topic: how-to
 ms.date: 06/06/2025
-ms.author: whhender
+ms.author: weetok
 ms.subservice: authoring
 ms.custom:
   - synapse
@@ -14,6 +14,8 @@ ms.custom:
 # Deploy linked ARM templates with Azure DevOps Services
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article describes how to deploy linked Azure Resource Manager (ARM) templates with Azure DevOps Services (formerly Visual Studio Team Services, or VSTS).
 

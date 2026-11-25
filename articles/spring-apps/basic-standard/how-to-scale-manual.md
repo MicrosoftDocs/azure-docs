@@ -3,8 +3,8 @@ title: "Scale an Application in Azure Spring Apps"
 description: Learn how to scale an application with Azure Spring Apps in the Azure portal
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.author: karler
-author: KarlErickson
+ms.author: sandeepsen
+author: sandeep-sen
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.custom: devx-track-java

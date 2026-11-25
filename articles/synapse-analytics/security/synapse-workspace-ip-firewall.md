@@ -64,4 +64,4 @@ For more information on the methods to manage the firewall programmatically, see
 - Create an [Azure Synapse Workspace](../quickstart-create-workspace.md)
 - Create an Azure Synapse workspace with a [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md)
 - [Troubleshoot Azure Private Link connectivity problems](../../private-link/troubleshoot-private-link-connectivity.md)
-- [Troubleshoot Azure Private Endpoint connectivity problems](../../private-link/troubleshoot-private-endpoint-connectivity.md)
+- [Troubleshoot Azure Private Endpoint connectivity problems](/troubleshoot/azure/private-link/troubleshoot-private-endpoint-connectivity-problems)

@@ -1,116 +1,153 @@
 ---
-title: Redeploy servers to Azure using Infrastructure as Code
-description: Learn how to automate Windows Server redeployment to Azure using Infrastructure as Code (IaC) with Azure Migrate.
-author: piyushdhore-microsoft 
-ms.author: piyushdhore
+title: Redeploy servers to Azure VMs with scoped data copy
+description: Learn how to redeploy servers to Azure VMs with scoped data copy in Azure Catalyst
+author: dhananjayanr98
+ms.author: dhananjayanr
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 11/10/2025
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
-# Customer intent: As a system administrator, I want to redeploy Windows Server 2003 machines to Azure using Infrastructure as Code so that I can automate the migration and reduce manual steps.
+# Customer intent: As a system administrator, I want to automate server redeployment to Azure with selective data transfer so that I can streamline migration and avoid copying unnecessary data.
 ---
 
-# Redeploy servers to Azure using Infrastructure as Code (IaC)
+# Redeploy servers to Azure VMs with scoped data copy
 
-This article helps you redeploy **Windows and Linux Servers to Azure using Infrastructure as Code (IaC)** with step-by-step guidance to generate templates, deploy landing zones, migrate servers, and integrate disk configurations for automated, repeatable migrations.
+Azure Catalyst supports redeploying servers to Azure by provisioning a new virtual machine (VM) or using an existing Azure VM and transferring selected files and folders from the source server. Unlike traditional lift-and-shift migration, server redeploy doesn't replicate the source operating system and disks. Instead, it helps you establish a new server environment in Azure and selectively migrate the data required by your workload.
 
-Azure Migrate supports server redeployment through Infrastructure as Code (IaC).
-You can automate the process of rebuilding and configuring servers in Azure using declarative scripts instead of manual steps. By leveraging this feature, you can:
+You can orchestrate server redeploy via migration waves in Azure Catalyst. This process includes:
+ - Deployment of a new Azure VM using a supported Marketplace or Azure Compute Gallery image, or use an existing Azure VM.
+ - Configure target operating system settings, data disks, file systems, and supported prerequisites.
+ - Transfer selected files and folders from the source server to the target VM by using Azure Blob Storage as an intermediate staging location.
+ - Preserve supported file and folder permissions.
+ - Perform a final data copy to synchronize changes made since the initial transfer.
 
-- Create IaaS application IaC based on assessment.
-- Deploy the IaaS application IaC.
-- Migrate the server using the Server Migration tool.
-- Detach the data disk using the disk migration script to generate disk IaC.
-- Merge disk IaC with application IaC.
-- Reapply the application IaC script.
-
-
-## Create IaaS application IaC
-
-Azure Migrate lets you generate Infrastructure as Code (IaC) templates for your assessed workloads or applications. These templates create an application landing zone in Azure, enabling automated deployment and configuration.
-
-### Prerequisites
-
-Before you begin, complete the Azure VM assessment in Azure Migrate either through workload assessment or application assessment.
-
-### Generate Application Landing Zone IaC
-
-Follow the steps to generate Infrastructure as Code (IaC) for your assessed workloads or applications in Azure Migrate:
-
-1. Go to the assessment report in the Azure Migrate portal after you complete the workload or application assessment.
-1. Select **Generate IaC** at the top of the report to start the code generation process.
+This article describes the prerequisites and step-by-step process for redeploying servers to Azure VMs with scoped data copy by using Azure Catalyst migration waves.
+  
+  >[!NOTE]
+  > - Server redeploy by using Azure Catalyst doesn't automatically migrate applications, configurations, or dependencies. You must manually deploy and configure applications on the target VM, validate their functionality, and approve cutover to Azure.
+  > - Migration waves in Azure Catalyst support adding custom steps and scripts to automate application deployment and configuration on target VMs as part of the orchestrated execution flow. [Learn more](configure-customize-wave.md#add-steps-if-needed).
 
 
-:::image type="content" source="./media/server-redeploy/code-generation-process.png" alt-text="The screenshot shows how to start the code generation process." lightbox="./media/server-redeploy/code-generation-process.png":::
+## Prerequisites and supported scenarios for server redeploy in Azure Catalyst
 
-3. The portal redirects you to the IaC generation flow, where you review and select details before generating the code.
+This section outlines the supported scenarios and prerequisites for server redeploy to Azure VMs through migration waves in Azure Catalyst.
 
-:::image type="content" source="./media/server-redeploy/generation-flow.png" alt-text="The screenshot shows how to redirect to IaC generation flow to review and select details before generating the code." lightbox="./media/server-redeploy/generation-flow.png":::
+### **Supported source and target operating systems** 
+    
+   | **Support** | **Details** |
+   | --- | --- |
+   | **Supported operating systems** | - Windows Server: 2022, 2025 <br/> - RHEL 9.X <br/> - Ubuntu LTS 22.04, 24.04 |
+   | **Architecture** | Source and target VMs must be x64; ARM64 isn't supported. |
+   | **Disk controller** | Target VMs must use SCSI; NVMe controllers aren't supported. |
+   | **Guest execution** | Azure VM Agent must be enabled and capable of running commands. |
+   | **Migration compatibility** | Windows-to-Windows and Linux-to-Linux migrations are supported. Cross-family migrations aren't supported. |
+   | **Data volumes** | - Windows: GPT disks with NTFS. <br/> - Linux: GPT disks with XFS or ext4. <br/> - Blank disks can be formatted. User consent is required if the disk was already created as part of existing VM. <br/> - Existing customer volumes can be reused without reformatting. |
+   | **OS layout** | Existing OS layout is retained, including RHEL images with LVM-based OS disks. |
+   | **Storage limitations** | Data-disk LVM automation, guest OS-partition extension, and arbitrary disk resizing aren't supported. |
+   | **Identity limitations** | Linux Active Directory join and Microsoft Entra join aren't supported. |
+   | **New VM images** | - Select an x64 Marketplace or Azure Compute Gallery image for a supported OS, available in the selected region. <br/> - New Gallery deployments require a **Generalized** OS state; Specialized image definitions aren't supported. <br/> - VM size, image generation, and SCSI support must be compatible. |
+   | **VM security type** | - **Trusted Launch:** Requires a Gen2 image supporting Trusted Launch. <br/> - **Standard:** Supports compatible Gen1 or Gen2 images. |
+   | **Marketplace requirements** | Accept applicable Marketplace terms and provide publisher-required purchase-plan details. |
+   | **Image validation** | Verify the publisher's OS description, architecture, generation, and security properties in the Azure portal or Azure CLI. The `osType` property alone doesn't identify the OS release. |
+   | **Existing target VMs** | - Must meet the same target requirements and reside in the selected region. <br/> -  The VM might be started automatically with its system-assigned managed identity enabled. <br/> - The **Generalized** OS state requirement applies only to new Gallery deployments, not existing VM adoption. |
+  
+### **Requirements for scoped data copy**
+- Data copy from source to target VMs requires an **Execution Agent** installed on your Windows appliance or Linux Arc-based host. The following requirements must be met for successful data copy using the **Execution Agent**.
 
-4. IaC generation currently supports only IaaS (Infrastructure as a Service) targets.
-5. For workload assessments, select the workloads you want to include in the generated application code. 
-6. For application assessments, select the application you want to generate IaC for. You can generate code for only one application at a time.
+     | **Requirement** | **Details** |
+     | --- | --- |
+     | **Linux permission preservation** | Requires the `acl` package on the source Linux VM. Source packages aren't installed automatically. |
+     | **Execution Agent compatibility** | - **Windows appliance-based Execution Agent:** Supports Windows and Linux sources. <br/> - **Linux Arc-based Execution Agent:** Supports Linux sources only. |
+     | **Shell prerequisites** | - **Windows:** PowerShell 5.1 is required on source and target VMs. <br/> - **Linux:** Bash is required on source and target VMs. <br/> - Shells must be preinstalled; the Execution Agent doesn't install them. |
+     | **Network connectivity** | - Allow VMware guest access, WinRM, or SSH connectivity to the source, as applicable. <br/> - Allow required Azure connectivity, including HTTPS (port 443) to Blob staging storage. <br/> - Private staging storage requires appropriate DNS resolution and routing. |
+     | **Source disk space and permissions** | - Maintain at least 1 GiB of free space on the source, plus additional space based on transfer requirements. <br/> - Source paths must be readable, and destination paths must reside on configured volumes. |
+     | **Target package installation** | Linux target VMs must have access to OS package repositories when downloads are required. Target packages are installed automatically. |
+     | **Data consistency** | Synchronize system clocks and quiesce applications before the final copy. Copying live files is best effort and doesn't provide application-consistent snapshots. |
+
+ -  **Credential requirement for data copy**
+  
+     | **Purpose** | **Requirement** |
+     | --- | --- |
+     | **Source execution** | Saved account on the selected Execution Agent host with permissions for remote execution, file read/traverse, working-file creation, and permission-read access when preserving permissions. |
+     | **VMware/Hyper-V** | Saved infrastructure-account reference. Not required for physical servers. |
+     | **New VM administrator** | - **Windows:** Key Vault secret reference from a deployment-enabled vault. <br/> - **Linux:** SSH public key. |
+     | **Windows domain join** | Secret reference in an RBAC-enabled Key Vault, Active Directory join permissions, and domain connectivity. |
+     | **Data transfer authentication** | - Source uploads use an agent-issued SAS token. <br/> - Target operations use SYSTEM/root privileges and managed identity. <br/> - Storage account keys, separate target guest credentials, and inbound appliance-to-target connections aren't required. |
+     | **Credential security** | Don't provide raw passwords or SAS tokens. Use saved account or secret references as applicable. |
+     | **Permission preservation** | File permissions are restored as-is. User accounts and identity IDs aren't migrated or translated. |
 
 
-:::image type="content" source="./media/server-redeploy/generate-application.png" alt-text="The screenshot shows how to select application to generate IaC for one application at a time." lightbox="./media/server-redeploy/generate-application.png":::
+### **Managed identity permissions requirements for Azure Catalyst project**
 
-7. Review the workloads and select **Next**.
+By using the Project MSI permissions described in the following table, the project automatically grants the required VM and staging storage access to the Execution Agent and target identity. You don't need to manually assign roles for the VM or staging storage.
 
-:::image type="content" source="./media/server-redeploy/generate-for-one-application.png" alt-text="The screenshot shows how to generate code for IaC  application." lightbox="./media/server-redeploy/generate-for-one-application.png":::
+   >[!IMPORTANT]
+   > - Contributor access to the target resource group alone isn't sufficient. Project MSI also requires constrained role-assignment delegation at the target and staging scopes.
+   > - Azure RBAC permissions don't provide network connectivity or override Azure Policy or Active Directory permissions.
 
-8. Select **Next** again to go to the **Generate and Download** page, and review the base architecture.
+ - **Least-privilege setup**: Create or validate custom roles for the enabled features, scoped to the resources used.
 
-9. The IaC generation feature currently supports only one architecture—a basic three-tier design with frontend, backend, and database layers optimized for non-critical development applications. This architecture also includes Cloud Adoption Framework (CAF)-aligned security best practices.
+      | **Scope** | **Required permissions** |
+      | --- | --- |
+      | **Project/master site and Arc machine** | Metadata reads, execution and status operations, and Arc machine read access (when applicable). |
+      | **Target resource group** | Deployment and VM/NIC/disk read/write; VM start/restart, instance view, extensions, and managed Run Command read/delete for cleanup. |
+      | **Staging resource group/storage account** | Storage account creation/read, container management, and deployment operations. |
+      | **Referenced VNet, subnet, and NSG** | Read access and required subnet/NSG join permissions. |
+      | **Subscription and dependencies** | Name, SKU, image, and Marketplace terms lookups; selected Gallery/DES read access and user-assigned managed identity attachment. |
+      | **Credential vaults** | Vault metadata read; `Microsoft.KeyVault/vaults/deploy/action` for Windows VM creation; Key Vault Secrets User delegation for domain join. |
+      | **Optional monitoring and backup** | Required read permissions, VM associations/extensions, and backup protection operations. |
+      | **Role-assignment delegation** | Include role-assignment read, write, and delete permissions at the staging, target VM, and applicable secret scopes. Constrain role-assignment write and delete operations to the following roles for the intended Execution Agent and target identities: <br/> <br/> - Storage Blob Data Contributor <br/> - Virtual Machine Contributor <br/> - Storage Blob Data Reader <br/> - Key Vault Secrets User (for Windows domain join). <br/> <br/> These permissions enable automatic delegated role assignments.    |
+  
 
-:::image type="content" source="./media/server-redeploy/supported-architecture.png" alt-text="The diagram shows the supported architecture." lightbox="./media/server-redeploy/supported-architecture.png":::
+ - **Use existing Azure Migrate roles**: This option simplifies permission configuration but grants broader access than least-privilege custom roles.
 
-10. Select Generate Code after you finish reviewing the architecture. The assessment’s baseline architecture generates your IaC and automatically adds the selected workloads.
+     | **Role assigned to Project MSI** | **Scope** |
+     | --- | --- |
+     | **Contributor** | Target subscription |
+     | **Azure Migrate Execute Expert** | Target subscription |
+     | **Key Vault Data Access Administrator** | Domain-join secret or dedicated join-credential vault |
 
-:::image type="content" source="./media/server-redeploy/generate-code.png" alt-text="The screenshot shows how to select Generate Code after review is complete." lightbox="./media/server-redeploy/generate-code.png":::
+   > [!NOTE]
+   > - You can use **Azure Migrate Owner** instead of **Azure Migrate Execute Expert**. You don't need both roles.
+   > - For Windows domain join, grant the Azure Catalyst project managed identity permission to assign the **Key Vault Secrets User** role. By using this permission, you can automatically assign the role to the target VM's managed identity so it can access the domain-join credentials.
+   > - The existing Azure Migrate roles support delegation of the required storage and VM roles, but not **Key Vault Secrets User**. Assign **Key Vault Data Access Administrator** to the project managed identity at the required secret or vault scope, unless custom role-assignment permissions are already configured. This role can also assign other Key Vault roles, so restrict its scope.
+   > - Ensure that the project managed identity has the required permissions on all referenced resources, including those in other resource groups or subscriptions.
+   > - Azure RBAC permissions don't replace network connectivity, Azure Policy, or Active Directory requirements. Ensure these prerequisites are also met.
+  
+## Configure and execute server redeploy by using migration waves
+   1. To redeploy servers as Azure VMs by using migration waves, go to **Execute** > **Waves**.
+   2. Open the wave, and select **Overview** > **Configure settings** > **Configure workload settings**.
+   3. In the CSV file, set **Target service** to **Azure VM** and **Migration method** to **ServerMigrationRedeployWithDataCopy**.
+   4. Save and upload the updated file, review the generated execution plan, and select **Start execution** to begin the redeploy execution run.
+   5. Track the execution progress by using the **Execution run** page in the wave.
 
-11. When the download completes, extract the ZIP file and go to the folder in an IDE such as **Visual Studio Code** to explore the generated code.
+By default, redeploying servers to Azure VMs with data copy via Azure Catalyst includes the following steps. You can add extra steps to deploy and configure your applications on the target VM. [Learn more](configure-customize-wave.md#add-steps-if-needed)
 
-## Deploy the IaaS application IaC 
+   | Step name | Description |
+   | --- |--- |
+   | **1. Set up staging storage account for VM Redeploy** | This step creates the entity's staging storage account in the selected target region, or resolves its selected existing account without reconfiguring it. |
+   | **2. Validate source and target prerequisites** | This step validates Execution Agent and source readiness, prepares staging containers, shares, directories, and agent access, and checks agent and source access to staging alongside the required target prerequisites. |
+   | **3. Deploy target Azure VM** | This step deploys the target Azure VM using the configuration defined for the workload, including the selected compute, storage, networking, availability, security, and identity settings. |
+   | **3. Configure OS and data disks** | This step configures the target VM's OS and data disks according to the defined target configuration, including the required disks, partitions, volumes, and mount points or drive letter assignments. This prepares the VM to receive the source data and applications. |
+   | **4. Copy source data to staging** | This step copies the configured source directories and files to the migration staging location. This step establishes the initial staged copy of the workload data, which is then transferred to the target VM. |
+   | **5. Download staged data to target VM** | This step transfers the staged source data to the configured destination disks and paths to the target VM. |
+   | **6. Reapply data permissions** | This step reapplies the captured file and folder permissions, ownership, and associated user or group identities to the transferred data on the target VM. |
+   | **7. Approve final data copy** | When you approve this step, it captures changes to the configured source paths since the initial transfer and brings the target data up to date. Before you approve, deploy and configure the application on the target VM. Validate application and workload compatibility and complete any required functional steps. Manually stop activity on the source VM and close any open files to prevent further data changes. |
+   | **8. Final data copy** | This step performs the final synchronization of the configured source paths to capture changes made since the initial data transfer and bring the target data up to date. |
+   | **9. Sign off migration** | Sign off migration to consider this VM as migrated. Before signing off, perform final validation of the target VM and your app. Complete the required cutover activities to transition the workload to the target VM and finalize the migration. This approval gate also authorizes cleanup of staging data if the **Clean up staging resources** step is present. Remove that step if you want to retain staging data and perform cleanup manually. |
+   | **10. Update VM Redeploy migration status** | This step updates the migration status as completed and proceeds to clean up staging resources step if exists. |
+   | **11. Clean up staging resources** | This step removes workload-specific staging data and temporary migration resources that are no longer required after a successful migration. This step is optional. You can delete this step if you want to keep the staging data on the staging storage account and manually clean up. |   
 
-After generating the Infrastructure as Code (IaC) package for your assessed workloads, follow these steps to deploy the application:
+For more information about wave configuration, execution plan generation, wave execution, and progress tracking, see the following articles:
+ - [Configure and customize a migration wave](configure-customize-wave.md).
+ - [Execute a migration wave](execute-wave-migration.md).
+ - [Track and troubleshoot wave migrations](track-wave-migrations.md).
 
-1. The VM configuration details are saved in the vm_config.json file, which is automatically generated from your assessment data. 
-1. To deploy the code, follow the instructions in the readme.md file included in the downloaded folder.
+## Related documentation
+ - [Constrained role-assignment delegation](../role-based-access-control/delegate-role-assignments-overview.md).
 
-## Migrate servers using the server migration tool
 
-Use the Server Migration tool in Azure Migrate to move your on-premises servers to Azure. The migration process depends on your scenario, such as:
 
-- Lift-and-shift migration for physical or virtual machines.
-- Agentless migration for VMware environments.
-- Agent-based migration for Hyper-V or physical servers.
 
-## Detach data disks and generate IaC configuration with Azure Migrate
-
-1. Use the disk migration script in this [repository](https://github.com/Azure/AzMigrate-Hydration/tree/asr-am-support-scripts/Post%20Migration%20Customization) to detach the data disk from the migrated VM. The script generates the `disk-config.json` file, which contains the disk’s Infrastructure as Code (IaC) details. 
-1. Follow the instructions in the readme.md file included in the downloaded folder to complete the detachment process.
-
-## Merge disk IaC with application IaC
-
-After generating the disk Infrastructure as Code (IaC) configuration, you need to integrate it with the Application IaC package to ensure the migrated application includes the correct disk settings.
-
-### Steps to merge disk IaC
-
-Follow the steps to merge the disk IaC:
-
-1. **Copy disk configuration file**: Locate the `disk-config.json` file generated in step 4 and copy it into the folder that contains your Application IaC code.
-1. **Update Terraform variables**: Open the terraform.tfvars file in the Application IaC folder.
-    - Uncomment the following line: 
-        - `disk_config_file = "./disk-config.json"`
-    - This links the disk configuration to your application deployment.
-1. **Review integration instructions**: For detailed guidance on using the disk configuration file, refer to the readme.md file included in the Application IaC package generated in step 1. The README explains how Terraform processes the disk configuration and applies it during deployment.
-
-## Re-apply the application IaC script
-
-Follow the instructions in the readme.md file included with the Application IaC package to re-apply the script. This step ensures that the disk changes are incorporated and your migration is completed successfully.
-
-## Next steps
-
-- Learn more [Migrate VMware VMs to Azure (agentless)](tutorial-migrate-vmware.md).
-- Learn more [Migrate VMware vSphere VMs to Azure (agent-based)](tutorial-migrate-vmware-agent.md).

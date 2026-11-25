@@ -1,8 +1,8 @@
 ---
 title: Manage minimum TLS versions for Azure App Service, Azure Functions, and Logic Apps (Standard)
 description: Learn how to check, audit, and update the minimum TLS version for Azure App Service, Azure Functions, and Logic Apps (Standard) to enforce TLS 1.2 or later.
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.topic: article
 ms.date: 03/30/2026
 ms.service: azure-app-service
@@ -251,6 +251,10 @@ The following are common reasons your app might receive inbound requests using T
 
 The App Service platform rejects all inbound connections that use a TLS version below the configured minimum. Clients that attempt to connect with an unsupported TLS version receive a connection error.
 
+### Does setting the minimum TLS version to 1.3 require post-quantum key exchange?
+
+No. The TLS protocol version and TLS supported group are negotiated separately. For Web Apps and Azure Functions apps hosted on App Service infrastructure, TLS 1.3 clients that don't support post-quantum key exchange can still negotiate a supported classical group. There's no customer policy or minimum TLS version setting that requires post-quantum key exchange. For coverage and limitations, see [Post-quantum hybrid key exchange](overview-tls.md#post-quantum-hybrid-key-exchange). Hybrid key exchange doesn't change existing [certificate](configure-ssl-certificate.md) or [custom-domain binding](configure-ssl-bindings.md) requirements.
+
 ### Do I need to update each deployment slot?
 
 Yes. Each deployment slot has its own independent `minTlsVersion` and `scmMinTlsVersion` settings. Update each slot individually.
@@ -283,4 +287,3 @@ Yes. App Service Environments follow the same May 31, 2027 retirement date as mu
 - [Solving the TLS 1.0 Problem, 2nd Edition](/security/engineering/solving-tls1-problem)
 - [Transport Layer Security best practices with .NET Framework](/dotnet/framework/network-programming/tls)
 - [Retirement: Update on retirement of TLS 1.0 and TLS 1.1 versions for Azure Services](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/)
-

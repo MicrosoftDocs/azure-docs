@@ -1,6 +1,6 @@
 ---
 description: Azure Cloud Shell uses Predictive IntelliSense
-ms.date: 04/01/2026
+ms.date: 08/07/2026
 ms.topic: feature-guide
 title: Predictive IntelliSense in Azure Cloud Shell
 ---
@@ -137,4 +137,4 @@ For more information on PowerShell profiles, see [About_Profiles][02].
 [05]: /powershell/scripting/learn/shell/using-predictors
 [06]: media/predictive-intellisense/cloud-shell-inline.png
 [07]: media/predictive-intellisense/cloud-shell-list-view.png
-[08]: use-cloud-shell-editor-new.md
+[08]: use-cloud-shell-editor.md

@@ -5,7 +5,7 @@ description: Learn about pricing for Advanced Messaging in Azure Communication S
 author: darmour
 manager: sundraman
 services: azure-communication-services
-ms.author: darmour
+ms.author: diberry
 ms.date: 02/12/2024
 ms.topic: concept-article
 ms.service: azure-communication-services
@@ -13,6 +13,8 @@ ms.subservice: advanced-messaging
 ---
 
 # Pricing for Advanced Messaging
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 Prices for Advanced Messaging in Azure Communication Services consist of two components: the usage fee and the channel fee.
 

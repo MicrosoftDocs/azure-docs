@@ -2,7 +2,7 @@
 title: Troubleshoot Blob backup and restore issues
 description: In this article, learn about symptoms, causes, and resolutions of Azure Backup failures related to the Azure Blob backups and restore.
 ms.topic: troubleshooting
-ms.date: 08/05/2025
+ms.date: 12/12/2025
 ms.service: azure-backup
 ms.reviewer: geg
 author: AbhishekMallick-MS

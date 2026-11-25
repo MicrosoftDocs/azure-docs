@@ -29,6 +29,69 @@ For information on release notes for the connected machine agent, see
 The following sections of this article detail the notes for each release of the agent. The heading
 for each section includes the specific version for that release and the date for the release.
 
+## Version 1.29.123.0 - November 2026
+
+<a id="1.29.123.0"></a>
+<a id="2026-11"></a>
+
+### Updated
+
+- Updated bundled PowerShell from version 7.4.20 (.NET 8) to 7.6.9 (.NET 10).
+
+## Version 1.29.122.0 - October 2026
+
+<a id="1.29.122.0"></a>
+<a id="2026-10"></a>
+
+### Updated
+
+- Updated bundled PowerShell from version 7.4.19 to 7.4.20.
+- Replaced the agent's bundled OpenSSL libraries with native Windows APIs for HTTPS communication and package hashing.
+
+### Fixed
+
+- Hardened package extraction for ZIP entries with excessively long filenames.
+- Strengthened configuration package integrity validation.
+- Prevented command injection through security baseline pre-installation settings.
+
+## Version 1.29.119.0 - September 2026
+
+<a id="1.29.119.0"></a>
+<a id="2026-09"></a>
+
+### Updated
+
+- Updated OpenSSL library from version 3.6.3 to 3.6.4.
+
+## Version 1.29.118.0 - September 2026
+
+<a id="1.29.118.0"></a>
+<a id="2026-09"></a>
+
+### Updated
+
+- Updated bundled PowerShell version from 7.4.15 to 7.4.19.
+- Improved configuration package download performance.
+
+### Fixed
+
+- Fixed PowerShell-based policy execution failures caused by Mark-of-the-Web metadata.
+- Strengthened configuration package integrity validation.
+
+## Version 1.29.116.0 - July 2026
+
+<a id="1.29.116.0"></a>
+<a id="2026-07"></a>
+
+### Updated
+
+- Improved baseline customization pre-installation support for PowerShell script and module files.
+
+### Fixed
+
+- Fixed an issue where Machine Configuration assignments that failed during processing were not fetched again.
+- Strengthened configuration package extraction validation.
+
 ## Version 1.29.113.0 - July 2026
 
 <a id="1.29.113.0"></a>
@@ -143,7 +206,7 @@ for each section includes the specific version for that release and the date for
 ### New features 
 
 - Today our extension uses a maximum of 5% CPU. For cases where this needs to be configured, a
-  configuration file `cpu_config.json` can be written under the path, `/var/opt/azcmagent/`. This
+  configuration file `cpu_config.json` can be written under the path, `C:\ProgramData\AzureConnectedMachineAgent\Config`. This
   file should contain the following configuration:
 
 ```json

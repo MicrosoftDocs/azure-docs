@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Azure Blob Storage Client Library for .NET"
 description: Learn how to use the Azure Blob Storage client library for .NET to create a container, upload and download blobs, and list blobs.
-author: stevenmatthew
-ms.author: shaas
+author: schoag-msft
+ms.author: schoag
 ms.date: 05/18/2026
 ms.service: azure-blob-storage
 ms.topic: quickstart

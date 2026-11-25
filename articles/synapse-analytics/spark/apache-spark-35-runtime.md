@@ -7,11 +7,18 @@ ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.custom: devx-track-python
-ms.date: 05/12/2025 
+ms.date: 11/09/2026
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.5 (GA)
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.5.
+
+> [!IMPORTANT]
+> Microsoft has not announced the retirement of Azure Synapse Analytics or Synapse Spark 3.5, and there is currently no announced retirement date or required migration deadline.
+>
+> [Microsoft Fabric](/fabric/fundamentals/microsoft-fabric-overview) is Microsoft's strategic platform for new analytics innovation. Within Fabric, [Fabric Runtime](/fabric/data-engineering/runtime) provides the Apache Spark environment for data engineering and data science workloads, with major improvements in performance, stability, and security. Customers are encouraged to evaluate Fabric, including Fabric Runtime for Spark workloads, for new investments and long-term modernization.
+>
+> This strategic direction does not constitute a retirement announcement for existing Synapse Spark workloads. Any future lifecycle changes affecting Synapse Spark 3.5 will be communicated through official Microsoft channels with appropriate notice and transition guidance.
 
 ## Component versions
 

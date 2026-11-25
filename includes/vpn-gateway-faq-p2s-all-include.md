@@ -13,16 +13,8 @@ It depends on the gateway SKU. For more information on the supported number of c
 
 The following client operating systems are supported:
 
-* Windows Server 2008 R2 (64-bit only)
-* Windows 8.1 (32-bit and 64-bit)
-* Windows Server 2012 (64-bit only)
-* Windows Server 2012 R2 (64-bit only)
-* Windows Server 2016 (64-bit only)
-* Windows Server 2019 (64-bit only)
-* Windows Server 2022 (64-bit only)
-* Windows 10
 * Windows 11
-* macOS version 10.11 or later
+* macOS version 13.0 or later
 * Linux (strongSwan)
 * iOS
 
@@ -83,6 +75,9 @@ IKEv2 is supported on Windows 10 and Windows Server 2016. However, to use IKEv2 
 > [!NOTE]
 > Windows OS builds newer than Windows 10 Version 1709 and Windows Server 2016 Version 1607 don't require these steps.
 
+> [!NOTE]
+>Microsoft recommends using Windows 11 with Point-to-Site VPN connections. Windows 10 reached end of support in October 2025. For more information, see [Supported Windows versions for Azure VPN Client](../articles/vpn-gateway/azure-vpn-client-versions.md#supported-windows-versions).
+
 To prepare Windows 10 or Windows Server 2016 for IKEv2:
 
 1. Install the update based on your OS version:
@@ -118,7 +113,7 @@ Azure supports Windows, Mac, and Linux for P2S VPN.
 
 ### I already have a VPN gateway deployed. Can I enable RADIUS or IKEv2 VPN on it?
 
-Yes. If the gateway SKU that you're using supports RADIUS or IKEv2, you can enable these features on gateways that you already deployed by using Azure PowerShell or the Azure portal. The Basic SKU doesn't support RADIUS or IKEv2.
+Yes. If the gateway SKU that you're using supports RADIUS or IKEv2, you can enable these features on gateways that you already deployed by using Azure PowerShell or the Azure portal. The Basic SKU supports IKEv2 but doesn't support RADIUS authentication. For existing Basic SKU gateways that use SSTP only, see [SSTP protocol retirement and connections migration](../articles/vpn-gateway/ikev2-openvpn-from-sstp.md).
 
 ###  <a name="vpn-disconnect"></a>Why am I getting disconnected from my Azure VPN client? What can I do to reduce the frequency of disconnection?
 

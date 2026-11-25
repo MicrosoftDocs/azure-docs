@@ -4,7 +4,7 @@ ms.service: azure-storage
 ms.custom:
 ms.topic: include
 ms.date: 06/23/2022
-ms.author: tamram
+ms.author: diberry
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB for Table -->

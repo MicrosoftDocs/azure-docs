@@ -14,6 +14,8 @@ ms.subservice: data
 
 # End of call survey 
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 > [!NOTE]
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
@@ -111,7 +113,7 @@ This table describes each property.
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
 "CorrelationId":"aaaa0000-bb11-2222-33cc-444444dddddd",
 "Category":"CallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"ResourceId":"/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
 "OperationName":"CallSurvey", 
 "OperationVersion":"0.0"
 
@@ -137,7 +139,7 @@ This table describes each property.
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
 "CorrelationId":"aaaa0000-bb11-2222-33cc-444444dddddd",
 "Category":"CallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"ResourceId":"/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
 "OperationName":"EndOfCallSurvey", 
 "OperationVersion":"0.0"
 
@@ -161,7 +163,7 @@ This table describes each property.
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
 "CorrelationId":"aaaa0000-bb11-2222-33cc-444444dddddd",
 "Category":"CallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"ResourceId":"/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
 "OperationName":"CallSurvey", 
 "OperationVersion":"0.0"
 
@@ -187,7 +189,7 @@ This table describes each property.
 "TimeGenerated":"2023-04-12T14:21:35.0700920Z", 
 "CorrelationId":"aaaa0000-bb11-2222-33cc-444444dddddd",
 "Category":"CallSurvey", 
-"ResourceId":"/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
+"ResourceId":"/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/ACS-DATALYTICS-SPGW-RG/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-DATALYTICS-ALLTELEMETRY", 
 "OperationName":"EndOfCallSurvey", 
 "OperationVersion":"0.0"
 

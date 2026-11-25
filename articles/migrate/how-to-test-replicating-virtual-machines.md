@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 05/09/2025
 ms.update-cycle: 1095-days
 ms.custom: vmware-scenario-422, engagement-fy23
@@ -23,7 +23,7 @@ This article helps you understand how to test replicating virtual machines. Test
 
 Before you get started, perform the following steps:
 
-- [Create](create-manage-projects.md) an Azure Migrate project.
+- [Create](create-manage-projects.md) an Azure Catalyst project.
 - Deploy the  appliance for your scenario and complete the discovery of virtual machines.
 - Configure replication for one or more virtual machines that are to be migrated.
 
@@ -38,7 +38,7 @@ Review the following tutorials based on your environment:
 
 ## Setting up your test environment
 
-The requirements for a test environment can vary according to your needs. Azure Migrate provides customers complete flexibility to create their own test environment. An option to select the VNet is provided  during test migration. You can customize the setting of this VNet to create a test environment according to your requirement. 
+The requirements for a test environment can vary according to your needs. Azure Catalyst provides customers complete flexibility to create their own test environment. An option to select the VNet is provided  during test migration. You can customize the setting of this VNet to create a test environment according to your requirement. 
 
 Furthermore, you can create 1:1 mapping between subnets of the VNet and Network Interface Cards (NICs) on VM, which gives more flexibility in creating the test environment.
 
@@ -47,9 +47,9 @@ Furthermore, you can create 1:1 mapping between subnets of the VNet and Network 
 
 The following logic is used for subnet selection for other scenarios (Migration from Hyper-V environment and physical server migration).
  
-- If a target subnet (other than default) was specified as an input while enabling replication. Azure Migrate prioritizes using a subnet with the same name in the Virtual Network selected for the test migration.
+- If a target subnet (other than default) was specified as an input while enabling replication. Azure Catalyst prioritizes using a subnet with the same name in the Virtual Network selected for the test migration.
 
-- If the subnet with the same name isn't found, then Azure Migrate selects the first subnet available alphabetically that isn't a Gateway/Application Gateway/Firewall/Bastion subnet. For example, 
+- If the subnet with the same name isn't found, then Azure Catalyst selects the first subnet available alphabetically that isn't a Gateway/Application Gateway/Firewall/Bastion subnet. For example, 
 
     - Suppose the target VNet is VNet-alpha and target subnet is Subnet-alpha for a replicating VM. VNet-beta is selected during test migration for this VM, then -
     - If VNet-beta has a subnet named Subnet-alpha, that subnet would be chosen for test migration.
@@ -69,7 +69,7 @@ The test environment boundaries would  depend on the network setting of the VNet
 
 You can change the VNet and subnet of a replicating machine by following the steps below.
 
-1. In your Azure Migrate Project, Go to **Execute** > **Migrations**. Select the required virtual machine from the list (**Preparation** or **Testing**) by clicking on the virtual machine name under the  **Workloads** column.
+1. In your Azure Catalyst Project, Go to **Execute** > **Migrations**. Select the required virtual machine from the list (**Preparation** or **Testing**) by clicking on the virtual machine name under the  **Workloads** column.
 
     :::image type="content" source="./media/how-to-test-replicating-virtual-machines/new-e2e-list-of-machines.png" alt-text="Screenshot shows the contents of express migrations screen. It contains a list of machines.":::
 

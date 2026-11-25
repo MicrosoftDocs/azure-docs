@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/10/2026
+ms.date: 08/31/2026
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -27,8 +27,14 @@ Authorization policies determine what actions the clients can perform on the bro
 
 - For topics and keys, you can use token substitution to build rules that adapt per client: `{principal.username}`, `{principal.clientId}`, and `{principal.attributes.<attributeName>}`.
 - MQTT topic wildcards `+` and `#` are supported in `brokerResources.topics`.
-- When using token substitution in a topic, the token must be the only text in its path segment. For example, `clients/{principal.clientId}/#` is valid, but `client-{principal.clientId}/#` isn't.
+- Token substitution is replaced as literal text before matching. For example, both `clients/{principal.clientId}/#` and `client-{principal.clientId}/#` are valid topic patterns.
 - Connect actions shouldn't include topics.
+
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `BROKER` (the name of the MQTT broker, typically `default`), `LISTENER` (the name of the broker listener), `AUTHN` (the name of the broker authentication resource), and `LISTENER_PORT` (the listener port). Set each one before you run the related commands.
 
 ## Link BrokerAuthorization to BrokerListener
 
@@ -59,7 +65,7 @@ The following example shows how to create a BrokerAuthorization resource by usin
 Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-apply) command to create or change an authorization policy.
 
 ```azurecli
-az iot ops broker authz apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
+az iot ops broker authz apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker $BROKER --name $AUTHN --config-file config.json
 ```
 
 In this example, assume a configuration file named `my-authz-policy.json` with the following content stored in the user's home directory:
@@ -121,7 +127,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -129,12 +135,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-07-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -187,7 +193,7 @@ resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authoriz
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -301,7 +307,7 @@ In the broker authorization rules for your authorization policy, use the followi
 Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-apply) command to create or change an authorization policy.
 
 ```azurecli
-az iot ops broker authz apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
+az iot ops broker authz apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker $BROKER --name $AUTHN --config-file config.json
 ```
 In the broker authorization rules for your authorization policy, create a configuration file named `client-id-policy.json` with the following configuration stored in the user's home directory:
 
@@ -358,7 +364,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -366,12 +372,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-07-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -417,7 +423,7 @@ resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authoriz
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -450,6 +456,57 @@ spec:
 ---
 
 Here, if the `clientIds` weren't set under the `Connect` method, a client with any client ID could connect as long as it had the `building` attribute set to `building22` or `building23`. When you add the `clientIds` field, only clients with client IDs that start with `building22` or `building23` can connect. This designation ensures that the client has the correct attribute and that the client ID matches the expected pattern.
+
+### Prevent session takeover
+
+To prevent a client from accessing another client's persistent session and queued or inflight messages, bind each authenticated principal to its allowed client IDs. Match the principal by using authentication attributes or a [verified username](#use-a-username-for-authorization), then set `clientIds` on the same rule's `Connect` resource. Don't use `principals.clientIds` alone to establish identity because clients choose their own client IDs.
+
+The following configuration allows a principal with the `identity` attribute `principal-a` to connect only as `client-a`, and a principal with `identity` set to `principal-b` to connect only as `client-b`. Configure these attributes through [X.509 authentication](howto-configure-authentication.md#optional-certificate-attributes-for-authorization) or [Kubernetes service account annotations](#authorize-clients-that-use-kubernetes-service-account-tokens).
+
+```json
+{
+  "authorizationPolicies": {
+    "rules": [
+      {
+        "principals": {
+          "attributes": [
+            {
+              "identity": "principal-a"
+            }
+          ]
+        },
+        "brokerResources": [
+          {
+            "method": "Connect",
+            "clientIds": [
+              "client-a"
+            ]
+          }
+        ]
+      },
+      {
+        "principals": {
+          "attributes": [
+            {
+              "identity": "principal-b"
+            }
+          ]
+        },
+        "brokerResources": [
+          {
+            "method": "Connect",
+            "clientIds": [
+              "client-b"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+If `principal-b` requests `client-a`, authorization denies the connection. To allow multiple client IDs for a principal, add them to that rule's `Connect` resource. Ensure no other rule grants the principal broader `Connect` access.
 
 ## Authorize clients that use X.509 authentication
 
@@ -521,7 +578,7 @@ In the broker authorization rules for your authorization policy, use the followi
 Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-apply) command to create or change an authorization policy.
 
 ```azurecli
-az iot ops broker authz apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
+az iot ops broker authz apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker $BROKER --name $AUTHN --config-file config.json
 ```
 
 In this example, assume a configuration file named `my-authz-policy.json` with the following content stored in the user's home directory:
@@ -583,7 +640,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -591,12 +648,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-07-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -642,7 +699,7 @@ resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authoriz
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -939,7 +996,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -947,12 +1004,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-07-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -1023,7 +1080,7 @@ resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authoriz
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -1077,7 +1134,7 @@ To reduce authorization overhead on high-throughput topics, enable in-memory cac
 Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to disable authorization for a port. To disable authorization, don't include the `--authz-ref` parameter.
 
 ```azurecli
-az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort>
+az iot ops broker listener port add --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker default --listener $LISTENER --port $LISTENER_PORT
 ```
 
 The following example disables authorization for port 8884 to the listener named `aio-broker-loadbalancer`:

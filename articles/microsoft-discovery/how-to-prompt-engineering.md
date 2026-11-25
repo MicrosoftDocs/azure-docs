@@ -5,7 +5,7 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 05/29/2026
+ms.date: 11/17/2026
 
 #CustomerIntent: As a researcher or scientist, I want to write effective prompts for my Discovery agents so that I can get accurate, reliable, and well-structured outputs for scientific workflows.
 ---
@@ -23,7 +23,7 @@ This article covers techniques for both instruction authoring and user prompt co
 
 - An active [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- A deployed Microsoft Discovery workspace with at least one project. For setup instructions, see [Get started with Microsoft Discovery infrastructure](quickstart-infrastructure-portal.md).
+- A deployed Microsoft Discovery workspace with at least one project. For setup instructions, see [Get started with Microsoft Discovery infrastructure](quickstart-infrastructure.md).
 
 - At least one prompt agent created in your project. For details, see [Create agents in Microsoft Discovery](how-to-agent-creation.md).
 
@@ -288,7 +288,7 @@ in mammalian cells. Cite each claim using the format
 papers, note it as "requires additional verification."
 ```
 
-Requiring inline citations forces the model to ground each statement. Claims without citations are more likely to be fabricated.
+Asking for inline citations encourages traceability but doesn't guarantee grounded or accurate claims. Open the cited sources and verify that they support each claim before you rely on the response.
 
 ### Use supporting context effectively
 

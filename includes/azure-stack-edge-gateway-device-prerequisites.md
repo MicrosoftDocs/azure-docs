@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: alkohli
+ms.author: scompton
 ---
 
 - You have received the physical device. 

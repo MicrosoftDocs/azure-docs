@@ -2,7 +2,7 @@
 title: Troubleshooting client response time-outs and errors with API Management
 description: Troubleshoot intermittent connection errors and related latency issues in API Management
 ms.topic: troubleshooting
-ms.date: 04/15/2025
+ms.date: 08/24/2026
 ms.service: azure-api-management
 ---
 

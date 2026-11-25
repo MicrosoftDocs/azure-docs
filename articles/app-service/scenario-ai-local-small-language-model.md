@@ -1,8 +1,8 @@
 ---
 title: Use local small language models (SLMs) in Azure App Service
 description: Deploy a web app with a local small language model (SLM) as a sidecar container to run AI models entirely within your App Service environment. No outbound calls or external AI service dependencies required.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.topic: how-to
 ms.date: 01/29/2026

@@ -5,7 +5,7 @@ metadata:
   ms.topic: faq 
   ms.date: 04/24/2025
   author: Reshmi-Sriram
-  ms.author: reshmisriram  
+  ms.author: diberry  
 
 title: Azure Native Qumulo FAQ
 summary: |
@@ -17,7 +17,7 @@ sections:
         answer: Go to Qumulo's documentation to learn more about [how Azure Native Qumulo works](https://docs.qumulo.com/azure-native-administrator-guide/getting-started/how-azure-native-qumulo-works.html).
       - question: What is the difference between Azure Native Qumulo (ANQ) and Cloud Native Qumulo (CNQ)?
         answer: |
-            [Azure Native Qumulo (ANQ)](https://learn.microsoft.com/azure/partner-solutions/qumulo/overview) is a codeveloped service by Microsoft and Qumulo, offered and managed as a fully managed Storage-as-a-Service. ANQ manages the underlying infrastructure and software automatically. <br />
+            [Azure Native Qumulo (ANQ)](overview.md) is a codeveloped service by Microsoft and Qumulo, offered and managed as a fully managed Storage-as-a-Service. ANQ manages the underlying infrastructure and software automatically. <br />
             [Cloud Native Qumulo (CNQ) on Microsoft Azure](https://qumulo.com/product/azure-cnq/) uses the same technology as ANQ but operates as a user-managed Platform-as-a-Service system within the customer’s tenant. CNQ users manually control the architectural resources. Elastic performance is managed through the system controls and capacity expands dynamically as the organization adds more data.
       - question: What storage class options are available with Azure Native Qumulo?
         answer: | 
@@ -34,11 +34,11 @@ sections:
               Azure Native Qumulo offers a [guide for administrators](https://docs.qumulo.com/azure-native-administrator-guide/), which explains how the service works and how to get started. 
       - question: Does Azure Native Qumulo offer disaster recovery? 
         answer: |
-              Yes. Azure Native Qumulo provides several options for disaster recover to ensure data availability and business continuity. For more information, see [Disaster Recovery with Azure Native Qumulo Scalable File Service](https://qumulo.com/resources/disaster-recovery-with-azure-native-qumulo-scalable-file-service/).     
+              Yes. Azure Native Qumulo provides several options for disaster recover to ensure data availability and business continuity. For more information, see [Disaster Recovery with Azure Native Qumulo Scalable File Service](index.yml).     
       - question: Can I edit videos with Azure Native Qumulo?
         answer: | 
               Yes. With Azure Native Qumulo (ANQ), video editing teams can work and collaborate remotely and still meet the demands for high-quality video content. 
-              For more information, see [Video editing with Azure Native Qumulo](https://qumulo.com/resources/video-editing-with-azure-native-qumulo-scalable-file-service/). 
+              For more information, see [Video editing with Azure Native Qumulo](index.yml). 
       - question: Can I deploy a Vendor-Neutral Archive (VNA) solution with Azure Native Qumulo?
         answer: | 
-              Yes. You can learn about Vendor-Neutral Archives, including solution architecture, benefits, components, potential use cases, and scenarios, by reviewing [Azure Native Qumulo's reference architecture - Vendor-Neutral Archives for PACS](https://qumulo.com/resources/azure-native-qumulo-reference-architecture-vendor-neutral-archive-for-pacs/).
+              Yes. You can learn about Vendor-Neutral Archives, including solution architecture, benefits, components, potential use cases, and scenarios, by reviewing [Azure Native Qumulo's reference architecture - Vendor-Neutral Archives for PACS](index.yml).

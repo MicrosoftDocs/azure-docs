@@ -6,7 +6,7 @@ author: EXPEkesheth
 ms.custom: references_regions
 ms.service: azure-health-data-services
 ms.topic: reference
-ms.date: 02/25/2026
+ms.date: 10/04/2026
 ms.author: kesheth
 ---
 
@@ -31,10 +31,6 @@ Azure Health Data Services enables you to:
 * Connect your data stored in Azure Health Data Services with services across the Azure ecosystem, like Synapse, and products across Microsoft, like Teams, to derive new insights through analytics and machine learning and to enable new workflows as well as connection to SMART on FHIR applications.
 
 * Manage advanced workloads with enterprise features that offer reliability, scalability, and security to ensure that your data is protected, meets privacy and compliance certifications required for the healthcare industry.
-
-### Can I migrate my existing production workload from Azure API for FHIR to Azure Health Data Services?
-
-Yes. Azure API for FHIR is retiring on September 30, 2023. See [migration strategies](./fhir/migration-strategies.md)
 
 ### What is the pricing of Azure Health Data Services?
 

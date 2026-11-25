@@ -216,7 +216,7 @@ If you're using the Rust or Python tools installed locally, there are no samples
 
 ## Create a new graph with custom WASM modules
 
-This scenario shows you how to create a new graph application with custom WASM modules. The graph application consists of two operators: a `map` operator that converts temperature values from Fahrenheit to Celsius, and a `filter` operator that filters out messages with temperature values above 500°C.
+This scenario shows you how to create a new graph application with custom WASM modules. The graph application consists of two operators: a `map` operator that converts temperature values from Fahrenheit to Celsius, and a `filter` operator that filters out messages with temperature values below 500°C.
 
 Currently, don't use hyphens (`-`) or underscores (`_`) in operator names. The VS Code extension enforces this requirement, but if you create or rename modules manually it causes issues. Use simple alphanumeric names for modules like `filter`, `map`, `stateenrich`, or `schemafilter`.
 
@@ -409,8 +409,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-wit-bindgen = "0.22"
-wasm_graph_sdk = { version = "=1.1.3", registry = "aio-wg" }
+wit-bindgen = "0.38"
+wasm_graph_sdk = { version = "=1.1.8-20260731-main-c31eb62", registry = "aio-wg" }
 serde = { version = "1", default-features = false, features = ["derive"] }
 serde_json = { version = "1", default-features = false, features = ["alloc"] }
 

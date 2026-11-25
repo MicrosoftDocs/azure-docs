@@ -4,8 +4,8 @@ description: Learn how to troubleshoot intermittent connection errors and relate
 ms.topic: troubleshooting
 ms.date: 04/28/2025
 ms.custom: security-recommendations,fasttrack-edit
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 
 ms.service: azure-app-service
 ---

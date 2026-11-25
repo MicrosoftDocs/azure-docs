@@ -14,7 +14,7 @@ Integrating Azure App Configuration with Azure Front Door enables your client ap
 
 1. **Create configuration data in Azure App Configuration** - Define your application's key-values, feature flags, or snapshots in Azure App Configuration.
 
-1. **Connect Azure App Configuration to Azure Front Door** - Configure the connection between your App Configuration store and Azure Front Door through the Azure portal. The portal provides a guided experience to set up the configuration filters to control the data that is exposed through the Azure Front Door endpoint. [Set up Azure Front Door to connect to App Config](./how-to-connect-azure-front-door.md)
+1. **Connect Azure App Configuration to Azure Front Door** - Configure the connection between your App Configuration store and Azure Front Door through the Azure portal. The portal provides a guided experience to set up the Azure Front Door endpoint. [Set up Azure Front Door to connect to App Config](./how-to-connect-azure-front-door.md)
 
 1. **Connect application to Azure Front Door** - Configure your client application to retrieve configuration from the Azure Front Door endpoint using the App Configuration provider. The provider handles anonymous authentication and dynamic configuration updates. This document explains how to set up this connection.
 
@@ -74,27 +74,19 @@ For a complete sample app, refer to [JavaScript App with Azure App Configuration
 
 ---
 
-## Considerations and edge cases
-
-- **Request scoping**: The key-value filters used by your application must match exactly the filters configured for the Azure Front Door endpoint; any mismatch will cause the request to be rejected. For example, if your endpoint is configured to allow access to keys starting with an "App1:" prefix, the application code must also load keys starting with "App1:". However, if your application loads keys starting with a more specific prefix like "App1:Prod:", the request is rejected. See [examples for matching application filters with endpoint filters](https://github.com/Azure/AppConfiguration/blob/main/docs/AzureFrontDoor/readme.md).
-- **Exclusively loading feature flags**: If your application loads only feature flags, you should add two filters in the Azure Front Door rules - one a key-value filter for ALL keys with no label and second a feature flag filter for all keys starting with your feature flag prefix.
-- **Refresh strategy**: Applications loading from Azure Front Door cannot use sentinel key refresh. If refresh is enabled, the application must be configured to [monitor all selected keys](./howto-best-practices.md#monitoring-all-selected-keys) for changes.
-- **Snapshot references**: If your application loads a key-value that is a [snapshot reference](./concept-snapshot-references.md), Azure Front Door must be configured to allow list the referenced snapshot. Include the snapshot name in your Azure Front Door filters to enable snapshot resolution.
-
 ## Troubleshooting
 
 ### Configuration doesn't load
 
 - Verify Azure Front Door endpoint URL is correctly configured in application code.
 - Check for warnings in the App Config Portal and fix the issues if any.
-- Make sure the correct scoping filters are set when configuring the Azure Front Door endpoint. These filters (for key-values, snapshots, and feature flags) define the regex rules that block requests that don't match specified filters. If your app can’t access its configuration, review Azure Front Door rules to find any blocking regex patterns. Update the rule with the right filter or create a new AFD endpoint from the App Configuration portal. Learn more about [Azure Front Door routing rules](/azure/frontdoor/front-door-rules-engine).
-
-> [!NOTE]
-> To modify Azure Front Door endpoint rules, use the Azure Front Door portal. Editing these settings from the App Configuration portal will be available in a future release. 
 
 ### Configuration doesn't refresh
 
 - Verify that both the application refresh interval and Azure Front Door cache TTL are properly configured. For details on configuration refresh timing, see [Caching behavior in hyperscale configuration](./concept-hyperscale-client-configuration.md#caching).
+
+> [!NOTE]
+> Applications loading from Azure Front Door can't use sentinel key refresh. If you enable refresh, you must configure the application to [monitor all selected keys](./howto-best-practices.md#monitoring-all-selected-keys) for changes.
 
 ## Language availability
 

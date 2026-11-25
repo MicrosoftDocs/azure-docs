@@ -3,7 +3,7 @@ title: Read Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn how to use a PowerShell script to parse flow logs that are created hourly and updated every few minutes in Azure Network Watcher.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 08/20/2025
@@ -26,9 +26,9 @@ The concepts discussed in this article aren't limited to the PowerShell and are 
 
 - PowerShell installed on your machine. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
 
-- Flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-manage.md#create-a-flow-log) or [Create virtual network flow logs](vnet-flow-logs-manage.md#create-a-flow-log).
+- Flow logs in one or more regions. For more information, see [Create virtual network flow logs](vnet-flow-logs-manage.md#create-a-flow-log).
 
-- Necessary Azure role-based access control (Azure RBAC) permissions for the subscriptions of flow logs and storage account. For more information, see [Network Watcher RBAC permissions](required-rbac-permissions.md).
+- Necessary Azure role-based access control (Azure RBAC) permissions for the subscriptions of flow logs and storage account. For more information, see [Network Watcher RBAC permissions](rbac-permissions.md).
 
 ## Retrieve the blocklist
 
@@ -328,7 +328,7 @@ The results of this value are shown in the following example:
 			"time": "2017-06-16T20:59:43.7340000Z",
 			"systemId": "abcdef01-2345-6789-0abc-def012345678",
 			"category": "NetworkSecurityGroupFlowEvent",
-			"resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYNSG",
+			"resourceId": "/SUBSCRIPTIONS/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYNSG",
 			"operationName": "NetworkSecurityGroupFlowEvents",
 			"properties": {
 				"Version": 1,

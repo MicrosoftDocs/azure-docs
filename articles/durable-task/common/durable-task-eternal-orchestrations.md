@@ -4,7 +4,8 @@ description: "Learn how to implement eternal orchestrations in Durable Task Fram
 author: cgillum
 ms.topic: concept-article
 ms.service: durable-task
-ms.date: 04/23/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python, java, powershell
@@ -14,6 +15,8 @@ zone_pivot_groups: azure-durable-approach
 # Eternal orchestrations
 
 ::: zone pivot="durable-functions"
+
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
 
 *Eternal orchestrations* are orchestrator functions that run indefinitely by periodically resetting their own history using the `continue-as-new` API. They're useful for aggregators, periodic background jobs, and any [Durable Functions](what-is-durable-task.md) scenario that requires an infinite loop without unbounded history growth.
 
@@ -113,6 +116,31 @@ One common use case for eternal orchestrations is periodic background work, such
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("Periodic_Cleanup_Loop")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    await context.CallActivityAsync("DoCleanup");
+
+    // sleep for one hour between cleanups
+    DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
+    await context.CreateTimer(nextCleanup, CancellationToken.None);
+
+    context.ContinueAsNew(null);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
 public static async Task Run(
@@ -127,6 +155,10 @@ public static async Task Run(
     context.ContinueAsNew(null);
 }
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -181,6 +213,10 @@ public void periodicCleanupLoop(
     ctx.continueAsNew(null);
 }
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -260,6 +296,48 @@ const periodicCleanupLoop: TOrchestrator = async function* (ctx: OrchestrationCo
 };
 ```
 
+# [Go](#tab/go)
+
+This bounded demonstration carries its cycle count into a fresh execution history. Register it as `PeriodicCleanup` and register your cleanup activity as `DoCleanup`. Start it with integer input `0`.
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func periodicCleanup(ctx *task.OrchestrationContext) (any, error) {
+	var cycle int
+	if err := ctx.GetInput(&cycle); err != nil {
+		return nil, err
+	}
+	if cycle < 0 || cycle >= 3 {
+		return nil, fmt.Errorf("invalid cleanup cycle %d", cycle)
+	}
+	if err := ctx.CallActivity("DoCleanup").Await(nil); err != nil {
+		return nil, err
+	}
+	cycle++
+	if err := ctx.SetCustomStatusValue(cycle); err != nil {
+		return nil, err
+	}
+	if cycle == 3 {
+		return cycle, nil
+	}
+	if err := ctx.CreateTimer(250 * time.Millisecond).Await(nil); err != nil {
+		return nil, err
+	}
+	ctx.ContinueAsNew(cycle, task.WithKeepUnprocessedEvents())
+	return nil, nil
+}
+```
+
+The demonstration stops after three cycles. A production eternal workflow typically continues until it receives a stop signal. `WithKeepUnprocessedEvents` carries buffered external events into the next execution. Don't schedule more work after calling `ContinueAsNew`.
+
 # [PowerShell](#tab/powershell)
 
 The Durable Task SDK isn't available for PowerShell. For eternal orchestrations in PowerShell, use [Durable Functions](what-is-durable-task.md) with a [durable timer](durable-task-timers.md) and a [singleton pattern](durable-task-singletons.md).
@@ -276,6 +354,32 @@ Use the *start-new* or *schedule-new* durable client method to start an eternal 
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("Trigger_Eternal_Orchestration")]
+public static async Task<HttpResponseData> OrchestrationTrigger(
+    [HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData request,
+    [DurableClient] DurableTaskClient client)
+{
+    string instanceId = "StaticId";
+
+    await client.ScheduleNewOrchestrationInstanceAsync(
+        "Periodic_Cleanup_Loop",
+        null,
+        new StartOrchestrationOptions { InstanceId = instanceId });
+    return await client.CreateCheckStatusResponseAsync(request, instanceId);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
 public static async Task<HttpResponseMessage> OrchestrationTrigger(
@@ -288,6 +392,10 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
     return client.CreateCheckStatusResponse(request, instanceId);
 }
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -339,6 +447,10 @@ public HttpResponseMessage triggerEternalOrchestration(
 }
 ```
 
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
+
 ---
 
 ::: zone-end
@@ -382,6 +494,10 @@ await client.scheduleNewOrchestration(periodicCleanupLoop, undefined, instanceId
 
 The Durable Task SDK isn't available for PowerShell. For eternal orchestrations in PowerShell, use [Durable Functions](what-is-durable-task.md) with a [durable timer](durable-task-timers.md) and a [singleton pattern](durable-task-singletons.md).
 
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
+
 ---
 
 ::: zone-end
@@ -396,9 +512,27 @@ If an orchestrator function is in an infinite loop and needs to be stopped, use 
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+await client.TerminateInstanceAsync(instanceId, "Cleanup no longer needed");
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 await client.TerminateAsync(instanceId, "Cleanup no longer needed");
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -423,6 +557,10 @@ Stop-DurableOrchestration -InstanceId $instanceId -Reason "Cleanup no longer nee
 ```java
 client.terminate(instanceId, "Cleanup no longer needed");
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -463,6 +601,10 @@ await client.terminateOrchestration(instanceId, "Cleanup no longer needed");
 # [PowerShell](#tab/powershell)
 
 The Durable Task SDK isn't available for PowerShell. For eternal orchestrations in PowerShell, use [Durable Functions](what-is-durable-task.md) with a [durable timer](durable-task-timers.md) and a [singleton pattern](durable-task-singletons.md).
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 

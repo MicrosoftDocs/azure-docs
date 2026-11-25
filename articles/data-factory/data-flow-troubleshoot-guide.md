@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot mapping data flows
 description: Learn how to troubleshoot data flow problems in Azure Data Factory.
-ms.author: makromer
+ms.author: weetok
 author: kromerm
 ms.reviewer: daperlov
 ms.subservice: data-flows
@@ -12,6 +12,8 @@ ms.date: 06/03/2025
 # Troubleshoot mapping data flows in Azure Data Factory (ADF)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article explores common troubleshooting methods for mapping data flows in Azure Data Factory.
 

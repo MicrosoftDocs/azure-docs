@@ -5,7 +5,7 @@ ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.topic: how-to
 ms.author: v-gajeronika 
-ms.date: 09/09/2025
+ms.date: 09/11/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As an IT administrator, I want to set up and manage disaster recovery for Azure virtual machines using PowerShell, so that I can ensure business continuity during unexpected outages."
 ---
@@ -78,13 +78,6 @@ NetworkProfile     : {NetworkInterfaces}
 OSProfile          : {ComputerName, AdminUsername, WindowsConfiguration, Secrets}
 ProvisioningState  : Succeeded
 StorageProfile     : {ImageReference, OsDisk, DataDisks}
-```
-
-Get disk details for the virtual machine's disks. Disk details will be used later when starting replication for the virtual machine.
-
-```azurepowershell
-$OSDiskVhdURI = $VM.StorageProfile.OsDisk.Vhd
-$DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 ```
 
 ## Create a Recovery Services vault
@@ -320,7 +313,7 @@ Write-Output $TempASRJob.State
 $WusToEusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $RecoveryProtContainer -Name "A2ARecoveryToPrimary"
 ```
 
-## Create cache storage account and target storage account
+## Create a cache storage account
 
 A cache storage account is a standard storage account in the same Azure region as the virtual machine being replicated. The cache storage account is used to hold replication changes temporarily, before the changes are moved to the recovery Azure region. High churn support is also available in Azure Site Recovery to get higher churn limits. To use this feature, create a Premium Block Blob type of storage accounts and then use it as the cache storage account. Azure Site Recovery for Premium SSD v2/Ultra Disks is supported only using high churn. Use **SkuName Premium_LRS** and **Kind BlockBlobStorage** to enable high churn. You can choose to, but it's not necessary, to specify different cache storage accounts for the different disks of a virtual machine. If you use different cache storage accounts, ensure they are of the same type (Standard or Premium Block Blobs). For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
 
@@ -329,12 +322,8 @@ A cache storage account is a standard storage account in the same Azure region a
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-For virtual machines **not using managed disks**, the target storage account is the storage account in the recovery region to which disks of the virtual machine are replicated. The target storage account can be either a standard storage account or a premium storage account. Select the kind of storage account required based on the data change rate (IO write rate) for the disks and the Azure Site Recovery supported churn limits for the storage type.
-
-```azurepowershell
-#Create Target storage account in the recovery region. In this case a Standard Storage account
-$WestUSTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" -ResourceGroupName "a2ademorecoveryrg" -Location 'West US 2' -SkuName Standard_LRS -Kind Storage
-```
+> [!IMPORTANT]
+> Unmanaged Azure VM disks retired on March 31, 2026. This procedure supports managed disks only.
 
 ## Create network mappings
 
@@ -421,6 +410,9 @@ $RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2
 $OSdiskId = $vm.StorageProfile.OsDisk.ManagedDisk.Id
 $RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 $RecoveryReplicaDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+if ($RecoveryReplicaDiskAccountType -in @("PremiumV2_LRS", "UltraSSD_LRS")) {
+    $RecoveryReplicaDiskAccountType = "Premium_LRS"
+}
 
 $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id `
          -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
@@ -429,7 +421,7 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
 # Data disk
 $datadiskId1 = $vm.StorageProfile.DataDisks[0].ManagedDisk.Id
 $RecoveryReplicaDiskAccountType = $vm.StorageProfile.DataDisks[0].ManagedDisk.StorageAccountType
-if ($RecoveryReplicaDiskAccountType -in @("PremiumV2_LRS", "Ultra_LRS")) {
+if ($RecoveryReplicaDiskAccountType -in @("PremiumV2_LRS", "UltraSSD_LRS")) {
     $RecoveryReplicaDiskAccountType = "Premium_LRS"
 }
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0].ManagedDisk.StorageAccountType
@@ -446,36 +438,7 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
 $TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 ```
 
-Replicate the Azure virtual machine with **unmanaged disks**.
-
-```azurepowershell
-#Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
-
-#Disk replication configuration for the OS disk
-$OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -VhdUri $OSDiskVhdURI.Uri -LogStorageAccountId $EastUSCacheStorageAccount.Id -RecoveryAzureStorageAccountId $WestUSTargetStorageAccount.Id
-
-#Disk replication configuration for data disk
-$DataDisk1ReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -VhdUri $DataDisk1VhdURI.Uri -LogStorageAccountId $EastUSCacheStorageAccount.Id -RecoveryAzureStorageAccountId $WestUSTargetStorageAccount.Id
-
-#Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
-$diskconfigs = @()
-$diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
-
-#Get the resource group that the virtual machine must be created in when failed over.
-$RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
-
-#Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
-$TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
-
-#Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
-        sleep 10;
-        $TempASRJob = Get-AzRecoveryServicesAsrJob -Job $TempASRJob
-}
-
-#Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
-Write-Output $TempASRJob.State
-```
+For Premium SSD v2 and Ultra Disk sources, use `Premium_LRS` for `RecoveryReplicaDiskAccountType`. Keep the source SKU (`PremiumV2_LRS` or `UltraSSD_LRS`) for `RecoveryTargetDiskAccountType`. Premium SSD v2 and Ultra Disk aren't supported as replica disk types.
 
 Once the start replication operation succeeds, virtual machine data is replicated to the recovery region.
 
@@ -561,6 +524,9 @@ Succeeded
 ## Fail over to Azure
 
 Fail over the virtual machine to a specific recovery point.
+
+> [!NOTE]
+> The `RecoveryPointTime` values that this command returns are in UTC. The portal shows the **Latest Recovery Points** timestamp in your local time zone.
 
 ```azurepowershell
 $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem $ReplicationProtectedItem

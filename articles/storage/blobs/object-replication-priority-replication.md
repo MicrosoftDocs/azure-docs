@@ -2,12 +2,12 @@
 title: Introducing object replication priority replication for block blobs
 titleSuffix: Azure Storage
 description: Object replication's priority replication feature allows users to obtain prioritized replication from their source storage account to the destination storage account of their replication policy.
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: concept-article
 ms.date: 10/22/2025
-ms.author: shaas
+ms.author: schoag
 ms.custom: references_regions
 
 # Customer intent: As a cloud storage administrator, I want to implement priority object replication for block blobs, so that I can improve data availability, reduce read latency, and optimize cost-efficiency across multiple regions.
@@ -17,7 +17,7 @@ ms.custom: references_regions
 
 Object replication (OR) currently copies all operations from a source storage account to one or more destination accounts asynchronously, with no guaranteed completion time. However, with the introduction of object replication priority replication, users can now choose to prioritize the replication of the operations in their replication policy.
 
-When a replication's source and destination account are within the same continent, OR priority replication also replicates 99.0% of objects within 15 minutes for supported workloads. For more information, see [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
+For supported workloads, OR priority replication replicates 99.0% of objects within 15 minutes. For more information, see [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
 
 ## Benefits of priority replication
 
@@ -31,10 +31,11 @@ When Object Replication Priority Replication is enabled, users benefit from prio
 
 - Objects larger than 5 gigabytes (GB).
 - Objects that are modified more than 10 times per second.
-- Object Replication Policies where the Source Storage Account and Destination Storage Account aren't within the same continent.
 - Storage accounts that are:
-    - Larger than 5 petabytes (PB), or 
-    - Have more than 10 billion blobs, and 
+  - Larger than 100 petabytes (PB), or 
+    
+  - Have more than 200 billion blobs, and 
+    
 - During time periods where:
     - Your storage account or Replication Policy data transfer rate exceeds 1 gigabit per second (Gbps) and the resulting back log of writes are being replicated.
     - Your storage account or Replication Policy exceeds 1,000 PUT or DELETE operations per second and the resulting back log of writes are being replicated, and 

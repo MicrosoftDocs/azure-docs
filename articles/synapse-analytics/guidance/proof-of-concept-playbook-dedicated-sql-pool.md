@@ -274,7 +274,7 @@ Once query performance testing is complete, it's a good time to test specific fe
 
 - [Row-level security](/sql/relational-databases/security/row-level-security?view=azure-sqldw-latest&preserve-view=true)
 - [Column-level security](../sql-data-warehouse/column-level-security.md)
-- [Dynamic data masking](/azure/azure-sql/database/dynamic-data-masking-overview)
+- [Dynamic data masking](../sql/dynamic-data-masking-overview.md)
 - Intra-cluster scaling via [workload isolation](../sql-data-warehouse/sql-data-warehouse-workload-isolation.md)
 
 Finally, you need to interpret your POC results.

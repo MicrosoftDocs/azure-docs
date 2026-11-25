@@ -4,8 +4,9 @@ description: "Learn how to implement the function chaining pattern to execute a 
 author: hhunter-ms
 ms.topic: concept-article
 ms.service: durable-task
-ms.date: 04/22/2026
-ms.author: hannahhunter
+ms.date: 10/12/2026
+ai-usage: ai-assisted
+ms.author: vyomnagrani
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python
 ms.custom: devx-track-js, devx-track-python
@@ -16,15 +17,17 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Function chaining is a pattern where you run a sequence of functions in order. It's common to pass the output of one function to the input of the next. This article describes the chaining sequence you build when you complete the Durable Functions quickstart ([C#](../durable-functions/durable-functions-isolated-create-first-csharp.md), [JavaScript](../durable-functions/quickstart-js-vscode.md), [TypeScript](../durable-functions/quickstart-ts-vscode.md), [Python](../durable-functions/quickstart-python-vscode.md), [PowerShell](../durable-functions/quickstart-powershell-vscode.md), or [Java](../durable-functions/quickstart-java.md)). Learn more in [Durable Functions overview](what-is-durable-task.md).
 
-[!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
+[!INCLUDE [durable-functions-sample-prerequisites](../includes/durable-functions-sample-prerequisites.md)]
 
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
-Function chaining is a pattern where you run a sequence of activities in order. It's common to pass the output of one activity to the input of the next. This article describes the chaining sequence for the Durable Task SDKs for .NET, JavaScript, Python, and Java.
+Function chaining is a pattern where you run a sequence of activities in order. It's common to pass the output of one activity to the input of the next. This article describes the chaining sequence for the Durable Task SDKs for .NET, JavaScript, Python, Java, and Go (beta).
 
 ::: zone-end
 
@@ -44,7 +47,7 @@ This article describes these functions in the sample app:
 
 This article describes these components in the sample app:
 
-* `GreetingOrchestration`, `greetingOrchestrator`, `function_chaining_orchestrator`, or `ActivityChaining`: An orchestrator that calls multiple activities in sequence. It stores each output and records the results.
+* `GreetingOrchestration`, `greetingOrchestrator`, `function_chaining_orchestrator`, `ActivityChaining`, or `greetingOrchestration`: An orchestrator that calls multiple activities in sequence. It stores each output and records the results.
 * Activity functions: Activities that process input and return results. Each activity performs a simple transformation on the input.
 * Client: A client app that starts an instance of the orchestrator and waits for the result.
 
@@ -56,11 +59,42 @@ This article describes these components in the sample app:
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("E1_HelloSequence")]
+public static async Task<List<string>> RunOrchestrator(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var outputs = new List<string>();
+
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
+
+    return outputs;
+}
+```
+
+In the isolated worker model, C# orchestration functions include a parameter of type `TaskOrchestrationContext` from the `Microsoft.DurableTask` package. Use this context object to call activity functions and pass input parameters by using its `CallActivityAsync` method.
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=13-25)]
 
-All C# orchestration functions must have a parameter of type `DurableOrchestrationContext`, which exists in the `Microsoft.Azure.WebJobs.Extensions.DurableTask` assembly. This context object lets you call other *activity* functions and pass input parameters using its `CallActivityAsync` method.
+In the in-process model, C# orchestration functions include a parameter of type `DurableOrchestrationContext`, which exists in the `Microsoft.Azure.WebJobs.Extensions.DurableTask` assembly. Use this context object to call other *activity* functions and pass input parameters by using its `CallActivityAsync` method.
 
-The code calls `E1_SayHello` three times in sequence with different parameter values. The return value of each call is added to the `outputs` list, which is returned at the end of the function.
+</details>
+
+<br>
+
+The code calls `E1_SayHello` three times in sequence with different parameter values. The return value of each call is added to the `outputs` list, which the function returns at the end.
 
 # [JavaScript](#tab/javascript)
 
@@ -80,7 +114,7 @@ The key setting is the `orchestrationTrigger` binding type. All orchestrator fun
 
 #### index.js
 
-Here is the orchestrator function:
+Here's the orchestrator function:
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E1_HelloSequence/index.js":::
 
@@ -101,7 +135,7 @@ The `context` object contains a `df` durable orchestration context object that l
 
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js" range="1-14":::
 
-All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). This module enables you to write Durable Functions in JavaScript. To use the V4 node programming model, you need to install the `v3.x` version of `durable-functions`.
+All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). This module enables you to write Durable Functions in JavaScript. For the V4 Node.js programming model, follow the [Node.js v4 setup instructions](../durable-functions/quickstart-js-vscode.md).
 
 Two key differences between an orchestrator function and other JavaScript functions:
 
@@ -115,7 +149,7 @@ The `context` object contains a `df` durable orchestration context object that l
 # [Python](#tab/python)
 
 > [!NOTE]
-> Python Durable Functions are available for the Functions 3.0 runtime only.
+> Use Azure Functions 4.x with a [supported Python version](../../azure-functions/supported-languages.md).
 
 
 #### function.json
@@ -126,43 +160,58 @@ If you use Visual Studio Code or the Azure portal for development, here's the co
 The important thing is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
 
 > [!WARNING]
-> To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, they should instead be used in the context of `activityTrigger` functions, which are called by the orchestrator. For more information, see the [orchestrator function code constraints](durable-task-code-constraints.md) article.
+> To abide by the "no I/O" rule of orchestrator functions, don't use any input or output bindings when using the `orchestrationTrigger` trigger binding.  If other input or output bindings are needed, use them in the context of `activityTrigger` functions, which the orchestrator calls. For more information, see the [orchestrator function code constraints](durable-task-code-constraints.md) article.
 
 #### \_\_init\_\_.py
 
-Here is the orchestrator function:
+Here's the orchestrator function:
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/\_\_init\_\_.py)]
 
 All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. Two key differences between an orchestrator function and other Python functions:
 
 1. The orchestrator function is a [generator function](https://wiki.python.org/moin/Generators).
-1. The _file_ registers the orchestrator function by stating `main = df.Orchestrator.create(<orchestrator function name>)` at the end of the file. This helps distinguish it from other helper functions declared in the file.
+1. The _file_ registers the orchestrator function by stating `main = df.Orchestrator.create(<orchestrator function name>)` at the end of the file. This statement helps distinguish it from other helper functions declared in the file.
 
-The `context` object lets you call other *activity* functions and pass input parameters using its `call_activity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is returned at the end of the function.
+The `context` object lets you call other *activity* functions and pass input parameters by using its `call_activity` method. The code calls `E1_SayHello` three times in sequence with different parameter values, using `yield` to indicate the execution should wait on the async activity function calls to be returned. The return value of each call is returned at the end of the function.
 
 # [PowerShell](#tab/powershell)
 
-PowerShell sample isn't available yet.
+The orchestrator calls the `Hello` activity three times in sequence with different parameter values. The return value of each call is collected in the `$output` array.
+
+```powershell
+param($Context)
+
+$output = @()
+
+$output += Invoke-DurableActivity -FunctionName 'Hello' -Input 'Tokyo'
+$output += Invoke-DurableActivity -FunctionName 'Hello' -Input 'London'
+$output += Invoke-DurableActivity -FunctionName 'Hello' -Input 'Seattle'
+
+$output
+```
 
 # [Java](#tab/java)
 
-The following Java orchestrator runs the function chaining pattern by calling `SayHello` three times in sequence:
-
 ```java
-@FunctionName("HelloCities")
-public List<String> runOrchestrator(
-        @DurableOrchestrationTrigger(name = "context") TaskOrchestrationContext ctx,
-        final ExecutionContext context) {
-    context.getLogger().info("Saying hello.");
-    List<String> outputs = new ArrayList<>();
-    outputs.add(ctx.callActivity("SayHello", "Tokyo", String.class).await());
-    outputs.add(ctx.callActivity("SayHello", "Seattle", String.class).await());
-    outputs.add(ctx.callActivity("SayHello", "London", String.class).await());
-    return outputs;
+@FunctionName("E1_HelloSequence")
+public String helloSequence(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+
+    String result = "";
+    result += ctx.callActivity("SayHello", "Tokyo", String.class).await();
+    result += ", " + ctx.callActivity("SayHello", "London", String.class).await();
+    result += ", " + ctx.callActivity("SayHello", "Seattle", String.class).await();
+    return result;
 }
 ```
 
+The orchestrator calls `SayHello` three times in sequence with different parameter values. The `callActivity` method schedules activity execution, and `await()` waits for the result. The return value of each call is appended to the `result` string, which is returned at the end of the function.
+
 Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -255,7 +304,7 @@ All Python orchestrators are generator functions that use `yield` to call activi
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, JavaScript, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
@@ -291,6 +340,38 @@ DurableTaskGrpcWorker worker = DurableTaskSchedulerWorkerExtensions.createWorker
 
 In Java, orchestrators are defined using `TaskOrchestrationFactory`. The context's `callActivity` method schedules activity execution, and `await()` waits for the result. The code calls three activities in sequence, passing each activity's output to the next.
 
+# [Go](#tab/go)
+
+Add this orchestrator and the activities in the next section to your Go app. Register it as `Greeting` and register the activities as `SayHello`, `ProcessGreeting`, and `FinalizeResponse`.
+
+```go
+package main
+
+import "github.com/microsoft/durabletask-go/task"
+
+func greetingOrchestration(ctx *task.OrchestrationContext) (any, error) {
+	var name string
+	if err := ctx.GetInput(&name); err != nil {
+		return nil, err
+	}
+	var greeting string
+	if err := ctx.CallActivity("SayHello", task.WithActivityInput(name)).Await(&greeting); err != nil {
+		return nil, err
+	}
+	var processed string
+	if err := ctx.CallActivity("ProcessGreeting", task.WithActivityInput(greeting)).Await(&processed); err != nil {
+		return nil, err
+	}
+	var response string
+	if err := ctx.CallActivity("FinalizeResponse", task.WithActivityInput(processed)).Await(&response); err != nil {
+		return nil, err
+	}
+	return response, nil
+}
+```
+
+`CallActivity` schedules durable work, and `Await` waits for its result. Each activity receives the previous activity's output. See the [Go SDK guide](../sdks/durable-task-go.md) for worker and client setup.
+
 ---
 
 ::: zone-end
@@ -301,14 +382,38 @@ In Java, orchestrators are defined using `TaskOrchestrationFactory`. The context
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("E1_SayHello")]
+public static string SayHello([ActivityTrigger] string name)
+{
+    return $"Hello {name}!";
+}
+```
+
+In the isolated worker model, activities use the `ActivityTrigger` attribute and can bind directly to the input type that the orchestrator passes to the activity.
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=27-32)]
 
 Activities use the `ActivityTrigger` attribute. Use `IDurableActivityContext` for activity actions, like reading input with `GetInput<T>`.
 
 `E1_SayHello` formats a greeting string.
 
-Instead of binding to `IDurableActivityContext`, bind directly to the type passed into the activity function. For example:
+Instead of binding to `IDurableActivityContext`, bind directly to the type you pass into the activity function. For example:
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -324,7 +429,7 @@ The *function.json* file for the activity function `E1_SayHello` is similar to t
 > [!NOTE]
 > Use the `activityTrigger` binding for all activity functions that an orchestration function calls.
 
-The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
+The implementation of `E1_SayHello` is a relatively simple string formatting operation.
 
 #### E1_SayHello/index.js
 
@@ -355,34 +460,46 @@ The *function.json* file for the activity function `E1_SayHello` is similar to t
 [!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/function.json)]
 
 > [!NOTE]
-> All activity functions called by an orchestration function must use the `activityTrigger` binding.
+> All activity functions that an orchestration function calls must use the `activityTrigger` binding.
 
-The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
+The implementation of `E1_SayHello` is a relatively simple string formatting operation.
 
 #### E1_SayHello/\_\_init\_\_.py
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/\_\_init\_\_.py)]
 
-Unlike the orchestrator function, an activity function needs no special setup. The input passed to it by the orchestrator function is directly accessible as the parameter to the function.
+Unlike the orchestrator function, an activity function needs no special setup. The input that the orchestrator function passes to it is directly accessible as the parameter to the function.
 
 # [PowerShell](#tab/powershell)
 
-PowerShell sample coming soon.
+The `Hello` activity takes a name and returns a greeting string:
+
+```powershell
+param($name)
+
+"Hello $name!"
+```
+
+Unlike the orchestrator function, an activity function needs no special setup. The input that the orchestrator function passes to it is directly accessible as the parameter to the function.
 
 # [Java](#tab/java)
 
-The following Java activity function is used by the chaining orchestrator:
+The `SayHello` activity takes a name and returns a greeting string:
 
 ```java
 @FunctionName("SayHello")
 public String sayHello(
-        @DurableActivityTrigger(name = "name") String name,
-        final ExecutionContext context) {
-    context.getLogger().info("Saying hello to " + name + ".");
-    return "Hello " + name + "!";
+        @DurableActivityTrigger(name = "name") String name) {
+    return String.format("Hello %s!", name);
 }
 ```
 
+Unlike the orchestrator function, an activity function needs no special setup. The input that the orchestrator function passes to it is directly accessible as the parameter to the function.
+
 Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -457,7 +574,7 @@ const finalizeResponse = async (_ctx: ActivityContext, response: string): Promis
 };
 ```
 
-Unlike orchestrators, activities can perform I/O operations like HTTP calls, database queries, and file access. The input is passed directly as a parameter.
+Unlike orchestrators, activities can perform I/O operations like HTTP calls, database queries, and file access. You pass the input directly as a parameter.
 
 # [Python](#tab/python)
 
@@ -479,15 +596,15 @@ def finalize_response(ctx: task.ActivityContext, response: str) -> str:
     return f"{response} I hope you're doing well!"
 ```
 
-Unlike orchestrators, activities can perform I/O operations like HTTP calls, database queries, and file access. The input is passed directly as a parameter.
+Unlike orchestrators, activities can perform I/O operations like HTTP calls, database queries, and file access. You pass the input directly as a parameter.
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, JavaScript, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
-Activities in Java are defined using `TaskActivityFactory`:
+Define activities in Java by using `TaskActivityFactory`:
 
 ```java
 import com.microsoft.durabletask.TaskActivity;
@@ -532,6 +649,46 @@ import com.microsoft.durabletask.TaskActivityFactory;
 
 Register each activity with the worker builder by using `addActivity`. Activities can perform I/O operations and return results to the orchestrator.
 
+# [Go](#tab/go)
+
+Save these functions in a separate Go file in the same package as `greetingOrchestration`:
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func sayHello(ctx task.ActivityContext) (any, error) {
+	var name string
+	if err := ctx.GetInput(&name); err != nil {
+		return nil, err
+	}
+	return fmt.Sprintf("Hello %s!", name), nil
+}
+
+func processGreeting(ctx task.ActivityContext) (any, error) {
+	var greeting string
+	if err := ctx.GetInput(&greeting); err != nil {
+		return nil, err
+	}
+	return greeting + " How are you today?", nil
+}
+
+func finalizeResponse(ctx task.ActivityContext) (any, error) {
+	var response string
+	if err := ctx.GetInput(&response); err != nil {
+		return nil, err
+	}
+	return response + " I hope you're doing well!", nil
+}
+```
+
+Activities can perform ordinary Go I/O. Their input and return values are serialized by the SDK.
+
 ---
 
 ::: zone-end
@@ -544,9 +701,41 @@ Start an orchestrator function instance from a client function. Use the `HttpSta
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("HttpStart")]
+public static async Task<HttpResponseData> HttpStart(
+    [HttpTrigger(
+        AuthorizationLevel.Anonymous,
+        "get",
+        "post",
+        Route = "orchestrators/{functionName}")] HttpRequestData request,
+    [DurableClient] DurableTaskClient client,
+    string functionName)
+{
+    string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(functionName);
+    return await client.CreateCheckStatusResponseAsync(request, instanceId);
+}
+```
+
+In the isolated worker model, use `DurableTaskClient` to schedule an orchestration and return an HTTP response with URLs for managing the new instance.
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs?range=13-30)]
 
-To interact with orchestrators, add a `DurableClient` input binding. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.
+In the in-process model, add a `DurableClient` input binding. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -594,7 +783,20 @@ Use the `DurableOrchestrationClient` constructor to create a Durable Functions c
 
 # [PowerShell](#tab/powershell)
 
-PowerShell sample coming soon.
+```powershell
+using namespace System.Net
+
+param($Request, $TriggerMetadata)
+
+$FunctionName = $Request.Params.FunctionName
+$InstanceId = Start-DurableOrchestration -FunctionName $FunctionName
+Write-Host "Started orchestration with ID = '$InstanceId'"
+
+$Response = New-DurableOrchestrationCheckStatusResponse -Request $Request -InstanceId $InstanceId
+Push-OutputBinding -Name Response -Value $Response
+```
+
+To interact with orchestrators, use `Start-DurableOrchestration` to start an orchestration and `New-DurableOrchestrationCheckStatusResponse` to return an HTTP response that includes URLs to check the status.
 
 # [Java](#tab/java)
 
@@ -614,7 +816,13 @@ public HttpResponseMessage startOrchestration(
 }
 ```
 
+To interact with orchestrators, add a `DurableClientInput` binding. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.
+
 Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -626,12 +834,22 @@ Start an orchestration from a client application. The client schedules the orche
 
 # [C#](#tab/csharp)
 
+This client setup requires the `Microsoft.DurableTask.Client.AzureManaged`, `Microsoft.Extensions.DependencyInjection`, and `Microsoft.Extensions.Logging` NuGet packages.
+
 ```csharp
 using System;
 using Microsoft.DurableTask.Client;
+using Microsoft.DurableTask.Client.AzureManaged;
+using Microsoft.Extensions.DependencyInjection;
 
 // Create the client
-var client = DurableTaskClientBuilder.UseDurableTaskScheduler(connectionString).Build();
+string connectionString = Environment.GetEnvironmentVariable("DTS_CONNECTION_STRING")
+    ?? "Endpoint=http://localhost:8080;TaskHub=default;Authentication=None";
+var services = new ServiceCollection();
+services.AddLogging();
+services.AddDurableTaskClient(builder => builder.UseDurableTaskScheduler(connectionString));
+await using ServiceProvider serviceProvider = services.BuildServiceProvider();
+DurableTaskClient client = serviceProvider.GetRequiredService<DurableTaskClient>();
 
 // Schedule a new orchestration instance
 string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(
@@ -680,6 +898,7 @@ Create the `DurableTaskAzureManagedClientBuilder` by using a connection string t
 
 ```python
 from durabletask.azuremanaged.client import DurableTaskSchedulerClient
+from durabletask.client import OrchestrationStatus
 
 # Create the client
 client = DurableTaskSchedulerClient(
@@ -700,7 +919,7 @@ print(f"Started orchestration with ID: {instance_id}")
 # Wait for the orchestration to complete
 result = client.wait_for_orchestration_completion(instance_id, timeout=60)
 
-if result and result.runtime_status == "COMPLETED":
+if result and result.runtime_status == OrchestrationStatus.COMPLETED:
     print(f"Orchestration completed with result: {result.serialized_output}")
 ```
 
@@ -708,7 +927,7 @@ The `DurableTaskSchedulerClient` connects to the Durable Task Scheduler. Use `sc
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, JavaScript, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, Python, and Go.
 
 # [Java](#tab/java)
 
@@ -742,6 +961,43 @@ System.out.println("Orchestration completed with result: " + result.readOutputAs
 ```
 
 Create the `DurableTaskClient` by using a connection string. Use `scheduleNewOrchestrationInstance` to start an orchestration and `waitForInstanceCompletion` to wait for completion.
+
+# [Go](#tab/go)
+
+With the worker running and `Greeting` registered, use a client created by `durabletaskscheduler.NewClient`:
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/microsoft/durabletask-go/api"
+	"github.com/microsoft/durabletask-go/durabletaskscheduler"
+)
+
+func runGreeting(ctx context.Context, durableClient *durabletaskscheduler.Client, name string) (string, error) {
+	id, err := durableClient.ScheduleNewOrchestration(ctx, "Greeting", api.WithInput(name))
+	if err != nil {
+		return "", err
+	}
+	metadata, err := durableClient.WaitForOrchestrationCompletion(ctx, id, api.WithFetchPayloads(true))
+	if err != nil {
+		return "", err
+	}
+	if metadata.RuntimeStatus != api.RUNTIME_STATUS_COMPLETED {
+		return "", fmt.Errorf("greeting ended with %s: %+v", metadata.RuntimeStatus, metadata.FailureDetails)
+	}
+	var result string
+	if err := metadata.ReadOutput(&result); err != nil {
+		return "", err
+	}
+	return result, nil
+}
+```
+
+For worker startup and connection cleanup, follow the [Go quickstart](../sdks/quickstart-portable-durable-task-sdks.md?pivots=go).
 
 ---
 
@@ -808,9 +1064,9 @@ To run the sample, you need:
    docker run -d -p 8080:8080 -p 8082:8082 --name dts-emulator mcr.microsoft.com/dts/dts-emulator:latest
    ```
 
-2. **Start the worker** to register the orchestrator and activities.
+1. **Start the worker** to register the orchestrator and activities.
 
-3. **Run the client** to schedule an orchestration and wait for the result.
+1. **Run the client** to schedule an orchestration and wait for the result.
 
 The client output shows the chained orchestration result:
 

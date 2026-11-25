@@ -2,7 +2,7 @@
 title: Include File
 description: Include file with information about Azure Maps.
 author: eriklindeman
-ms.author: eriklind
+ms.author: diberry
 ms.date: 09/14/2023
 ms.topic: include
 ms.custom: include file

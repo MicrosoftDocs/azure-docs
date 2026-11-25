@@ -15,6 +15,8 @@ ms.custom: sfi-image-nochange
 
 # Virtual appointments
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This tutorial describes concepts for virtual appointment applications. After completing this tutorial and the associated [Sample Builder](https://aka.ms/acs-sample-builder), you'll understand common use cases that a virtual appointments application delivers, the Microsoft technologies that can help you build those uses cases, and have built a sample application integrating Microsoft 365 and Azure that you can use to demo and explore further.
 
 Virtual appointments are a communication pattern where a **consumer** and a **business** assemble for a scheduled appointment. The **organizational boundary** between consumer and business, and **scheduled** nature of the interaction, are key attributes of most virtual appointments. Many industries operate virtual appointments: meetings with a healthcare provider, a loan officer, or a product support technician.

@@ -3,8 +3,10 @@ title: Azure Enclave Role-based Access Controls
 description: Learn how to use built-in roles in Azure Enclave to isolate and delegate access across communities, enclaves, and workloads.
 author: jadean-msft
 ms.author: jadean
+ai-usage: ai-assisted
 ms.topic: how-to
-ms.date: 9/30/2025
+ms.service: azure-enclave
+ms.date: 08/19/2026
 ---
 
 # Role-based access control (RBAC) in Azure Enclave
@@ -17,20 +19,20 @@ This article explains how Azure Enclave implements RBAC and introduces the built
 
 Azure Enclave organizes resources into three logical layers:
 
-- **Communities** – The root governance boundary for your isolated environments.
-- **Enclaves** – Secure, virtual network-isolated landing zones that are created within a community.
-- **Workloads** – Applications and services deployed into enclave resource groups.
+- **Communities** - The root governance boundary for your isolated environments.
+- **Enclaves** - Secure, virtual network-isolated landing zones that you create within a community.
+- **Workloads** - Applications and services deployed into enclave resource groups.
 
 Each layer exposes distinct management operations, and Azure Enclave provides purpose-built roles to isolate access across them.
 
 ## RBAC in Azure Enclave
 
-RBAC in Azure Enclave is enforced using standard RBAC role assignments in combination with deny assignments to enable granular control over Community/Enclave managed resources and workloads.
+Azure Enclave enforces RBAC by using standard RBAC role assignments in combination with deny assignments. This approach enables granular control over community and enclave managed resources and workloads.
 
 Key RBAC concepts:
 - **Community and Enclave Access Controls** - Deny assignments are applied to Community and Enclave managed resource groups to prevent unauthorized changes. Community/Enclave **Admin Settings** determine which users/groups get role assignments over managed resources. **Maintenance Mode** determines who can perform specific privileged actions that may impact security and isolation.  
 - **Workload Access Controls** - Workload resource groups are also optionally protected with deny assignments to ensure that only explicitly-defined users/groups have privileged access over workload resources.  
-- **Maintanence Mode** - Grants explicitly-defined users/groups exceptions to the deny assignments over Community and Enclave managed resource groups to perform privileged actions over managed resources.
+- **Maintenance Mode** - Grants explicitly defined users and groups exceptions to the deny assignments over community and enclave managed resource groups so they can perform privileged actions over managed resources.
 
 ## Built-in roles for Azure Enclave
 
@@ -83,3 +85,5 @@ To implement secure and effective access control in Azure Enclave:
 - [Deploy a community in Azure Enclave](./1-1-create-community.md)
 - [Monitor enclave activity using Log Analytics](./observability.md)
 - [Create custom roles in Azure](/azure/role-based-access-control/custom-roles)
+- [Access controls in enclaves](./access-controls-enclaves.md)
+- [Maintenance mode](./maintenance-mode.md)

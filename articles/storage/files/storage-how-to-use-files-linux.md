@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/08/2026
-ms.author: kendownie
+ms.author: kendownie, saimsh
 ms.custom:
   - linux-related-content
   - devx-track-azurecli
@@ -19,7 +19,7 @@ ms.custom:
 
 You can mount Azure file shares in Linux distributions by using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
 
-This article shows how to mount an SMB Azure file share by using NTLMv2 authentication (storage account key). For security reasons, Microsoft recommends identity-based authentication. See [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
+This article shows how to mount an SMB Azure file share by using NTLMv2 authentication (storage account key). For security reasons, Microsoft recommends identity-based authentication. To configure identity-based authentication, see [Configure Linux clients for Azure Files with on-premises AD DS](storage-files-identity-auth-linux-kerberos-enable.md) or [Configure Linux clients for Azure Files with Microsoft Entra Domain Services](storage-files-identity-auth-linux-kerberos-entra-domain-services.md).
 
 ## Protocols
 
@@ -32,6 +32,7 @@ By default, Azure Files enforces encryption in transit. SMB encryption is availa
 | [Red Hat Enterprise Linux (RHEL)](https://access.redhat.com/articles/3078) | <ul><li>Basic: 8.0+</li><li>Default mount: 8.2+</li><li>AES-128-GCM encryption: 8.2+</li></ul> | 7.5+ |
 | [Debian](https://www.debian.org/releases/) | Basic: 10+ | AES-128-CCM encryption: 10+ |
 | [SUSE Linux Enterprise Server](https://www.suse.com/support/kb/doc/?id=000019587) | AES-128-GCM encryption: 15 SP2+ | AES-128-CCM encryption: 12 SP2+ |
+| [Azure Linux 4](https://github.com/microsoft/azurelinux/tree/4.0) | <ul><li>Default mount</li><li>AES-128-GCM encryption</li><li>AES-256-GCM encryption</li></ul> | AES-128-CCM encryption |
 
 If your Linux distribution isn't listed in the preceding table, check the Linux kernel version by using the `uname` command:
 
@@ -57,11 +58,11 @@ sudo apt update
 sudo apt install cifs-utils
 ```
 
-# [RHEL](#tab/RHEL)
+# [RHEL and Azure Linux 4](#tab/RHEL)
 
 The same instructions apply for CentOS or Oracle Linux.
 
-On Red Hat Enterprise Linux 8 and later, use the `dnf` package manager.
+On Red Hat Enterprise Linux 8 and later, or Azure Linux 4, use the `dnf` package manager.
 
 ```bash
 sudo dnf install cifs-utils
@@ -88,6 +89,11 @@ On other distributions, use the appropriate package manager or [compile from sou
 
 * **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you can. However, the instructions in this article are for the Azure CLI.
 
+* **On Azure Linux 4, ensure the `nc` command is available.** If needed, install the `nmap-ncat` package before running the connectivity test.
+
+    ```bash
+    sudo dnf install nmap-ncat
+    ```
 * **Ensure port 445 is open**: SMB communicates over TCP port 445. Make sure your firewall or ISP isn't blocking TCP port 445 from the client machine. Replace `<your-resource-group>` and `<your-storage-account>` and then run the following script:
 
     ```bash
@@ -123,7 +129,7 @@ You can also get Unix-style permissions support for SMB Azure file shares by usi
 
 - All clients accessing the share need to mount by using `modefromsid,idsfromsid`.
 - The UIDs and GIDs must be uniform across all clients.
-- Clients must be running one of the following supported Linux distros: Ubuntu 20.04+, SLES 15 SP3+.
+- Clients must use an SMB client that supports both options. Ubuntu 20.04+, SLES 15 SP3+, and Azure Linux 4 include this client support.
 
 ## Deferred close and dual-protocol access
 
@@ -337,11 +343,11 @@ sudo apt update
 sudo apt install autofs
 ```
 
-# [RHEL](#tab/RHEL)
+# [RHEL and Azure Linux 4](#tab/RHEL)
 
 The same instructions apply to CentOS or Oracle Linux.
 
-On Red Hat Enterprise Linux 8 and later, use the `dnf` package manager.
+On Red Hat Enterprise Linux 8 and later, or Azure Linux 4, use the `dnf` package manager.
 
 ```bash
 sudo dnf install autofs
@@ -397,7 +403,7 @@ You can supply `password2` in one of two ways:
 
 ### Prerequisites
 
-You need cifs-utils version 7.4 or higher to use the `password2` mount option. In addition to the correct cifs-utils package, your Linux distribution must support the minimum required kernel versions as highlighted in the following table:
+You need cifs-utils version 7.4 or higher and a kernel with `password2` support to use the `password2` mount option. Check the installed versions by using `mount.cifs -V` and `uname -r`. The following table lists distribution kernels with the required support:
 
 | **Distribution** | **Release** | **Supported kernel version** |
 |---|---|---|
@@ -407,6 +413,7 @@ You need cifs-utils version 7.4 or higher to use the `password2` mount option. I
 | RHEL | 9.6 | 5.14.0-570.12.1.el9_6 |
 | Alma | 9.6 | 5.14.0-570.12.1 |
 | Rocky | 9.6 | 5.14.0-570.17.1 |
+| Azure Linux | 4 | 6.18 (native support) |
 
 > [!NOTE]
 > If your distribution isn't on the list, it currently doesn't have the required backports from Kernel 6.6 Stable branch.
@@ -452,7 +459,7 @@ Use the following mount options when mounting SMB Azure file shares on Linux.
 | `cifsacl` | n/a | Use to map CIFS/NTFS ACLs to and from Linux permission bits, map SIDs to and from UIDs and GIDs, and get and set Security Descriptors. Only supported for NTLMv2 authentication. |
 | `idsfromsid,modefromsid` | n/a | Use when client needs to do client-enforced authorization. Enables Unix-style permissions. Only works when UIDs and GIDs are uniform across all the clients. Only supported for NTLMv2 authentication. |
 | `cruid=` | uid or username | Optional. Sets the uid of the owner of the credentials cache. This value is primarily useful with `sec=krb5`. The default is the real uid of the process performing the mount. Set this parameter to the uid or username of the user who has the necessary Kerberos tickets in their default credentials cache file. This directs the upcall to look for a credentials cache owned by that user. |
-| `sec=` | krb5 | Required for Kerberos authentication. To enable Kerberos security mode, set `sec=krb5`. Example: `sudo mount -t cifs $SMB_PATH $MNT_PATH -o sec=krb5,cruid=$UID,serverino,nosharesock,actimeo=30,mfsymlinks`. Omit username and password when using this option. The Linux client must be domain-joined. See [Enable Active Directory authentication over SMB for Linux clients](storage-files-identity-auth-linux-kerberos-enable.md). |
+| `sec=` | krb5 | Required for Kerberos authentication. To enable Kerberos security mode, set `sec=krb5`. Example: `sudo mount -t cifs $SMB_PATH $MNT_PATH -o sec=krb5,cruid=$UID,serverino,nosharesock,actimeo=30,mfsymlinks`. Omit username and password when using this option. The Linux client must be domain-joined. See [Configure Linux clients for Azure Files with on-premises AD DS](storage-files-identity-auth-linux-kerberos-enable.md) or [Configure Linux clients for Azure Files with Microsoft Entra Domain Services](storage-files-identity-auth-linux-kerberos-entra-domain-services.md). |
 | `uid=` | 0 | Optional. Sets the uid that owns all files or directories on the mounted filesystem when the server doesn't provide ownership information. Specify as either a username or a numeric uid. When not specified, the default is 0. |
 | `gid=` | 0 | Optional. Sets the gid that owns all files or directories on the mounted filesystem when the server doesn't provide ownership information. Specify as either a groupname or a numeric gid. When not specified, the default is 0. |
 | `file_mode=` | n/a | Optional. If the server doesn't support the CIFS Unix extensions, this value overrides the default file mode. |

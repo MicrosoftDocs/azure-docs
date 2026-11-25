@@ -1,13 +1,14 @@
 ---
 title: Review PostgreSQL assessment properties
-description: Explains how to assess PostgreSQL workloads in Azure Migrate, including key components, readiness evaluation, and migration planning.
-author: habibaum
-ms.author: v-uhabiba
+description: Explains how to assess PostgreSQL workloads in Azure Catalyst, including key components, readiness evaluation, and migration planning.
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-migrate 
 ms.topic: tutorial
 ms.date: 08/05/2025
+ms.update-cycle: 1095-days
 ms.custom: engagement-fy24 
-# Customer intent: Customers want to assess on-premises PostgreSQL workloads using Azure Migrate to prepare for migration to Azure Database for PostgreSQL flexible server. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
+# Customer intent: Customers want to assess on-premises PostgreSQL workloads using Azure Catalyst to prepare for migration to Azure Database for PostgreSQL flexible server. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
 ---
 
 # Tutorial: Review PostgreSQL assessment results and migration recommendations (preview)
@@ -105,14 +106,14 @@ To review readiness reports for different migration strategies, follow these ste
     - **Ready**: The instance can be migrated to Azure Database for PostgreSQL flexible server without any migration issues.
     - **Ready with conditions**: The instance has one or more migration issues. Select the hyperlink to view the identified issues and recommended remediation steps.
     - **Not ready**: The assessment did not identify an Azure Database for PostgreSQL flexible server configuration that meets the desired performance and configuration requirements. Select the hyperlink to view recommendations that can help make the instance ready for the target deployment type. 
-    - **Unknown**: Azure Migrate can't assess readiness because discovery is still in progress or there are issues that need to be resolved. To fix discovery issues, check the Notifications blade for details. If the issue persists, contact [Microsoft support](https://support.microsoft.com/).
+    - **Unknown**: Azure Catalyst can't assess readiness because discovery is still in progress or there are issues that need to be resolved. To fix discovery issues, check the Notifications blade for details. If the issue persists, contact [Microsoft support](https://support.microsoft.com/).
 1. To view detailed information for a specific instance, select the instance name to drill down into the following details:
     - Number of user databases
     - Instance properties
     - Configuration parameters scoped to the instance
     - Source database storage details.
     >[!Important]
-    > If PostgreSQL credentials aren't provided or if the Azure Migrate appliance can't connect to the PostgreSQL instance, SKU recommendations are based on virtual machine-level configuration. In this case, the readiness status is marked as Ready with Conditions. To validate all assessment rules—including extensions, collations, data types, and other database-specific configurations—and to ensure optimal SKU sizing, provide PostgreSQL credentials with sufficient permissions.
+    > If PostgreSQL credentials aren't provided or if the Azure Catalyst appliance can't connect to the PostgreSQL instance, SKU recommendations are based on virtual machine-level configuration. In this case, the readiness status is marked as Ready with Conditions. To validate all assessment rules—including extensions, collations, data types, and other database-specific configurations—and to ensure optimal SKU sizing, provide PostgreSQL credentials with sufficient permissions.
 
 1. To view the list of user databases and their details, select the number of user databases.
 1. To review migration issues and warnings for a specific target deployment type, select **Review details** in the **Migration issues** column.

@@ -14,6 +14,8 @@ ms.custom: has-adal-ref, synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article provides suggestions to troubleshoot common problems with the Azure Database for PostgreSQL connector in Azure Data Factory and Azure Synapse.
 
 ## <a name="error-code-azurepostgresqlnpgsqlpartitioncolumnnamenotprovided"></a> Error code: 23704 - AzurePostgreSqlNpgsqlPartitionColumnNameNotProvided

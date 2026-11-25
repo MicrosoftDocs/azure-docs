@@ -3,8 +3,8 @@ title: Configure sidecars
 description: Step-by-step guide to configuring sidecars, including adding built-in extensions.
 ms.topic: how-to
 ms.date: 07/14/2025
-ms.author: cephalin
-author: cephalin
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ---
 

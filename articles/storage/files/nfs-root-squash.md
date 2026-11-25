@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 06/17/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As a system administrator managing NFS Azure file shares, I want to configure root squash settings so that I can enhance security by preventing unauthorized root-level access from client machines.
 ---
 
@@ -26,9 +26,9 @@ In this article, you learn how to configure and change root squash settings for 
 
 ## How root squash works with Azure Files
 
-Root squash works by remapping the user ID (UID) and the group ID (GID) of the root user to a UID and GID belonging to the anonymous user on server. Root users accessing the file system are automatically converted to the anonymous, less-privileged user and group with limited permissions.
+Root squash works by remapping the user ID (UID) and the group ID (GID) of the root user to a UID and GID belonging to the anonymous user on the server. Root users accessing the file system are automatically converted to the anonymous, less-privileged user and group with limited permissions.
 
-Although root squash is the default behavior in NFS, it's not the default option when creating an NFS Azure file share. You must explicitly enable root squash on the file share. You can do this when you create an NFS Azure file share, or later on.
+Although root squash is the default behavior in NFS, it's not the default option when you create an NFS Azure file share. You must explicitly enable root squash on the file share. You can do this when you create an NFS Azure file share, or later.
 
 ## Root squash settings
 
@@ -36,7 +36,7 @@ Choose from three root squash settings:
 
 - **No root squash:** Turn off root squashing. This option is mainly useful for diskless clients or workloads as specified by workload documentation. This setting is the default when creating a new NFS Azure file share.
 - **All squash:** Map all UIDs and GIDs to the anonymous user. Use this setting for shares that require read-only access by all clients.
-- **Root squash:** Map requests from UID/GID 0 (root) to the anonymous UID/GID. This setting doesn't apply to any other UIDs or GIDs that might be equally sensitive, such as user bin or group staff.
+- **Root squash:** Map requests from UID/GID 0 (root) to the anonymous UID/GID. This setting doesn't apply to any other UIDs or GIDs that might be equally sensitive, such as user `bin` or group `staff`.
 
 The following table highlights the UID behavior observed from the server when you configure specific root squash options.
 
@@ -177,18 +177,15 @@ For Azure file shares that use the Microsoft.FileShares resource provider, you c
 
 1. Toggle the root squash setting as desired.
 
-   ![image for microsoft.fileshares root squash](./media/nfs-root-squash/file-share-root-squash-configuration.png)
+   :::image type="content" source="./media/nfs-root-squash/file-share-root-squash-configuration.png" alt-text="Screenshot showing how to configure root squash settings for a Microsoft.FileShares NFS file share in the Azure portal." lightbox="./media/nfs-root-squash/file-share-root-squash-configuration.png":::
    
 1. Select **Save** to update the root squash value.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To change the root squash setting on a file share (Microsoft.FileShares) by using Azure PowerShell, run the following commands. Replace the variables with your values. Allowed values for `-RootSquash` are `AllSquash`, `NoRootSquash`, and `RootSquash`.
+To change the root squash setting on a file share (Microsoft.FileShares) by using Azure PowerShell, run the following commands. Replace the variables with your values. Allowed values for `-RootSquash` are `AllSquash`, `NoRootSquash`, and `RootSquash`. You need the [Az PowerShell module](/powershell/azure/install-azure-powershell) version 16.0.0 or later. This version includes the Az.FileShare module.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
-Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
-
 $resourceGroup = "<your-resource-group-name>"
 $shareName = "<your-file-share-name>"
 
@@ -197,12 +194,9 @@ Update-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup -R
 
 # [Azure CLI](#tab/azure-cli)
 
-To change the root squash setting on a file share (Microsoft.FileShares) by using Azure CLI, run the following commands. Allowed values for `--root-squash` are `AllSquash`, `NoRootSquash`, and `RootSquash`.
+To change the root squash setting on a file share (Microsoft.FileShares) by using Azure CLI, run the following commands. Allowed values for `--root-squash` are `AllSquash`, `NoRootSquash`, and `RootSquash`. You need the `fileshare` extension for the Azure CLI. To install it, run `az extension add --name fileshare`.
 
 ```bash
-# Install the fileshare extension
-az extension add --name fileshare
-
 # Specify your values
 shareName="<your-file-share-name>"
 resourceGroup="<your-resource-group-name>"

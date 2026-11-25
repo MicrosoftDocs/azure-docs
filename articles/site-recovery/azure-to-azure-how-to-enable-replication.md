@@ -4,7 +4,7 @@ description: Learn how to configure replication to another region for Azure VMs,
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: how-to
-ms.date: 05/05/2026
+ms.date: 09/11/2026
 ms.service: azure-site-recovery
 ms.custom: sfi-image-nochange, references_regions
 # Customer intent: "As an IT administrator, I want to configure replication for Azure VMs to another region, so that I can ensure disaster recovery and maintain business continuity in the event of a regional outage."
@@ -42,6 +42,7 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
    - **Disaster recovery between availability zones**: Select **Yes** if you want to perform zonal disaster recovery on virtual machines.
 
      :::image type="fields needed to configure replication" source="./media/azure-to-azure-how-to-enable-replication/source.png" alt-text="Screenshot that highlights the fields needed to configure replication.":::
+
 1. Select **Next**.
 1. In **Virtual machines**, select each VM that you want to replicate. You can only select machines for which replication can be enabled. You can select up to 10 VMs. Then select **Next**.
 
@@ -77,11 +78,12 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
     
          :::image type="Storage" source="./media/azure-to-azure-how-to-enable-replication/storage.png" alt-text="Screenshot of Storage."::: 
   
-       - **Replica-managed disk**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
+       - **Replica-managed disk**: Replica and failover disk types normally match the source settings. Premium SSD v2 and Ultra Disk sources use Premium SSD v1 replica disks and retain their source disk type for the failover disk. For all mappings, see the [storage support matrix](azure-to-azure-support-matrix.md#replicated-machines---storage).
        - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. High Churn is the only option available to protect VMs using Premium SSD v2/Ultra Disks.
          >[!Note]
          >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
-         >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm-churn-settings.png" alt-text="Screenshot of churn.":::    
+         >
+         >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm-churn-settings.png" alt-text="Screenshot of churn settings.":::
     
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
         >[!NOTE]
@@ -99,8 +101,8 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
     
 1. In **Manage**, do the following:
     1. Under **Replication policy**,
-       - **Replication policy**: Select the replication policy. Defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of 24 hours for recovery point retention.
-       - **Replication group**: Create replication group to replicate VMs together to generate Multi-VM consistent recovery points. Note that enabling multi-VM consistency can impact workload performance and should only be used if machines are running the same workload and you need consistency across multiple machines.
+       - **Replication policy**: Select the replication policy. It defines recovery-point retention and app-consistent snapshot frequency. For defaults and replication-group behavior, see [Replication policy](azure-to-azure-architecture.md#replication-policy).
+       - **Replication group**: Create a replication group only when VMs run the same workload and require multi-VM-consistent recovery points.
     1. Under **Extension settings**, 
        - Select **Update settings** and **Automation account**.
    
@@ -139,6 +141,7 @@ After the enable replication job runs, and the initial replication finishes, the
 >[!NOTE]
 > - During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
 > - If a recovery point has not been generated in last 60 minutes, the replication health of the virtual machine will become critical.
+> - Don't use this procedure to add a shared cluster disk. Disable and re-enable protection for the complete cluster configuration.
 
 ## Next steps
 

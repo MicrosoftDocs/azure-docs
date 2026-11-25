@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Set up Azure IoT Hub Device Provisioning Service using Azure CLI
 description: Quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) using Azure CLI
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 08/12/2025
 ms.topic: quickstart
 ms.service: azure-iot-hub

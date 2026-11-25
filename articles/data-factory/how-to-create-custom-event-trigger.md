@@ -3,7 +3,7 @@ title: Create custom event triggers in Azure Data Factory
 description: Learn how to create a trigger in Azure Data Factory that runs a pipeline in response to a custom event published to Azure Event Grid.
 ms.subservice: orchestration
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.topic: how-to
 ms.date: 12/16/2024
@@ -13,6 +13,8 @@ ai-usage: ai-assisted
 # Create a custom event trigger to run a pipeline in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Event triggers in Azure Data Factory allow you to automate the execution of pipelines based on specific events occurring in your data sources. This is a key feature of event-driven architecture, enabling real-time data integration and processing. 
 

@@ -6,7 +6,7 @@ ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 11/02/2018
-ms.author: sethm
+ms.author: dimatokar
 ms.custom:
   - include file
   - sfi-image-nochange

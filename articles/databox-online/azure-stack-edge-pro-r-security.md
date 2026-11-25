@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 02/25/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 # Security and data protection for Azure Stack Edge Pro 2, Azure Stack Edge Pro R, and Azure Stack Edge Mini R
 

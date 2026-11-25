@@ -169,7 +169,7 @@ conceptualContent:
         - url: /azure/terraform/
           itemType: get-started
           text: Terraform on Azure
-        - url: https://help.github.com/actions
+        - url: https://docs.github.com/en/actions
           itemType: get-started
           text: GitHub Actions
 

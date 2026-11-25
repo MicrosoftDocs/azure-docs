@@ -4,7 +4,7 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.date: 06/16/2026
 ms.topic: sample
 author: padmalathas
-ms.author: padmalathas
+ms.author: mattmcinnes
 ms.service: azure-batch
 ms.custom: subject-policy-compliancecontrols
 # Customer intent: "As a compliance officer, I want to understand the available regulatory compliance controls for Azure Batch, so that I can ensure our resources meet necessary compliance standards effectively."
@@ -18,7 +18,7 @@ page lists the **compliance domains** and **security controls** for Azure Batch.
 built-ins for a **security control** individually to help make your Azure resources compliant with
 the specific standard.
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](~/reusable-content/ce-skilling/azure/includes/policy/standards/intro-warning.md)]
 
 [!INCLUDE [azure-policy-compliancecontrols-batch](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.batch.md)]
 

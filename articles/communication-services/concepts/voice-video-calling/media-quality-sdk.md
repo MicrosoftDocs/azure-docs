@@ -16,6 +16,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Media quality statistics
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 To help you better understand media quality in VoIP and video calls that use Azure Communication Services, there's a feature called *media quality statistics*. Use it to examine the low-level audio, video, and screen-sharing quality metrics for incoming and outgoing call metrics.
 
 ::: zone pivot="platform-web"

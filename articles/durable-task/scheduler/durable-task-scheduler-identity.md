@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: Configure managed identity for Durable Task Scheduler
 titleSuffix: Durable Task
 description: "Learn how to configure managed identity for Durable Task Scheduler, including role assignments and RBAC setup. Set up user-assigned or system-assigned identity authentication for your app."

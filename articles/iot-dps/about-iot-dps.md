@@ -1,8 +1,8 @@
 ---
 title: Overview of Azure IoT Hub Device Provisioning Service
 description: Describes production scale device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 02/27/2025
 ms.topic: overview
 ms.service: azure-iot-hub
@@ -99,7 +99,7 @@ You can learn more about the concepts and features involved in device provisioni
 
 ## Cross-platform support
 
-Just like all Azure IoT services, DPS works cross-platform with various operating systems. Azure offers [open-source SDKs](https://github.com/Azure/azure-iot-sdks) in various languages to facilitate connecting devices and managing the service.
+Just like all Azure IoT services, DPS works cross-platform with various operating systems. Azure offers [open-source SDKs](https://github.com/Azure/azure-iot-sdk) in various languages to facilitate connecting devices and managing the service.
 
 DPS supports the following protocols for connecting devices:
 

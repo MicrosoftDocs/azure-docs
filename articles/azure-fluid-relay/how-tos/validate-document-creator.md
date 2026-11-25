@@ -3,7 +3,7 @@ title: "How to: Validate a user who created a container"
 description: How to validate that the user who created a container is the same user who is claiming to be accessing the container.
 ms.date: 01/18/2023
 ms.topic: reference
-ms.service: azure-fluid
+ms.service: fluid-framework
 fluid.url: https://fluidframework.com/docs/apis/azure-client/itokenprovider/
 ---
 

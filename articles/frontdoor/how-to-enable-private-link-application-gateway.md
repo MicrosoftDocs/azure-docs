@@ -3,7 +3,7 @@ title: Connect to an Azure Application Gateway Origin with Private Link
 titleSuffix: Azure Front Door
 description: Learn how to connect your Azure Front Door Premium to an Azure Application Gateway privately.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 04/30/2026

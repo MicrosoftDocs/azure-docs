@@ -32,7 +32,7 @@ The following table has the parameters needed to configure data streams from eve
 
 ## Partitioning
 
-Partitioning varies depending on partition alignment. When the partition key for event hub output is equally aligned with the upstream (previous) query step, the number of writers is the same as the number of partitions in event hub output. Each writer uses the [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender) to send events to the specific partition. When the partition key for event hub output is not aligned with the upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses the [SendBatchAsync class](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync) in **EventHubClient** to send events to all the output partitions. 
+Partitioning varies depending on partition alignment. When the partition key for event hub output is aligned with the upstream (previous) query step, the number of writers is the same as the number of partitions in event hub output. Each writer sends events to a specific partition. When the partition key for event hub output isn't aligned with the upstream query step, the number of writers is the same as the number of partitions in that prior step. Each writer sends events across the output partitions.
 
 ## Output batch size
 

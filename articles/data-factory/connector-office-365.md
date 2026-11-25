@@ -15,6 +15,8 @@ ms.custom:
 # Copy from Microsoft 365 (Office 365) into Azure using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Azure Data Factory and Synapse Analytics pipelines integrate with [Microsoft Graph data connect](/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Microsoft 365 (Office 365) tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Microsoft 365 (Office 365).  Refer to [this link](/graph/data-connect-concept-overview) for an overview of Microsoft Graph data connect.
 
 > [!NOTE]

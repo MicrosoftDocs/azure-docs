@@ -7,11 +7,13 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: reference
 ms.date: 08/04/2025
-ms.author: makromer
+ms.author: weetok
 ---
 
 # Common Data Model format in Azure Data Factory and Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 The Common Data Model (CDM) metadata system makes it possible for data and its meaning to be easily shared across applications and business processes. To learn more, see the [Common Data Model](/common-data-model/) overview.
 

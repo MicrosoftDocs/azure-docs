@@ -5,8 +5,8 @@ ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: how-to
 ms.date: 03/23/2026
 ms.custom: fasttrack-edit, AppServiceIdentity
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 
 # As a developer, I want to configure Facebook authentication so that I can use it as an identity provider for an App Service or Azure Functions app. 

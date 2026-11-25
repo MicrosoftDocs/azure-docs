@@ -2,8 +2,8 @@
 title: Create and add a VM to a lab
 description: Learn how to use the Azure portal to add a virtual machine (VM) to a lab in Azure DevTest Labs. Configure basic settings, artifacts, and advanced settings.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/27/2025
 ms.custom:
   - UpdateFrequency2

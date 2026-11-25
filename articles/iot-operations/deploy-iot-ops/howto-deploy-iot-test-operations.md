@@ -1,12 +1,12 @@
 ---
 title: Deploy Azure IoT Operations to a Test Cluster
-description: Use the Azure portal to deploy Azure IoT Operations to test an Arc-enabled Kubernetes cluster.
+description: Use the Azure CLI or Azure portal to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster for testing.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 11/18/2025
+ms.date: 11/12/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster for testing and evaluation scenarios, so that I can evaluate the solution before deploying it to production.
@@ -17,6 +17,17 @@ ai-usage: ai-assisted
 Learn how to deploy Azure IoT Operations to a test cluster, which is an Arc-enabled Kubernetes cluster that you can use for testing and evaluation scenarios.
 
 If you want to deploy Azure IoT Operations to a production cluster, see [Deploy Azure IoT Operations to a production cluster](./howto-deploy-iot-operations.md).
+
+Choose a deployment method and use the links to navigate this article:
+
+| Section | What it covers |
+| --- | --- |
+| [Prerequisites](#prerequisites) | Prepare your cluster, tools, and Azure permissions. |
+| [Deploy in Azure portal](#deploy-in-azure-portal) | Configure a test deployment in the portal, then run the generated Azure CLI commands. |
+| [Deploy using Azure CLI](howto-deploy-iot-operations-cli.md) | Deploy a basic test instance using Bash or PowerShell. |
+| [Verify deployment](#verify-deployment) | Check the deployed services for health and configuration issues. |
+
+For CLI deployments, you can use the basic instance for testing and evaluation. Complete the secure settings steps in the CLI article when you're ready to prepare the instance for production.
 
 ## Before you begin
 
@@ -33,6 +44,8 @@ Cloud resources:
 Development resources:
 
 [!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
+* To deploy in Azure Government, run `az cloud set --name AzureUSGovernment` before you sign in. For other differences, see [Azure IoT Operations in Azure Government](../overview-azure-government.md#deploy-azure-iot-operations).
 
 A cluster host:
 
@@ -68,9 +81,15 @@ For more information, see [Azure CLI support for advanced MQTT broker configurat
 
 ## Deploy in Azure portal
 
+[!INCLUDE [azure-government-portal-note](../includes/azure-government-portal-note.md)]
+
 ### Basics
 
 [!INCLUDE [deploy-iot-ops-portal-basics](../includes/deploy-iot-ops-portal-basics.md)]
+
+### SKU
+
+[!INCLUDE [deploy-iot-ops-portal-sku](../includes/deploy-iot-ops-portal-sku.md)]
 
 ### Configuration
 
@@ -79,12 +98,13 @@ For more information, see [Azure CLI support for advanced MQTT broker configurat
    | Parameter | Value |
    | --------- | ----- |
    | **Azure IoT Operations name** | *Optional*: Replace the default name for the Azure IoT Operations instance. |
+   | **Cluster mode** | *Optional*: If you chose the **Standard** SKU, select either single-node cluster (default) or multi-node cluster. For **Essentials**, single-node cluster is the only option shown and can't be changed. |
    | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to configure [cardinality](../deployment-plan/deployment-planning.md#understand-broker-cardinality) and [memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile) settings. To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
    | **Data flow profile configuration** | *Optional*: Edit the default settings for data flows. For more information, see [Configure data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
 
    :::image type="content" source="./media/howto-deploy-iot-test-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-test-operations/deploy-configuration.png":::
 
-1. Select **Next: Dependency management**.
+1. Select **Dependency management**.
 
 ### Dependency management
 
@@ -96,9 +116,9 @@ For more information, see [Azure CLI support for advanced MQTT broker configurat
 
    :::image type="content" source="./media/howto-deploy-iot-test-operations/deploy-dependency-management-test.png" alt-text="A screenshot that shows selecting test settings on the third tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-test-operations/deploy-dependency-management-test.png":::
 
-1. Select **Next: Automation**.
+1. Select **Automation**.
 
-## Run Azure CLI commands
+### Run Azure CLI commands
 
 [!INCLUDE [deploy-iot-ops-cli-commands-intro](../includes/deploy-iot-ops-cli-commands-intro.md)]
 

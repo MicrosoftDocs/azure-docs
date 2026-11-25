@@ -101,7 +101,7 @@ When considering how to deploy Veeam Data Platform solutions for your specific i
 - [Veeam Backup & Replication Microsoft Hyper-V](https://helpcenter.veeam.com/docs/backup/hyperv/)
 - [Veeam Backup & Replication support for Azure VMware Solution](https://www.veeam.com/kb4012)
 - [Veeam Backup & Replication support for Azure Local](https://www.veeam.com/kb4047)
-- [Veeam Backup for Azure User Guide](https://helpcenter.veeam.com/docs/vbazure/guide/)
+- [Veeam Backup for Azure User Guide](https://helpcenter.veeam.com/docs/vbr/userguide/azure_overview.html)
 - [Veeam Backup for Microsoft 365 User Guide](https://helpcenter.veeam.com/docs/vbo365/guide/vbo_introduction.html)
 - [Veeam Kasten User Guide](https://docs.kasten.io/latest/)
 - [Veeam Plugins for Enterprise Applications User Guide](https://helpcenter.veeam.com/docs/backup/plugins/overview.html)

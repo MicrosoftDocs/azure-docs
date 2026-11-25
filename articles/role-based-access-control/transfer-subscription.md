@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 06/16/2026
-ms.author: rolyon
+ms.author: diberry
 ---
 
 # Transfer an Azure subscription to a different Microsoft Entra directory
@@ -76,9 +76,10 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Database for PostgreSQL Flexible Server with Microsoft Entra authentication integration enabled or with Customer Managed Key enabled | Yes | No |  | You cannot transfer an Azure Database for PostgreSQL with Microsoft Entra authentication or with Customer Managed Key enabled to a different directory. You have to disable these features first, transfer the server, and then re-enable these features. | 
 | Azure Storage and Azure Data Lake Storage Gen2 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Files | Yes | In most scenarios |  | You must re-create any ACLs. For storage accounts with Microsoft Entra Kerberos authentication enabled, you must disable and re-enable Microsoft Entra Kerberos authentication after the transfer. For Microsoft Entra Domain Services, transferring to another Microsoft Entra directory where Microsoft Entra Domain Services is not enabled is not supported. |
-| Azure File Sync | Yes | Yes |  | The storage sync service and/or storage account can be moved to a different directory. For more information, see [Frequently asked questions (FAQ) about Azure Files](../storage/files/storage-files-faq.md#azure-file-sync) |
+| Azure File Sync | Yes | Yes |  | The storage sync service and/or storage account can be moved to a different directory. For more information, see [Frequently asked questions (FAQ) about Azure Files](../storage/files/storage-files-faq.md#azure-file-sync-faq) |
 | Azure Managed Disks | Yes | Yes |  |  If you're using Disk Encryption Sets to encrypt Managed Disks with customer-managed keys, you must disable and re-enable the system-assigned identities associated with Disk Encryption Sets. And you must re-create the role assignments to again grant required permissions to Disk Encryption Sets in the Key Vaults. |
 | Azure Kubernetes Service | Yes | No |  | You cannot transfer your AKS cluster and its associated resources to a different directory. For more information, see [Frequently asked questions about Azure Kubernetes Service (AKS)](/azure/aks/faq) |
+| Azure Red Hat OpenShift | Yes | No |  | You can't transfer your Azure Red Hat OpenShift cluster and its associated resources to a different directory. For more information, see [Azure Red Hat OpenShift FAQ](/azure/openshift/openshift-faq). |
 | Azure Policy | Yes | No | All Azure Policy objects, including custom definitions, assignments, exemptions, and compliance data. | You must [export](../governance/policy/how-to/export-resources.md), import, and re-assign definitions. Then, create new policy assignments and any needed [policy exemptions](../governance/policy/concepts/exemption-structure.md). |
 | Microsoft Entra Domain Services | Yes | No |  | You cannot transfer a Microsoft Entra Domain Services managed domain to a different directory. For more information, see [Frequently asked questions (FAQs) about Microsoft Entra Domain Services](../active-directory-domain-services/faqs.yml) |
 | App registrations | Yes | Yes |  |  |

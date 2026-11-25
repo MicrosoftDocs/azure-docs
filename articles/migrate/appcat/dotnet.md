@@ -1,6 +1,6 @@
 ---
-title: Azure Migrate application and code assessment for .NET
-description: How to assess and replatform any type of .NET applications with the Azure Migrate application and code assessment tool to evaluate their readiness to migrate to Azure.
+title: Azure Catalyst application and code assessment for .NET
+description: How to assess and replatform any type of .NET applications with the Azure Catalyst application and code assessment tool to evaluate their readiness to migrate to Azure.
 author: brborges
 ms.author: brborges
 ms.service: azure-migrate
@@ -10,15 +10,15 @@ ms.date: 11/15/2023
 # Customer intent: "As a .NET developer, I want to assess my application's readiness for migration to Azure, so that I can identify potential issues and optimize performance and security through cloud-native solutions."
 ---
 
-# Azure Migrate application and code assessment for .NET
+# Azure Catalyst application and code assessment for .NET
 
-Azure Migrate application and code assessment for .NET allows you to assess .NET source code, configurations, and binaries of your application to identify migration opportunities to Azure. It helps you identify any issues your application might have when ported to Azure and improve the performance, scalability, and security by suggesting modern, cloud-native solutions.
+Azure Catalyst application and code assessment for .NET allows you to assess .NET source code, configurations, and binaries of your application to identify migration opportunities to Azure. It helps you identify any issues your application might have when ported to Azure and improve the performance, scalability, and security by suggesting modern, cloud-native solutions.
 
 :::image type="content" source="media/dotnet/visual-studio.png" alt-text="Screenshot of the Azure Migrate application and code assessment for .NET in Visual Studio." lightbox="media/dotnet/visual-studio.png":::
 
 It discovers application technology usage through static code analysis, supports effort estimation, and accelerates code replatforming, helping you move .NET applications to Azure.
 
-You can use Azure Migrate application and code assessment for .NET in Visual Studio or in the .NET CLI.
+You can use Azure Catalyst application and code assessment for .NET in Visual Studio or in the .NET CLI.
 
 ## Install the Visual Studio extension
 
@@ -35,7 +35,7 @@ Use the following steps to install it from inside Visual Studio. Alternatively, 
 
 1. In the **Manage Extensions** window, enter *Azure Migrate* into the search input box.
 
-1. Select **Azure Migrate application and code assessment**, and then select **Download**.
+1. Select **Azure Migrate application and code assessment** (the current Visual Studio Marketplace listing name), and then select **Download**.
 
 1. After the extension downloads, close Visual Studio to start the installation of the extension.
 

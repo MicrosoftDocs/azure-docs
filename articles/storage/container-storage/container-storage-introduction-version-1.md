@@ -1,11 +1,11 @@
 ---
 title: Introduction to Azure Container Storage (version 1.x.x)
 description: An overview of Azure Container Storage (version 1.x.x), a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.topic: overview
 ms.date: 09/03/2025
-ms.author: kendownie
+ms.author: schoag
 ms.custom: references_regions
 # Customer intent: "As a DevOps engineer, I want to use a managed volume orchestration service for my Kubernetes applications, so that I can efficiently provision and manage persistent storage for stateful workloads without the operational overhead of configuring individual storage interfaces."
 ---

@@ -1,5 +1,5 @@
 ---
-title: Pipelines and activities
+title: Pipelines and Activities
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use pipelines and activities in Azure Data Factory and Azure Synapse Analytics to create data-driven workflows for data movement and processing scenarios.
 #customer intent: As a data engineer, I want to understand pipelines and activities so that I can create efficient data workflows.
@@ -16,6 +16,9 @@ ms.date: 06/17/2026
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
+
+> [!TIP]
+> If you're planning to move Azure Data Factory pipelines to Data Factory in Microsoft Fabric, see [Migration planning for Azure Data Factory to Fabric Data Factory](/fabric/data-factory/migrate-planning-azure-data-factory). To find the Fabric equivalent for a specific activity, see the [activity comparison](/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory#activity-comparison).
 
 This article helps you understand pipelines and activities in Azure Data Factory and Azure Synapse Analytics and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
 

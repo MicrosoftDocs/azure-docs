@@ -3,7 +3,7 @@ title: Details and usage for all mapping data flow Functions
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about details of usage and functionality for all expression functions in mapping data flows.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: concept-article
@@ -13,6 +13,8 @@ ms.date: 07/25/2025
 # Data transformation expression usage in mapping data flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 

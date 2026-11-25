@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 08/30/2020
-ms.author: alkohli
+ms.author: scompton
 ---
 
 On an Azure Stack Edge device that has the compute role configured, you can troubleshoot or monitor the device using two different set of commands.

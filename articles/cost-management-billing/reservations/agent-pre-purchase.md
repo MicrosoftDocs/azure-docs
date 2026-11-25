@@ -6,23 +6,27 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 11/19/2026
 ms.author: primittal
 ---
 
 # Optimize Microsoft Foundry, Microsoft Copilot Studio, Microsoft Fabric, and GitHub costs with Microsoft Agent prepurchase plan
 
-Save on select services across Microsoft Foundry, Microsoft Copilot Studio*, Microsoft Fabric, and GitHub costs when you buy a prepurchase plan. Prepurchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, for example if Microsoft Copilot Studio or Microsoft Foundry generates a retail cost of $100 based on Copilot Credit and Microsoft Foundry usage, then 100 Agent CUs (ACUs) are consumed.
+> [!IMPORTANT]
+> **Changes to Microsoft Agent prepurchase plan availability starting January 1, 2027**
+>
+> Starting January 1, 2027, you can buy or renew the Microsoft Agent prepurchase plan only through an Enterprise Agreement (EA) or a Cloud Solution Provider (CSP) partner. Buy online channels and built-in tiered volume discounts will no longer apply.
+>
+> If you have a Microsoft Customer Agreement for enterprise (MCA-E), you can't buy or renew Microsoft Agent prepurchase plans starting January 1, 2027. Consider AI Flex Plan for your Microsoft AI portfolio instead. To learn more, see the [Flex Plan overview](../benefits/flex-plan/flex-plan-overview.md).
+
+Save on select services across Microsoft Foundry, Microsoft Copilot Studio*, Copilot Cowork, Microsoft Fabric, and GitHub costs when you buy a prepurchase plan. Prepurchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, for example if Microsoft Copilot Studio or Microsoft Foundry generates a retail cost of $100 based on Copilot Credit and Microsoft Foundry usage, then 100 Agent CUs (ACUs) are consumed.
 
 Your Microsoft Agent prepurchase plan automatically uses your ACUs to pay for eligible Copilot and Microsoft Foundry usage during its one-year term or until Agent CUs run out. Your prepurchase plan Agent CUs start paying for your Copilot Credit and Microsoft Foundry usage without having to redeploy or reassign the plan. By default, plans are configured to renew at the end of the one-year term.
 
 *Covers Copilot Credits-enabled agentic services: Microsoft Copilot Studio, Dynamics 365 first-party agents, and Copilot. Microsoft reserves the right to update Copilot Credit-eligible products.
 
-## Services covered by Microsoft Agent prepurchase plan
-
-
-:::image type="content" source="./media/agentprepurchase/services-covered-screenshot-v3.jpg" alt-text="Screenshot showing services covered by Microsoft Agent prepurchase plan." lightbox="./media/agentprepurchase/services-covered-screenshot-v3.jpg":::
-
+> [!NOTE]
+> Service availability varies by cloud and region. Verify that each service is available in your intended cloud and region before purchasing a plan.
 
 ## Video overview
 

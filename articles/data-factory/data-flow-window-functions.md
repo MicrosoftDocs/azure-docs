@@ -3,7 +3,7 @@ title: Window Functions in the Mapping Data Flow
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about window functions in mapping data flows.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: reference
@@ -13,6 +13,8 @@ ms.date: 05/15/2024
 # Window functions in mapping data flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 

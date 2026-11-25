@@ -2,7 +2,7 @@
 title: Introduction to Azure Data Factory 
 description: Learn about Azure Data Factory, a cloud data integration service that orchestrates and automates movement and transformation of data.
 author: whhender
-ms.author: whhender
+ms.author: weetok
 ms.reviewer: weetok
 ms.topic: overview
 ms.subservice: authoring
@@ -13,6 +13,8 @@ ms.date: 06/17/2026
 # What is Azure Data Factory?
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In the world of big data, raw, unorganized data is often stored in relational, non-relational, and other storage systems. However, on its own, raw data doesn't have the proper context or meaning to provide meaningful insights to analysts, data scientists, or business decision makers. 
 

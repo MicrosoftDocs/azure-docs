@@ -1,21 +1,22 @@
 ---
-title: Troubleshoot the Azure Migrate appliance
-description: Get help to troubleshoot problems that might occur with the Azure Migrate appliance.
+title: Troubleshoot the Azure Catalyst appliance
+description: Get help to troubleshoot problems that might occur with the Azure Catalyst appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 10/16/2024
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
-# Customer intent: "As an IT administrator, I want to troubleshoot issues with the Azure Migrate appliance, so that I can ensure successful deployment and connectivity for on-premises server migrations."
+# Customer intent: "As an IT administrator, I want to troubleshoot issues with the Azure Catalyst appliance, so that I can ensure successful deployment and connectivity for on-premises server migrations."
 ---
 
 
-# Troubleshoot the Azure Migrate appliance
+# Troubleshoot the Azure Catalyst appliance
 
-This article helps you troubleshoot issues when you deploy the [Azure Migrate](migrate-services-overview.md) appliance and use the appliance to discover on-premises servers.
+This article helps you troubleshoot issues when you deploy the [Azure Catalyst](migrate-services-overview.md) appliance and use the appliance to discover on-premises servers.
 
 ## What's supported?
 
@@ -27,12 +28,12 @@ You get the error "The provided manifest file is invalid: Invalid OVF manifest e
 
 ### Remediation
 
-1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](tutorial-discover-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
+1. Verify that the Azure Catalyst appliance OVA file is downloaded correctly by checking its hash value. [Learn more](tutorial-discover-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
 1. If deployment still fails and you're using the VMware vSphere client to deploy the OVF file, try deploying it through the vSphere web client. If deployment still fails, try using a different web browser.
 1. If you're using the vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on the ESXi host:
    - Connect to the ESXi host directly (instead of vCenter Server) with the web client (https://<*host IP Address*>/ui).
    - In **Home** > **Inventory**, select **File** > **Deploy OVF template**. Browse to the OVA and complete the deployment.
-1. If the deployment still fails, contact Azure Migrate support.
+1. If the deployment still fails, contact Azure Catalyst support.
 
 ## Connectivity check fails during the prerequisites setup
 
@@ -88,29 +89,29 @@ The Virtual Disk Development Kit (VDDK) check failed because the appliance could
 
 ### Remediation
 
-1. Ensure that you've downloaded VDDK 6.7 and have copied its files to- **C:\Program Files\VMware\VMware Virtual Disk Development Kit** on the appliance server.
+1. Ensure that you downloaded a supported VDDK version and copied its files to `C:\Program Files\VMware\VMware Virtual Disk Development Kit` on the appliance server.
 1. Ensure that no other software or application is using another version of the VDDK on the appliance.
 
 ## Project key-related error occurs during appliance registration
 
- You're having issues when you try to register the appliance by using the Azure Migrate project key copied from the project.
+ You're having issues when you try to register the appliance by using the Azure Catalyst project key copied from the project.
 
 ### Remediation
 
-1. Ensure that you've copied the correct key from the project. On the **Azure Migrate: Discovery and Assessment** card in your project, select **Discover**. Then select **Manage Existing appliance** in step 1. Select the appliance name for which you previously generated a key from the dropdown menu. Copy the corresponding key.
+1. Ensure that you've copied the correct key from the project. On the **Azure Catalyst: Discovery and Assessment** card in your project, select **Discover**. Then select **Manage Existing appliance** in step 1. Select the appliance name for which you previously generated a key from the dropdown menu. Copy the corresponding key.
 1. Ensure that you're pasting the key to the appliance of the right **cloud type** (Public/US Gov) and **appliance type** (VMware/Hyper-V/Physical or other). Check at the top of the appliance configuration manager to confirm the cloud and scenario type.
 
 ## "Failed to connect to the Azure Migrate project" error occurs during appliance registration
 
 After a successful sign-in with an Azure user account, the appliance registration step fails with the message, "Failed to connect to the Azure Migrate project. Check the error detail and follow the remediation steps by clicking Retry."
 
-This issue happens when the Azure user account that was used to sign in from the appliance configuration manager is different from the user account that was used to generate the Azure Migrate project key on the portal.
+This issue happens when the Azure user account that was used to sign in from the appliance configuration manager is different from the user account that was used to generate the Azure Catalyst project key on the portal.
 
 ### Remediation
 
 You have two options:
 
-- To complete the registration of the appliance, use the same Azure user account that generated the Azure Migrate project key on the portal.
+- To complete the registration of the appliance, use the same Azure user account that generated the Azure Catalyst project key on the portal.
 - You can also assign the required roles and [permissions](tutorial-discover-vmware.md#prepare-an-azure-user-account) to the other Azure user account being used for appliance registration.
 
 <a name='azure-active-directory-aad-operation-failed-with-status-forbidden-error-occurs-during-appliance-registration'></a>
@@ -127,13 +128,13 @@ Ensure that you have the [required permissions](tutorial-discover-vmware.md#prep
 
 The Azure Key Vault create or update operation failed for "{KeyVaultName}" because of the error "{KeyVaultErrorMessage}."
 
-This issue usually happens when the Azure user account used to register the appliance is different from the account used to generate the Azure Migrate project key on the portal (that is, when the key vault was created).
+This issue usually happens when the Azure user account used to register the appliance is different from the account used to generate the Azure Catalyst project key on the portal (that is, when the key vault was created).
 
 ### Remediation
 
 1. Ensure that the currently signed-in user account on the appliance has the required permissions on the key vault mentioned in the error message. The user account needs permissions as mentioned at [this website](tutorial-discover-vmware.md#prepare-an-azure-user-account).
 1. Go to the key vault and ensure that your user account has an access policy with all the **Key**, **Secret**, and **Certificate** permissions assigned under **Key Vault Access Policy**. [Learn more](/azure/key-vault/general/assign-access-policy-portal).
-1. If you enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same virtual network where the key vault was created or it's connected to the Azure virtual network where the key vault was created over a private link. Make sure that the key vault private link is resolvable from the appliance. Go to **Azure Migrate: Discovery and assessment** > **Properties** to find the details of private endpoints for resources like the key vault created during the Azure Migrate key creation. [Learn more](./troubleshoot-network-connectivity.md).
+1. If you enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same virtual network where the key vault was created or it's connected to the Azure virtual network where the key vault was created over a private link. Make sure that the key vault private link is resolvable from the appliance. Go to **Azure Catalyst: Discovery and assessment** > **Properties** to find the details of private endpoints for resources like the key vault created during the Azure Catalyst key creation. [Learn more](./troubleshoot-network-connectivity.md).
 1. If you have the required permissions and connectivity, retry the registration on the appliance after some time.
 
 ## Unable to connect to vCenter Server during validation

@@ -2,7 +2,7 @@
 title: Manage Permissions for Azure SRE Agent
 description: Add or remove managed resource groups, change permission levels, and grant subscription-level access for your Azure SRE Agent.
 ms.topic: how-to
-ms.date: 03/16/2026
+ms.date: 11/13/2026
 ms.service: azure-sre-agent
 author: craigshoemaker
 ms.author: cshoe
@@ -29,7 +29,7 @@ Before you begin, make sure you have the following requirements in place:
 
 Managed resource groups determine which Azure resources your agent can see during investigations. The agent gets read access to resources in these groups, including logs, metrics, and configurations.
 
-1. Go to **Settings** > **Managed resources** in the left sidebar.
+1. Go to **Build + setup** > **Context** > **Managed resources** in the left sidebar.
 1. Select **Add resource group**.
 1. Use the search filter to find resource groups across your subscriptions.
 1. Select the groups you want the agent to access.
@@ -39,6 +39,9 @@ To remove a resource group, select it in the list and select **Remove**.
 
 > [!TIP]
 > After you save, verify that the resource groups you added appear in the **Managed resources** list.
+
+> [!NOTE]
+> The UAMI is the default resource-access identity. Creating a governed Agent ID or connecting Teams doesn't change that selection or copy role assignments. See [Agent identity](agent-identity.md).
 
 ## Set the permission level
 
@@ -51,7 +54,7 @@ Permission levels control what your agent can do with managed resources. The fol
 
 To change the permission level:
 
-1. Go to **Settings** > **Managed resources**.
+1. Go to **Build + setup** > **Context** > **Managed resources**.
 1. Select the resource group.
 1. Change the permission level.
 1. Select **Save**.
@@ -65,12 +68,16 @@ The portal shows which Azure RBAC roles are assigned, such as Log Analytics Read
 
 For broader access than individual resource groups provide, grant the agent **Reader** on your entire subscription.
 
-1. Go to **Settings** > **Basics** in your agent.
-1. Select the **Managed identity** link to open it in the Azure portal.
+Assign the role to the identity configured for resource access: the default UAMI, or the Microsoft Entra agent identity if you selected it. Don't assign this resource-access role to the associated agent user.
+
+1. Go to **Settings** > **General** in your agent.
+1. Record the configured identity's object (principal) ID:
+   - **UAMI:** Select the **Managed identity** link to open it in the Azure portal, then copy its **Object (principal) ID**.
+   - **Agent ID:** Note the name in **Agent identity**, find that governed identity in Microsoft Entra in the same tenant, and copy its **Object ID**, not the associated agent user's ID.
 1. Navigate to your subscription's **Access control (IAM)**.
 1. Select **Add role assignment**.
 1. Select the **Reader** role.
-1. Assign it to the agent's managed identity.
+1. Assign it to the selected identity using the object (principal) ID you recorded.
 
 Subscription-level access gives the agent visibility into all resources in the subscription without adding individual resource groups.
 

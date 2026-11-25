@@ -5,7 +5,7 @@ author: emlynmac
 manager: kperla97
 services: azure-communication-services
 
-ms.author: eboltonmaggs
+ms.author: diberry
 ms.date: 09/16/2024
 ms.topic: tutorial
 ms.service: azure-communication-services
@@ -13,6 +13,8 @@ ms.subservice: chat
 ---
 
 # Embed chat in a Microsoft Teams custom app
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 
 This article describes how to create a Microsoft Teams custom app to interact with an Azure Communication Services instance. This chat app enables interwork functions between the two systems while maintaining separated backend environments and identity configurations.
 
@@ -133,7 +135,7 @@ Thread IDs represent conversations between groups of communication identifiers. 
 
 ### Sample app for this solution
 
-This [sample app](https://github.com/Azure-Samples/communication-services-messaging-teams-app) demonstrates how to build a solution for a customer support scenario.
+This sample app demonstrates how to build a solution for a customer support scenario.
 
 ### Chat bots
 

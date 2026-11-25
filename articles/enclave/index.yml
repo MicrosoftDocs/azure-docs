@@ -9,6 +9,7 @@ metadata:
   ms.topic: landing-page
   author: aserfass-msft
   ms.author: aserfass
+  ms.service: azure-enclave
   ms.date: 9/30/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -60,12 +61,16 @@ landingContent:
         links:
           - text: Best practices
             url: best-practices.md
+          - text: Shared responsibility model
+            url: shared-responsibility-model.md
           - text: Understand resource groups
             url: azure-enclave-resource-groups.md
           - text: Understand Admin Virtual Machines
             url: understand-admin-vm.md
           - text: Understand Domain Name Service
             url: understand-domain-name-service.md
+          - text: Connect Azure Enclave to an Azure landing zone
+            url: connect-enclave-existing-landing-zone-transit-hub.md
       - linkListType: whats-new
         links:
           - text: "What's new?"
@@ -75,6 +80,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Get started with Azure Enclave
+            url: onboard.md
           - text: Create a community
             url: create-community-portal.md
           - text: Create a community endpoint
@@ -243,6 +250,8 @@ landingContent:
         links:
           - text: Azure Enclave templates
             url: azure-enclave-templates.md
+          - text: Azure Enclave and Azure Local integration
+            url: azure-local-integration.md
           - text: Troubleshooting guide
             url: troubleshoot.md
           - text: Migrate Azure resources into Azure Enclave

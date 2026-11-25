@@ -2,11 +2,11 @@
 title: 'Getting Started with Troubleshooting Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: Learn about the troubleshooting resources for Virtual WAN.
-author: flapinski
+author: cfields475
 ms.service: azure-virtual-wan
 ms.topic: troubleshooting
 ms.date: 12/30/2025
-ms.author: flapinski
+ms.author: cfields
 ms.custom: references_regions
 
 ---
@@ -46,7 +46,7 @@ Monitor resource health and analyze diagnostic data.
 
 ## Maintenance
 Plan, manage, and review Virtual WAN resource maintenance. 
-* [Customer-Controlled Gateway Maintenance](customer-controlled-gateway-maintenance.md) - Guidance for scheduling maintenance windows for Virtual WAN Gateways. 
+* [Customer-Controlled Gateway Maintenance](customer-controlled-maintenance.md) - Guidance for scheduling maintenance windows for Virtual WAN Gateways. 
 * [Customer-Controlled Firewall Maintenance](../firewall/customer-controlled-maintenance.md) – Guidance for scheduling maintenance windows for the Azure Firewall in your Virtual WAN secured hub.
 
 ## Additional Resources and Related Wikis

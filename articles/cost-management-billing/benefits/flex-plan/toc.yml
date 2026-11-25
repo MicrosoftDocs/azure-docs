@@ -1,0 +1,18 @@
+- name: What is a Flex Plan?
+  href: flex-plan-overview.md
+- name: Buy a Flex Plan
+  href: buy-flex-plan.md
+- name: Manage a Flex Plan
+  href: manage-flex-plan.md
+- name: Billing and charges
+  href: flex-plan-billing.md
+- name: View Flex Plan costs and usage
+  href: view-flex-plan-costs.md
+- name: Review Flex Plan prices in your price sheet
+  href: review-flex-plan-prices.md
+- name: Reconcile Flex Plan charges and calculate savings
+  href: reconcile-flex-plan-charges.md
+- name: Automate Flex Plan operations
+  href: automate-flex-plan.md
+- name: Troubleshoot Flex Plan
+  href: troubleshoot-flex-plan.md

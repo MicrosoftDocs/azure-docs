@@ -2,7 +2,7 @@
 title: Azure Web Application Firewall (WAF) v2 Custom Rules on Application Gateway  
 description: This article provides an overview of Web Application Firewall (WAF) v2 custom rules on Azure Application Gateway.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 04/30/2026
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Custom rules for Web Application Firewall v2 on Azure Application Gateway
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 The Azure Application Gateway Web Application Firewall (WAF) v2 includes a preconfigured, platform-managed ruleset that protects against many different types of attacks. These attacks include cross-site scripting, SQL injection, and others. If you're a WAF admin, you might want to write your own rules to augment the core rule set (CRS) rules. Your custom rules can block, allow, or log requested traffic based on matching criteria. If you set the WAF policy to detection mode and a custom block rule triggers, the request is logged and no blocking action is taken.
 

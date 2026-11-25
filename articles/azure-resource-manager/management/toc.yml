@@ -4,6 +4,22 @@
   items:
   - name: What is Resource Manager?
     href: overview.md
+- name: Azure Resource Manager MCP server (preview)
+  items:
+  - name: Overview
+    href: azure-resource-manager-mcp-overview.md
+  - name: Quickstart - Get started
+    href: azure-resource-manager-mcp-quickstart.md
+  - name: Configure an MCP client
+    href: azure-resource-manager-mcp-other-clients.md
+  - name: Tools reference
+    href: azure-resource-manager-mcp-tools.md
+  - name: Skills (experimental)
+    href: azure-resource-manager-mcp-skills.md
+  - name: Security and governance
+    href: azure-resource-manager-mcp-governance.md
+  - name: Troubleshoot
+    href: azure-resource-manager-mcp-troubleshoot.md
 - name: Concepts
   items:
   - name: Subscription and service limits
@@ -20,6 +36,8 @@
     href: extension-resource-types.md
   - name: Resource instance limit
     href: resources-without-resource-group-limit.md
+  - name: Reliability
+    href: /azure/reliability/reliability-resource-manager?toc=/azure/azure-resource-manager/management/toc.json
   - name: Security
     items:
     - name: TLS support
@@ -124,7 +142,7 @@
         - name: Databases
           items:
           - name: Cache for Redis
-            href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
+            href: /azure/azure-cache-for-redis/cache-moving-resources?toc=/azure/azure-resource-manager/management/toc.json
           - name: Cosmos DB
             href: ./relocation/relocation-cosmos-db.md
           - name: Database for MariaDB Server

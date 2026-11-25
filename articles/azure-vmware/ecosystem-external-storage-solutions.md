@@ -5,7 +5,7 @@ ms.topic: how-to
 author: soderholmd
 ms.author: dsoderholm
 ms.service: azure-vmware
-ms.date: 3/11/2026
+ms.date: 08/28/2026
 ms.custom: engagement-fy23
 # Customer intent: As a cloud architect, I want to evaluate external storage solutions for Azure VMware Solution, so that I can determine the best option to meet my workloads' performance, capacity, and data protection requirements.
 ---
@@ -41,7 +41,7 @@ When you combine Azure VMware Solution with an external storage service, remembe
 |[Azure NetApp Files](./attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)|NetApp bare-metal hardware with all-flash performance|Azure native|File|NFS|[What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)|
 |[Azure Elastic SAN](./configure-azure-elastic-san.md)|Provides a familiar SAN resource hierarchy and industry-standard iSCSI block interface|Azure native|Block|iSCSI|[Introduction to Azure Elastic SAN](../storage/elastic-san/elastic-san-introduction.md)|
 |[Pure Storage Cloud Dedicated (PSC Dedicated)](./configure-pure-cloud-block-store.md)|Enterprise-grade performance and reliability using Pure Storage technology in Azure|Partner|Block|iSCSI|[Pure Storage Cloud Dedicated for Azure](https://support.purestorage.com/bundle/m_pscd_for_azure/page/pure_storage_cloud/pscd_for_azure/topics/t_pscd_for_azure_overview.html)|
-|[Pure Storage Cloud Azure Native (PSC Azure Native)](./configure-azure-native-pure-storage-cloud.md)|Enterprise-grade performance and reliability using Pure Storage technology in Azure with Azure Native experience|Azure native experience|Block|iSCSI|[What is Pure Storage Cloud Azure Native?](https://support.purestorage.com/bundle/m_pure_storage_cloud_azure_native/page/pure_storage_cloud/pure_storage_cloud_azure_native/topics/c_what_is_pscan.html)|
+|[Everpure Cloud Azure Native](./configure-azure-native-pure-storage-cloud.md)|Enterprise-grade performance and reliability using Pure Storage technology in Azure with an Azure Native experience|Azure native experience|Block|iSCSI|[What is Everpure Cloud Azure Native?](https://support.purestorage.com/bundle/m_pure_storage_cloud_azure_native/page/pure_storage_cloud/pure_storage_cloud_azure_native/topics/c_what_is_pscan.html)|
 
 ### Azure storage solutions
 
@@ -57,11 +57,11 @@ Azure Elastic SAN a fully integrated solution that simplifies deploying, scaling
 
 Providing the same consistent external block storage architecture in the cloud is crucial for some customers. Some workloads can't be migrated or deployed to the cloud without consistent external block storage. As a key principle of Azure VMware Solution is to enable customers to continue to use their investments and their favorite VMware solutions running on Azure, we engaged storage providers with similar goals. 
 
-#### Pure Storage Cloud Azure Native 
+#### Everpure Cloud Azure Native
 
-[Pure Storage Cloud Azure Native](../azure-vmware/configure-azure-native-pure-storage-cloud.md) service is a joint development of Pure Storage and Microsoft bringing enterprise-grade cloud block storage into Azure. It provides Block storage as a service with features and benefits Pure Storage products are known for. Pure Storage Cloud Azure Native also offers built-in cloud capabilities like elastic capacity, flexible performance, and high availability that are powered by a common Purity operating system like, FlashArray or FlashBlade products. PSC Azure Native service decouples storage and compute resources, allowing to benefit from enterprise-grade storage features. Customers with large data footprints can optimize their AVS resources.
+[Everpure Cloud Azure Native](../azure-vmware/configure-azure-native-pure-storage-cloud.md) is a joint development of Pure Storage and Microsoft that brings enterprise-grade cloud block storage into Azure. It provides block storage as a service with features and benefits that Pure Storage products are known for. Everpure Cloud Azure Native also offers built-in cloud capabilities like elastic capacity, flexible performance, and high availability that are powered by a common Purity operating system, like FlashArray or FlashBlade products. The service decouples storage and compute resources, allowing customers to benefit from enterprise-grade storage features. Customers with large data footprints can optimize their Azure VMware Solution resources.
 
-For Azure VMware Solution, the PSC Azure Native service uses VMware vSphere Storage APIs for Array Integration (VAAI). These hardware acceleration APIs allow ESXi hosts to offload certain storage tasks to the storage system, freeing up host resources and improving performance for operations such as cloning and zeroing. Pure Storage Cloud Azure Native removes the traditional complexity of configuring storage connections while still providing the benefits of VAAI, all directly from the vSphere Client through a built-in plugin.
+For Azure VMware Solution, Everpure Cloud Azure Native uses VMware vSphere Storage APIs for Array Integration (VAAI). These hardware acceleration APIs allow ESXi hosts to offload certain storage tasks to the storage system, freeing up host resources and improving performance for operations such as cloning and zeroing. Everpure Cloud Azure Native removes the traditional complexity of configuring storage connections while still providing the benefits of VAAI, all directly from the vSphere Client through a built-in plugin.
 
 #### Pure Storage Cloud Dedicated (*formerly Pure Cloud Block Store*)
 
@@ -71,5 +71,5 @@ For Azure VMware Solution, the PSC Azure Native service uses VMware vSphere Stor
 
 - Learn about [Azure NetApp Files](./attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
 - Learn about [Azure Elastic SAN](./configure-azure-elastic-san.md)
-- Learn about [Pure Storage Cloud Azure Native](./configure-azure-native-pure-storage-cloud.md)
+- Learn about [Everpure Cloud Azure Native](./configure-azure-native-pure-storage-cloud.md).
 - Learn about [Pure Storage Cloud Dedicated (Pure Cloud Block Store)](./configure-pure-cloud-block-store.md)

@@ -3,7 +3,7 @@ title: Schema drift in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Build resilient Data Flows in Azure Data Factory and Synapse Analytics pipelines with Schema Drift
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: concept-article
@@ -14,6 +14,8 @@ ms.date: 02/13/2025
 # Schema drift in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Schema drift is the case where your sources often change metadata. Fields, columns, and, types can be added, removed, or changed on the fly. Without handling for schema drift, your data flow becomes vulnerable to upstream data source changes. Typical ETL patterns fail when incoming columns and fields change because they tend to be tied to those source names.
 

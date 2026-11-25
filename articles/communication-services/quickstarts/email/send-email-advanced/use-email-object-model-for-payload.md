@@ -14,6 +14,8 @@ ms.custom: devx-track-dotnet
 
 # Use the email object model to send the email payload
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to use the email object model to send the email payload using our Email SDKs.
 
 [!INCLUDE [prepend-net](./includes/prepend-net.md)]

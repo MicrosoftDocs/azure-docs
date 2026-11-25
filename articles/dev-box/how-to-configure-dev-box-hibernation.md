@@ -11,7 +11,7 @@ ms.custom:
   - ai-seo-date:03/23/2025
   - build-2025
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 06/23/2025
 ms.topic: how-to
 

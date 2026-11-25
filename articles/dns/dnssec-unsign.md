@@ -51,7 +51,7 @@ Unsign a DNSSEC-signed zone using the Azure CLI:
 
 1. To unsign a signed zone, issue the following commands. Replace the values for subscription ID, resource group, and zone name with your values.
 
-```azurepowershell-interactive
+```azurecli-interactive
 # Ensure you are logged in to your Azure account
 az login
 

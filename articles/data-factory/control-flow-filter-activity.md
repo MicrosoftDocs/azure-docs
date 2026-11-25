@@ -3,7 +3,7 @@ title: Filter activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: The Filter activity filters the inputs to Azure Data Factory and Synapse Analytics pipelines. 
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
@@ -14,6 +14,9 @@ ms.date: 09/26/2024
 # Filter activity in Azure Data Factory and Synapse Analytics pipelines
 You can use a Filter activity in a pipeline to apply a filter expression to an input array. 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Filter activity](/fabric/data-factory/filter-activity).
 
 ## Syntax
 

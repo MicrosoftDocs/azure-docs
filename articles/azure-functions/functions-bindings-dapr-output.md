@@ -2,7 +2,7 @@
 title: Dapr Binding output binding for Azure Functions
 description: Learn how to provide Dapr Binding output binding data during a function execution in Azure Functions.
 ms.topic: reference
-ms.date: 05/10/2024
+ms.date: 10/13/2026
 ms.author: nigreenf
 ms.reviewer: hannahhunter
 ms.subservice: dapr
@@ -13,6 +13,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Dapr Binding output binding for Azure Functions
+
+[!INCLUDE [dapr-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr output binding allows you to send a value to a Dapr output binding during a function execution.
 

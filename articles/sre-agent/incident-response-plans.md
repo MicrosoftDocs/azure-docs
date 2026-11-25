@@ -3,7 +3,7 @@ title: Incident Response Plans in Azure SRE Agent
 description: Learn how to route incidents to specialized custom agents with the right tools, investigation depth, and autonomy level automatically.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 06/08/2026
+ms.date: 10/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -55,7 +55,7 @@ Each plan specifies how your agent responds:
 
 | Setting | Options | Default |
 |---------|---------|---------|
-| **Response custom agent** | Any configured custom agent | Preselected when creating from graph |
+| **Response subagent** | Any configured custom agent | Preselected when creating from graph |
 | **Agent autonomy level** | Autonomous, Review | Autonomous |
 
 - **Autonomous**: Your agent analyzes incidents and independently performs mitigation or resource modifications with the required permissions.
@@ -92,10 +92,10 @@ You can create and manage response plans in two places:
 
 | Path | Best for |
 |------|----------|
-| **Builder → Incident response plans** | Managing all plans in a grid with filtering, search, and simple enable/disable |
-| **Builder → Agent Canvas** (canvas) | Visualizing which triggers route to which custom agents |
+| **Incidents > Triggers & response plans** | Managing all plans in a grid with filtering, search, and simple enable/disable |
+| **Build + setup > Workflows > Agent Canvas** (canvas) | Visualizing which triggers route to which custom agents |
 
-From either path, select **New incident response plan** (or the **+** button on a custom agent node in the canvas) to open the create wizard.
+On the **Triggers & response plans** tab, select **Create a response plan** to open the create wizard. On the canvas, use the **+** button on a custom agent node.
 
 [!INCLUDE [quickstart-response-plan-warning](includes/quickstart-response-plan-warning.md)]
 
@@ -103,7 +103,7 @@ From either path, select **New incident response plan** (or the **+** button on 
 
 You can turn any response plan on or off without deleting it. This capability is useful during maintenance windows, testing, or when you want to temporarily stop routing certain incident types.
 
-1. Go to **Builder → Incident response plans**.
+1. Go to **Incidents > Triggers & response plans**.
 1. Select the plan by selecting its checkbox.
 1. Select **Turn off** in the toolbar. A confirmation dialog appears.
 1. Select **Yes** to disable the plan.
@@ -112,7 +112,7 @@ The plan's status changes to **Off** and the scanner stops matching incidents ag
 
 To re-enable the plan, select it and select **Turn on**. It takes effect immediately with no confirmation needed.
 
-You can also toggle plans from **Builder → Agent Canvas → Table view → Incident response plans** tab, which provides the same controls in the unified grid.
+You can also toggle plans from **Build + setup > Workflows > Agent Canvas → Table view → Incident response plans** tab, which provides the same controls in the unified grid.
 
 ## Unified grid view
 

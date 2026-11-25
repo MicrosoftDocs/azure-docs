@@ -2,11 +2,11 @@
 title: Agentic app with Semantic Kernel or Foundry Agent Service (Java)
 description: Learn how to quickly deploy a production-ready, agentic web application using Java with Azure App Service and Microsoft Semantic Kernel.
 ms.service: azure-app-service
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2025
+ms.date: 08/11/2026
 ms.custom:
   - devx-track-java
 ms.collection: ce-skilling-ai-copilot
@@ -195,7 +195,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
     | Variable                      | Description                                              |
     |-------------------------------|----------------------------------------------------------|
-    | `azure.openai.endpoint`         | Azure OpenAI endpoint (copied from the classic Foundry portal). |
+    | `azure.openai.endpoint`         | Azure OpenAI endpoint (copied from the Foundry portal home page). |
     | `azure.openai.deployment`             | Model name in the deployment (copied from the model playground in the new Foundry portal). |
     
     > [!NOTE]
@@ -248,7 +248,9 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
     :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/foundry-agent.png" alt-text="Screenshot of a chat completion session with a Microsoft Foundry agent.":::
     
     -----
-    
+
+[!INCLUDE [rag-faq](includes/foundry-iq-rag-faq.md)]
+
 ## Clean up resources
 
 When you're done with the application, you can delete the App Service resources to avoid incurring further costs:

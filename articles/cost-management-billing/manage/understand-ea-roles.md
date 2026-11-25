@@ -4,14 +4,16 @@ description: Learn about the administrative roles available to manage Azure Ente
 author: prashantsaini4
 ms.reviewer: prsaini
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.topic: concept-article
-ms.date: 04/21/2026
+ms.date: 11/13/2026
 ms.author: prsaini
 #customer intent: As an enterprise administrator, I want learn about the administrative roles available to manage Azure Enterprise Agreements so that manage my enterprise agreement.
 ---
 
 # Manage Azure Enterprise Agreement roles
+
+
 
 To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign the following six distinct administrative roles.
 

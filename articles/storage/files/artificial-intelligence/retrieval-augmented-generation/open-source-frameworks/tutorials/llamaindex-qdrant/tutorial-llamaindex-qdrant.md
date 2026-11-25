@@ -1,11 +1,11 @@
 ---
 title: Build a RAG pipeline using Azure Files with LlamaIndex and Qdrant
 description: Learn how to build a retrieval-augmented generation (RAG) pipeline that queries documents stored in Azure Files using LlamaIndex for orchestration and Qdrant as the vector database.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: tutorial
 ms.date: 04/09/2026
-ms.author: kendownie
+ms.author: normesta
 ms.devlang: python
 ms.custom: devx-track-python
 ---

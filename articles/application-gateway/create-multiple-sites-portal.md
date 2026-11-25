@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: tutorial
-ms.date: 02/26/2026
+ms.date: 08/03/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
@@ -26,6 +26,9 @@ In this tutorial, you learn how to:
 > * Create listeners
 > * Create routing rules
 > * Edit hosts file for name resolution
+
+> [!TIP]
+> This tutorial shares its base application gateway setup with [Create an application gateway with TLS termination by using the Azure portal](create-ssl-portal.md). Use that tutorial if you want TLS termination instead of multiple-site hosting.
 
 :::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Diagram showing multi-site application gateway." lightbox="./media/create-multiple-sites-portal/scenario.png":::
 
@@ -56,7 +59,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
      :::image type="content" source="./media/create-multiple-sites-portal/application-gateway-create-basics.png" alt-text="Screenshot showing Create application gateway page.":::
 
-2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
+1.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you create a new virtual network at the same time that you create the application gateway. You create Application Gateway instances in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers. For more information about subnet requirements, see [Application Gateway infrastructure configuration](configuration-infrastructure.md#virtual-network-and-dedicated-subnet).
 
     Under **Configure virtual network**, select **Create new** to create a new virtual network. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
 
@@ -74,7 +77,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
    > [!NOTE]
-   > For the application gateway v2 SKU, you can only choose **Public** frontend IP configuration. Use of a private frontend IP address configuration is currently in public preview. For more information, see [Private Application Gateway deployment](application-gateway-private-deployment.md).
+   > For the Application Gateway v2 SKU used in this tutorial, you configure a public frontend IP. You can also add a private frontend IP configuration. Application Gateway v2 also supports private-frontend-only deployments when you register the `EnableApplicationGatewayNetworkIsolation` feature. For more information, see [Private Application Gateway deployment](application-gateway-private-deployment.md).
 
 2. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 

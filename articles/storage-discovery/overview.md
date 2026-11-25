@@ -2,7 +2,6 @@
 title: Azure Storage Discovery Overview
 description: Storage Discovery provides insights on storage capacity, transactions, and configurations - providing visibility into the storage estate of entire organizations.
 author: fauhse
-
 ms.service: azure-storage-discovery
 ms.topic: overview
 ms.date: 10/09/2025
@@ -23,7 +22,7 @@ From architecture to governance, it delivers fast answers that help you take con
 - Find opportunities to reduce costs by locating infrequently used data.
 - Assess whether storage configurations align with security and compliance best practices.
 
-:::image type="content" source="media/overview/overview-copilot-small.png" alt-text="Azure portal sowing a Discovery report and copilot chat window." lightbox="media/overview/overview-copilot-big.png":::
+:::image type="content" source="media/overview/overview-copilot-big.png" alt-text="Screenshot of Azure portal showing a Discovery report and copilot chat window." lightbox="media/overview/overview-copilot-big.png":::
 
 ## Gain advanced storage insights
 
@@ -43,9 +42,6 @@ Flexible scoping allows you to gather insights for multiple business groups, wor
 
 **Fully managed service** 
 The Discovery service computes and hosts your insights. No other infrastructure needs to be deployed or paid for.
-
-**No impact on storage resources**
-Your Azure Storage resources (like storage accounts) experience no transactions or performance impact when analyzing them with Azure Storage Discovery.
 
 **History provided, right from the start.**
 Historical data is added automatically, once you deploy a Discovery workspace. All insights are retained for up to 18 months. History and retention depend on the [pricing plan](pricing.md) you choose.
@@ -69,10 +65,10 @@ You can navigate from a chart to a browse view.
 
 :::image type="content" source="media/overview/view-resources-small.png" alt-text="A chart tile with the View Resources button highlighted." lightbox="media/overview/view-resources-big.png":::
 
-### 3. Taking action
+### 3. Take action
 
 By browsing resources, you navigate directly to an individual resource for a configuration change. 
-Alternatively, you can save the resource list as a *\*.csv* file and use it for bulk operations, like in scripts or terraform.
+Alternatively, you can save the resource list as a *\*.csv* file and use it for bulk operations, such as in scripts or Terraform.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ description: Learn about Communication Service WhatsApp Business Accounts FAQ.
 author: darmour
 manager: sundraman
 services: azure-communication-services
-ms.author: darmour
+ms.author: diberry
 ms.date: 05/01/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -13,6 +13,8 @@ ms.subservice: advanced-messaging
 ---
 
 # WhatsApp business account FAQ
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 
 There are some common issues you might see with the WhatsApp Business Account that you connected to your Azure Communication Services resource. Your WhatsApp Business Account is managed from the WhatsApp business portal. This article provides links to the WhatsApp documentation to learn more and troubleshoot these issues.
 

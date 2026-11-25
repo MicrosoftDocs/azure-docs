@@ -4,8 +4,8 @@ description: Lists Azure Policy built-in policy definitions for Azure Spring App
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ms.topic: reference
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.service: azure-spring-apps
 ms.custom: subject-policy-reference, devx-track-java
 ---

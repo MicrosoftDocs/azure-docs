@@ -1,8 +1,8 @@
 ---
 title: Configure Azure Synapse Link for Azure SQL Database with network security
 description: Learn how to configure Azure Synapse Link for Azure SQL Database with network security.
-author: yexu
-ms.author: yexu
+author: juluczni
+ms.author: juluczni
 ms.reviewer: wiassaf, imotiwala
 ms.service: azure-synapse-analytics
 ms.topic: how-to

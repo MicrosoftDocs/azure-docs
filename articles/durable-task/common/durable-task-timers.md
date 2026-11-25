@@ -4,7 +4,8 @@ title: "Durable Timers: Implement Delays and Timeouts"
 description: "Learn how to implement durable timers in Durable Functions and Durable Task SDKs to add delays, set timeouts on async actions, and schedule billing notifications. Get started with code examples in C#, Python, Java, and JavaScript."
 ms.topic: feature-guide
 ms.service: durable-task
-ms.date: 04/22/2026
+ms.date: 10/12/2026
+ai-usage: ai-assisted
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, powershell, python, java
@@ -14,6 +15,8 @@ zone_pivot_groups: azure-durable-approach
 # Implement durable timers for delays and timeouts
 
 ::: zone pivot="durable-functions"
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 [Durable Functions](what-is-durable-task.md) provides *durable timers* for use in orchestrator functions to implement delays or to set up timeouts on async actions. Use durable timers in orchestrator functions instead of `sleep` or `delay` APIs that might be built into the language.
 ::: zone-end
 
@@ -30,11 +33,41 @@ Durable timers are tasks created using the appropriate `create timer` API for th
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
 ```csharp
-// Put the orchestrator to sleep for 72 hours
-DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
-await context.CreateTimer(dueTime, CancellationToken.None);
+[Function("TimerOrchestration")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    // Put the orchestrator to sleep for 72 hours
+    DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
+    await context.CreateTimer(dueTime, CancellationToken.None);
+}
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+```csharp
+[FunctionName("TimerOrchestration")]
+public static async Task Run(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    // Put the orchestrator to sleep for 72 hours
+    DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
+    await context.CreateTimer(dueTime, CancellationToken.None);
+}
+```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -67,6 +100,10 @@ Start-DurableTimer -Duration $duration
 // Put the orchestrator to sleep for 72 hours
 ctx.createTimer(Duration.ofHours(72)).await();
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -106,6 +143,10 @@ yield ctx.createTimer(72 * 60 * 60);
 # [PowerShell](#tab/powershell)
 
 The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 
@@ -149,6 +190,30 @@ The following example shows how to use durable timers to delay execution. The ex
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("BillingIssuer")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    for (int i = 0; i < 10; i++)
+    {
+        DateTime deadline = context.CurrentUtcDateTime.Add(TimeSpan.FromDays(1));
+        await context.CreateTimer(deadline, CancellationToken.None);
+        await context.CallActivityAsync("SendBillingEvent");
+    }
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("BillingIssuer")]
 public static async Task Run(
@@ -165,6 +230,10 @@ public static async Task Run(
 
 > [!NOTE]
 > The preceding C# example targets Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -221,6 +290,10 @@ public String billingIssuer(
     return "done";
 }
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -295,6 +368,34 @@ const billingIssuer: TOrchestrator = async function* (ctx: OrchestrationContext)
 };
 ```
 
+# [Go](#tab/go)
+
+Register `billingIssuer` as an orchestrator and your billing activity as `SendBillingEvent`. This demonstration uses one-second intervals so you can run it locally; choose a suitable billing interval for your application.
+
+```go
+package main
+
+import (
+	"time"
+
+	"github.com/microsoft/durabletask-go/task"
+)
+
+func billingIssuer(ctx *task.OrchestrationContext) (any, error) {
+	for i := 0; i < 10; i++ {
+		if err := ctx.CreateTimer(time.Second).Await(nil); err != nil {
+			return nil, err
+		}
+		if err := ctx.CallActivity("SendBillingEvent").Await(nil); err != nil {
+			return nil, err
+		}
+	}
+	return "done", nil
+}
+```
+
+`CreateTimer` takes a `time.Duration`. Unlike `time.Sleep`, a durable timer doesn't block a worker while it waits. The orchestration resumes when the timer fires.
+
 # [PowerShell](#tab/powershell)
 
 The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
@@ -320,6 +421,44 @@ This example shows how to use durable timers to implement timeouts:
 ::: zone pivot="durable-functions"
 
 # [C#](#tab/csharp)
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("TryGetQuote")]
+public static async Task<bool> Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    TimeSpan timeout = TimeSpan.FromSeconds(30);
+    DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
+
+    using var timeoutCts = new CancellationTokenSource();
+
+    Task activityTask = context.CallActivityAsync("GetQuote");
+    Task timeoutTask = context.CreateTimer(deadline, timeoutCts.Token);
+
+    Task winner = await Task.WhenAny(activityTask, timeoutTask);
+    if (winner == activityTask)
+    {
+        // Success case
+        timeoutCts.Cancel();
+        return true;
+    }
+    else
+    {
+        // Timeout case
+        return false;
+    }
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -352,6 +491,10 @@ public static async Task<bool> Run(
 
 > [!NOTE]
 > The previous C# example targets Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -440,6 +583,10 @@ public boolean tryGetQuote(
     }
 }
 ```
+
+# [Go](#tab/go)
+
+Durable Functions doesn't support Go. To see Go examples, select **Durable Task SDKs** at the top of this article.
 
 ---
 
@@ -547,6 +694,10 @@ const tryGetQuote: TOrchestrator = async function* (ctx: OrchestrationContext): 
 # [PowerShell](#tab/powershell)
 
 The Durable Task SDK is not available for PowerShell. Use [Durable Functions](what-is-durable-task.md) instead.
+
+# [Go](#tab/go)
+
+This example isn't available for Go. For Go guidance, see [Develop with the Durable Task SDK for Go](../sdks/durable-task-go.md).
 
 ---
 

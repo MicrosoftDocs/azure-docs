@@ -2,7 +2,7 @@
 title: Manage Azure Native Qumulo
 description: Learn how to manage your Azure Native Qumulo settings.
 author: Reshmi-Sriram
-ms.author: reshmisriram
+ms.author: diberry
 ms.topic: how-to 
 ms.date: 03/09/2025
 ms.custom:

@@ -6,6 +6,8 @@ items:
   - name: Get started
     expanded: true
     items:
+      - name: Evaluate SRE Agent
+        href: evaluate.md
       - name: Create and set up
         href: create-and-set-up.md
       - name: Team onboarding
@@ -54,8 +56,6 @@ items:
         href: tools.md
       - name: Default agent override info
         href: default-agent-override-info.md
-      - name: Deep context
-        href: workspace-tools.md
       - name: Agent reasoning
         href: agent-reasoning.md
   - name: Capabilities
@@ -112,6 +112,8 @@ items:
             href: http-triggers.md
           - name: Send notifications
             href: send-notifications.md
+          - name: Chat in Teams (preview)
+            href: teams-integration.md
       - name: Extend
         items:
           - name: Agent playground
@@ -152,6 +154,8 @@ items:
             href: network-integration.md
       - name: Measure & govern
         items:
+          - name: Live Reports
+            href: live-reports.md
           - name: Operations Hub
             href: operations-hub.md
           - name: Track incident value
@@ -170,6 +174,10 @@ items:
             href: file-attachments-tutorial.md
           - name: Set up Teams connector
             href: set-up-teams-connector.md
+          - name: Set up Teams integration (preview)
+            href: set-up-teams-integration.md
+          - name: Set up Microsoft Entra Agent ID (preview)
+            href: set-up-entra-agent-id.md
       - name: Diagnose
         items:
           - name: Run a deep investigation
@@ -232,6 +240,12 @@ items:
             href: setup-mcp-server.md
           - name: Set up a managed connector
             href: setup-managed-connector.md
+          - name: Connect a source code service
+            href: connect-code-service.md
+          - name: Connect a notification or work-tracking service
+            href: connect-notification-service.md
+          - name: Connect a telemetry source
+            href: connect-telemetry-source.md
           - name: Set up Log Analytics connector
             href: setup-log-analytics-connector.md
           - name: Create a Kusto tool
@@ -270,6 +284,8 @@ items:
         href: api-reference.md
       - name: Deploy with Infrastructure as Code
         href: deploy-iac.md
+      - name: Disaster recovery
+        href: disaster-recovery.md
       - name: Frequently asked questions
         items:
           - name: General

@@ -2,7 +2,7 @@
 title: Secure your Origin with Private Link in Azure Front Door Premium
 description: Learn how to secure connectivity between Azure Front Door Premium and your origin using Azure Private Link. This article covers supported origins, region availability, and best practices for private endpoint configuration.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 09/24/2025
@@ -34,7 +34,7 @@ After you enable an origin for Private Link and approve the private endpoint con
 Once your request is approved, a dedicated private endpoint gets assigned for routing your traffic from the Azure Front Door managed virtual network. Traffic from your clients reaches Azure Front Door Global POPs and is then routed over the Microsoft backbone network to the Front Door regional cluster, which hosts the managed virtual network containing the dedicated private endpoint. The traffic is then routed to your origin via the private link platform over Microsoft backbone network. Hence the incoming traffic to your origin secured upon the moment it arrives to Azure Front Door. 
 
 > [!NOTE]
-> Azure Front Door doesn't support client/mutual authentication (mTLS) for public origins or private link enabled origins.
+> Azure Front Door doesn't support mutual TLS (mTLS) on connections from Front Door to public origins or Private Link-enabled origins. For client-to-Front Door authentication on the Premium tier, see [Mutual TLS authentication in Azure Front Door](mutual-tls.md).
 
 ## Supported origins
 

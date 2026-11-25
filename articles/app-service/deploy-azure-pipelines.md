@@ -1,7 +1,7 @@
 ---
 title: Configure CI/CD with Azure Pipelines
 description: Learn how to use Azure Pipelines to deploy your app to Azure App Service with a YAML or Classic pipeline.
-author: cephalin
+author: btardif
 ms.author: jukullam
 ms.manager: mijacobs
 ms.topic: how-to

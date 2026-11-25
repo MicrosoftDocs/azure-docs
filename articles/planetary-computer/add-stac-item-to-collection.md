@@ -33,7 +33,7 @@ collection_id = "<your-collection-id>"
 The STAC item metadata is unique to the assets you're cataloging. It contains all the information required to catalog the data, along with pointers to where the data is stored.
 
 >[!TIP]
-> Don't have STAC Items for your data? To accelerate the creation of STAC Items, we have a [detailed tutorial](./create-stac-item.md) and also have an open source tool called [STAC Forge](https://github.com/Azure/microsoft-planetary-computer-pro/tree/main/tools/stacforge-functions).
+> Don't have STAC items for your data? To accelerate the creation of STAC items, see the [detailed tutorial](./create-stac-item.md) and use the open-source tool called *STAC Forge*.
 
 For this quick start, you use STAC Items and assets from the open Planetary Computer's [10 m Annual Land Use Land Cover](https://planetarycomputer.microsoft.com/dataset/io-lulc-annual-v02) collection. 
 

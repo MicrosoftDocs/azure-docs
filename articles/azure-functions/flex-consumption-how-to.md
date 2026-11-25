@@ -2,7 +2,7 @@
 title: Create and Manage Function Apps in a Flex Consumption Plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
 ms.service: azure-functions
-ms.date: 05/18/2026
+ms.date: 11/09/2026
 ms.topic: how-to
 ms.custom:
   - build-2024
@@ -20,6 +20,8 @@ zone_pivot_groups: programming-languages-set-functions
 # Create and manage function apps in the Flex Consumption plan
 
 This article shows you how to create function apps hosted in the [Flex Consumption plan](./flex-consumption-plan.md) in Azure Functions. It also shows you how to manage certain features of a Flex Consumption plan hosted app.
+
+The create and deployment procedures in this article apply to apps that use code packages. To create or configure a Flex Consumption function app that uses a container image for OS-level dependencies, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 
 Function app resources are language-specific. Make sure to choose your preferred code development language at the beginning of the article.
 
@@ -48,7 +50,7 @@ Function app resources are language-specific. Make sure to choose your preferred
 
 ## Create a Flex Consumption app
 
-This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md#iac-samples-overview).
+This section shows you how to create a code-package function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan by using Bicep or ARM templates, see the [Flex Consumption repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md#iac-samples-overview).
 ::: zone pivot="programming-language-java"
 You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).
 ::: zone-end
@@ -109,16 +111,13 @@ To support your function code, you need to create three resources:
     ::: zone-end
     ::: zone pivot="programming-language-powershell"
     ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime powershell --runtime-version 7.4
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime powershell --runtime-version 7.6
     ```
     ::: zone-end
     ::: zone pivot="programming-language-go"
     ```azurecli
     az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime go --runtime-version 1.0 --functions-version 4
-    az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
     ```
-
-    The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
     ::: zone-end
     In this example, replace both `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default domain name server (DNS) domain for the function app. The [`az functionapp create`] command creates the function app in Azure.
 
@@ -154,7 +153,7 @@ To support your function code, you need to create three resources:
 
 ## Deploy your code project
 
-For deployment, Flex Consumption plan apps use a Blob storage container to host .zip package files that contain your project code and all libraries that are required for your app to run. For more information, see [Deployment](flex-consumption-plan.md#deployment).
+This section applies to Flex Consumption apps that use code packages. For deployment, these apps use a Blob storage container to host .zip package files that contain your project code and all libraries that are required for your app to run. For more information, see [Deployment](flex-consumption-plan.md#deployment). To deploy a container image instead, see [Use OS-level dependencies via containers with Azure Functions Flex Consumption](flex-consumption-os-level-dependencies.md).
 ::: zone pivot="programming-language-java"
 You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).
 ::: zone-end
@@ -379,7 +378,6 @@ Choose an appropriately sized subnet for your Flex Consumption apps. The followi
 
 - The subnet can't already be used for private endpoints or service endpoints, and it can't be delegated to other hosting plans or services.
 - You can't share the same subnet between an Azure Container Apps environment and a Flex Consumption app.
-- Subnet names can't contain underscore (`_`) characters, which is a current limitation of the Flex Consumption plan.
 
 #### Subnet sharing
 
@@ -409,10 +407,7 @@ Enable virtual network integration by running the [`az functionapp create`] comm
     ::: zone pivot="programming-language-go"
     ```azurecli
     az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime go --runtime-version 1.0 --functions-version 4 --vnet <VNET_RESOURCE_ID> --subnet <SUBNET_NAME>
-    az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
     ```
-
-    The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
     ::: zone-end
     ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
     ```azurecli
@@ -599,7 +594,7 @@ A customized deployment source should meet these criteria:
 
 When you configure deployment storage authentication, keep these considerations in mind:
 
-- As a security best practice, use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./functions-reference.md#connections).
+- As a security best practice, use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./manage-connections.md).
 - When you use a connection string to connect to the deployment storage account, the application setting that contains the connection string must already exist.
 - When you use a user-assigned managed identity, you link the provided identity to the function app. You also assign the `Storage Blob Data Contributor` role scoped to the deployment storage account to the identity.
 - When you use a system-assigned managed identity, you create an identity when a valid system-assigned identity doesn't already exist in your app. When a system-assigned identity exists, you assign the `Storage Blob Data Contributor` role scoped to the deployment storage account to the identity.
@@ -734,14 +729,11 @@ az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --stor
 ::: zone pivot="programming-language-go"
 ```azurecli
 az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime go --runtime-version 1.0 --functions-version 4 --flexconsumption-location <REGION> --always-ready-instances http=10
-az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
 ```
-
-The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 
-This example sets the always ready instance count for all Durable trigger functions to `3` and sets the always ready instance count to `2` for a service bus triggered function named `function5`:
+This example sets the always ready instance count for all Durable trigger functions to `3` and sets the always ready instance count to `2` for a Service Bus triggered function named `function5`:
 
 ```azurecli
 az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances durable=3 function:function5=2
@@ -753,10 +745,7 @@ This example sets the always ready instance count to `2` for a Service Bus trigg
 
 ```azurecli
 az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime go --runtime-version 1.0 --functions-version 4 --flexconsumption-location <REGION> --always-ready-instances function:function5=2
-az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
 ```
-
-The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
 ::: zone-end
 
 ### [Azure portal](#tab/azure-portal)
@@ -852,6 +841,17 @@ Visual Studio Code doesn't currently support site update strategy configuration.
 
 ---
 
+## Configure end-to-end TLS encryption
+
+End-to-end (E2E) TLS encryption encrypts traffic between the Azure platform front ends and the workers that run your functions.
+
+Enable E2E TLS encryption by setting the `endToEndEncryptionEnabled` site property to `true` in an ARM or Bicep template.
+
+For more information about how E2E TLS encryption protects traffic, see [End-to-end TLS encryption in Azure App Service](../app-service/overview-tls.md#end-to-end-tls-encryption).
+
+> [!NOTE]
+> End-to-end TLS encryption and post-quantum key exchange protect different connection segments. `endToEndEncryptionEnabled` encrypts traffic between the platform front end and function worker; that connection negotiates TLS separately. Post-quantum key exchange applies to key establishment between a compatible client and the front end. This setting doesn't enable, disable, or require post-quantum negotiation. For details, see [Post-quantum hybrid key exchange in Azure App Service](../app-service/overview-tls.md#post-quantum-hybrid-key-exchange).
+
 ## Configure site-scoped certificates
 
 Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL certificates are scoped to your individual function app rather than shared across apps in the same webspace. The following table shows the supported certificate types and how each one is added to your function app:
@@ -864,14 +864,15 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 | Uploaded private certificate (.pfx) | [Uploaded as a PFX file](#add-a-certificate) | Private certificate limit |
 | Uploaded public certificate (.cer) | [Uploaded as a CER file](#add-a-certificate) | Public certificate limit |
 
+> [!NOTE]
+> Post-quantum TLS key exchange doesn't require a new or post-quantum certificate. Existing certificate requirements still apply. For details, see [Post-quantum hybrid key exchange in Azure App Service](../app-service/overview-tls.md#post-quantum-hybrid-key-exchange).
+
 ### Considerations for site-scoped certificates
 
-- Support for using site-scoped certificates with apps running in a Flex Consumption plan is currently in preview.
 - Existing apps created before this feature became available don't currently have a migration path for certificates. To use site-scoped certificates, create a new Flex Consumption function app.
 - Azure CLI support for managing site-scoped certificates isn't yet available. In the meantime, use the [Azure portal](https://portal.azure.com) or [ARM/Bicep templates](functions-infrastructure-as-code.md?pivots=flex-consumption-plan#site-scoped-certificates) to manage certificates.
 - Each app supports a maximum of three private certificates and three public certificates.
 - Private certificates must be exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions) that contains all intermediate certificates and the root certificate in the certificate chain.
-- End-to-end (E2E) encryption isn't currently supported.
 - Elliptic Curve Cryptography (ECC) certificates are supported when uploaded as a PFX.
 - Because Flex Consumption runs on Linux, your code must load certificates from file paths rather than from the Windows certificate store. First, follow the steps in [Make a certificate accessible to your code](#make-a-certificate-accessible-to-your-code) to load certificates into the runtime environment. Then, for guidance on reading certificate files from your application code, see [Load certificates in Linux/Windows containers](../app-service/configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers).
 
@@ -1174,4 +1175,3 @@ Here are some adjustments you can make to fine-tune performance versus cost:
 [`az functionapp create`]: /cli/azure/functionapp#az-functionapp-create
 [remote build]: ./functions-deployment-technologies.md#remote-build
 [Azure portal]: https://portal.azure.com
-

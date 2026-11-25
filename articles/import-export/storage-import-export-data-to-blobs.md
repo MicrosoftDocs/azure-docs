@@ -6,7 +6,7 @@ services: storage
 ms.service: azure-import-export
 ms.topic: tutorial
 ms.date: 02/01/2023
-ms.author: shaas
+ms.author: jeevanm
 ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: "As a data engineer, I want to securely import large data sets to Azure Blob storage using encrypted drives, so that I can manage data transfers efficiently and maintain data integrity throughout the process."
 ---

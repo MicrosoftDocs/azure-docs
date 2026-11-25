@@ -4,7 +4,7 @@ description: Describes how to troubleshoot issues when copying data to Azure Dat
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: troubleshooting
 ms.date: 03/22/2022
 ms.author: shaas

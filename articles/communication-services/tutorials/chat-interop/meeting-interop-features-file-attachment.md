@@ -14,6 +14,8 @@ zone_pivot_groups: acs-interop-chat-tutorial-js-csharp
 
 # Tutorial: Enable file attachment support in your Chat app
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The Chat SDK works seamlessly with Microsoft Teams in the context of a meeting. Only a Teams user can send file attachments to an Azure Communication Services user. An Azure Communication Services user can't send file attachments to a Teams user. For the current capabilities, see [Teams interop Chat](../../concepts/interop/guest/capabilities.md).
 
 ## Add file attachment support

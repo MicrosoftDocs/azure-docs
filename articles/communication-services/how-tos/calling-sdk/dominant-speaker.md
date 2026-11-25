@@ -16,6 +16,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Show active speakers within a call
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 During an active call, you might want to get a list of active speakers in order to render or display them differently. Here's how.
 
 ## Prerequisites

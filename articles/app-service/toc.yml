@@ -35,12 +35,20 @@ items:
   items:
   - name: Get started
     href: getting-started.md
+  - name: App Service Builder
+    items:
+    - name: Overview
+      href: app-service-builder-overview.md
+    - name: Get started
+      href: app-service-builder-get-started.md
+    - name: Full documentation
+      href: https://builder.appservice.azure.com/docs/
   - name: .NET
     items: 
     - name: Quickstart
       href: quickstart-dotnetcore.md
     - name: Aspire Quickstart
-      href: quickstart-dotnet-aspire.md
+      href: quickstart-aspire.md
     - name: Configure
       items:
       - name: ASP.NET
@@ -48,7 +56,7 @@ items:
       - name: ASP.NET Core
         href: configure-language-dotnetcore.md
       - name: Aspire
-        href: configure-language-dotnet-aspire.md
+        href: configure-language-aspire.md
     - name: Connect
       items:
       - name: ASP.NET Core with SQL DB
@@ -82,8 +90,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-dotnet.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-dotnet.md
         - name: RAG Azure OpenAI and Azure SQL
           href: deploy-intelligent-apps-dotnet-to-azure-sql.md
         - name: Add MCP server to app
@@ -141,8 +147,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-java.md
-        - name: RAG with Azure OpenAI with your data
-          href: tutorial-ai-openai-search-java.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-spring-boot.md
         - name: Add MCP server to app
@@ -171,8 +175,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-node.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-nodejs.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-expressjs.md
         - name: Add MCP server to app
@@ -201,8 +203,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-python.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-python.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-fastapi.md
         - name: Add MCP server to app
@@ -304,13 +304,15 @@ items:
       href: ../sre-agent/troubleshoot-azure-app-service.md  
     - name: Monitor App Service
       href: monitor-app-service.md
+    - name: Use the App Service site status page
+      href: use-app-service-site-status-page.md
     - name: Monitoring data reference
       href: monitor-app-service-reference.md
     - name: Azure Monitor tutorial
       href: tutorial-troubleshoot-monitor.md
     - name: Enable diagnostic logs
       href: troubleshoot-diagnostic-logs.md
-    - name: Open SSH session to a web app in a container
+    - name: Open a container shell (SSH) and run commands
       href: configure-linux-open-ssh-session.md
     - name: Monitor instance health
       href: monitor-instances-health-check.md
@@ -368,6 +370,9 @@ items:
   items:
     - name: Connectivity scenarios overview
       href: tutorial-connect-overview.md           
+    - name: Managed connectors
+      href: overview-managed-connectors.md
+      displayName: connector namespace, triggers, SDK actions, Office 365, Teams, SharePoint, SaaS
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings
@@ -465,7 +470,7 @@ items:
           href: configure-authentication-mcp-server-vscode.md
 - name: Security and networking
   items:
-    - name: Security overview
+    - name: Secure your Azure App Service deployment
       href: overview-security.md
     - name: Deploy a multi-region app (tutorial)
       href: tutorial-multi-region-app.md
@@ -485,8 +490,6 @@ items:
           href: overview-name-resolution.md
         - name: About subdomain takeover
           href: reference-dangling-subdomain-prevention.md
-        - name: Security baseline reference
-          href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy reference
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
@@ -608,6 +611,14 @@ items:
     href: /azure/reliability/reliability-app-service?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
   - name: Configure App Service for zone redundancy
     href: configure-zone-redundancy.md
+  - name: Geo-redundancy (preview)
+    items:
+      - name: Overview
+        href: overview-geo-redundancy.md
+      - name: Quickstart - Create geo-redundant applications
+        href: quickstart-geo-redundancy.md
+      - name: Configure and manage geo-redundancy
+        href: configure-geo-redundancy.md
 - name: Samples
   items:
     - name: Azure CLI

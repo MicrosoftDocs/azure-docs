@@ -2,7 +2,7 @@
 title: Deploy Azure CycleCloud for HPC resource orchestration
 description: Install and configure Azure CycleCloud to provision and manage HPC compute nodes, schedulers, and storage on demand.
 author: tomvcassidy
-ms.author: tomcassidy
+ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines

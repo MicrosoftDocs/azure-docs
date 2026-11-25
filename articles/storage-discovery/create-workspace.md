@@ -1,19 +1,19 @@
 ---
 title: Create and manage an Azure Storage Discovery Workspace
 titleSuffix: Azure Storage Discovery
-description: Learn how to create an Azure Storage Discovery Workspace.
+description: Learn how to create an Azure Storage Discovery workspace and enable or disable advanced capacity insights.
 author: fauhse
 ms.service: azure-storage-discovery
 ms.topic: how-to
 ms.date: 10/09/2025
 ms.author: fauhse
+modified_by: pthippeswamy
+modified_time: 10/16/2026
 ---
 
 # Deploy the Azure Storage Discovery service
 
 To deploy the Azure Storage Discovery service, you need to create a Discovery workspace resource in one of your resource groups. With this resource, you define which storage resources you want to cover across your Microsoft Entra tenant and how you want to segment reporting for them. The workspace offers prebuilt reports in the Azure portal that you can use to retrieve the insights you need about your storage resources.
-
-Follow the steps in this article to create an Azure Storage Discovery workspace resource.
 
 ## Create a storage discovery workspace
 
@@ -35,9 +35,10 @@ Choose the **Subscription** and **Resource group** in which to create the discov
 | `Pricing plan` | Storage Discovery pricing plan.<sup>2</sup>                       |
 
 <sup>1</sup> For information on regions covered, see [Storage Discovery workspace regions](deployment-planning.md). 
+
 <sup>2</sup> For information on Storage Discovery pricing plan, see [Understand Storage Discovery Pricing](pricing.md).
 
-## Define workspaceRoots
+### Define workspaceRoots
 
 A workspaceRoot specifies the top-level Azure resource identifiers where Storage Discovery initiates its scan for storage accounts. These identifiers are typically subscriptions or resource groups, and serve as the root of the discovery process. WorkspaceRoots define the overall scope and boundaries of your Azure estate for analysis.
 
@@ -56,7 +57,7 @@ After you add your subscriptions or resource groups to your workspace, the servi
 
 If you don't have `Microsoft.Storage/storageAccounts/read` on any of the resources added, remove the resource from the workSpaceRoots to proceed with the creation of workspace or resolve the access issue and try again.
 
-## Create a Scope
+### Create a scope
 Scopes are logical groupings of storage accounts within the defined workspaceRoots. Scopes allow you to filter and organize data using tags and resource types, enabling targeted insights. For example, you can create scopes for individual departments, environments, or compliance zones.
 
 :::image source="media/create-workspace/create-scope-sml.png" alt-text="Screenshot of a scope."  lightbox="media/create-workspace/create-scope.png":::
@@ -69,7 +70,7 @@ You can optionally add tags to this workspace resource. Then select **Review and
 :::image source="media/create-workspace/access-check-sml.png" alt-text="Screenshot of access checks running."  lightbox="media/create-workspace/access-check.png":::
 
 > [!NOTE]
-> Discovery resource creation fails if the access checks on any subscription or resource group isn't successful.
+> Discovery resource creation fails if the access checks on any subscription or resource group aren't successful.
 
 After the access checks complete successfully, the resource can be deployed as shown in the following sample image.
 
@@ -140,3 +141,85 @@ az storage-discovery workspace create \
 
 > [!NOTE]
 > It can take up to 24 hours after scope creation for metrics to begin appearing in reports.
+
+## Enable advanced capacity insights
+
+You can access advanced capacity insights through the **Capacity details** report. During preview, you can enable this feature only for existing workspaces on the Standard plan, not during workspace creation.
+
+Before you begin, review the [prerequisites and permissions](deployment-planning.md#prerequisites-for-advanced-capacity-insights), [regional availability](deployment-planning.md#regional-availability-for-advanced-capacity-insights), and [preview coverage limits](analyze-blob-capacity-details.md#preview-coverage).
+
+Ensure you have the **Contributor** or **Owner** role on the workspace. On each tenant, subscription, or resource group included in *workspaceRoots*, you also need the built-in [Storage Blob Data Reader](../role-based-access-control/built-in-roles/storage.md#storage-blob-data-reader) role. This role provides the `Microsoft.Storage/storageAccounts/blobServices/containers/read` and `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` permissions. You also need `Microsoft.Storage/storageAccounts/read` permission at each of these scopes, which must be granted separately.
+
+### [Azure portal](#tab/enable-portal)
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. Go to your Storage Discovery workspace.
+1. On the workspace **Overview** page, find **Capacity details** in the **Essentials** section.
+1. Select **Enable**.
+1. If the workspace uses the Free plan, follow the prompt to upgrade to the **Standard** plan.
+1. Complete the additional access checks.
+1. Review any access-check failures and correct the reported permissions before you try again.
+
+:::image source="media/create-workspace/enable-capacity-details.png" alt-text="Screenshot of the enable capacity details."  lightbox="media/create-workspace/enable-capacity-details.png":::
+
+Start access checks to enable capacity details
+
+:::image source="media/create-workspace/access-enable.png" alt-text="Screenshot of the enable capacity details access details."  lightbox="media/create-workspace/access-enable.png":::
+
+### [Azure PowerShell](#tab/enable-powershell)
+
+Install the preview [Az.StorageDiscovery 1.0.1-preview](https://www.powershellgallery.com/packages/Az.StorageDiscovery/1.0.1-preview) module, which adds the `-CapacityDetailStatus` parameter:
+
+```powershell
+Install-Module -Name Az.StorageDiscovery -RequiredVersion 1.0.1-preview -AllowPrerelease -Scope CurrentUser
+```
+
+Enable **Capacity details** on an existing Standard workspace by modifying the variables in the following PowerShell script to include your subscription ID, resource group, and workspace name. Verify that your values are correct, and then run the script in the Azure PowerShell console.
+
+```powershell
+
+# First, set variables for the resources
+$subscriptionId = "<your-subscription-id>"
+$resGroupName   = "myResourceGroup"
+$workSpaceName  = "myStorageDiscoveryWorkspace"
+
+# Next, connect to Azure and select the subscription
+Import-Module -Name Az.StorageDiscovery -RequiredVersion 1.0.1 -ErrorAction Stop
+Connect-AzAccount -ErrorAction Stop
+Set-AzContext -SubscriptionId $subscriptionId -ErrorAction Stop
+
+# Enable capacity details
+Update-AzStorageDiscoveryWorkspace -Name $workSpaceName -ResourceGroupName $resGroupName `
+    -CapacityDetailStatus Enabled -ErrorAction Stop
+
+# Finally, verify that capacity details are enabled
+Get-AzStorageDiscoveryWorkspace -Name $workSpaceName -ResourceGroupName $resGroupName `
+    -ErrorAction Stop |
+    Select-Object Name, Sku, CapacityDetailStatus
+
+```
+
+Confirm that `CapacityDetailStatus` is `Enabled`. If the update fails because of an access check, correct the reported permissions and run the update command again.
+
+---
+
+After you enable this feature, insights can take up to 48 hours to begin populating. To view the results, see [Open and filter the Capacity details report](analyze-blob-capacity-details.md#open-and-filter-the-report).
+
+## Disable advanced capacity insights
+
+You can disable **Capacity details** from the workspace management experience. Before you confirm, review the portal warning for the effect on report history.
+
+When you disable advanced capacity insights:
+
+- Storage Discovery stops producing new advanced capacity insights.
+- The **Capacity details** report stops showing advanced insights.
+- Configured prefixes are retained, but aggregation for them stops.
+- You must complete the additional access checks again if you re-enable the capability.
+
+Changing the workspace to the Free plan also makes advanced capacity insights unavailable. If you later return to the Standard plan, [enable **Capacity details** again](#enable-advanced-capacity-insights) to resume aggregation.
+
+## Next steps
+
+- [Analyze Blob capacity details](analyze-blob-capacity-details.md)
+- [Configure Blob prefixes for analysis](configure-blob-storage-prefixes.md)
+- [Understand the common structure of Storage Discovery reports](get-started-reports.md)

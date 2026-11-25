@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot Azure Container Storage (version 1.x.x)
 description: Troubleshoot common problems with Azure Container Storage (version 1.x.x), including installation and storage pool issues.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.date: 10/15/2024
-ms.author: kendownie
+ms.author: schoag
 ms.topic: how-to
 # Customer intent: "As a cloud administrator managing Azure Container Storage (version 1.x.x), I want to troubleshoot installation and storage pool issues, so that I can ensure successful deployment and optimal performance."
 ---

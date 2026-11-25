@@ -214,11 +214,11 @@ Your on-premises SDWAN/VPN device or SD-WAN configuration must match or contain 
 
 ### <a name="default"></a>Default policies for IPsec connectivity
 
-[!INCLUDE [IPsec Default](../../includes/virtual-wan-ipsec-include.md)]
+[!INCLUDE [IPsec Default](../networking/includes/virtual-wan/ipsec.md)]
 
 ### <a name="custom"></a>Custom policies for IPsec connectivity
 
-[!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
+[!INCLUDE [IPsec Custom](../networking/includes/virtual-wan/ipsec-custom.md)]
 
 ## Next steps
 

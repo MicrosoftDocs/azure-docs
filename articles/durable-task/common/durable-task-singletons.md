@@ -35,9 +35,13 @@ This article shows how to implement singleton orchestrators with code examples f
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 The following example shows an HTTP-trigger function that creates a singleton background job orchestration. The code attempts to ensure that only one active instance exists for a specified instance ID.
 
 # [C#](#tab/csharp)
+
+This C# code uses the isolated worker model, which is the recommended model for .NET apps. For more information about the differences between the in-process and isolated worker models, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 ```cs
 [Function("HttpStartSingle")]
@@ -73,8 +77,7 @@ public static async Task<HttpResponseData> RunSingle(
 }
 ```
 
-> [!NOTE]
-> The previous C# code is for the isolated worker model, which is the recommended model for .NET apps. For more information about the differences between the in-process and isolated worker models, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+
 
 # [JavaScript](#tab/javascript)
 
@@ -220,12 +223,10 @@ public HttpResponseMessage runSingle(
     String instanceId = req.getHeaders().getOrDefault("instanceId", "singleton-job");
     DurableTaskClient client = durableContext.getClient();
 
-    // Check to see if an instance with this ID is already running
+    // Protect all nonterminal instances, including Pending and Suspended.
     OrchestrationMetadata metadata = client.getInstanceMetadata(instanceId, false);
-    if (metadata == null || !metadata.isRunning()) {
+    if (!metadata.isInstanceFound() || metadata.isCompleted()) {
         // No such instance exists or it finished - create a new one.
-        // De-dupe is handled automatically in the storage layer if another
-        // function tries to also use this instance ID.
         client.scheduleNewOrchestrationInstance("MyOrchestration", null, instanceId);
         return durableContext.createCheckStatusResponse(req, instanceId);
     }
@@ -273,6 +274,7 @@ else
 
 ```python
 from durabletask.azuremanaged.client import DurableTaskSchedulerClient
+from durabletask.client import OrchestrationStatus
 
 instance_id = "singleton-job"
 
@@ -280,7 +282,11 @@ instance_id = "singleton-job"
 existing_instance = client.get_orchestration_state(instance_id)
 
 if (existing_instance is None or
-    existing_instance.runtime_status in ['COMPLETED', 'FAILED', 'TERMINATED']):
+    existing_instance.runtime_status in (
+        OrchestrationStatus.COMPLETED,
+        OrchestrationStatus.FAILED,
+        OrchestrationStatus.TERMINATED,
+    )):
     # An instance with the specified ID doesn't exist or an existing one stopped running, create one.
     client.schedule_new_orchestration(my_orchestration, input=input_data, instance_id=instance_id)
     print(f"Started orchestration with ID = '{instance_id}'.")
@@ -297,15 +303,15 @@ import com.microsoft.durabletask.OrchestrationMetadata;
 
 String instanceId = "singleton-job";
 
-// Check to see if an instance with this ID is already running
+// Protect all nonterminal instances, including Pending and Suspended.
 OrchestrationMetadata existingInstance = client.getInstanceMetadata(instanceId, false);
 
-if (existingInstance == null || !existingInstance.isRunning()) {
+if (!existingInstance.isInstanceFound() || existingInstance.isCompleted()) {
     // An instance doesn't exist or finished - create one
     client.scheduleNewOrchestrationInstance("MyOrchestration", input, instanceId);
     System.out.println("Started orchestration with ID = '" + instanceId + "'.");
 } else {
-    // An instance with the specified ID exists and is still running
+    // An instance with the specified ID exists and isn't terminal.
     System.out.println("An instance with ID '" + instanceId + "' already exists.");
 }
 ```

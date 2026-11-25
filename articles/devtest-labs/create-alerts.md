@@ -2,8 +2,8 @@
 title: Create activity log alerts for labs
 description: Learn how to create activity log alerts and configure alert rules for labs in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 04/30/2024
 ms.custom: UpdateFrequency2
 

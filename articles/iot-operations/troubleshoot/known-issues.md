@@ -1,12 +1,12 @@
 ---
 title: Known Issues 
-description: Known issues for the MQTT broker, connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
+description: Known issues for Model Context Protocol (MCP), the MQTT broker, connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 07/01/2026
+ms.date: 11/11/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -14,88 +14,6 @@ ms.date: 07/01/2026
 This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
 
 For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
-
-## Deployment and upgrade issues
-
-This section lists current known issues with deploying and upgrading Azure IoT Operations.
-
-### Upgrade to Azure IoT Operations 2603 can silently fail
-
----
-
-Log signature: N/A
-
----
-
-When you run `az iot ops upgrade` to upgrade to Azure IoT Operations 2603, the upgrade can silently fail to reach the cluster. You then observe the following symptoms:
- 
-- `provisioningState: Failed` on the Azure IoT Operations extension.
-- All on-cluster workloads remain healthy (no upgrade activity occurs).
-- `az iot ops upgrade` might report nothing to upgrade on subsequent attempts.
-
-#### Root cause
- 
-During the upgrade, if a dependent system extension, such as `microsoft.extensiondiagnostics` experiences a transient Helm timeout, Azure Resource Manager marks it as **Failed**. Even if the extension eventually succeeds on-cluster, the cloud-side state remains **Failed**. This blocks the dependency chain — Azure Resource Manager never delivers the updated Azure IoT Operations or secret-store extension config to the cluster's config agent.
- 
-Symptoms include:
- 
-- Config agent PostStatus returns `400: "Configuration spec has been modified"`
-- `getPendingConfigs` returns empty results
-- Extension manager never receives Helm upgrade instructions
-
-#### Workaround
- 
-The workaround is to force Azure Resource Manager to re-submit the extension specs by running a no-op update on both the Azure IoT Operations and secret-store extensions, then retrying the upgrade:
- 
-```azurecli
-az k8s-extension update --name <aio-extension-name> \
-    --cluster-name <cluster-name> \
-    --resource-group <resource-group> \
-    --cluster-type connectedClusters \
-    --configuration-settings AgentOperationTimeoutInMinutes=120
-
-az k8s-extension update --name azure-secret-store \
-    --cluster-name <cluster-name> \
-    --resource-group <resource-group> \
-    --cluster-type connectedClusters \
-    --configuration-settings AgentOperationTimeoutInMinutes=120
-
-az iot ops upgrade
-```
-
-To identify the Azure IoT Operations extension name, which includes a random suffix (for example, `azure-iot-operations-cym7h`), find your specific extension name by running:
-
-```azurecli
-az k8s-extension list \
-    --cluster-name <cluster-name> \
-    --resource-group <resource-group> \
-    --cluster-type connectedClusters \
-    --query "[?extensionType=='microsoft.iotoperations'].name" -o tsv
-```
-
-> [!IMPORTANT]
-> After the upgrade completes, reset `AgentOperationTimeoutInMinutes` back to a lower value like five minutes to avoid long wait times on future operations if something else fails.
-
-## Azure Device Registry issues
-
-This section lists current known issues for the Azure Device Registry.
-
-### ADR namespace asset healthstate resources don't sync from edge to cloud
-
----
-
-Issue ID: 1235
-
----
-
-Log signature: N/A
-
----
-
-Azure Device Registry namespace asset healthstate resources don't synchronize back to the cloud if they were created with an API version older than 2026-04-01. This failure occurs because a required Kubernetes resource annotation is missing.
-
-Workaround: Use the [arc proxy](/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) to connect to your Kubernetes cluster and then run the [remediation script](https://github.com/Azure/azure-iot-operations/tree/main/scripts/known-issues/asset-health-status-reporting) for the shell you're using (PowerShell or bash). The scripts list all outdated namespace assets and request confirmation before they add the missing annotations.
-
 
 ## MQTT broker issues
 
@@ -122,6 +40,36 @@ There's currently no workaround for this issue.
 
 This section lists current known issues that affect all connectors.
 
+### Uppercase inbound endpoint names prevent device health synchronization
+
+---
+
+Issue ID: 0202
+
+---
+
+Applies to: Azure IoT Operations 2610 public preview, reported on v1.6.0-preview.57 with the connector for ONVIF.
+
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: In the Azure portal Activity Log, `Microsoft.DeviceRegistry/namespaces/devices/write` fails with `InvalidRequestContent`:
+
+```output
+The request body contains a duplicate JSON key '<endpoint name in lowercase>'. Each property name may appear at most once.
+```
+
+---
+
+You can create a device with an inbound endpoint name that contains uppercase letters, but subsequent device status writes fail. Configuration status uses a lowercase endpoint name while runtime status preserves the original casing. Azure rejects the resulting duplicate keys.  
+
+The operations experience can report that the device was created and synchronized while its health remains Unknown. The endpoint's actual health and connectivity errors aren't visible in Azure.
+
+Workaround: Use lowercase letters, digits, and hyphens in inbound endpoint names. For an existing affected device, save its configuration, identify dependent assets and workloads, and plan for interruption before deleting and recreating the device with a lowercase endpoint name. Verify that status writes succeed and health is reported after recreation.
+
 ### Connector doesn't detect updates to device credentials in Azure Key Vault
 
 ---
@@ -141,81 +89,6 @@ Fixed in release 2605 and later
 The connector doesn't receive a notification when device credentials stored in Azure Key Vault are updated. As a result, the connector continues to use the old credentials until it's restarted.
 
 Workaround: Restart the connector to force it to retrieve the updated credentials from Azure Key Vault.
-
-### For Akri connectors, the only supported authentication type for registry endpoints is `artifact pull secrets`
-
----
-
-Issue ID: 4570
-
----
-
-Log signature: N/A
-
----
-
-When you specify the registry endpoint reference in a connector template, there are multiple supported authentication methods. Akri connectors only support `artifact pull secrets` authentication.
-
-### Akri connectors don't work with registry endpoint resources
-
----
-
-Issue ID: 7710
-
----
-
-Fixed in version 1.2.154 (2512) and later
-
----
-
-Log signature:
-
-```output
-[aio_akri_logs@311 tid="7"] - failed to generate StatefulSet payload for instance rest-connector-template-...
-[aio_akri_logs@311 tid="7"] - reconciliation error for Connector resource... 
-[aio_akri_logs@311 tid="7"] - reconciliation of Connector resource failed...
-```
-
-If you create a `RegistryEndpoint` resource using bicep and reference it in the `ConnectorTemplate` resource then when the Akri operator tries the reconcile the `ConnectorTemplate` it fails with the error shown previously.
-
-Workaround: Don't use `RegistryEndpoint` resources with Akri connectors. Instead, specify the registry information in the `ContainerRegistry` settings in the `ConnectorTemplate` resource.
-
-### Akri error when updating or deleting an Azure IoT Operations instance
-
----
-
-Issue ID: 9347
-
----
-
-Fixed in version 1.2.154 (2512) and later
-
----
-
-Users may encounter an error regarding expired webhook certificates with Akri when deleting/upgrading instances of Azure IoT Operations or performing CRUD operations on Akri resources such as *Connector* and *ConnectorTemplates* instances. 
-
-Workaround: run `kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found` to delete and restart the webhook pods to enable the pod to pick up the new certificate.
-
-### Device inbound endpoints don't enforce authentication when none is specified
-
----
-
-Issue ID: 7337
-
----
-
-Log signature: N/A
-
----
-
-The Azure Device Registry Device resource schema lists certificate-based (X.509) authentication as the default authentication method for an inbound endpoint. However, the authentication property itself is nullable, so it's possible to create a device inbound endpoint without specifying any authentication method.
-
-When authentication is omitted, the implied default of X.509 certificates isn't applied at runtime. The device inbound endpoint is created with no authentication enforced.
-
-Recommendations:
-
-- Always communicate with device inbound endpoints over an authenticated protocol.
-- Explicitly configure certificate-based authentication, or another supported authentication method, in the authentication property of every inbound endpoint. Don't rely on the schema default — it isn't applied implicitly.
 
 ## Connector for OPC UA issues
 
@@ -239,9 +112,106 @@ Log signature: `2025-10-22T14:51:59.338Z aio-opc-opc.tcp-1-68ff6d4c59-nj2s4 - Up
 
 Schema generation fails if event names contain special characters such as `#`, `%`, or `&`. Avoid using these characters in event names to prevent schema generation issues.
 
+### OPC connector template missing
+
+---
+
+Issue ID: 1330
+
+---
+
+Fixed in version 1.4.73 (2608) and later
+
+---
+
+Log signature: N/A
+
+---
+
+Azure IoT Operations instance deployment should install an **OPC ConnectorTemplate** by default. Following the deployment, the connector template is missing from the Azure portal and the `ConnectorTemplate` resource isn't present in the cluster.
+
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
+
+### ContinuousMove reports success without moving a camera
+
+---
+
+Issue ID: 0205
+
+---
+
+Applies to: The pre-production operations experience used with Azure IoT Operations public preview. Impact in the production operations experience hasn't been confirmed.
+
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: The `PTZ` > `ContinuousMove` action returns `Succeeded` with an empty result:
+
+```json
+{"Result": {}}
+```
+
+---
+
+The execution form requires **Zoom** > **X** even though `Velocity.Zoom` is optional in the action's request schema. On an affected pan-tilt camera without optical zoom, submitting the form reports success but the camera doesn't move.
+
+Workaround: Invoke the asset's `PTZ` > `ContinuousMove` action through Azure Resource Manager `executeAction` with a payload that includes `PanTilt` but omits `Zoom`. For example, use the following request body, replacing `<media-profile-token>` with a token returned by the camera's `Media` > `GetProfiles` action:
+
+```json
+{
+  "managementGroupName": "PTZ",
+  "managementActionName": "ContinuousMove",
+  "payload": {
+    "ContinuousMove": {
+      "ProfileToken": "<media-profile-token>",
+      "Velocity": {
+        "PanTilt": {
+          "x": 0.3,
+          "y": 0
+        }
+      },
+      "Timeout": "PT1S"
+    }
+  }
+}
+```
+
+Send `payload` as a JSON object, not as a JSON-encoded string. Use movement values supported by your camera and verify the outcome with `PTZ` > `GetStatus`; an empty successful result alone doesn't confirm movement.
+
+### Media discovery exceeds the discovered-device endpoint limit
+
+---
+
+Issue ID: 5382
+
+---
+
+Applies to: Connector for ONVIF v1.6.5 in both Azure IoT Operations 2610 public preview and general availability (GA) releases.
+
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: In the Azure portal Activity Log, `Microsoft.DeviceRegistry/namespaces/discoveredDevices/write` fails with `InvalidRequestContent`, with `MaxProperties` targeting `properties.endpoints.inbound`:
+
+```output
+The object must not contain more than 10 properties.
+```
+
+---
+
+The connector for ONVIF generates media endpoints for multiple transports per media profile. Azure Device Registry rejects discovered devices that exceed 10 inbound endpoints. A camera with three media profiles can exceed this limit.
+
+The camera's ONVIF endpoint can report Available and its ONVIF discovered asset can appear, but the discovered device containing its media endpoints doesn't appear in Azure. You can't import those endpoints to configure the media connector through discovery.
+
+Workaround: Create a device manually with a `Microsoft.Media` inbound endpoint using the camera's RTSP stream URL from the manufacturer's documentation, such as `rtsp://<camera-ip>:554/<stream-path>`. Configure credentials through the supported secret references, then create the media asset and the snapshot or clip streams that you need. See [Configure the connector for media](../discover-manage-assets/howto-use-media-connector.md).
 
 ### Secret sync conflict
 
@@ -257,51 +227,6 @@ Log signature: N/A
 
 When using secret sync, ensure that secret names are globally unique. If a local secret with the same name exists, connectors might fail to retrieve the intended secret.
 
-### ONVIF asset event destination can only be configured on group or asset level
-
----
-
-Issue ID: 9545
-
----
-
-Fixed in version 1.2.154 (2512) and later
-
----
-
-Log signature similar to:
-
-`No matching event subscription for topic: "tns1:RuleEngine/CellMotionDetector/Motion"`
-
----
-
-Currently, ONVIF asset event destinations are only recognized at the event group or asset level. Configuring destinations at the individual event level results in log entries similar to the example, and no event data is published to the MQTT broker.
-
-As a workaround, configure the event destination at the event group or asset level instead of the individual event level. For example, using `defaultEventsDestinations` at the event group level:
-
-```yaml
-eventGroups:
-  - dataSource: ""
-    events:
-    - dataSource: tns1:RuleEngine/CellMotionDetector/Motion
-      destinations:
-      - configuration:
-          qos: Qos1
-          retain: Never
-          topic: azure-iot-operations/data/motion
-          ttl: 5
-        target: Mqtt
-      name: Motion
-    name: Default
-    defaultEventsDestinations:
-    - configuration:
-        qos: Qos1
-        retain: Never
-        topic: azure-iot-operations/data/motion
-        ttl: 5
-      target: Mqtt
-```
-
 ## Connector for MQTT issues
 
 ### MQTT connector template version mismatch during update
@@ -313,6 +238,10 @@ Issue ID: 1533
 ---
 
 Log signature: N/A
+
+---
+
+Fixed in release 2606 and later
 
 ---
 
@@ -330,16 +259,71 @@ Log signature: N/A
 
 ---
 
-Starting in release 2605, the MQTT connector can't connect to external MQTT brokers that have private IP addresses.  
+Fixed in release 2607 and later
 
-This issue is scheduled to be fully resolved in release 2607.
+---
+
+Starting in release 2605, the MQTT connector can't connect to external MQTT brokers that use private IP addresses.  
 
 
 ## Data flows issues
 
 This section lists current known issues for data flows.
 
-### Data flow resources aren't visible in the operations experience web UI
+### Upgrade fails with an ACR registry endpoint audience mismatch
+
+---
+
+Issue ID: 3245
+
+---
+
+Log signature: N/A
+
+---
+
+An Azure IoT Operations upgrade can fail and roll back if a data flow graph uses an Azure Container Registry (ACR) registry endpoint with an explicitly configured Azure Resource Manager (ARM) audience or scope. Earlier documentation examples used the ARM audience, so an existing configuration that worked before the upgrade can be affected.
+
+The Dataflows operator logs an audience mismatch error similar to:
+
+```output
+audience 'https://management.azure.com/' does not match the expected audience 'https://containerregistry.azure.net'
+```
+
+Workaround: Update the existing registry endpoint Azure resource through Azure Resource Manager before retrying the upgrade:
+
+- For system-assigned managed identity authentication, change `properties.authentication.systemAssignedManagedIdentitySettings.audience` from `https://management.azure.com/` to `https://containerregistry.azure.net`.
+- For user-assigned managed identity authentication, change `properties.authentication.userAssignedManagedIdentitySettings.scope` from `https://management.azure.com/.default` to `https://containerregistry.azure.net/.default`.
+
+Preserve the other registry endpoint properties and authentication settings. Update the existing resource rather than only changing a local deployment file or omitting an argument from an update command. After the Azure resource and its corresponding cluster configuration reflect the new value, retry the upgrade.
+
+For registry endpoint configuration examples, see [Configure registry endpoints](../develop-edge-apps/howto-configure-registry-endpoint.md).
+
+### Operations experience web UI only displays data flow graph artifacts sourced from Azure Container Registry (ACR) and mcr.microsoft.com
+
+---
+
+Issue ID: 8895
+
+---
+
+Log signature: N/A
+
+---
+
+Even if you configure a container registry endpoint for a non-ACR container registry, like GHCR:
+
+- Data flow graph artifacts from the non-ACR registry don't appear in the operations experience web UI, so you can't create a data flow graph that uses them.
+
+- Selecting a data flow graph from the list of data flows in the operations experience web UI that contains elements from a non-ACR registry produces an error similar to: `Can't load data flow graph. The contents of this data flow graph are unavailable. Please ensure that it still exists, then work with your administrator to get 'AcrPull' access to required registry endpoints.`
+
+Workaround: You have two options:
+
+- If you don't need to use the operations experience UI, use the Azure CLI to perform CRUD operations on data flow graphs defined in JSON or Bicep files that contain artifacts sourced from non-ACR registries.
+
+- If you want to use the operations experience web UI, import data flow artifacts and graphs from non-ACR registries into an ACR registry. To learn more, see [Push modules to your registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#push-modules-to-your-registry).
+
+### Data flow resources created using Kubernetes aren't visible in the operations experience web UI
 
 ---
 
@@ -354,45 +338,6 @@ Log signature: N/A
 Data flow custom resources created in your cluster using Kubernetes aren't visible in the operations experience web UI. This result is expected because [managing Azure IoT Operations components using Kubernetes](tips-tools.md#manage-components-using-kubernetes-deployment-manifests) is for debugging and testing only, and synchronizing resources from the edge to the cloud isn't currently supported.
 
 There's currently no workaround for this issue.
-
-### A data flow profile can't exceed 70 data flows
-
----
-
-Issue ID: 1028
-
----
-
-Log signature:
-
-`exec /bin/main: argument list too long`
-
----
-
-If you create more than 70 data flows for a single data flow profile, deployments fail with the error `exec /bin/main: argument list too long`.
-
-To work around this issue, create multiple data flow profiles and distribute the data flows across them. Don't exceed 70 data flows per profile.
-
-### Data flow graphs only support specific endpoint types
-
----
-
-Issue ID: 5693
-
----
-
-Log signature: N/A
-
----
-
-Data flow graphs (WASM) currently only support MQTT, Kafka, and OpenTelemetry (OTel) data flow endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported for data flow graphs.
-
-To work around this issue, use one of the supported endpoint types:
-- [MQTT endpoints](../connect-to-cloud/howto-configure-mqtt-endpoint.md) for bi-directional messaging with MQTT brokers
-- [Kafka endpoints](../connect-to-cloud/howto-configure-kafka-endpoint.md) for bi-directional messaging with Kafka brokers, including Azure Event Hubs
-- [OpenTelemetry endpoints](../connect-to-cloud/open-telemetry.md) for sending metrics and logs to observability platforms (destination only)
-
-For more information about data flow graphs, see [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
 
 ### Can't use the same graph definition multiple times in a chained graph scenario
 
@@ -449,22 +394,138 @@ You create a chained graph scenario by using the output of one data flow graph a
 
 To solve this error, push the graph definition to the ACR as many times as needed with the scenario with a different name or tag each time. For example, in the scenario described, the graph definition need to be pushed twice with either a different name or a different tag, such as `graph-passthrough-one:1.3.6` and `graph-passthrough-two:1.3.6`.
 
-## Broker listener issues
+## Edge registry issues
 
-This section lists current known issues for broker listeners    .
+This section lists current known issues for the edge registry.
 
-### Azure portal fails to fetch broker authentications
-
----
-
-Issue ID: 3072
+### User-assigned identity configuration uses the wrong registry service account
 
 ---
 
-Log signature: Azure portal message `Fetch broker authentications: Failed to fetch broker authentications`
+Issue ID: 3467
 
 ---
 
-When you configure a broker listener in the Azure portal and select a value in the "Authentication" dropdown, the portal tries to fetch the list of broker authentications. The portal displays the error message `Fetch broker authentications: Failed to fetch broker authentications`.
+Applies to: Azure IoT Operations 2610 public preview. Reported on v1.6.0-preview.57; the CLI mismatch also exists in CLI extension v2.11.2, whose preview deployment profile uses v1.6.0-preview.60.
 
-To workaround this issue, upgrade to the 2603 release.
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: N/A
+
+---
+
+When you run `az iot ops identity assign --usage schema` on an affected preview instance, the CLI creates a federated credential with the subject `system:serviceaccount:azure-iot-operations:adr-schema-registry`. The preview edge registry runs as service account `aio-edge-registry`, so the credential doesn't match the workload.
+
+The command can report success even though the edge registry's service account has no matching federated credential. The registry can continue using its existing system-assigned identity, masking the configuration mismatch.
+
+Workaround:
+
+1. On the user-assigned managed identity intended for the edge registry, add a federated credential with these values:
+   - **Issuer:** The connected cluster's OIDC issuer URL.
+   - **Subject:** `system:serviceaccount:azure-iot-operations:aio-edge-registry` for the default namespace. If you use another namespace, substitute the actual namespace.
+   - **Audience:** `api://AzureADTokenExchange`.
+1. Verify that the credential matches the service account used by the edge registry pod. If you need to restart the preview registry, its StatefulSet is `aio-edge-registry`, not `adr-schema-registry`.
+
+Adding this credential corrects the trust mismatch, but adoption of an identity change by the running registry is separately under investigation. Adding the credential doesn't confirm that the registry has switched identities. Selection among multiple user-assigned identities is also under investigation.
+
+## Management action issues
+
+This section lists current known issues for management actions.
+
+### Event Grid subscription isn't ready immediately after management actions are enabled
+
+---
+
+Issue ID: 0208
+
+---
+
+Applies to: CLI extension v2.11.0 on Azure IoT Operations 2610 public preview, reported on v1.6.0-preview.57.
+
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: The data flow pod logs subscription failures, and the Event Grid namespace metric `Mqtt.FailedSubscriptionOperations` reports `Error=AuthorizationError`.
+
+---
+
+The `az iot ops mgmt-actions enable` command creates the request data flow graph before assigning the Event Grid TopicSpaces Publisher and Subscriber roles. The graph can attempt to subscribe before it is authorized. It retries with backoff, and authorization failures can continue briefly after the CLI reports success.
+
+Management actions might not reach the edge until the request graph's subscription succeeds.
+
+Workaround: Wait about a minute after `az iot ops mgmt-actions enable` returns before sending the first action. Check the request graph's logs to confirm that its subscription succeeds. If authorization failures continue, verify the required role assignments and allow extra time for role propagation. Don't automatically replay non-idempotent actions whose execution outcome is unknown.
+
+## Federated identity issues
+
+This section lists current known issues for federated identity.
+
+### Federated identity credential issuer mismatch can cause secret sync authentication failures
+
+---
+
+Issue ID: 1190
+
+---
+
+Fixed in release 2607 and later
+
+---
+
+Log signature: Similar to `AADSTS700211: No matching federated identity record found for presented assertion issuer 'https://northamerica.oic.prod-arc.azure.com/1f5f7baf-633d-4eb5-9be1-8cf1e9c6fcc9/f512e8f6-0c47-48a1-91f3-aeb5422dd766'. Please check your federated identity credential Subject, Audience and Issuer against the presented assertion.`
+
+---
+
+Azure IoT Operations encounters 401 Unauthorized errors when retrieving secrets from Azure Key Vault.
+
+Root cause: The error occurs because the federated identity credential issuer URL doesn't match the issuer (iss) claim in the Kubernetes service account token.
+
+When the `az iot ops secretsync enable` command creates a federated identity credential (FIC) on the user-assigned managed identity that Azure IoT Operations uses to access Azure Key Vault, it sets the FIC issuer URL to the cluster's OIDC issuer URL. In some deployments, this URL includes a trailing slash ('/') that the cluster-issued service account token's iss (issuer) claim omits.
+
+Because the issue affects token exchange during secret retrieval, the failure typically doesn't occur when you run `az iot ops secretsync enable`. Instead, it surfaces later when Azure IoT Operations attempts to access a secret, which can make the root cause difficult to identify.
+
+Workaround: Verify that the issuer URL configured on the federated identity credential doesn't end with a slash. If it does, update the federated identity credential to remove the trailing slash.
+
+You can use the Azure CLI [az identity federated-credential](/cli/azure/identity/federated-credential) commands to view and, if necessary, update the federated identity credential issuer value, for example:
+
+```azurecli
+az identity federated-credential show --name <fic-name> --identity-name <managed-identity-name> --resource-group <resource-group-name>
+
+az identity federated-credential update --name <fic-name> --identity-name <managed-identity-name> --resource-group <resource-group> --issuer <new-issuer-url-without-trailing-slash>
+```
+
+As a best practice, perform this validation during setup after you run the `az iot ops secretsync enable` command to help avoid potentially difficult-to-diagnose authentication failures later.
+
+## Model Context Protocol (MCP) issues
+
+This section lists current known issues for MCP.
+
+### Deployment with customer-managed certificates fails when MCP is enabled
+
+---
+
+Issue ID: 3314
+
+---
+
+Applies to: Azure IoT Operations 2610 public preview.
+
+---
+
+Fix planned for release 2612.
+
+---
+
+Log signature: N/A
+
+---
+
+When you [bring your own certificate issuer](../deploy-iot-ops/howto-bring-your-own-issuer.md), Azure IoT Operations deployment fails if MCP is enabled. MCP components reference the default certificate issuer and trust bundle instead of your configured resources.
+
+Workaround: To evaluate other Azure IoT Operations features with customer-managed certificates, explicitly set `features.mcp.mode` to `Disabled` in your deployment configuration **before deploying**. MCP is enabled by default. See [Disable MCP](../manage-model-context-protocol/howto-deploy-mcp.md#disable-mcp-optional) for the configuration setting.

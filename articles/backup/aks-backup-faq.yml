@@ -86,6 +86,18 @@ sections:
           When backups are to be restored from Vault Tier, a staging resource group and storage account are required. During such restore, backup data in the vault is first hydrated in the staging location and then the extension installed in the cluster restore this data into the target AKS cluster. The staging resource group is used to temporarily recreate backed up Disks. The staging storage account is used to store the Kubernetes resources stored in the backup data in the Vault Tier. The backup items once created in the staging location has to be cleaned up manually. 
 
       - question: |
+           Is AKS backup incremental or full?
+        answer: | 
+           AKS backup uses different backup methods depending on the type of data being protected:
+           - PVCs: Backups are incremental. After the initial full snapshot, only changes made since the previous snapshot are captured.
+           - Cluster configuration and metadata: Backups are always full. Each backup captures the complete cluster configuration, including Kubernetes resources such as deployments, services, and ConfigMaps, without tracking incremental changes.
+
+      - question: |
+           Can I trigger an on-demand full backup for an AKS cluster?
+        answer: | 
+           You can trigger an on-demand backup for an AKS cluster. However, you can't manually specify whether the backup is full or incremental. The backup engine automatically determines the backup type based on the existing backup state, particularly for PVCs.
+           
+      - question: |
            What are the types of Persistent Volumes that are supported by Azure Backup for AKS?
         answer: | 
            Azure Backup for AKS relies on CSI driver-based snapshots for its backup and restore operations. The following persistent volume types are supported:

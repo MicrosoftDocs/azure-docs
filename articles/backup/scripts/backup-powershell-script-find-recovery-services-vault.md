@@ -3,6 +3,7 @@ title: PowerShell Script - find Vault for Storage Account
 description: Learn how to use an Azure PowerShell script to find the Recovery Services vault where your storage account is registered.
 ms.topic: sample
 ms.date: 10/08/2025
+ms.update-cycle: 1825-days
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS

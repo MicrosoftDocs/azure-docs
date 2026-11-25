@@ -1,8 +1,8 @@
 ---
 title: Retrieve Azure IoT Edge logs
 description: Retrieve Azure IoT Edge logs and upload them to Azure Blob Storage for remote monitoring.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 06/03/2025
 ms.topic: how-to
 ms.service: azure-iot-edge

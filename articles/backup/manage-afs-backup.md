@@ -74,7 +74,7 @@ To create a new backup policy, follow these steps:
 
    - **Hourly**: Triggers multiple backups per day. For hourly frequency, select the appropriate values for:
    
-     - **Schedule**: The time interval (in hours) between the consecutive backups.
+     - **Schedule**: The time interval (in hours) between the consecutive backups. Supported intervals are 1, 2, 4, 6, 8, and 12 hours.
      - **Start time**: The time when the first backup job of the day needs to be triggered.
      - **Duration**: Represents the backup window (in hours), that is, the time span in which the backup jobs need to be triggered as per the selected schedule.
      - **Time zone**: The corresponding time zone for the backup job.

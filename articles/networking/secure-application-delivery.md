@@ -5,7 +5,7 @@ ms.author: mbender
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 06/17/2024
+ms.date: 08/05/2026
 # Customer intent: "As a system architect, I want to utilize a decision tree for selecting an application delivery service, so that I can ensure the security and performance of web applications based on specific deployment needs."
 ---
 
@@ -17,9 +17,9 @@ Choosing a topology for web application ingress has a few different options, so 
 
 ## Decision tree
 
-The following decision tree helps you to choose an application delivery service. The decision tree guides you through a set of key decision criteria to reach a recommendation.
+The following decision tree helps you choose an application delivery service. It works through the ingress considerations described earlier in this article, such as whether your workload is globally distributed and whether it needs a web application firewall.
 
-Treat this decision tree as a starting point. Every deployment has unique requirements, so use the recommendation as a starting point. Then perform a more detailed evaluation.
+Use the resulting service as an initial ingress pattern. Because traffic profiles and protection requirements differ for every web application, evaluate the recommendation in more detail before you build your design around it.
 
 :::image type="content" source="media\secure-application-delivery\secure-application-delivery-decision-tree.png" alt-text="Application delivery service decision tree.":::
 

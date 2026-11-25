@@ -6,7 +6,7 @@ ms.date: 03/06/2025
 ms.devlang: spark-scala
 ms.subservice: kafka
 author: spelluru
-ms.author: spelluru
+ms.author: aschhabria
 ---
 
 # Use JSON Schema with Apache Kafka applications 

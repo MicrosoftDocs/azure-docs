@@ -13,6 +13,8 @@ ms.custom: template-how-to
 
 # Manage calls for Teams users with Communication Services calling SDK
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Learn how to manage calls with the Azure Communication Services SDKS. We'll learn how to place calls, manage their participants and properties.
 
 ## Prerequisites

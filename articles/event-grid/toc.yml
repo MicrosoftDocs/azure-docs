@@ -236,6 +236,8 @@ items:
             items:
               - name: Create, view, and manage namespaces
                 href: create-view-manage-namespaces.md
+              - name: Configure IPv6 dual-stack support (preview)
+                href: namespace-ipv6-dual-stack.md
               - name: Enable Autoscale
                 href: namespace-enable-autoscale.md
               - name: Enable manual scale
@@ -311,7 +313,7 @@ items:
           - name: Subscribe to Azure Communication Services events
             href: ../communication-services/quickstarts/sms/handle-sms-events.md?toc=/azure/event-grid/toc.json
           - name: Subscribe to Azure Cache for Redis events
-            href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md?toc=/azure/event-grid/toc.json
+            href: /azure/azure-cache-for-redis/cache-event-grid-quickstart-portal?toc=/azure/event-grid/toc.json
       - name: Tutorials
         items:
           - name: Email when VM changes

@@ -1,25 +1,26 @@
 ---
-title: Workflows with AI Agents and Models
+title: What are AI Agentic Workflows?
 description: Learn how workflows benefit from using AI agents with models to complete tasks in Azure Logic Apps.
 author: ecfan
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, divswa, karansin, krmitta, azla
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/18/2026
+ms.date: 09/16/2026
 ms.update-cycle: 180-days
-# Customer intent: As an AI developer working with Azure Logic Apps, I want to learn about the benefits and support that Azure Logic Apps provides to build flexible, adaptable, and responsive agentic workflows that complete tasks by using AI agents, models, and other AI capabilities for my integrations and automations.
+# Customer intent: As an AI developer, I want to understand the benefits and support that Azure Logic Apps provides to build flexible, adaptable, and responsive agentic workflows that complete tasks by using AI agents, models, and other AI capabilities for my integrations and automations.
 ---
 
-# Workflows that work with AI agents and models in Azure Logic Apps
+# What are agentic workflows that work with AI agents and models in Azure Logic Apps?
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > [!IMPORTANT]
 >
-> Consumption agentic workflows capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Consumption agentic workflows capability is in preview and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article covers AI agentic workflows that automate predictable and stable business processes. For unpredictable or hard-to-define processes, see [Azure Logic Apps Automation](automation/dynamic-workflow-automation-introduction.md).
 
 Azure Logic Apps supports workflows that complete tasks by using *agent loops* with *large language models* (LLMs). An agent loop uses an iterative process to solve complex, multi-step problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction, for example:
 
@@ -39,17 +40,26 @@ With [1,400+ connectors](/connectors/connector-reference/connector-reference-log
 
 This overview covers the following areas:
 
-- Agent versus nonagentic workflows
-- Agent loop key concepts
-- Autonomous versus conversational agentic workflows
-- Agent structure
-- Example scenarios
-- Authentication and authorization
-- Basic billing information
+- [Agentic versus nonagentic workflows](#agentic-versus-nonagentic-workflows)
+- [Agent loop key concepts](#key-concepts)
+- [Autonomous versus conversational agentic workflows](#autonomous-versus-conversational-agentic-workflows)
+- [Agent structure](#agentic-workflow-structure)
+- [Example scenarios](#more-example-agentic-workflow-scenarios)
+- [Authentication and authorization](#authentication-and-authorization)
+- [Basic billing information](#billing)
 
-## Agent versus nonagentic workflows
+Ready to build now? Go straight to:
 
-Workflows that use agent loops can evolve beyond the limits imposed on nonagentic workflows. Agentic workflows can adapt to environments where unexpected events happen, choose which tools to use based on prompts, inputs, and available data, continuously improve their performance, handle unstructured data, support complex scenarios, and provide a higher level of adaptability and flexibility. Nonagentic workflows function best in stable environments, follow predefined rules, and perform tasks that are static, predictable, and repetitive.
+- [Create autonomous agentic workflows](create-autonomous-agent-workflows.md)
+- [Create conversational agentic workflows](create-conversational-agent-workflows.md)
+
+## Agentic versus nonagentic workflows
+
+Workflows that use agent loops can evolve beyond the limits imposed on nonagentic workflows:
+
+- Agentic workflows can adapt to environments where unexpected events happen, choose tools based on prompts and available data, handle unstructured data, provide more adaptability and flexibility, continuously improve their performance, and support complex scenarios.
+
+- Nonagentic workflows work best in stable environments, follow predefined rules, and perform static, predictable, repetitive tasks.
 
 The following table provides more comparisons between agentic workflows and nonagentic workflows:
 
@@ -62,15 +72,26 @@ The following table provides more comparisons between agentic workflows and nona
 
 ## Key concepts
 
-The following table provides basic introductions to key concepts:
+The following sections introduce the key concepts. For a hands-on walkthrough of these concepts, see:
+
+- [Create autonomous agentic workflows](create-autonomous-agent-workflows.md)
+- [Create conversational agentic workflows](create-conversational-agent-workflows.md)
 
 | Concept | Description |
 |---------|-------------|
 | **Agent loop** | A prebuilt action that uses a structured iterative process to solve complex, multi-step problems. The agent loop accomplishes this goal by iteratively following these steps: <br><br>1. **Think**: Collect, process, and analyze available information and inputs, such as text, images, audio, sensor data, and so on, from specific data sources. Apply reason, logic, or learning models to understand requests, create plans or solutions, and choose the best action to answer or fulfill requests with help from generative AI models. <br><br>2. **Act**: Based on the choices made and available tools, complete tasks in the digital or real world. <br><br>3. **Learn** (Optional): Adapt its own behavior over time by using feedback or other information. <br><br>An agent can accept instructions, work with services, systems, apps, and data by invoking tools that you create with prebuilt actions in Azure Logic Apps, and respond with the results. An agent can process information, make choices, and complete tasks by using a deployed model, for example, in Azure OpenAI Service. <br><br>**Note**: An agentic workflow can include multiple agents in a sequence. You can't add an agent inline as a tool in another agent. <br><br>For more information, see [What is an AI agent](/azure/ai-services/agents/overview#what-is-an-ai-agent)? |
 | **Large language model (LLM)** | A program trained to recognize patterns and perform jobs without human intervention. <br><br>For more information, see [What are large language models](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-are-large-language-models-llms)? |
 | **Tool** | A tool contains one or more actions that perform a task for an agent. For example, a tool can send email, work with data sources, perform calculations or conversions, interact with APIs, and so on. For example, see [Create tool to get the weather](create-autonomous-agent-workflows.md#create-tool-weather). |
-| **Agent parameter** | A parameter that you create on a tool or in an action parameter, based on the use case for the agent parameter. You create agent parameters so the agent can pass model-only outputs as parameter inputs for an action in a tool. You don't need agent parameters for values from nonmodel sources. <br><br>Agent parameters differ from traditional parameters in the following ways: <br><br>- Agent parameters apply only to the tool where you define them. This restriction means you can't share agent parameters with other tools. In comparison, you can share traditional parameters globally with operations and control flow structures in a workflow. <br><br>- Agent parameters don't use resolved values when the workflow starts to run. An agent parameter receives a value only if the agent invokes the tool by using specific arguments. These arguments become the agent parameters for invoking the tool. <br><br>- An agent can invoke the same tool multiple times with different agent parameter values, even when that tool exists in the same loop iteration. For example, a tool can check the weather in both Seattle and London. <br><br>For more information, see [Create agent parameters for 'Get forecast' action](create-autonomous-agent-workflows.md#create-agent-parameters-get-weather). |
+| **Agent parameter** | A parameter that you define on a tool or in an action parameter so the agent can pass model-only outputs as inputs for an action in that tool. Agent parameters are scoped to one tool, receive values only when the agent invokes the tool, and can take different values each time the agent invokes the same tool. <br><br>For details and examples, see [Create agent parameters](create-autonomous-agent-workflows.md#create-agent-parameters-get-weather). |
 | **Context** | An agent maintains a log history by keeping a maximum number of tokens or messages as context and passing that context into the model for the next interaction. Each model has different *context length* limits. |
+
+Agent parameters differ from traditional parameters in the following ways:
+
+- Agent parameters apply only to the tool where you define them. This restriction means you can't share agent parameters with other tools. In comparison, you can share traditional parameters globally with operations and control flow structures in a workflow.
+
+- Agent parameters don't use resolved values when the workflow starts to run. An agent parameter receives a value only if the agent invokes the tool by using specific arguments. These arguments become the agent parameters for invoking the tool.
+
+- An agent can invoke the same tool multiple times with different agent parameter values, even when that tool exists in the same loop iteration. For example, a tool can check the weather in both Seattle and London. 
 
 ## Autonomous versus conversational agentic workflows
 
@@ -84,22 +105,22 @@ The following high-level steps describe the behavior for a basic autonomous agen
 
    Optionally, zero or more actions might run between the trigger and the agent.
 
-1. The agent accepts system instructions and nonhuman prompts or inputs, for example, outputs from the trigger or a preceding action.
+1. The agent accepts system instructions and nonhuman prompts or inputs, such as outputs from the trigger or a preceding action.
 
-1. Based on whether you have a Consumption or Standard agentic workflow, the agent uses an Azure OpenAI model or LLM API from the following source to interpret and understand the instructions and request. The agent also uses the model to process and analyze the provided inputs.
+1. The agent uses an Azure OpenAI model or LLM API from the following source to interpret and understand the instructions and request, depending on whether you use a Consumption or Standard agentic workflow. The agent loop also uses the model to process and analyze the provided inputs.
 
    | Logic app | Model source |
    |-----------|--------------|
    | Consumption | [Microsoft Foundry](/azure/ai-foundry/foundry-models/concepts/models) |
    | Standard | - [Azure OpenAI Service resource](/azure/ai-services/openai/concepts/models) <br>- [Microsoft Foundry project](/azure/ai-foundry/openai/concepts/models) (preview) <br>- [Azure API Management account](/azure/api-management/genai-gateway-capabilities) with an LLM API (preview) |
 
-1. Based on the agent instructions, the model helps plan which tools that the agent needs to invoke to perform the necessary tasks.
+1. The model helps plan which tools the agent needs to invoke to perform the necessary tasks, based on the agent instructions.
 
 1. The agent returns the tool results and responds to the workflow caller or the specified recipient.
 
 The following screenshot shows a basic example autonomous agentic workflow:
 
-:::image type="content" source="media/agents-workflows-concepts/weather-example-autonomous.png" alt-text="Screenshot shows Azure portal, workflow designer, and example basic autonomous agentic workflow." lightbox="media/agents-workflows-concepts/weather-example-autonomous.png":::
+:::image type="content" source="media/agents-workflows-concepts/weather-example-autonomous.png" alt-text="Screenshot that shows the Azure portal, workflow designer, and example autonomous agentic workflow." lightbox="media/agents-workflows-concepts/weather-example-autonomous.png":::
 
 ### Conversational agentic workflow
 
@@ -111,7 +132,7 @@ The following high-level steps describe the behavior for a basic conversational 
 
 1. The agent accepts system instructions and human-provided prompts or inputs through the integrated chat interface, for example, **What is the weather in Seattle**?
 
-1. Based on whether you have a Consumption or Standard agentic workflow, the agent uses an Azure OpenAI model or LLM API from the following source to interpret and understand the instructions and request. The agent also uses the model to process and analyze the provided inputs.
+1. The agent uses an Azure OpenAI model or LLM API from the following source to interpret and understand the instructions and request, depending on whether you use a Consumption or Standard agentic workflow. The agent loop also uses the model to process and analyze the provided inputs.
 
    | Logic app | Model source |
    |-----------|--------------|
@@ -124,15 +145,15 @@ The following high-level steps describe the behavior for a basic conversational 
 
 The following screenshot shows a basic example conversational agentic workflow:
 
-:::image type="content" source="media/agents-workflows-concepts/weather-example-conversational.png" alt-text="Screenshot shows Azure portal, workflow designer, and example basic conversational agentic workflow." lightbox="media/agents-workflows-concepts/weather-example-conversational.png":::
+:::image type="content" source="media/agents-workflows-concepts/weather-example-conversational.png" alt-text="Screenshot that shows the Azure portal, workflow designer, and conversational agentic workflow." lightbox="media/agents-workflows-concepts/weather-example-conversational.png":::
 
 The following screenshot shows the integrated chat interface that you can access from the designer toolbar or the workflow sidebar menu in the Azure portal:
 
-:::image type="content" source="media/agents-workflows-concepts/conversational-agent-chat.png" alt-text="Screenshot shows Azure portal and workflow integrated chat interface." lightbox="media/agents-workflows-concepts/conversational-agent-chat.png":::
+:::image type="content" source="media/agents-workflows-concepts/conversational-agent-chat.png" alt-text="Screenshot that shows the Azure portal, integrated chat interface for a conversational workflow." lightbox="media/agents-workflows-concepts/conversational-agent-chat.png":::
 
 Conversational agentic workflows also support an external chat client that others can use outside the Azure portal. To provide and secure access for this external chat client, you need to set up [Production authentication and authorization](#production-authentication-and-authorization).
 
-## Explore agentic workflow structure
+## Agentic workflow structure
 
 To build a new agentic workflow, create a Consumption logic app in multitenant Azure Logic Apps or a Standard logic app in single-tenant Azure Logic Apps and select one of the following workflow types:
 
@@ -149,6 +170,11 @@ The following screenshot shows a new conversational agentic workflow:
 
 :::image type="content" source="media/agents-workflows-concepts/conversational-agent-workflow-start.png" alt-text="Screenshot shows Azure portal, workflow designer, and partial conversational agentic workflow." lightbox="media/agents-workflows-concepts/conversational-agent-workflow-start.png":::
 
+To build one of these workflows step by step, see:
+
+- [Create autonomous agentic workflows](create-autonomous-agent-workflows.md)
+- [Create conversational agentic workflows](create-conversational-agent-workflows.md)
+
 In Standard logic apps, if you have an existing **Stateful** workflow, the following screenshot shows how you can add an **Agent** action to include autonomous agent and LLM capabilities:
 
 :::image type="content" source="media/agents-workflows-concepts/add-agent.png" alt-text="Screenshot shows Azure portal, workflow designer, existing workflow, and option to add an agent." lightbox="media/agents-workflows-concepts/add-agent.png":::
@@ -159,8 +185,7 @@ While Consumption agentic workflows are automatically set up with a model to use
 
 > [!NOTE]
 >
-> The connection pane shows the different connection requirements, 
-> based on your workflow type and the selected model source.
+> The connection pane shows the different connection requirements, based on your workflow type and the selected model source.
 
 The agent requires that you provide instructions that describe the roles that the agent can play, tasks that the agent can perform, and other specific prescriptive information that helps the agent respond to prompts, answer questions, and perform requested tasks, for example:
 
@@ -176,7 +201,7 @@ The following diagram shows a weather agent that can get the weather forecast an
 
 :::image type="content" source="media/agents-workflows-concepts/agent-tools.png" alt-text="Screenshot shows Azure portal, workflow designer, and example agent with tools structure." lightbox="media/agents-workflows-concepts/agent-tools.png":::
 
-## More example scenarios
+## More example agentic workflow scenarios
 
 The following section describes a few more ways that an agent can complete tasks in a workflow:
 
@@ -210,15 +235,18 @@ To support an internal facilities team, a work order agent performs the followin
 - Converse with employees and provide options for service requests.
 - Open work orders based on employee selections.
 - Send work orders to the corresponding service teams.
-- Update work orders with jobs progress and status.
+- Update work orders with job progress and status.
 - Close work orders when jobs are complete.
 - Notify the appropriate parties about completed jobs.
 
 ## Authentication and authorization
 
-Nonagentic workflows usually interact with a small, known, and predictable set of callers. However, conversational agentic workflows communicate with broader range of callers, such as people, agents, Model Context Protocol (MCP) servers, tool brokers, and external services. This wider reach increases integration options but introduces different security challenges because callers can originate from dynamic, unknown, or untrusted networks. When callers come from networks you don't control, or when identities are external or unbounded identities, you must authenticate and authorize each caller so you can protect conversational agentic workflows because they provide an external chat client to interact with people.
+Conversational agentic workflows communicate with a broad range of callers, such as people, agents, Model Context Protocol (MCP) servers, tool brokers, and external services. These callers can come from dynamic, unknown, or untrusted networks, so you must authenticate and authorize each caller.
 
-For nonproduction activities, the Azure portal uses a [*developer key*](#developer-key) for authentication and authorization. However, when your conversational agentic workflows are ready for production, set up the corresponding [production authentication and authorization](#production-authentication-and-authorization) for your logic app type.
+Choose the option that matches your stage:
+
+- Design and testing: The Azure portal uses a [*developer key*](#developer-key) for authentication and authorization on your behalf.
+- Production: Set up [production authentication and authorization](#production-authentication-and-authorization) for your logic app type.
 
 <a name="developer-key"></a>
 
@@ -333,10 +361,12 @@ For more information, see the following articles:
 
 ---
 
+<a id="billing"></a>
+
 [!INCLUDE [billing-agent-workflows](includes/billing-agent-workflows.md)]
 
 ## Related content
 
-- [Create autonomous agentic workflows in Azure Logic Apps](/azure/logic-apps/create-autonomous-agent-workflows)
-- [Create conversational agentic workflows in Azure Logic Apps](/azure/logic-apps/create-conversational-agent-workflows)
+- [Create autonomous agentic workflows](/azure/logic-apps/create-autonomous-agent-workflows)
+- [Create conversational agentic workflows](/azure/logic-apps/create-conversational-agent-workflows)
 - [Labs: Overview for building agentic workflows with Azure Logic Apps](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/overview)

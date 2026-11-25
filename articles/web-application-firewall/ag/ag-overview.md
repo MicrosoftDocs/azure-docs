@@ -2,7 +2,7 @@
 title: What Is Azure Web Application Firewall on Azure Application Gateway?
 description: Learn about deploying Azure Web Application Firewall on Azure Application Gateway.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: overview
 ms.date: 04/30/2026
@@ -44,7 +44,7 @@ This section describes the core benefits that Azure Web Application Firewall on 
 
 - Protect your web applications from malicious bots by using the IP Reputation Rule Set.
 
-- Protect your application against DDoS attacks. For more information, see [Application (Layer 7) DDoS protection](../shared/application-ddos-protection.md).
+- Protect your application against DDoS attacks. For more information, see [Application (Layer 7) DDoS protection](../application-ddos-protection.md).
 
 ### Monitoring
 

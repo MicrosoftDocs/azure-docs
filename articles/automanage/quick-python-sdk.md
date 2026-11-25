@@ -1,7 +1,7 @@
 ---
 title: Azure Quickstart SDK for Python
 description: Create configuration profile assignments using the Python SDK for Automanage.
-author: andrsmith
+author: smitty-94
 ms.service: azure-automanage
 ms.custom: devx-track-python
 ms.topic: quickstart

@@ -80,7 +80,7 @@ This setting is configured on the **Point to site** page when you create your vi
 
 To modify this setting:
 
-[!INCLUDE [Modify client address pool](../../includes/virtual-wan-client-address-pool-include.md)]
+[!INCLUDE [Modify client address pool](../networking/includes/virtual-wan/client-address-pool.md)]
 
 ## Next steps
 

@@ -5,8 +5,8 @@ ms.devlang: csharp
 # ms.devlang: csharp, azurecli
 ms.topic: tutorial
 ms.date: 04/07/2026
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 
 ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, AppServiceConnectivity

@@ -66,15 +66,6 @@
         href: ../common/storage-rest-api-auth.md?toc=/azure/storage/tables/toc.json
     - name: Authorize with SAS
       href: ../common/storage-sas-overview.md?toc=/azure/storage/tables/toc.json
-  - name: Security
-    items:
-    - name: Azure Storage encryption at rest
-      href: ../common/storage-service-encryption.md?toc=/azure/storage/tables/toc.json
-    - name: Security controls by Azure Policy
-      displayName: regulatory, compliance, standards, domains
-      href: ../common/security-controls-policy.md?toc=/azure/storage/tables/toc.json
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/storage-security-baseline?toc=/azure/storage/tables/toc.json?toc=/azure/storage/tables/TOC.json
   - name: Reliability
     items:
     - name: Reliability in Azure Table storage
@@ -101,6 +92,17 @@
     href: table-storage-design-patterns.md
   - name: Monitor Table Storage
     href: monitor-table-storage.md
+- name: Security
+  items:
+  - name: Secure your Azure Table storage
+    href: secure-tables.md
+  - name: Secure your Azure Storage account
+    href: ../common/secure-storage.md?toc=/azure/storage/tables/toc.json
+  - name: Azure Storage encryption at rest
+    href: ../common/storage-service-encryption.md?toc=/azure/storage/tables/toc.json
+  - name: Security controls by Azure Policy
+    displayName: regulatory, compliance, standards, domains
+    href: ../common/security-controls-policy.md?toc=/azure/storage/tables/toc.json
 - name: How-to
   items:
   - name: Create a storage account
@@ -111,8 +113,6 @@
     href: ../common/storage-account-upgrade.md?toc=/azure/storage/tables/toc.json
   - name: Recover a deleted storage account
     href: ../common/storage-account-recover.md?toc=/azure/storage/tables/toc.json
-  - name: Migrate a classic account to Azure Resource Manager
-    href: ../common/classic-account-migrate.md?toc=/azure/storage/tables/toc.json
   - name: Get account configuration properties
     href: ../common/storage-account-get-info.md?toc=/azure/storage/tables/toc.json
   - name: Use the storage emulator (deprecated)

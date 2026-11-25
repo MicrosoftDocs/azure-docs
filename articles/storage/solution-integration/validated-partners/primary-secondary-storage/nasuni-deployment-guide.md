@@ -28,7 +28,7 @@ How Nasuni works:
 Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data and offers superior durability and scalability at the lowest cost of any Azure storage account. With the capabilities listed above, Nasuni makes Azure Blob the best target for enterprises that want to move traditional NAS and Windows file server workloads to the cloud using standard SMB (CIFS) and NFS protocols, without having to rewrite applications for object storage.
 
 > [!TIP]
->  For Microsoft Azure configuration suggestions to prevent accidental or malicious deletion of data, see [Deletion Security](https://b.link/Nasuni_Deletion_Security)
+>  For Microsoft Azure configuration suggestions to prevent accidental or malicious deletion of data, see [Deletion Security](https://docs.nasuni.com/docs/deletion-security).
 
 ## Creating an Azure storage account (using Azure portal)
 

@@ -60,7 +60,7 @@ You can now directly clone your Consumption logic app to a Standard logic app in
 
   For more information, see [Create a Standard logic app workflow in the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-- To update cloned connections, you need the [**Logic Apps Standard Contributor** built-in role](../role-based-access-control/built-in-roles/integration.md#logic-apps-standard-contributor-preview), which gives you resource group-level access.
+- To update cloned connections, you need the [**Logic Apps Standard Contributor** built-in role](../role-based-access-control/built-in-roles/integration.md#logic-apps-standard-contributor), which gives you resource group-level access.
 
 - Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 

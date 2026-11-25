@@ -1,11 +1,12 @@
 ---
 title: Import on-premises servers in a VMware environment using RVTools XLSX (preview)
 description: Learn how to import on-premises servers in a VMware environment by using the RVTools XLSX (preview).
-author: habibaum
-ms.author: v-uhabiba
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: tutorial
 ms.date: 05/12/2025
 ms.service: azure-migrate
+ms.update-cycle: 365-days
 ms.custom: vmware-scenario-422
 # Customer intent: As a VMware administrator, I want to import my on-premises server data using RVTools XLSX, so that I can efficiently migrate my servers to Azure without needing to set up additional discovery tools.
 ---
@@ -14,7 +15,7 @@ ms.custom: vmware-scenario-422
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
+This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Catalyst appliance to discover servers. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
 
 > [!NOTE]
 > * RVTools had a supply chain attack on May 12, 2025. The attack injected malware to the RVTools installer. Customers should download RVTools only from official websites and verify that the installer’s file hash matches on the official website. Customers should run anti-malware software to find any harmful programs.
@@ -24,7 +25,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Prepare an Azure account.
-> * Set up an Azure Migrate project.
+> * Set up an Azure Catalyst project.
 > * Import the RVTools XLSX file.
 
 > [!NOTE]
@@ -59,23 +60,25 @@ Before you begin this tutorial, ensure that you have the following prerequisites
 
 ## Prepare an Azure user account
 
-To create a project and register the Azure Migrate appliance, you must have an Azure user account that has the following permissions:
+To create a project and register the Azure Catalyst appliance, you must have an Azure user account that has the following permissions:
 
 - Contributor or Owner permissions in Azure subscription. Complete the procedure to [set Contributor or Owner permissions in the Azure subscription](tutorial-discover-vmware.md#prepare-an-azure-user-account)
 - Permissions to register Microsoft Entra apps.
 - Owner or Contributor and User Access Administrator permission at subscription level to create an instance of Azure Key Vault, which is used during the agentless server migration.
 
 
-## Set up an Azure Migrate project
+<a name="set-up-an-azure-migrate-project"></a>
 
-Follow the instructions on [how to set up an Azure Migrate project](tutorial-discover-import.md#set-up-a-project).
+## Set up an Azure Catalyst project
+
+Follow the instructions on [how to set up an Azure Catalyst project](tutorial-discover-import.md#set-up-a-project).
 
 
 ## Import the servers using the RVTools XLSX file (preview)
 
 To import the servers using RVTools XLSX (preview) file, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Migrate**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Catalyst**.
     :::image type="content" source="./media/tutorial-discover-vmware/azure-migrate.png" alt-text="Screenshot that shows how to navigate to Azure Migrate on Azure portal." lightbox="./media/tutorial-discover-vmware/azure-migrate.png":::
 
 1. Click on **View all projects** to navigate to the list of all projects created in your subscription.
@@ -124,8 +127,8 @@ To update the information for a server, follow these steps:
 
 To verify that the servers appear in the Azure portal after importing, follow these steps:
 
-1. Go to Azure Migrate dashboard.
-1. On the **Azure Migrate | Servers, databases and web apps >** page, in  **Azure Migrate: Discovery and assessment** section, select the icon that displays the count for Discovered servers.
+1. Go to Azure Catalyst dashboard.
+1. On the **Azure Catalyst | Servers, databases and web apps >** page, in  **Azure Catalyst: Discovery and assessment** section, select the icon that displays the count for Discovered servers.
 1. Select the **Import based** tab.
 
 

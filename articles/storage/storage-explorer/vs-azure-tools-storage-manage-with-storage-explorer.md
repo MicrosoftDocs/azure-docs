@@ -6,7 +6,7 @@ author: jinglouMSFT
 ms.service: azure-storage
 ms.topic: article
 ms.date: 11/08/2019
-ms.author: jinglou
+ms.author: normesta
 ms.reviewer: cralvord,richardgao
 # Customer intent: As a cloud administrator, I want to install and set up a storage management application, so that I can efficiently connect to and manage my Azure storage resources across different operating systems.
 ---

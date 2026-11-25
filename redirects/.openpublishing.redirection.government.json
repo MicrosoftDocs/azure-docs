@@ -142,6 +142,11 @@
             "source_path_from_root": "/articles/azure-government/documentation-government-services.md",
             "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-government/azure-secure-isolation-guidance.md",
+            "redirect_url": "/azure/azure-government/",
+            "redirect_document_id": false
         }
     ]
 }

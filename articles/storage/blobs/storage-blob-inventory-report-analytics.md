@@ -152,7 +152,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 3. In the **Open** dialog box, change the file type to **Power BI template files (*.pbit)**. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the the Power BI template files type that appears in the Open dialog box](./media/storage-blob-inventory-report-analytics/file-type-setting.png) 
+   > ![Screenshot of the Power BI template files type that appears in the Open dialog box](./media/storage-blob-inventory-report-analytics/file-type-setting.png) 
 
 4. Browse to the location of the **ReportAnalysis.pbit** file that you downloaded, and then select **Open**.
 

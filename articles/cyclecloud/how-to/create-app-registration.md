@@ -4,7 +4,7 @@ description: Learn how to create a Microsoft Entra application registration to u
 author: abatallas
 ms.date: 06/19/2026
 ms.topic: how-to
-ms.author: padmalathas
+ms.author: mattmcinnes
 ---
 
 # Create a Microsoft Entra application registration for use with Azure CycleCloud and Azure CycleCloud Workspace for Slurm

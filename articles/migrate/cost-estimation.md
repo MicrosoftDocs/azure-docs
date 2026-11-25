@@ -1,24 +1,24 @@
 --- 
-title: Cost estimation of assessments in Azure Migrate  
-description: Learn about cost estimation in assessments in Azure Migrate  
+title: Cost estimation of assessments in Azure Catalyst  
+description: Learn about cost estimation in assessments in Azure Catalyst  
 author: ankitsurkar06
 ms.service: azure-migrate 
 ms.topic: concept-article 
 ms.date: 04/17/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.custom: engagement-fy24
 ms.update-cycle: 1825-days
 # Customer intent: As a cloud architect, I want to estimate hosting costs for Azure migrations using assessment data, so that I can make informed decisions about resource allocation and budgeting in the transition to cloud infrastructure.
 ---
 
-# Cost estimation of Assessment in Azure Migrate
+# Cost estimation of Assessment in Azure Catalyst
 
-Azure Migrate assessments provide you with an estimated cost of hosting the recommended targets on Azure. These costs are identified for each right-sized target on Azure. 
+Azure Catalyst assessments provide you with an estimated cost of hosting the recommended targets on Azure. These costs are identified for each right-sized target on Azure. 
 
 > [!NOTE]
 > The cost estimates are dependent on the rates in the specified region, any applicable offers, and the licensing program selected by you. 
 
-This article describes Azure Migrate assessments, which estimate hosting costs for recommended targets on Azure, based on region rates, applicable offers, and selected licensing programs.
+This article describes Azure Catalyst assessments, which estimate hosting costs for recommended targets on Azure, based on region rates, applicable offers, and selected licensing programs.
 
 ## Pricing settings 
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 05/20/2026
+ms.date: 10/30/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -193,7 +193,7 @@ The following table lists the values for a single workflow definition:
 | Runtime endpoint- Concurrent inbound calls for API Management REST API | | 56 calls per 5 minutes | Applies only to API Management REST API calls to the Request trigger in a Standard logic app workflow. <br><br>Use the callback URL to send the request to the Request trigger in a Standard logic app workflow, rather than use API Management calls, which have a hard throttling limit of 56 calls per 5-minute interval. |
 | Runtime endpoint - Read calls per 5 min  | 60,000 read calls | None | This limit applies to calls that get the raw inputs and outputs from a workflow's run history. You can distribute the workload across more than one workflow as necessary. |
 | Runtime endpoint - Invoke calls per 5 min | 45,000 invoke calls | None | You can distribute workload across more than one workflow as necessary. |
-| Content throughput per 5 min | 6 GB | None | For example, suppose the backend has 100 workers. Each worker has a limit of 60 MB, which is the result from dividing 6 GB by 100 workers. You can distribute workload across more than one workflow as necessary. |
+| Content throughput per 5 min | 6 GB <br>- High throughput mode: 12 GB | None | For example, suppose the backend has 100 workers. Each worker has a limit of 60 MB, which is the result from dividing 6 GB by 100 workers. You can raise the default value to the maximum value for your workflow. For more information, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or you can distribute workload across more than one workflow as necessary. |
 
 <a name="run-high-throughput-mode"></a>
 
@@ -322,7 +322,7 @@ Single-tenant Azure Logic Apps dynamically scales to effectively handle increasi
 
 ### [Consumption](#tab/consumption)
 
-Multitenant Azure Logic Apps has a [default limit](#throughput-limits) on the number of actions that run every 5 minutes. To raise the default value to the [maximum value](#throughput-limits), you can enable high throughput mode, which is in preview. Or, [distribute the workload across multiple logic apps and workflows](handle-throttling-problems-429-errors.md#logic-app-throttling), rather than rely on a single logic app and workflow.
+Multitenant Azure Logic Apps has [default limits](#throughput-limits) on the number of actions and the total content size that run every 5 minutes. To raise the default values to the [maximum values](#throughput-limits), you can enable high throughput mode, which is in preview. Or, [distribute the workload across multiple logic apps and workflows](handle-throttling-problems-429-errors.md#logic-app-throttling), rather than rely on a single logic app and workflow.
 
 #### Enable high throughput in the portal
 

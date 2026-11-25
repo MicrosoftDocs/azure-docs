@@ -1,8 +1,8 @@
 ---
 title: ADE Extensibility Model
 description: Learn how the ADE extensibility model enables you to use custom container images to create deployment environments.
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.service: azure-deployment-environments
 ms.topic: concept-article
 ms.date: 04/30/2026

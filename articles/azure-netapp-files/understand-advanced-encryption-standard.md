@@ -74,7 +74,11 @@ Don't enable DES. Azure NetApp Files supports DES as a legacy fallback but enabl
 
 Run `gpupdate /force` on domain controllers and on the clients that will mount Azure NetApp Files volumes or wait for normal Group Policy propagation. Confirm that the updated encryption type settings are in effect before continuing.
 
-### Step 3: Enable AES encryption on the Azure NetApp Files Active Directory connection
+### Step 3: Enable AES encryption on the service account
+
+When you enable AES encryption on the service account, Azure NetApp Files automatically uses the service account to update the `msDS-SupportedEncryptionTypes` attribute on the computer objects. Enabling AES encryption on the service account allows new computer objects to be created. If you don't enable AES encryption, the service account fails authentication.
+
+### Step 4: Enable AES encryption on the Azure NetApp Files Active Directory connection
 
 1. Open the Azure portal and navigate to your NetApp account.
 1. Select Active Directory connections.
@@ -82,7 +86,7 @@ Run `gpupdate /force` on domain controllers and on the clients that will mount A
 1. Select the AES Encryption checkbox.
 1. Save the connection.
 
-### Step 4: Validate AES encryption functionality
+### Step 5: Validate AES encryption functionality
 
 Confirm the following before removing any legacy encryption types:
 
@@ -93,11 +97,11 @@ Confirm the following before removing any legacy encryption types:
 > [!NOTE]
 > Enabling AES encryption on the Azure NetApp Files Active Directory connection doesn't change the encryption type for Kerberos tickets that have already been issued. Existing tickets keep the encryption type negotiated when they were created, so a client that already holds a ticket-granting ticket (TGT) or service ticket (TGS) encrypted with RC4 continues to use RC4 until that ticket expires. By default, the TGT lifetime is about 10 hours. To force clients to negotiate AES immediately, purge the cached tickets and reauthenticate. Run `klist purge` on Windows or `kdestroy` on Linux, or wait for the existing tickets to expire and renew naturally before validating.
 
-### Step 5: Disable RC4 in Group Policy
+### Step 6: Disable RC4 in Group Policy
 
 Once AES is confirmed working end to end, update Group Policy to remove the legacy encryption types so that only AES remains. This is the target secure configuration.
 
-### Step 6: Reapply and verify
+### Step 7: Reapply and verify
 
 Run `gpupdate /force` again on domain controllers and clients and confirm that the environment continues to operate correctly using AES only.
 

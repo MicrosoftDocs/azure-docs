@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # How to collect call info
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 When you report an issue, providing important call information can help us quickly locate the problematic area and gain a deeper understanding of the issue.
 
 * ACS resource ID

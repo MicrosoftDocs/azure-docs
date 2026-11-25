@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: reference
 ms.date: 03/30/2026
-ms.author: rolyon
+ms.author: diberry
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 
@@ -73,7 +73,7 @@ This section lists the authorization attributes you can use in your condition ex
 > | **Attribute source** | Request<br/>Resource |
 > | **Attribute type** | GUID |
 > | **Operators** | [GuidEquals](conditions-format.md#guid-comparison-operators)<br/>[GuidNotEquals](conditions-format.md#guid-comparison-operators)<br/>[ForAnyOfAnyValues:GuidEquals](conditions-format.md#foranyofanyvalues)<br/>[ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofallvalues) |
-> | **Examples** | `@Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {28c35fea-2099-4cf5-8ad9-473547bc9423, 86951b8b-723a-407b-a74a-1bca3f0c95d0}`<br/>[Example: Constrain roles and specific groups](delegate-role-assignments-examples.md#example-constrain-roles-and-specific-groups) |
+> | **Examples** | `@Request[Microsoft.Authorization/roleAssignments:PrincipalId] ForAnyOfAnyValues:GuidEquals {aaaaaaaa-bbbb-cccc-1111-222222222222, bbbbbbbb-cccc-dddd-2222-333333333333}`<br/>[Example: Constrain roles and specific groups](delegate-role-assignments-examples.md#example-constrain-roles-and-specific-groups) |
 
 ### Principal type
 

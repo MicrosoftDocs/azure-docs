@@ -13,6 +13,9 @@ ms.custom: references_regions
 ---
 
 # European Union Data Boundary (EUDB) support in Azure Communication Services
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services meets the European Union Data Boundary (EUDB) requirements, as detailed [here](https://blogs.microsoft.com/eupolicy/2022/12/15/eu-data-boundary-cloud-rollout/). EUDB ensures customer and personal data for Azure Communication Services is stored and processed only within EU and EFTA regions. This helps organizations comply with GDPR, supports digital sovereignty, and reduces the risk of non-EU access to sensitive data.
 
 ## Understanding more about the needs of this compliance requirement.

@@ -1,14 +1,13 @@
 ---
 title: Onboard on-premises servers in VMware virtual environment to Azure Arc   
 description: Onboard on-premises servers in VMware virtual environment to Azure Arc    
-author: vijain
-ms.author: vijain
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1825-days
-monikerRange:
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -17,13 +16,13 @@ ms.custom:
 
 # Onboard on-premises servers in VMware virtual environment to Azure Arc   
 
-This article describes how to onboard on-premises VMware VMs to Azure Arc for Azure management using Azure Migrate: Discovery and assessment tool. 
+This article describes how to onboard on-premises VMware VMs to Azure Arc for Azure management using Azure Catalyst: Discovery and assessment tool. 
 
 Azure Arc allows you to manage your hybrid IT estate with a single pane of glass by extending the Azure management experience to your on-premises servers that are not ideal candidates for migration. [Learn more](/azure/azure-arc/servers/overview) about Azure Arc. 
 
 ## Before you get started
 
-- [Review the requirements](./tutorial-discover-vmware.md#prerequisites) to discover servers running in VMware environment with Azure Migrate: Discovery and assessment tool.  
+- [Review the requirements](./tutorial-discover-vmware.md#prerequisites) to discover servers running in VMware environment with Azure Catalyst: Discovery and assessment tool.  
 - Prepare [VMware vCenter](./tutorial-discover-vmware.md#prepare-vmware) for usage and review the [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform software inventory. Software inventory must be completed to start onboarding discovered servers to Azure Arc.   
 - Review [application discovery requirements](migrate-support-matrix-vmware.md#software-inventory-requirements) before initiating software inventory on servers. Windows servers must have PowerShell version 3.0 or later installed. 
 - Verify the prerequisites to allow remote connections to the inventory of discovered servers for onboarding them to Azure Arc. 
@@ -31,7 +30,7 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
         - _***For Windows**:_ Inbound connection on WinRM port 5985 (HTTP). On all the target Windows servers, run “winrm qc” command to enable the WS-Management protocol on the local computer. 
         - _**For Linux**:_ On all target Linux servers, allow inbound connections on port 22 (SSH).
         - You can also add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the appliance. 
-    2. The Azure Migrate appliance should have a network line of sight to the target servers. 
+    2. The Azure Catalyst appliance should have a network line of sight to the target servers. 
 - Ensure to verify the [prerequisites for Azure Arc](/azure/azure-arc/servers/prerequisites) and review the following considerations:
     - Onboarding to Azure Arc can only be initiated after the vCenter Server discovery and software inventory is completed. It may take up to 6 hours for software inventory to complete after it is turned on.
     -  The [Azure Arc Hybrid Connected Machine agent](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm) will be installed on the discovered servers during the Arc onboarding process. Make sure you provide credentials with administrator permissions on the servers to install and configure the agent. On Linux, provide the root account, and on Windows, provide an account that is a member of the Local Administrators group. 
@@ -42,32 +41,36 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
     - Azure Arc-enabled servers support up to 5,000 machine instances in a resource group.
 
 
-## Set up the Azure Migrate project  
+<a name="set-up-the-azure-migrate-project"></a>
 
-1. Before you start, prepare the [Azure user Account](./tutorial-discover-vmware.md#prepare-an-azure-user-account) and verify you have the [required roles](./create-manage-projects.md#verify-permissions) in the subscription to create resources required by Azure Migrate. 
-2. [Use this article](./create-manage-projects.md) to set up a new Azure Migrate project with the Azure Migrate: Discovery and assessment tool added to it.  
+## Set up the Azure Catalyst project  
+
+1. Before you start, prepare the [Azure user Account](./tutorial-discover-vmware.md#prepare-an-azure-user-account) and verify you have the [required roles](./create-manage-projects.md#verify-permissions) in the subscription to create resources required by Azure Catalyst. 
+2. [Use this article](./create-manage-projects.md) to set up a new Azure Catalyst project with the Azure Catalyst: Discovery and assessment tool added to it.  
 
     > [!Note]
-    > You can also use an existing Migrate project and onboard the discovered servers inventory to Azure Arc. To do so, launch the appliance configuration manager from your appliance server and make sure the services are updated to their latest versions. [Learn more](./migrate-appliance.md#appliance-upgrades) <br/> <br/> 
+    > You can also use an existing Azure Catalyst project and onboard the discovered servers inventory to Azure Arc. To do so, launch the appliance configuration manager from your appliance server and make sure the services are updated to their latest versions. [Learn more](./migrate-appliance.md#appliance-upgrades) <br/> <br/> 
 
     [Follow these instructions](#onboard-to-azure-arc) to onboard your servers.  
 
-## Deploy and register the Azure Migrate appliance 
+<a name="deploy-and-register-the-azure-migrate-appliance"></a>
 
-Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate. 
+## Deploy and register the Azure Catalyst appliance 
+
+Azure Catalyst: Discovery and assessment use a lightweight Azure Catalyst appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Catalyst. 
 
 Before you set up the appliance, 
 
-1. [Review](migrate-appliance.md#appliance---vmware) the requirements for deploying the Azure Migrate appliance.
+1. [Review](migrate-appliance.md#appliance---vmware) the requirements for deploying the Azure Catalyst appliance.
 2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls). 
 3. Note the [port access requirements](migrate-support-matrix-vmware.md#port-access-requirements) for the appliance. 
 
-- Follow this article to [set up the Azure Migrate appliance](./tutorial-discover-vmware.md#set-up-the-appliance) to start vCenter Server discovery. To deploy the appliance, you can download and import an OVA template into VMware to create a server running in your vCenter Server.  
+- Follow this article to [set up the Azure Catalyst appliance](./tutorial-discover-vmware.md#set-up-the-appliance) to start vCenter Server discovery. To deploy the appliance, you can download and import an OVA template into VMware to create a server running in your vCenter Server.  
 - After you deploy the appliance, register it with the project before you initiate the discovery. Follow [these instructions](./tutorial-discover-vmware.md#set-up-prerequisites-and-register-the-appliance) to register the appliance. 
 
 ## Configure the appliance and start discovery  
 
-This section explains [how to configure the Azure Migrate appliance](./tutorial-discover-vmware.md#start-continuous-discovery) and kick off the vCenter Server discovery. 
+This section explains [how to configure the Azure Catalyst appliance](./tutorial-discover-vmware.md#start-continuous-discovery) and kick off the vCenter Server discovery. 
 
 As you configure the appliance for discovery, you need to specify the  details in the appliance configuration manager:
 
@@ -118,11 +121,11 @@ Follow these steps:
 8. View the detailed onboarding report to understand the onboarding status of your servers and take appropriate actions. 
 
 > [!Note]
-> The Azure Migrate appliance initiates WinRM sessions to execute the Azure Arc onboarding script. Ensure that there are no settings restricting access to the WinRM service on the target servers.    
+> The Azure Catalyst appliance initiates WinRM sessions to execute the Azure Arc onboarding script. Ensure that there are no settings restricting access to the WinRM service on the target servers.    
 
 ## Troubleshooting Azure Arc onboarding errors
 
-If you receive an error when onboarding to Azure Arc using the Azure Migrate appliance, the following information can help identify the probable cause and suggested steps to resolve your problem. 
+If you receive an error when onboarding to Azure Arc using the Azure Catalyst appliance, the following information can help identify the probable cause and suggested steps to resolve your problem. 
 
 If you don't see the error code listed below or if the error code starts with **_AZCM_**, see [this guide for troubleshooting Azure Arc](/azure/azure-arc/servers/troubleshoot-agent-onboard).
 
@@ -133,10 +136,10 @@ Either the [prerequisites](./migrate-support-matrix-physical.md) to connect to t
 
 **Recommended actions**   
 - Ensure that the server meets the [prerequisites](#before-you-get-started) and [port access requirements](./migrate-support-matrix-physical.md). 
-- Add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the Azure Migrate appliance, and retry the operation. This is to allow remote inbound connections on servers - _Windows:_ WinRM port 5985 (HTTP) and _Linux:_ SSH port 22 (TCP).
+- Add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the Azure Catalyst appliance, and retry the operation. This is to allow remote inbound connections on servers - _Windows:_ WinRM port 5985 (HTTP) and _Linux:_ SSH port 22 (TCP).
 - Ensure that you have chosen the correct authentication method on the appliance to connect to the server. 
    > [!Note] 
-   > Azure Migrate supports both password-based and SSH key based authentication for Linux servers.
+   > Azure Catalyst supports both password-based and SSH key based authentication for Linux servers.
 - If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).     
    
 

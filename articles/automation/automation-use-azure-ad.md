@@ -5,7 +5,7 @@ services: automation
 ms.date: 07/08/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, no-azure-ad-ps-ref
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

@@ -13,6 +13,8 @@ ms.subservice: teams-interop
 ---
 
 # Contact center
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 Developers can use Azure Communication Services messaging, voice, and video APIs to power **contact center** applications. This overview describes concepts and high-level architectural guidance for typical contact center applications.
 
 Contact center applications focus on unscheduled communication between **customers** and **agents**. The **organizational boundary** between customers and agents, and the **unscheduled** nature of the interaction, are key attributes of contact center applications. Developers interested in *scheduled* business-to-consumer interactions should read our [virtual visits](/azure/communication-services/tutorials/virtual-visits) tutorial.

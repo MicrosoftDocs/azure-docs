@@ -78,7 +78,7 @@ The following sections describe the properties for Azure Storage resource logs w
 ```json
 {
     "time": "2019-02-28T19:10:21.2123117Z",
-    "resourceId": "/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4444/resourceGroups/mytestrp/providers/Microsoft.Storage/storageAccounts/testaccount1/blobServices/default",
+    "resourceId": "/subscriptions/ffffffff-eeee-dddd-cccc-bbbbbbbbbbb0/resourceGroups/mytestrp/providers/Microsoft.Storage/storageAccounts/testaccount1/blobServices/default",
     "category": "StorageWrite",
     "operationName": "PutBlob",
     "operationVersion": "2017-04-17",
@@ -134,7 +134,7 @@ The following sections describe the properties for Azure Storage resource logs w
         "delegatedResource": {
             "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
             "resourceId": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
-            "objectId": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1"
+            "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
           },
         "type": "OAuth"
     },
@@ -194,4 +194,4 @@ The following sections describe the properties for Azure Storage resource logs w
 
 - For a description of monitoring Azure Blob Storage, see [Monitor Azure Blob Storage](monitor-blob-storage.md).
 - For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).
-- For frequently asked questions and answers, see [Metrics and logs FAQ](storage-blob-faq.yml#metrics-and-logs).
+- For frequently asked questions and answers, see [Metrics and logs FAQ](monitor-blob-storage-faq.md).

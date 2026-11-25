@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Call client media statistics time series log schema
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 The **call client media statistics time series** log provides
 client-side information about the media streams between individual
 participants involved in a call. These logs are currently in limited preview and provide detailed time series

@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Reference data from another source using lookup transformations in mapping data flow for Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.reviewer: daperlov
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.topic: how-to
 ms.custom: synapse

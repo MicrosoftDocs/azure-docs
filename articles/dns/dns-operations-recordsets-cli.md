@@ -214,7 +214,7 @@ az network dns record-set a add-record --resource-group myresourcegroup --zone-n
 az network dns record-set a remove-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 203.0.113.11
 ```
 
-You can't add, remove, or modify the records in the automatically created NS record set at the zone apex (`--Name "@"`, including quote marks). For this record set, the only changes permitted are to modify the record set TTL and metadata.
+You can't remove or modify the prepopulated Azure DNS name servers in the automatically created NS record set at the zone apex (`--Name "@"`, including quote marks). For this record set, you can add more name servers to support cohosting a domain with more than one DNS provider, and you can modify the record set TTL and metadata. For more information, see [To modify NS records at the zone apex](#to-modify-ns-records-at-the-zone-apex).
 
 ### To modify a CNAME record
 

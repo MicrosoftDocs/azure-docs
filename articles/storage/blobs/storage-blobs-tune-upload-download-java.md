@@ -3,8 +3,8 @@ title: Performance tuning for uploads and downloads with Azure Storage client li
 titleSuffix: Azure Storage
 description: Learn how to tune your uploads and downloads for better performance with Azure Storage client library for Java. 
 services: storage
-author: stevenmatthew
-ms.author: shaas
+author: schoag-msft
+ms.author: schoag
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024

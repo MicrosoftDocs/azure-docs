@@ -2,7 +2,7 @@
 title: Restore encrypted Azure VMs
 description: Describes how to restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: how-to
-ms.date: 08/20/2025
+ms.date: 08/11/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to restore encrypted Azure virtual machines using the Azure Backup service, so that I can ensure data recovery while maintaining security compliance."
@@ -10,6 +10,9 @@ ms.author: v-mallicka
 # Restore encrypted Azure virtual machines
 
 This article describes how to restore Windows or Linux Azure virtual machines (VMs) with encrypted disks using the [Azure Backup](backup-overview.md) service. For more information, see [Encryption of Azure VM backups](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
+
+> [!IMPORTANT]
+> Azure Disk Encryption (ADE) is scheduled for retirement in September 2028. After this date, ADE backup is blocked and restore operations might not work as expected. Consider migrating existing ADE-enabled VMs to encryption at host. For the latest retirement timeline and migration guidance, see the official [ADE overview](/azure/virtual-machines/disk-encryption-overview) and [Migrate from Azure Disk Encryption to encryption at host](/azure/virtual-machines/disk-encryption-migrate) documentation.
 
 > [!Note]
 > This article is applicable to virtual machines encrypted with Azure Disk encryption. For more information on ADE and how it differs from other disk encryption types in Azure, see [Disk Encryption Overview](/azure/virtual-machines/disk-encryption-overview).

@@ -3,7 +3,7 @@ title: Pipeline failure and error message
 description: Understand how pipeline failure status and error message are determined
 ms.subservice: orchestration
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.topic: tutorial
 ms.date: 07/25/2025
@@ -12,6 +12,8 @@ ms.date: 07/25/2025
 # Errors and Conditional execution
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 ## Conditional paths
 

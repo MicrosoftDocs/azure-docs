@@ -5,7 +5,7 @@ description: Learn about threat detection for Azure VM backups, a feature that h
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 11/10/2025
+ms.date: 11/12/2026
 ms.topic: overview
 ms.service: azure-backup
 ms.custom: references_regions
@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 Azure Backup integrates with Microsoft Defender for Cloud to offer advanced threat detection for Azure virtual machine (VM) backups. You can use this feature to assess the health of backup restore points by identifying potentially malicious or ransomware-infected backups.
 
-With security signals from Defender for Servers, Azure Backup detects compromise indicators such as disruption patterns, behavioral anomalies, and ransomware signatures. Defender for Cloud scans the source virtual machine for malware. Azure Backup evaluates the health of restore points by using these signals when it creates the backup snapshot.
+Defender for Cloud detects threats on the source VM through Defender for Servers. Azure Backup uses the resulting alerts to flag potentially affected recovery points. Source-scan integration is alert-driven; it doesn't independently scan the recovery-point blobs stored in the vault for malware.
 
 ## Key benefits
 
@@ -26,6 +26,14 @@ Threat detection for Azure VM backups includes the following benefits:
 - **Faster recovery**: The feature can reduce time to recover by quickly identifying clean restore points that are suitable for ransomware recovery.
 
 - **Seamless integration**: The feature works natively with [Defender for Servers Plan 1 and Plan 2](/azure/defender-for-cloud/defender-for-servers-overview#plan-protection-features) to provide a unified and consistent security experience across Azure workloads.
+
+## How source-scan integration works
+
+Source-scan integration depends on security alerts from Defender for Cloud for the source VM. Azure Backup tags recovery points based on those alerts, rather than inspecting backup content independently. Without a corresponding Defender for Cloud alert, source-scan integration doesn't flag a recovery point as **Suspicious**.
+
+Defender protection on the live VM and source-scan integration serve different purposes. Remediating malware on the VM doesn't remove potentially malicious content from recovery points that were already created. Source-scan status helps you assess which recovery points to use during restore and reduce the risk of reintroducing malware. A **No Threats Reported** status means that no threats were reported through the integration, not that Azure Backup independently verified the backup content as malware-free.
+
+For the configuration and validation steps, see [Configure threat detection and monitor backup health](threat-detection-configure-monitor-tutorial.md). For how unresolved alerts affect later recovery points, see [Resolve threats and ensure healthy backups](threat-detection-configure-monitor-tutorial.md#resolve-threats-and-ensure-healthy-backups).
 
 ## Source-scan status for Azure VM backups
 
@@ -48,8 +56,8 @@ The following table describes the available summary statuses for source scans in
 
 | Status   | Description |
 |-----------------------|-------------|
-| **No Threats Reported**   | Defender for Cloud didn't find any malware or ransomware threats for a backup recovery point (RP).<br><br>If all RPs for a backup item in the last seven days show no threats, the backup item is marked as **No Threats Reported**. |
-| **Suspicious RPs found**  | Defender for Cloud detected ransomware or malware threats for a backup RP.<br><br>If a minimum of one backup RP is found to be suspicious in the last seven days, the summary for the backup item is marked as **Suspicious RPs Found**. |
+| **No Threats Reported**   | No Defender for Cloud alerts on the source VM flagged the backup recovery point (RP) as suspicious.<br><br>If all RPs for a backup item in the last seven days show no threats, the backup item is marked as **No Threats Reported**. |
+| **Suspicious RPs found**  | Defender for Cloud alerts on the source VM caused Azure Backup to flag a backup RP as suspicious.<br><br>If a minimum of one backup RP is found to be suspicious in the last seven days, the summary for the backup item is marked as **Suspicious RPs Found**. |
 | **Not Applicable**        | If the Defender for Servers plan is downgraded for the source virtual machine, the status for the RP is marked as **Not Applicable**.<br><br>If all RPs for a backup item aren't applicable in the last seven days, the summary is marked as **Not Applicable**. |
 | **Unknown (-)**           | Source-scan integration isn't configured or failed. The summary for both backup RPs and the backup item is marked as **Unknown (-)**. |
 

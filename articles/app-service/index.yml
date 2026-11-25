@@ -7,7 +7,7 @@ metadata:
   title: Azure App Service documentation
   description: Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts and tutorials to help you succeed with App Service.
   ms.topic: landing-page
-  ms.author: msangapu
+  ms.author: byvinyal
   ms.service: azure-app-service
   ms.date: 06/10/2025
   ms.update-cycle: 1095-days
@@ -20,6 +20,8 @@ landingContent:
         links:
           - text: Introduction to App Service
             url: overview.md
+          - text: App Service Builder overview (preview)
+            url: app-service-builder-overview.md
       - linkListType: concept
         links:
           - text: Azure App Service plans
@@ -39,12 +41,14 @@ landingContent:
         links:    
           - text: Getting started with Azure App Service
             url: getting-started.md    
+          - text: Get started with App Service Builder (preview)
+            url: app-service-builder-get-started.md
       - linkListType: quickstart
         links:
           - text: ASP.NET
             url: quickstart-dotnetcore.md
           - text: Aspire
-            url: quickstart-dotnet-aspire.md
+            url: quickstart-aspire.md
           - text: Java
             url: quickstart-java.md
           - text: Node.js
@@ -66,8 +70,8 @@ landingContent:
             url: overview-ai-integration.md
       - linkListType: tutorial
         links:
-          - text: Build a RAG application with Azure OpenAI and Azure AI Search (.NET)
-            url: tutorial-ai-openai-search-dotnet.md
+          - text: Build grounded agent applications with RAG
+            url: scenario-ai-chatbot-retrieval-augmented-generation.md
           - text: Build a chatbot with Azure OpenAI (Blazor)
             url: tutorial-ai-openai-chatbot-dotnet.md            
           - text: Build a chatbot with Azure OpenAI (Spring Boot)

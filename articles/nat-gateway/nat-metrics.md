@@ -117,7 +117,9 @@ Use this metric to:
 
 Possible reasons for dropped packets: 
 
-- Outbound connectivity failure can cause packets to drop. Connectivity failure can happen for various reasons. See the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity) to help you further diagnose. 
+- Outbound connectivity failure can cause packets to drop. Connectivity failure can happen for various reasons. See the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity) to help you further diagnose.
+  
+- For StandardV2 NAT Gateway, the dropped packets metric indicates packet drops that occur when the connection flow rate limit is reached. You can use this metric to identify when a StandardV2 NAT Gateway is being rate limited.
 
 ### SNAT Connection Count
 

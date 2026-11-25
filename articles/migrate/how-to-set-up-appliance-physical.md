@@ -1,34 +1,34 @@
 ---
-title: Set up an Azure Migrate appliance for physical servers
-description: Learn how to set up an Azure Migrate appliance for physical server discovery and assessment.
+title: Set up an Azure Catalyst appliance for physical servers
+description: Learn how to set up an Azure Catalyst appliance for physical server discovery and assessment.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 03/21/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.update-cycle: 365-days
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
   - sfi-ropc-nochange
-# Customer intent: "As an IT administrator, I want to set up an Azure Migrate appliance for physical server discovery and assessment, so that I can efficiently assess my on-premises servers for migration to the cloud."
+# Customer intent: "As an IT administrator, I want to set up an Azure Catalyst appliance for physical server discovery and assessment, so that I can efficiently assess my on-premises servers for migration to the cloud."
 ---
 
 
 # Set up an appliance for physical servers
 
-This article describes how to set up the Azure Migrate appliance if you're assessing physical servers with the Azure Migrate: Discovery and assessment tool.
+This article describes how to set up the Azure Catalyst appliance if you're assessing physical servers with the Azure Catalyst: Discovery and assessment tool.
 
-The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate: Discovery and assessment to do the following:
+The Azure Catalyst appliance is a lightweight appliance, used by Azure Catalyst: Discovery and assessment to do the following:
 
 - Discover on-premises servers.
-- Send metadata and performance data for discovered servers to Azure Migrate: Discovery and assessment.
+- Send metadata and performance data for discovered servers to Azure Catalyst: Discovery and assessment.
 
-[Learn more](migrate-appliance.md) about the Azure Migrate appliance.
+[Learn more](migrate-appliance.md) about the Azure Catalyst appliance.
 
-After creating the appliance, you check that it can connect to Azure Migrate: Discovery and assessment, configure it for the first time, and register it with the project.
+After creating the appliance, you check that it can connect to Azure Catalyst: Discovery and assessment, configure it for the first time, and register it with the project.
 
 > [!NOTE]
 > If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project)
@@ -38,16 +38,16 @@ After creating the appliance, you check that it can connect to Azure Migrate: Di
 To set up the appliance you:
 
 1. Provide an appliance name and generate a project key in the portal.
-2. Download a zipped file with Azure Migrate installer script from the Azure portal.
+2. Download a zipped file with Azure Catalyst installer script from the Azure portal.
 3. Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
 4. Execute the PowerShell script to launch the appliance configuration manager.
 5. Configure the appliance for the first time, and register it with the project using the project key.
 
 ### Generate the project key
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
-3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of physical or virtual servers. The name should be alphanumeric with 14 characters or fewer.
+3. In **1:Generate project key**, provide a name for the Azure Catalyst appliance that you will set up for discovery of physical or virtual servers. The name should be alphanumeric with 14 characters or fewer.
 1. Select **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
@@ -56,22 +56,24 @@ To set up the appliance you:
 
 ### Download the installer script
 
-In **2: Download Azure Migrate appliance**, select **Download**.
+In **2: Download Azure Catalyst appliance**, select **Download**.
 
 ### Verify security
 
 Verify that the zipped file is  [secure](migrate-appliance.md#verify-security), before you deploy it.
 
-### Run the Azure Migrate installer script
+<a name="run-the-azure-migrate-installer-script"></a>
 
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
+### Run the Azure Catalyst installer script
+
+1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Catalyst appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
 
    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
-5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
+5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Catalyst project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
     :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-1.png" alt-text="Screenshot that shows how to set up appliance with desired configuration.":::
 
@@ -80,7 +82,7 @@ Verify that the zipped file is  [secure](migrate-appliance.md#verify-security), 
     - Installs agents and a web application.
     - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
     - Download and installs an IIS rewritable module.
-    - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+    - Updates a registry key (HKLM) with persistent setting details for Azure Catalyst.
     - Creates the following files under the path:
         - **Config Files**: %Programdata%\Microsoft Azure\Config
         - **Log Files**: %Programdata%\Microsoft Azure\Logs
@@ -127,9 +129,9 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
     > [!NOTE]
-    > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
+    > This is a new user experience in Azure Catalyst appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
-    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
+    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Catalyst: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
 	2. The appliance verifies the key and starts the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and go to  an Azure sign in prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
@@ -152,10 +154,10 @@ Now, connect from the appliance to the physical servers to be discovered, and st
 1. If you are using password-based authentication for Linux server, select the source type as **Linux Server (Password-based)**, specify a friendly name for credentials, add the username and password. Select **Save**.
 1. If you are using SSH key-based authentication for Linux server, you can select source type as **Linux Server (SSH key-based)**, specify a friendly name for credentials, add the username, browse, and select the SSH private key file. Select **Save**.
 
-    - Azure Migrate supports the SSH private key generated by ssh-keygen command using RSA, DSA, ECDSA, and ed25519 algorithms.
-    - Currently Azure Migrate does not support passphrase-based SSH key. Use an SSH key without a passphrase.
-    - Currently Azure Migrate does not support SSH private key file generated by PuTTY.
-    - Azure Migrate supports OpenSSH format of the SSH private key file as shown below:
+    - Azure Catalyst supports the SSH private key generated by ssh-keygen command using RSA, DSA, ECDSA, and ed25519 algorithms.
+    - Currently Azure Catalyst does not support passphrase-based SSH key. Use an SSH key without a passphrase.
+    - Currently Azure Catalyst does not support SSH private key file generated by PuTTY.
+    - Azure Catalyst supports OpenSSH format of the SSH private key file as shown below:
     
     ![Screenshot of SSH private key supported format.](./media/tutorial-discover-physical/key-format.png)
 1. If you want to add multiple credentials at once, select **Add more** to save and add more credentials. Multiple credentials are supported for physical servers discovery.
@@ -189,17 +191,17 @@ Select **Start discovery**, to kick off discovery of the successfully validated 
 
 * It takes approximately 2 minutes to complete discovery of 100 servers and their metadata to appear in the Azure portal.
 * [Software inventory](how-to-discover-applications.md) (discovery of installed applications) is automatically initiated when the discovery of servers is finished.
-* The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
+* The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Catalyst project in the portal.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
 
 ## Verify servers in the portal
 
 After discovery finishes, you can verify that the servers appear in the portal.
 
-1. Go to the Azure Migrate dashboard.
-2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
+1. Go to the Azure Catalyst dashboard.
+2. In **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 
 
 ## Next steps
 
-Try out [assessment of physical servers](tutorial-assess-physical.md) with Azure Migrate: Discovery and assessment.
+Try out [assessment of physical servers](tutorial-assess-physical.md) with Azure Catalyst: Discovery and assessment.

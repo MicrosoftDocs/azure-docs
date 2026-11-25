@@ -7,6 +7,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 07/07/2026
+ai-usage: ai-assisted
 ms.author: mbender
 ms.custom: references_regions
 # Customer intent: "As a cloud architect, I want to implement a global load balancer, so that I can ensure high availability and geo-redundancy for applications, optimizing traffic distribution while minimizing latency."
@@ -31,6 +32,8 @@ The frontend IP configuration of your global load balancer is static and adverti
 > [!NOTE]
 > The backend port of your load balancing rule on global load balancer should match the frontend port of the load balancing rule or inbound NAT rule on regional standard load balancer. 
 
+## Global load balancer capabilities
+
 ### Regional redundancy
 
 Configure regional redundancy by seamlessly linking a global load balancer to your existing regional load balancers. 
@@ -42,6 +45,8 @@ The health probe of the global load balancer gathers information about availabil
 :::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Screenshot of diagram showing global region traffic view." border="true":::
 
 ### Ultra-low latency
+
+Global load balancer routes each flow in two stages: traffic first enters the closest participating region to the client, then travels across the Microsoft global network backbone to the closest regional load balancer deployment. The participating region a client enters isn't necessarily a region where you deployed a regional load balancer.
 
 The geo-proximity load-balancing algorithm uses the geographic location of your users and your regional deployments. 
 
@@ -55,7 +60,6 @@ For example, you have a global load balancer with standard load balancers in Azu
 If a flow starts in Seattle, traffic enters West US. This region is the closest participating region from Seattle. The traffic is routed to the closest region load balancer, which is West US.
 
 Azure global load balancer uses geo-proximity load-balancing algorithm for the routing decision. 
-
 The configured load distribution mode of the regional load balancers is used for making the final routing decision when multiple regional load balancers are used for geo-proximity. 
 
 For more information, see [Configure the distribution mode for Azure Load Balancer](./load-balancer-distribution-mode.md).
@@ -78,11 +82,11 @@ Global load balancer is a Layer 4 pass-through network load balancer. This pass-
 
 You can configure floating IP at both the global IP level and regional IP level. For more information, see [Multiple frontends for Azure Load Balancer](./load-balancer-multivip-overview.md).
 
-Floating IP configured on the Azure global Load Balancer operates independently of floating IP configurations on backend regional load balancers. If you enable floating IP on the global load balancer, you need to add the appropriate loopback interface to the backend VMs. 
+Floating IP configured on the global load balancer operates independently of floating IP configurations on backend regional load balancers. If you enable floating IP on the global load balancer, you need to add the appropriate loopback interface to the backend VMs.
 
 ### Health probes
 
-Azure global Load Balancer uses the health of the backend regional load balancers when deciding where to distribute traffic. Health checks by global load balancer happen automatically every 5 seconds, given that health probes are set up on their regional load balancer. 
+Global load balancer uses the health of the backend regional load balancers when deciding where to distribute traffic. Health checks by global load balancer happen automatically every 5 seconds, given that health probes are set up on their regional load balancer.
 
 ## Build cross region solution on existing Azure Load Balancer
 

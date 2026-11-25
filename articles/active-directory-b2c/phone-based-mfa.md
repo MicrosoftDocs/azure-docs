@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: entra-id
 ms.topic: how-to
 ms.date: 02/03/2026
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 ms.custom: sfi-image-nochange
 

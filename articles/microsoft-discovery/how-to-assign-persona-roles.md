@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 11/18/2026
 # Customer intent: As a platform administrator, I want to assign all the Azure roles a Microsoft Discovery persona requires in one step, so that scientists and platform admins can start using the platform without hitting permission errors at runtime.
 ---
 
@@ -20,6 +20,8 @@ To make this process a single, repeatable, idempotent step, the Microsoft Discov
 
 ## When to use this script
 
+This standalone utility creates permanent persona-role assignments. If you use the onboarding tool with `customer-jit-managed`, follow its [Stage 2 eligibility and activation workflow](how-to-prepare-landing-zone.md#activate-and-verify-access) instead. Don't use permanent assignments to bypass customer policy. This utility's Az-module and PowerShell prerequisites below differ from the onboarding tool's PowerShell 7/Azure CLI requirements.
+
 Use the script when you need to:
 
 - Onboard one or more users as **Platform Administrator** or **Scientist** on a Microsoft Discovery subscription or resource group.
@@ -29,41 +31,33 @@ Use the script when you need to:
 
 If you only need to assign a single Microsoft Discovery built-in role, the Azure portal, Azure CLI, or Azure PowerShell instructions in [Role assignments in Microsoft Discovery](concept-role-assignments.md#assign-roles) are sufficient.
 
+> [!IMPORTANT]
+> This script assigns broad Platform Administrator or Scientist persona access at subscription or resource group scope. It doesn't configure project-only access. To isolate a user to one project and selected shared resources, see [Configure project-level access](how-to-configure-project-rbac.md).
+
 ## Prerequisites
 
 | Requirement | Details |
 |---|---|
 | PowerShell | 5.1+ on Windows, 7.x on macOS or Linux |
 | Az modules | `Az.Accounts >= 3.0.0`, `Az.Resources >= 7.0.0` (the script auto-installs them unless you pass `-SkipModuleInstall`) |
-| Executor role | The user running the script must hold **Owner**, **User Access Administrator**, or **Role Based Access Control Administrator** at the target scope. The *Microsoft Discovery Platform Administrator (Preview)* role alone is **not** sufficient - that role can't grant the Azure built-in roles (Storage, Network, Managed Identity, Azure AI) each persona requires. |
+| Executor role | The user running the script needs [role-assignment authority](concept-role-assignments.md#who-can-assign-microsoft-discovery-roles) at the target scope. The *Microsoft Discovery Platform Administrator (Preview)* role alone isn't sufficient - that role can't grant the Azure built-in roles (Storage, Network, Managed Identity, Azure AI) each persona requires. |
 | Target users | Must already exist in the tenant. Guest users must be invited to the tenant before role assignment. |
 
 ## What the script assigns
 
-The script assigns the following roles for each persona. Roles marked *(Subscription)* are always assigned at subscription scope regardless of the `-Scope` parameter you pick.
+The script assigns the following roles for each persona. The script always assigns Reader at subscription scope regardless of the `-Scope` parameter. With `-Scope Subscription`, the script assigns the other roles at subscription scope too. With `-Scope ResourceGroup`, it assigns Foundry roles at workspace managed resource group scope and the remaining roles at the selected resource group scope.
 
 ### Platform Administrator
 
-- Microsoft Discovery Platform Administrator (Preview)
-- Managed Identity Contributor
-- Managed Identity Operator
-- Storage Account Contributor
-- Storage Blob Data Contributor
-- Network Contributor
-- AcrPush
-- Reader *(Subscription)*
-- Foundry Owner *(Subscription, or the workspace managed resource group when `-Scope ResourceGroup`)*
-- Microsoft Discovery Bookshelf Index Data Reader (Preview)
+The platform administrator persona uses the following roles:
+
+[!INCLUDE [Platform Administrator persona roles](includes/platform-administrator-roles.md)]
 
 ### Scientist
 
-- Microsoft Discovery Platform Contributor (Preview)
-- Storage Account Contributor
-- Storage Blob Data Contributor
-- AcrPush
-- Reader *(Subscription)*
-- Foundry User *(Subscription, or the workspace managed resource group when `-Scope ResourceGroup`)*
-- Microsoft Discovery Bookshelf Index Data Reader (Preview)
+The scientist persona uses the following roles:
+
+[!INCLUDE [Scientist persona roles](includes/scientist-roles.md)]
 
 For the full description of each role, see [Role assignments in Microsoft Discovery](concept-role-assignments.md).
 
@@ -193,8 +187,9 @@ For the full troubleshooting guide, including cross-tenant authentication, see t
 
 ## Related content
 
+- [Configure project-level access](how-to-configure-project-rbac.md)
+- [Project-level access control in Microsoft Discovery](concept-project-rbac.md)
 - [Role assignments in Microsoft Discovery](concept-role-assignments.md)
-- [Quickstart: Deploy infrastructure using Azure portal](quickstart-infrastructure-portal.md)
-- [Quickstart: Deploy infrastructure using Bicep](quickstart-infrastructure-bicep.md)
+- [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md)
 - [Configure network security](how-to-configure-network-security.md)
 - [Set-DiscoveryRoleAssignments.ps1 on GitHub](https://github.com/microsoft/discovery/tree/main/utilities/rbac-roles-assignment)

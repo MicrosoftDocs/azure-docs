@@ -3,6 +3,7 @@ title: Script Sample - Disable Soft delete for File Share using ARM API
 description: Learn how to use a script to disable soft delete for file shares in a storage account.
 ms.topic: sample
 ms.date: 10/13/2025
+ms.update-cycle: 1825-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

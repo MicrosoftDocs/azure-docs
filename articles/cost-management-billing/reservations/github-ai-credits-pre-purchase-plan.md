@@ -6,11 +6,18 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 05/12/2026
+ms.date: 11/19/2026
 ms.author: primittal
 ---
 
 # Optimize GitHub AI Credits costs with a pre-purchase plan
+
+> [!IMPORTANT]
+> **Changes to GitHub AI Credits pre-purchase plan availability starting January 1, 2027**
+>
+> Starting January 1, 2027, you can buy or renew the GitHub AI Credits pre-purchase plan only through an Enterprise Agreement (EA) or a Cloud Solution Provider (CSP) partner. Buy online channels and built-in tiered volume discounts will no longer apply.
+>
+> If you have a Microsoft Customer Agreement for enterprise (MCA-E), you can't buy or renew GitHub AI Credits pre-purchase plans starting January 1, 2027. Consider AI Flex Plan for your GitHub portfolio instead. To learn more, see the [Flex Plan overview](../benefits/flex-plan/flex-plan-overview.md).
 
 Save on your GitHub AI Credits costs when you buy a pre-purchase plan. Pre-purchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, if GitHub AI generates a retail cost of $100 based on GitHub AI Credits usage, then 100 GitHub AI Credits CUs (GHAICCUs) are consumed.
 
@@ -49,6 +56,8 @@ For example, suppose you expect to consume 2,000,000 GitHub AI Credits. Assuming
 > Pre-purchase plan discounts don't combine with other discounts you might have. If you have additional discounts, the pre-purchase plan discount is applied independently, which may result in a lower effective discount rate than the listed tier percentage. Factor in your existing discounts when estimating savings.
 
 ## Purchase GitHub AI Credits commit units
+
+You can pay for GitHub AI Credits pre-purchase plans with Azure Prepayment. These plans count toward your Microsoft Azure Consumption Commitment (MACC).
 
 Purchase GitHub AI Credits pre-purchase plans in the [Azure portal reservations](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade/productType/Reservations). 
 

@@ -2,8 +2,8 @@
 title: Create and access an environment by using the Azure CLI
 titleSuffix: Azure Deployment Environments
 description: Learn how to create and access an environment in an Azure Deployment Environments project by using the Azure CLI.
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.date: 05/22/2026
 
 # Create and access an environment by using the Azure CLI
 
-[!INCLUDE [note-deployment-environments-maintenance-mode](includes/note-deployment-environments-maintenance-mode.md)]
+[!INCLUDE [note-deployment-environments-retirement](includes/note-deployment-environments-retirement.md)]
 
 This article explains how to create and access an [environment](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments project by using the Azure CLI.
 

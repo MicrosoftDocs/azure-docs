@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 01/02/2026
+ms.date: 08/18/2026
 ---
 
 # Use deployment scripts in Bicep
@@ -70,6 +70,9 @@ For deployment script API version `2020-10-01` or later, two principals are invo
 
   If you use a managed identity, the deployment principal needs the built-in Managed Identity Operator role assigned to the managed identity resource.
 
+  > [!IMPORTANT]
+  > If you assign a managed identity with permissions that exceed the script's operational requirements, the script author is responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
+
 A built-in role isn't tailored for configuring deployment script permissions at this time.
 
 ## Create deployment scripts
@@ -87,7 +90,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     arguments: name
     scriptContent: 'echo "The argument is ${name}."; jq -n -c --arg st "Hello ${name}" \'{"text": $st}\' > $AZ_SCRIPTS_OUTPUT_PATH'
     retentionInterval: 'PT1H'
@@ -108,7 +111,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '14.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -163,7 +166,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing 
   name: storageAccountData.name
 }
 
-@description('The Storage Blob Data Reader Role definition from [Built In Roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles).')
+@description('The Storage Blob Data Reader Role definition from [Built In Roles](/azure/role-based-access-control/built-in-roles).')
 resource storageBlobDataReaderRoleDef 'Microsoft.Authorization/roleDefinitions@2022-05-01-preview' existing = {
   scope: subscription()
   name: storageBlobDataReaderRoleId
@@ -198,7 +201,7 @@ resource script 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     }
   }
   properties: {
-    azCliVersion: '2.59.0'
+    azCliVersion: '2.89.1'
     retentionInterval: 'PT1H'
     arguments: '${storageAccount.properties.primaryEndpoints.blob} ${storageAccountData.container}'
     scriptContent: '''
@@ -229,7 +232,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzureCLI'
   properties: {
-    azCliVersion: '2.52.0'
+    azCliVersion: '2.89.1'
     arguments: name
     scriptContent: 'echo "The argument is ${name}."; jq -n -c --arg st "Hello ${name}" \'{"text": $st}\' > $AZ_SCRIPTS_OUTPUT_PATH'
     cleanupPreference: 'OnExpiration'
@@ -251,7 +254,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   location: location
   kind: 'AzurePowerShell'
   properties: {
-    azPowerShellVersion: '14.0'
+    azPowerShellVersion: '16.2'
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
@@ -290,6 +293,9 @@ Select **Outputs** to display outputs of the script.
 
 Go back to the resource group, select the storage account, select **File shares**, and then select the file share with _azscripts_ appended to the share name. Two folders appear in the list: _azscriptinput_ and _azscriptoutput_. The output folder contains an _executionresult.json_ file and the script output file. The _executionresult.json_ file contains the script execution error message. The output file is created only when you run the script successfully.
 
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. You might retrieve this information through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that deployment script logs don't expose sensitive information.
+
 :::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-az-script-output.png" alt-text="Screenshot of the contents of a deployment script's output folder.":::
 
 The input folder contains the system script file and the user deployment script file. You can replace the user deployment script file with a revised one and rerun the deployment script from the Azure container instance.
@@ -308,7 +314,7 @@ The output of the list command is similar to this example:
 ```json
 {
   "arguments": "John Dole",
-  "azCliVersion": "2.52.0",
+  "azCliVersion": "2.89.1",
   "cleanupPreference": "OnExpiration",
   "containerSettings": {
     "containerGroupName": null
@@ -372,7 +378,7 @@ SubscriptionId      : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ProvisioningState   : Succeeded
 Identity            :
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 14.0
+AzPowerShellVersion : 16.2
 StartTime           : 12/11/2023 9:45:50 PM
 EndTime             : 12/11/2023 9:46:59 PM
 ExpirationDate      : 12/11/2023 10:46:59 PM
@@ -424,7 +430,7 @@ The output is similar to this example:
   },
   "properties": {
     "provisioningState": "Succeeded",
-    "azCliVersion": "2.52.0",
+    "azCliVersion": "2.89.1",
     "scriptContent": "echo \"The argument is John Dole.\"; jq -n -c --arg st \"Hello John Dole\" '{\"text\": $st}' > $AZ_SCRIPTS_OUTPUT_PATH",
     "arguments": "John Dole",
     "retentionInterval": "1:00:00",

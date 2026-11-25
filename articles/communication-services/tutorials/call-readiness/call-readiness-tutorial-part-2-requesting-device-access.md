@@ -15,6 +15,8 @@ ms.subservice: calling
 
 # Request camera and microphone access using Azure Communication Services UI Library
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This tutorial is a continuation of a three part series of Call Readiness tutorials and follows on from the previous: [Ensure user is on a supported browser](./call-readiness-tutorial-part-1-browser-support.md).

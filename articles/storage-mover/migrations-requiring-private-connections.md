@@ -1,8 +1,8 @@
 ---
-title: Migrate data using private connections in Azure Storage Mover
+title: Migrate data from AWS S3 to Azure using private connections in Azure Storage Mover
 description: Learn how to securely migrate AWS S3 data to Azure Storage over private networks using Azure Private Link Service and Private Endpoints in Azure Storage Mover.
 author: stevenmatthew
-ms.author: shaas
+ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 03/04/2026

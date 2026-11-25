@@ -8,7 +8,7 @@ ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template
 ms.topic: reference
 ms.date: 06/26/2024
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # System requirements for Azure Stack Edge Pro 2

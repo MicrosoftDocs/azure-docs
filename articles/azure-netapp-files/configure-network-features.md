@@ -25,10 +25,9 @@ Two settings are available for network features:
 
     If you need higher IP limits or VNet features such as [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md), [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined), or additional connectivity patterns, set **Network Features** to *Standard*.
 
-* ***Basic***  
-    This setting provides reduced IP limits (less than 1,000 IP addresses) and no additional VNet features for the volumes.
+* ***Basic*** 
 
-    You should set **Network Features** to *Basic* if you don't require VNet features.  
+    Basic network features are no longer supported by Azure NetApp Files. Use the Standard network features for all new volumes. If you are upgrading network features for existing volumes from Basic to Standard network features, verify the success of the upgrade by checking "effective      network features" when using the API. Upgrade all volumes configured with Basic network features to Standard network features at your earliest convenience. See [Considerations when editing networking features](configure-network-features.md#considerations-when-editing-networking-features).
 
 ## Considerations
 

@@ -29,7 +29,7 @@ In this tutorial, you perform the following tasks:
 Before you start, make sure you complete the following steps:
 
 * If you don't have an **Azure subscription**, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* Download the **phone call event generator app**, [TelcoGenerator.zip](https://aka.ms/asatelcodatagen) from the Microsoft Download Center or get the source code from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGeneratorCore).
+* Install the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) and get the [TelcoGeneratorCore source](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGeneratorCore).
 * You need a **Power BI** account.
 
 [!INCLUDE [event-generator-app](./includes/event-generator-app.md)]
@@ -40,7 +40,7 @@ The last step is to define an output sink where the job can write the transforme
 
 1. From the Azure portal, open **All resources**, and select the *ASATutorial* Stream Analytics job.
 1. In the **Job Topology** section of the Stream Analytics job, select the **Outputs** option.
-1. Select **+ Add output** > **Power BI**. 
+1. Select **+ Add output** > **Power BI**.
 
     :::image type="content" source="./media/stream-analytics-real-time-fraud-detection/select-output-type.png" alt-text="Screenshot that shows the Outputs page with Add output -> Power BI menu selected." lightbox="./media/stream-analytics-real-time-fraud-detection/select-output-type.png":::
 1. Fill the output form with the following details:
@@ -52,10 +52,10 @@ The last step is to define an output sink where the job can write the transforme
    |Dataset name  |   ASAdataset  |
    |Table name |  ASATable  |
    | Authentication mode | User token |
-1. Select **Authorize** and follow the prompts to authenticate Power BI. 
+1. Select **Authorize** and follow the prompts to authenticate Power BI.
 
    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/configure-stream-analytics-output.png" alt-text="Screenshot of configuring Stream Analytics output." lightbox="media/stream-analytics-real-time-fraud-detection/configure-stream-analytics-output.png":::
-1. Select **Save** at the bottom of the **Power BI** page. 
+1. Select **Save** at the bottom of the **Power BI** page.
 
    This tutorial uses the *User token* authentication mode. To use Managed Identity, see [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](powerbi-output-managed-identity.md).
 
@@ -63,7 +63,7 @@ The last step is to define an output sink where the job can write the transforme
 
 At this point, you set up a Stream Analytics job to read an incoming data stream. The next step is to create a query that analyzes the data in real time. The queries use a SQL-like language that has some extensions specific to Stream Analytics.
 
-In this section of the tutorial, you create and test several queries to learn a few ways you can transform an input stream for analysis. 
+In this section of the tutorial, you create and test several queries to learn a few ways you can transform an input stream for analysis.
 
 The queries you create here just display the transformed data to the screen. In a later section, you write the transformed data to Power BI.
 
@@ -73,7 +73,7 @@ For more information about the language, see the [Azure Stream Analytics Query L
 
 If you want to archive every event, use a pass-through query to read all the fields in the payload of the event.
 
-1. Go to your Stream Analytics job in the Azure portal and select **Query** under **Job topology** in the left menu. 
+1. Go to your Stream Analytics job in the Azure portal and select **Query** under **Job topology** in the left menu.
 1. In the query window, enter this query:
 
    ```SQL
@@ -125,9 +125,9 @@ For this transformation, you want a sequence of temporal windows that don't over
     GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
     ```
 
-    This query uses the `Timestamp By` keyword in the `FROM` clause to specify which timestamp field in the input stream to use to define the Tumbling window. In this case, the window divides the data into segments by the `CallRecTime` field in each record. If you don't specify a field, the windowing operation uses the time that each event arrives at the event hub. For more information, see "Arrival Time vs Application Time" in [Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference). 
+    This query uses the `Timestamp By` keyword in the `FROM` clause to specify which timestamp field in the input stream to use to define the Tumbling window. In this case, the window divides the data into segments by the `CallRecTime` field in each record. If you don't specify a field, the windowing operation uses the time that each event arrives at the event hub. For more information, see "Arrival Time vs Application Time" in [Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference).
 
-    The projection includes `System.Timestamp`, which returns a timestamp for the end of each window. 
+    The projection includes `System.Timestamp`, which returns a timestamp for the end of each window.
 
     To specify that you want to use a Tumbling window, use the [TUMBLINGWINDOW](/stream-analytics-query/tumbling-window-azure-stream-analytics) function in the `GROUP BY` clause. In the function, you specify a time unit (anywhere from a microsecond to a day) and a window size (how many units). In this example, the Tumbling window consists of 5-second intervals, so you get a count by region for every 5 seconds' worth of calls.
 
@@ -170,10 +170,10 @@ When you use a join with streaming data, you must provide some limits on how far
 
 1. From your Power BI workspace, select **+ Create** to create a new dashboard named *Fraudulent Calls*.
 
-1. At the top of the window, select **Edit** and **Add tile**. 
-1. In the **Add tile** window, select **Custom Streaming Data** and **Next**. 
-1. Choose the **ASAdataset** under **Your Datasets**, and select **Next**. 
-1. Select **Card** from the **Visualization type** dropdown, add **fraudulent calls** to **Fields**, and then select **Next**. 
+1. At the top of the window, select **Edit** and **Add tile**.
+1. In the **Add tile** window, select **Custom Streaming Data** and **Next**.
+1. Choose the **ASAdataset** under **Your Datasets**, and select **Next**.
+1. Select **Card** from the **Visualization type** dropdown, add **fraudulent calls** to **Fields**, and then select **Next**.
 
     :::image type="content" source="./media/stream-analytics-real-time-fraud-detection/chart-settings.png" alt-text="Screenshot that shows the chart settings for a Power BI dashboard." lightbox="./media/stream-analytics-real-time-fraud-detection/chart-settings.png":::    
 1. Enter a name for the tile (for example, **Fraudulent calls**), and then select **Apply** to create the tile.
@@ -194,8 +194,7 @@ When you use a join with streaming data, you must provide some limits on how far
 
 For this part of the tutorial, use a sample [ASP.NET](https://asp.net/) web application created by the Power BI team to embed your dashboard. For more information about embedding dashboards, see the [embedding with Power BI](/power-bi/developer/embedding) article.
 
-To set up the application, go to the [Power BI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-web-app** subsection). Since you're using the Dashboard example, use the **integrate-web-app** sample code located in the [GitHub repository](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/).
-After you run the application in your browser, follow these steps to embed the dashboard you created earlier into the web page:
+To set up the application, go to the [Power BI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-web-app** subsection). Since you're using the Dashboard example, use the **integrate-web-app** sample code located in the [GitHub repository](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/). After you run the application in your browser, follow these steps to embed the dashboard you created earlier into the web page:
 
 1. Select **Sign in to Power BI**, which grants the application access to the dashboards in your Power BI account.
 

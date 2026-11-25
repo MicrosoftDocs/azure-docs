@@ -1,28 +1,27 @@
 ---
-title: Create an Azure VM assessment with Azure Migrate Discovery and assessment tool | Microsoft Docs
-description: Describes how to create an Azure VM assessment with the Azure Migrate Discovery and assessment tool
+title: Create an Azure VM assessment with Azure Catalyst Discovery and assessment tool | Microsoft Docs
+description: Describes how to create an Azure VM assessment with the Azure Catalyst Discovery and assessment tool
 author: rashi-ms
-ms.author: v-uhabiba
+ms.author: v-gajeronika
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.update-cycle: 1095-days
-monikerRange:
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
-# Customer intent: As an IT administrator, I want to create an Azure VM assessment using the Azure Migrate tool, so that I can evaluate the readiness, cost, and migration strategies for my on-premises servers to ensure a smooth transition to the cloud.
+# Customer intent: As an IT administrator, I want to create an Azure VM assessment using the Azure Catalyst tool, so that I can evaluate the readiness, cost, and migration strategies for my on-premises servers to ensure a smooth transition to the cloud.
 ---
 
 # Create an Azure VM assessment
 
-This article explains how to create an Azure VM assessments. For details information on general Azure Migrate assessment concepts, see [assessment overview](concepts-assessment-overview.md). 
+This article explains how to create an Azure VM assessments. For details information on general Azure Catalyst assessment concepts, see [assessment overview](concepts-assessment-overview.md). 
 
 To quickly migrate your on-premises or public cloud servers to Azure using lift and shift, create an Azure VM assessment to check readiness, cost, and get migration advice for your workloads. 
 
 > [!Note]
-> All assessments you create with Azure Migrate are a point-in-time snapshot of data. The assessment results are subject to change based on aggregated server performance data collected or change in the source configuration.  
+> All assessments you create with Azure Catalyst are a point-in-time snapshot of data. The assessment results are subject to change based on aggregated server performance data collected or change in the source configuration.  
 
 ## Prerequisites 
 
@@ -30,7 +29,7 @@ Before you start creating assessments, ensure you've discovered the inventory of
 
 You can discover your on-premises servers using either of the following: 
 
-- [Discover servers using the Azure Migrate appliance](tutorial-discover-hyper-v.md)
+- [Discover servers using the Azure Catalyst appliance](tutorial-discover-hyper-v.md)
 - [Discover the servers using an import](tutorial-discover-import.md) 
 
 After you discover your servers, identify if you want to create an As-is on-premises assessment or Performance-based assessment. Check [Performance vs. As-is on-premises assessments](target-right-sizing.md) for more details.  

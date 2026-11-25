@@ -28,8 +28,16 @@ items:
       href: policy-rule-sets.md
     - name: Policy Analytics
       href: policy-analytics.md
+    - name: Policy Advisor (preview)
+      href: policy-analytics.md#policy-advisor
+  - name: AI Security concepts (preview)
+    href: ai-security-concepts.md
+  - name: Prompt Threat Protection concepts (preview)
+    href: prompt-threat-protection.md
   - name: FQDN filtering
     href: domain-filtering-overview.md
+  - name: Geolocation filtering
+    href: geo-ip-filtering.md
   - name: IDPS signature rule categories
     href: idps-signature-categories.md
   - name: Web categories
@@ -80,6 +88,12 @@ items:
       href: premium-certificates.md
     - name: Enterprise CA Certificates
       href: premium-deploy-certificates-enterprise-ca.md
+  - name: Firewall for Containers (preview)
+    items:
+    - name: Deployment guide
+      href: deploy-firewall-for-containers.md
+    - name: ARM template
+      href: quick-create-containers-template.md
   - name: Draft and Deploy
     href: draft-deploy.md
   - name: To a hybrid Network
@@ -97,7 +111,7 @@ items:
   - name: Deploy dual-stack firewall (IPv6)
     href: deploy-dual-stack-firewall.md
   - name: Integrate NAT gateway with Azure Firewall
-    href: ../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md?toc=%2fazure%2ffirewall%2ftoc.json
+    href: ../nat-gateway/tutorial-hub-spoke-nat-firewall.md?toc=%2fazure%2ffirewall%2ftoc.json
   - name: Deploy with IP Groups
     items:
     - name: Overview
@@ -120,9 +134,9 @@ items:
       href: quick-create-multiple-ip-terraform.md
     - name: ARM template
       href: quick-create-multiple-ip-template.md
-  - name: Deploy with Availability zones
+  - name: Deploy with zone redundancy
     items:
-    - name: Deploy with Availability Zones
+    - name: Platform-managed zone allocation
       href: deploy-availability-zone-powershell.md
     - name: Bicep
       href: deploy-bicep.md
@@ -170,6 +184,18 @@ items:
       href: fqdn-tags.md
     - name: Service tags
       href: service-tags.md
+  - name: HTTP header insertion
+    href: configure-http-header-insertion.md
+  - name: AI Security
+    items:
+    - name: Prompt Threat Protection (preview)
+      href: configure-prompt-threat-protection.md
+    - name: Advanced Malware Threat Protection (preview)
+      href: configure-malware-protection.md
+    - name: Advanced Application Threat Protection (preview)
+      href: configure-application-threat-protection.md
+    - name: Network data loss prevention (preview)
+      href: configure-network-dlp.md
   - name: Application rules with SQL FQDNs
     href: sql-fqdn-filtering.md
   - name: SNAT

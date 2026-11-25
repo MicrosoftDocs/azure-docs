@@ -7,7 +7,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 02/15/2024
-ms.author: rolyon
+ms.author: diberry
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 #Customer intent: As an IT admin, I want to create custom and/or roles using Bicep so that I can start automating custom role processes.
 ---

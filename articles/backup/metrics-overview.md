@@ -3,6 +3,7 @@ title: Monitor the health of your backups using Azure Backup Metrics (preview)
 description: In this article, learn about the metrics available for Azure Backup to monitor your backup health
 ms.topic: overview
 ms.date: 11/27/2025
+ms.update-cycle: 1825-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want understand runbooks so that I can use it to automate e-mails.
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

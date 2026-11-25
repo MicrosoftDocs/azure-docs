@@ -5,7 +5,7 @@ description: Learn the different approaches for troubleshooting lab VMs in Azure
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: troubleshooting
 ms.date: 03/15/2024
 ---

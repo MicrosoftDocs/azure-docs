@@ -14,7 +14,7 @@ This article describes how to manage backup for Azure Data Lake Storage using Az
 
 ## Modify the Azure Data Lake Storage backup instance
 
-After the backup configuration, you can update the policy associated with a backup instance. For vaulted backups, you can also modify the selected backup containers.
+After you configure the backup, you can update the policy associated with a backup instance. For vaulted backups, you can also modify the selected backup containers, update exclusions, or choose to auto-protect containers up to the supported limit. Selecting auto-protection for all present and future containers is permanent, and you can't switch back to the earlier container selection options.
 
 To modify the backup instance, follow these steps:
 
@@ -53,5 +53,3 @@ To stop backup for a storage account, follow these steps:
 
 [Troubleshoot Azure Data Lake Storage backup and restore errors](azure-data-lake-storage-backup-troubleshoot.md).
  
-
-

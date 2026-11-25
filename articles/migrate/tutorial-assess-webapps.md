@@ -1,10 +1,10 @@
 ---
 title: Tutorial to assess web apps for migration to Azure App Service
-description: Learn how to create assessment for Azure App Service in Azure Migrate
+description: Learn how to create assessment for Azure App Service in Azure Catalyst
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 zone_pivot_groups: web-apps-assessment-app-service
 ms.custom:
   - engagement-fy24
@@ -22,7 +22,7 @@ ms.custom:
 
 As part of your migration journey to Azure, assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
-This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../app-service/overview.md) about Azure App Service.
+This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Catalyst: Discovery and assessment tool. [Learn more](../app-service/overview.md) about Azure App Service.
 
 ::: zone-end
 
@@ -30,7 +30,7 @@ This article shows you how to assess discovered ASP.NET web apps running on IIS 
 
 As part of your migration journey to Azure, assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
-This article shows you how to assess discovered Java web apps running on Tomcat servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../app-service/overview.md) about Azure App Service.
+This article shows you how to assess discovered Java web apps running on Tomcat servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Catalyst: Discovery and assessment tool. [Learn more](../app-service/overview.md) about Azure App Service.
 
 ::: zone-end
 
@@ -46,21 +46,21 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-- Before you follow this tutorial to assess your web apps for migration to Azure App Service, make sure you've discovered the web apps you want to assess using the Azure Migrate appliance for [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [Physical servers](tutorial-discover-physical.md).
+- Before you follow this tutorial to assess your web apps for migration to Azure App Service, make sure you've discovered the web apps you want to assess using the Azure Catalyst appliance for [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [Physical servers](tutorial-discover-physical.md).
 - If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
 ## Run an assessment
 
 To run an assessment, follow these steps:
 
-1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for Azure Migrate.
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for Azure Catalyst.
+1. On the **Azure Catalyst** page, under **Migration goals**, select **Servers, databases and web apps**.
 2. On the **Servers, databases and web apps** page, under **Assessments tools**, select **Web apps on Azure** from the **Assess** dropdown menu.
 
    :::image type="content" source="./media/tutorial-assess-webapps/assess-web-apps.png" alt-text="Screenshot of Overview page for Azure Migrate.":::
 
 3. On the **Create assessment** page, under **Basics** tab, do the following:
-    1. The assessment type is pre-selected as **Web apps on Azure** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**. Select the **Scenario** as **Web apps to App Service**. 
+    1. The assessment type is pre-selected as **Web apps on Azure** and the discovery source defaulted to **Servers discovered from Azure Catalyst appliance**. Select the **Scenario** as **Web apps to App Service**. 
 
        :::image type="content" source="./media/tutorial-assess-webapps/create-assess-scenario.png" alt-text="Screenshot of Create assessment page for Azure Migrate.":::
 
@@ -83,7 +83,7 @@ To run an assessment, follow these steps:
 
     - In **Savings options (Compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure Compute cost. 
         - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (one year or three year reserved) are a good option for the most consistently running resources.
-        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-overview.md) (one year or three year savings plan) provides additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-overview.md) (one year or three year savings plan) provides additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Catalyst assessments, you can only see cost estimates of 1 savings option at a time. 
         - When you select *None*, the Azure Compute cost is based on the Pay-as-you-go rate or based on actual usage.
         - You need to select Pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than *None*, the **Discount (%)** setting isn't applicable.
 
@@ -108,7 +108,7 @@ To run an assessment, follow these steps:
 
    :::image type="content" source="./media/tutorial-assess-webapps/create-app-review.png" alt-text="Screenshot of create assessment.":::
 
-1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
+1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
 1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number next to **Web apps on Azure** in the **Assessment** section. 
 1. Select the assessment name, which you wish to view.
 

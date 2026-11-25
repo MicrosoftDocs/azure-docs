@@ -1,12 +1,13 @@
 ---
-title: Troubleshoot assessments FAQ in Azure Migrate
-description: FAQs for Troubleshooting assessments in Azure Migrate.
+title: Troubleshoot assessments FAQ in Azure Catalyst
+description: FAQs for Troubleshooting assessments in Azure Catalyst.
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 08/20/2024
+ms.update-cycle: 365-days
 ms.custom: engagement-fy24
-# Customer intent: As a cloud administrator, I want to troubleshoot issues in Azure Migrate assessments, so that I can ensure accurate and effective migration planning for my on-premises resources.
+# Customer intent: As a cloud administrator, I want to troubleshoot issues in Azure Catalyst assessments, so that I can ensure accurate and effective migration planning for my on-premises resources.
 ---
 
 # Troubleshoot assessment - FAQ
@@ -25,31 +26,31 @@ For example, say you have an on-premises disk with 32 GB of memory, but the aggr
 
 ## Why is performance data missing for some or all VMs in my assessment report?
 
-For **Performance-based** assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Migrate appliance can't collect performance data for the on-premises VMs. Make sure to check:
+For **Performance-based** assessment, the assessment report export says 'PercentageOfCoresUtilizedMissing' or 'PercentageOfMemoryUtilizedMissing' when the Azure Catalyst appliance can't collect performance data for the on-premises VMs. Make sure to check:
 
 - If the VMs are powered on for the duration for which you're creating the assessment.
-- If only memory counters are missing and you're trying to assess Hyper-V VMs, check if you have dynamic memory enabled on these VMs. Because of a known issue, currently the Azure Migrate appliance can't collect memory utilization for such VMs.
+- If only memory counters are missing and you're trying to assess Hyper-V VMs, check if you have dynamic memory enabled on these VMs. Because of a known issue, currently the Azure Catalyst appliance can't collect memory utilization for such VMs.
 - If all of the performance counters are missing, ensure the port access requirements for assessment are met. Learn more about the port access requirements for [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [Hyper-V](./migrate-support-matrix-hyper-v.md#port-access), and [physical](./migrate-support-matrix-physical.md#port-access) assessments.
-If any of the performance counters are missing, Azure Migrate: Discovery and assessment fall back to the allocated cores/memory on-premises and recommend a VM size accordingly.
+If any of the performance counters are missing, Azure Catalyst: Discovery and assessment fall back to the allocated cores/memory on-premises and recommend a VM size accordingly.
 
 ## Why is performance data missing for some or all servers in my Azure VM or Azure VMware Solution assessment report?
 
-For **Performance-based** assessment, the assessment report export says **PercentageOfCoresUtilizedMissing** or **PercentageOfMemoryUtilizedMissing** when the Azure Migrate appliance can't collect performance data for the on-premises servers. Make sure to check:
+For **Performance-based** assessment, the assessment report export says **PercentageOfCoresUtilizedMissing** or **PercentageOfMemoryUtilizedMissing** when the Azure Catalyst appliance can't collect performance data for the on-premises servers. Make sure to check:
 
 - If the servers are powered on for the duration for which you're creating the assessment.
 - If only memory counters are missing and you're trying to assess servers in a Hyper-V environment. In this scenario, enable dynamic memory on the servers and recalculate the assessment to reflect the latest changes. The appliance can collect memory utilization values for servers in a Hyper-V environment only when the server has dynamic memory enabled.
 - If all of the performance counters are missing, ensure that outbound connections on ports 443 (HTTPS) are allowed.
 
     > [!Note]
-    > If any of the performance counters are missing, Azure Migrate: Discovery and assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
+    > If any of the performance counters are missing, Azure Catalyst: Discovery and assessment falls back to the allocated cores/memory on-premises and recommends a VM size accordingly.
 
 ## Why is performance data missing for some or all SQL instances or databases in my Azure SQL assessment?
 
 To ensure performance data is collected, make sure to check:
 
 - If the SQL servers are powered on for the duration for which you're creating the assessment.
-- If the connection status of the SQL agent in Azure Migrate is **Connected**, and also check the last heartbeat. 
-- If the Azure Migrate connection status for all SQL instances is **Connected** in the discovered SQL instance pane.
+- If the connection status of the SQL agent in Azure Catalyst is **Connected**, and also check the last heartbeat. 
+- If the Azure Catalyst connection status for all SQL instances is **Connected** in the discovered SQL instance pane.
 - If all of the performance counters are missing, ensure that outbound connections on port 443 (HTTPS) are allowed.
 
 If any of the performance counters are missing, the Azure SQL assessment recommends the smallest Azure SQL configuration for that instance or database.
@@ -63,8 +64,8 @@ The confidence rating is calculated for **Performance-based** assessments based 
     - Servers are powered on for the duration of the assessment.
     - Outbound connections on ports 443 are allowed.
     - For Hyper-V Servers, dynamic memory is enabled.
-    - The connection status of agents in Azure Migrate is **Connected**. Also check the last heartbeat.
-    - For Azure SQL assessments, Azure Migrate connection status for all SQL instances is **Connected** in the discovered SQL instance pane.
+    - The connection status of agents in Azure Catalyst is **Connected**. Also check the last heartbeat.
+    - For Azure SQL assessments, Azure Catalyst connection status for all SQL instances is **Connected** in the discovered SQL instance pane.
 
     Recalculate the assessment to reflect the latest changes in confidence rating.
 
@@ -84,9 +85,11 @@ An Azure VM assessment currently considers the operating system license cost onl
 
 An Azure VM assessment continuously collects performance data of on-premises servers and uses it to recommend the VM SKU and disk SKU in Azure. [Learn more](concepts-assessment-calculation.md#calculate-sizing-performance-based) about how performance-based data is collected.
 
-## Can I migrate my disks to an Ultra Disk by using Azure Migrate?
+<a name="can-i-migrate-my-disks-to-an-ultra-disk-by-using-azure-migrate"></a>
 
-No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra Disks. [Learn more](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk) about deploying an Ultra Disk.
+## Can I migrate my disks to an Ultra Disk by using Azure Catalyst?
+
+No. Currently, both Azure Catalyst and Azure Site Recovery don't support migration to Ultra Disks. [Learn more](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk) about deploying an Ultra Disk.
 
 ## Why are the provisioned IOPS and throughput in my Ultra Disk more than my on-premises IOPS and throughput?
 
@@ -125,19 +128,19 @@ We recommend that you export your existing assessment before recalculating.
 
 ## I don't see performance data for some network adapters on my physical servers
 
-This issue can happen if the physical server has Hyper-V virtualization enabled. On these servers, because of a product gap, Azure Migrate currently discovers both the physical and virtual network adapters. The network throughput is captured only on the virtual network adapters discovered.
+This issue can happen if the physical server has Hyper-V virtualization enabled. On these servers, because of a product gap, Azure Catalyst currently discovers both the physical and virtual network adapters. The network throughput is captured only on the virtual network adapters discovered.
 
 ## The recommended Azure VM SKU for my physical server is oversized
 
-This issue can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual network adapters. As a result, the number of network adapters discovered is higher than the actual number. The Azure VM assessment picks an Azure VM that can support the required number of network adapters, which can potentially result in an oversized VM. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment) about the impact of the number of network adapters on sizing. This product gap will be addressed going forward.
+This issue can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Catalyst currently discovers both the physical and virtual network adapters. As a result, the number of network adapters discovered is higher than the actual number. The Azure VM assessment picks an Azure VM that can support the required number of network adapters, which can potentially result in an oversized VM. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment) about the impact of the number of network adapters on sizing. This product gap will be addressed going forward.
 
 ## The readiness category is marked "Not ready" for my physical server
 
-The readiness category might be incorrectly marked as **Not ready** in the case of a physical server that has Hyper-V virtualization enabled. On these servers, because of a product gap, Azure Migrate currently discovers both the physical and virtual adapters. As a result, the number of network adapters discovered is higher than the actual number. In both **As on-premises** and **Performance-based** assessments, the Azure VM assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be higher than 32, the maximum number of NICs supported on Azure VMs, the server will be marked **Not ready**. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment) about the impact of number of NICs on sizing.
+The readiness category might be incorrectly marked as **Not ready** in the case of a physical server that has Hyper-V virtualization enabled. On these servers, because of a product gap, Azure Catalyst currently discovers both the physical and virtual adapters. As a result, the number of network adapters discovered is higher than the actual number. In both **As on-premises** and **Performance-based** assessments, the Azure VM assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be higher than 32, the maximum number of NICs supported on Azure VMs, the server will be marked **Not ready**. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment) about the impact of number of NICs on sizing.
 
 ## The number of discovered NICs is higher than actual for physical servers
 
-This issue can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual adapters. As a result, the number of NICs discovered is higher than the actual number.
+This issue can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Catalyst currently discovers both the physical and virtual adapters. As a result, the number of NICs discovered is higher than the actual number.
 
 ## Capture network traffic
 

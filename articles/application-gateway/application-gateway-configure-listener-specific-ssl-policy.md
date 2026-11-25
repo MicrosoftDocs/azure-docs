@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 08/03/2026
 ms.author: mbender
 # Customer intent: As a cloud administrator, I want to configure listener-specific SSL policies on my Application Gateway, so that I can enhance security and performance by applying different SSL settings for each listener based on my application requirements.
 ---
@@ -44,13 +44,11 @@ Before you proceed, here are some important considerations for listener-specific
 SSL-Policies
 - We recommend using TLS 1.2 or higher
 - You don't need to configure client authentication on an SSL profile to associate it with a listener. You can configure only client authentication, only listener-specific SSL policy, or both in your SSL profile.
-- Use a [2022 Predefined](./application-gateway-ssl-policy-overview.md#predefined-tls-policy) or Custom v2 policy, enhances SSL security and performance for the entire Application Gateway (SSL Policy and SSL Profile). Therefore, you can't have different listeners using both legacy and new SSL policies simultaneously.
+- A [2022 Predefined](./application-gateway-ssl-policy-overview.md#predefined-tls-policy) or CustomV2 policy enhances SSL security and performance for the entire Application Gateway (SSL Policy and SSL Profile), so you can't have different listeners using both legacy and new SSL policies simultaneously. For details, see [SSL policy overview](./application-gateway-ssl-policy-overview.md).
 
 - We recommend using TLS 1.2 as this version will be mandated in the future.
 - You don't have to configure client authentication on an SSL profile to associate it to a listener. You can have only client authentication or listener-specific SSL policy configured, or both configured in your SSL profile.
-- Using a [2022 Predefined](./application-gateway-ssl-policy-overview.md#predefined-tls-policy) or Customv2 policy enhances SSL security and performance for the entire gateway (SSL Policy and SSL Profile). Therefore, you cannot have different listeners on both old and new SSL (predefined or custom) policies.
-  
-  **Example scenario**: If you're currently using SSL Policy and SSL Profile with "legacy" policies/ciphers, upgrading to a "new" Predefined or Custom v2 policy for any component requires upgrading the other configuration as well. You can use the new predefined policies, Custom v2 policy, or a combination.
+- **Example scenario**: If you're currently using SSL Policy and SSL Profile with legacy policies or ciphers, upgrading to a new Predefined or CustomV2 policy for any component requires upgrading the other configuration as well. You can use the new predefined policies, a CustomV2 policy, or a combination.
 
 SSL-Policies
 To set up a listener-specific SSL policy, you need to first go to the **SSL settings** tab in the Azure portal and create a new SSL profile. When you create an SSL profile, you see two tabs: **Client Authentication** and **SSL Policy**. The **SSL Policy** tab is used to configure a listener-specific SSL policy. The **Client Authentication** tab is where you upload client certificates for mutual authentication. For more information, see [Configuring mutual authentication](./mutual-authentication-portal.md).

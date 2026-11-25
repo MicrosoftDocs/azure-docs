@@ -5,12 +5,14 @@ author: kromerm
 ms.topic: how-to
 ms.subservice: data-flows
 ms.date: 10/03/2024
-ms.author: makromer
+ms.author: weetok
 ---
 
 # Handle SQL truncation error rows in Data Factory mapping data flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 A common scenario in Data Factory when using mapping data flows, is to write your transformed data to a database in Azure SQL Database. In this scenario, a common error condition that you must prevent against is possible column truncation.
 

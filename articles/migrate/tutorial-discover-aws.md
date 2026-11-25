@@ -1,13 +1,14 @@
 ---
-title: Discover AWS instances with Azure Migrate Discovery and assessment 
-description: Learn how to discover AWS instances with Azure Migrate Discovery and assessment.
+title: Discover AWS Instances with Azure Catalyst Discovery and Assessment 
+description: Learn how to discover AWS instances with Azure Catalyst Discovery and assessment.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
+ms.update-cycle: 365-days
 ms.collection:
  - migration
  - aws-to-azure
@@ -20,11 +21,11 @@ ms.custom:
 # Customer intent: "As a server administrator, I want to discover my AWS instances using a migration tool, so that I can assess and plan their migration to Azure efficiently."
 ---
 
-# Tutorial: Discover AWS instances with Azure Migrate
+# Tutorial: Discover AWS instances with Azure Catalyst
 
 As part of your migration journey to Azure, you discover your servers for assessment and migration.
 
-This tutorial shows you how to discover Amazon Web Services (AWS) instances with the Azure Migrate: Discovery and assessment tool, using a lightweight Azure Migrate appliance. You deploy the appliance as a physical server, to continuously discover machine and performance metadata.
+This tutorial shows you how to discover Amazon Web Services (AWS) instances with the Azure Catalyst: Discovery and assessment tool, using a lightweight Azure Catalyst appliance. You deploy the appliance as a physical server, to continuously discover machine and performance metadata.
 
 In this tutorial, you learn how to:
 
@@ -32,7 +33,7 @@ In this tutorial, you learn how to:
 > * Set up an Azure account.
 > * Prepare AWS instances for discovery.
 > * Create a project.
-> * Set up the Azure Migrate appliance.
+> * Set up the Azure Catalyst appliance.
 > * Start continuous discovery.
 
 > [!NOTE]
@@ -46,7 +47,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 
 **Requirement** | **Details**
 --- | ---
-**Appliance** | You need an EC2 VM on which to run the Azure Migrate appliance. The machine should have:<br/><br/> - Windows Server 2019 or Windows Server 2022 installed. - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
+**Appliance** | You need an EC2 VM on which to run the Azure Catalyst appliance. The machine should have:<br/><br/> - Windows Server 2019 or Windows Server 2022 installed. - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
 **Windows instances** | Allow inbound connections on WinRM port 5985 (HTTP) for discovery of Windows servers.
 **Linux instances** | Allow inbound connections on port 22 (TCP) for discovery of Linux servers.<br/><br/> The instances should use `bash` as the default shell, otherwise discovery will fail.
 
@@ -58,7 +59,7 @@ Set up an account that the appliance can use to access AWS instances.
 
 - For **Windows servers**, set up a local user account on all the Windows servers that you want to include in the discovery. Add the user account to the following groups: - Remote Management Users - Performance Monitor Users - Performance Log users. Refer the [instructions](tutorial-discover-physical.md#prepare-windows-server).
  - For **Linux servers**, you need a root account on the Linux servers that you want to discover. Refer the [instructions](tutorial-discover-physical.md#prepare-linux-server).
-- Azure Migrate uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
+- Azure Catalyst uses password authentication when discovering AWS instances. AWS instances don't support password authentication by default. Before you can discover instance, you need to enable password authentication.
     - For Windows servers, allow WinRM port 5985 (HTTP). This allows remote WMI calls.
     - For Linux servers:
         1. Sign into each Linux machine.
@@ -75,14 +76,14 @@ Set up an account that the appliance can use to access AWS instances.
 
 Set up a new project.
 
-1. In the Azure portal > **All services**, search for **Azure Migrate**.
-2. Under **Services**, select **Azure Migrate**.
+1. In the Azure portal > **All services**, search for **Catalyst**.
+2. Under **Services**, select **Catalyst**.
 3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 7. Select **Create**.
-8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
+8. Wait a few minutes for the project to deploy. The **Azure Catalyst: Discovery and assessment** tool is added by default to the new project.
 
 :::image type="content" source="./media/tutorial-discover-aws/added-tool.png" alt-text="Screenshot of Discovery and assessment tool added by default.":::
 
@@ -91,52 +92,54 @@ Set up a new project.
 
 ## Set up the appliance
 
-The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate: Discovery and assessment to do the following:
+The Azure Catalyst appliance is a lightweight appliance, used by Azure Catalyst: Discovery and assessment to do the following:
 
 - Discover on-premises servers.
-- Send metadata and performance data for discovered servers to Azure Migrate: Discovery and assessment.
+- Send metadata and performance data for discovered servers to Azure Catalyst: Discovery and assessment.
 
-[Learn more](migrate-appliance.md) about the Azure Migrate appliance.
+[Learn more](migrate-appliance.md) about the Azure Catalyst appliance.
 
 To set up the appliance you:
 
 1. Provide an appliance name and generate a project key in the portal.
-1. Download a zipped file with Azure Migrate installer script from the Azure portal.
+1. Download a zipped file with Azure Catalyst installer script from the Azure portal.
 1. Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
 1. Execute the PowerShell script to launch the appliance web application.
 1. Configure the appliance for the first time, and register it with the project using the project key.
 
 ### 1. Generate the project key
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
-3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of physical or virtual servers. The name should be alphanumeric with 14 characters or fewer.
+3. In **1:Generate project key**, provide a name for the Azure Catalyst appliance that you will set up for discovery of physical or virtual servers. The name should be alphanumeric with 14 characters or fewer.
 1. Select **Generate key** to start the creation of the required Azure resources. Do not close the Discover servers page during the creation of resources.
 1. After the successful creation of the Azure resources, a **project key** is generated.
 1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
 
 ### 2. Download the installer script
 
-In **2: Download Azure Migrate appliance**, select **Download**.
+In **2: Download Azure Catalyst appliance**, select **Download**.
 
 ### Verify security
 
 Check that the zipped file is [secure](migrate-appliance.md#verify-security), before you deploy it.
 
-### 3. Run the Azure Migrate installer script
+<a name="3-run-the-azure-migrate-installer-script"></a>
+
+### 3. Run the Azure Catalyst installer script
 The installer script does the following:
 
 - Installs agents and a web application for physical server discovery and assessment.
 - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
 - Download and installs an IIS rewritable module.
-- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+- Updates a registry key (HKLM) with persistent setting details for Azure Catalyst.
 - Creates the following files under the path:
     - **Config Files**: %Programdata%\Microsoft Azure\Config
     - **Log Files**: %Programdata%\Microsoft Azure\Logs
 
 Run the script as follows:
 
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a machine on an existing Azure Migrate appliance.
+1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a machine on an existing Azure Catalyst appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
@@ -181,9 +184,9 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 
     > [!NOTE]
-    > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
+    > This is a new user experience in Azure Catalyst appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
-    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
+    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Catalyst: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
 	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
     3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
@@ -208,10 +211,10 @@ Now, connect from the appliance to the physical servers to be discovered, and st
 1. If you are using password-based authentication for Linux server, select the source type as **Linux Server (Password-based)**, specify a friendly name for credentials, add the username and password. Select **Save**.
 1. If you are using SSH key-based authentication for Linux server, you can select source type as **Linux Server (SSH key-based)**, specify a friendly name for credentials, add the username, browse, and select the SSH private key file. Select **Save**.
 
-    * Azure Migrate supports the SSH private key generated by ssh-keygen command using RSA, DSA, ECDSA, and ed25519 algorithms.
-    * Currently Azure Migrate does not support passphrase-based SSH key. Use an SSH key without a passphrase.
-    * Currently Azure Migrate does not support SSH private key file generated by PuTTY.
-    * Azure Migrate supports OpenSSH format of the SSH private key file as shown below:
+    * Azure Catalyst supports the SSH private key generated by ssh-keygen command using RSA, DSA, ECDSA, and ed25519 algorithms.
+    * Currently Azure Catalyst does not support passphrase-based SSH key. Use an SSH key without a passphrase.
+    * Currently Azure Catalyst does not support SSH private key file generated by PuTTY.
+    * Azure Catalyst supports OpenSSH format of the SSH private key file as shown below:
     
     :::image type="content" source="./media/tutorial-discover-physical/key-format.png" alt-text="Screenshot of SSH private key supported format.":::
 
@@ -249,18 +252,18 @@ Select **Start discovery**, to kick off discovery of the successfully validated 
 * [Software inventory](how-to-discover-applications.md) (discovery of installed applications) is automatically initiated when the discovery of servers is finished.
 * [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. Then, it gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours. To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](./migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance.
 * Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself might not need network line of sight.
-* The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
+* The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Catalyst project in the portal.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
 * SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
-* By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
+* By default, Azure Catalyst uses the most secure way of connecting to SQL instances that is, Azure Catalyst encrypts communication between the Azure Catalyst appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
     :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Screenshot that shows how to edit SQL Server connection properties.":::
 ## Verify servers in the portal
 
 After discovery finishes, you can verify that the servers appear in the portal.
 
-1. Open the Azure Migrate dashboard.
-2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
+1. Open the Azure Catalyst dashboard.
+2. In **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 
 ## Next steps
 

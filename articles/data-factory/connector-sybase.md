@@ -6,7 +6,7 @@ author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ms.author: tinglee
 ms.custom:
   - synapse
@@ -14,6 +14,8 @@ ms.custom:
 ---
 # Copy data from Sybase using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from a Sybase database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 

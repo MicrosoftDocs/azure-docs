@@ -3,10 +3,10 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: prashantsaini4
 ms.author: prsaini
-ms.date: 04/21/2026
+ms.date: 10/08/2026
 ms.topic: how-to
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.reviewer: prsaini
 ms.custom:
 - sfi-image-nochange
@@ -101,6 +101,21 @@ Microsoft accounts must have an associated ID created at [https://signup.live.co
 Work or school accounts are available to organizations that set up Microsoft Entra ID with federation and where all accounts are on a single tenant. Users can be added with work or school federated user authentication if the company's internal Microsoft Entra ID is federated.
 
 If your organization doesn't use Microsoft Entra ID federation, you can't use your work or school email address. Instead, register or create a new email address and register it as a Microsoft account.
+
+#### Auto-approve Security Administrator subscription requests
+
+During the Security PAYG purchase experience, users with the **Security Administrator** role in Microsoft Entra ID can view eligible EA billing accounts associated with their tenant and request an Azure subscription.
+
+By using the **Auto-approve Security Administrator subscription requests** policy, Enterprise Administrators can choose to control automatic approval:
+
+- **On (default):** Eligible requests are automatically approved. This setting applies to all tenants linked to enrollment accounts under the EA billing account.
+
+- **Off:** Subscription creation requests from Security Administrators require manual approval from the Enterprise Administrator.
+
+> [!NOTE]
+> Manual approval for EA subscription requests is planned for a future update.
+
+When a request is approved, the subscription is created under an eligible enrollment account. The requesting Security Administrator becomes an owner of the subscription and can deploy and manage Azure resources. Charges are billed under the selected EA billing account.
 
 ## Add another enterprise administrator
 

@@ -11,7 +11,7 @@ ms.service: entra-id
 ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 01/11/2024
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 
 

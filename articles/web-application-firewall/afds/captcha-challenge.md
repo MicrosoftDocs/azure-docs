@@ -1,11 +1,11 @@
 ---
 title: Azure Front Door Web Application Firewall CAPTCHA
 description: Learn about the CAPTCHA feature in Azure Front Door Web Application Firewall (WAF) and how it helps protect your web applications from automated attacks.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 10/28/2025
+ms.date: 10/28/2026
 
 # Customer intent: "As a web application developer, I want to implement CAPTCHA through the Web Application Firewall, so that I can protect my application from automated attacks while ensuring a seamless user experience for legitimate users."
 ---
@@ -36,6 +36,11 @@ The WAF **Policy settings** define the CAPTCHA challenge cookie validity lifetim
 
 > [!NOTE]
 > The CAPTCHA challenge expiration cookie is injected into the user’s browser after successfully completing the challenge.
+
+## Accessibility
+
+The Azure Web Application Firewall CAPTCHA challenge on Azure Front Door is designed to conform with the Web Content Accessibility Guidelines (WCAG) 2.0, 2.1, and 2.2.
+
 
 ## Limitations 
 

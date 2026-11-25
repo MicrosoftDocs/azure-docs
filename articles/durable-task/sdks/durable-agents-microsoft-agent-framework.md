@@ -10,7 +10,7 @@ zone_pivot_groups: agent-framework-approach
 
 # Durable Task extension for Microsoft Agent Framework
 
-The [Durable Task extension for Microsoft Agent Framework](/agent-framework/integrations/azure-functions) brings [durable execution](./durable-task-for-ai-agents.md) directly into the [Microsoft Agent Framework](/agent-framework/). You can register agents with the extension to make them automatically durable with persistent sessions, built-in API endpoints, and distributed scaling — without changes to your agent logic.
+The [Durable Task extension for Microsoft Agent Framework](/agent-framework/hosting/durable-extension) brings [durable execution](./durable-task-for-ai-agents.md) directly into the [Microsoft Agent Framework](/agent-framework/). You can register agents with the extension to make them automatically durable with persistent sessions, built-in API endpoints, and distributed scaling — without changes to your agent logic.
 
 ## When to use durable agents
 
@@ -24,7 +24,7 @@ Choose the Durable Task extension when you need:
 If you don't need durable state or multi-agent coordination, a standard [Microsoft Agent Framework](/agent-framework/) agent without the extension may be sufficient.
 
 > [!TIP]
-> For a step-by-step walkthrough including local setup, prerequisites, and deployment, see the [tutorial on Microsoft Learn](/agent-framework/integrations/azure-functions#tutorial-create-and-run-a-durable-agent).
+> For a step-by-step walkthrough including local setup, prerequisites, and deployment, see the [Agent Framework tutorial](/agent-framework/hosting/durable-extension#tutorial-create-and-run-a-durable-agent-with-azure-functions). That guide covers application APIs and hosting. This article covers Durable Task integration, backend configuration, state lifecycle, and operations.
 
 ## Architecture
 
@@ -35,6 +35,20 @@ The extension supports two hosting approaches:
 - **Azure Functions** using the Azure Functions integration package.
 - **Bring your own compute** using the base package.
 
+The following samples demonstrate the capabilities in each language and hosting model. Generated HTTP endpoints are a Functions integration feature; self-hosted applications expose and secure their own APIs.
+
+| Language | Hosting model | Durable agents and orchestrations | Graph-based workflows |
+| --- | --- | --- | --- |
+| C# | Azure Functions | [Agent samples](https://github.com/microsoft/agent-framework-durable-extension/tree/main/dotnet/samples/DurableAgents/AzureFunctions) | [Workflow samples](https://github.com/microsoft/agent-framework-durable-extension/tree/main/dotnet/samples/DurableWorkflows/AzureFunctions) |
+| C# | Self-hosted | [Agent samples](https://github.com/microsoft/agent-framework-durable-extension/tree/main/dotnet/samples/DurableAgents/ConsoleApps) | [Workflow samples](https://github.com/microsoft/agent-framework-durable-extension/tree/main/dotnet/samples/DurableWorkflows/ConsoleApps) |
+| Python | Azure Functions | [Functions samples](https://github.com/microsoft/agent-framework-durable-extension/tree/main/python/samples/azure_functions) | [Functions workflow samples](https://github.com/microsoft/agent-framework-durable-extension/tree/main/python/samples/azure_functions) |
+| Python | Self-hosted | [Worker and client samples](https://github.com/microsoft/agent-framework-durable-extension/tree/main/python/samples) | [Standalone workflow sample](https://github.com/microsoft/agent-framework-durable-extension/tree/main/python/samples/08_workflow) |
+
+> [!IMPORTANT]
+> Install the packages shown for your hosting model below, including preview packages where indicated. For complete applications, see the [source and samples](https://github.com/microsoft/agent-framework-durable-extension).
+>
+> Source-branch documentation can describe capabilities that aren't available in published packages yet. Apply configuration and migration steps only for features included in your installed release.
+
 ## Agent hosting
 
 Define your agent using the standard Microsoft Agent Framework pattern, then enhance it with the Durable Task extension. The extension handles session persistence, endpoint creation, and state management automatically.
@@ -42,6 +56,8 @@ Define your agent using the standard Microsoft Agent Framework pattern, then enh
 ::: zone pivot="azure-functions"
 
 # [C#](#tab/csharp)
+
+This example uses `AIProjectClient` from the `Azure.AI.Projects` package and its `.AsAIAgent()` extension to integrate with the Durable Task extension.
 
 ```csharp
 var endpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
@@ -68,21 +84,26 @@ app.Run();
 
 # [Python](#tab/python)
 
+Functions hosting requires Python 3.13 or later. Before starting the host, select a [deployment strategy](#upgrade-existing-deployments). For a new, isolated task hub with upgraded workers and clients, set `DURABLE_AGENTS_DEPLOYMENT_MODE=isolated_v2`. Don't apply this setting to an existing shared hub without planning the upgrade.
+
+This example uses `OpenAIChatCompletionClient` with an Azure OpenAI endpoint and its `.as_agent()` extension to integrate with the Durable Task extension. Install the `agent-framework-openai` and `azure-identity` packages in addition to the hosting package.
+
 ```python
 import os
-from agent_framework.azure import FoundryChatClient, AgentFunctionApp
+from agent_framework.openai import OpenAIChatCompletionClient
+from agent_framework_azurefunctions import AgentFunctionApp
 from azure.identity import DefaultAzureCredential
 
 endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT") or "gpt-4o-mini"
 
-client = FoundryChatClient(
-    endpoint=endpoint,
+client = OpenAIChatCompletionClient(
+    azure_endpoint=endpoint,
+    model=deployment_name,
     credential=DefaultAzureCredential()
 )
 
 agent = client.as_agent(
-    model=deployment_name,
     instructions="You are a professional content writer who creates engaging, "
                  "well-structured documents for any given topic.",
     name="DocumentPublisher"
@@ -99,6 +120,8 @@ app = AgentFunctionApp(agents=[agent])
 ::: zone pivot="other-compute"
 
 # [C#](#tab/csharp)
+
+This example uses `AIProjectClient` from the `Azure.AI.Projects` package and its `.AsAIAgent()` extension to integrate with the Durable Task extension.
 
 ```csharp
 var endpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
@@ -132,18 +155,27 @@ await host.StartAsync();
 
 # [Python](#tab/python)
 
+Standalone hosting requires Python 3.10 or later. Before starting the host, select a [deployment strategy](#upgrade-existing-deployments). For a new, isolated task hub with upgraded workers and clients, set `DURABLE_AGENTS_DEPLOYMENT_MODE=isolated_v2`. Don't apply this setting to an existing shared hub without planning the upgrade.
+
+This example uses `OpenAIChatCompletionClient` with an Azure OpenAI endpoint and its `.as_agent()` extension to integrate with the Durable Task extension. Install the `agent-framework-openai` and `azure-identity` packages in addition to the hosting package.
+
 ```python
-from agent_framework.azure import FoundryChatClient, DurableAIAgentWorker
+import os
+from agent_framework.openai import OpenAIChatCompletionClient
+from agent_framework_durabletask import DurableAIAgentWorker
 from azure.identity import AzureCliCredential
 from durabletask.azuremanaged.worker import DurableTaskSchedulerWorker
 
 endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT") or "gpt-4o-mini"
 
-client = FoundryChatClient(endpoint=endpoint, credential=AzureCliCredential())
+client = OpenAIChatCompletionClient(
+    azure_endpoint=endpoint,
+    model=deployment_name,
+    credential=AzureCliCredential(),
+)
 
 agent = client.as_agent(
-    model=deployment_name,
     name="DocumentPublisher",
     instructions="You are a professional content writer who creates engaging, "
                  "well-structured documents for any given topic.",
@@ -167,19 +199,23 @@ worker.start()
 ::: zone-end
 
 > [!NOTE]
-> The C# examples use `AIProjectClient` from the `Azure.AI.Projects` package, which is the recommended pattern for new projects. The Python examples use `FoundryChatClient` from `agent_framework.azure`. Both clients support the `.AsAIAgent()` / `.as_agent()` extension that integrates with the Durable Task extension. See the [samples on GitHub](#related-links) for the latest package references.
+> See the [Agent Framework setup guide](/agent-framework/hosting/durable-extension#getting-started) for package installation and the [samples on GitHub](#related-links) for complete host configuration.
 
 ## Multi-agent orchestration with durable checkpointing
 
 You can coordinate multiple specialized agents as steps in a durable orchestration. Each agent call is checkpointed, and the orchestration recovers automatically if any step fails. Completed agent calls aren't re-executed on recovery.
 
-Use `context.GetAgent()` (C#) or `app.get_agent()` (Python) to retrieve registered agents inside an orchestration. The returned `DurableAIAgent` wrapper ensures calls are tracked and checkpointed by the framework.
+Checkpointing doesn't make external tool side effects transactional or exactly-once. Make tool and activity operations idempotent, especially when they publish documents, charge accounts, or update another service. A failure after an external write but before a durable commit can cause the operation to run again.
+
+The `DurableAIAgent` wrapper ensures calls are tracked and checkpointed by the framework.
 
 The following example shows a sequential multi-agent workflow where a research agent gathers information and a writer agent produces a document.
 
 ::: zone pivot="azure-functions"
 
 # [C#](#tab/csharp)
+
+Use `context.GetAgent()` to retrieve registered agents inside an orchestration.
 
 ```csharp
 [Function(nameof(DocumentPublishingOrchestration))]
@@ -211,11 +247,13 @@ public async Task<string> DocumentPublishingOrchestration(
 
 # [Python](#tab/python)
 
-```python
-@app.orchestration_trigger(context_name="context")
-def document_publishing_orchestration(context: DurableOrchestrationContext):
-    doc_request = context.get_input()
+Use `app.get_agent()` to retrieve registered agents inside an Azure Functions orchestration.
 
+```python
+from durabletask.task import OrchestrationContext
+
+@app.orchestration_trigger(context_name="context")
+def document_publishing_orchestration(context: OrchestrationContext, doc_request: dict):
     research_agent = app.get_agent(context, "ResearchAgent")
     writer_agent = app.get_agent(context, "DocumentPublisherAgent")
 
@@ -236,7 +274,7 @@ def document_publishing_orchestration(context: DurableOrchestrationContext):
     )
 
     # Step 3: Publish
-    return (yield context.call_activity("publish_document", {
+    return (yield context.call_activity("publish_document", input={
         "title": doc_request["topic"],
         "content": document.text
     }))
@@ -249,6 +287,8 @@ def document_publishing_orchestration(context: DurableOrchestrationContext):
 ::: zone pivot="other-compute"
 
 # [C#](#tab/csharp)
+
+Use `context.GetAgent()` to retrieve registered agents inside an orchestration.
 
 ```csharp
 static async Task<string> DocumentPublishingOrchestration(
@@ -277,8 +317,10 @@ static async Task<string> DocumentPublishingOrchestration(
 
 # [Python](#tab/python)
 
+Use `DurableAIAgentOrchestrationContext.get_agent()` to retrieve registered agents inside a standalone orchestration.
+
 ```python
-from agent_framework.azure import DurableAIAgentOrchestrationContext
+from agent_framework_durabletask import DurableAIAgentOrchestrationContext
 
 def document_publishing_orchestration(ctx, doc_request: dict):
     agent_context = DurableAIAgentOrchestrationContext(ctx)
@@ -353,7 +395,7 @@ The `OrderLookup`, `OrderCancel`, and `SendEmail` executors are standard [Micros
 
 ```python
 from agent_framework import Workflow, WorkflowBuilder, WorkflowContext, executor
-from agent_framework.azure import AgentFunctionApp
+from agent_framework_azurefunctions import AgentFunctionApp
 
 @executor(id="store_email")
 async def store_email(email_text: str, ctx: WorkflowContext) -> None:
@@ -464,7 +506,7 @@ from agent_framework import (
     Agent, AgentExecutorResponse, Workflow,
     WorkflowBuilder, WorkflowContext, executor,
 )
-from agent_framework.azure import AgentFunctionApp
+from agent_framework_azurefunctions import AgentFunctionApp
 
 chat_client = ...  # OpenAIChatCompletionClient or FoundryChatClient
 
@@ -598,7 +640,7 @@ from agent_framework import (
     Agent, AgentExecutorResponse, Case, Default, Executor,
     Workflow, WorkflowBuilder, WorkflowContext, handler,
 )
-from agent_framework.azure import AgentFunctionApp
+from agent_framework_azurefunctions import AgentFunctionApp
 from pydantic import BaseModel
 
 class SpamDetectionResult(BaseModel):
@@ -766,7 +808,7 @@ from agent_framework import (
     Agent, Executor, Workflow, WorkflowBuilder,
     WorkflowContext, handler, response_handler,
 )
-from agent_framework.azure import AgentFunctionApp
+from agent_framework_azurefunctions import AgentFunctionApp
 from pydantic import BaseModel
 
 class HumanApprovalResponse(BaseModel):
@@ -914,6 +956,8 @@ Use the [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-d
 
 Both local development (via the emulator) and production deployments surface the same dashboard experience.
 
+The application must use the Durable Task Scheduler backend and the same task hub that you open in the dashboard. The Python Functions samples default to Azure Storage; starting the scheduler emulator alone doesn't switch their backend. Configure the Functions storage provider and scheduler connection before expecting those sessions to appear here.
+
 The following screenshot shows an agent session with its conversation history and session details:
 
 :::image type="content" source="media/durable-task-for-ai-agents/dashboard-agent.png" alt-text="Screenshot of the Durable Task Scheduler dashboard showing agent conversation history and session details." lightbox="media/durable-task-for-ai-agents/dashboard-agent.png":::
@@ -926,19 +970,19 @@ The following screenshot shows a deterministic orchestration with activity execu
 
 Durable agent sessions automatically maintain conversation history and state, which can accumulate indefinitely. The time-to-live (TTL) feature provides automatic cleanup of idle sessions, preventing storage resource consumption and increased costs. 
 
-When an agent session is idle for longer than the configured TTL period, the session state is automatically deleted. Each new interaction resets the TTL timer, extending the session's lifetime.
+When an agent session is idle for longer than an applicable TTL period, it becomes eligible for deletion. Each new interaction resets the TTL timer, extending the session's lifetime. Cleanup isn't an exact-time deletion guarantee.
 
 ### Default values
 
-- **Default TTL**: 14 days
-- **Minimum TTL deletion delay**: 5 minutes
+- **Legacy .NET default TTL**: 14 days. In schema-v2 receipt-bearing state, the unconfigured legacy default doesn't automatically delete the entity. Configure a global or per-agent TTL explicitly if you want idle-session deletion.
+- **Default .NET minimum TTL deletion delay**: 5 minutes. This scheduling floor isn't a retention period.
 
 ### Configuration
 
 TTL can be configured globally or per-agent. When an agent session expires, its entire state is deleted, including conversation history and any custom state data. If a message is sent to the same session after deletion, a new session is created with a fresh conversation history.
 
 > [!NOTE]
-> TTL configuration is currently available in .NET only.
+> The following TTL configuration applies to .NET. Python retention and state-budget options are separate from this whole-session TTL policy.
 
 ```csharp
 services.ConfigureDurableAgents(
@@ -956,15 +1000,33 @@ services.ConfigureDurableAgents(
         // Agent using global default (7 days)
         options.AddAIAgent(defaultAgent);
 
-        // Agent with no TTL (never expires)
-        options.AddAIAgent(permanentAgent, timeToLive: null);
+        // null doesn't override the global default: this agent also uses 7 days
+        options.AddAIAgent(inheritedAgent, timeToLive: null);
     });
 ```
+
+To disable the global TTL for agents without a positive per-agent override, set `options.DefaultTimeToLive = null`. Passing `timeToLive: null` to `AddAIAgent` doesn't create a per-agent "never expires" override.
+
+### Separate session, history, and result policies
+
+Whole-session TTL deletes the entity, including its conversation and completion receipts. Result-payload retention controls how long a completed response remains available; in .NET, `ResultRetentionPeriod` defaults to 60 seconds. A retained completion receipt can still identify a successful or failed operation after its result payload becomes unavailable.
+
+Durable transcript retention and model-input compaction solve different problems. .NET defaults to `DurableAgentHistoryRetentionMode.KeepAll`; opt into `Auto` for pressure-based transcript retention. Python exposes retention and state budgets through its host options. Model-input compaction reduces context sent to the model and doesn't necessarily remove durable history. See the [.NET lifecycle guide](https://github.com/microsoft/agent-framework-durable-extension/blob/main/dotnet/src/Microsoft.Agents.AI.DurableTask/README.md) and [Python retention guide](https://github.com/microsoft/agent-framework-durable-extension/blob/main/python/packages/durabletask/README.md#retention-and-state-budgets) for their distinct defaults and limits.
+
+Python also supports optional [SDK-managed Blob payload offloading](https://github.com/microsoft/agent-framework-durable-extension/blob/main/python/packages/azurefunctions/README.md#optional-blob-payload-offloading). This transport feature doesn't remove entity-state capacity limits or replace retention. Session deletion, result expiry, and orchestration purge don't delete these payload blobs. Configure Blob lifecycle separately, retaining blobs while durable state or replay history still references them.
+
+## Upgrade existing deployments
+
+Schema-v2 state and versioned entity identities require a deployment plan. Don't replace all workers on an existing hub and assume every session or workflow history can resume.
+
+- **.NET:** New sessions use the `dafx-v2-` entity namespace. Keep legacy processing disabled while v1 workers remain active. Enable `ProcessLegacyEntities` only after all v1 workers stop. Side-by-side Functions hosts require compatible host-side work-item filtering; distinct trigger names alone aren't isolation. Without filtering, use an offline cutover. See the [.NET upgrade and filtering requirements](https://github.com/microsoft/agent-framework-durable-extension/blob/main/dotnet/src/Microsoft.Agents.AI.DurableTask/README.md#c-history-ownership-profile).
+- **Python:** Explicitly choose `two_phase` with Durable Task Scheduler filtering, or `isolated_v2` for an isolated deployment with upgraded workers and clients. The two-phase path supports eligible in-place entity upgrades; a new task hub isn't required for every migration. Keep compatible filtered workers available during coexistence, and stop old workers before enabling historical-name processing. See [Python entity migration](https://github.com/microsoft/agent-framework-durable-extension/blob/main/python/packages/durabletask/ENTITY_MIGRATION.md).
+- **Python workflow histories:** Entity migration doesn't repair replay compatibility. Affected older workflow histories, including older v2 histories, must finish on their original workers and hub. Start fresh workflow instances on the upgraded runtime. See the [Python runtime compatibility guidance](https://github.com/microsoft/agent-framework-durable-extension/blob/main/python/packages/durabletask/README.md#durable-task-integration).
 
 ## Known limitations
 
 - **Maximum conversation size.**  
-    Agent session state, including the full conversation history, is subject to the state-size limits of the durable backend. When using the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md), the maximum entity state size is 1 MB. Long-running conversations with large tool call responses may reach this limit. Compaction of conversation history must be done manually, for example, by starting a new agent session and summarizing the prior context.
+    Agent session state is subject to the state-size limits of the durable backend. When using the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md), the maximum entity state size is 1 MB. History retention can remove eligible transcript content, but protected state, completion receipts, and live results also consume capacity. Neither compaction nor Blob payload offloading guarantees that an entity fits. Configure state budgets, monitor capacity failures, and use a new session when the protected state can't fit.
 
 - **Latency.**  
    All agent interactions are routed through the Durable Task Scheduler, which adds latency compared to in-memory agent execution. This tradeoff provides durability and distributed scaling.
@@ -972,8 +1034,24 @@ services.ConfigureDurableAgents(
 - **Streaming.**  
    Since durable agents are implemented on top of durable entities, the underlying communication model is request/response. Streaming is supported through response callbacks (for example, pushing tokens to a Redis Stream for client consumption), while the entity returns the complete response after the stream finishes.
 
+   In the [Python Redis streaming sample](https://github.com/microsoft/agent-framework-durable-extension/blob/main/python/samples/03_single_agent_streaming/README.md), chunks and the completion marker are provisional. They can arrive before retention checks and the durable commit. Confirm the authoritative result separately before treating streamed output as committed.
+
 - **TTL expiration.**  
    The TTL timer is based on wall-clock time since the last message, not cumulative activity time. Once a session is deleted (via TTL expiration or manual deletion), its conversation history can't be recovered.
+
+## Production checks and troubleshooting
+
+For generated .NET Functions agent endpoints, `202 Accepted` acknowledges dispatch, not successful execution. A waiting request returns `200` for an available committed success, or `500` for a supported committed terminal failure. `410 Gone` means completion is known but the result is unavailable; the retained outcome can be `succeeded` or `failed`. It isn't necessarily execution failure or only result expiry. Don't automatically submit a new operation after `410`. These are agent endpoint semantics, not the Durable Functions orchestration status API. See [agent completion outcomes](https://github.com/microsoft/agent-framework-durable-extension/blob/main/dotnet/src/Microsoft.Agents.AI.Hosting.AzureFunctions/README.md#agent-completion-outcomes).
+
+Separate application-user authorization from Functions keys, model credentials, and scheduler access. Enforce ownership before accepting session IDs or approval responses; session and request IDs are identifiers, not authorization. Grant model and scheduler permissions to the intended worker or client identity.
+
+| Symptom | Check |
+| --- | --- |
+| Python Functions host fails to load or start | Use Python 3.13 or later, install the packages in [Agent hosting](#agent-hosting), and explicitly select a deployment strategy. |
+| No sessions appear in the scheduler dashboard | Verify that the application uses the scheduler backend, not Azure Storage, and that endpoint and task hub match the dashboard. |
+| Old runs fail after an upgrade | Check worker generation, dispatch filters, entity migration prerequisites, and workflow replay compatibility before resuming historical runs. |
+| State writes fail despite compaction | Inspect whole-entity capacity, protected state, and retention settings. Model-context size alone doesn't measure stored entity size. |
+| A stream finishes but the result isn't available | Check the durable completion outcome and result-retention policy; stream markers aren't durable commit evidence. |
 
 ## Additional capabilities
 
@@ -990,18 +1068,19 @@ The following advanced patterns are available in the [samples on GitHub](#relate
 ::: zone pivot="azure-functions"
 
 For complete code samples:
-- [.NET Azure Functions](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples/04-hosting/DurableAgents/AzureFunctions)
-- [.NET Durable Workflows](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples/04-hosting/DurableWorkflows)
-- [Python Azure Functions (agents and workflows)](https://github.com/microsoft/agent-framework/tree/main/python/samples/04-hosting/azure_functions) 
+- [.NET Azure Functions](https://github.com/microsoft/agent-framework-durable-extension/tree/main/dotnet/samples/DurableAgents/AzureFunctions)
+- [.NET Durable Workflows](https://github.com/microsoft/agent-framework-durable-extension/tree/main/dotnet/samples/DurableWorkflows)
+- [Python Azure Functions (agents and workflows)](https://github.com/microsoft/agent-framework-durable-extension/tree/main/python/samples/azure_functions)
 
 ::: zone-end
 
 ::: zone pivot="other-compute"
 
 For complete code samples:
-- [.NET any-host](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples/04-hosting/DurableAgents/ConsoleApps)
-- [.NET Durable Workflows](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples/04-hosting/DurableWorkflows)
-- [Python any-host (agents and workflows)](https://github.com/microsoft/agent-framework/tree/main/python/samples/04-hosting/durabletask)
+- [.NET any-host](https://github.com/microsoft/agent-framework-durable-extension/tree/main/dotnet/samples/DurableAgents/ConsoleApps)
+- [.NET Durable Workflows](https://github.com/microsoft/agent-framework-durable-extension/tree/main/dotnet/samples/DurableWorkflows)
+- [Python any-host (agents and workflows)](https://github.com/microsoft/agent-framework-durable-extension/tree/main/python/samples)
+- [Python standalone workflow](https://github.com/microsoft/agent-framework-durable-extension/tree/main/python/samples/08_workflow)
 
 ::: zone-end
 

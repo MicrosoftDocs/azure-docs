@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/14/2026
-ms.author: kendownie 
+ms.author: normesta 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli
 ms.devlang: azurecli
 # Customer intent: As a cloud administrator, I want to assign share-level permissions for SMB Azure file shares, so that I can control user access to shared files and ensure secure and effective file management within my organization.
@@ -58,14 +58,14 @@ Several built-in Azure role-based access control (RBAC) roles are intended for u
 
 To access Azure file share resources, use a specific Microsoft Entra user or group as the identity. This identity can be either a cloud-only identity (Microsoft Entra ID only) or a [hybrid identity](/entra/identity/hybrid/whatis-hybrid-identity) that exists in both on-premises AD DS and Microsoft Entra ID.
 
-Assigning specific share-level permissions to cloud-only identities is currently supported only for Microsoft Entra Kerberos authentication in a [subset of Azure public cloud regions](storage-files-identity-auth-hybrid-identities-enable.md#regional-availability-for-microsoft-entra-kerberos). If the region you want to deploy in isn't supported, reach out to the [Azure Files team](mailto:azurefiles@microsoft.com) for assistance or use a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
+Assigning specific share-level permissions to *cloud-only identities* is currently supported only for Microsoft Entra Kerberos authentication and is available in all public regions. If the region you want to deploy in isn't supported, use a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 
-For hybrid identities, if you have a user in Active Directory named user1@onprem.contoso.com and you sync to Microsoft Entra ID as user1@contoso.com by using Microsoft Entra Connect Sync or Microsoft Entra Connect Cloud Sync, the user must have the share-level permissions assigned to user1@contoso.com to access the file share. The same concept applies to groups and service principals.
+For *hybrid identities*, if you have a user in Active Directory named user1@onprem.contoso.com and you sync to Microsoft Entra ID as user1@contoso.com by using Microsoft Entra Connect Sync or Microsoft Entra Connect Cloud Sync, the user must have the share-level permissions assigned to user1@contoso.com to access the file share. The same concept applies to groups and service principals.
 
 > [!IMPORTANT]
 > Assign permissions by explicitly declaring actions and data actions instead of using a wildcard (\*) character.
 >
-> If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This access includes any new data action added to the platform. The additional access and permissions granted through new actions or data actions might be unwanted behavior for customers who use wildcards.
+> If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This access includes any new data action added to the platform. The additional access and permissions granted through new actions or data actions might be unwanted behavior for customers who use wildcards.
 
 For share-level permissions to work for hybrid identities, you must take the following actions:
 
@@ -95,8 +95,6 @@ To assign an Azure role to a Microsoft Entra identity by using the [Azure portal
 
 1. Keep **Assign access to** at the default setting: **Microsoft Entra user, group, or service principal**. Select the target Microsoft Entra identity by name or email address.
 
-   The selected Microsoft Entra identity must be a hybrid identity and can't be a cloud-only identity. This requirement means that the same Microsoft Entra identity is also represented in AD DS.
-
 1. Select **Save** to complete the role assignment operation.
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -106,11 +104,11 @@ The following PowerShell sample shows how to assign an Azure role to a Microsoft
 Before you run the following sample script, replace placeholder values (including brackets) with your values.
 
 ```powershell
-#Get the name of the custom role
+#Get the name of the role
 $FileShareContributorRole = Get-AzRoleDefinition "<role-name>" #Use one of the built-in roles: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor, Storage File Data SMB Share Elevated Contributor, Storage File Data Privileged Contributor, Storage File Data Privileged Reader, Storage File Data SMB Admin
 #Constrain the scope to the target file share
 $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
-#Assign the custom role to the target identity with the specified scope.
+#Assign the role to the target identity with the specified scope.
 New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
@@ -194,7 +192,7 @@ For example, suppose you grant a user the Storage File Data SMB Share Reader rol
 
 ## Group-based access for non-synced AD DS users
 
-This section applies only to storage accounts that use AD DS authentication.
+This section applies only to storage accounts that use AD DS authentication. Use this approach if you have users who can't be synced individually to Microsoft Entra ID but whose AD DS group memberships can be synced.
 
 Users who aren't synced to Microsoft Entra ID can still access Azure file shares through group membership. If a user belongs to an on-premises AD DS group that's synced to Microsoft Entra ID and has an Azure RBAC role assignment, the user gets the group's permissions, even though they don't appear as a group member in the Microsoft Entra admin center.
 

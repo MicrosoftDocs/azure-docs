@@ -5,7 +5,7 @@ ms.topic: overview
 ms.custom: devx-track-azurecli
 ms.date: 10/07/2025
 author: apwestgarth
-ms.author: msangapu
+ms.author: byvinyal
 ROBOTS: NOINDEX
 ms.service: azure-app-service
 
@@ -107,7 +107,7 @@ All built-in Linux stacks are supported.
 
 ### Are all app deployment types supported?
 
-FTP deployment isn't supported. Currently `az webapp up` is also not supported. Other deployment methods are supported, including Git, ZIP, CI/CD, Visual Studio, and Visual Studio Code.
+FTP deployment isn't supported. Create apps with `az webapp create` and deploy ZIP packages with `az webapp deploy`. Other deployment methods are supported, including Git, CI/CD, Visual Studio, and Visual Studio Code.
 
 ### Which App Service features are supported?
 

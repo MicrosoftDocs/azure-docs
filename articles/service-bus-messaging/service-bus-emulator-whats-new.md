@@ -2,8 +2,6 @@
 title: What's new with Service Bus emulator
 titleSuffix: Azure Service Bus
 description: View the updates for the latest version and previous versions of the Azure Service Bus emulator.
-author: Sannidhya
-ms.author: saglodha
 ms.topic: article
 ms.date: 11/18/2024
 ---

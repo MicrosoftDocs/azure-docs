@@ -3,7 +3,7 @@ author: rolyon
 ms.service: resource-graph
 ms.topic: include
 ms.date: 01/12/2024
-ms.author: rolyon
+ms.author: diberry
 ---
 
 ```kusto

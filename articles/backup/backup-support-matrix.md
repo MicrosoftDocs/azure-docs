@@ -37,7 +37,7 @@ The following table describes the features of Recovery Services vaults:
 **Data sources** | Maximum size of an individual [data source](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) is 54,400 GB. This limit doesn't apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
 **Backups between vaults** | Backup is within a region.<br/><br/> You need a vault in every Azure region that contains VMs you want to back up. You can't back up to a different region. For Azure VM backup in a Recovery Services vault, the vault and protected VM can be in different subscriptions. See the [support matrix for Azure VM backup](backup-support-matrix-iaas.md) for the supported cross-subscription scenarios and limitations.
-**Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported. A Recovery Services vault that contains cross-subscription protected Azure VM backup items can't be moved across subscriptions or between resource groups.
+**Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported. See the [vault move guidance](./backup-azure-move-recovery-services-vault.md) for backup continuity requirements when the vault contains cross-subscription protected Azure VM backup items.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
 **Private Endpoints** | See [this section](./private-endpoints.md#before-you-start) for requirements to create private endpoints for a recovery service vault.  
@@ -89,6 +89,11 @@ The following table lists the supported scenarios for backup of Linux machines:
 
 Azure Backup doesn't support automatic clock adjustment for daylight saving time for Azure VM backups. It doesn't shift the hour of the backup forward or backwards. To ensure the backup runs at the desired time, modify the backup policies manually as required.
 
+If you apply a backup policy while the selected time zone is observing daylight saving time (DST), Azure Backup schedules backup jobs based on the DST-adjusted clock. When DST ends, Azure Backup doesn't automatically detect the change or adjust the schedule, so backup jobs continue to run at the time that was in effect during DST.
+
+For example, you create a backup policy by using the **(UTC+10:00) Canberra, Melbourne, Sydney** time zone and configure VM backup in March. Because Australia observes daylight saving time (AEDT, UTC+11) in March, backup jobs are scheduled based on UTC+11. After DST ends, the policy isn't updated automatically, so backup jobs continue to run based on UTC+11, even though the region has returned to standard time (AEST, UTC+10).
+
+To reschedule backups based on the current time zone offset, open the existing backup policy and select **Update** without changing any policy settings. Azure Backup rechecks the time zone currently in effect and reschedules backup jobs accordingly. For regions that observe DST, repeat this **Update** operation each time DST starts or ends if the policy uses the regional time zone.
 ## Disk deduplication support
 
 Disk deduplication support is as follows:
@@ -159,6 +164,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 | MARS Agent (Preview)  | Available in preview. <br><br> Not supported for vaults with Private Endpoint enabled.       | Available in all Azure public regions.   |
 | DPM/MABS | No                        |                      N/A                   |
 | AFS (Azure file shares)                 | Yes                                                           |      See the [supported regions](azure-file-share-support-matrix.md?tabs=vault-tier#supported-regions).               |
+| PostgreSQL | Yes | Available in all Azure public regions. |
 
 ## Resource health
 

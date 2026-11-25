@@ -230,7 +230,7 @@ Total permissions are determined by adding or subtracting a combination of the p
 * 4 + 2 + 1 = 7 (can do everything)
 * 4 + 2 = 6 (read/write)
 
-For more information, see [UNIX Permissions Help](http://www.zzee.com/solutions/unix-permissions.shtml).
+For more information, see [Users, groups, and permissions](https://ubuntu.com/server/docs/tutorial/welcome-to-the-terminal/#users-groups-and-permissions).
 
 Umask is a functionality that allows an administrator to restrict the level of permissions allowed to a client. By default, the umask for most clients is set to 0022. 0022 means that files created from that client are assigned that umask. The umask is subtracted from the base permissions of the object. If a volume has 0777 permissions and is mounted using NFS to a client with a umask of 0022, objects written from the client to that volume have 0755 access (0777 – 0022).
 

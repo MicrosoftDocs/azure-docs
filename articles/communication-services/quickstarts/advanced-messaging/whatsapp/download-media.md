@@ -16,6 +16,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Quickstart: Download WhatsApp message media
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services enables you to send and receive WhatsApp messages. This article describes how to download the media payload received in a WhatsApp message. 
 
 **Use case:** A business receives a WhatsApp message from their customer that contains an image. The business needs to download the image from WhatsApp in order to view the image.

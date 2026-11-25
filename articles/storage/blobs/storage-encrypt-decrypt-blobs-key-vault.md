@@ -2,11 +2,11 @@
 title: Encrypt and decrypt blobs using Azure Key Vault
 titleSuffix: Azure Storage
 description: Learn how to encrypt and decrypt a blob using client-side encryption with Azure Key Vault.
-author: stevenmatthew
+author: schoag-msft
 ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 11/2/2022
-ms.author: shaas
+ms.author: schoag
 ms.reviewer: ozgun
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -221,7 +221,7 @@ CryptographyClient cryptoClient = new CryptographyClient(new Uri(keyVaultKeyUri)
 
 Now we need to configure the encryption options to be used for blob upload and download. To use client-side encryption, we first create a `ClientSideEncryptionOptions` object and set it on client creation with `SpecializedBlobClientOptions`. 
 
- The [ClientSideEncryptionOptions](/dotnet/api/azure.storage.clientsideencryptionoptions) class provides the client configuration options for connecting to Blob Storage using client-side encryption. [KeyEncryptionKey](/dotnet/api/azure.storage.clientsideencryptionoptions.keyencryptionkey) is required for upload operations and is used to wrap the generated content encryption key. [KeyResolver](/dotnet/api/azure.storage.clientsideencryptionoptions.keyresolver) is required for download operations and fetches the correct key encryption key to unwrap the downloaded content encryption key. [KeyWrapAlgorithm]() is required for uploads and specifies the algorithm identifier to use when wrapping the content encryption key.
+ The [ClientSideEncryptionOptions](/dotnet/api/azure.storage.clientsideencryptionoptions) class provides the client configuration options for connecting to Blob Storage using client-side encryption. [KeyEncryptionKey](/dotnet/api/azure.storage.clientsideencryptionoptions.keyencryptionkey) is required for upload operations and is used to wrap the generated content encryption key. [KeyResolver](/dotnet/api/azure.storage.clientsideencryptionoptions.keyresolver) is required for download operations and fetches the correct key encryption key to unwrap the downloaded content encryption key. [KeyWrapAlgorithm](/dotnet/api/azure.storage.clientsideencryptionoptions.keywrapalgorithm) is required for uploads and specifies the algorithm identifier to use when wrapping the content encryption key.
 
 > [!IMPORTANT]
 >Due to a security vulnerability in version 1, it's recommended to construct the `ClientSideEncryptionOptions` object using `ClientSideEncryptionVersion.V2_0` for the version parameter. To learn more about mitigating the vulnerability in your apps, see [Mitigate the security vulnerability in your applications](client-side-encryption.md#mitigate-the-security-vulnerability-in-your-applications). For more information about this security vulnerability, see [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog).

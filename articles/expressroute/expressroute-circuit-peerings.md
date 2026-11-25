@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 06/23/2026
+ms.date: 08/27/2026
 ms.author: duau 
 ---
 
@@ -26,7 +26,7 @@ ExpressRoute circuits are identified by a standard GUID called a service key (s-
 
 New ExpressRoute circuits can include two independent peerings: Private peering and Microsoft peering. Each peering consists of a pair of independent BGP sessions, configured redundantly for high availability. An ExpressRoute circuit can have one or both peerings enabled.
 
-Each circuit has a fixed bandwidth that's shared across all circuit peerings and is mapped to a connectivity provider and a peering location. The supported bandwidths are:
+Each circuit has a fixed bandwidth that's shared across all circuit peerings and is mapped to a connectivity provider and a peering location. The supported bandwidths for circuits provisioned through a connectivity provider are:
 
 * 50 Mbps
 * 100 Mbps
@@ -36,6 +36,9 @@ Each circuit has a fixed bandwidth that's shared across all circuit peerings and
 * 2 Gbps
 * 5 Gbps
 * 10 Gbps
+
+> [!NOTE]
+> ExpressRoute Direct supports higher circuit bandwidths than the preceding list. On 100-Gbps ExpressRoute Direct, you can also select 40-Gbps and 100-Gbps circuits. On 400-Gbps ExpressRoute Direct, you can also select 40-Gbps, 100-Gbps, 200-Gbps, and 400-Gbps circuits. For the full list of Direct circuit SKUs, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ### <a name="quotas"></a>Quotas, limits, and limitations
 
@@ -75,7 +78,7 @@ Connectivity to Microsoft online services (Microsoft 365, Azure PaaS services, a
 For more information on supported services, costs, and configuration details, see the [FAQ page](expressroute-faqs.md). For a list of connectivity providers offering Microsoft peering support, see the [ExpressRoute locations](expressroute-locations.md) page.
 
 > [!IMPORTANT]
-> If you're connecting to a service using Microsoft Peering with unlimited data, only egress data won't be charged by ExpressRoute. Egress data will still be charged for services such as compute, storage, or any other services accessed over Microsoft peering, even if the destination is a Microsoft peering public IP address.
+> For ExpressRoute circuits that use the Unlimited Data plan, ExpressRoute doesn't charge separately for inbound or outbound data transfer. When you access Azure services over Microsoft peering, charges associated with the Azure service or resource might still apply according to that service's pricing. These service-level charges are separate from ExpressRoute data-transfer charges.
 
 ## <a name="peeringcompare"></a>Peering comparison
 
@@ -83,7 +86,7 @@ The following table compares the two peerings:
 
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
-You may enable one or more routing domains as part of your ExpressRoute circuit. You can choose to have all routing domains on the same VPN or separate them into different routing domains. The recommended configuration is to connect private peering directly to the core network, and public and Microsoft peering links to your DMZ.
+You can enable one or more routing domains as part of your ExpressRoute circuit. You can have all routing domains on the same VPN or separate them into different routing domains. The recommended configuration is to connect private peering directly to the core network, and Microsoft peering links to your DMZ.
 
 Each peering requires separate BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you're connecting through layer 2 connectivity providers, you're responsible for configuring and managing routing. Learn more by reviewing the [workflows](expressroute-workflows.md) for setting up ExpressRoute.
 

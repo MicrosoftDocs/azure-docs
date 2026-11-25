@@ -3,9 +3,9 @@ title: Upload a blob with Go
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the Go client library.
 services: storage
-author: stevenmatthew
+author: schoag-msft
 
-ms.author: shaas
+ms.author: schoag
 ms.date: 03/25/2025
 ms.service: azure-blob-storage
 ms.topic: how-to

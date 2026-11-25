@@ -14,6 +14,8 @@ ms.custom: kr2b-contr-experiment
 
 # Single-tenant and multitenant authentication for Microsoft 365 users
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
  This article gives you insight into the authentication process for single-tenant and multitenant, *Microsoft Entra ID* (Microsoft Entra ID) applications. You can use authentication when you build calling experiences for Microsoft 365 users with the *Calling software development kit* (SDK) that *Azure Communication Services* makes available. Use cases in this article also break down individual authentication artifacts.
 
 ## Case 1: Example of a single-tenant application

@@ -2,8 +2,6 @@
 title: Build Real-Time Power BI Dashboards With Stream Analytics
 description: Use no code editor to compute aggregations and write to Azure Synapse Analytics and build real-time dashboards using Power BI.
 #customer intent: As a data analyst, I want to build a real-time dashboard using Power BI so that I can visualize streaming data from Azure services.
-author: xujxu
-ms.author: xujiang1
 ms.reviewer: spelluru
 ms.service: azure-stream-analytics
 ms.topic: how-to

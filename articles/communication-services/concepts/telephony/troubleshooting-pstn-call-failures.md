@@ -12,6 +12,8 @@ ms.topic: troubleshooting
 ---
 # Troubleshoot Azure Communication Services PSTN call failures
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 When you're troubleshooting Azure Communication Services PSTN call failures, we recommend that you [enable logging](../analytics/enable-logging.md). Then you can use `ResultCategories`, `ParticipantEndReason`, and `ParticipantEndSubCode` values to determine why an individual call ended and whether the system detected any failures.
 
 ## Use ResultCategories to troubleshoot failures

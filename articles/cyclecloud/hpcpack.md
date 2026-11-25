@@ -4,7 +4,7 @@ description: Learn how to configure and integrate Microsoft HPC Pack with Azure 
 author: padmalathas
 ms.date: 06/19/2026
 ms.topic: how-to
-ms.author: padmalathas
+ms.author: mattmcinnes
 monikerRange : '>= cyclecloud-8'
 ---
 

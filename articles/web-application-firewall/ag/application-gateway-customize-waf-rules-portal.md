@@ -3,7 +3,7 @@ title: Customize rules using portal
 titleSuffix: Azure Web Application Firewall
 description: This article provides information on how to customize Web Application Firewall rules in Application Gateway with the Azure portal.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 11/07/2022
@@ -12,7 +12,7 @@ ms.date: 11/07/2022
 
 # Customize Web Application Firewall rules using the Azure portal
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 The Azure Application Gateway Web Application Firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules. For more information on the specific rule groups and rules, see [List of Web Application Firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 

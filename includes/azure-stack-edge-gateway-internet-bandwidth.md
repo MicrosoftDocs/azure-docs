@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 06/02/2023
-ms.author: alkohli
+ms.author: scompton
 ---
 
 The devices are designed to continue to operate when your internet connection is slow or gets interrupted. In normal operating conditions, we recommend that  you use: 

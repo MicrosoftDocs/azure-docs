@@ -13,6 +13,8 @@ ms.author: tinglee
 # Parquet format in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Follow this article when you want to **parse the Parquet files or write the data into Parquet format**. 
 
 Parquet format is supported for the following connectors: 

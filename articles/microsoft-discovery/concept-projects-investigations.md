@@ -5,7 +5,7 @@ author: surajmb
 ms.author: surmb
 ms.service: azure
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 11/08/2026
 
 #CustomerIntent: As a researcher or scientist, I want to understand how projects and shared sessions work in Microsoft Discovery so that I can organize my scientific research effectively.
 ---
@@ -16,27 +16,35 @@ Microsoft Discovery organizes scientific research through two key concepts: **pr
 
 ## Projects
 
-A project is the organizational unit within a Microsoft Discovery workspace where you bring together agents, tools, knowledge bases, storage containers, and shared sessions into a single, access-controlled boundary. Every research activity in Microsoft Discovery happens within the context of a project.
+A project is the organizational unit within a Microsoft Discovery workspace for agents, shared sessions, and related research tasks. It references shared tools, knowledge bases, and storage containers, but the project doesn't own those resources. Project access and access to shared resources are separate authorization boundaries.
 
-### What a project contains
+### Resources a project contains and uses
 
-Projects scope access to the following resources:
+Projects contain project-owned resources and reference shared resources:
 
 | Resource | Description |
 | --- | --- |
 | **Agents** | Every project includes a default **Discovery** agent ready to use. You can also create custom prompt agents that execute specific scientific tasks. Agents declare their project affiliation at creation and can't be shared across projects. However, you can clone agents between projects using the **add existing agents** option.|
-| **Tools and knowledge bases** | Tools and knowledge bases are not directly associated to a project, however, they are used by agents within a project.
+| **Tools and knowledge bases** | Shared resources that exist outside the project scope. Users need the corresponding companion roles to view and select them while creating or updating an agent. A Project Contributor can run a pre-created agent without those reader roles. |
 | **Shared sessions** | Research sessions where you chat with agents, run analyses, and collect insights. |
-| **Storage containers** | Azure Blob Storage containers that hold input and output data for your shared sessions. |
+| **Storage containers** | Shared Microsoft Discovery resources that reference Azure Blob Storage for project inputs and outputs. They exist outside the project scope and require separate Discovery and Azure Storage role assignments. |
 
 ### Project and workspace relationship
 
-Projects exist within a [workspace](quickstart-infrastructure-portal.md#4-create-a-workspace), which provides the shared infrastructure layer:
+Projects exist within a [workspace](quickstart-infrastructure.md#4-create-a-workspace), which provides the shared infrastructure layer:
 
-- **Workspace** provides the networking, supercomputers, managed identities, and chat model deployments that all projects in the workspace share.
-- **Projects** consume workspace-level resources while maintaining their own isolated set of agents, shared sessions, and data.
+- **Workspace** provides workspace networking, managed identities, and chat model deployments, and references supercomputers used by its projects.
+- **Projects** use this infrastructure while maintaining their own agents, shared sessions, and tasks. Access to referenced storage and knowledge resources is controlled separately.
 
 This separation allows platform administrators to manage infrastructure at the workspace level while scientists work independently within their projects.
+
+### Project access boundary
+
+Each project is an Azure RBAC access boundary. A platform administrator can assign **Microsoft Discovery Project Contributor (Preview)** or **Microsoft Discovery Project Reader (Preview)** directly to a project without granting access to other projects in the workspace.
+
+Project roles cover project-owned resources such as agents, investigations, shared sessions, conversations, tasks, and Discovery Engine operations. Tools, chat model deployments, storage containers, and bookshelves are shared resources outside the project scope and require separate least-privilege role assignments.
+
+For role inheritance, supplementary roles, and security limitations, see [Project-level access control in Microsoft Discovery](concept-project-rbac.md). For assignment steps, see [Configure project-level access](how-to-configure-project-rbac.md).
 
 ### Creating a project
 
@@ -45,11 +53,13 @@ You create projects in [Microsoft Discovery Studio](https://studio.discovery.mic
 - A workspace to host it
 - A storage container for input and output data
 
-For step-by-step instructions, see [Create a project](quickstart-infrastructure-portal.md#9-create-a-project).
+For step-by-step instructions, see [Create a project](quickstart-infrastructure.md#9-create-a-project).
 
 ## Shared sessions
 
 A shared session is a research session within a project where you interact with agents through natural language conversations. Shared sessions are the primary interface for conducting AI-powered scientific research and collaboration in Microsoft Discovery.
+
+The interface uses *shared session* for this research experience. APIs and authorization descriptions also use resource names such as *investigation* and *conversation*. Preserve those names when working with the corresponding API; they aren't interchangeable resource identifiers.
 
 ### How shared sessions work
 
@@ -68,7 +78,7 @@ You create shared sessions from the **Discovery** tab within your project in Dis
 
 ## How projects and shared sessions fit in the platform
 
-The following hierarchy shows how projects and shared sessions relate to other Microsoft Discovery resources:
+The following diagram distinguishes resource-group-level resources from workspace children. The agents and shared sessions beneath a project represent project-owned data-plane resources, not additional ARM resource types.
 
 ```
 Subscription
@@ -77,28 +87,31 @@ Subscription
     │   └── Node Pools
     ├── Bookshelf
     │   └── Knowledge Bases
+    ├── Tool
+    ├── Storage Container
+    │   └── Storage Assets
     └── Workspace
         ├── Chat Model Deployments (shared across projects)
         └── Project
-            ├── Agents (prompt and workflow)
-            │   └── Knowledge Bases
-            │   └── Tools
-            ├── Storage Containers
+            ├── Agents (prompt)
+            │   └── References to approved tools and knowledge bases
             └── Shared Sessions
                 └── Conversations with agents
 ```
 
 ## Best practices
 
-- **One project per research initiative** — Scope each project to a distinct research initiative or team. This keeps agents, knowledge bases, and data isolated and manageable.
+- **One project per research initiative** — Scope each project to a distinct research initiative or team. Assign project roles and companion resource roles separately; referencing a shared storage container or knowledge base doesn't make its data project-isolated.
 - **Use descriptive shared session names** — Since shared sessions track the evolution of a research question, use names that reflect the research objective (for example, `Aspirin Synthesis` or `Molecule Screening`).
 - **Leverage workspace-level resources** — Chat model deployments and supercomputers are shared at the workspace level. You don't need to create them for each project.
 - **Plan your agent structure first** — Before creating shared sessions, set up the agents your research requires. You can create agents individually or use the default Discovery agent provided with every project.
 
 ## Related content
 
-- [Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md)
+- [Project-level access control in Microsoft Discovery](concept-project-rbac.md)
+- [Configure project-level access](how-to-configure-project-rbac.md)
+- [Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure.md)
 - [Get started with agents and shared sessions in Microsoft Discovery Studio](quickstart-agents-studio.md)
 - [Microsoft Discovery agents](concept-discovery-agent.md)
 - [Agent types in Microsoft Discovery](concept-discovery-agent-types.md)
-- [Bookshelf & Knowledge Bases](concept-bookshelf-knowledge-bases.md)
+- [Bookshelves and knowledge bases](concept-bookshelf-knowledge-bases.md)

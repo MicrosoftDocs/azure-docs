@@ -15,6 +15,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Manage domain suppression lists with Management SDKs
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include-document.md)]
 
 This article describes how to manage domain suppression lists in Azure Communication Services using the Azure Communication Services management client libraries.

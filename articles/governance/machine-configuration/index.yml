@@ -11,8 +11,8 @@ metadata:
   description: Landing page for the new Azure Machine Configuration service (formerly called Azure Policy Guest Configuration)
   ms.service: azure-machine-configuration
   ms.topic: landing-page
-  author: michaeltlombardi
-  ms.author: mlombardi
+  author: mgreenegit
+  ms.author: migreene
   ms.date: 02/01/2024
 
 landingContent:

@@ -231,6 +231,8 @@
       href: stream-analytics-job-reliability.md
     - name: Geo-redundancy
       href: geo-redundancy.md
+    - name: Move job to another region
+      href: move-across-regions.md
     - name: Encrypt your data (CMK)
       href: data-protection.md
   - name: Manage Stream Analytics clusters
@@ -296,8 +298,6 @@
       href: stream-analytics-twitter-sentiment-analysis-trends.md
     - name: Run jobs on Azure Stack
       href: on-azure-stack.md
-    - name: Toll booth sensor data analysis
-      href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
     - name: High-frequency trading
       href: stream-analytics-high-frequency-trading.md
     - name: Process IoT streaming data
@@ -680,6 +680,9 @@
               maintainContext: true
             - name: CONCAT_WS
               href: /stream-analytics-query/concat-ws-azure-stream-analytics
+              maintainContext: true
+            - name: JSON_PARSE
+              href: /stream-analytics-query/json-parse-azure-stream-analytics
               maintainContext: true
             - name: LEFT
               href: /stream-analytics-query/left-azure-stream-analytics

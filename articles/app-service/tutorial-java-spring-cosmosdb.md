@@ -2,8 +2,8 @@
 #customer intent: As a developer, I want to learn how to deploy a Spring Boot web app to Azure App Service and connect to an Cosmos DB instance with the MongoDB API.
 title: 'Tutorial: Linux Java app with MongoDB'
 description: Learn how to get a data-driven Linux Java app working in Azure App Service, with connection to a MongoDB running in Azure Cosmos DB.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/26/2026
@@ -68,7 +68,7 @@ You can quickly deploy the sample app in this tutorial and see it running in Azu
 ```bash
 mkdir msdocs-spring-boot-mongodb-sample-app
 cd msdocs-spring-boot-mongodb-sample-app
-azd init --template msdocs-spring-boot-mongodb-sample-app
+azd init --template msdocs-spring-boot-mongodb-sample-app .
 azd up
 ```
 

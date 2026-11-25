@@ -7,7 +7,7 @@ ms.date: 07/09/2025
 ms.topic: how-to
 ms.custom: references_regions
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

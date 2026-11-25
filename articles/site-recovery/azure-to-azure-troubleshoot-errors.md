@@ -3,7 +3,7 @@ title: Troubleshoot Azure VM replication in Azure Site Recovery - other issues
 description: Troubleshoot errors when replicating Azure virtual machines for disaster recovery.
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 12/09/2025
+ms.date: 09/11/2026
 author: Jeronika-MS
 ms.author: v-gajeronika 
 ms.custom:
@@ -196,7 +196,7 @@ Try to access the DNS server from the virtual machine. If the DNS server isn't a
 > [!NOTE]
 > If you use private endpoints, ensure that the VMs can resolve the private DNS records.
 
-:::image type="content" source="./media/azure-to-azure-troubleshoot-errors/custom_dns.png" alt-text="com-error.":::
+:::image type="content" source="./media/azure-to-azure-troubleshoot-errors/custom_dns.PNG" alt-text="Screenshot that shows the custom DNS configuration.":::
 
 ## Issue 2: Site Recovery configuration failed (151196)
 
@@ -306,6 +306,16 @@ This problem can occur if the virtual machine was previously protected, and when
 ### Fix the problem
 
 Delete the replica disk identified in the error message and retry the failed protection job.
+
+## Mobility service installation or upgrade fails on a Linux NVMe VM
+
+For a supported Linux VM that uses a remote NVMe disk controller, installation or upgrade requires:
+
+- The `curl` package.
+- Access to Azure Instance Metadata Service.
+- A data-disk LUN list that matches the NVMe namespace identifiers. Each expected LUN is the namespace identifier minus 2.
+
+Install `curl`, restore metadata-service access, and verify that the data-disk LUN values and disk count match before retrying the operation. Mixed SCSI and NVMe controllers aren't supported.
 
 ## Enable protection failed as the installer is unable to find the root disk (error code 151137)
 

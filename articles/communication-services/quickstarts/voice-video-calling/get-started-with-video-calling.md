@@ -14,6 +14,8 @@ ms.custom: mode-api, devx-track-js, devx-track-azurecli
 
 # QuickStart: Add 1:1 video calling to your app
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Video calling with JavaScript](./includes/video-calling/video-calling-javascript.md)]
 ::: zone-end

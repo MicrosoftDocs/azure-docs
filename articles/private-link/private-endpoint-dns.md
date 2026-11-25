@@ -7,7 +7,7 @@ ms.service: azure-private-link
 ms.custom:
   - ignite-2024
 ms.topic: concept-article
-ms.date: 05/05/2026
+ms.date: 08/11/2026
 # Customer intent: As a network administrator, I want to configure private DNS zone values for Azure services with private endpoints, so that I can ensure proper DNS resolution for secure connections within my network.
 ---
 
@@ -64,7 +64,7 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure Machine Learning workspace (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.ml.azure.ms<br/>aznbcontent.net<br/>inference.ml.azure.com |
 > | Azure Machine Learning registry (Microsoft.MachineLearningServices/registries) | amlregistry | privatelink.api.azureml.ms | api.azureml.ms |
-> | Foundry Tools (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com <br/> privatelink.services.ai.azure.com | cognitiveservices.azure.com <br/> openai.azure.com <br/> services.ai.azure.com |
+> | Foundry Tools (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com <br/> privatelink.services.ai.azure.com<sup>4</sup> | cognitiveservices.azure.com <br/> openai.azure.com <br/> services.ai.azure.com |
 > | Azure Bot Service (Microsoft.BotService/botServices) | Bot | privatelink.directline.botframework.com | directline.botframework.com |
 > | Azure Bot Service (Microsoft.BotService/botServices) | Token | privatelink.token.botframework.com | token.botframework.com |
 
@@ -77,8 +77,8 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Synapse Analytics (Microsoft.Synapse/workspaces) | SqlOnDemand | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
 > | Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Dev | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
 > | Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) | Web | privatelink.azuresynapse.net | azuresynapse.net |
-> | Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
-> | Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+> | Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net <br/> privatelink.eventhubs.azure.net<sup>5</sup> | servicebus.windows.net <br/> eventhubs.azure.net |
+> | Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net <br/> privatelink.servicebus.azure.net<sup>5</sup> | servicebus.windows.net <br/> servicebus.azure.net |
 > | Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.net | datafactory.azure.net |
 > | Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.com | adf.azure.com |
 > | Azure HDInsight (Microsoft.HDInsight/clusters) | gateway </br> headnode | privatelink.azurehdinsight.net | azurehdinsight.net |
@@ -115,13 +115,14 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.windows.net | database.windows.net |
 > | Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.windows.net | {dnsPrefix}.database.windows.net |
 > | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Sql | privatelink.documents.azure.com | documents.azure.com |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | SqlDedicated | privatelink.sqlx.cosmos.azure.com | sqlx.cosmos.azure.com |
 > | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
 > | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
 > | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
 > | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
 > | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Analytical | privatelink.analytics.cosmos.azure.com | analytics.cosmos.azure.com |
 > | Azure Cosmos DB (Microsoft.DBforPostgreSQL/serverGroupsv2) | coordinator | privatelink.postgres.cosmos.azure.com | postgres.cosmos.azure.com |
-> | Azure Cosmos DB for MongoDB - vCore (Microsoft.DocumentDB/mongoClusters) | MongoCluster | privatelink.mongocluster.cosmos.azure.com | mongocluster.cosmos.azure.com | 
+> | Azure DocumentDB (Microsoft.DocumentDB/mongoClusters) | MongoCluster | privatelink.mongocluster.cosmos.azure.com | mongocluster.cosmos.azure.com |
 > | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 > | Azure Database for PostgreSQL - Flexible server (Microsoft.DBforPostgreSQL/flexibleServers) | postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 > | Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
@@ -143,7 +144,7 @@ For Azure services, use the recommended zone names as described in the following
 > [!div class="mx-tdBreakAll"]
 > | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 > |---|---|---|---|
-> | Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+> | Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net <br/> privatelink.servicebus.azure.net<sup>5</sup> | servicebus.windows.net <br/> servicebus.azure.net |
 > | Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 > | Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 > | Azure Event Grid (Microsoft.EventGrid/namespaces) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
@@ -214,7 +215,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.net | afs.azure.net |
 > | Azure Managed Disks (Microsoft.Compute/diskAccesses) | disks | privatelink.blob.core.windows.net | blob.core.windows.net |
 > | Azure Elastic SAN (Microsoft.ElasticSan/elasticSans) | volumegroup | privatelink.blob.core.windows.net | blob.storage.azure.net |
-> | Azure Files (Microsoft.FileShares/fileShares) | FileShare | privatelink.file.core.windows.net | file.core.windows.net |
+> | Azure Files (Microsoft.FileShares/fileShares) | FileShare | privatelink.file.core.windows.net | file.storage.azure.net |
 
 ### Web
 
@@ -235,6 +236,10 @@ For Azure services, use the recommended zone names as described in the following
 
 <sup>3</sup>To use with the Kudu console or Kudu REST API, you must create two DNS records that point to the private endpoint IP address in your Azure DNS private zone `privatelink.azurewebsites.net` or custom DNS server. The first record is for your app. The second record is for source control management (SCM) for your app. If you use private DNS zones in Azure, don't deploy this as an additional zone.
 
+<sup>4</sup>For Foundry Tools, use the private DNS zone that corresponds to each public endpoint suffix: `privatelink.cognitiveservices.azure.com` for `cognitiveservices.azure.com`, `privatelink.openai.azure.com` for `openai.azure.com`, and `privatelink.services.ai.azure.com` for `services.ai.azure.com`. A Foundry resource can expose all three endpoints. Configure DNS for each endpoint that your workload uses.
+
+<sup>5</sup>For Event Hubs and Service Bus partitioned DNS, configure the zones required by your namespace's private link resources API and retain legacy DNS configuration while clients use legacy endpoints. Partitioned DNS applicability depends on the rollout phase and namespace configuration. See [Partitioned DNS for Azure Event Hubs and Azure Service Bus](../event-hubs/partitioned-dns.md).
+
 > [!Note]
 > In the above text, **`{regionCode}`** refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
 >
@@ -252,6 +257,7 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Foundry Tools (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.us | cognitiveservices.azure.us |
 > | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net <br/> instances.ml.azure.us<br/>aznbcontent.net <br/> inference.ml.azure.us |
+> | Microsoft Power BI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | tenant | privatelink.analysis.usgovcloudapi.net </br> privatelink.pbidedicated.usgovcloudapi.net | analysis.usgovcloudapi.net </br> pbidedicated.usgovcloudapi.net |
 
 ### Analytics
 
@@ -283,6 +289,7 @@ For Azure services, use the recommended zone names as described in the following
 > [!div class="mx-tdBreakAll"]
 > | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 > |---|---|---|---|
+> | Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) | management | privatelink.{regionName}.azmk8s.io </br> {subzone}.privatelink.{regionName}.azmk8s.io | {regionName}.azmk8s.io |
 > | Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.us </br> {regionName}.privatelink.azurecr.us | azurecr.us </br> {regionName}.azurecr.us |
 
 ### Databases
@@ -318,6 +325,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
 > | Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.us | eventgrid.azure.us |
 > | Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.us | eventgrid.azure.us |
+> | Azure API Management (Microsoft.ApiManagement/service) | Gateway | privatelink.azure-api.us | azure-api.us |
 > | Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.us </br> privatelink.fhir.azurehealthcareapis.us </br> privatelink.dicom.azurehealthcareapis.us | workspace.azurehealthcareapis.us </br> fhir.azurehealthcareapis.us </br> dicom.azurehealthcareapis.us |
 
 ### Internet of Things (IoT)
@@ -375,7 +383,7 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.azure.us | search.azure.us |
 > | Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
-> | Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us<sup>2</sup> | azurewebsites.us </br> scm.azurewebsites.us |
+> | Azure Web Apps / Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us<sup>2</sup> | azurewebsites.us </br> scm.azurewebsites.us |
 > | Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
 
 <sup>1</sup>To use with the IoT Hub built-in Event Hubs-compatible endpoint. For more information, see [IoT Hub support for virtual networks with Azure Private Link](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint).

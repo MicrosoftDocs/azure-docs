@@ -132,7 +132,7 @@
       href: quickstart-resource-manager.md
   - name: .NET App in Visual Studio
     href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
-- name: Understand basics
+- name: Configuration management
   items:
   - name: Keys and values
     items:
@@ -178,12 +178,6 @@
         href: enable-dynamic-configuration-dotnet-core-push-refresh.md
       - name: Java Spring
         href: enable-dynamic-configuration-java-spring-push-refresh.md
-  - name: Soft delete
-    items:
-    - name: Overview
-      href: concept-soft-delete.md
-    - name: Recover or purge deleted stores
-      href: howto-recover-deleted-stores-in-azure-app-configuration.md
 - name: AI configuration
   items:
   - name: Overview
@@ -274,6 +268,12 @@
       href: howto-telemetry-python.md
     - name: JavaScript
       href: howto-telemetry-javascript.md
+  - name: View feature flag events
+    href: howto-telemetry-review-results.md
+  - name: Analyze the impact of feature flags
+    href: howto-metric-scorecards.md
+  - name: Enhanced feature flags
+    href: concept-enhanced-feature-flags.md
 
 - name: Hyperscale configuration
   items:
@@ -305,6 +305,12 @@
     href: monitor-app-configuration.md
 - name: Resource management
   items:
+  - name: Soft delete
+    items:
+    - name: Overview
+      href: concept-soft-delete.md
+    - name: Recover or purge deleted stores
+      href: howto-recover-deleted-stores-in-azure-app-configuration.md
   - name: Move a resource between Azure regions
     href: howto-move-resource-between-regions.md
   - name: Move a resource between subscriptions or resource groups
@@ -313,6 +319,8 @@
     href: concept-preview-api-life-cycle.md
 - name: Security
   items:
+  - name: Secure your Azure App Configuration
+    href: secure-azure-app-configuration.md
   - name: Authentication
     items:
     - name: Microsoft Entra ID
@@ -345,8 +353,6 @@
       href: concept-customer-managed-keys.md
   - name: Azure Policies
     href: ./security-controls-policy.md
-  - name: Security baselines
-    href: /security/benchmark/azure/baselines/azure-app-configuration-security-baseline?toc=/azure/azure-app-configuration/TOC.json
 - name: Reliability
   items:
   - name: Geo-replication
@@ -391,12 +397,16 @@
           href: ./rest-api-keys.md
         - name: Key-values
           href: ./rest-api-key-value.md
+        - name: Enhanced feature flags
+          href: ./rest-api-enhanced-feature-flag.md
         - name: Labels
           href: ./rest-api-labels.md
         - name: Locks
           href: ./rest-api-locks.md
-        - name: Revisions
+        - name: Key-value revisions
           href: ./rest-api-revisions.md
+        - name: Enhanced feature flag revisions
+          href: ./rest-api-enhanced-feature-flag-revisions.md
         - name: Snapshots
           href: ./rest-api-snapshot.md
       - name: Protocol
@@ -538,14 +548,6 @@
     href: ./client-library-support-policy.md
   - name: Videos
     items:
-    - name: Getting started with App Configuration
-      href: /Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
-    - name: Making centralized configuration easy
-      href: /Events/dotnetConf/NET-Conf-2019/B210
-    - name: Azure App Configuration on Cloud Native Show
-      href: https://www.youtube.com/watch?v=DJqmA5PcfzE
-    - name: Rolling out new features
-      href: /Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
     - name: Three reasons to use configuration snapshots
       href: https://aka.ms/appconfig/snapshotVideo
     - name: Five things you might not know about Azure App Configuration

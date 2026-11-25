@@ -2,10 +2,10 @@
 title: Manage Customer-Managed Keys - Azure Elastic SAN
 description: Learn how to manage customer-managed keys for Azure Elastic SAN, allowing you to control all aspects of your encryption keys.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/13/2026
-ms.author: rogarana
+ms.author: normesta
 ms.reviewer: jaylansdaal
 ms.custom: references_regions
 # Customer intent: As an IT administrator, I want to manage customer-managed keys for Azure Elastic SAN, so that I can control encryption key access and comply with security regulations and compliance mandates.

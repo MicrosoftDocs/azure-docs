@@ -2,10 +2,10 @@
 title: 'Quickstart: Create an Azure Firewall with multiple public IP addresses - Bicep'
 description: In this quickstart, you learn how to use a Bicep file to create an Azure Firewall with multiple public IP addresses.
 author: mumian
-ms.author: jgao
+ms.author: ashishj
 ms.service: azure-firewall
 ms.topic: quickstart
-ms.date: 03/29/2026
+ms.date: 10/14/2026
 ms.custom:
   - subject-armqs
   - mode-arm
@@ -16,7 +16,10 @@ ms.custom:
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - Bicep
 
-In this quickstart, use a Bicep file to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+In this quickstart, use a Bicep file to deploy an Azure Firewall with multiple public IP addresses. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+
+> [!NOTE]
+> Azure Firewall doesn't support attaching a public IP prefix itself, but it can use individual Standard SKU public IP addresses provisioned from a public IP prefix. You can associate up to 250 public IP addresses with a firewall in a virtual network.
 
 :::image type="content" source="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png" alt-text="Diagram showing the network configuration for this quickstart." lightbox="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png":::
 

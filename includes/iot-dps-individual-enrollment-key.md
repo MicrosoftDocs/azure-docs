@@ -3,7 +3,7 @@ author: sethmanheim
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 10/14/2025
-ms.author: sethm
+ms.author: dimatokar
 ms.subservice: azure-iot-hub-dps
 ---
 
@@ -46,6 +46,10 @@ ms.subservice: azure-iot-hub-dps
    | **Desired properties** | Use this text box to provide any desired properties that you want to apply to the device twin of the provisioned device. |
 
    For more information, see [Understand and use device twins in IoT Hub](../articles/iot-hub/iot-hub-devguide-device-twins.md).
+
+1. (Optional) Under **Certificate policies**, select your intermediate certificate authority and then select your certificate policy.
+
+   To use this option, your DPS instance must be linked to an Azure Device Registry namespace with an intermediate certificate authority and a certificate policy. For setup instructions, see [Set up a managed root and intermediate CA](../articles/iot/how-to-create-policy.md) and [Create or edit a certificate policy](../articles/iot/how-to-create-edit-certificate-policy.md). Devices use the issued certificates to authenticate with IoT Hub. The enrollment's onboarding attestation settings remain unchanged.
 
 1. Select **Next: Review + create**.
 

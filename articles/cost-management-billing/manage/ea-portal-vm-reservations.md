@@ -6,7 +6,7 @@ ms.author: v-salin
 ms.date: 04/20/2026
 ms.topic: concept-article
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.reviewer: anjai
 service.tree.id: 9aca7c0a-9d64-4346-a8f6-50141d9c9d5c
 ---

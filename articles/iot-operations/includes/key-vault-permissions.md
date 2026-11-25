@@ -29,4 +29,4 @@ In a test or development environment, use the following steps to assign the **Ke
 
 1. Select **Review + assign** to complete the role assignment.
 
-In a production environment, follow best practices to secure the Azure Key Vault you use with Azure IoT Operations. For more information, see [Best practices for using Azure Key Vault](/azure/key-vault/general/best-practices).
+In a production environment, follow best practices to secure the Azure Key Vault you use with Azure IoT Operations. For more information, see [Best practices for using Azure Key Vault](/azure/key-vault/general/best-practices). Ensure that your key vault has **Azure role-based access control** as its permission model.

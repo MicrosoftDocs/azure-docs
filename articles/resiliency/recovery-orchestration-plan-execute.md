@@ -2,29 +2,30 @@
 title: Execute failover and reprotect operations in Recovery Orchestration Plan in Resiliency
 description: Learn how to execute failover, reprotect resources, and run on-demand readiness checks in Azure Recovery Orchestration Plan.
 ms.topic: how-to
-ms.date: 06/02/2026
+ms.date: 10/26/2026
 ms.service: resiliency
 author: shsangal
 ms.author: shsangal
 # Customer intent: "As a cloud administrator, I want to execute failover and reprotect operations using a Recovery Orchestration Plan so that I can recover my application during a zonal outage."
 ---
 
-# Execute failover and reprotect operation using Recovery Orchestration Plan (preview)
+# Execute failover and reprotect operations by using a Recovery Orchestration Plan
 
-This article describes how to execute failover, reprotect resources after failover, and run on-demand readiness checks in your Recovery Orchestration Plan (preview).
+This article describes how to execute failover, reprotect resources after failover, and run on-demand readiness checks in your Recovery Orchestration Plan.
 
 ## Prerequisites
 
 Before you execute failover and reprotect operations, review the following prerequisites:
 
-- Check if a **Recovery Orchestration Plan** in **Ready** or **Warning** status.
+- [Enroll the service group in a usage plan](infrastructure-resiliency-manager-pricing.md#enroll-a-service-group-in-a-usage-plan). The usage plan identifies the Azure subscription to charge for the service group's usage of paid capabilities. Usage plans don't have tiers. For charge eligibility and hourly proration, see [Billing and pricing](infrastructure-resiliency-manager-pricing.md#when-a-service-group-is-billed).
+- Check if a **Recovery Orchestration Plan** is in **Ready** or **Warning** status.
 - Verify that at least one resource included in the plan has no **Needs Attention** status.
 - Ensure that the Azure Resilience Management Recovery Contributor or Azure Resilience Management Recovery Administrator role is assigned.
-- Ensure that resources protected using Azure Site Recovery have healthy replication status.
+- Ensure that resources protected by using Azure Site Recovery have healthy replication status.
 
 ## Execute failover
 
-Perform a zonal failover operation to recover your application resources from the affected zone.
+Perform a zone failover operation to recover your application resources from the affected zone.
 
 To execute a failover operation, follow these steps:
 
@@ -41,7 +42,7 @@ To execute a failover operation, follow these steps:
 1. Select the confirmation checkbox: **I understand and agree to perform operations on only the qualified resources.**
 1. Select **Execute** to start the failover.
 
-### Resources Failover Qualification
+### Resources failover qualification
 
 A resource qualifies for failover if it meets all of the following criteria:
 
@@ -51,12 +52,12 @@ A resource qualifies for failover if it meets all of the following criteria:
 - Doesn't have a **Needs Attention** status.
 - Has valid recovery points available for failover.
 
-The following table lists the common reasons for which resource might be skipped from failover execution:
+The following table lists the common reasons why a resource might be skipped during failover execution:
 
 | Skip reason | Description |
 |---|---|
 | Resource not in the plan | The resource is excluded or not yet included. |
-| Resource is Highly Available | HA resources handle failover automatically. |
+| Resource is highly available | HA resources handle failover automatically. |
 | Resource not protected | No protection solution is configured. |
 | Resource needs attention | The resource has an unresolved Needs Attention code. |
 | Resource not in the active location | The resource isn't in the selected region. |
@@ -68,7 +69,7 @@ The following table lists the common reasons for which resource might be skipped
 After failover starts, the following actions and behaviors define how resources and tasks execute during the failover process:
 
 - Resources fail over in the order defined by your groups. Group 1 resources must all complete before Group 2 begins.
-- Resources within the same group failover in parallel.
+- Resources within the same group fail over in parallel.
 - **Prescripts** execute before the group's resources begin failover. **Post-scripts** execute after all resources in the group complete.
 - **Manual actions** pause the failover job. To view the manual step instructions, complete the required action, and resume the failover, go to the Recovery Plan execution pane.
 
@@ -77,7 +78,7 @@ After failover starts, the following actions and behaviors define how resources 
 
 ## Reprotect resources after failover
 
-After failover completes, reprotect your resources to resume active replication and restore protection against future zone failures. Complete reprotect at the earliest to minimize the duration of unprotected state. If a resource isn’t qualified for reprotect, verify that failover succeeds and add the resource back to the plan.
+After failover completes, reprotect your resources to resume active replication and restore protection against future zone failures. Complete reprotect at the earliest to minimize the duration of unprotected state. If a resource isn't qualified for reprotect, verify that failover succeeds and add the resource back to the plan.
 
 To reprotect resources, follow these steps:
 
@@ -91,7 +92,7 @@ To reprotect resources, follow these steps:
 
 Readiness checks run automatically every 24 hours to assess the recovery readiness of your application. The following validations occur during the readiness check:
 
-- **Application Modification check**: Detects if new resource is added to or removed from the Service Group since the last check. Newly added resources appear with "State not selected" inclusion state (or are automatically excluded if HA-protected).
+- **Application Modification check**: Detects if new resources are added to or removed from the Service Group since the last check. Newly added resources appear with "State not selected" inclusion state (or are automatically excluded if HA-protected).
 - **Protection health check**: Validates the protection solution and health status for each resource. If a resource's protection health is degraded or the protection solution changed, the resource is marked with an appropriate **Needs Attention** reason.
 
 To run an on-demand readiness check, follow these steps:
@@ -104,4 +105,4 @@ After the readiness check completes, to review any new **Needs Attention** items
 
 ## Related content
 
-- [Create and configure a Recovery Orchestration Plan (preview)](recovery-orchestration-plan-create-configure.md).
+- [Create and configure a Recovery Orchestration Plan](recovery-orchestration-plan-create-configure.md).

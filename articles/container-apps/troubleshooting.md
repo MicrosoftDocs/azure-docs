@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/31/2026
+ms.date: 10/09/2026
 ms.author: cshoe
 ms.custom:
 ---
@@ -21,10 +21,12 @@ The following table lists issues you might encounter while using Azure Container
 | Scenario | Description | Actions |
 |--|--|--|
 | All scenarios | | [View logs](#view-logs)<br><br>[Use Diagnose and solve problems](#use-the-diagnose-and-solve-problems-tool) |
+| Environment creation fails with a capacity error | The selected region has limited capacity for a new environment. | [Troubleshoot environment capacity errors](troubleshoot-environment-capacity.md) |
 | Error deploying new revision | You receive an error message when you try to deploy a new revision. | [Verify Container Apps can pull your container image](#verify-accessibility-of-container-image) |
 | Provisioning takes too long | After you deploy a new revision, the new revision has a *Provision status* of *Provisioning* and a *Running status* of *Processing* indefinitely. | [Verify health probes are configured correctly](#verify-health-probes-configuration) |
 | Revision is degraded | A new revision takes more than 10 minutes to provision. It finally has a *Provision status* of *Provisioned*, but a *Running status* of *Degraded*. The *Running status* tooltip reads `Details: Deployment Progress Deadline Exceeded. 0/1 replicas ready.` | [Verify health probes are configured correctly](#verify-health-probes-configuration) |
 | Requests to endpoints fail | The container app endpoint doesn't respond to requests. | [Review ingress configuration](#review-ingress-configuration) |
+| TCP endpoints time out despite healthy replicas | Apps are successfully provisioned and have ready revisions and running replicas, but some external TCP ports are unreachable. | [Check environment TCP port capacity](#tcp-endpoints-time-out-despite-healthy-replicas) |
 | Requests return status 403 | The container app endpoint responds to requests with HTTP error 403 (access denied). |  [Verify networking configuration is correct](#verify-networking-configuration) |
 | Responses not as expected | The container app endpoint responds to requests, but the responses aren't as expected. | [Verify traffic is routed to the correct revision](#verify-traffic-is-routed-to-the-correct-revision)<br><br>[Verify you're using unique tags when deploying images to the container registry](/azure/container-registry/container-registry-image-tag-version) |
 | Missing parameters error | You receive error messages about missing parameters when you run `az containerapp` commands in the Azure CLI, or run cmdlets from the `Az.App` module in Azure PowerShell. | [Verify latest version of Azure Container Apps extension is installed](#verify-latest-version-of-azure-container-apps-extension-is-installed) |
@@ -91,6 +93,7 @@ Your container app's ingress settings are enforced through a set of rules that c
 |--|--|
 | Is ingress enabled? | Verify the **Enabled** checkbox is checked. |
 | Do you want to allow external ingress? | Verify that **Ingress Traffic** is set to **Accepting traffic from anywhere**. If your container app doesn't listen for HTTP traffic, set **Ingress Traffic** to **Limited to Container Apps Environment**. |
+| Do clients in your virtual network receive HTTP 404 responses? | If your app runs in an internal environment, verify that **Ingress Traffic** is set to **Accepting traffic from anywhere**. See [Requests from the virtual network return HTTP 404](#requests-from-the-virtual-network-return-http-404). |
 | Does your client use HTTP or TCP to access your container app? | Verify **Ingress type** is set to the correct protocol (**HTTP** or **TCP**). |
 | Does your client support mTLS? | Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [configure client certificate authentication.](./client-certificate-authorization.md) |
 | Does your client use HTTP/1 or HTTP/2? | Verify **Transport** is set to the correct HTTP version (**HTTP/1** or **HTTP/2**). |
@@ -98,6 +101,32 @@ Your container app's ingress settings are enforced through a set of rules that c
 | Is your client IP address denied? | If **IP Security Restrictions Mode** isn't set to **Allow all traffic**, verify your client doesn't have an IP address that is denied. |
 
 For more information, see [Ingress in Azure Container Apps](./ingress-overview.md).
+
+### Requests from the virtual network return HTTP 404
+
+If your container app runs in an internal environment, you might see the following combination of symptoms:
+
+- The app's revision is healthy, and its replicas are running.
+- A client in the virtual network resolves the app's fully qualified domain name (FQDN) successfully, and the TLS handshake succeeds.
+- Every request returns an HTTP 404 response with the message `Container App is stopped or does not exist`, regardless of the request path.
+- The same behavior applies to every app in the environment, including a newly created app that uses a known-good container image.
+
+These symptoms typically indicate that the app's ingress is set to **Limited to Container Apps Environment** rather than a networking, DNS, or application problem. On an internal environment, that setting limits the app to other container apps in the same environment, so requests from elsewhere in the virtual network are rejected.
+
+To make the app reachable from your virtual network, set its ingress to **Accepting traffic from anywhere**. On an internal environment, this setting doesn't expose the app to the public internet, because the environment has no public endpoint.
+
+```azurecli
+az containerapp ingress update \
+    --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --type external
+```
+
+For more information, see [How ingress visibility interacts with the environment type](./ingress-overview.md#how-ingress-visibility-interacts-with-the-environment-type).
+
+### TCP endpoints time out despite healthy replicas
+
+TCP connections can time out despite healthy replicas when the environment's managed load balancer can't add the required TCP port rules. Plan for a theoretical maximum of 290 externally exposed custom TCP ports per environment, counting main and additional ports across all apps. Reduce exposed ports or distribute apps across environments. See [Additional TCP ports](./ingress-overview.md#additional-tcp-ports).
 
 ## Verify networking configuration
 

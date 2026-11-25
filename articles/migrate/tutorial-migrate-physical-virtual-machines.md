@@ -1,13 +1,14 @@
 ---
-title: Migrate machines as physical servers to Azure with Azure Migrate and Modernize
-description: This article describes how to migrate physical machines to Azure with Azure Migrate and Modernize.
+title: Migrate machines as physical servers to Azure with Azure Catalyst
+description: This article describes how to migrate physical machines to Azure with Azure Catalyst.
 author: dhananjayanr98
 ms.author: dhananjayanr
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.date: 08/26/2025
+ms.update-cycle: 365-days
 ms.custom: MVC, engagement-fy25
 
 # Customer intent: "As an IT administrator planning a cloud migration, I want to migrate physical servers to Azure using a replication appliance, so that I can leverage cloud resources for improved efficiency and scalability."
@@ -27,8 +28,8 @@ This article shows you how to migrate machines as physical servers to Azure by u
  In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare Azure with required permissions to use Azure Migrate.
-> * Check requirements for machines you want to migrate. Prepare a machine for the Azure Migrate and Modernize replication appliance that's used to discover and migrate machines to Azure.
+> * Prepare Azure with required permissions to use Azure Catalyst.
+> * Check requirements for machines you want to migrate. Prepare a machine for the Azure Catalyst replication appliance that's used to discover and migrate machines to Azure.
 > * Set up the replication appliance.
 > * Install the Mobility service on machines you want to migrate.
 > * Start migration execution.
@@ -37,7 +38,7 @@ This article shows you how to migrate machines as physical servers to Azure by u
 > * Run a full VM migration.
 
 > [!NOTE]
-> Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof of concept. Tutorials use default options where possible and don't show all possible settings and paths. For detailed instructions, review the how-to articles for Azure Migrate and Modernize.
+> Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof of concept. Tutorials use default options where possible and don't show all possible settings and paths. For detailed instructions, review the how-to articles for Azure Catalyst.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
@@ -51,7 +52,7 @@ Before you begin:
 1. Verify permissions for your Azure account. You need permissions to:
     - Create a VM.
     - Write to an Azure managed disk.
-5.  For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
+5.  For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Catalyst](prepare-azure-accounts.md).
 6.  Assign permissions to register the Replication Appliance in Microsoft Entra ID. For more information, see [required permissions](../site-recovery/deploy-vmware-azure-replication-appliance-modernized.md#required-permissions).
 
 Also,
@@ -62,7 +63,7 @@ Also,
 [!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 > [!NOTE]
-> If you're planning to upgrade your Windows operating system, Azure Migrate and Modernize might download the Windows SetupDiag utility for error details in case upgrade fails. Ensure that the VM created in Azure after the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). If there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
+> If you're planning to upgrade your Windows operating system, Azure Catalyst might download the Windows SetupDiag utility for error details in case upgrade fails. Ensure that the VM created in Azure after the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). If there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
 
 ### Create an Azure network
 
@@ -76,7 +77,7 @@ Also,
 To prepare for migrating physical servers,  ensure that you:
 
 - **Check machine requirements**: Verify that your source machines are supported for physical server migration.
--  **Set up a replication appliance**: Physical server migrations require a separate replication appliance to execute agent-based migrations. You can’t use the Azure Migrate appliance created for discovery to execute physical server migrations.
+-  **Set up a replication appliance**: Physical server migrations require a separate replication appliance to execute agent-based migrations. You can’t use the Azure Catalyst appliance created for discovery to execute physical server migrations.
 
 ### Check machine requirements for migration
 
@@ -89,7 +90,7 @@ Make sure machines comply with requirements for migration to Azure.
 1. Verify that on-premises machines that you replicate to Azure comply with [Azure VM requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 1. Some changes are needed on VMs before you migrate them to Azure:
 
-    - For some operating systems, Azure Migrate and Modernize makes these changes automatically.
+    - For some operating systems, Azure Catalyst makes these changes automatically.
     - Make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
@@ -100,27 +101,21 @@ The Azure Site Recovery Replication appliance is used to replicate machines to A
 To set up a new appliance, you can use PowerShell installer script. Ensure you meet the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. 
 
 > [!NOTE]
-> The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before.
+> The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Catalyst: Discovery and assessment appliance you might have installed before.
 
 ## Set up the replication appliance
 
-> [!IMPORTANT]
-> The classic replication appliance retires on September 30, 2026.
->  - The final recovery point for existing replications is May 31, 2026.
->  - Migration support for these replications continues until September 30, 2026.
->  - You must use the simplified appliance for all new agent-based migrations.
+This section describes how to download and use the PowerShell installer script to set up the replication appliance.
 
-This section describes how to download and use the PowerShell installer script to set up the simplified appliance.
-
-1. In the Azure Migrate project > **Execute** > **Migration**, select **Start execution**.
+1. In the Azure Catalyst project, go to **Manage** > **Server replication**, and select **Start replication**.
    
-1. On **Specify intent**, under **What do you want to migrate**, select **Servers** or **virtual machines (VMs)**. Under **Where do you want to migrate to**, select **Azure VM**.
+2. On **Specify intent**, under **What do you want to migrate**, select **Servers** or **virtual machines (VMs)**. Under **Where do you want to migrate to**, select **Azure VM**.
    
-1. In **How will you select workloads**, under **Other sources**, select **From replication appliance (Physical or Others)**. Select the link available in the page to start the setup.
-1. In the setup page, the virtualization type is prepopulated based on the selection you made in the previous step (Physical).
-1. In **Target region**, select the Azure region to which you want to migrate the machines.
-1. Select **Confirm that the target region for migration is ``region-name``**.
-1. Select **Create resources**. This action creates an Azure Site Recovery vault in the background.
+3. In **How will you select workloads**, under **Other sources**, select **From replication appliance (Physical or Others)**. Select the link available in the page to start the setup.
+4. In the setup page, the virtualization type is prepopulated based on the selection you made in the previous step (Physical).
+5. In **Target region**, select the Azure region where you want to migrate the machines.
+6. Select **Confirm that the target region for migration is ``region-name``**.
+7. Select **Create resources**. This action creates an Azure Site Recovery vault in the background.
     > [!NOTE]
     > You can't change the target region for this project after selecting the **Create resources** button, and all subsequent migrations go to this region.
 
@@ -176,7 +171,7 @@ Use the following steps to register the appliance:
 
    > [!Note]
    > The name can't be changed once set.
-1. **Azure Migrate replication appliance key**: Copy the key from the portal's discovery screen.
+1. **Azure Catalyst replication appliance key**: Copy the key from the portal's discovery screen.
     
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/generate-key.png" alt-text="Screenshot shows the generated key":::.
 
@@ -194,29 +189,17 @@ Use the following steps to register the appliance:
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Screenshot shows how to register with recovery services":::.
 
-1. After successful registration, proceed to configure **vCenter** details.
+1. After successful registration, proceed to configure physical server details. Expand **Provide Physical Server Details** to add information about any physical servers you plan to migrate.
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Screenshot shows how to provide vcenter information":::.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text=" Screenshot provides physical server details":::.
 
-1. Select **Add vCenter Server** to input the vCenter information.
-1. Enter the server name or IP address of the vCenter, including the port number and then provide the username, password, and a friendly name.
-This information is used to retrieve details about the virtual machines managed through the vCenter. The user account details are encrypted and stored locally on the machine. [Learn more](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md).
-
-    > [!Note]
-    > If you're adding the same vCenter Server to multiple appliances, ensure that the same friendly name is used across all appliances.
-
-1. After successfully saving the vCenter information, select **Add Virtual Machine** credentials to provide user details for the VMs discovered through the vCenter.
+1. Select **Add Credentials** to add the credentials of the machines you plan to protect. Provide all necessary details, such as the **Operating System**, a friendly name for the credential, **username**, and **Password**. The user account details are encrypted and stored locally on the machine.
 
      > [!Note]
      > * For Linux OS, ensure to provide root credentials.
      > * For Windows OS, a user account with admin privileges should be added. These credentials are used to push the installation of the mobility agent onto the source VM during the enable replication operation. The credentials can be chosen per VM in the Azure portal during the enable replication workflow.
      > * Visit the **Appliance Configurator** to edit or add credentials to access your machines.
-
-1. After adding the vCenter details, expand **Provide Physical Server Details** to add information about any physical servers you plan to protect.
-
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text=" Screenshot provides physical server details":::.
-
-1. Select **Add Credentials** to add the credentials of the machine(s) you plan to protect. Provide all necessary details, such as the **Operating System**, a friendly name for the credential, **username**, and **Password**. The user account details are encrypted and stored locally on the machine.
+     
 1. Finally, select **Add**.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-credentials.png" alt-text="Screenshot shows how to add physical server credentials":::.
@@ -233,7 +216,7 @@ When you enable replication for VMware virtual machines and physical servers, th
 You can install the Mobility service using the Mobility service agent software. The following methods are available for deployment:
 
 - [Push installation](../site-recovery/vmware-physical-mobility-service-overview.md#push-installation): When protection is enabled via the Azure portal, Site Recovery installs the Mobility service on the server.
-- Manual installation: You can install the Mobility service manually on each machine through the [user interface (UI)](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) or [command prompt](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-modernized).
+- Manual installation: You can install the Mobility service manually on each machine through the [user interface (UI)](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) or [command prompt](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt).
 - [Automated deployment](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md): You can automate the Mobility service installation with software deployment tools such as Configuration Manager.
   
  [Learn more](../site-recovery/vmware-physical-mobility-service-overview.md) about mobility service agent installation.
@@ -243,23 +226,23 @@ You can install the Mobility service using the Mobility service agent software. 
 > [!NOTE]
 > In the portal you can select up to 10 machines at once for replication. If you need to replicate more, then group them in batches of 10.
 
-1. In the Azure Migrate project > **Execute** > **Migration**, select **Start execution**.
+1. In the Azure Catalyst project, go to **Manage** > **Server replication**, and select **Start replication**.
 
 2. On the Specify intent page, under **What do you want to migrate**, select Servers or virtual machines (VMs). Under **Where do you want to migrate to**, select Azure VM.
 
 3. Under **How will you select workloads**, select one of the following options:
-     - If you have an existing Azure Migrate appliance, select one of the following options and proceed to **Discovery method**.
+     - If you have an existing Azure Catalyst appliance, select one of the following options and proceed to **Discovery method**.
          - **From all inventory** to manually select servers.
          - **From an assessment** to use an existing assessment.
-     - If you don't have an existing Azure Migrate appliance (required for assessments, wave planning, and other planning capabilities) and want to directly execute agent-based migrations, select **From a replication appliance (Physical or others)**. If you completed the replication appliance setup, you can proceed
+     - If you don't have an existing Azure Catalyst appliance (required for assessments, wave planning, and other planning capabilities) and want to directly execute agent-based migrations, select **From a replication appliance (Physical or others)**. If you completed the replication appliance setup, you can proceed
        to **Workloads**. Otherwise, complete the setup as per the steps provided in the previous section.
 
 4. In **Discovery method**, select the appliance that matches your source environment (Physical) and then select **Next**.
 
 5.  In **Workloads**:
-     - Select the **Target VM security type**:
-         - Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
-         - You can also migrate eligible machines to Confidential virtual machines (Preview). [Learn more](../confidential-computing/confidential-vm-overview.md). If **Confidential virtual machines** is selected, only the eligible servers are available for selection and the rest are grayed out.
+    - Select the **Target VM security type**.
+        - Azure Catalyst supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
+        - You can also migrate eligible machines to Confidential virtual machines [Learn more](../confidential-computing/confidential-vm-overview.md). If you select **Confidential virtual machines**, only eligible servers are available for selection and the rest are greyed out. Refer [CVM support matrix](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines).
      - Select the replication appliance you set up from the drop-down menu or set up a new replication appliance by referring to the steps provided in the previous section.
          - In **Guest credentials**, specify the VM admin account that you use for push installation of the Mobility service.
      - Then, select **Next** after selecting the VMs you want to replicate.
@@ -268,7 +251,7 @@ You can install the Mobility service using the Mobility service agent software. 
      - **Storage account**: Keep the default option to use the cache storage account that the portal automatically creates for the project. To use a different storage account for replication, select it from the drop-down list.
     
    > [!NOTE]
-   > - If you use private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
+   > - If you use private endpoint as the connectivity method for the Azure Catalyst project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1)
    
     - **Azure Hybrid Benefit**: Apply Azure Hybrid Benefit and save up to 76% vs. pay-as-you-go costs by using an eligible Windows Server and/or Enterprise Linux license. Check the boxes applicable to your license (Windows Server license or Enterprise Linux license).
@@ -278,18 +261,24 @@ You can install the Mobility service using the Mobility service agent software. 
          - **Availability Set** places the migrated machine in an Availability Set. The selected target resource group must contain one or more availability sets.
          - **No infrastructure redundancy required**– Select this option if you don't require Availability Zones or Availability Sets for the migrated machines.
         
-   -  In **Security Details**,
-         - If the target security type selected is **Standard or Trusted Launch virtual machines**:
+    -  In **Security Details**,
+         - If the selected target security type is **Standard or Trusted Launch virtual machines**:
             - **Secure boot** is enabled by default (recommended). You can choose to remove this option. Then, proceed to **Disk encryption type** selection.
-         - If the target security type selected is **Confidential virtual machines**:
-            - You can optionally choose to confidentially encrypt the OS disks. This encryption provides an additional layer of encryption that binds the disk encryption keys to the virtual machine's TPM and makes the disk content accessible only to the VM.
-            - To enable this encryption, check the **Confidential compute encryption** option and proceed to **OS disk encryption type** selection. Otherwise, proceed to **Disk encryption type** selection.
-            - **OS disk encryption type**, select:
-               - Encryption at rest with platform-managed key (Default, if you didn't select **Confidential compute encryption**)
-               - Confidential encryption with platform-managed key (Available, if you selected **Confidential compute encryption**)
-               - Confidential encryption with customer-managed key (Available, if you selected **Confidential compute encryption**)
+         - If the selected target security type is **Confidential virtual machines**:
+            - You can optionally choose to confidentially encrypt the OS disks. This encryption provides an additional layer of encryption that binds the disk encryption keys to the
+              virtual machine's TPM and makes the disk content accessible only to the VM.
+            - To enable this encryption, select the **Confidential compute encryption** option and proceed to **OS disk encryption type** selection. Otherwise, proceed to **Disk
+              encryption type** selection.
+            - Under **OS disk encryption type**, select one of the following options:
+               - Encryption at rest with platform-managed key (default, if you didn't select **Confidential compute encryption**)
+               - Confidential encryption with platform-managed key (available, if you selected **Confidential compute encryption**)
+               - Confidential encryption with customer-managed key (available, if you selected **Confidential compute encryption**)
                   > [!NOTE]
-                  > Confidential OS Disk encryption isn't supported for RHEL and Rocky Linux VMs. If OS disk encryption is required, remove these VMs from the selection.
+                  > - Secure Boot is enabled by default on target VMs when Confidential OS disk encryption is selected.
+                  > - Only customer-managed key (CMK) are supported for confidential OS disk encryption for disks larger than 127 GB. For disks smaller than 127 GB, both platform-managed key (PMK) and customer-managed key (CMK) are supported.
+                  > - Confidential OS disk encryption can lengthen the standard initial VM creation time during migration due to the encryption process.
+                  > - Data disks currently don't support confidential encryption. However, you can secure them by using host-based encryption with customer-managed keys (CMK) or platform-managed keys (PMK).
+  
 	   
          - **Disk encryption type**, select:
               - Encryption-at-rest with platform-managed key
@@ -303,7 +292,7 @@ You can install the Mobility service using the Mobility service agent software. 
       
 7. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform to [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
-   - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
+   - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Catalyst picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
    - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk contains the operating system bootloader and installer.
    - **Availability Zone**: Specify the Availability Zone to use.
    - **Availability Set**: Specify the Availability Set to use.
@@ -316,87 +305,55 @@ You can install the Mobility service using the Mobility service agent software. 
 
 9. In **Tags**, choose to add tags to your Virtual machines, Disks, and NICs.
 
-10. In **Review and start execution**, review the settings, and select **Review and start execution** to start the initial replication for the servers.
+10. In **Review and start execution**, review the settings, and select **Execute migration** to start the initial replication for the servers.
+11. When you select **Execute migration**, you start replication for the selected servers. Replication proceeds as follows:
+    - When the start replication job finishes successfully, the server begins initial replication to Azure.
+    - During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica managed disks (seed disks) in Azure.
+    - After initial replication finishes, delta replication begins. The process periodically replicates incremental changes to the source disks to the replica disks in Azure and the server is ready for migration in delta replication.  
 
-## Track and monitor
+## Track and migrate replicating servers
 
-1. In Azure Migrate project, go to Execute > Migrations. Use **View by applications** or **View by workloads** to switch how items are grouped.
+This section explains how to track replicating servers and perform test and final migrations.
 
-1. Replication occurs as follows: 
-    1. When the **Start replication** job finishes successfully, the machines begin their initial replication to Azure.
-    2. During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica managed disks in Azure.
-    3. After initial replication finishes, delta replication begins. Incremental changes to the source disks are periodically replicated to the replica disks in Azure.
-
-1. Execution progress is shown in **Execution stage** and **Execution status**:
-      - **Execution stage**: Preparation, Testing, or Completion.
-      - **Execution status**: In progress, In error, Action pending, or Completed.
+1. In your Azure Catalyst project, go to **Manage** > **Server replication**. Navigate to **Other**.
+2. The following columns show the replication and migration status of your servers for which you initiated replication:
+    - **Replication status**: Displays the current state of replication for the server. Learn more about [replication states](concepts-vmware-agentless-migration.md#replication-states).
+    - **Replication health**: Indicates whether replication is Healthy, Warning, or Critical.
+    - **Last sync**: Shows when the latest replication data was synchronized to Azure.
+    - **Test migration status**: Indicates the current or most recent test migration status for the replicating server or shows as **Pending**.
+    - **Migration status**: Displays the current or most recent migration status for the replicating server or shows as **Ready to migrate** if the initial replication is completed.
+3. **Test migration**:
+    - For servers that complete initial replication and are in **Delta sync**, you can run a test migration to validate your workloads and applications in Azure before final migration. Use an isolated Azure virtual network to avoid impacting your production environment. Test migration doesn't interrupt ongoing delta replication, and you can run multiple test migrations as needed. After validation is complete, ensure to clean up the test migration resources.
+    - For the server you want to test, select the menu on the right, and then select **Test migration**.
   
-1. Execution progress is tracked across three stages in the **Execution stage**:
-   1. **Preparation**:
-         - Servers that are enabled for replication remain in the Preparation stage while initial replication (data replication) is in progress.
-         - You can perform **Stop replication** and **Start replication** operations in this stage if required by using the drop-downs available in the server drill-down blade.
-         - After initial replication is complete, the servers move to the **Testing** stage. 
-      
-        :::image type="content" source="./media/tutorial-migrate-vmware/preparation.png"alt-text="Screenshot shows the Preparation stage."lightbox="./media/tutorial-migrate-vmware/preparation.png":::
-      
-   2. **Testing**:
-         - Servers for which initial replication is complete and delta replication is in progress move to the **Testing** stage.
-         - You can choose to perform test migrations on a test virtual network before the actual migration (recommended).
-         - You can skip the **Testing** stage and start migration directly by using the actions available in the **Completion** drop-down menu.
-           
-   3. **Completion**:
-         - Servers for which test migrations are completed or skipped move to this stage. You can perform final migrations (Cutover) for these servers.
-         - After migration is completed, perform **Complete migration** to clean up the migration resources by using the drop-downs available in the server drill-down blade.
+       :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/start-test-migration.png" alt-text="Screenshot how to navigate to start test migration." lightbox="./media/tutorial-migrate-physical-virtual-machines/start-test-migration.png":::
+       
+    - In **Test migration** page:
+       - Choose the **Virtual network** and **Subnet**.
+       - Optionally, upgrade the operating system. To perform OS upgrade, select **Upgrade available** (only supported for Windows OS, currently in preview). Learn more about [Upgrading windows OS upgrade](how-to-upgrade-windows.md). 
+       - After configuring the above settings, select **Test migration**.
+        
+After validation is complete, select the menu on the right of the server, and then select **Clean up test migration** to remove the test VM and associated resources.
 
-## Run a test migration
-
-When delta replication begins, you can run a test migration for the VMs, before running a full migration to Azure. We highly recommend that you do this at least once for each machine, before you migrate it.
-
-- Running a test migration checks that migration works as expected, without impacting the source (on-premises or AVS) machines, which remain operational, and continue replicating.
-- Test migration simulates the migration by creating an Azure VM using replicated data (usually migrating to a non-production virtual network in your Azure subscription).
-- You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
-
-Do a test migration as follows:
-
-1. In Azure Migrate project, under **Execute** > **Migrations**, select the server by selecting its name in the **Workloads** column.
-2. In the drill-down menu, under **Testing** drop-down, select **Start test migration**.
-3. In **Test migration**, select the Azure virtual network in which the Azure VM will be located during testing. We recommend you use a non-production virtual network. 
-4. Select the subnet to associate with each network interface card (NIC) on the migrated VM.
-5. You have an option to upgrade the Windows Server OS during test migration. To upgrade, select the **Upgrade available** option.
-6. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](./how-to-upgrade-windows.md).
-7. Select the **Test migration** to start the job. Monitor the job status in the portal under **Execution status**. After the test migration completes, clean up the test resources by navigating to the server and selecting **Clean up test migration** from the **Testing** drop-down.
-
+1.  **Migration**:
+    - Servers that are ready for migration show as **Ready to migrate** under the column **Migration status**.
+    - To perform migration for these servers, select **Migrate** in the **Server replication** page.
+    - In the **Migrate** page,
+       - Select the servers you want to migrate.
+       - Optionally, select the Target OS if you want to upgrade the OS (only supported for Windows OS, currently in preview). Learn more about [Upgrading windows OS upgrade](how-to-upgrade-windows.md).
+       - Choose to shut down virtual machines if you want to perform a planned migration with no data loss.
+       - After configuring the above settings, select **Migrate**.
+  
+2. View the status and migration completion time for migrated servers in the **Migration status** column.
+3. . **Optional replication actions**:
+   The following actions are optional and needed only for specific replication or recovery scenarios. You can access them from the menu for each server.    
+     - **Stop replication**: Stops replication for the server when you no longer want to replicate or migrate it.
+     - **Resynchronize**: Resynchronizes the server when replication needs to be re-established to bring the replica back in sync with the source.
+  
     > [!NOTE]
-    >- To take advantage of automated patching, automated backup, and simplified license management by using SQL IaaS Agent Extension, register your servers running SQL Server with SQL VM RP.
-    >- Select the server under **Workloads** column in Execute> Migrations page. In Compute and Network settings, select checkbox associated with register with SQL IaaS extension.
-    >- Select Azure Hybrid benefit for SQL Server if you have SQL Server instances that are covered with active Software Assurance or SQL Server subscriptions and you want to apply the benefit to the machines you're migrating.
-
-## Migrate VMs
-
-After you've verified that the test migration works as expected, you can migrate the source machines.
-
-1. In Azure Migrate project, under **Execute** > **Migrations**, select the server by selecting its name in the **Workloads** column.
-2. In the drill-down menu, under **Completion** drop-down, select **Migrate**.
-3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes**.
-    - By default, Azure Migrate shuts down the source VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication. This process ensures no data loss.
-    - If you don't want to shut down the VM, select **No**.
-4. You have an option to upgrade the Windows Server OS during migration.
-5. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](./how-to-upgrade-windows.md).
-6. If you already have a capacity reservation for the VM SKU in the target subscription and location, specify it here for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. The capacity reservation for the SKU can be in any resource group within the target subscription and location. [Learn more](/azure/virtual-machines/capacity-reservation-create).
-7. After completing the settings, select **Migrate**. A migration job starts for the server. Track the job in Azure notifications.
-8. After the job finishes, you can view and manage the server from the **Migrations** page which will be tracked under **Completion** stage.
-
-## Complete the migration
-
-1. After the migration completes, open the server drill-down page. Under Completion, select Complete migration.
-   This action stops replication for the source machine and cleans up the replication state information for the VM.
-1. Verify and [troubleshoot any Windows activation issues on the Azure VM](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).
-1. Perform any post-migration app tweaks, such as updating host names, database connection strings, and web server configurations.
-1. Perform final application and migration acceptance testing on the migrated application now running in Azure.
-1. Cut over traffic to the migrated Azure VM instance.
-1. Remove the on-premises VMs from your local VM inventory.
-1. Remove the on-premises VMs from local backups.
-1. Update any internal documentation to show the new location and IP address of the Azure VMs.
+    > You can now register your servers running SQL Server with SQL VM RP to take advantage of automated patching, automated backup, and simplified license management by using SQL IaaS Agent Extension.
+    >- Select the servers replicating under **Manage** >**Server replication** page. In Compute and Network settings, select checkbox associated with register with SQL IaaS extension.
+    >- Select Azure Hybrid Benefit for SQL Server if you have SQL Server instances that are covered by active Software Assurance or SQL Server subscriptions and you want to apply the benefit to the machines you're migrating.hs.
 
 ## Post-migration best practices
 

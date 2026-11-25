@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: azure-data-box-gateway
 ms.topic: how-to
 ms.date: 03/25/2019
-ms.author: shaas
+ms.author: bchakra
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to manage shares on the Azure Data Box Gateway through the Azure portal, so that I can efficiently control data transfer and ensure proper storage integration with my cloud solutions.
 ---

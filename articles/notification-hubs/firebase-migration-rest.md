@@ -6,7 +6,7 @@ manager: lizross
 ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 05/01/2025
-ms.author: sethm
+ms.author: dimatokar
 ms.custom: sfi-image-nochange
 
 ---

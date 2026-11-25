@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-route-server
 ms.topic: how-to
-ms.date: 09/18/2025
+ms.date: 08/27/2026
 
 #CustomerIntent: As a network administrator, I want to learn how to diagnose and troubleshoot issues related to my Azure Route Server so I can resolve them.
 ---
@@ -116,11 +116,7 @@ If you have two or more instances of the NVA, you *can* advertise different AS p
 
 **If your VM is in a different virtual network than the one that hosts your NVA and the Route Server:**
 
-Check if virtual network peering is enabled between the two virtual networks *and* if Use Remote Route Server is enabled on your VM's virtual network.
-
-### Why is the Equal-Cost Multi-Path (ECMP) function of my ExpressRoute turned off after I deploy Route Server to the virtual network?
-
-When you advertise the same routes from your on-premises network to Azure over multiple ExpressRoute connections, normally ECMP is enabled by default for the traffic destined for these routes from Azure back to your on-premises network. Currently, when you deploy the Route Server, multiple-path information is lost in the BGP exchange between ExpressRoute and the Route Server, and consequently traffic from Azure traverses only on one of the ExpressRoute connections.
+Check if virtual network peering is enabled between the two virtual networks *and* if **Use the remote virtual network's gateway or Route Server** is enabled on your VM's virtual network. This configuration applies when the VM's virtual network consumes a Route Server hosted elsewhere. In a dual-homed ExpressRoute topology, where the virtual network hosts its own Route Server, that setting stays disabled. For more information, see [Dual-homed network topology](about-dual-homed-network.md).
 
 ## Operational issues
 

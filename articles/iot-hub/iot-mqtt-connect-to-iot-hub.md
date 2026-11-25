@@ -2,11 +2,11 @@
 title: Use MQTT to communicate with Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: Guidance on using the MQTT protocol to connect a device to IoT Hub. Includes using the Azure IoT device SDKs and connecting directly using MQTT.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 11/16/2026
 ms.custom:
   - amqp
   - mqtt
@@ -18,10 +18,17 @@ ms.custom:
 
 # Communicate with an IoT hub using the MQTT protocol
 
-This article describes how devices can use the MQTT protocol to communicate with Azure IoT Hub. The IoT Hub device endpoints support device connectivity using:
+This article describes MQTT support for the **classic connection profile** in Azure IoT Hub. The device endpoints for this profile support:
 
 * [MQTT v3.1.1](https://mqtt.org/) on port 8883
 * [MQTT v3.1.1 over WebSocket](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718127) on port 443
+
+> [!NOTE]
+> For the **MQTT v5 connection profile (preview)**, see
+> [Capabilities and connection profiles](mqtt-v5-capabilities.md) and
+> [Connect a device using MQTT v5](mqtt-v5-device-setup.md).
+> The authentication, topic, SDK, and message-size guidance in this article
+> describes the classic profile, not the MQTT v5 preview.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -29,11 +36,13 @@ All device communication with IoT Hub must be secured using TLS. Therefore, IoT 
 
 ## Compare MQTT support in IoT Hub and Event Grid
 
-IoT Hub isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. If your solution needs a cloud-hosted MQTT broker, use [Azure Event Grid](../event-grid/mqtt-overview.md) instead. Event Grid enables bi-directional communication between MQTT clients on flexible hierarchical topics using a publish-subscribe messaging model. It also lets you route MQTT messages to other Azure services or custom endpoints for further processing.
+IoT Hub with the classic connection profile isn't a full-featured MQTT broker and doesn't support all the behaviors specified in the MQTT v3.1.1 standard. If your solution needs a cloud-hosted MQTT broker, use [Azure Event Grid](../event-grid/mqtt-overview.md) instead. Event Grid enables bi-directional communication between MQTT clients on flexible hierarchical topics using a publish-subscribe messaging model. It also lets you route MQTT messages to other Azure services or custom endpoints for further processing.
 
-The following table summarizes the current differences in MQTT support between the two services:
+The following table compares the classic IoT Hub profile with Event Grid. For the
+MQTT v5 IoT Hub preview, including its publish-only custom-topic support, see
+[Capabilities and connection profiles](mqtt-v5-capabilities.md).
 
-| IoT Hub | Event Grid |
+| IoT Hub (classic connection profile) | Event Grid |
 | ------- | ---------- |
 | Client-server model with tight coupling between devices and cloud apps. | Publish-subscribe model that decouples publishers and subscribers. |
 | Limited feature support for MQTT v3.1.1. | MQTT v3.1.1 and v5 protocol support. |
@@ -43,7 +52,7 @@ The following table summarizes the current differences in MQTT support between t
 
 ## Connect to IoT Hub
 
-A device can use the MQTT protocol to connect to an IoT hub using one of the following options:
+A device can use the MQTT protocol to connect to an IoT hub by using one of the following options:
 
 * The [Azure IoT device SDKs](iot-sdks.md).
 * The MQTT protocol directly.
@@ -52,7 +61,7 @@ Many corporate and educational firewalls block the MQTT port (TCP port 8883). If
 
 ## Use the device SDKs
 
-[Azure IoT device SDKs](iot-sdks.md#device-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the chosen [authentication mechanism](../iot-hub/iot-concepts-and-iot-hub.md#connect-and-authenticate-devices) to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over WebSockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub. While it's possible to configure **QoS 0** for faster message exchange, you should note that the delivery isn't guaranteed and isn't acknowledged. For this reason, **QoS 0** is often referred as "fire and forget".
+[Azure IoT device SDKs](iot-sdks.md#device-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the chosen [authentication mechanism](../iot-hub/iot-concepts-and-iot-hub.md#connect-and-authenticate-devices) to establish a connection to an IoT hub. To use the MQTT protocol, set the client protocol parameter to **MQTT**. You can also specify MQTT over WebSockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub. While you can configure **QoS 0** for faster message exchange, delivery isn't guaranteed and isn't acknowledged. For this reason, **QoS 0** is often referred to as "fire and forget".
 
 When a device connects to an IoT hub, the device SDKs provide methods that enable the device to exchange messages with an IoT hub.
 
@@ -83,9 +92,9 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 [!INCLUDE [iot-authentication-device-connection-string](../../includes/iot-authentication-device-connection-string.md)]
 
-### Default keep-alive time-out
+### Default keep-alive timeout
 
-In order to ensure a client connection to an IoT hub connection stays alive, both the service and the client regularly send a *keep-alive* ping to each other. If you use one of the device SDKs, the client sends a keep-alive message at the interval defined in the following table:
+To keep a client connection to an IoT hub alive, both the service and the client regularly send a *keep-alive* ping to each other. If you use one of the device SDKs, the client sends a keep-alive message at the interval defined in the following table:
 
 |Language  |Default keep-alive interval  |Configurable  |
 |---------|---------|---------|
@@ -97,15 +106,15 @@ In order to ensure a client connection to an IoT hub connection stays alive, bot
 
 *The C# SDK defines the default value of the MQTT KeepAliveInSeconds property as 300 seconds. In reality, the SDK sends a ping request four times per keep-alive duration set. In other words, the SDK sends a keep-alive ping once every 75 seconds.
 
-Following the [MQTT v3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value; however, IoT Hub limits the maximum server-side time-out to 29.45 minutes (1,767 seconds).
+Following the [MQTT v3.1.1 specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value. However, IoT Hub limits the maximum server-side timeout to 29.45 minutes (1,767 seconds).
 
-For example, a device using the Java SDK sends the keep-alive ping, then loses network connectivity. 230 seconds later, the device misses the keep-alive ping because it's offline. However, IoT Hub doesn't close the connection immediately - it waits another `(230 * 1.5) - 230 = 115` seconds before disconnecting the device with the error [404104 DeviceConnectionClosedRemotely](../iot-hub/iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md).
+For example, a device using the Java SDK sends the keep-alive ping, then loses network connectivity. After 230 seconds, the device misses the keep-alive ping because it's offline. However, IoT Hub doesn't close the connection immediately - it waits another `(230 * 1.5) - 230 = 115` seconds before disconnecting the device with the error [404104 DeviceConnectionClosedRemotely](../iot-hub/iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md).
 
 The maximum client keep-alive value you can set is `1767 / 1.5 = 1177` seconds. Any traffic resets the keep-alive. For example, a successful shared access signature (SAS) token refresh resets the keep-alive.
 
 ### Migrate a device application from AMQP to MQTT
 
-If you're using the [device SDKs](https://github.com/Azure/azure-iot-sdks), to switch from using AMQP to MQTT requires you to change the protocol parameter in the client initialization.
+If you're using the [device SDKs](https://github.com/Azure/azure-iot-sdk), to switch from using AMQP to MQTT requires you to change the protocol parameter in the client initialization.
 
 When you change from AMQP to MQTT, check the following items:
 
@@ -113,7 +122,7 @@ When you change from AMQP to MQTT, check the following items:
 
 * MQTT doesn't support the *reject* operation when it receives [cloud-to-device messages](../iot-hub/iot-hub-devguide-messaging.md). If your back-end application needs to receive a response from the device application, consider using [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md).
 
-* AMQP isn't supported in the Python SDK.
+* The Python SDK doesn't support AMQP.
 
 ## Use the MQTT protocol directly from a device
 
@@ -138,7 +147,7 @@ In the **CONNECT** packet, the device should use the following values:
     `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
   
     > [!NOTE]
-    > If you use X.509 certificate authentication, SAS token passwords aren't required. For more information, see [Tutorial: Create and upload certificates for testing](../iot-hub/tutorial-x509-test-certs.md) and follow code instructions in the [TLS configuration section](#tls-configuration).
+    > If you use X.509 certificate authentication, you don't need SAS token passwords. For more information, see [Tutorial: Create and upload certificates for testing](../iot-hub/tutorial-x509-test-certs.md) and follow code instructions in the [TLS configuration section](#tls-configuration).
   
     For more information about how to generate SAS tokens, see the [Use SAS tokens as a device](../iot-hub/iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device) section of [Control access to IoT Hub using Shared Access Signatures](../iot-hub/iot-hub-dev-guide-sas.md).
   
@@ -152,7 +161,7 @@ In the **CONNECT** packet, the device should use the following values:
 
     `SharedAccessSignature sr={iotHub-hostname}%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
-The device application can specify a **Will** message in the **CONNECT** packet. The device application should use `devices/{device-id}/messages/events/` or `devices/{device-id}/messages/events/{property-bag}` as the **Will** topic name to define **Will** messages to be forwarded as a telemetry message. In this case, if the network connection is closed, but a **DISCONNECT** packet wasn't previously received from the device, then IoT Hub sends the **Will** message supplied in the **CONNECT** packet to the telemetry channel. The telemetry channel can be either the default **Events** endpoint or a custom endpoint defined by IoT Hub routing. The message has the **iothub-MessageType** property with a value of **Will** assigned to it.
+The device application can specify a **Will** message in the **CONNECT** packet. The device application should use `devices/{device-id}/messages/events/` or `devices/{device-id}/messages/events/{property-bag}` as the **Will** topic name to define **Will** messages to be forwarded as a telemetry message. In this case, if the network connection is closed, but a **DISCONNECT** packet wasn't previously received from the device, IoT Hub sends the **Will** message supplied in the **CONNECT** packet to the telemetry channel. The telemetry channel can be either the default **Events** endpoint or a custom endpoint defined by IoT Hub routing. The message has the **iothub-MessageType** property with a value of **Will** assigned to it.
 
 ## Use the MQTT protocol directly from a module
 
@@ -184,11 +193,11 @@ To learn more, see [Tutorial - Use MQTT to develop an IoT device client without 
 
 ## TLS configuration
 
-To use the MQTT protocol directly, your client must connect over TLS 1.2. Any attempts to skip this step will fail with connection errors.
+To use the MQTT protocol directly, your client must connect over TLS 1.2. Any attempts to skip this step fail with connection errors.
 
-In order to establish a TLS connection, you might need to download and reference the DigiCert Global Root G2 root certificate that Azure uses. For more information about this certificate, see [Digicert's website](https://www.digicert.com/digicert-root-certificates.htm).
+To establish a TLS connection, you might need to download and reference the DigiCert Global Root G2 root certificate that Azure uses. For more information about this certificate, see [Digicert's website](https://www.digicert.com/digicert-root-certificates.htm).
 
-The following example demonstrates how to implement this configuration, by using the Python version of the [Paho MQTT library](https://pypi.python.org/pypi/paho-mqtt).
+The following example demonstrates how to implement this configuration by using the Python version of the [Paho MQTT library](https://pypi.python.org/pypi/paho-mqtt).
 
 First, install the Paho library from your command-line environment:
 
@@ -269,7 +278,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## Send device-to-cloud messages
 
-After a device connects, it can send messages to IoT Hub using `devices/{device-id}/messages/events/` or `devices/{device-id}/messages/events/{property-bag}` as a **Topic Name**. The `{property-bag}` element enables the device to send messages with other properties in a url-encoded format. For example:
+After a device connects, it can send messages to IoT Hub by using `devices/{device-id}/messages/events/` or `devices/{device-id}/messages/events/{property-bag}` as a **Topic Name**. The `{property-bag}` element enables the device to send messages with other properties in a URL-encoded format. For example:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -429,24 +438,24 @@ For more information, see [Understand and invoke direct methods from IoT Hub](..
 
 ## Renew a device certificate (operational certificate)
 
-1. First, a device subscribes to `$iothub/credential/#`, to allow it to receive the operation's response. 
+1. First, a device subscribes to `$iothub/credentials/res/#`, to allow it to receive the operation's response. 
 
-1. Then, it then publishes a message to topic `$iothub/credentials/POST/issueCertificate/?$rid={request_id}`, where the message includes a request ID value. The request body contains the device ID for the device requesting the certificate and a certificate signing request (CSR).
+1. Then, it publishes a message to topic `$iothub/credentials/POST/issueCertificate/?$rid={request_id}`, where the message includes a request ID value. The request body contains the device ID for the device requesting the certificate and a certificate signing request (CSR).
 
 
-```json
-{       
-	"id": "device1", // Required. The ID for the device requesting the certificate. This may only be the active authenticated device.
-	"csr": "MIICYTCCAUkCAQAwHDEaMBgGA1wRZGAw...yM1X8USCtPz/1nRYDOtA==", // Required. The base64 encoded PKCS#10 CSR, without PEM header/footers or new lines.
-	"replace": "*", // Optional. Default null. "*" is accepted to replace any active request.
-  } 
-```
+   ```json
+   {       
+       "id": "device1", // Required. The ID for the device requesting the certificate. This ID is the active authenticated device.
+       "csr": "MIICYTCCAUkCAQAwHDEaMBgGA1wRZGAw...yM1X8USCtPz/1nRYDOtA==", // Required. The base64 encoded PKCS#10 CSR, without PEM header or footers or new lines.
+       "replace": "*", // Optional. Default null. "*" is accepted to replace any active request.
+     } 
+   ```
 
 1. The device receives a response acknowledging the receipt. This is a 202 status. 
 
-1. The service then sends a response message containing the device certificate data on topic `$iothub/credential/res/{status}/?$rid={request-id}`, using the same **request ID** as the request. This is a 200 status.
+1. The service then sends a response message containing the device certificate data on topic `$iothub/credentials/res/{status}/?$rid={request-id}`, using the same **request ID** as the request. This is a 200 status.
 
-The request ID can be any valid value for a message property value, and status is validated as an integer. For more information, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md). 
+The device supplies a request ID (`$rid`) that must be 4–36 characters long and contain only ASCII letters (`A–Z`, `a–z`), digits (`0–9`), or hyphens (`-`). It must not begin or end with a hyphen. Use a unique value for each new renewal request; a GUID is recommended, for example, `7d4beab2-0858-4f13-91b5-a6069fc43352`. IoT Hub includes the same request ID in its responses so the device can correlate them with the request. The status is validated as an integer. For more information, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md). 
 
 The response body contains the full chain for the renewed device certificate, as shown in the following response example:
 
@@ -472,7 +481,7 @@ The possible status codes are:
 | 429 | Too many requests (throttled). For more information, see [IoT Hub quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
-**For more information, see [Device certificate renewal in Azure IoT Hub certificate management](../iot-hub/concept-certificate-renewal.md)
+**For more information, see [Device certificate renewal in Azure IoT Hub certificate management](../iot/concept-certificate-renewal.md)
 
 ## Next steps
 

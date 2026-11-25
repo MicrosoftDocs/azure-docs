@@ -5,12 +5,14 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 06/18/2026
+ms.date: 07/23/2026
 ---
 
 # Integrate Azure Cache for Redis with Service Connector
 
 This article covers supported authentication methods, clients, and sample code you can use to connect your apps to Azure Cache for Redis using Service Connector. In this article, you'll also find default environment variable names, values, and configuration obtained when creating service connections.
+
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 ## Supported compute services
 

@@ -1,9 +1,9 @@
 ---
 author: alkohli
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/13/2020
-ms.author: alkohli
+ms.author: scompton
 ---
 
 This section describes the limits for Azure Storage service, and the required naming conventions for Azure Files, Azure block blobs, and Azure page blobs, as applicable to the Azure Stack Edge service. Review the storage limits carefully and follow all the recommendations.

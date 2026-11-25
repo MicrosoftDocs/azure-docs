@@ -2,7 +2,7 @@
 title: Azure Service Bus Access Control with Shared Access Signatures
 description: Learn about the use of shared access signatures for Azure Service Bus authorization.
 ms.topic: concept-article
-ms.date: 05/02/2026
+ms.date: 10/29/2026
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 #customer intent: As a developer, I want to understand how shared access signatures work so that I can implement token-based authorization for my Service Bus applications.
@@ -129,9 +129,26 @@ The resource URI is the full URI of the Service Bus resource to which access is 
 
 The shared access authorization rule for signing must be configured on the entity that this URI specifies, or by one of its hierarchical parents. In the previous example, the entity is `http://contoso.servicebus.windows.net/contosoTopics/T1` or `http://contoso.servicebus.windows.net`.
 
-A SAS token is valid for all resources prefixed with the `<resourceURI>` value in `signature-string`.
+A SAS token scopes access to the resource identified by its `sr` value and to resources below it in the resource hierarchy, subject to the signing rule's scope and rights. Resource scope follows complete path segments separated by `/`. A shared prefix in an entity name doesn't define a parent-child relationship.
 
 For examples of generating a SAS token by using various programming languages, see [Generate SAS token](/rest/api/eventhub/generate-sas-token).
+
+### SAS token resource scope
+
+The following examples use paths within the same namespace. The token's `sr` value contains the URL-encoded form of the full resource URI, such as `sb://<namespace>.servicebus.windows.net/orders_1`, rather than the path alone.
+
+| Token audience path | Requested resource path | Within the token's resource scope? |
+| --- | --- | --- |
+| `orders_1` | `orders_1` | Yes. The paths identify the same entity. |
+| `sastest` | `sastest/child` | Yes. The requested path is a descendant separated by `/`. |
+| `orders_` | `orders_1` | No. A partial entity name is only a string prefix. |
+| `unrelated` | `orders_1` | No. The paths identify unrelated entities. |
+| Namespace root (`/`) | `orders_1` | Yes, when the token is signed with a namespace-level rule that grants the required rights. |
+
+Use the full URI of the entity that your application needs to access. For access to several unrelated entities, issue separately scoped tokens rather than using a partial-name audience. A namespace-root audience covers a broader scope; choose it only when your application requires that access.
+
+> [!IMPORTANT]
+> If your application relies on partial-name audiences, such as `orders_` for `orders_1`, update token generation to use the full entity URI and issue replacement tokens. Requests that rely on partial-name matching can fail with `401 Unauthorized` or `InvalidAudience`. Generate a new signature for each updated `sr` value; editing `sr` in an existing token invalidates its signature.
 
 ## Regeneration of keys
 

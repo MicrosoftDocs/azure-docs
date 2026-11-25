@@ -1,8 +1,8 @@
 ---
-title: Azure Migrate Application and Code Assessment for Java
-description: Learn how to use the Azure Migrate application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
+title: Azure Catalyst Application and Code Assessment for Java
+description: Learn how to use the Azure Catalyst application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
 author: KarlErickson
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.service: azure-java
 ms.subservice: java-fundamentals
@@ -12,12 +12,12 @@ ms.date: 06/24/2026
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
-# Azure Migrate application and code assessment for Java
+# Azure Catalyst application and code assessment for Java
 
 > [!NOTE]
-> This version of Azure Migrate application and code assessment for Java is under no maintenance and is going to be deprecated. We've released a new version 7.x, based on a new analyzer engine. To download and experiment with the new engine, available for Windows, Linux, and macOS, see [Overview of Azure Migrate application and code assessment for Java](./java.md).
+> This version of Azure Catalyst application and code assessment for Java is under no maintenance and is going to be deprecated. We've released a new version 7.x, based on a new analyzer engine. To download and experiment with the new engine, available for Windows, Linux, and macOS, see [Overview of Azure Catalyst application and code assessment for Java](./java.md).
 
-This guide describes how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure. This tool is offered as a CLI (command-line interface) and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
+This guide describes how to use the Azure Catalyst application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure. This tool is offered as a CLI (command-line interface) and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
 
 The tool discovers application technology usage through static code analysis, provides effort estimation, and accelerates code replatforming, helping you to prioritize and move Java applications to Azure. With a set of engines and rules, it can discover and assess different technologies such as Java 11, Java 17, Jakarta EE, Spring, Hibernate, Java Message Service (JMS), and more. It then helps you replatform the Java application to different Azure targets (Azure App Service, Azure Kubernetes Service, and Azure Container Apps) with specific Azure replatforming rules.
 
@@ -36,7 +36,7 @@ With it, you can perform the following tasks:
 
 The tool contains rules for helping you replatform your applications so you can deploy to, and use, different Azure services.
 
-The rules used by Azure Migrate application and code assessment are grouped based on a *target*. A target is where or how the application runs, and general needs and expectations. When assessing an application, you can choose multiple targets. The following table describes the available targets:
+The rules used by Azure Catalyst application and code assessment are grouped based on a *target*. A target is where or how the application runs, and general needs and expectations. When assessing an application, you can choose multiple targets. The following table describes the available targets:
 
 | Target                   | Description                                                            | ID                     |
 |--------------------------|------------------------------------------------------------------------|------------------------|
@@ -368,15 +368,15 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 
 ## License
 
-Azure Migrate application and code assessment for Java is a free, open source tool at no cost, and licensed under the [same license as the upstream WindUp project](https://github.com/windup/windup/blob/master/LICENSE).
+Azure Catalyst application and code assessment for Java is a free, open source tool at no cost, and licensed under the [same license as the upstream WindUp project](https://github.com/windup/windup/blob/master/LICENSE).
 
 ## Frequently asked questions
 
-Q: Where can I download the latest version of Azure Migrate application and code assessment for Java?
+Q: Where can I download the latest version of Azure Catalyst application and code assessment for Java?
 
 You can download `appcat` from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
 
-Q: Where can I find more information about Azure Migrate application and code assessment for Java?
+Q: Where can I find more information about Azure Catalyst application and code assessment for Java?
 
 When you download `appcat`, you get a *docs* directory with all the information you need to get started.
 
@@ -386,7 +386,7 @@ All the Azure rules are available in the [appcat Rulesets GitHub repository](htt
 
 Q: Where can I find more information about creating custom rules?
 
-See the [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/) for Azure Migrate application and code assessment for Java.
+See the [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/) for Azure Catalyst application and code assessment for Java.
 
 Q: Where can I get some help when creating custom rules?
 

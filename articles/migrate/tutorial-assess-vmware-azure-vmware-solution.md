@@ -1,13 +1,13 @@
 ---
-title: Assess VMware servers for migration to Azure VMware Solution (AVS) with Azure Migrate
-description: Learn how to assess servers in VMware environment for migration to AVS with Azure Migrate.
+title: Assess VMware Servers for Migration to Azure VMware Solution (AVS) with Azure Catalyst
+description: Learn how to assess servers in VMware environment for migration to AVS with Azure Catalyst.
 author: jobingeorge-microsoft
 ms.author: jobingeorge
 ms.topic: tutorial
 ms.date: 05/12/2025
 ms.service: azure-migrate
+ms.update-cycle: 365-days
 ms.custom: vmware-scenario-422, MVC, engagement-fy23
-ms.update-cycle: 1095-days
 # Customer intent: As a VMware VM administrator, I want to assess my VMware servers for migration to Azure VMware Solution, so that I can determine cloud readiness, identify risks, and estimate costs effectively.
 ---
 
@@ -15,7 +15,7 @@ ms.update-cycle: 1095-days
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
-This article shows you how to assess discovered VMware virtual machines/servers for migration to Azure VMware Solution (AVS), using the Azure Migrate. AVS is a managed service that allows you to run the VMware platform in Azure.
+This article shows you how to assess discovered VMware virtual machines/servers for migration to Azure VMware Solution (AVS), using the Azure Catalyst. AVS is a managed service that allows you to run the VMware platform in Azure.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you follow this tutorial to assess your servers for migration to AVS, make sure you've discovered the servers you want to assess:
 
-- To discover servers using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-vmware.md). 
+- To discover servers using the Azure Catalyst appliance, [follow this tutorial](tutorial-discover-vmware.md). 
 - To discover servers using an imported CSV file, [follow this tutorial](tutorial-discover-import.md).
 - To import servers using a RVTools file, [follow this tutorial](tutorial-import-vmware-using-rvtools-xlsx.md).
 
@@ -46,7 +46,7 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 **Assessment** | **Details** | **Recommendation**
 --- | --- | ---
 **As-is on-premises** | Assess based on server configuration data/metadata.  | Recommended node size in AVS is based on the on-premises VM/server size, along with the settings you specify in the assessment for the node type, storage type, and failure-to-tolerate setting.
-**Performance-based** | Assess based on collected dynamic performance data. | Recommended node size in AVS is based on CPU and memory utilization data, along with the settings you specify in the assessment for the node type, storage type, and failure-to-tolerate setting. If the data has been imported using RVTools XLSX or Azure Migrate CSV, Performance-based assessment takes the used storage for thin-provisioned VMs.
+**Performance-based** | Assess based on collected dynamic performance data. | Recommended node size in AVS is based on CPU and memory utilization data, along with the settings you specify in the assessment for the node type, storage type, and failure-to-tolerate setting. If the data has been imported using RVTools XLSX or Azure Catalyst CSV, Performance-based assessment takes the used storage for thin-provisioned VMs.
 
 > [!NOTE]
 > Azure VMware Solution (AVS) assessment can be created for VMware VMs/servers only.
@@ -82,7 +82,7 @@ Run an assessment as follows:
    VM size | **CPU Oversubscription** | Specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
    VM size | **Memory overcommit factor** | Specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5, for example, is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
    VM size | **Dedupe and compression factor** | Specify the anticipated dedupe and compression factor for your workloads. The actual value can be obtained from on-premises vSAN or storage config and this might vary by workload. A value of 3 would mean 3x so for a 300 GB disk only 100 GB storage would be used. A value of 1 would mean no dedupe or compression. You can only add values from 1 to 10 up to one decimal place.
-   Node size | **Sizing criteria** | Set to be *Performance-based* by default, which means Azure Migrate collects performance metrics based on which it provides recommendations.
+   Node size | **Sizing criteria** | Set to be *Performance-based* by default, which means Azure Catalyst collects performance metrics based on which it provides recommendations.
    Node size | **Performance history** | Indicate the data duration on which you want to base the assessment. (Default is one day)
    Node size | **Percentile utilization** | Indicate the percentile value you want to use for the performance sample. (Default is 95th percentile)
    Node size | **Comfort factor** | Indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, consider a comfort factor of 2 for effective utilization of 2 Cores. In this case, the assessment considers the effective cores as 4 cores. Similarly, for the same comfort factor and an effective utilization of 8 GB memory, the assessment considers effective memory as 16 GB.
@@ -124,7 +124,7 @@ You can select  **Sizing assumptions** to understand the assumptions that went i
 
 To view an assessment:
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Azure VMware Solution**.
+1. In **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**, select the number next to **Azure VMware Solution**.
 
 1. In **Assessments**, select an assessment to open it. As an example (estimations and costs, for example,  only): 
 
@@ -141,7 +141,7 @@ To view an assessment:
     - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It starts in AVS with full AVS support.
     - **Ready with conditions**: There might be some compatibility issues, for example, internet protocol or deprecated OS in VMware and need to be remediated before migrating to Azure VMware Solution. To fix any readiness problems, follow the remediation guidance that the assessment suggests.
     - **Not ready for AVS**: The VM won't start in AVS. For example, if the on-premises VMware VM has an external device attached such as a CD-ROM, the VMware VMotion operation fails (if using VMware VMotion).
-    - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
+    - **Readiness unknown**: Azure Catalyst couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 3. Review the suggested tool.
 
     - VMware HCX or Enterprise: For VMware servers, the VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud.

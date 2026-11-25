@@ -2,7 +2,7 @@
 title: Azure Front Door (classic) overview
 description: This article provides an overview of the Azure Front Door (classic) service.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: overview
 ms.date: 05/04/2026

@@ -5,8 +5,6 @@ ms.service: azure-stream-analytics
 ms.custom:
   - devx-track-bicep
   - build-2025
-author: alexlzx
-ms.author: zhenxilin
 ms.date: 05/24/2023
 ms.topic: how-to
 ---

@@ -34,8 +34,12 @@ The requirements are:
 
 - If any [Certification Authority Authorization (CAA) domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) exists on the root domain, you must explicitly allow DigiCert as a certificate issuer by creating a CAA domain record with the value `0 issue digicert.com`. Without this setting, the certificate issuance and renewal fail.
 
+- Keep your container app in a running state while the certificate is issued and for subsequent automatic renewals. When the app is stopped, its ingress doesn't serve the domain validation request, so the certificate authority can't verify domain ownership and the operation fails with a timeout.
+
 > [!NOTE]
 > To ensure that the certificate issuance and subsequent renewals proceed successfully, all requirements must be met at all times when the managed certificate is assigned.
+>
+> If certificate issuance or renewal fails, Container Apps retries the operation periodically. You don't need to take action unless an existing certificate is close to expiring. In that case, confirm that all requirements are still met, and then resubmit the managed certificate configuration to force a new issuance or renewal attempt.
 
 ## Add a custom domain and managed certificate
 

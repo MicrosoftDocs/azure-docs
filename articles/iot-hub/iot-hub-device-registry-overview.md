@@ -1,46 +1,42 @@
 ---
-title: Integration with Azure Device Registry (preview)
+title: Integration with Azure Device Registry
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Azure Device Registry helps users manage IoT devices.
-author: sethmanheim
-ms.author: sethm
+author: Usha-Rathnavel
+ms.author: usrathna
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 10/20/2025
+ms.date: 11/07/2026
 #Customer intent: As a developer new to IoT, i want to understand what Azure Device Registry is and how it can help me manage my IoT devices.
 ---
 
-# Integration with Azure Device Registry (preview)
+# Integration with Azure Device Registry
 
-This article provides background on Azure Device Registry (ADR) integration with Azure IoT Hub (preview).
-
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+This article provides background on generally available Azure Device Registry linking for Standard IoT hubs. Linking is supported for new and eligible existing Standard hubs.
 
 ## What is Azure Device Registry?
 
-Azure Device Registry (ADR) represents industrial assets and IoT devices as Azure Resource Manager (ARM) resources, extending the Azure management plane to IoT. It provides a consistent experience for deployment, policy enforcement, querying, and control plane operations. ADR is generally available for Azure IoT Operations scenarios, while integration with Azure IoT Hub is currently in *preview*.
+Azure Device Registry represents industrial assets and IoT devices as Azure Resource Manager resources, extending the Azure management plane to IoT. It provides a consistent experience for deployment, policy enforcement, querying, and control plane operations.
 
-In the IoT Hub context, ADR acts as a unified device registry for managing IoT Hub–connected devices. Each device is represented as an Azure resource, enabling management across multiple IoT Hub instances through ADR namespaces. When you [create a new IoT Hub instance](iot-hub-device-registry-setup.md), you can link it to an existing ADR namespace or create a new one. The IoT Hub instance uses the linked namespace as a registry for its devices. Multiple IoT Hub instances can share a namespace, supporting collective device management across IoT Hubs.
+In the IoT Hub context, Azure Device Registry provides a management foundation for IoT Hub-connected devices across linked services. You can [link a new or existing eligible Standard hub](../iot/device-registry/get-started-azure-device-registry.md) to a new or existing namespace. Multiple IoT Hub instances can share a namespace, supporting collective device management across hubs.
 
 > [!NOTE]
-> Azure Device Registry is already generally available (GA) with [Azure IoT Operations](/azure/iot-operations).
+> ADR linking doesn't change a hub's connection profile or automatically migrate device credentials. The MQTT v5 connection profile remains in preview. Certificate management through Standard IoT Hub is generally available except for MQTT v5-profile hubs; those devices continue to use DPS for supported operational certificate issuance and renewal.
 
-## ADR namespaces
+## Azure Device Registry namespaces
 
-ADR uses namespaces to organize IoT devices and other ADR resources. A namespace groups related devices, establishes a security boundary, and enables management at scale. You can apply policies, access controls, and manage device lifecycles within a namespace. Each IoT Hub instance links to a single namespace, but multiple hubs can share one namespace for broader management scenarios.
+Azure Device Registry uses namespaces to organize IoT devices and other resources. A namespace groups related devices, establishes a security boundary, and enables management at scale. For a full explanation of what namespaces are, what they're used for, and how they work across Azure IoT services, see [What is an Azure Device Registry namespace?](../iot/device-registry/concept-namespaces.md).
 
-ADR provides a unified registry, allowing applications and services to interact with IoT devices through the Azure management plane. Devices registered in ADR can be managed using Azure Resource Manager features, including resource groups, tags, role-based access control (RBAC), policies, logging, and auditing.
+For Azure IoT Hub, each IoT Hub instance links to a single namespace, but multiple hubs can share one namespace for broader management scenarios.
 
-Namespaces also help maintain separation between different environments, such as development, testing, and production, reducing the risk of accidental changes across boundaries.
+The following diagram illustrates how multiple IoT Hub instances and devices link to a single Azure Device Registry namespace for unified device management.
 
-The following diagram illustrates how multiple IoT Hub instances and devices link to a single ADR namespace for unified device management.
+:::image type="content" source="media/device-registry/namespaces-iot-hub.svg" alt-text="Mermaid diagram showing two IoT Hub instances with multiple devices linked to a single Azure Device Registry namespace.":::
 
-:::image type="content" source="media/device-registry/namespaces-iot-hub.svg" alt-text="Mermaid diagram showing two IoT Hub instances with multiple devices linked to a single ADR namespace.":::
+## Representation and management of IoT Hub devices as Azure Resource Manager resources
 
-## Representation and management of IoT Hub devices as ARM resources
-
-ADR represents IoT Hub devices as ARM resources, assigning each device an ARM resource ID. This enables consistent governance through RBAC, tags, and resource groups. With ADR integration, devices appear in the Azure management plane, supporting cross-hub queries via Azure Resource Graph and streamlined operations such as metadata updates, auditing, and lifecycle management—all through a single, uniform at-scale interface.
+Azure Device Registry represents IoT Hub devices as Resource Manager resources, assigning each device a Resource Manager resource ID. This enables consistent governance through RBAC, tags, and resource groups. With Azure Device Registry integration, devices appear in the Azure management plane, supporting cross-hub queries via Azure Resource Graph and streamlined operations such as metadata updates, auditing, and lifecycle management - all through a single, uniform at-scale interface.
 
 ## Built-in RBAC roles
 
@@ -49,13 +45,14 @@ Azure Device Registry offers three built-in roles designed to simplify and secur
 
 ## Limits and quotas
 
-See [IoT Hub preview resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-limits) for the latest information about limits and quotas for ADR with IoT Hub.
+For hub limits and capacity planning, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md). Hub identity capacity, namespace resource limits, and provisioning rates are separate constraints.
 
 For Azure subscription and service limits for Azure Device Registry in GA, see [Azure Device Registry limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-device-registry-limits).
 
 ## Related content
 
 - [FAQ: What is new in Azure IoT Hub?](iot-hub-faq.md)
-- [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)
-- [What is Microsoft-backed X.509 certificate management?](iot-hub-certificate-management-overview.md)
-- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
+- [Get started with Azure Device Registry for Azure IoT Hub](../iot/device-registry/get-started-azure-device-registry.md)
+- [Certificate management in Azure Device Registry](../iot/iot-certificate-management-overview.md)
+- [Key concepts for certificate management](../iot/iot-certificate-management-concepts.md)
+- [Unified Azure IoT SDKs (preview) for IoT Hub and Azure Device Registry](../iot/device-registry/concept-unified-iot-sdks.md)

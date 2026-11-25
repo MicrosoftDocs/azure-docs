@@ -7,8 +7,8 @@ ms.topic: tutorial
 ms.date: 08/29/2025
 ms.update-cycle: 1095-days
 ms.custom: "UpdateFrequency3, devx-track-csharp, mvc, devcenter, devx-track-azurecli"
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ---
 

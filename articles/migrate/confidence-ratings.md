@@ -6,14 +6,14 @@ ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 04/17/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1825-days
 # Customer intent: As a cloud architect, I want to understand the factors influencing performance coverage in performance-based assessments, so that I can ensure reliable size recommendations for virtual machines during migration planning.
 ---
 
 # Performance-based Performance Coverage
 
-Each performance-based Azure VM assessment in Azure Migrate is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Migrate provides. 
+Each performance-based Azure VM assessment in Azure Catalyst is associated with a performance coverage. The coverage ranges from one (lowest) to five (highest) stars. The performance coverage helps you estimate the reliability of the size recommendations Azure Catalyst provides. 
 
 - The performance coverage is assigned to an assessment. The coverage is based on the availability of data points that are needed to compute the assessment. 
 

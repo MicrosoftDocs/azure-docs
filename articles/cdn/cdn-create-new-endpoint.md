@@ -5,7 +5,7 @@ description: This quickstart shows how to enable Azure Content Delivery Network 
 author: halkazwini
 ms.author: halkazwini
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: quickstart
 ms.date: 02/28/2026
 ROBOTS: NOINDEX

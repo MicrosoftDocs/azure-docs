@@ -1,22 +1,23 @@
 ---
-title: Azure Migrate Collector virtual machine extension reference
-description: Technical reference for the Azure Migrate Collector VM extension including settings schema, endpoints, and configuration options.
+title: Azure Catalyst Collector virtual machine extension reference
+description: Technical reference for the Azure Catalyst Collector VM extension including settings schema, endpoints, and configuration options.
 author: snehithm
 ms.author: snmuvva
 ms.service: azure-migrate
 ms.topic: reference
 ms.date: 10/23/2025
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 monikerRange: migrate
 ---
 
-# Azure Migrate Collector virtual machine extension reference
+# Azure Catalyst Collector virtual machine extension reference
 
-This article provides technical reference information for the Azure Migrate Collector Virtual Machine (VM) extension used with Arc-enabled servers.
+This article provides technical reference information for the Azure Catalyst Collector virtual machine (VM) extension for Arc-enabled servers.
 
 ## Overview
 
-The Azure Migrate Collector VM extension is an optional component that collects additional data from Arc-enabled servers to enhance Azure Migrate assessments and business case recommendations. The extension is available for both Windows and Linux operating systems.
+The Azure Catalyst Collector VM extension is an optional component that collects additional data from Arc-enabled servers to enhance Azure Catalyst assessments and business case recommendations. The extension is available for both Windows and Linux operating systems.
 
 ## Extension properties
 
@@ -55,9 +56,9 @@ The extension requires configuration through the `settings` parameter:
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `migrateProjects` | Array | Yes | Array of Azure Migrate project configurations |
-| `migrateProjects[].id` | String | Yes | Full Azure Resource Manager ID of the Azure Migrate project |
-| `migrateProjects[].location` | String | Yes | Azure region where the Azure Migrate project is located |
+| `migrateProjects` | Array | Yes | Array of Azure Catalyst project configurations |
+| `migrateProjects[].id` | String | Yes | Full Azure Resource Manager ID of the Azure Catalyst project |
+| `migrateProjects[].location` | String | Yes | Azure region where the Azure Catalyst project is located |
 
 ### Example configuration
 
@@ -91,9 +92,11 @@ The extension requires configuration through the `settings` parameter:
 }
 ```
 
-## Azure Migrate endpoint
+<a name="azure-migrate-endpoint"></a>
 
-The Azure Migrate Collector VM extension communicates with Azure Migrate services using Azure Migrate endpoints. Ensure the following URL is accessible from your Arc-enabled servers. 
+## Azure Catalyst endpoint
+
+The Azure Catalyst Collector VM extension communicates with Azure Catalyst services using Azure Catalyst endpoints. Ensure the following URL is accessible from your Arc-enabled servers. 
 
 ```
 https://*.migration.windowsazure.com
@@ -170,7 +173,7 @@ New-AzConnectedMachineExtension `
 
 ### For the extension to function
 
-The extension uses the Arc-enabled server's managed identity to authenticate with Azure Migrate. No other permissions are required on the Azure Migrate project; the project automatically accepts data from Arc-enabled servers within its configured scope.
+The extension uses the Arc-enabled server's managed identity to authenticate with Azure Catalyst. No other permissions are required on the Azure Catalyst project; the project automatically accepts data from Arc-enabled servers within its configured scope.
 
 ## Extension status and health
 
@@ -179,7 +182,7 @@ The extension uses the Arc-enabled server's managed identity to authenticate wit
 **Azure portal:**
 1. Navigate to the Arc-enabled server
 2. Select **Extensions** under **Settings**
-3. Check the status of the Azure Migrate Collector extension
+3. Check the status of the Azure Catalyst Collector extension
 
 **Azure CLI:**
 
@@ -246,6 +249,6 @@ az connectedmachine extension delete \
 ## Next steps
 
 - [Enable additional data collection for Arc-enabled servers](how-to-enable-additional-data-collection-for-arc-servers.md)
-- [Create a migrate project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md)
-- [Manage sync of Arc resources to Azure Migrate project](how-to-manage-arc-resource-sync.md)
+- [Create a Azure Catalyst project for Arc resources](quickstart-evaluate-readiness-savings-for-arc-resources.md)
+- [Manage sync of Arc resources to Azure Catalyst project](how-to-manage-arc-resource-sync.md)
 - [Create assessments](how-to-create-assessment.md)

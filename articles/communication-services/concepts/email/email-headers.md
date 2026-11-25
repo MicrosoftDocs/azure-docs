@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 ---
 # Adding Reserved Custom headers
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Custom headers can be sent along with an email request. These headers are defined as a dictionary. There are some predefined custom headers which can be used to handle some of the email sending scenarios.
 
 

@@ -2,7 +2,7 @@
 title: How to schedule bandwidth limitations of a Storage Mover agent
 description: Learn how to set a bandwidth schedule that limits the use of the WAN link for a Storage Mover agent
 author: stevenmatthew
-ms.author: shaas
+ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 07/10/2024

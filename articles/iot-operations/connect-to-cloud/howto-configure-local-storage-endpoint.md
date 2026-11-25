@@ -24,6 +24,10 @@ To send data to local storage in Azure IoT Operations, you can configure a data 
 
 - A [PersistentVolumeClaim (PVC) request](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `ENDPOINT` (the name of the data flow endpoint) and `PVC_NAME` (the persistent volume claim name). Set each one before you run the related commands.
+
 ## Create a local storage data flow endpoint
 
 Use the local storage option to send data to a locally available persistent volume. You can use it to upload data via Azure Container Storage enabled by Azure Arc edge volumes.
@@ -51,7 +55,7 @@ Use the local storage option to send data to a locally available persistent volu
 Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-local-storage) command to create or replace a local storage data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint create local-storage --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --pvc-ref <PersistentVolumeClaimName>
+az iot ops dataflow endpoint create local-storage --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --pvc-ref $PVC_NAME
 ```
 
 The `--pvc-ref` parameter is the name of the PVC to use for local storage. The PVC must be in the same namespace as the data flow endpoint.
@@ -67,7 +71,7 @@ az iot ops dataflow endpoint create local-storage --resource-group myResourceGro
 Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change a local storage data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow endpoint apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file that contains the resource properties.
@@ -99,13 +103,13 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param persistentVCName string = '<PERSISTENT_VC_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
+resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-07-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -124,7 +128,7 @@ resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflo
 Deploy the file via the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -148,7 +152,7 @@ spec:
 Apply the manifest file to the Kubernetes cluster:
 
 ```bash
-kubectl apply -f <FILE>.yaml
+kubectl apply -f main.yaml
 ```
 
 ---
@@ -160,6 +164,8 @@ The PVC must be in the same namespace as `DataflowEndpoint`.
 The only supported serialization format is Parquet.
 
 ## Use Azure Container Storage enabled by Azure Arc
+
+[!INCLUDE [azure-government-acsa-note](../includes/azure-government-container-storage-note.md)]
 
 You can use the local storage data flow endpoint together with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to store data locally or send data to a cloud destination.
 

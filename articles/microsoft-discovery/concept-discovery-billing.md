@@ -5,7 +5,7 @@ author: DaveMuhich
 ms.author: damuhic
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/17/2026
+ms.date: 11/08/2026
 
 #CustomerIntent: As a platform administrator or researcher, I want to understand how Microsoft Discovery billing works so that I can estimate costs and manage usage within my Azure subscription.
 ---
@@ -25,7 +25,7 @@ This model lets you pay only for what you use and track spending with precision 
 
 ## What is a User Message?
 
-A **User Message** is the unit of billing for Microsoft Discovery runtime usage. One User Message is counted for each billable operation - any action that creates, updates, deletes, runs, submits, or cancels work. Discovery aggregates these totals by the hour.
+A **User Message** is the unit of billing for Microsoft Discovery runtime usage. Discovery aggregates billable backend operations—actions that create, update, delete, run, submit, or cancel work—by the hour, then converts them to User Messages using the conversion in the billing calculation note.
 
 Read-only calls such as GET, list, status checks, and log retrieval are **not** billed. Billing covers **runtime (data-plane) usage** only, not resource management (control-plane) operations.
 
@@ -83,7 +83,7 @@ The billing unit is **Microsoft Discovery - User Messages**. Pricing is set per 
 
 **Rough order of magnitude estimate:**
 
-Estimated cost ≈ (number of billable actions) × (price per User Message in your region)
+Estimated message-based cost ≈ (number of billable backend operations ÷ 10) × (price per User Message in your region)
 
 To review your actual spend, an Azure subscription owner can open **Cost Management + Billing** in the Azure portal and filter to the relevant Microsoft Discovery resource.
 

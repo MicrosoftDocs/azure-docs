@@ -77,7 +77,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
    | Property | Description |
    |----------|-------------|
    | **Connection Name** | A name for the connection |
-   | **Authentication Type** | The authentication type to use for the connection. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls). |
+   | **Authentication Type** | The authentication type to use for the connection. For more information, see [Add authentication to outbound calls](../logic-apps/set-up-security-permissions.md#add-authentication-to-outbound-calls). |
    | **Tenant ID** | Your Microsoft Entra tenant. **Note**: The account associated with the current connection is used later to send the email. |
 
 1. When you're done, select **Sign in** or **Create New**, based on the selected authentication type.
@@ -151,7 +151,7 @@ Both of the following actions can run a log query against a Log Analytics worksp
    | Property | Description |
    |----------|-------------|
    | **Connection Name** | A name for the connection |
-   | **Authentication Type** | The authentication type to use for the connection. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls). |
+   | **Authentication Type** | The authentication type to use for the connection. For more information, see [Add authentication to outbound calls](../logic-apps/set-up-security-permissions.md#add-authentication-to-outbound-calls). |
    | **Tenant ID** | Your Microsoft Entra tenant. **Note**: The account associated with the current connection is used later to send the email. To use a different account, after the Azure Monitor Logs action appears, select **Change connection**. |
 
 1. When you're done, select **Sign in** or **Create**, based on the selected authentication type.

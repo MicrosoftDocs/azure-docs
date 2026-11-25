@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure resource types for move operations
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.date: 05/26/2026
@@ -301,7 +301,7 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Networking move limitations](./move-limitations/networking-move-limitations.md) to learn more.
 
 > [!NOTE]
-> Azure Cache for Redis is being retired. For more information, see [Azure Cache for Redis retirement FAQ](../../azure-cache-for-redis/retirement-faq.yml).
+> Azure Cache for Redis is being retired. For more information, see [Azure Cache for Redis retirement FAQ](/azure/azure-cache-for-redis/retirement-faq).
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
@@ -818,9 +818,9 @@ Review the [Checklist before moving resources](./move-resource-group-and-subscri
 > | mongoClusters | No | No | No |
 > | cassandraClusters | No | No | No |
 
-Moves between resource groups and subscriptions are supported for APIs that use the RU architecture (Microsoft.DocumentDB/databaseAccounts) but not for those based on the vCore architecture, including:
+Moves between resource groups and subscriptions are supported for Azure Cosmos DB accounts that use request units (RUs) (Microsoft.DocumentDB/databaseAccounts), but not for the following services:
 
-- MongoDB vCore (Microsoft.DocumentDB/mongoClusters)
+- Azure DocumentDB (Microsoft.DocumentDB/mongoClusters)
 - Azure Managed Instance for Apache Cassandra (Microsoft.DocumentDB/cassandraClusters)
 
 ## Microsoft.DomainRegistration

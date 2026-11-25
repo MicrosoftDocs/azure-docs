@@ -18,7 +18,7 @@ If your point-to-site (P2S) VPN gateway is configured to use OpenVPN and certifi
 
 For other VPN client configuration articles, see the following table:
 
-[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
+[!INCLUDE [P2S client configuration articles](../networking/includes/virtual-wan/vpn-client-install-articles.md)]
 
 ## Before you begin
 
