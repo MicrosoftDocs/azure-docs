@@ -1,7 +1,7 @@
 ---
 title: Check number of drives needed for an export with Azure Import/Export | Microsoft Docs
 description: Find out how many drives you need for an export using Azure Import/Export service.
-author: stevenmatthew
+author: jeevanbalanmanoj
 services: storage
 ms.service: azure-import-export
 ms.topic: how-to
