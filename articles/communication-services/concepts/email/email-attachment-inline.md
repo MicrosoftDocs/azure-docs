@@ -2,7 +2,7 @@
 title: Inline attachments
 titleSuffix: An Azure Communication Services article
 description: Inline attachments enable you to embed images directly within the email body.
-author: mansha
+author: diberry
 manager: koagbakp
 services: azure-communication-services
 ms.author: diberry
