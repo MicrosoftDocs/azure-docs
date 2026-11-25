@@ -6,7 +6,7 @@ author: sethmanheim
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 12/01/2025
-ms.author: sethm
+ms.author: dimatokar
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 

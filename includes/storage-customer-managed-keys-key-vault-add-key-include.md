@@ -6,7 +6,7 @@ author: tamram
 ms.service: azure-storage
 ms.topic: "include"
 ms.date: 09/22/2022
-ms.author: tamram
+ms.author: diberry
 ms.custom: "include file"
 ---
 

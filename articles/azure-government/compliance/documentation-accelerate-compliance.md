@@ -6,7 +6,7 @@ services: azure-government
 cloud: gov
 author: todorgb
 manager: vernonw
-ms.author: eliotgra
+ms.author: diberry
 ms.service: azure-government
 ms.topic: article
 ms.date: 05/30/2023

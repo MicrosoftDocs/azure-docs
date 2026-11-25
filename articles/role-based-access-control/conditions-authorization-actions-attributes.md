@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: reference
 ms.date: 03/30/2026
-ms.author: rolyon
+ms.author: diberry
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
 

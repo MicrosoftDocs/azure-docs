@@ -2,7 +2,7 @@
 title: Add calling to an iOS app
 description: This article describes how to use the Azure Communication Services Calling SDK for iOS.
 author: tophpalmer
-ms.author: rifox
+ms.author: diberry
 ms.date: 05/10/2025
 ms.topic: include
 ms.service: azure-communication-services

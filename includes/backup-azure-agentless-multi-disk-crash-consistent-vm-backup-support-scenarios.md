@@ -6,7 +6,7 @@ ms.service: azure-backup
 ms.topic: include
 ms.date: 03/13/2024
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: diberry
 ---
 
 The following table lists the supported scenarios for agentless multi-disk crash-consistent Azure Virtual Machine (VM) backup:

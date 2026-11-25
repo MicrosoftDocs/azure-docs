@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: Add Tags to Orchestrations and Activities in Durable Task Scheduler
 titleSuffix: Durable Task
 description: Learn how to use tags to attach custom key-value metadata to orchestrations, activities, and sub-orchestrations in Durable Task Scheduler.

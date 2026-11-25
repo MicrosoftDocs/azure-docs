@@ -2,7 +2,7 @@
 title: Move Azure Notification Hubs resources from one region to another 
 description: Learn how to move Azure Notification Hubs resources to a different Azure region. 
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-notification-hubs
 ms.topic: how-to
 ms.date: 09/07/2021

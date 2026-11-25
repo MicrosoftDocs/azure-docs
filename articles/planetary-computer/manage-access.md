@@ -2,7 +2,7 @@
 title: Manage access for Microsoft Planetary Computer Pro
 description: Learn how to manage role-based access control (RBAC) for Microsoft Planetary Computer Pro GeoCatalog resources.
 author: jglixon
-ms.author: jglixon
+ms.author: diberry
 ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 05/29/2026

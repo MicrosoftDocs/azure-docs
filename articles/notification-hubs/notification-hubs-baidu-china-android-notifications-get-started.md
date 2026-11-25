@@ -9,7 +9,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: mobile-baidu
 ms.date: 07/17/2023
-ms.author: sethm
+ms.author: dimatokar
 ms.custom:
   - devx-track-java
   - devx-track-csharp

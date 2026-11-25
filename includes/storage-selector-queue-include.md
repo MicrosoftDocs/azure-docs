@@ -3,7 +3,7 @@ author: tamram
 ms.service: azure-storage
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: tamram
+ms.author: diberry
 ---
 > [!div class="op_single_selector"]
 > * [.NET](../articles/storage/queues/storage-dotnet-how-to-use-queues.md)

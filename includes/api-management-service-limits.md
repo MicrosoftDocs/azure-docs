@@ -7,7 +7,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 05/20/2026
-ms.author: patricka
+ms.author: srthirth
 ms.custom: Include file
 ---
 

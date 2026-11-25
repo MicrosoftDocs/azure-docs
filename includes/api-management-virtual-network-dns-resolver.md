@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 06/20/2025
-ms.author: patricka
+ms.author: srthirth
 ---
 
 While you have the option to use a private or custom DNS server, we recommend:

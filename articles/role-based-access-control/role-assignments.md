@@ -5,7 +5,7 @@ author: rolyon
 ms.service: role-based-access-control
 ms.topic: concept-article
 ms.date: 05/28/2025
-ms.author: rolyon
+ms.author: diberry
 ---
 # Understand Azure role assignments
 

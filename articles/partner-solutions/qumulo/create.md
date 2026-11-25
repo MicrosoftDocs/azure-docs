@@ -2,7 +2,7 @@
 title: Get started with Azure Native Qumulo Scalable File Service
 description: Learn how to create an Azure Native Qumulo Scalable File Service resource in the Azure portal.
 author: Reshmi-Sriram
-ms.author: reshmisriram
+ms.author: diberry
 ms.topic: quickstart
 ms.custom:
   - ignite-2023

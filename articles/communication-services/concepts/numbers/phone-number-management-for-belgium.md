@@ -6,7 +6,7 @@ author: krkutser
 manager: rcole
 services: azure-communication-services
 
-ms.author: krkutser
+ms.author: diberry
 ms.date: 03/30/2023
 ms.topic: reference
 ms.service: azure-communication-services

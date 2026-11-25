@@ -5,7 +5,7 @@ ms.topic: include
 ms.service: azure-vmware
 ms.date: 01/04/2024
 author: suzizuber
-ms.author: v-szuber
+ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: "As a network administrator, I want to connect Azure VMware Solution environments to on-premises networks using ExpressRoute Global Reach, so that I can ensure efficient and secure data transfer between my private clouds and local infrastructure."
 ---

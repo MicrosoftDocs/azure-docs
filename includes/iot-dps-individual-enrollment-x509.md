@@ -3,7 +3,7 @@ author: sethmanheim
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 07/25/2025
-ms.author: sethm
+ms.author: dimatokar
 ms.subservice: azure-iot-hub-dps
 ---
 

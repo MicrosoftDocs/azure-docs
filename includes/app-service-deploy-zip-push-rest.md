@@ -1,9 +1,9 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 03/22/2022
-ms.author: cephalin 
+ms.author: byvinyal 
 ---
 ## <a name="rest"></a>Deploy ZIP file with REST APIs 
 

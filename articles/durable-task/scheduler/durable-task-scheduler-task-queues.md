@@ -1,7 +1,7 @@
 ---
 ai-usage: ai-assisted
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: Use task queues in Durable Task Scheduler (preview)
 titleSuffix: Durable Task
 description: Learn how to create task queues, configure work-item throughput, and route orchestrations and activities with SDK tags in Durable Task Scheduler.

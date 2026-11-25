@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 08/27/2024
-ms.author: patricka
+ms.author: srthirth
 ---
 
 CPU and memory usage reveals consumption of resources by:

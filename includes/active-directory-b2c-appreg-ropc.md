@@ -4,7 +4,7 @@ ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 02/25/2025
-ms.author: kengaderdus
+ms.author: diberry
 ms.custom: sfi-ropc-blocked
 # Used by the ROPC configuration articles for both user flows and custom policies.
 ---

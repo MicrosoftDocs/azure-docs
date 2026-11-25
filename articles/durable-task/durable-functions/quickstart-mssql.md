@@ -2,7 +2,7 @@
 title: "Quickstart: Durable Functions App With MSSQL Storage Provider"
 description: Learn how to create a Durable Functions app with the MSSQL storage provider in Azure Functions. Follow this quickstart to set up stateful orchestrations backed by SQL Server.
 author: lilyjma
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.topic: quickstart
 ms.service: durable-task
 ms.subservice: durable-functions

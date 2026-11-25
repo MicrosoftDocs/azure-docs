@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.reviewer: wangbill
 title: "Configure customer-managed keys for Durable Task Scheduler"
 titleSuffix: Durable Task

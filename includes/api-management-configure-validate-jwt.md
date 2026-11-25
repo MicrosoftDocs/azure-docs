@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 04/26/2022
-ms.author: patricka
+ms.author: srthirth
 ---
 
 The following example policy, when added to the `<inbound>` policy section, checks the value of the audience claim in an access token obtained from Microsoft Entra ID that is presented in the Authorization header. It returns an error message if the token is not valid. Configure this policy at a policy scope that's appropriate for your scenario.

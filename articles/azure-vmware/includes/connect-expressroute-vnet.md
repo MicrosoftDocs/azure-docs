@@ -5,7 +5,7 @@ ms.topic: include
 ms.service: azure-vmware
 ms.date: 1/03/2024
 author: suzizuber
-ms.author: v-szuber
+ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: "As a network administrator, I want to connect ExpressRoute to a virtual network gateway, so that I can establish a secure and dedicated network connection to enhance performance and reliability for my applications."
 ---

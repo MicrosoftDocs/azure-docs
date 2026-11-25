@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 12/05/2022
-ms.author: patricka
+ms.author: srthirth
 ---
 
 ## Validation errors

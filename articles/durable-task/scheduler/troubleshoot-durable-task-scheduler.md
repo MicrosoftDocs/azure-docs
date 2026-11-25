@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: Troubleshoot errors in Durable Task Scheduler
 titleSuffix: Durable Task
 description: Troubleshoot common error messages and issues in Durable Task Scheduler, including connection string problems, deployment failures, and gRPC runtime issues on ARM devices.

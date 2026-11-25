@@ -1,6 +1,6 @@
 ---
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: include

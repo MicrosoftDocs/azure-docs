@@ -6,7 +6,7 @@ ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: error-reference
 ms.date: 04/22/2019
-ms.author: sethm
+ms.author: dimatokar
 ms.custom: include file
 ---
 [Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) in the REST API gives the health status of the endpoints and the last known error, to identify the reason an endpoint isn't healthy. This table lists the most common errors.

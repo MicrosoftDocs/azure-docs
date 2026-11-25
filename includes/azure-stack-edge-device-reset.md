@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/27/2023
-ms.author: alkohli
+ms.author: scompton
 ---
 
 To reset your device using the local web UI, take the following steps.

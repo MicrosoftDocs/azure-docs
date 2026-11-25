@@ -2,7 +2,7 @@
 title: "Migrate Durable Functions from in-process to isolated worker (.NET)"
 description: Step-by-step guide to migrate your .NET Durable Functions app from the in-process model to the isolated worker model. Includes code examples, API mapping, and troubleshooting.
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.reviewer: azfuncdf
 ms.date: 05/20/2026
 ms.topic: concept-article

@@ -6,7 +6,7 @@ ms.topic: concept-article
 ms.service: durable-task
 ms.date: 10/12/2026
 ai-usage: ai-assisted
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, python
 ms.custom: devx-track-js, devx-track-python

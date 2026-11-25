@@ -4,7 +4,7 @@ description: "Learn how to implement the human interaction pattern for approval 
 ms.topic: how-to
 ms.service: durable-task
 ms.date: 10/12/2026
-ms.author: hannahhunter
+ms.author: vyomnagrani
 author: hhunter-ms
 ms.devlang: csharp
 ms.custom: devx-track-js

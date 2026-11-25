@@ -3,7 +3,7 @@ author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/28/2025
-ms.author: rifox
+ms.author: diberry
 ---
 
 ## Implement iOS mobile push notifications

@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: Develop with Durable Task Scheduler
 titleSuffix: Durable Task
 description: "Learn how to develop with Durable Task Scheduler: run the emulator, create and manage schedulers and task hubs using Azure CLI or Azure portal."

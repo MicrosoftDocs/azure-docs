@@ -4,7 +4,7 @@ description: Learn about Azure PowerShell Sample scripts to help you create and 
 ms.service: azure-data-share
 ms.custom: devx-track-azurepowershell, msecd-doc-authoring-1030
 author: chvukosw
-ms.author: chvukosw
+ms.author: diberry
 ms.topic: concept-article
 ms.date: 10/13/2026
 ai-usage: ai-assisted

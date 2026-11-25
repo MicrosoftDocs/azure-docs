@@ -1,7 +1,7 @@
 ---
 ms.service: azure
 author: ecfan
-ms.author: estfan
+ms.author: divswa
 ms.topic: include
 ms.date: 04/08/2025
 # Caution portion of the generic text about tool options for API testing and sending HTTP requests.

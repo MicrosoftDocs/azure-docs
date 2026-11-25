@@ -5,7 +5,7 @@ description: Learn how to add a web API application to your Active Directory B2C
 author: kengaderdus
 manager: CelesteDG
 
-ms.author: kengaderdus
+ms.author: diberry
 ms.date: 10/11/2024
 ms.custom: mvc
 ms.topic: how-to

@@ -8,7 +8,7 @@ manager: lizross
 ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
 ---

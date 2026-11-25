@@ -3,7 +3,7 @@ author: alkohli
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/20/2020
-ms.author: alkohli
+ms.author: scompton
 ms.custom: sfi-image-nochange
 ---
 

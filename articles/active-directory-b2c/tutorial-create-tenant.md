@@ -9,7 +9,7 @@ ms.service: entra-id
 
 ms.topic: tutorial
 ms.date: 09/11/2024
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 ms.custom:
   - "b2c-support"

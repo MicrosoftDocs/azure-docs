@@ -12,7 +12,7 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 01/04/2019
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom:

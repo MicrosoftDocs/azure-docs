@@ -2,7 +2,7 @@
 title: "PowerShell script: Add a blob dataset to an Azure Data Share"
 description: This PowerShell script adds a blob dataset to an existing share.
 author: chvukosw
-ms.author: chvukosw
+ms.author: diberry
 ms.service: azure-data-share
 ms.topic: article
 ms.date: 10/13/2026

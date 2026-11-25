@@ -5,7 +5,7 @@ author: rolyon
 ms.service: role-based-access-control
 ms.topic: feature-guide
 ms.date: 12/12/2024
-ms.author: rolyon
+ms.author: diberry
 ms.custom: sfi-ga-nochange
 ---
 

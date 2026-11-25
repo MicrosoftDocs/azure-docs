@@ -6,7 +6,7 @@ ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 08/07/2019
-ms.author: sethm
+ms.author: dimatokar
 ms.custom: include file
 ---
 <!-- This contains intro text for the "Get an IoT hub connection string" section in the iot-hub-lang-lang-twin-getstarted.md files-->

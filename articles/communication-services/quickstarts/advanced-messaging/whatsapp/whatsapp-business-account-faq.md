@@ -5,7 +5,7 @@ description: Learn about Communication Service WhatsApp Business Accounts FAQ.
 author: darmour
 manager: sundraman
 services: azure-communication-services
-ms.author: darmour
+ms.author: diberry
 ms.date: 05/01/2025
 ms.topic: quickstart
 ms.service: azure-communication-services

@@ -6,7 +6,7 @@ author: msangapu
 ms.service: azure-app-service
 ms.topic: "include"
 ms.date: 09/14/2021
-ms.author: msangapu
+ms.author: byvinyal
 ms.custom: "include file"
 ---
 

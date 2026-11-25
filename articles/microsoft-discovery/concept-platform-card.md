@@ -2,7 +2,7 @@
 title: Platform Card for Microsoft Discovery
 description: Learn about Microsoft Discovery intended uses, capabilities, limitations, evaluations, safety components, and best practices for responsible deployment and use.
 author: ffrachon
-ms.author: fabricfr
+ms.author: diberry
 ms.service: azure
 ms.topic: concept-article
 ms.date: 11/10/2026

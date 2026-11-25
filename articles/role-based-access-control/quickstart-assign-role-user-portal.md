@@ -7,7 +7,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: tutorial
 ms.date: 03/30/2025
-ms.author: rolyon
+ms.author: diberry
 ms.custom: subject-rbac-steps
 #Customer intent: As a new user, I want to see how to grant access to resources in the portal, so that I can start granting access to others.
 ---

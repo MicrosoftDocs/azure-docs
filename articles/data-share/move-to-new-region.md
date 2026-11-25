@@ -6,7 +6,7 @@ ms.custom: devx-track-arm-template, msecd-doc-authoring-1030
 ms.topic: how-to
 ms.date: 10/13/2026
 author: chvukosw
-ms.author: chvukosw
+ms.author: diberry
 #Customer intent: As an Azure Data Share User, I want to move my Data Share account to a new region.
 ai-usage: ai-assisted
 ---

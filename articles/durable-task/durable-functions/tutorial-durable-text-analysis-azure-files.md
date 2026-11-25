@@ -5,7 +5,7 @@ ms.service: durable-task
 ms.subservice: durable-functions
 ms.topic: tutorial
 ms.date: 05/20/2026
-ms.author: hannahhunter
+ms.author: vyomnagrani
 author: hhunter-ms
 ms.custom:
   - devx-track-azurecli

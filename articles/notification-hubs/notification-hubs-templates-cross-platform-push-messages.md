@@ -9,7 +9,7 @@ ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-multiple
 ms.topic: article
 ms.date: 02/16/2021
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ---

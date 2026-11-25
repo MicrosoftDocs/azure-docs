@@ -11,7 +11,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 11/14/2019
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.custom:

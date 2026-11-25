@@ -6,7 +6,7 @@ author: simranparkhe
 ms.service: security
 ms.topic: article
 ms.date: 04/30/2026
-ms.author: simranparkhe
+ms.author: sgallagher
 ai-usage: ai-assisted
 ---
 

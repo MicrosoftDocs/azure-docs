@@ -5,7 +5,7 @@ author: boris-bazilevskiy
 manager: rcole
 services: azure-communication-services
 
-ms.author: krkutser
+ms.author: diberry
 ms.date: 06/22/2023
 ms.topic: feature-guide
 ms.service: azure-communication-services

@@ -5,7 +5,7 @@ description: Learn about Verify Your WhatsApp Business Number.
 author: darmour
 manager: sundraman
 services: azure-communication-services
-ms.author: darmour
+ms.author: diberry
 ms.date: 02/29/2024
 ms.topic: include
 ms.service: azure-communication-services

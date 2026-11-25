@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: durable-task
 ms.date: 11/10/2026
 ai-usage: ai-assisted
-ms.author: hannahhunter
+ms.author: vyomnagrani
 author: hhunter-ms
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, powershell, python, java
