@@ -1,7 +1,7 @@
 ---
 title: Weather service concepts in Microsoft Azure Maps
 description: Learn about the concepts that apply to Microsoft Azure Maps Weather service.
-author: farazgis
+author: diberry
 ms.author: fsiddiqui
 ms.date: 09/10/2020
 ms.topic: concept-article

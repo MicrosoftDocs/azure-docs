@@ -2,7 +2,7 @@
 title: Migrate Azure Maps Search 1.0 APIs
 titleSuffix: Microsoft Azure Maps
 description: Learn how to migrate from Azure Maps Search service version 1 to the latest version.
-author: farazgis
+author: diberry
 ms.author: fsiddiqui
 ms.date: 09/30/2026
 ms.topic: upgrade-and-migration-article

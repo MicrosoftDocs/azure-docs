@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Analyze trip data using Snap to Roads in Microsoft Fabric notebook.'
 description: Tutorial on how to Create a snap to road route using Microsoft Azure Maps routing APIs and Microsoft Fabric notebooks.
-author: farazgis
+author: diberry
 ms.author: fsiddiqui
 ms.date: 11/11/2024
 ms.topic: tutorial

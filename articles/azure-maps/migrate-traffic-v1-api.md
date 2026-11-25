@@ -2,7 +2,7 @@
 title: Migrate Azure Maps Traffic API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Azure Maps Traffic API version 1.0.
-author: farazgis
+author: diberry
 ms.author: fsiddiqui
 ms.date: 03/28/2025
 ms.topic: upgrade-and-migration-article
