@@ -6,7 +6,7 @@ ms.date: 04/15/2026
 ms.topic: troubleshooting 
 ms.custom:
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Troubleshoot VM extension-based Hybrid Runbook Worker issues in Automation

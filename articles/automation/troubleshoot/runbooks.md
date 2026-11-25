@@ -6,7 +6,7 @@ ms.date: 04/15/2026
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Troubleshoot runbook issues

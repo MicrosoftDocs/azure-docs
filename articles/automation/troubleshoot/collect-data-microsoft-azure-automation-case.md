@@ -8,7 +8,7 @@ ms.custom: engagement-fy23, linux-related-content
 ms.date: 10/21/2022
 ms.update-cycle: 1825-days
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Data to collect when opening a case for Microsoft Azure Automation

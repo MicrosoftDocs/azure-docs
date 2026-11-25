@@ -6,7 +6,7 @@ ms.subservice:
 ms.date: 04/15/2026
 ms.topic: troubleshooting
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Troubleshoot Azure Automation managed identity issues
