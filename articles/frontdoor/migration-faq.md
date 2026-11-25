@@ -3,7 +3,7 @@ title: Migration FAQ
 titleSuffix: Azure Front Door
 description: Frequently asked questions about migrating from Front Door (classic) and CDN Standard from Microsoft (classic) to Front Door Standard or Premium.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 08/26/2026

@@ -3,7 +3,7 @@ title: Origins and origin groups
 titleSuffix: Azure Front Door
 description: Learn about origins and origin groups in an Azure Front Door configuration.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 09/25/2025

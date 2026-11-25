@@ -2,7 +2,7 @@
 title: Azure Front Door Overview
 description: This article provides an overview of Azure Front Door.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: overview
 ms.date: 08/28/2026

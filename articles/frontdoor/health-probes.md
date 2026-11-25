@@ -3,7 +3,7 @@ title: Health Probes
 titleSuffix: Azure Front Door
 description: Learn how Azure Front Door uses health probes to select healthy origins, measure latency, handle failures, and support HTTP, HTTPS, and gRPC preview probes.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 11/05/2026

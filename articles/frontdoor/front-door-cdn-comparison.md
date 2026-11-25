@@ -2,7 +2,7 @@
 title: Comparison Between Azure Front Door and Azure Content Delivery Network
 description: This article provides a comparison between the Azure Front Door service tiers and Azure Content Delivery Network service tiers.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 10/19/2026
