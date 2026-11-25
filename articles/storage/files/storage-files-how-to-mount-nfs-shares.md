@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to
-ms.date: 11/19/2026
+ms.date: 11/25/2026
 ms.author: kendownie
 ---
 
@@ -112,7 +112,12 @@ sudo AZNFS_NONINTERACTIVE_INSTALL=1 DEBIAN_FRONTEND=noninteractive apt-get insta
 > A noninteractive install sets `AUTO_UPDATE_AZNFS=true` by default.
 
 > [!NOTE]
-> Starting with version 3.0.21, AzNFS writes NFSv4 logs to syslog by default, as described in [Troubleshoot AzNFS mounts](#troubleshoot-aznfs-mounts). Earlier versions write them to `/opt/microsoft/aznfs/data/aznfs.log` and `/etc/stunnel/microsoft/aznfs/nfsv4_fileShare/logs`. After an upgrade, shares that you mounted with an earlier version keep logging to the old locations until you unmount all the shares from that storage account and mount them again. Automatic updates don't restart the `aznfswatchdogv4` service, so after an automatic update, restart the service by running `sudo systemctl restart aznfswatchdogv4`, or reboot the client.
+> Starting with version 3.0.21, AzNFS writes NFSv4 logs to syslog by default, as described in [Troubleshoot AzNFS mounts](#troubleshoot-aznfs-mounts). Earlier versions write them to `/opt/microsoft/aznfs/data/aznfs.log` and `/etc/stunnel/microsoft/aznfs/nfsv4_fileShare/logs`. After an upgrade, existing mounts keep logging to the old locations. To make sure that the new logging takes effect:
+>
+> 1. Unmount all the shares from the storage account.
+> 1. Wait about 30 seconds.
+> 1. Restart the `aznfswatchdogv4` service by running `sudo systemctl restart aznfswatchdogv4`.
+> 1. Mount the shares again.
 
 ## Mount an NFS Azure file share
 You can mount the share by using the AzNFS mount helper (an Azure NFS mount helper package) in the Azure portal, or you can use the native NFS mount commands at the command line. You can also create a record in the **/etc/fstab** file to automatically mount the share every time the Linux server or VM boots.
@@ -433,6 +438,13 @@ If mounting issues continue, check the logs for more troubleshooting details. St
 - **Stunnel logs**: `sudo journalctl -t stunnel`
 
 To write the logs to files instead, set `AZNFS_LOGDIR` in `/opt/microsoft/aznfs/data/config` to the directory that you want to use. AzNFS then writes the logs to `aznfs.log` and `stunnel_<ip>.log` in that directory, and rotates them by using logrotate. For all logging options, see the [AzNFS README](https://github.com/Azure/AZNFS-mount/blob/main/README.md#logs).
+
+After you set `AZNFS_LOGDIR`, existing mounts keep logging to syslog until you restart the `aznfswatchdogv4` service and remount the shares. To apply the change:
+
+1. Unmount all the shares from the storage account.
+1. Wait about 30 seconds.
+1. Restart the `aznfswatchdogv4` service by running `sudo systemctl restart aznfswatchdogv4`.
+1. Mount the shares again.
 
 ## Validate connectivity
 If your mount fails, it's possible that your private endpoint isn't set up correctly or isn't accessible. For details, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
