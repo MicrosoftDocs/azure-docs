@@ -1,7 +1,7 @@
 ---
 title: Add, update, or delete a payment method
 description: This article describes how to add, update, or delete a payment method for an Azure subscription.
-author: kennyday
+author: diberry
 ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing

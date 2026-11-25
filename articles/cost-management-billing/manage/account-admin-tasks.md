@@ -1,7 +1,7 @@
 ---
 title: Payment method tasks in the Azure portal
 description: Describes how to perform payment method operations in the Azure portal
-author: kennyday
+author: diberry
 ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing

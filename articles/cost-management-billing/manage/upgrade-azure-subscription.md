@@ -2,7 +2,7 @@
 title: Upgrade your Azure account
 description: Learn how to upgrade your Azure free or Azure for Students Starter account. See additional information about Azure support plans.
 keywords: pay as you go upgrade
-author: jkinma39
+author: diberry
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing

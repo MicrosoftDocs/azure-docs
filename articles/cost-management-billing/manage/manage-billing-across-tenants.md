@@ -2,7 +2,7 @@
 title: Manage billing across multiple tenants
 titleSuffix: Microsoft Cost Management
 description: Describes how to use associated billing tenants to manage billing across tenants and move subscriptions in different tenants.
-author: jkinma39
+author: diberry
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
