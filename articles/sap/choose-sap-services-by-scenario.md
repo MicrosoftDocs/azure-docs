@@ -2,7 +2,7 @@
 title: SAP on Azure service scenarios and selection guidance
 description: Use common SAP scenarios to choose Azure services for deploying, managing, monitoring, integrating, and protecting SAP systems.
 author: jjaygbay1
-ms.author: jacobjaygbay
+ms.author: tundeazeez
 ms.service: sap-on-azure
 ms.topic: concept-article
 ms.date: 07/27/2026
