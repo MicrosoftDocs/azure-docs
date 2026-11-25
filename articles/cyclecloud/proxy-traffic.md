@@ -1,7 +1,7 @@
 ---
 title: Proxy Traffic
 description: Learn how to enable and configure proxy access for your Azure CycleCloud installation and cluster traffic.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: concept-article
 ms.author: adjohnso

@@ -2,7 +2,7 @@
 title: Service Policy
 description: Complete service policy for Azure CycleCloud. See release types, release cadence, supported Azure CycleCloud versions, how to get support, and more.
 services: azure cyclecloud
-author: adriankjohnson
+author: mattmcinnes
 ms.topic: concept-article
 ms.date: 07/27/2026
 ms.author: mattmcinnes

@@ -1,7 +1,7 @@
 ---
 title: Common Issues - Unavailable SKU| Microsoft Docs
 description: Troubleshoot 'requested VM size not available' (unavailable SKU) errors in Azure CycleCloud.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso

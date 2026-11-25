@@ -1,7 +1,7 @@
 ---
 title: Download Cluster Projects and Templates
 description: Azure CycleCloud has built-in templates you can configure and edit to make your own custom templates.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: adjohnso

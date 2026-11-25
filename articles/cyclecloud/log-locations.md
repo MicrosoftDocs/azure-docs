@@ -1,7 +1,7 @@
 ---
 title: Cyclecloud Log Locations
 description: The location of the different logs associated with CycleCloud
-author: dougclayton
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: reference

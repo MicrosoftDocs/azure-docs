@@ -2,7 +2,7 @@
 title: Overview
 description: In this overview, learn about Azure CycleCloud, an enterprise-friendly tool to orchestrate and manage High Performance Computing (HPC) environments on Azure.
 ai-usage: ai-assisted
-author: jermth
+author: mattmcinnes
 ms.date: 09/16/2026
 ms.topic: overview
 ms.author: anhoward

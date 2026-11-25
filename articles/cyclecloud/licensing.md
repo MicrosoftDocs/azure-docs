@@ -1,7 +1,7 @@
 ---
 title: Licensing Information
 description: Learn about licensing for Azure CycleCloud, including usage terms and how licensing applies to your clusters.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: concept-article
 ms.author: adjohnso
