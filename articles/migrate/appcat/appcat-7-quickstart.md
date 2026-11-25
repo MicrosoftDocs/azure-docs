@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Assess a Java Project using AppCAT 7"
 description: Learn how to assess a Java project using AppCAT 7.
-author: KarlErickson
+author: sandeep-sen
 ms.author: sandeepsen
 ms.reviewer: seal
 ms.service: azure-java
