@@ -5,8 +5,8 @@ keywords: "Azure WebJobs, App Service, background processing, triggered jobs, co
 ms.topic: overview
 ms.date: 11/19/2025
 ms.update-cycle: 180-days
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.reviewer: ggailey
 ms.collection: ce-skilling-ai-copilot
 #Customer intent: I want to understand what WebJobs are, how they work with Azure App Service, and whether they’re the right solution for running background tasks in my app. I'm looking for guidance on supported platforms, types of jobs, deployment options, and how to get started or go deeper based on my use case.

@@ -2,8 +2,8 @@
 title: Create a network isolated lab
 description: Learn how to enable and configure network isolation for labs in Azure DevTest Labs.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/31/2025
 ms.custom:
   - UpdateFrequency2

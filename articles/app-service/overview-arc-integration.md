@@ -5,7 +5,7 @@ ms.topic: overview
 ms.custom: devx-track-azurecli
 ms.date: 10/07/2025
 author: apwestgarth
-ms.author: msangapu
+ms.author: byvinyal
 ROBOTS: NOINDEX
 ms.service: azure-app-service
 

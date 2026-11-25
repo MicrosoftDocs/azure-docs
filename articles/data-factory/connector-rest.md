@@ -6,7 +6,7 @@ author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 07/29/2026
-ms.author: makromer
+ms.author: weetok
 ms.custom:
   - synapse
   - sfi-image-nochange

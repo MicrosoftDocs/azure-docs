@@ -3,7 +3,7 @@ title: "Durable Task Programming Model: Orchestrators, Activities, and Entities"
 description: Explore the Durable Task programming model, including orchestrators, activities, entities, and client APIs. Build stateful, fault-tolerant workflows with Durable Functions or Durable Task SDKs. Get started today.
 author: cgillum
 ms.topic: concept-article
-ms.date: 10/12/2026
+ms.date: 11/10/2026
 ms.author: azfuncdf
 ms.reviewer: hannahhunter
 ms.service: durable-task
@@ -102,7 +102,9 @@ You define an activity by implementing a class or function and registering it wi
 ::: zone-end
 
 > [!NOTE]
-> Because activities guarantee only at-least-once execution, make your activity logic [idempotent](https://en.wikipedia.org/wiki/Idempotence) whenever possible. For example, use "upserts" instead of inserts, or check for existing results before creating new resources.
+> Because activities guarantee only at-least-once execution, make your activity logic [idempotent](https://en.wikipedia.org/wiki/Idempotence). Use stable, operation-specific idempotency keys and atomic service-side deduplication for external changes. A separate check for an existing result before writing isn't sufficient to prevent concurrent duplicates.
+
+A successfully recorded activity result is reused during orchestrator replay; replay doesn't rerun that activity to refresh external data. For example, a recorded stock-availability result isn't a stock reservation. See [Coordinate changes to external business data](durable-task-orchestrations.md#coordinate-changes-to-external-business-data).
 
 Activities can run [serially](durable-task-sequence.md), in [parallel](durable-task-fan-in-fan-out.md), or in a combination of both.
 

@@ -5,7 +5,7 @@ description: Learn how to create a self-hosted integration runtime in Azure Data
 ms.subservice: integration-runtime
 ms.topic: concept-article
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.date: 06/17/2026
 ai-usage: ai-assisted
 ms.custom:
@@ -514,7 +514,7 @@ Follow these steps:
 
 # Prerequisites:
 # - PowerShell installed
-# - Azure CLI (az) installed and logged in (https://learn.microsoft.com/en-us/cli/azure/)
+# - [Azure CLI (az) installed and logged in ](/cli/azure/)
 # - signed in user needs rights to modify NSG (e.g. Network contributor) and to read status of the SHIR (e.g. reader), plus reader on the subscription
 
 param (

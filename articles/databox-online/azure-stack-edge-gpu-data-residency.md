@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 10/01/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Data residency and resiliency for Azure Stack Edge 

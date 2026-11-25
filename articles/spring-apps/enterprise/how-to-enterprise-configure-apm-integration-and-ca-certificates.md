@@ -2,8 +2,8 @@
 title: How to Configure APM Integration and CA Certificates
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to configure APM integration and CA certificates in the Azure Spring Apps Enterprise plan.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: fenzho
 ms.service: azure-spring-apps
 ms.topic: how-to

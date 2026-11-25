@@ -1,8 +1,8 @@
 ---
 title: Deploy Files
 description: Learn to deploy app packages, discrete libraries, static files, or startup scripts to Azure App Service.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.topic: how-to
 ms.date: 04/08/2026
 ms.custom: devx-track-azurecli

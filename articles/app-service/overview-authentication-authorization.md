@@ -5,10 +5,10 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: concept-article
 ms.date: 03/28/2025
 ms.update-cycle: 1095-days
-ms.reviewer: mahender
+ms.reviewer: jamchri
 ms.custom: UpdateFrequency3, fasttrack-edit, AppServiceIdentity
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 #customer intent: As an app developer, I want to user Easy Auth to simplify authentication and authorization for my apps in Azure App Service.
 ms.service: azure-app-service
 ---

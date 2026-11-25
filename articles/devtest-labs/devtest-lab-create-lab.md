@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a lab in the Azure portal'
 description: Learn how to quickly create a lab in Azure DevTest Labs by using the Azure portal.
 ms.topic: quickstart
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/09/2025
 ms.custom:
   - mode-ui

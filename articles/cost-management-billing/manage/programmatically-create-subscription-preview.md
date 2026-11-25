@@ -7,7 +7,7 @@ ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/07/2026
+ms.date: 11/24/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
@@ -217,7 +217,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/account
 ### Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions can be created using the API.
-- There's a limit of 5000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 5000 limit.
+- There's a limit of 5000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account. Canceled and transferred subscriptions count toward the 5000 limit.
 - Users who aren't Account Owners, but were added to an enrollment account with Azure RBAC, can't create subscriptions in the Azure portal.
 - You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

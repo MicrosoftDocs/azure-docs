@@ -2,7 +2,7 @@
 title: "Durable Task SDKs Overview: Portable Orchestration Libraries"
 description: "Learn about the portable Durable Task SDKs for .NET, Python, Java, JavaScript/TypeScript, and Go. Build durable orchestrations on any compute platform."
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.reviewer: azfuncdf
 ms.date: 10/28/2026
 ai-usage: ai-assisted
@@ -50,13 +50,15 @@ dotnet add package Microsoft.DurableTask.Client.AzureManaged
 
 The .NET SDK works with any .NET hosting model: ASP.NET Core, console apps, or worker services. It supports type-safe orchestration and activity definitions with source generators, and integrates with dependency injection.
 
+For generated activity and client invocation helpers, see [Source generators and class-based syntax](../durable-functions/durable-functions-dotnet-isolated-overview.md#source-generators-and-class-based-syntax-preview).
+
 # [Python](#tab/python)
 
 ```bash
 pip install durabletask-azuremanaged
 ```
 
-The Python SDK works with any Python 3.9+ hosting. It supports generator-based orchestrations with async activities.
+Use Python 3.11 or later. The Durable Task Python SDK supports generator-based orchestrations with async activities.
 
 # [Java](#tab/java)
 
@@ -94,7 +96,7 @@ From a Go module, install the SDK:
 go get github.com/microsoft/durabletask-go@v1.0.0-beta3
 ```
 
-The Go SDK requires Go 1.25 or later. One module contains the `task`, `api`, `client`, and `durabletaskscheduler` packages. It supports function-based orchestrators, activities, and entities in self-hosted Go applications.
+The beta tag selects the current APIs rather than letting Go select the legacy stable SDK, which doesn't provide the Durable Task Scheduler integration used here. The Go SDK requires Go 1.25 or later. One module contains the `task`, `api`, `client`, and `durabletaskscheduler` packages. It supports function-based orchestrators, activities, and entities in self-hosted Go applications.
 
 > [!NOTE]
 > The Go SDK is in beta. It connects to Durable Task Scheduler or the local emulator, not the embedded SQLite or PostgreSQL backends in earlier Go SDK versions. Go isn't a Durable Functions language. See [Develop with the Durable Task SDK for Go](durable-task-go.md) for programming guidance and compatibility considerations.

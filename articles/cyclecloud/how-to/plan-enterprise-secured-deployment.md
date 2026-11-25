@@ -2,7 +2,7 @@
 title: Plan an enterprise-secured CycleCloud deployment
 description: Plan Azure CycleCloud in a hub-spoke network with private workload VMs, controlled access, private storage, DNS, and restricted egress.
 author: padmalathas
-ms.author: padmalathas
+ms.author: mattmcinnes
 ms.date: 08/27/2026
 ms.topic: how-to
 ms.service: azure-cyclecloud

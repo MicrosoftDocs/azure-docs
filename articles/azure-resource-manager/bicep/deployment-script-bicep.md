@@ -166,7 +166,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing 
   name: storageAccountData.name
 }
 
-@description('The Storage Blob Data Reader Role definition from [Built In Roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles).')
+@description('The Storage Blob Data Reader Role definition from [Built In Roles](/azure/role-based-access-control/built-in-roles).')
 resource storageBlobDataReaderRoleDef 'Microsoft.Authorization/roleDefinitions@2022-05-01-preview' existing = {
   scope: subscription()
   name: storageBlobDataReaderRoleId

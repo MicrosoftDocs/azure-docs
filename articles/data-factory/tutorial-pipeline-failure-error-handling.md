@@ -3,7 +3,7 @@ title: Pipeline failure and error message
 description: Understand how pipeline failure status and error message are determined
 ms.subservice: orchestration
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: whhender
 ms.topic: tutorial
 ms.date: 07/25/2025

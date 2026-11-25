@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Firewall with multiple public IP addresses - Bicep'
 description: In this quickstart, you learn how to use a Bicep file to create an Azure Firewall with multiple public IP addresses.
 author: mumian
-ms.author: jgao
+ms.author: ashishj
 ms.service: azure-firewall
 ms.topic: quickstart
 ms.date: 10/14/2026

@@ -1,7 +1,7 @@
 ---
 title: Create an agent in Microsoft Foundry
 description: Steps to create an agent in the Microsoft Foundry portal and add an OpenAPI tool.
-ms.author: cephalin
+ms.author: byvinyal
 ms.topic: include
 ms.date: 12/03/2025
 ms.service: azure-app-service

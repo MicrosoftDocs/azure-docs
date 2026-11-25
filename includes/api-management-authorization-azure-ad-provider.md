@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 04/09/2026
-ms.author: patricka
+ms.author: srthirth
 ---
 | Property | Description | Required | Default |
 |---|---|---|---|

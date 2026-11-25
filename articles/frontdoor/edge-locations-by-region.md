@@ -2,7 +2,7 @@
 title: Azure Front Door POP Locations by Region
 description: This article lists Azure Front Door POP locations, sorted by regions.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 09/25/2025

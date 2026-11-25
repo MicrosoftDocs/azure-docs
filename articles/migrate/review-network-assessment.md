@@ -1,21 +1,21 @@
 ---
-title: Review Azure Networking With Azure Migrate Assessments
-description: Learn how to review Azure networking with Azure Migrate assessments.
+title: Review Azure Networking With Azure Catalyst Assessments
+description: Learn how to review Azure networking with Azure Catalyst assessments.
 ms.author: v-gajeronika
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 08/31/2026
 author: Jeronika-MS
 ms.custom: engagement-fy25
-# Customer intent: As a cloud migration architect, I want to create a network assessment in Azure Migrate, so that I can map on-premises VMware and NSX-T resources to Azure networking services.
+# Customer intent: As a cloud migration architect, I want to create a network assessment in Azure Catalyst, so that I can map on-premises VMware and NSX-T resources to Azure networking services.
 ---        
  
 # Review Azure networking in Azure assessment (Preview)
  
-This article describes how to review the results of an Azure network assessment in Azure Migrate, including recommended Azure network resources, migration readiness, network costs, and emissions estimates.
+This article describes how to review the results of an Azure network assessment in Azure Catalyst, including recommended Azure network resources, migration readiness, network costs, and emissions estimates.
 
 > [!NOTE]
-> This feature currently supports lift-and-shift migration of VMware environments, with or without NSX, to Azure through Azure Migrate.
+> This feature currently supports lift-and-shift migration of VMware environments, with or without NSX, to Azure through Azure Catalyst.
 
 ## Review assessment results
  
@@ -23,7 +23,7 @@ After the assessment is generated, review the results to understand the recommen
  
 To review a network assessment, follow these steps:
  
-1. In your Azure Migrate project, select **Assessments** under **Decide and plan**.
+1. In your Azure Catalyst project, select **Assessments** under **Decide and plan**.
  
     :::image type="content" source="./media/network-assessment/create-network-assessment.png" alt-text="Screenshot shows main panel to Create assessment button in the Assessments section." lightbox="./media/network-assessment/create-network-assessment.png":::
  
@@ -34,7 +34,7 @@ To review a network assessment, follow these steps:
  
 Review the summary of the assessed network resources and available migration paths. The assessment displays network cost and emissions information for the **Lift and shift** strategy.
  
-For migration strategies other than Lift and shift, Azure Migrate currently estimates network cost as five percent of the combined compute and storage cost. Detailed network cost estimation isn't currently available.
+For migration strategies other than Lift and shift, Azure Catalyst currently estimates network cost as five percent of the combined compute and storage cost. Detailed network cost estimation isn't currently available.
  
  :::image type="content" source="./media/review-network-assessment/network-cost.png" alt-text="Screenshot shows network cost details of the assessment." lightbox="./media/review-network-assessment/network-cost.png":::
  
@@ -49,7 +49,7 @@ The assessment overview page provides a summary of the recommended Azure network
  
 In the **Lift and shift** tab, review the target count and application cost. The overall target count includes network targets, and the application cost includes network cost.
  
-In your Azure Migrate project, select **Assessments** under **Decide and plan**.
+In your Azure Catalyst project, select **Assessments** under **Decide and plan**.
  
 For assessments that include multiple applications, the total assessment cost counts shared component costs only once. Individual application costs can still include their share of the shared component costs.
  
@@ -59,7 +59,7 @@ For assessments that include multiple applications, the total assessment cost co
  
 On the application summary page, review the following network-related information:
  
-In your Azure Migrate project, select **Assessments** under **Decide and plan**.
+In your Azure Catalyst project, select **Assessments** under **Decide and plan**.
  
  :::image type="content" source="./media/review-network-assessment/application-summary.png" alt-text="Screenshot shows application summary of the assessment." lightbox="./media/review-network-assessment/application-summary.png":::
  

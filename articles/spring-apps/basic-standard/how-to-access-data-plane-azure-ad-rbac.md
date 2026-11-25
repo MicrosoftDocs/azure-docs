@@ -2,8 +2,8 @@
 title: "Access Config Server and Service Registry"
 titleSuffix: Azure Spring Apps
 description: How to access Config Server and Service Registry Endpoints with Microsoft Entra role-based access control.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/19/2025

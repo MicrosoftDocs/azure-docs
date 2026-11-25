@@ -2,8 +2,8 @@
 title: Certificate authorities hierarchy
 titleSuffix: Azure Device Registry
 description: Learn how the root and intermediate certificate authorities establish trust for device certificates in Azure Device Registry.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-device-registry
 ms.topic: concept-article
 ai-usage: ai-assisted

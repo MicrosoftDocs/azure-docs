@@ -1,8 +1,8 @@
 ---
 title: Migrate to Azure Container Apps
 description: Describes migrating to Azure Container Apps.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: dingmeng-xue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article

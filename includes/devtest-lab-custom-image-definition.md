@@ -1,7 +1,7 @@
 ---
 ms.service: azure-devtest-labs
 ms.topic: include
-ms.author: rosemalcolm
+ms.author: rabououn
 author: RoseHJM
 ms.date: 10/20/2021
 

@@ -1,8 +1,8 @@
 ---
 title: Create and provision an Azure IoT Edge for Linux on Windows device using symmetric keys
 description: Create and provision a single IoT Edge for Linux on Windows device in IoT Hub using manual provisioning with symmetric keys
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: Test the Foundry agent
 description: Test your Foundry agent in the playground with sample prompts to verify the OpenAPI tool integration.
-ms.author: cephalin
+ms.author: byvinyal
 ms.topic: include
 ms.date: 12/03/2025
 ms.service: azure-app-service

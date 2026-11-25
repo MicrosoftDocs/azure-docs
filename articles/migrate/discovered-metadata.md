@@ -1,6 +1,6 @@
 ---
 title: Discovered Metadata
-description: Get details about the metadata that the Azure Migrate appliance discovers.
+description: Get details about the metadata that the Azure Catalyst appliance discovers.
 author: Vikram1988
 ms.author: vibansa
 ms.service: azure-migrate
@@ -9,14 +9,14 @@ ms.reviewer: v-gajeronika
 ms.update-cycle: 1825-days
 ms.date: 09/11/2025
 ms.custom: engagement-fy25, devx-track-extended-java
-# Customer intent: As a systems administrator, I want to understand the metadata collected by the Azure Migrate appliance for server discovery, so that I can assess server readiness for migration to the cloud and optimize resource allocation.
+# Customer intent: As a systems administrator, I want to understand the metadata collected by the Azure Catalyst appliance for server discovery, so that I can assess server readiness for migration to the cloud and optimize resource allocation.
 ---
 
-# Metadata that an Azure Migrate appliance discovers
+# Metadata that an Azure Catalyst appliance discovers
 
-The Azure Migrate Discovery and Assessment tool uses the lightweight [Azure Migrate appliance](migrate-appliance.md) to discover servers running in your environment and send server configuration and performance metadata to Azure. 
+The Azure Catalyst Discovery and Assessment tool uses the lightweight [Azure Catalyst appliance](migrate-appliance.md) to discover servers running in your environment and send server configuration and performance metadata to Azure. 
 
-This article provides details about the metadata that the Azure Migrate appliance discovers. This metadata helps you assess server readiness for migration to Azure, right-size servers, and plan costs. Microsoft doesn't use this data in any license compliance audit.
+This article provides details about the metadata that the Azure Catalyst appliance discovers. This metadata helps you assess server readiness for migration to Azure, right-size servers, and plan costs. Microsoft doesn't use this data in any license compliance audit.
 
 ## Collected metadata for VMware servers
 
@@ -308,7 +308,7 @@ Published date | `apt-get -s dist-upgrade, yum -q check-update, zypper list-upda
 
 ## SQL Server instance and database data
 
-The Azure Migrate appliance that's used for discovery of VMware VMs can also collect data on SQL Server instances and databases.
+The Azure Catalyst appliance that's used for discovery of VMware VMs can also collect data on SQL Server instances and databases.
 
 ### SQL database metadata
 
@@ -381,7 +381,7 @@ File size| `sys.master_files`| Recommended SKU size (storage dimension)
 
 ## ASP.NET web app data
 
-The Azure Migrate appliance that's used for discovery of VMs can also collect data on ASP.NET web applications.
+The Azure Catalyst appliance that's used for discovery of VMs can also collect data on ASP.NET web applications.
 
 Here's the ASP.NET web app configuration data that the appliance collects from each Windows server discovered in your environment:
 
@@ -392,7 +392,7 @@ Web server | Server name <br/>Server type (currently only IIS) <br/>Configuratio
 
 ## Java web app data
 
-The Azure Migrate appliance that's used for discovery of VMs can also collect data on Java web applications.
+The Azure Catalyst appliance that's used for discovery of VMs can also collect data on Java web applications.
 
 Here's the Java web app configuration data that the appliance collects from each Windows server discovered in your environment:
 
@@ -403,7 +403,7 @@ Web server | OS type <br/> OS name<br/> OS version <br/> OS architecture<br/> Ho
 
 ## Application dependency data
 
-The Azure Migrate appliance can collect data about inter-server dependencies for servers running in your VMware environment or Hyper-V environment, for physical servers, or for servers running on other clouds (like AWS or GCP).
+The Azure Catalyst appliance can collect data about inter-server dependencies for servers running in your VMware environment or Hyper-V environment, for physical servers, or for servers running on other clouds (like AWS or GCP).
 
 ### Windows server dependency data
 

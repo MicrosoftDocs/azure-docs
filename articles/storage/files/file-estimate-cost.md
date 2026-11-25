@@ -5,7 +5,7 @@ ms.date: 10/23/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: khdownie
-ms.author: kendownie
+ms.author: normesta
 ms.service: azure-file-storage
 ---
 

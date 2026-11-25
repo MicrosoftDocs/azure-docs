@@ -5,7 +5,7 @@ ms.date: 03/19/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: whhender
-ms.author: whhender
+ms.author: weetok
 ---
 
 # Azure Data Factory monitoring data reference

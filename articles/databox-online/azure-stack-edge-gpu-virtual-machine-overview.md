@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 05/18/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Virtual machines on your Azure Stack Edge Pro GPU device

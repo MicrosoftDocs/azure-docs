@@ -5,8 +5,8 @@ keywords: buy domain, Azure domain management, custom domain setup, Azure App Se
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: how-to
 ms.date: 04/17/2026
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ms.custom: sfi-image-nochange
 ---

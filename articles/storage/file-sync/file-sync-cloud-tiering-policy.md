@@ -1,11 +1,11 @@
 ---
 title: Azure File Sync cloud tiering policies
 description: How the date policy and volume free space policy work together for different cloud tiering scenarios in Azure File Sync.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 06/03/2024
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As a system administrator, I want to configure cloud tiering policies for Azure File Sync, so that I can efficiently manage local and cloud storage while ensuring sufficient free space on my server endpoints."
 ---
 

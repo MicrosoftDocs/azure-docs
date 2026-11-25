@@ -6,7 +6,7 @@ author: ananyagarg
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 08/17/2026
-ms.author: ananyagarg
+ms.author: sgallagher
 # Customer intent: "As an AI developer, I want to utilize a secure platform for algorithm development on sensitive data, so that I can ensure compliance and ethical standards while maintaining privacy and security."
 ---
 

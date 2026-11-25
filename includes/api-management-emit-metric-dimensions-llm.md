@@ -5,7 +5,7 @@ ms.custom:
   - build-2024
 ms.topic: include
 ms.date: 04/18/2025
-ms.author: patricka
+ms.author: srthirth
 ---
 
 ### Default dimension names that may be used without value

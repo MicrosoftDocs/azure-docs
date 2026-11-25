@@ -1,6 +1,6 @@
 ---
 title: Tutorial to review the assessments created for migration to Azure VMware Solution
-description: Learn how to review VMware assessments for migration to AVS in Azure Migrate
+description: Learn how to review VMware assessments for migration to AVS in Azure Catalyst
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
@@ -27,7 +27,7 @@ You can select  **Sizing assumptions** to understand the assumptions that went i
 
 ## View an assessment
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to **Azure VMware Solution**.
+1. In **Servers, databases and web apps** > **Azure Catalyst: Discovery and assessment**, select the number next to **Azure VMware Solution**.
 
 1. In **Assessments**, select an assessment to open it. *For example*, estimations and costs:
 
@@ -43,7 +43,7 @@ You can select  **Sizing assumptions** to understand the assumptions that went i
     - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It will start in AVS with full AVS support.
     - **Ready with conditions**: There might be some compatibility issues, for example, Internet protocol or deprecated OS in VMware, and need to be remediated before migrating to Azure VMware Solution. To fix any readiness issues, follow the remediation guidance the assessment suggests.
     - **Not ready for AVS**: The VM will not start in AVS. *For example*, if the on-premises VMware VM has an external device attached such as a CD-ROM the VMware vMotion operation will fail (if using VMware vMotion).
-    - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
+    - **Readiness unknown**: Azure Catalyst couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 
 3. Review the suggested tool:
     - **VMware HCX Advanced or Enterprise**: For VMware vSphere VMs, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/configure-vmware-hcx.md).

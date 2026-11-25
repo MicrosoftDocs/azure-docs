@@ -5,7 +5,7 @@ description: Learn how Azure Lab Services provides protection with Azure role-ba
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: concept-article
 ms.date: 04/20/2023
 ---

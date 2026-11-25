@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: FastAPI chatbot with SLM extension"
 description: "Learn how to deploy a FastAPI application integrated with a Phi-4 sidecar extension on Azure App Service."
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.date: 07/27/2026
 ms.topic: tutorial
 ms.custom:

@@ -3,7 +3,7 @@ title: Traffic Routing Methods for Origins
 titleSuffix: Azure Front Door
 description: This article explains the four different traffic routing methods used by Azure Front Door to origin.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 08/28/2026

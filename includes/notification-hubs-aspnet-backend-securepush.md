@@ -3,7 +3,7 @@ author: sethmanheim
 ms.service: azure-notification-hubs
 ms.topic: include
 ms.date: 09/14/2020	
-ms.author: sethm
+ms.author: dimatokar
 ms.custom: sfi-ropc-nochange
 ---
 

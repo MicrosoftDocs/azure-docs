@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 10/06/2026
-ms.author: kendownie
+ms.author: normesta
 ms.custom: references_regions
 # Customer intent: As an IT administrator, I want to assess the scalability and performance targets for Azure Files, so that I can ensure my storage solutions meet the needs of my organization’s workload requirements.
 ---

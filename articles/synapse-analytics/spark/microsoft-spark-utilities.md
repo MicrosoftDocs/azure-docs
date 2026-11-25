@@ -582,6 +582,8 @@ mssparkutils.fs.rm('file path', True) # Set the last parameter as True to remove
 
 ## Notebook utilities
 
+To keep parameter passing compatible across notebook execution methods, start parameter names with an ASCII letter (`A`-`Z` or `a`-`z`) or an underscore (`_`). Use only ASCII letters, digits (`0`-`9`), and underscores for the remaining characters. For example, use `customer_id` or `_run_date`. Don't use spaces, hyphens, periods, line breaks, or non-ASCII characters, such as in `customer id`, `customer-id`, `customer.id`, or `café`. Match each name exactly in the notebook's parameter cell and the arguments passed to `mssparkutils.notebook.run()` or `runMultiple()`. This guidance applies to parameter names, not parameter values.
+
 :::zone pivot = "programming-language-csharp"
 
 Not supported.
@@ -1647,6 +1649,20 @@ If you want to develop notebooks or jobs locally and need to reference the relev
 :::zone pivot = "programming-language-scala"
 [Maven dependencies](https://mvnrepository.com/artifact/com.microsoft.azure.synapse/synapseutils)
 ::: zone-end
+
+## Multiprocessing limitation
+
+Concurrent import or use of Spark-backed MSSparkUtils APIs from multiple independent Python
+processes within the same Spark driver application isn't supported. This limitation includes
+concurrent imports from `pytest-xdist` worker processes. Importing the package can initialize
+Spark runtime dependencies, even if you don't subsequently call a utility API.
+
+For tests that require the actual utility APIs, run the tests in the original Spark driver
+process with process-based parallelism disabled. For business-logic unit tests, use mocks or
+fakes to isolate these dependencies and avoid importing the actual package in worker processes.
+
+This limitation applies to access to the Spark-backed utilities, not to the general use of
+Python subprocesses.
 
 ## Next steps
 

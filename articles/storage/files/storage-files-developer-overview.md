@@ -6,7 +6,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 08/13/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As an application developer, I want to utilize Azure Files for data storage, so that I can select the best approach to manage and access application data based on my specific needs and existing code compatibility."
 ---
 

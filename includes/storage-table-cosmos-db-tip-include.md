@@ -3,7 +3,7 @@ author: tamram
 ms.service: azure-storage
 ms.topic: include
 ms.date: 05/27/2021
-ms.author: tamram
+ms.author: diberry
 ---
 
 > [!TIP]

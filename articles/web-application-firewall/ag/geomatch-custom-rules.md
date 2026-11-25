@@ -2,7 +2,7 @@
 title: Azure Web Application Firewall (WAF) Geomatch Custom Rules
 description: This article is an overview of Web Application Firewall (WAF) geomatch custom rules on Azure Application Gateway.
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 06/30/2026

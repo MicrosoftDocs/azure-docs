@@ -5,8 +5,8 @@ description: Enable developer teams to spin up infrastructure for deploying apps
 ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.topic: overview
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 05/19/2026
 
 #customer intent: As a platform engineer, I want to understand the purpose and capabilities of Azure Deployment Environments so that I can determine whether the service will benefit my developers.

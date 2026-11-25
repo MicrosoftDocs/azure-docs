@@ -7,7 +7,7 @@ ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 09/26/2024
-ms.author: makromer
+ms.author: weetok
 ---
 #  Fault tolerance of copy activity in Azure Data Factory and Synapse Analytics pipelines
 

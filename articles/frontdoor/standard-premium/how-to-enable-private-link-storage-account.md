@@ -3,7 +3,7 @@ title: Connect Azure Front Door to a Storage Account Origin
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a storage account privately with Azure Private Link.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 07/02/2025

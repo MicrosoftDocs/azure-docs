@@ -1,7 +1,7 @@
 ---
 title: Incrementally copy data using Change Data Capture
 description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from a table in Azure SQL Managed Instance database to Azure Storage.
-ms.author: makromer
+ms.author: weetok
 author: kromerm
 ms.topic: tutorial
 ms.date: 10/03/2024

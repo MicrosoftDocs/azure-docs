@@ -1,6 +1,6 @@
 ---
 author: KarlErickson
-ms.author: karler
+ms.author: vyomnagrani
 ms.reviewer: hangwan
 ms.service: azure-container-apps
 ms.topic: include

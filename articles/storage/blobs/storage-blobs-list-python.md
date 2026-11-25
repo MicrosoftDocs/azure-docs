@@ -3,12 +3,12 @@ title: List blobs with Python
 titleSuffix: Azure Storage
 description: Learn how to list blobs in your storage account using the Azure Storage client library for Python. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 11/02/2026
-ms.author: shaas
+ms.author: schoag
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 # Customer intent: "As a Python developer, I want to list blobs in my Azure Storage account using the client library, so that I can manage and organize my data efficiently."

@@ -3,7 +3,7 @@ title: VM Network Troubleshooter (Preview) Overview
 titleSuffix: Azure Network Watcher
 description: Learn about VM network troubleshooter in Azure Network Watcher and how it can help you detect blocked ports.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 05/07/2025

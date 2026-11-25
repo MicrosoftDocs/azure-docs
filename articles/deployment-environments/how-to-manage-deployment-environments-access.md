@@ -2,8 +2,8 @@
 title: Grant Access to Azure Deployment Environments
 description: Assign built-in roles so team leads and developers can manage projects and create deployment environments.
 ms.service: azure-deployment-environments
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.custom: peer-review-program
 ms.topic: how-to
 ms.date: 05/05/2026

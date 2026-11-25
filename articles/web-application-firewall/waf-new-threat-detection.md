@@ -2,8 +2,8 @@
 title: Detect new threats using Microsoft Sentinel with Azure Web Application Firewall 
 description: This article shows you how to use Microsoft Sentinel with Azure Web Application Firewall (WAF) to detect new threats to your network.
 services: web-application-firewall
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 01/19/2024

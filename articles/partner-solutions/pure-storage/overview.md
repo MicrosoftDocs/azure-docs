@@ -2,7 +2,7 @@
 title: What is Everpure Cloud Azure Native?
 description: Discover Everpure Cloud Azure Native, which offers scalable and flexible enterprise-class cloud block storage with built-in capabilities via the Azure portal.
 author: Reshmi-Sriram
-ms.author: reshmisriram
+ms.author: diberry
 ms.topic: overview
 ms.date: 08/22/2026
 ai-usage: ai-assisted

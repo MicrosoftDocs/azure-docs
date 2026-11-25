@@ -1,11 +1,11 @@
 ---
 title: Use Azure Container Storage (version 1.x.x) with Azure managed disks
 description: Configure Azure Container Storage (version 1.x.x) for use with Azure managed disks. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 09/03/2025
-ms.author: kendownie
+ms.author: schoag
 ms.custom: references_regions
 # Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage (version 1.x.x) with Azure managed disks, so that I can efficiently manage persistent storage for my container workloads."
 ---

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/communication-services/quickstarts/identity/microsoft-entra-id-authentication-integration.md",
+      "redirect_url": "/azure/communication-services/quickstarts/identity/access-tokens",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/partner-solutions/arize-ai/create.md",
       "redirect_url": "/previous-versions/azure/partner-solutions/arize-ai/create",
       "redirect_document_id": false
@@ -759,6 +764,11 @@
     {
       "source_path": "articles/app-testing/playwright-workspaces/troubleshoot-remote-mcp-server.md",
       "redirect_url": "/azure/app-testing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-testing/playwright-workspaces/quickstart-advanced-diagnostic-with-playwright-workspaces-reporting.md",
+      "redirect_url": "/azure/app-testing/playwright-workspaces/quickstart-observability-with-playwright-workspaces",
       "redirect_document_id": false
     },
     {
@@ -8403,6 +8413,11 @@
     "source_path": "articles/virtual-wan/customer-controlled-gateway-maintenance.md",
     "redirect_url": "/azure/virtual-wan/customer-controlled-maintenance",
     "redirect_document_id": true 
-}
+},
+    {
+      "source_path": "articles/logic-apps/estimate-storage-costs.md",
+      "redirect_url": "/azure/logic-apps/plan-manage-costs",
+      "redirect_document_id": false
+    }
   ]
 }

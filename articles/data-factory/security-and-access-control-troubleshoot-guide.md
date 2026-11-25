@@ -6,7 +6,7 @@ author: kromerm
 ms.subservice: integration-runtime
 ms.topic: troubleshooting
 ms.date: 01/05/2024
-ms.author: makromer
+ms.author: weetok
 ms.custom:
   - synapse
   - sfi-image-nochange

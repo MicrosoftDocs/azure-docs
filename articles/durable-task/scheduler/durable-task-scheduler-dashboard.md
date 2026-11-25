@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: "Durable Task Scheduler Dashboard: Debug and Manage Orchestrations"
 titleSuffix: Durable Task
 description: Learn how to debug and manage your orchestrations using the Durable Task Scheduler dashboard.

@@ -2,7 +2,7 @@
 title: Running your first benchmark using STREAM
 description: Learn how to run the STREAM benchmark on Azure HPC virtual machines. 
 author: padmalathas
-ms.author: padmalathas
+ms.author: mdoster
 ms.topic: how-to
 ms.date: 02/24/2026
 ms.service: azure-virtual-machines

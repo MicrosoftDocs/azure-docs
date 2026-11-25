@@ -28,6 +28,8 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 **Improved error handling for out-of-range numeric values**: Requests with numeric or quantity values that exceed the supported precision now return HTTP 400 Bad Request instead of HTTP 500 Internal Server Error.
 
+**Improved error handling for canceled conditional delete requests**: Canceled conditional delete requests now return HTTP 408 Request Timeout instead of HTTP 500 Internal Server Error.
+
 **Permission requirement updates**: Several operations now require additional permissions:
   - Bulk delete requires delete permission plus read or search permission to start a job. Built-in roles aren't affected. If you use a custom role that grants only delete permission, add read or search permission to start bulk delete jobs. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md).
   - Reindexing a single resource with `$reindex` requires read access to that resource in addition to reindex permission.
@@ -40,7 +42,8 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
   - Nested chained and `_has` searches are checked against SMART on FHIR scopes.
   - Reserved internal search parameters are rejected on client search and export requests, which strengthens SMART on FHIR scope enforcement.
   - SMART on FHIR bulk exports now leave out included resources that the caller isn't authorized to export.
-
+  - Search parameter values in SMART on FHIR scopes are interpreted exactly as granted. Encoded characters such as `&` or `=` are treated as part of the value instead of splitting it into separate, broader constraints.
+  - Relative references in granular scopes, such as `subject=Patient/A`, grant access only to resources that reference the local resource, not a resource with the same type and ID on another server.
 
 #### Bug fixes:
 
@@ -51,6 +54,8 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 **Fix for `$includes` returning unrequested resource types**: Fixed an issue where `$includes` result pages could return resource types that weren't requested by `_revinclude`.
 
 **Fix for unnecessary versions on unchanged updates**: Fixed an issue where updating a resource that contains full-width (ideographic) space characters created a new version even when the content was unchanged.
+
+**Fix for unexpected chained search results**: Fixed an issue where some chained searches could return unexpected results.
 
 ## October 2026
 ### FHIR service

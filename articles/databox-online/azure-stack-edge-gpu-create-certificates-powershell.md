@@ -8,7 +8,7 @@ ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 06/01/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 # Use certificates with Azure Stack Edge Pro GPU device
 

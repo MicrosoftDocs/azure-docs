@@ -1,9 +1,9 @@
 ---
 title: Azure PowerShell samples for Azure Blob storage
 description: See links to Azure PowerShell script samples for working with Azure Blob storage, such as creating a storage account, migrating blobs across accounts, and more.
-author: stevenmatthew
+author: schoag-msft
 
-ms.author: shaas
+ms.author: schoag
 ms.date: 11/07/2017
 ms.service: azure-blob-storage
 ms.custom: devx-track-azurepowershell

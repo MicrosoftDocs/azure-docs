@@ -11,7 +11,7 @@ ms.tgt_pltfrm: windows
 ms.devlang: csharp
 ms.topic: article
 ms.date: 09/14/2020
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp, devx-track-dotnet

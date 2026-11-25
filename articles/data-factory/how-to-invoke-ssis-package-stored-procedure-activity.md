@@ -6,7 +6,7 @@ ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: how-to
 ms.date: 05/15/2024
-ms.author: makromer
+ms.author: weetok
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange

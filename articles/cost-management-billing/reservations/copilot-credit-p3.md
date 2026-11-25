@@ -6,11 +6,18 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/17/2026
+ms.date: 11/19/2026
 ms.author: primittal
 ---
 
 # Optimize Copilot Credit costs with a pre-purchase plan
+
+> [!IMPORTANT]
+> **Changes to Copilot Credit pre-purchase plan availability starting January 1, 2027**
+>
+> Starting January 1, 2027, you can buy or renew the Copilot Credit pre-purchase plan only through an Enterprise Agreement (EA) or a Cloud Solution Provider (CSP) partner. Buy online channels and built-in tiered volume discounts will no longer apply.
+>
+> If you have a Microsoft Customer Agreement for enterprise (MCA-E), you can't buy or renew Copilot Credit pre-purchase plans starting January 1, 2027. Consider AI Flex Plan for your Microsoft AI portfolio instead. To learn more, see the [Flex Plan overview](../benefits/flex-plan/flex-plan-overview.md).
 
 Save on your Copilot Credit costs when you buy a pre-purchase plan. Pre-purchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, if Microsoft Copilot Studio generates a retail cost of $100 based on Copilot Credit usage, then 100 Copilot Credit CUs (CCCUs) are consumed.
 

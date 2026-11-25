@@ -2,8 +2,8 @@
 title: 'Tutorial: Authenticate users E2E to Azure'
 description: Learn how to use App Service authentication and authorization to secure your App Service apps end-to-end to a downstream Azure service.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 03/26/2026

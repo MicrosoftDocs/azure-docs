@@ -2,8 +2,8 @@
 title: Secure App with a Custom Domain and Certificate
 description: Learn how to secure your brand with App Service by using a custom domain and enabling App Service managed certificate.
 ms.topic: tutorial
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.date: 07/18/2025
 ms.service: azure-app-service
 ms.custom: sfi-image-nochange

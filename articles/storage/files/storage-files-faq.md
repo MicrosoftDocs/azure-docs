@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.date: 09/30/2025
-ms.author: kendownie
+ms.author: normesta
 ms.topic: faq
 # Customer intent: As a cloud storage administrator, I want to understand the capabilities of Azure Files and Azure File Sync, so that I can effectively manage file shares and ensure data consistency across multiple platforms.
 ---

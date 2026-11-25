@@ -139,9 +139,9 @@ Polling doesn't require a public callback endpoint or system key. For webhook de
 
 ## Examples
 
-The Office 365 Outlook and SharePoint Online examples use strongly typed payloads from the Azure Connectors SDK. For connector operations that don't yet have strongly typed payloads, bind to `string` to receive the raw JSON payload. These examples intentionally log only basic payload information to stay focused on how to define connector-triggered functions. Replace the logging with your application's processing logic.
+The Office 365 Outlook and SharePoint Online examples use strongly typed payloads from the Azure Connectors SDK. For connector operations that don't yet have strongly typed payloads, bind to `string` to receive the raw JSON payload or `JsonElement` to inspect its JSON properties without defining a model. These examples intentionally log only basic payload information to stay focused on how to define connector-triggered functions. Replace the logging with your application's processing logic.
 
-To find which connector operations support strongly typed payloads for .NET, see [Operations to Azure Functions signature mapping](https://github.com/Azure/azure-functions-connector-extension/blob/main/docs/operations-functions-match.md).
+To find which connector operations support strongly typed payloads for .NET, see [Connector trigger payloads for Azure Functions](https://github.com/Azure/azure-functions-connector-extension/blob/main/docs/operations-functions-match.md).
 
 The _polling_ delivery mode also supports optional properties on the `[ConnectorTrigger]` attribute. For descriptions, supported values, and defaults, see [polling attribute properties](#polling-attribute-properties).
 
@@ -335,6 +335,8 @@ For the complete code sample, including infrastructure and trigger registration,
 
 Some connector events don't yet have a strongly typed .NET payload. The following example runs when a new message is added to a Microsoft Teams chat or channel. Polling uses `ConnectorEvent<string>` to receive the raw JSON payload with delivery metadata; webhook delivery binds directly to `string`:
 
+Alternatively, use `JsonElement` from `System.Text.Json` to inspect the payload's JSON properties without defining a model. Both delivery modes support binding directly to `JsonElement` or using `ConnectorEvent<JsonElement>` to access the payload through `Data` alongside delivery metadata.
+
 #### [Polling](#tab/polling)
 
 This example receives one connector event per invocation (default) and uses `ConnectorEvent<string>` to access its JSON payload and `MessageId`.
@@ -433,6 +435,7 @@ For .NET isolated worker functions, both delivery modes support these parameter 
 | Type | Description |
 | --- | --- |
 | `string` | Receives the event body as raw JSON. Use this type when a strongly typed SDK model isn't available or when you want to deserialize the payload yourself. |
+| `JsonElement` | Receives the event body as a JSON value that you can inspect without defining a model. This type is in the `System.Text.Json` namespace. |
 | Connector SDK model | Deserializes the JSON event body into an operation-specific model from `Azure.Connectors.Sdk`, such as `Office365OnNewEmailTriggerPayload` or `SharePointOnlineOnNewFileItemsTriggerPayload`. |
 | JSON-deserializable POCO | Deserializes the JSON event body into a .NET type whose shape matches the connector payload by using the configured worker serializer. |
 | `ConnectorEvent<T>` | Wraps a supported payload type in `Data`. `MessageId` contains the delivery identifier for polling and is `null` for webhook delivery. |
@@ -1826,8 +1829,10 @@ Webhook callbacks must reach your running Functions host from the Connector Name
 1. Build the callback URL with the tunnel hostname and the registered function name, and use it in the webhook trigger configuration. For example, a tunnel forwarding port 7071 to the `OnNewFile` function uses a URL like:
 
    ```text
-   https://<tunnel-id>-7071.usw2.devtunnels.ms/runtime/webhooks/connector?functionName=OnNewFile
+   https://<tunnel-id>-7071.<region>.devtunnels.ms/runtime/webhooks/connector?functionName=OnNewFile
    ```
+
+   Replace `<tunnel-id>` and `<region>` with the values from your tunnel's public URL.
 
    For a local host that stores secrets in Azurite, retrieve its `connector_extension` system key by using these PowerShell commands. Set `$connStr` to the [well-known Azurite connection string](../storage/common/storage-use-emulator.md#authorize-with-shared-key-credentials):
 

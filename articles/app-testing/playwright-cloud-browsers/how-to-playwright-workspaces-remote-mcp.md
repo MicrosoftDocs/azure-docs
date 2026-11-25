@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 Before you begin, make sure you have:
 - An Azure account with an active subscription.
-- A Playwright workspace that has access to the remote MCP
+- A Playwright workspace created in your subscription.
 - The workspace ID and Azure region of the workspace.
 - An identity with permission to create and use browser sessions in the workspace.
 - For Microsoft Foundry, a Foundry project and permission to create project connections and configure agents.
@@ -169,7 +169,7 @@ When the agent requests approval:
 1. Verify that the final response is based on the page result.
 1. Confirm that the flow called `close_browser_session`.
 
-For current Foundry connection fields, approval handling, SDK examples, and client limits, see [Connect agents to MCP server endpoints](https://learn.microsoft.com/azure/foundry/agents/how-to/tools/model-context-protocol).
+For current Foundry connection fields, approval handling, SDK examples, and client limits, see [Connect agents to MCP server endpoints](/azure/foundry/agents/how-to/tools/model-context-protocol).
 
 > [!NOTE] 
 > Foundry nonstreaming MCP tool calls currently have a 100-second client timeout. Some Playwright operations have a longer service-side timeout. Keep Foundry operations focused and split long workflows into multiple tool calls.
@@ -242,7 +242,7 @@ A timeout or disconnected caller doesn't prove that an action had no effect. Bef
 
 ## Tool reference
 
-All browser-scoped tools require `browserSessionId`. String and collection bounds shown here are current limits.
+All browser-scoped tools require `browserSessionId`.
 
 ### Session tools
 
@@ -360,7 +360,7 @@ For `browser_run_code`, pass statements that form the body of an asynchronous fu
 | JavaScript function or code | 1 MiB characters | Keep code small, reviewed, and narrowly scoped. |
 | Browser session ID | 256 characters | Pass the value returned by `create_browser_session` unchanged. |
 
-Responses are returned inline. This approach doesn't expose MCP resources or persistent artifact storage for large snapshots, screenshots, or downloads. Browser, operating-system, viewport, locale, and user-agent overrides aren't exposed as session-creation parameters.
+Responses are returned inline. The service doesn't expose MCP resources or persistent artifact storage for large snapshots, screenshots, or downloads. The service doesn't expose browser, operating-system, viewport, locale, and user-agent overrides as session-creation parameters.
 
 ## Error handling
 
@@ -465,6 +465,6 @@ Playwright Workspaces is available across the following Azure regions:
 
 - [Manage workspace access tokens](./../playwright-workspaces/how-to-manage-access-tokens.md)
 - [Manage access to a Playwright workspace](./../playwright-workspaces/how-to-manage-workspace-access.md)
-- [Connect Microsoft Foundry agents to MCP server endpoints](https://learn.microsoft.com/azure/foundry/agents/how-to/tools/model-context-protocol)
+- [Connect Microsoft Foundry agents to MCP server endpoints](/azure/foundry/agents/how-to/tools/model-context-protocol)
 - [Add and manage MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/agent-customization/mcp-servers)
 - [Model Context Protocol documentation](https://modelcontextprotocol.io/)

@@ -2,7 +2,7 @@
 title: How to schedule an Azure Storage Mover migration job
 description: Storage Mover allows users to automate data migration jobs with flexible scheduling options, enabling synchronization of data between on-premises, Azure, and other cloud sources.
 author: stevenmatthew
-ms.author: shaas
+ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 07/10/2026

@@ -4,8 +4,8 @@ titleSuffix: Azure DevTest Labs
 description: Learn how to configure a shared image gallery in Azure DevTest Labs, so users can access virtual machine images from a shared location.
 ms.topic: how-to
 ms.custom: devx-track-arm-template, UpdateFrequency2
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 06/10/2024
 
 #customer intent: As a developer, I want to configure a shared image gallery in Azure DevTest Labs, so I can access images from a shared location to create lab machines.

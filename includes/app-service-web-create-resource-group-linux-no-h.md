@@ -2,11 +2,11 @@
 title: "include file"
 description: "include file"
 services: app-service
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: "include"
 ms.date: 02/02/2018
-ms.author: cephalin
+ms.author: byvinyal
 ms.custom: include file, linux-related-content
 ---
 

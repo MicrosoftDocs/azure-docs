@@ -6,7 +6,7 @@ description: Create and configure Microsoft Dev Box projects to support your tea
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.date: 12/29/2025
 ms.topic: how-to

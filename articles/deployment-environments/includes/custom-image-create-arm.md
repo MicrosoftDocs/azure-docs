@@ -2,7 +2,7 @@
 ms.service: azure-deployment-environments
 ms.topic: include
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 01/10/2025
 ms.custom:
   - build-2025

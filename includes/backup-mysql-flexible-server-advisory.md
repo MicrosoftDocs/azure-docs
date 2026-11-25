@@ -3,7 +3,7 @@ author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
 ms.date: 11/21/2024
-ms.author: v-abhmallick
+ms.author: diberry
 ---
 
 > [!IMPORTANT]

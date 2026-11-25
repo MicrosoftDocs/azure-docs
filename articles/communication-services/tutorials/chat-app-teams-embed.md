@@ -5,7 +5,7 @@ author: emlynmac
 manager: kperla97
 services: azure-communication-services
 
-ms.author: eboltonmaggs
+ms.author: diberry
 ms.date: 09/16/2024
 ms.topic: tutorial
 ms.service: azure-communication-services

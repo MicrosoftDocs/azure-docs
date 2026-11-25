@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.date: 10/07/2025
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ROBOTS: NOINDEX
 ms.service: azure-app-service
 ---

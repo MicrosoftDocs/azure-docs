@@ -1,13 +1,13 @@
 ---
 title: VMware Solution software versions
-description: Supported software versions that are used for Azure VMware Solution.
+description: Supported VMware software versions that are used for Azure VMware Solution.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 8/10/2026
+ms.date: 11/23/2026
 author: jjaygbay1 
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 ms.custom: engagement-fy23
-# Customer intent: As a cloud architect, I want to access the supported software version details for Azure VMware Solution, so that I can ensure compatibility and optimize configurations for new deployments in our private cloud environment.
+# Customer intent: As a cloud architect, I want to access the supported VMware software version details for Azure VMware Solution, so that I can ensure compatibility and optimize configurations for new deployments in our private cloud environment.
 ---
 
 <!-- Used in faq.md and concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management and introduction#vmware-software-versions-->
@@ -16,10 +16,10 @@ The following table lists the software versions that are used in new deployments
 
 | Software                         |    Version   |    Build number   |
 | :---                             |     :---:    |     :---:         |
-| VMware vCenter Server            |    [8.0 U3k](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3k-release-notes.html) | 25600417 |
-| VMware ESXi                      |    [8.0 U3k](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3k-release-notes.html) | 25595708 |
-| VMware vSAN                      |    [8.0 U3](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) | 25595708 |
-| VMware vSAN Witness              |    [8.0 U3](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) | 25595708 |
+| VMware vCenter Server            |    [8.0 U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3m-release-notes.html) | 25934264 |
+| VMware ESXi                      |    [8.0 U3m](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3m-release-notes.html) | 25926933 |
+| VMware vSAN                      |    [8.0 U3](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) | 25926933 |
+| VMware vSAN Witness              |    [8.0 U3](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) | 25926933 |
 | VMware vSAN on-disk format       |    [20](https://knowledge.broadcom.com/external/article?legacyId=2148493) | N/A |
 | VMware vSAN storage architecture |    [Gen 1: OSA, Gen2: ESA](https://blogs.vmware.com/cloud-foundation/2022/08/31/comparing-the-original-storage-architecture-to-the-vsan-8-express-storage-architecture/) | N/A |
 | VMware NSX                       |    [!INCLUDE [nsxt-version](nsxt-version.md)] | 25077145 |

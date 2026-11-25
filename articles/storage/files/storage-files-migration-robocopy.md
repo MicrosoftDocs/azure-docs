@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/28/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As an IT administrator, I want to migrate files to Azure file shares using RoboCopy, so that I can ensure data integrity and minimize downtime during the transition to cloud storage.
 ---
 

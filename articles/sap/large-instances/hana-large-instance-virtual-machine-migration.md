@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-large-instances
 ms.topic: concept-article
 ms.date: 03/24/2026
-ms.author: bentrin
+ms.author: tundeazeez
 ms.custom: H1Hack27Feb2017
 # Customer intent: "As an SAP administrator, I want to migrate SAP HANA workloads from Large Instances to Azure Virtual Machines, so that I can enhance performance, reduce costs, and leverage Azure's scalability for my database needs."
 ---

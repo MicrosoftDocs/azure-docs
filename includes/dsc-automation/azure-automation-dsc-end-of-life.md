@@ -4,7 +4,7 @@ services: automation
 ms.subservice: desired-state-config
 ms.topic: include
 ms.date: 02/05/2025
-ms.author: sewhee
+ms.author: diberry
 # Used by articles that discuss Azure Automation DSC.
 ---
 

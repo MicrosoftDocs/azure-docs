@@ -1,6 +1,6 @@
 ---
 title: Support Matrix
-description: This article provides a summary of support settings and limitations for the Azure Migrate service.
+description: This article provides a summary of support settings and limitations for the Azure Catalyst service.
 author: Vikram1988
 ms.author: vibansa
 ms.topic: concept-article
@@ -8,12 +8,12 @@ ms.reviewer: v-gajeronika
 ms.date: 05/08/2025
 ms.update-cycle: 1095-days
 ms.custom: engagement-fy24
-# Customer intent: As a cloud architect, I want to understand the Azure Migrate support matrix so that I can determine the service's capabilities and limitations for assessing and migrating on-premises workloads to Azure effectively.
+# Customer intent: As a cloud architect, I want to understand the Azure Catalyst support matrix so that I can determine the service's capabilities and limitations for assessing and migrating on-premises workloads to Azure effectively.
 ---
 
-# Azure Migrate support matrix
+# Azure Catalyst support matrix
 
-You can use the [Azure Migrate service](./migrate-services-overview.md) to assess and migrate servers to the Microsoft Azure cloud platform. This article summarizes general support settings and limitations for Azure Migrate scenarios and deployments.
+You can use the [Azure Catalyst service](./migrate-services-overview.md) to assess and migrate servers to the Microsoft Azure cloud platform. This article summarizes general support settings and limitations for Azure Catalyst scenarios and deployments.
 
 ## Supported scenarios
 
@@ -21,8 +21,8 @@ Deployment | Details
 --- | ---
 Discovery | Discover server metadata and dynamic performance data.
 Software inventory | Discover apps, roles, and features running on VMware virtual machines (VMs). Currently, this feature is limited to discovery only. Assessment is currently at the server level. We don't yet offer app, role, or feature-based assessments.
-Assessment | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess by using Azure Migrate Discovery and Assessment, Microsoft Data Migration Assistant, and tools from other software development companies.
-Migration | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMs to Azure. Migrate by using Azure Migrate and Modernize, Azure Database Migration Service, and tools from other software development companies.
+Assessment | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess by using Azure Catalyst Discovery and Assessment, Microsoft Data Migration Assistant, and tools from other software development companies.
+Migration | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMs to Azure. Migrate by using Azure Catalyst, Azure Database Migration Service, and tools from other software development companies.
 
 ## Project
 
@@ -37,13 +37,13 @@ A project can include both VMware VMs and Hyper-V VMs, up to the assessment limi
 
 ## Azure permissions
 
-For Azure Migrate to work with Azure, you need these permissions before you start assessing and migrating servers:
+For Azure Catalyst to work with Azure, you need these permissions before you start assessing and migrating servers:
 
 Task | Permissions | Details
 --- | --- | ---
 Create a project | Your Azure account needs permissions to create a project. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](create-project.md).
-Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to discover and assess servers with the Azure Migrate Discovery and Assessment tool, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with the Azure Migrate and Modernize tool. This appliance sends metadata and performance data to Azure Migrate.<br><br> During registration, the `Microsoft.OffAzure`, `Microsoft.Migrate`, and `Microsoft.KeyVault` resource providers are registered with the subscription chosen in the appliance, so that the subscription works with the resource providers. To register, you need Contributor or Owner access on the subscription.<br><br> **VMware**: During onboarding, Azure Migrate creates one Microsoft Entra app. The app communicates with the appliance agents and the Azure Migrate service. This app doesn't have permissions to make Azure resource management calls or have Azure role-based access control (RBAC) access for resources. <br><br> **Hyper-V**: During onboarding, Azure Migrate creates one Microsoft Entra app. The app communicates with the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](create-project.md).
-Create a key vault for VMware agentless migration | To migrate VMware VMs with the agentless Azure Migrate and Modernize tool, Azure Migrate creates a key vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, Contributor, and User Access Administrator) on the resource group where the project resides. | Set up [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
+Register the Azure Catalyst appliance| Azure Catalyst uses a lightweight [Azure Catalyst appliance](migrate-appliance.md) to discover and assess servers with the Azure Catalyst Discovery and Assessment tool, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with the Migration and modernization tool. This appliance sends metadata and performance data to Azure Catalyst.<br><br> During registration, the `Microsoft.OffAzure`, `Microsoft.Migrate`, and `Microsoft.KeyVault` resource providers are registered with the subscription chosen in the appliance, so that the subscription works with the resource providers. To register, you need Contributor or Owner access on the subscription.<br><br> **VMware**: During onboarding, Azure Catalyst creates one Microsoft Entra app. The app communicates with the appliance agents and the Azure Catalyst service. This app doesn't have permissions to make Azure resource management calls or have Azure role-based access control (RBAC) access for resources. <br><br> **Hyper-V**: During onboarding, Azure Catalyst creates one Microsoft Entra app. The app communicates with the appliance agents and the Azure Catalyst service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](create-project.md).
+Create a key vault for VMware agentless migration | To migrate VMware VMs with the agentless Migration and modernization tool, Azure Catalyst creates a key vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, Contributor, and User Access Administrator) on the resource group where the project resides. | Set up [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
 
 > [!IMPORTANT]
 > For detailed information about Azure Migrate built‑in roles and the permissions required for different migration tasks, see [Azure Migrate built‑in roles](prepare-azure-accounts.md).
@@ -52,9 +52,9 @@ Create a key vault for VMware agentless migration | To migrate VMware VMs with t
 
 ### Public cloud
 
-When you create a project in the public cloud, you select a geography. The project and related resources are created in one of the regions in the geography. The Azure Migrate service allocates the region.
+When you create a project in the public cloud, you select a geography. The project and related resources are created in one of the regions in the geography. The Azure Catalyst service allocates the region.
 
-The project geography is used only to store discovered metadata. Azure Migrate does not move or store customer data outside the allocated region.
+The project geography is used only to store discovered metadata. Azure Catalyst does not move or store customer data outside the allocated region.
 
 You can create a project in the following geographies in the public cloud. Although you can create projects only in these geographies, you can assess or migrate servers for other target locations.
 
@@ -109,11 +109,11 @@ Microsoft Azure operated by 21Vianet | China North 2
 
 ## VMware assessment and migration
 
-[Review](migrate-support-matrix-vmware.md) the support matrix for using the Azure Migrate Discovery and Assessment tool and the Azure Migrate and Modernize tool to discover VMware VMs.
+[Review](migrate-support-matrix-vmware.md) the support matrix for using the Azure Catalyst Discovery and Assessment tool and the Migration and modernization tool to discover VMware VMs.
 
 ## Hyper-V assessment and migration
 
-[Review](migrate-support-matrix-hyper-v.md) the support matrix for using the Azure Migrate Discovery and Assessment tool and the Azure Migrate and Modernize tool to assess Hyper-V VMs.
+[Review](migrate-support-matrix-hyper-v.md) the support matrix for using the Azure Catalyst Discovery and Assessment tool and the Migration and modernization tool to assess Hyper-V VMs.
 
 ## Related content
 

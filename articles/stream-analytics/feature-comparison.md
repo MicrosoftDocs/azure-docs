@@ -1,8 +1,8 @@
 ---
 title: 'Stream Analytics: Portal vs. Visual Studio Code'
 description: Compare the features that the Azure portal and Visual Studio Code support for building Azure Stream Analytics jobs so you can choose the right tool.
-author: spelluru
-ms.author: spelluru
+author: skommajo
+ms.author: skommajosula
 ms.service: azure-stream-analytics
 ms.topic: product-comparison
 ms.date: 08/25/2026

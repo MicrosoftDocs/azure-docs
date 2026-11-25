@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/22/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Deployment checklist for your Azure Stack Edge Pro GPU device  

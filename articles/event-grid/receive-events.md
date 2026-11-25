@@ -5,7 +5,7 @@ description: "Azure Event Grid HTTP endpoint events - validate your endpoint, th
 ms.topic: how-to
 ms.date: 03/27/2026
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ms.reviewer: spelluru
 ms.devlang: csharp
 # ms.devlang: csharp, javascript

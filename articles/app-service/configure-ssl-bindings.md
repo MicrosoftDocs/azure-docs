@@ -7,8 +7,8 @@ tags: buy-ssl-certificates
 ms.topic: how-to
 ms.date: 04/15/2026
 ms.reviewer: yutlin
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ms.custom:
   - devx-track-azurepowershell

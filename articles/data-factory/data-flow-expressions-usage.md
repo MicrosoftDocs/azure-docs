@@ -3,7 +3,7 @@ title: Details and usage for all mapping data flow Functions
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about details of usage and functionality for all expression functions in mapping data flows.
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: concept-article

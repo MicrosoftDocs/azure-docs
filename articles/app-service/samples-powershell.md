@@ -10,8 +10,8 @@ ms.custom:
   - mvc
   - devx-track-azurepowershell
   - build-2025
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ---
 # PowerShell samples for Azure App Service

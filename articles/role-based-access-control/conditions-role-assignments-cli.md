@@ -8,7 +8,7 @@ ms.subservice: conditions
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 01/02/2024
-ms.author: rolyon
+ms.author: diberry
 ---
 
 # Add or edit Azure role assignment conditions using Azure CLI

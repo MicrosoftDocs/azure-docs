@@ -3,7 +3,7 @@ author: msangapu
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 07/18/2025
-ms.author: msangapu
+ms.author: byvinyal
 ---
 
 > [!IMPORTANT]

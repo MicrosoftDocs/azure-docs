@@ -8,7 +8,7 @@ ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template
 ms.topic: overview
 ms.date: 06/30/2021
-ms.author: sipastak
+ms.author: scompton
 #Customer intent: As an IT admin, I need to understand what is the local Azure Resource Manager on my Azure Stack Edge Pro device.
 ---
 

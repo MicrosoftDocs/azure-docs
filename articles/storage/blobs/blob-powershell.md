@@ -2,8 +2,8 @@
 title: Manage block blobs with PowerShell
 titleSuffix: Azure Storage
 description: Manage blobs with PowerShell 
-author: StevenMatthew
-ms.author: shaas
+author: schoag-msft
+ms.author: schoag
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 05/02/2023

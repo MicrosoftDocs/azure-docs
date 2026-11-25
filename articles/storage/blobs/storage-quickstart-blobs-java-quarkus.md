@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Quarkus Extension for Azure Blob Storage"
 description: In this quickstart, you learn how to use the Quarkus extension for Azure Blob Storage to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: KarlErickson
-ms.author: karler
+author: schoag-msft
+ms.author: schoag
 ms.reviewer: jiangma
 ms.custom: devx-track-java, mode-api, passwordless-java, devx-track-extended-azdevcli, devx-track-javaee-quarkus, devx-track-javaee-quarkus-storage-blob
 ms.date: 03/18/2025

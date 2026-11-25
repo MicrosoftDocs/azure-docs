@@ -7,7 +7,7 @@ ms.custom: synapse
 ms.topic: how-to
 ms.date: 07/25/2025
 ms.subservice: integration-runtime
-ms.author: whhender
+ms.author: weetok
 ---
 
 # Monitor self-hosted integration runtime (SHIR) virtual machines in Azure

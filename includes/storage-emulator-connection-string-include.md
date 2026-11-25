@@ -3,7 +3,7 @@ author: tamram
 ms.service: azure-storage
 ms.topic: include
 ms.date: 12/28/2020
-ms.author: tamram
+ms.author: diberry
 ---
 
 The emulator supports a single fixed account and a well-known authentication key for Shared Key authentication. This account and key are the only Shared Key credentials permitted for use with the emulator. They are:

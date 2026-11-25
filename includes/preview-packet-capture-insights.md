@@ -6,7 +6,7 @@ author: chrai
 ms.service: azure-network-watcher
 ms.topic: include
 ms.date: 10/28/2026
-ms.author: chrai-ms
+ms.author: hufurnit
 ms.custom:
   - include file
   - references_regions

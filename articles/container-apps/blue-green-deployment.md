@@ -10,7 +10,7 @@ ms.custom:
   - build-2025
 ms.topic: how-to
 ms.date: 11/06/2025
-ms.author: ruslany
+ms.author: vyomnagrani
 zone_pivot_groups: azure-cli-bicep
 ---
 

@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 02/23/2022
-ms.author: sipastak 
+ms.author: scompton 
 ---
 
 # Tutorial: Rack the Azure Stack Edge Pro 2 using a two-post mount

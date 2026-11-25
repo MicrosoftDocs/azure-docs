@@ -2,8 +2,8 @@
 title: Support and Troubleshooting
 titleSuffix: Azure Web Application Firewall
 description: How to obtain help and support for questions or problems when you create solutions using Azure Web Application Firewall (WAF). 
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: troubleshooting
 ms.date: 04/14/2026

@@ -1,6 +1,6 @@
 ---
 title: Migrate VMware servers to Azure by using Private Link
-description: Use Azure Migrate with private endpoints to migrate on-premises VMware VMs to Azure.
+description: Use Azure Catalyst with private endpoints to migrate on-premises VMware VMs to Azure.
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: how-to
@@ -13,24 +13,26 @@ ms.custom: engagement-fy23
 
 # Migrate VMware servers to Azure using Private Link (agentless)
 
-This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
+This article describes how to use Azure Catalyst to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md) tool to connect privately and securely to Azure Catalyst over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
 
 
 This article shows how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization tool](migrate-services-overview.md), with agentless migration.
 
-## Set up the Azure Migrate appliance
+<a name="set-up-the-azure-migrate-appliance"></a>
+
+## Set up the Azure Catalyst appliance
 
 The Migration and modernization tool runs a lightweight VMware VM appliance to enable the discovery, assessment, and agentless migration of VMware VMs. If you have followed the [Discovery and assessment tutorial](discover-and-assess-using-private-endpoints.md), you've already set the appliance up. If you didn't, [set up and configure the appliance](discover-and-assess-using-private-endpoints.md#set-up-the-azure-migrate-appliance) before you proceed.
 
-To use a private connection for replication, you can use the storage account created earlier during Azure Migrate project setup or create a new cache storage account and configure private endpoint. To create a new storage account with private endpoint, see [Private endpoint for storage account](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint).
+To use a private connection for replication, you can use the storage account created earlier during Azure Catalyst project setup or create a new cache storage account and configure private endpoint. To create a new storage account with private endpoint, see [Private endpoint for storage account](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint).
 
- - The private endpoint allows the Azure Migrate appliance to connect to the cache storage account using a private connection like an ExpressRoute private peering or VPN. Data can then be transferred directly on the private IP address.
+ - The private endpoint allows the Azure Catalyst appliance to connect to the cache storage account using a private connection like an ExpressRoute private peering or VPN. Data can then be transferred directly on the private IP address.
 
 > [!Important]
-> - In addition to replication data, the Azure Migrate appliance communicates with the Azure Migrate service for its control plane activities. These activities include orchestrating replication. Control plane communication between the Azure Migrate appliance and the Azure Migrate service continues to happen over the internet on the Azure Migrate service's public endpoint.
-> - The private endpoint of the storage account should be accessible from the network where the Azure Migrate appliance is deployed.
-> - DNS must be configured to resolve DNS queries by the Azure Migrate appliance for the cache storage account's blob service endpoint to the private IP address of the private endpoint attached to the cache storage account.
-> - The cache storage account must be accessible on its public endpoint. Azure Migrate uses the cache storage account's public endpoint to move data from the storage account to replica-managed disks.
+> - In addition to replication data, the Azure Catalyst appliance communicates with the Azure Catalyst service for its control plane activities. These activities include orchestrating replication. Control plane communication between the Azure Catalyst appliance and the Azure Catalyst service continues to happen over the internet on the Azure Catalyst service's public endpoint.
+> - The private endpoint of the storage account should be accessible from the network where the Azure Catalyst appliance is deployed.
+> - DNS must be configured to resolve DNS queries by the Azure Catalyst appliance for the cache storage account's blob service endpoint to the private IP address of the private endpoint attached to the cache storage account.
+> - The cache storage account must be accessible on its public endpoint. Azure Catalyst uses the cache storage account's public endpoint to move data from the storage account to replica-managed disks.
 
 ## Replicate VMs
 
@@ -42,7 +44,7 @@ The following diagram illustrates the agentless replication workflow with privat
 
 Enable replication as follows:
 
-1. In the Azure Migrate project > **Execute** > **Migrations** > select **Start Execution**.
+1. In the Azure Catalyst project > **Execute** > **Migrations** > select **Start Execution**.
 1. On the **Specify intent** pane, select Servers or Virtual machines (VMs), and choose Azure VM as the target. You can either select an existing assessment or manually select servers from the discovered inventory. Configure this setting using the **How will you select workloads?** drop-down menu.
 1. Under **Discovery method**, select the VMWare appliance. Appliances that are already installed appear in the list. select Agentless migration and click **Continue**.
 1. In **Workloads**, select the servers that you want to replicate, and configure the required security security setting. You can select up to 10 servers in a single selection.
@@ -51,15 +53,15 @@ Enable replication as follows:
 
 1. In **Replication storage account**, use the dropdown list to select a storage account to replicate over a private link. 
     >[!NOTE] 
-    > Only the storage accounts in the selected target region and Azure Migrate project subscription are listed.
+    > Only the storage accounts in the selected target region and Azure Catalyst project subscription are listed.
 
-1. Next, [**create a private endpoint for the storage account**](#create-a-private-endpoint-for-the-storage-account) to enable replications over a private link. Ensure that the Azure Migrate appliance has network connectivity to the storage account on its private endpoint. Learn how to [verify network connectivity](troubleshoot-network-connectivity.md#verify-dns-resolution).  
+1. Next, [**create a private endpoint for the storage account**](#create-a-private-endpoint-for-the-storage-account) to enable replications over a private link. Ensure that the Azure Catalyst appliance has network connectivity to the storage account on its private endpoint. Learn how to [verify network connectivity](troubleshoot-network-connectivity.md#verify-dns-resolution).  
     >[!NOTE] 
     > - The storage account cannot be changed after you enable replication.  
-    > - To orchestrate replications, Azure Migrate will grant the trusted Microsoft services and the Recovery Services vault managed identity access to the selected storage account. 
+    > - To orchestrate replications, Azure Catalyst will grant the trusted Microsoft services and the Recovery Services vault managed identity access to the selected storage account. 
 
     >[!Tip] 
-    > You can manually update the DNS records by editing the DNS hosts file on the Azure Migrate appliance with the private link FQDNs and  private IP address of the storage account. 
+    > You can manually update the DNS records by editing the DNS hosts file on the Azure Catalyst appliance with the private link FQDNs and  private IP address of the storage account. 
 
 1. Select the **Subscription** and **Resource group** in which the Azure VMs reside after migration. 
 1. In **Virtual network**, select the Azure VNet/subnet for the migrated  Azure VMs.  
@@ -87,7 +89,7 @@ Enable replication as follows:
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating and select **Next**. 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements). 
 
-    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
+    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Catalyst picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
 
@@ -105,7 +107,7 @@ Enable replication as follows:
 
 #### Provisioning for the first time  
 
-Azure Migrate doesn't create any additional resources for replications using Azure Private Link (Service Bus, Key Vault, and storage accounts aren't created). Azure Migrate will make use of the selected storage account for uploading replication data, state data, and orchestration messages.
+Azure Catalyst doesn't create any additional resources for replications using Azure Private Link (Service Bus, Key Vault, and storage accounts aren't created). Azure Catalyst will make use of the selected storage account for uploading replication data, state data, and orchestration messages.
 
 ## Create a private endpoint for the storage account  
 
@@ -114,7 +116,7 @@ To replicate by using ExpressRoute with private peering, [**create a private end
 >[!Note] 
 > You can create private endpoints only on a general-purpose v2 storage account. For pricing information, see [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) and [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/). 
 
-Create the private endpoint for the storage account in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network. 
+Create the private endpoint for the storage account in the same virtual network as the Azure Catalyst project private endpoint or another virtual network connected to this network. 
 
 Select **Yes** and integrate with a private DNS zone. The private DNS zone helps in routing the connections from the virtual network to the storage account over a private link. Selecting **Yes** automatically links the DNS zone to the virtual network. It also adds the DNS records for the resolution of new IPs and FQDNs that are created. Learn more about [private DNS zones](../dns/private-dns-overview.md). 
 
@@ -122,7 +124,7 @@ If the user who created the private endpoint is also the storage account owner, 
 
 Review the status of the private endpoint connection state before you continue. 
 
-Ensure that the on-premises appliance has network connectivity to the storage account via its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the Migrate appliance and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](troubleshoot-network-connectivity.md#verify-dns-resolution)
+Ensure that the on-premises appliance has network connectivity to the storage account via its private endpoint. To validate the private link connection, perform a DNS resolution of the storage account endpoint (private link resource FQDN) from the on-premises server hosting the Azure Catalyst appliance and ensure that it resolves to a private IP address. Learn how to verify [network connectivity.](troubleshoot-network-connectivity.md#verify-dns-resolution)
 
 ## Next steps 
 

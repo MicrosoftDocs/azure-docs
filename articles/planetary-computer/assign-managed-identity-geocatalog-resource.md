@@ -5,7 +5,7 @@ author: jglixon
 ms.topic: how-to
 ms.service: planetary-computer-pro
 ms.date: 05/29/2026
-ms.author: jglixon
+ms.author: diberry
 ---
 
 # Using managed identities with GeoCatalog resource

@@ -2,8 +2,8 @@
 title: Monitor a multi-agent app with OpenTelemetry and Application Insights (.NET)
 description: Learn how to instrument a .NET multi-agent app on Azure App Service and apply the same OpenTelemetry GenAI monitoring pattern to an existing app in any language.
 ms.service: azure-app-service
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 08/26/2026

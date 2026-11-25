@@ -6,7 +6,7 @@ keywords: azure automation, DSC, powershell, state configuration, change trackin
 ms.date: 07/22/2026
 ms.topic: overview
 ms.custom: linux-related-content
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

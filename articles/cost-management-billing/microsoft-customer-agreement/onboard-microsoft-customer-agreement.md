@@ -6,7 +6,7 @@ ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: concept-article
 ms.date: 10/08/2025
-ms.author: kenday
+ms.author: diberry
 ms.reviewer: clionabolger
 ms.custom: sfi-ga-nochange
 ---

@@ -77,8 +77,8 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Synapse Analytics (Microsoft.Synapse/workspaces) | SqlOnDemand | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
 > | Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Dev | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
 > | Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) | Web | privatelink.azuresynapse.net | azuresynapse.net |
-> | Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
-> | Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+> | Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net <br/> privatelink.eventhubs.azure.net<sup>5</sup> | servicebus.windows.net <br/> eventhubs.azure.net |
+> | Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net <br/> privatelink.servicebus.azure.net<sup>5</sup> | servicebus.windows.net <br/> servicebus.azure.net |
 > | Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.net | datafactory.azure.net |
 > | Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.com | adf.azure.com |
 > | Azure HDInsight (Microsoft.HDInsight/clusters) | gateway </br> headnode | privatelink.azurehdinsight.net | azurehdinsight.net |
@@ -144,7 +144,7 @@ For Azure services, use the recommended zone names as described in the following
 > [!div class="mx-tdBreakAll"]
 > | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 > |---|---|---|---|
-> | Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
+> | Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net <br/> privatelink.servicebus.azure.net<sup>5</sup> | servicebus.windows.net <br/> servicebus.azure.net |
 > | Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 > | Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 > | Azure Event Grid (Microsoft.EventGrid/namespaces) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
@@ -215,7 +215,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.net | afs.azure.net |
 > | Azure Managed Disks (Microsoft.Compute/diskAccesses) | disks | privatelink.blob.core.windows.net | blob.core.windows.net |
 > | Azure Elastic SAN (Microsoft.ElasticSan/elasticSans) | volumegroup | privatelink.blob.core.windows.net | blob.storage.azure.net |
-> | Azure Files (Microsoft.FileShares/fileShares) | FileShare | privatelink.file.core.windows.net | file.core.windows.net |
+> | Azure Files (Microsoft.FileShares/fileShares) | FileShare | privatelink.file.core.windows.net | file.storage.azure.net |
 
 ### Web
 
@@ -237,6 +237,8 @@ For Azure services, use the recommended zone names as described in the following
 <sup>3</sup>To use with the Kudu console or Kudu REST API, you must create two DNS records that point to the private endpoint IP address in your Azure DNS private zone `privatelink.azurewebsites.net` or custom DNS server. The first record is for your app. The second record is for source control management (SCM) for your app. If you use private DNS zones in Azure, don't deploy this as an additional zone.
 
 <sup>4</sup>For Foundry Tools, use the private DNS zone that corresponds to each public endpoint suffix: `privatelink.cognitiveservices.azure.com` for `cognitiveservices.azure.com`, `privatelink.openai.azure.com` for `openai.azure.com`, and `privatelink.services.ai.azure.com` for `services.ai.azure.com`. A Foundry resource can expose all three endpoints. Configure DNS for each endpoint that your workload uses.
+
+<sup>5</sup>For Event Hubs and Service Bus partitioned DNS, configure the zones required by your namespace's private link resources API and retain legacy DNS configuration while clients use legacy endpoints. Partitioned DNS applicability depends on the rollout phase and namespace configuration. See [Partitioned DNS for Azure Event Hubs and Azure Service Bus](../event-hubs/partitioned-dns.md).
 
 > [!Note]
 > In the above text, **`{regionCode}`** refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:

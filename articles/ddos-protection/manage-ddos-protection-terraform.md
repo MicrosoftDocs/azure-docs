@@ -5,7 +5,7 @@ author: TomArcherMsft
 ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: devx-track-terraform
-ms.author: tarcher
+ms.author: amirdahan
 ms.date: 03/17/2026
 content_well_notification: 
   - AI-contribution

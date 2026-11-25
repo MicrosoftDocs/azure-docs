@@ -2,7 +2,7 @@
 ms.service: azure-lab-services
 ms.topic: include
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 11/29/2022
 ---
 

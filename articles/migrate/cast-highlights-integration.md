@@ -1,6 +1,6 @@
 --- 
-title: Integrate Application Code Scan Reports from CAST Highlights in Azure Migrate
-description: Pull code scan insights from CAST highlights into Azure Migrate application assessments to review the application readiness. 
+title: Integrate Application Code Scan Reports from CAST Highlights in Azure Catalyst
+description: Pull code scan insights from CAST highlights into Azure Catalyst application assessments to review the application readiness. 
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate 
@@ -8,25 +8,27 @@ ms.topic: concept-article
 ms.date: 04/24/2024 
 ms.custom: engagement-fy24 
 ms.update-cycle: 1825-days
-# Customer intent: "As an application owner, I want to identify and evaluate code changes required for modernizing my applications in Azure Migrate, so that I can deploy the best migration strategy for a smooth transition to Azure."
+# Customer intent: "As an application owner, I want to identify and evaluate code changes required for modernizing my applications in Azure Catalyst, so that I can deploy the best migration strategy for a smooth transition to Azure."
 --- 
 
 # Overview
 
-Integrating CAST Highlight with Azure Migrate allows you to import code-level insights into your cloud migration assessments. This enriches the Azure Migrate application assessment with data on code **cloud readiness** (such as cloud blocker patterns, code complexity, and required changes), helping you decide if an application needs to be refactored or can be replatformed as-is.
+Integrating CAST Highlight with Azure Catalyst allows you to import code-level insights into your cloud migration assessments. This enriches the Azure Catalyst application assessment with data on code **cloud readiness** (such as cloud blocker patterns, code complexity, and required changes), helping you decide if an application needs to be refactored or can be replatformed as-is.
 
 
 ## Prerequisites
 
-- **CAST Highlight account**: Active account with applications created and scanned. All relevant code scans should be completed in CAST Highlight before importing results into Azure Migrate.
+- **CAST Highlight account**: Active account with applications created and scanned. All relevant code scans should be completed in CAST Highlight before importing results into Azure Catalyst.
 - **CAST credentials**: Obtain the CAST Highlight **Company Code** (Identifier) and **API Token** for your organization. If you don’t have an API token, you can use your CAST Highlight username and password instead.
-- **Azure Migrate project with discovered Applications**: Ensure the application you want to analyze is represented in an Azure Migrate project (in the **Applications** inventory or included in an **Application Assessment**).
+- **Azure Catalyst project with discovered Applications**: Ensure the application you want to analyze is represented in an Azure Catalyst project (in the **Applications** inventory or included in an **Application Assessment**).
 
 
-## Steps to Add CAST Highlight Code Insights in Azure Migrate
+<a name="steps-to-add-cast-highlight-code-insights-in-azure-migrate"></a>
 
-1. **Go to Azure Migrate & Select Application**
-   - In the Azure Migrate portal, navigate to your project.
+## Steps to Add CAST Highlight Code Insights in Azure Catalyst
+
+1. **Go to Azure Catalyst & Select Application**
+   - In the Azure Catalyst portal, navigate to your project.
    - Go to **Servers, Databases & Web Apps > Applications** (under **Discovery and Assessment**).
    - Locate the application (or group of VMs) you want to enrich with code insights.
    - You can start integration from:
@@ -44,32 +46,32 @@ Integrating CAST Highlight with Azure Migrate allows you to import code-level in
    - After entering these, click **Connect** or **Authenticate**.
 
 1. **Map to CAST Highlight Application (if prompted)**
-   - Azure Migrate retrieves a list of applications from CAST Highlight.
-   - It attempts to match the Azure Migrate application with the CAST Highlight application of the same name.
+   - Azure Catalyst retrieves a list of applications from CAST Highlight.
+   - It attempts to match the Azure Catalyst application with the CAST Highlight application of the same name.
    - If multiple or no matches are found, select the correct CAST Highlight application from the dropdown.
 
 1. **Import Code Insights**
    - Click **Add** (or **Import**) to start importing code insights.
-   - Azure Migrate fetches CAST Highlight scan data for the application.
+   - Azure Catalyst fetches CAST Highlight scan data for the application.
    - You may see a status indicator (e.g., “Importing code insights…”).
 
 1. **Review the Assessment Results**
-   - After import, review the updated Azure Migrate assessment:
+   - After import, review the updated Azure Catalyst assessment:
      - **Code-based Findings**: List of cloud blockers or required code changes (e.g., unsupported libraries, hard-coded paths).
      - **Impact on Migration Strategy**: The recommended migration strategy may change (e.g., to **Refactor** if significant code changes are needed).
      - **Readiness Score**: The application’s readiness for various target platforms may be updated.
      - **Cost and Effort**: Code insights may inform the estimated effort to remediate the app.
 
 1. **Iterate as Needed**
-   - CAST Highlight data in Azure Migrate is a snapshot. If you address code issues and rescan in CAST, you can **Update code insights** in Azure Migrate to update the assessment.
+   - CAST Highlight data in Azure Catalyst is a snapshot. If you address code issues and rescan in CAST, you can **Update code insights** in Azure Catalyst to update the assessment.
 
 
 
 > [!Note]
 >  - **Applicability**: Code insights integration supports modernization scenarios (assessments targeting Azure VMs or Azure VMware). For direct PaaS assessments, the feature may not appear.
 >  - **One-way Integration**: Once added, code insights cannot be removed—only updated with new data. To undo, delete and recreate the assessment.
->  - **Data Security**: No source code is transferred to Azure Migrate. Only metadata and analysis results are imported.
+>  - **Data Security**: No source code is transferred to Azure Catalyst. Only metadata and analysis results are imported.
 >  - **Use of Insights**: Imported insights guide migration planning. They don’t automatically change any code. Plan remediation work for identified issues as part of your migration timeline.
 
 
-By following these steps, you’ll successfully integrate CAST Highlight with Azure Migrate. Your application’s assessment will combine infrastructure and detailed code analysis, providing a holistic view for migration and modernization planning.
+By following these steps, you’ll successfully integrate CAST Highlight with Azure Catalyst. Your application’s assessment will combine infrastructure and detailed code analysis, providing a holistic view for migration and modernization planning.

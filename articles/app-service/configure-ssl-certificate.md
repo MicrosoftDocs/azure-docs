@@ -7,8 +7,8 @@ tags: buy-ssl-certificates
 ms.topic: tutorial
 ms.date: 06/04/2026
 ms.reviewer: yutlin
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 ms.custom: sfi-image-nochange
 #customer intent: As an app developer or platform engineer, I want clear, step-by-step guidance for adding, importing, and renewing TLS/SSL certificates in Azure App Service so that I can secure custom domains, automate renewals, and avoid downtime.

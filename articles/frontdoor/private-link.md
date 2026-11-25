@@ -2,7 +2,7 @@
 title: Secure your Origin with Private Link in Azure Front Door Premium
 description: Learn how to secure connectivity between Azure Front Door Premium and your origin using Azure Private Link. This article covers supported origins, region availability, and best practices for private endpoint configuration.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 09/24/2025

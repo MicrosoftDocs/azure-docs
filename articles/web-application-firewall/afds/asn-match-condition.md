@@ -2,8 +2,8 @@
 title: AS Number Match Condition for Azure Front Door
 titleSuffix: Azure Web Application Firewall
 description: Learn how to use the AS number (ASN) match condition in Azure Web Application Firewall custom rules to allow or block traffic by the network that originates it.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.reviewer: joeolerich
 ms.service: azure-web-application-firewall
 ms.topic: concept-article

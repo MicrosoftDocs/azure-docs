@@ -4,8 +4,9 @@ description: Learn how to change how Azure Files data in an existing storage acc
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/15/2026
-ms.author: kendownie
+ms.date: 11/17/2026
+ai-usage: ai-assisted
+ms.author: normesta
 ms.custom: references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud storage administrator, I want to change the redundancy configuration for Azure Files so that I can optimize data protection and cost based on my organization’s specific availability and disaster recovery needs."
 ---
@@ -19,6 +20,9 @@ ms.custom: references_regions, devx-track-azurepowershell
 Azure always stores multiple copies of your data to protect it in the face of both planned and unplanned events. These events include transient hardware failures, network or power outages, and natural disasters. Data redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Microsoft Online Services](https://azure.microsoft.com/support/legal/sla/storage/).
 
 This article describes the process of changing replication settings for an existing storage account that hosts Azure classic file shares.
+
+> [!IMPORTANT]
+> Changing redundancy isn't supported for accounts that contain [NFS HDD file shares in preview](create-file-share.md#nfs-on-hdd-preview). NFS HDD file shares support only LRS.
 
 > [!IMPORTANT]
 > If you're using a zonal storage account, then you must first [unpin the storage account](zonal-placement.md#unpin-a-storage-account-from-a-zone) from its zone before you can change the redundancy configuration from locally redundant storage (LRS) to a non-LRS configuration.
@@ -100,7 +104,7 @@ The following table lists the redundancy options available for storage account t
 
 | Storage account type | Supports LRS | Supports ZRS | Supports conversion<br>(from the Azure portal) | Supports conversion<br>(by support request) | Supports manual migration |
 |:-|:-:|:-:|:-:|:-:|:-:|
-| HDD provisioned v2 | &#x2705; | &#x2705; | &#x2705; | &#x2705; <sup>1</sup> | &#x2705; |
+| HDD provisioned v2 (SMB only for redundancy changes) | &#x2705; | &#x2705; | &#x2705; | &#x2705; <sup>1</sup> | &#x2705; |
 | SSD provisioned v2 | &#x2705; | &#x2705; | &#x2705; | &#x2705; <sup>1</sup> | &#x2705; |
 | SSD provisioned v1 | &#x2705; | &#x2705; | &#x2705; | &#x2705; <sup>1</sup> | &#x2705; |
 | HDD pay-as-you-go | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -111,7 +115,7 @@ The following table lists the redundancy options available for storage account t
 
 You can't convert storage accounts to zone-redundancy (ZRS or GZRS) if the storage account contains NFS file shares with public endpoint access enabled.
 
-Converting NFSv4.1 shares with public endpoints enabled isn't supported. To change redundancy for NFS shares with public endpoints, follow these steps:
+Converting NFSv4.1 shares with public endpoints enabled isn't supported. Redundancy changes aren't supported for NFS HDD shares, which support only LRS. To change redundancy between LRS and ZRS for **SSD NFS shares** with public endpoints, follow these steps:
 
 1. [Disable access](storage-files-networking-endpoints.md#restrict-public-endpoint-access) to the storage account's public endpoint.
 1. Submit the conversion request to change redundancy of the given storage account.

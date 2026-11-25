@@ -3,7 +3,7 @@ author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
-ms.author: rifox
+ms.author: diberry
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 

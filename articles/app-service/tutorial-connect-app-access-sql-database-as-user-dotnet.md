@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Connect a web app to SQL Database on behalf of the user'
 description: Use Microsoft Entra built-in authentication to connect securely to Azure SQL or other Azure services from a .NET web app on behalf of the signed-in user.
-author: cephalin
+author: btardif
 
 ms.service: azure-app-service
-ms.author: cephalin
+ms.author: byvinyal
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/10/2025

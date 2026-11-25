@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.author: sipastak
+ms.author: scompton
 ms.custom: sfi-image-nochange
 ---
 # Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device

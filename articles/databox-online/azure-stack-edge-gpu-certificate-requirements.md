@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Certificate requirements

@@ -6,13 +6,16 @@ ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 11/10/2026
+ms.date: 11/16/2026
 ms.author: vikdesai
 ---
 
 # Cloud Solution Provider subscription cost and usage details file schema
 
 This article applies to cost and usage details file schema for a Microsoft Partner Agreement where the CSP partner or the customer has selected a subscription or resource group scope.
+
+> [!NOTE]
+> Exports let you select a dataset version, and version 2026-10-01 is available only in exports. Usage files that you download from the Azure portal, or by using the download APIs, don't use version 2026-10-01. Instead, they include the `priceFactors` and `supplementalChargeDetails` columns at the end of the file. For more information, see [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md).
 
 ## Version 2026-10-01
 
@@ -53,7 +56,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |33|effectivePrice|Blended unit price for the period. Blended prices average out any fluctuations in the unit price, like graduated tiering, which lowers the price as quantity increases over time.|
 |34|quantity|The number of units used by the given product or service for a given day.|
 |35|unitOfMeasure|The unit of measure for billing for the service. For example, compute services are billed per hour.|
-|36|chargeType|Indicates whether the charge represents usage (Usage), a purchase (Purchase), or a refund (Refund).|
+|36|chargeType|Indicates whether the charge represents usage (`Usage`), a purchase (`Purchase`), or a refund (`Refund`).|
 |37|billingCurrency|Currency associated with the billing account.|
 |38|pricingCurrency|Currency used when rating based on negotiated prices.|
 |39|costInBillingCurrency|Cost of the charge in the billing currency before credits or taxes.|
@@ -66,16 +69,16 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |46|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
 |47|PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |48|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
-|49|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
+|49|term|The length of the term for a reservation, savings plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage.|
 |50|reservationId|Unique identifier for the purchased reservation instance.|
 |51|reservationName|Name of the purchased reservation instance.|
-|52|PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+|52|PricingModel|Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, `SavingsPlan`, and `SpotPlus`). `SpotPlus` appears on Spot Plus virtual machine usage.|
 |53|unitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
-|54|benefitId| Unique identifier for the purchased savings plan instance. |
-|55|benefitName| Unique identifier for the purchased savings plan instance. |
+|54|benefitId| Unique identifier for the purchased savings plan that applies to the charge.|
+|55|benefitName| Name of the purchased savings plan that applies to the charge.|
 |56|provider|Identifier for product category or Line of Business. For example, Azure and Microsoft 365.|
-|57|priceFactors|JSON array listing the factors affecting the price, such as benefits applied. When multiple factors apply, factors in the same group are combined while factors in separate groups are applied in sequence. Each factor includes a product code, which can be joined to product data to identify the benefit. Empty when standard market price applies.|
-|58|supplementalChargeDetails|JSON string with supplemental details about how this charge was calculated, such as price modifiers or a cost or quantity cap. Empty when not applicable, such as for a typical OnDemand charge.|
+|57|priceFactors|JSON array listing the factors affecting the price, such as benefits applied. When multiple factors apply, factors in the same group are combined while factors in separate groups are applied in sequence. A factor for a benefit, such as a savings plan, includes the benefit's product code and identifiers. For more information, see [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md).|
+|58|supplementalChargeDetails|JSON string with supplemental details about how this charge was calculated, such as price modifiers or a cost or quantity cap. Empty when not applicable, such as for a typical OnDemand charge. For more information, see [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md).|
 
 ## Version 2023-12-01-preview
 
@@ -129,10 +132,10 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |46|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
 |47|PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |48|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
-|49|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
+|49|term|The length of the term for a reservation, savings plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage.|
 |50|reservationId|Unique identifier for the purchased reservation instance.|
 |51|reservationName|Name of the purchased reservation instance.|
-|52|PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+|52|PricingModel|Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, `SavingsPlan`, and `SpotPlus`). `SpotPlus` appears on Spot Plus virtual machine usage.|
 |53|unitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |54|benefitId| Unique identifier for the purchased savings plan instance. |
 |55|benefitName| Unique identifier for the purchased savings plan instance. |
@@ -190,10 +193,10 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |46|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
 |47|PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |48|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
-|49|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
+|49|term|The length of the term for a reservation, savings plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage.|
 |50|reservationId|Unique identifier for the purchased reservation instance.|
 |51|reservationName|Name of the purchased reservation instance.|
-|52|PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+|52|PricingModel|Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, `SavingsPlan`, and `SpotPlus`). `SpotPlus` appears on Spot Plus virtual machine usage.|
 |53|unitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |54|benefitId| Unique identifier for the purchased savings plan instance. |
 |55|benefitName| Unique identifier for the purchased savings plan instance. |
@@ -251,10 +254,10 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |46|tags|Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](../../azure-resource-manager/management/tag-resources.md).|
 |47|PayGPrice|The market price, also referred to as retail or list price, for a given product or service. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 |48|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
-|49|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
+|49|term|The length of the term for a reservation, savings plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage.|
 |50|reservationId|Unique identifier for the purchased reservation instance.|
 |51|reservationName|Name of the purchased reservation instance.|
-|52|PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+|52|PricingModel|Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, `SavingsPlan`, and `SpotPlus`). `SpotPlus` appears on Spot Plus virtual machine usage.|
 |53|unitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 
 ## Version 2019-11-01
@@ -311,5 +314,5 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |48|reservationId|Unique identifier for the purchased reservation instance.|
 |49|reservationName|Name of the purchased reservation instance.|
 |50|frequency|Indicates whether a charge is expected to repeat. Charges can either happen once (OneTime), repeat on a monthly or yearly basis (Recurring), or be based on usage (UsageBased).|
-|51|term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
+|51|term|The length of the term for a reservation, savings plan, or other term-based purchase, such as a Marketplace subscription. Terms can be any length that the offer defines, shown as a duration such as `P1M` (one month), `P1Y` (one year), or `P3Y` (three years). Empty for charges without a term, such as pay-as-you-go usage.|
 |52|unitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|

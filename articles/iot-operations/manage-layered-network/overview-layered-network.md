@@ -23,6 +23,7 @@ Before deploying, determine which networking approach fits your scenario:
 
 - **Private connectivity:** If you have a single cluster that needs private connectivity to Azure without network segmentation between layers, use this approach. You can use Private Link for storage and data flow destinations, Arc Gateway to reduce firewall endpoints, and Azure Firewall Explicit Proxy to keep all traffic on private networks. See [Deploy Azure IoT Operations with private connectivity](howto-private-connectivity.md).
 - **Layered network:** If you have a Purdue/ISA-95 segmented topology with multiple network layers (L2/L3/L4) and adjacent-only communication, use a layered network deployment. This approach adds Envoy proxy chaining, CoreDNS at each layer, and multi-cluster Azure IoT Operations deployments across layers. **If you have a layered topology, this is the recommended approach.** See [Layered networking for Azure IoT Operations](concept-layered-network.md) for architecture details, or go straight to the [Tutorial: Deploy Azure IoT Operations in a layered network with private connectivity](../end-to-end-tutorials/tutorial-layered-network-private-connectivity.md).
+- **Network policies:** If your cluster uses Kubernetes or Cilium network policies with default-deny, see [Configure network policies for Azure IoT Operations](howto-configure-network-policies.md) for traffic that you need to allow within the cluster and to external endpoints.
 
 ## Network connectivity options
 

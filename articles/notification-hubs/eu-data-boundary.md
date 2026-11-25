@@ -2,7 +2,7 @@
 title: EU Data Boundary compliance in Azure Notification Hubs
 description: Learn about the EU data boundary capabilities of Azure Notification Hubs. 
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-notification-hubs
 ms.topic: concept-article
 ms.date: 02/01/2023

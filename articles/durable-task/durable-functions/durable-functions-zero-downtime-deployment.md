@@ -70,7 +70,7 @@ Use the following procedure to set up this scenario.
 
 1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](../common/durable-task-orchestrations.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting. Again, managed identity-based connections are the most secure.
 
-1. In your function app's [host.json file's durableTask section](durable-functions-host-json-settings.md), specify `connectionStringName` (Durable 2.x) or `azureStorageConnectionStringName` (Durable 1.x) as the name of the app setting you created in step 3.
+1. In your function app's [host.json file's durableTask section](durable-functions-host-json-settings.md), set the storage provider's `connectionName` (or its legacy alias `connectionStringName`) to the app setting you created in step 3. Older extension schemas used `azureStorageConnectionStringName`.
 
 The following diagram shows the described configuration of deployment slots and storage accounts. In this potential predeployment scenario, version 2 of a function app is running in the production slot, while version 1 remains in the staging slot.
 
@@ -99,7 +99,15 @@ The following JSON fragment shows the connection string setting in the *host.jso
 
 ### CI/CD pipeline configuration
 
-Configure your CI/CD pipeline to deploy only when your function app has no pending or running orchestration instances. When you use Azure Pipelines, you can create a function that checks for these conditions, as in the following C# examples. The same pattern applies to other languages - query for orchestration instances with `Pending` or `Running` status and return whether any exist.
+For this status-check strategy, deploy breaking changes only after the exact task hub whose code will be replaced has no resumable orchestration instances. A zero-count query isn't an admission lock. Use the following drain protocol:
+
+1. Pause or reroute all sources of new starts for that hub, including HTTP starters, queue and timer triggers, and external clients. Keep the existing workers available to finish draining; don't stop them before in-flight work completes.
+1. Query the exact slot, task hub, and backend connection whose code will be overwritten. Include `Pending`, `Running`, `Suspended`, and any other nonterminal state exposed by your SDK/backend, such as `ContinuedAsNew`. Suspended instances retain history and can resume; resume and drain them with compatible code, or retain that code on a separate hub/app. Include entity operations and other retained work in your deployment assessment; these orchestration queries don't prove an entity hub is idle.
+1. Keep admission paused, wait for the hub to drain, and recheck immediately before deployment and slot swap. Verify the hub remains drained throughout the change, then restore or reroute admission only after the intended code and hub settings are in place.
+
+If you can't maintain these conditions, retain version-compatible code or use a separate versioned task hub/app rather than relying on a one-time empty result. These requirements apply to the hub being replaced, not to every slot swap.
+
+When you use Azure Pipelines, you can create a function that checks for resumable orchestrations, as in the following C# examples. The same pattern applies to other languages. The response retains the `HasRunning` field name for the gate, but it means any queried resumable instance, including a suspended one.
 
 <br>
 
@@ -114,7 +122,13 @@ public static async Task<HttpResponseData> StatusCheck(
 {
   var query = new OrchestrationQuery
   {
-    Statuses = new[] { OrchestrationRuntimeStatus.Pending, OrchestrationRuntimeStatus.Running }
+    Statuses = new[]
+    {
+      OrchestrationRuntimeStatus.Pending,
+      OrchestrationRuntimeStatus.Running,
+      OrchestrationRuntimeStatus.Suspended,
+      OrchestrationRuntimeStatus.ContinuedAsNew
+    }
   };
 
   bool hasRunning = false;
@@ -149,9 +163,20 @@ public static async Task<IActionResult> StatusCheck(
 
     runtimeStatus.Add(OrchestrationRuntimeStatus.Pending);
     runtimeStatus.Add(OrchestrationRuntimeStatus.Running);
+    runtimeStatus.Add(OrchestrationRuntimeStatus.Suspended);
+    runtimeStatus.Add(OrchestrationRuntimeStatus.ContinuedAsNew);
 
-    var result = await client.ListInstancesAsync(new OrchestrationStatusQueryCondition() { RuntimeStatus = runtimeStatus }, CancellationToken.None);
-    return (ActionResult)new OkObjectResult(new { HasRunning = result.DurableOrchestrationState.Any() });
+    var query = new OrchestrationStatusQueryCondition() { RuntimeStatus = runtimeStatus };
+    bool hasRunning = false;
+    do
+    {
+        var result = await client.ListInstancesAsync(query, CancellationToken.None);
+        hasRunning = result.DurableOrchestrationState.Any();
+        query.ContinuationToken = result.ContinuationToken;
+    }
+    while (!hasRunning && !string.IsNullOrEmpty(query.ContinuationToken));
+
+    return (ActionResult)new OkObjectResult(new { HasRunning = hasRunning });
 }
 ```
 
@@ -159,21 +184,23 @@ public static async Task<IActionResult> StatusCheck(
 
 <br>
 
-Next, configure the staging gate to wait until no orchestrations are running. For more information, see [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates)
+Next, configure the staging gate to wait until `HasRunning` is `false`, while admission to the target hub remains paused. For more information, see [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates).
 
 :::image type="content" source="media/durable-functions-zero-downtime-deployment/deployment-gate.png" alt-text="Screenshot of an Azure Pipelines deployment gate configuration for Durable Functions zero-downtime deployment.":::
 
-Azure Pipelines checks your function app for running orchestration instances before your deployment starts.
+Azure Pipelines checks the target hub for resumable orchestration instances before your deployment starts. Recheck that same hub immediately before replacing its code; periodic gate polling alone doesn't prevent new starts.
 
 :::image type="content" source="media/durable-functions-zero-downtime-deployment/deployment-gate-2.png" alt-text="Screenshot of a running Azure Pipelines deployment gate check for orchestration instances.":::
 
-Now the new version of your function app should be deployed to the staging slot.
+With the hub drained and admission still paused, deploy the new version of your function app to the staging slot.
 
 :::image type="content" source="media/durable-functions-zero-downtime-deployment/deployment-slot-2.png" alt-text="Screenshot of the new Durable Functions app version deployed to the staging slot during zero-downtime deployment.":::
 
-Finally, swap slots. 
+Finally, recheck the affected hub and settings, then swap slots while keeping admission paused for the hub whose code is being replaced.
 
 Application settings that aren't marked as deployment slot settings are also swapped, so the version 2 app keeps its reference to storage account A. Because orchestration state is tracked in the storage account, any orchestrations running on the version 2 app continue to run in the new slot without interruption.
+
+Confirm that the swapped code still targets the intended hub and connection before restoring new starts. A slot or storage-account boundary by itself doesn't prove that a hub has no resumable histories.
 
 :::image type="content" source="media/durable-functions-zero-downtime-deployment/deployment-slot-3.png" alt-text="Screenshot of slot swap completion with Durable Functions app settings moved to production.":::
 

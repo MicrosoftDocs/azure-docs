@@ -2,7 +2,7 @@
 ms.topic: include
 ms.service: azure-policy
 ms.date: 03/04/2025
-ms.author: ladolan
+ms.author: migreene
 author: lauradolan
 ---
 

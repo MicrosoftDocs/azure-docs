@@ -2,8 +2,8 @@
 title: Add a VM using a shared image
 description: Learn how to add a virtual machine (VM) using an image from the attached shared image gallery in Azure DevTest Labs
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 02/28/2025
 ms.custom:
   - UpdateFrequency2

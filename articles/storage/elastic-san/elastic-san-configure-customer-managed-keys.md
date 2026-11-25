@@ -4,7 +4,7 @@ description: Learn how to configure Azure Elastic SAN encryption with customer-m
 services: storage
 author: roygara
 
-ms.author: rogarana
+ms.author: normesta
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/09/2026

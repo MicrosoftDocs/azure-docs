@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 05/06/2026
-ms.author: rolyon
+ms.author: diberry
 ms.custom:
   - it-pro
   - subject-rbac-steps

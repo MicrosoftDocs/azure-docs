@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Deploy Environments with Azure Pipelines'
 description: Learn how to integrate Azure Deployment Environments into your Azure Pipelines CI/CD pipeline to streamline your software development process.
-author: RoseHJM
-ms.author: rosemalcolm
+author: ramimsft
+ms.author: rabououn
 ms.service: azure-deployment-environments
 ms.topic: tutorial
 ms.date: 05/08/2026

@@ -6,7 +6,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 09/16/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 # Azure Stack Edge Hardware Additional Terms
 

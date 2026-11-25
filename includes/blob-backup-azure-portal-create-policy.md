@@ -3,7 +3,7 @@ author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
 ms.date: 06/18/2025
-ms.author: v-abhmallick
+ms.author: diberry
 ---
 
 ## Create a backup policy

@@ -5,7 +5,7 @@ description: "Learn how to set a dead letter location and customize retry policy
 ms.topic: how-to
 ms.date: 03/27/2026
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ms.reviewer: spelluru
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli

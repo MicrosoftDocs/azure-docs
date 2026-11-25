@@ -6,7 +6,7 @@ ms.date: 12/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 author: RochakSingh-blr
-ms.author: v-rochak2
+ms.author: gurkisingh
 ---
 
 # Enable Azure Change Tracking and Inventory at scale for Azure VMs by using Azure Policy

@@ -1,6 +1,6 @@
 ---
-title: Configure a wave plan in Azure Migrate
-description: Learn how to generate, review, and configure a wave plan in Azure Migrate, download reports for approval, and commit waves for execution.
+title: Configure a wave plan in Azure Catalyst
+description: Learn how to generate, review, and configure a wave plan in Azure Catalyst, download reports for approval, and commit waves for execution.
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
@@ -11,9 +11,9 @@ monikerRange: migrate
 # Customer intent: As a migration lead, I want to review and configure proposed wave assignments so that I can commit waves that meet my migration requirements.
 ---
 
-# Configure a wave plan in Azure Migrate (preview)
+# Configure a wave plan in Azure Catalyst (preview)
 
-Use Azure Migrate in the Azure portal to generate, review, and configure a recommended wave plan. This article guides you through reviewing the grouping and sequence, updating proposed wave assignments to meet your requirements, and downloading the plan for offline review and stakeholder approval. After approval, commit waves for execution.
+Use Azure Catalyst in the Azure portal to generate, review, and configure a recommended wave plan. This article guides you through reviewing the grouping and sequence, updating proposed wave assignments to meet your requirements, and downloading the plan for offline review and stakeholder approval. After approval, commit waves for execution.
 
 A wave plan is a recommendation for the assessment and migration path you select. Review the recommendations and make any required changes before committing waves. Migration execution and tracking take place separately after commitment.
 
@@ -21,7 +21,7 @@ A wave plan is a recommendation for the assessment and migration path you select
 
 Before you configure a wave plan:
 
-1. [Create an Azure Migrate project](create-manage-projects.md), or open an existing project.
+1. [Create an Azure Catalyst project](create-manage-projects.md), or open an existing project.
 1. Complete [discovery](discovery-methods-modes.md) and verify that the applications and workloads you want to plan are available in the project inventory.
 1. Complete an assessment covering the workloads in scope. Review the [assessment prerequisites](assessment-prerequisites.md) and resolve any data collection issues before using the assessment for wave planning.
 1. Ensure that you have the [Azure Migrate Owner](prepare-azure-accounts.md#azure-migrate-owner) or [Azure Migrate Decide and Plan Expert](prepare-azure-accounts.md#azure-migrate-decide-and-plan-expert) role on the project.
@@ -38,19 +38,19 @@ For more useful grouping and sequencing recommendations:
 
 ## Generate or open a wave plan
 
-1. In the [Azure portal](https://portal.azure.com), open your Azure Migrate project.
+1. In the [Azure portal](https://portal.azure.com), open your Azure Catalyst project.
 1. In the project navigation, expand **Plan** and select **Wave plan**.
 1. In **Planning based on assessment**, select the assessment you want to use.
 1. In **Selected path**, select the migration path you want to review.
 1. Review the plan for the selected assessment and path. If a plan isn't generated yet, generate it for that selection by following the prompt on the **Wave plan** page.
 
-During generation, Azure Migrate scopes the workloads, analyzes available dependencies and application mappings, evaluates planning conditions, and recommends wave composition and sequencing.
+During generation, Azure Catalyst scopes the workloads, analyzes available dependencies and application mappings, evaluates planning conditions, and recommends wave composition and sequencing.
 
 Generation typically completes within three minutes, but large estates can take longer. Wait for generation to finish, then select **Refresh** to review the plan.
 
 :::image type="content" source="./media/how-to-configure-wave-plan/wave-plan.png" alt-text="Screenshot of the Wave plan page with assessment and migration path selectors, proposed waves, and planning actions." lightbox="./media/how-to-configure-wave-plan/wave-plan.png":::
 
-Wave plan in Azure Migrate, showing proposed waves and actions to review, configure, download, and commit them.
+Wave plan in Azure Catalyst, showing proposed waves and actions to review, configure, download, and commit them.
 
 ## Review the wave plan
 
@@ -152,7 +152,7 @@ You can commit selected waves while continuing to review other proposed waves.
 
 ## Next steps
 
-To continue with committed waves, select **Execute** > **Waves** in the Azure Migrate project.
+To continue with committed waves, select **Execute** > **Waves** in the Azure Catalyst project.
 
 For more information:
 

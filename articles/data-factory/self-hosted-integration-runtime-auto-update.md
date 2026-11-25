@@ -4,7 +4,7 @@ description: Learn about self-hosted integration runtime autoupdate and expire n
 ms.subservice: integration-runtime
 ms.topic: how-to
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.date: 09/26/2024
 ---
 

@@ -3,7 +3,7 @@ author: alkohli
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/01/2024
-ms.author: alkohli
+ms.author: scompton
 ---
 
 To configure compute on your Azure Stack Edge Pro, you create an IoT Hub resource via Azure portal.

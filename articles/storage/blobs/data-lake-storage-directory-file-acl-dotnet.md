@@ -2,9 +2,9 @@
 title: Use .NET to manage data in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Learn how to use the Azure Storage client library for .NET to manage directories and files in Data Lake Storage.
-author: stevenmatthew
+author: schoag-msft
 
-ms.author: shaas
+ms.author: schoag
 ms.service: azure-data-lake-storage
 ms.date: 07/23/2026
 ms.topic: how-to

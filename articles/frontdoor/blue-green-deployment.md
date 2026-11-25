@@ -2,7 +2,7 @@
 title: Blue/Green Deployments Using Azure Front Door
 description: Learn how to use Azure Front Door to implement a blue/green deployment strategy for your web applications.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.reviewer: gamullen, hmb
 ms.service: azure-frontdoor
 ms.topic: how-to

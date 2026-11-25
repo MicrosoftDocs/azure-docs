@@ -6,7 +6,7 @@ services: storage
 ms.service: azure-import-export
 ms.topic: how-to
 ms.date: 03/14/2022
-ms.author: shaas
+ms.author: jeevanm
 ms.custom: sfi-image-nochange
 # Customer intent: "As a data engineer, I want to view the status of my Azure Import/Export jobs, so that I can monitor the progress of my data transfers and address any issues that arise during the process."
 ---

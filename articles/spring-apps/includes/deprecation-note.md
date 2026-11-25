@@ -1,6 +1,6 @@
 ---
 author: KarlErickson
-ms.author: karler
+ms.author: sandeepsen
 ms.service: azure-spring-apps
 ms.topic: include
 ms.date: 08/19/2025

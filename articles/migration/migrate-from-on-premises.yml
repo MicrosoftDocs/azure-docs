@@ -76,5 +76,5 @@ landingContent:
             url:  /azure/migration/migrate-to-azure
           - text: Choose an Azure compute service
             url:  /azure/architecture/guide/technology-choices/compute-decision-tree
-          - text: Azure Migrate application and code assessment
+          - text: Azure Catalyst application and code assessment
             url:  /azure/migrate/appcat/overview?view=migrate

@@ -1,10 +1,10 @@
 ---
 title: Tutorial to review web apps for migration
-description: Learn how to review assessment for web apps in Azure Migrate
+description: Learn how to review assessment for web apps in Azure Catalyst
 author: ankitsurkar06
 ms.author: nikitabajaj
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 11/22/2026
 ms.service: azure-migrate
 ms.reviewer: v-gajeronika
 ms.update-cycle: 365-days
@@ -13,7 +13,7 @@ ms.custom: engagement-fy24
 ---
 # Create a web app assessment for modernization 
 
-This article describes how to review the insights from a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or Azure App Service using Azure Migrate. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month.
+This article describes how to review the insights from a web app assessment for modernization to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) or Azure App Service using Azure Catalyst. Creating an assessment for your web apps provides the recommended targets for them and key insights such as app-readiness, target right-sizing, and cost to host, and run these apps month over month.
 
 In this article, you learn how to: 
 
@@ -26,7 +26,7 @@ In this article, you learn how to:
 
 ## Prerequisites 
 
-- Deploy and configure the Azure Migrate appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical](tutorial-discover-physical.md) environments. 
+- Deploy and configure the Azure Catalyst appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical](tutorial-discover-physical.md) environments. 
 - Check the [appliance requirements](migrate-appliance.md#appliance---vmware) and [URL access](migrate-appliance.md#url-access) to be provided. 
 - [Discover web apps running on your environment](how-to-discover-sql-existing-project.md) 
 - [Create a web app assessment](create-web-app-assessment.md).
@@ -35,7 +35,7 @@ In this article, you learn how to:
 
 To view an assessment, follow these steps:
 
-1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**. Search for the assessment using the **Workloads** filter and select it.
+1. On the Azure Catalyst project **Overview** page, under **Decide and Plan**, select **Assessments**. Search for the assessment using the **Workloads** filter and select it.
 
     :::image type="content" source="./media/review-web-app-assessment/assessment-overview.png" alt-text="Screenshot displays assessment details." lightbox="./media/review-web-app-assessment/assessment-overview.png":::
 

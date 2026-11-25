@@ -2,11 +2,11 @@
 title: Configure CI/CD to Custom Containers
 description: Set up continuous integration and continuous delivery (CI/CD) to a custom Windows or Linux container in Azure App Service.
 keywords: azure app service, linux, docker, acr, oss
-author: msangapu-msft
+author: btardif
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.topic: how-to
 ms.date: 05/02/2025
-ms.author: msangapu
+ms.author: byvinyal
 ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ms.service: azure-app-service

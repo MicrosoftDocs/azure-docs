@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: Disaster recovery in Durable Task Scheduler
 titleSuffix: Durable Task
 description: Learn how disaster recovery in Durable Task Scheduler pairs a primary and secondary scheduler across Azure regions so you can fail over orchestration workloads.

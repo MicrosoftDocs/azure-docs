@@ -1,12 +1,12 @@
 ---
 title: Get started with Oracle AI Database@Azure
 description: Learn how to get started with using Oracle AI Database@Azure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: get-started
 ms.date: 08/29/2024
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: "As a database administrator, I want to learn how to purchase and set up Oracle AI Database@Azure, so that I can optimize the management of my databases in a fast and integrated cloud environment."
 ---
 

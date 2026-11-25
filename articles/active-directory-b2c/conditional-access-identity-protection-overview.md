@@ -5,7 +5,7 @@ ms.service: entra-id
 ms.subservice: b2c
 ms.topic: overview
 ms.date: 06/12/2025
-ms.author: kengaderdus
+ms.author: diberry
 author: kengaderdus
 manager: mwongerapk
 ms.collection: M365-identity-device-management

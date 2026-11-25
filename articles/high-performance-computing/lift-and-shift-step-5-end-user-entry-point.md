@@ -2,7 +2,7 @@
 title: End-user entry point configuration
 description: Learn how to configure end-user entry points during a migration of high performance computing architecture.
 author: tomvcassidy
-ms.author: tomcassidy
+ms.author: mdoster
 ms.date: 08/24/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines

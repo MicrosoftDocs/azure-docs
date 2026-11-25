@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 09/08/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 # Troubleshoot activation or secret deletion issues on Azure Key Vault for your Azure Stack Edge Pro GPU device 
 

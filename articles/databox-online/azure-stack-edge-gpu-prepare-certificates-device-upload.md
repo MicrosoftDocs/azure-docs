@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 02/08/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 # Prepare certificates to upload on your Azure Stack Edge Pro GPU
 

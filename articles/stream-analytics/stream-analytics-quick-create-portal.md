@@ -1,8 +1,8 @@
 ---
 title: Create a Stream Analytics Job using Azure portal
 description: This quickstart shows you how to get started by creating a Stream Analytic job, configuring inputs, outputs, and defining a query.
-author: spelluru
-ms.author: spelluru
+author: skommajo
+ms.author: skommajosula
 ms.date: 02/19/2026
 ms.topic: quickstart
 ms.service: azure-stream-analytics

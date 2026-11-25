@@ -5,7 +5,7 @@ services: container-service
 author: angarg05
 ms.topic: concept-article
 ms.date: 11/7/2023
-ms.author: ananyagarg
+ms.author: sgallagher
 ms.service: azure-confidential-computing
 ms.custom:
   - ignite-fall-2023

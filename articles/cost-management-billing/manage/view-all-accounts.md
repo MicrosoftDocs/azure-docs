@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 06/25/2026
+ms.date: 11/18/2026
 ms.author: jkinma
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
@@ -28,7 +28,7 @@ Azure portal supports the following type of billing accounts:
 
 - **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) or an [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn) might have a billing account for a Microsoft Customer Agreement as well. 
     - You can have a maximum of five subscriptions in a Microsoft Customer Agreement for an individual. The ability to create more subscriptions is determined on an individual basis according to your history with Azure.
-    - A Microsoft Customer Agreement for an enterprise can have up to 10,000 subscriptions under it.
+    - A Microsoft Customer Agreement for an enterprise can have up to 5,000 subscriptions under it.
 
 - **Microsoft Partner Agreement**: A billing account for a Microsoft Partner Agreement is created for Cloud Solution Provider (CSP) partners to manage their customers in the new commerce experience. Partners need to have at least one customer with an [Azure plan](/partner-center/purchase-azure-plan) to manage their billing account in the Azure portal. A Partner billing account can have up to 10,000 subscriptions under it. For more information, see [Get started with your billing account for Microsoft Partner Agreement](../understand/mpa-overview.md).
 

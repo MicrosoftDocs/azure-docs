@@ -2,7 +2,7 @@
 title: Monitor logs for Azure Web Application Firewall
 description: Learn how to enable and manage logs and for Azure Web Application Firewall
 author: halkazwini
-ms.author: halkazwini
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 08/24/2023
@@ -375,4 +375,4 @@ We have published a Resource Manager template that installs and runs the popular
 
 * Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 * [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
-* [View and analyze Azure activity logs in Power BI and more](https://learn.microsoft.com/azure/azure-monitor/logs/log-powerbi) blog post.
+* [View and analyze Azure activity logs in Power BI and more](/azure/azure-monitor/logs/log-powerbi) blog post.

@@ -10,7 +10,7 @@ ms.service: entra-id
 ms.topic: how-to
 
 ms.date: 01/22/2024
-ms.author: kengaderdus
+ms.author: diberry
 ms.subservice: b2c
 ms.custom:
   - fasttrack-edit

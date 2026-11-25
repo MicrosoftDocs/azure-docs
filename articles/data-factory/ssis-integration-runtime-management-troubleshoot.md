@@ -4,7 +4,7 @@ description: "This article provides troubleshooting guidance for management issu
 ms.subservice: integration-services
 ms.topic: troubleshooting-general
 author: whhender
-ms.author: whhender
+ms.author: weetok
 ms.reviewer: chugugrace
 ms.date: 05/15/2024
 ---

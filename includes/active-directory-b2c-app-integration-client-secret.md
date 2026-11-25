@@ -4,7 +4,7 @@ ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 06/11/2021
-ms.author: kengaderdus
+ms.author: diberry
 # Used by Azure AD B2C app integration articles under "App integration".
 ---
 Create a client secret for the registered web application. The web application uses the client secret to prove its identity when it requests tokens.

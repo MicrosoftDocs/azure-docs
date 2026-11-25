@@ -4,7 +4,7 @@ description: This article describes how to use Azure Communication Services as a
 ms.topic: concept-article
 ms.date: 01/22/2025
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ms.reviewr: osaghaso
 # Customer intent: I want to know what events are supported by Azure Communication Services through Azure Event Grid. 
 ---

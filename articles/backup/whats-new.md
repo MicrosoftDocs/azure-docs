@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 11/16/2026
+ms.date: 11/24/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -21,9 +21,11 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2026
+  - [Vaulted backup support for Azure Data Lake Storage is now available in sovereign clouds](#vaulted-backup-support-for-azure-data-lake-storage-is-now-available-in-sovereign-clouds)
   - [Cross-subscription backup for Azure VMs is now generally available](#cross-subscription-backup-for-azure-vms-is-now-generally-available)
   - [Snapshot backup for SQL instances in Azure VMs is now generally available](#snapshot-backup-for-sql-instances-in-azure-vms-is-now-generally-available)
   - [Vaulted backup support for Azure Cosmos DB is now generally available](#vaulted-backup-support-for-azure-cosmos-db-is-now-generally-available)
+  - [Secure by default with vault soft delete for Backup vaults is now generally available](#secure-by-default-with-vault-soft-delete-for-backup-vaults-is-now-generally-available)
 - October 2026
   - [Selective disk restore for Azure VMs (preview)](#selective-disk-restore-for-azure-vms-preview)
   - [Cross-tenant restore for Azure Backup (preview)](#cross-tenant-restore-for-azure-backup-preview)
@@ -32,7 +34,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Vaulted backup support for Azure PostgreSQL flexible server and elastic cluster (v2) (preview)](#vaulted-backup-support-for-azure-postgresql-flexible-server-and-elastic-cluster-v2-preview)
 - September 2026
   - [Operational backup support for Azure Elastic SAN volume is now generally available](#operational-backup-support-for-azure-elastic-san-volume-is-now-generally-available)
-  - [Time-based immutability for Recovery Services vaults](#time-based-immutability-for-recovery-services-vaults)
+  - [Time-based immutability for Recovery Services vaults and Backup vaults](#time-based-immutability-for-recovery-services-vaults-and-backup-vaults)
 - August 2026
   - [Auto-protection support for Azure Blob backup for up to 1,000 containers](#auto-protection-support-for-azure-blob-backup-for-up-to-1000-containers)
   - [Auto-protection support for Azure Data Lake Storage backup for up to 1,000 containers](#auto-protection-support-for-azure-data-lake-storage-backup-for-up-to-1000-containers)
@@ -72,7 +74,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2025
   - [Azure Backup for Azure Database for PostgreSQL – Flexible Server is now generally available](#azure-backup-for-azure-database-for-postgresql--flexible-server-is-now-generally-available)
 - November 2024
-  - [Secure by Default with Vault soft delete (preview)](#secure-by-default-with-vault-soft-delete-preview)
+  - [Secure by default with vault soft delete (preview)](#secure-by-default-with-vault-soft-delete-preview)
   - [WORM enabled Immutable Storage for Recovery Services vaults is now generally available](#worm-enabled-immutable-storage-for-recovery-services-vaults-is-now-generally-available)
   - [Cross Subscription Backup support for Azure File Share (preview)](#cross-subscription-backup-support-for-azure-file-share-preview)
   - [Back up SAP ASE (Sybase) database (preview)](#back-up-sap-ase-sybase-database-preview)   
@@ -91,6 +93,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Vaulted backup support for Azure Data Lake Storage is now available in sovereign clouds
+
+Vaulted backup for Azure Data Lake Storage is now available in the Azure China and Azure Government sovereign clouds, in addition to all public cloud regions. You can use vaulted backup to protect Azure Data Lake Storage in China East 2, China East 3, China North 2, China North 3, US Gov Arizona, US Gov Texas, US Gov Virginia, US DoD East, and US DoD Central.
+
+For more information, see [Supported regions for Azure Data Lake Storage vaulted backup](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
 
 ## Cross-subscription backup for Azure VMs is now generally available
 
@@ -123,6 +131,14 @@ Key features include:
 - Recovery: Use incremental backups with a 1-day recovery point objective (RPO), Cross Region Restore (CRR), and item-level restore (ILR).
 
 For more information, see [About Azure Cosmos DB vaulted backup](backup-azure-cosmos-db-overview.md).
+
+## Secure by default with vault soft delete for Backup vaults is now generally available
+
+Secure by default with vault soft delete is now generally available for Backup vaults in all Azure public regions.
+
+Soft delete is enforced by default for vaults, recovery points, and backup items. You can recover deleted Backup vaults and backup data after accidental or malicious deletion, without having to opt in. By default, vaulted backup data stays recoverable for 14 days at no additional retention cost.
+
+For more information, see [Secure by default with soft delete for Azure Backup](secure-by-default.md).
 
 ## Selective disk restore for Azure VMs (preview)
 
@@ -184,9 +200,9 @@ Key features include:
 
 For more information, see [Azure Elastic SAN volume operational backup](azure-elastic-san-backup-overview.md).
 
-## Time-based immutability for Recovery Services vaults
+## Time-based immutability for Recovery Services vaults and Backup vaults
 
-Azure Backup now supports time-based immutability for Recovery Services vaults, so you can configure immutability for a specific duration that's independent of the backup policy retention period. Recovery points stay immutable for the duration you set and continue to be retained according to the backup policy. This feature prevents backup policy retention from being shorter than the immutability duration you set. It provides greater flexibility to balance data protection requirements with storage costs, especially when immutability is locked.
+Azure Backup now supports time-based immutability for both Recovery Services vaults and Backup vaults in all Azure regions, so you can configure immutability for a specific duration that's independent of the backup policy retention period. Recovery points stay immutable for the duration you set and continue to be retained according to the backup policy. This feature prevents backup policy retention from being shorter than the immutability duration you set. It provides greater flexibility to balance data protection requirements with storage costs, especially when immutability is locked.
 
 For more information, see [Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md#immutability-enablement-options).
 
@@ -397,9 +413,9 @@ This release includes the following key features:
 
 For more information, see [Azure Backup for PostgreSQL Flexible Server overview](backup-azure-database-postgresql-flex-overview.md).
 
-## Secure by Default with Vault soft delete (preview)
- 
-Azure Backup now provides the **Secure By default with Vault soft delete (preview)** feature that applies soft delete by default at all granularities - vaults, recovery points, containers and backup items. Azure Backup now ensures that all the backup data is recoverable against ransomware attacks by default and has no cost for *14 days*. You don't need to opt in to get *fair* security level for your backup data. You can update the soft delete retention period as per your preference up to *180 days*.
+## Secure by default with vault soft delete (preview)
+
+Azure Backup now provides the **Secure by default with vault soft delete (preview)** feature that applies soft delete by default at all granularities - vaults, recovery points, containers, and backup items. Azure Backup now ensures that all the backup data is recoverable against ransomware attacks by default and has no cost for *14 days*. You don't need to opt in to get *fair* security level for your backup data. You can update the soft delete retention period as per your preference up to *180 days*.
 
 Soft delete provides data recoverability from malicious or accidental deletions and is enabled by default for all vaults. To make soft delete irreversible, you can use **always-on** soft delete.
 

@@ -5,7 +5,7 @@ description: Learn how to create, delete, and manage dev centers to group Micros
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 11/20/2025
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box implementation.

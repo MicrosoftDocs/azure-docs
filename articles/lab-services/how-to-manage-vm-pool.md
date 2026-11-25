@@ -5,7 +5,7 @@ description: Learn how to manage a lab VM pool in Azure Lab Services and change 
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 07/04/2023
 ms.custom: sfi-image-nochange

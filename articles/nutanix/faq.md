@@ -16,7 +16,7 @@ This article addresses questions most frequently asked about NC2 on Azure.
 
 ### How do I get started with NC2 on Azure?
 
-Explore NC2 on Azure through a test drive or self-guided trial, create or sign in to your My Nutanix account, select a free trial or payment option, connect your Azure account, and deploy your NC2 environment. [Get started with Nutanix Cloud Clusters on Azure](https://learn.microsoft.com/azure/nutanix/get-started)
+Explore NC2 on Azure through a test drive or self-guided trial, create or sign in to your My Nutanix account, select a free trial or payment option, connect your Azure account, and deploy your NC2 environment. [Get started with Nutanix Cloud Clusters on Azure](get-started.md)
 
 ### What is the NC2 consumption model?
 
@@ -36,7 +36,7 @@ NC2 uses Azure bare-metal instances to run Nutanix software and lets you deploy 
 
 ### Which Azure regions support NC2 on Azure?
 
-[Nutanix Cloud Clusters (NC2) on Azure region and SKU availability](https://learn.microsoft.com/azure/nutanix/available-regions-skus)
+[Nutanix Cloud Clusters (NC2) on Azure region and SKU availability](available-regions-skus.md)
 
 ### Do I need Nutanix on-premises infrastructure to use NC2?
 

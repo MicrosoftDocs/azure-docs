@@ -2,7 +2,7 @@
 title: "Quickstart: Work Item Filtering With the Durable Task SDKs"
 description: Use work item filtering with the Durable Task SDKs to route orchestrations to dedicated workers. Deploy to Azure Container Apps.
 ms.subservice: durable-task-scheduler
-ms.author: hannahhunter
+ms.author: vyomnagrani
 author: hhunter-ms
 ms.service: durable-task
 ms.topic: quickstart
@@ -55,13 +55,13 @@ cd samples/scenarios/WorkItemFilteringSplitActivities
 1. Pull the emulator image:
 
    ```bash
-   docker pull mcr.microsoft.com/durable-task/emulator:latest
+   docker pull mcr.microsoft.com/dts/dts-emulator:latest
    ```
 
 1. Run the emulator:
 
    ```bash
-   docker run -d --name dts-emulator -p 8080:8080 -p 8082:8082 mcr.microsoft.com/durable-task/emulator:latest
+   docker run -d --name dts-emulator -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:latest
    ```
 
 1. Build the sample:
@@ -99,7 +99,7 @@ cd samples/scenarios/WorkItemFilteringSplitActivities
 1. Open the emulator dashboard at `http://localhost:8082` to monitor orchestration activity.
 
 > [!TIP]
-> As an alternative to opening four terminals manually, you can run the included convenience script:
+> As an alternative to opening four terminals manually, you can run `samples/scenarios/WorkItemFilteringSplitActivities/run-local.sh`. Before using the script, check its `EMULATOR_IMAGE` assignment and set it to `mcr.microsoft.com/dts/dts-emulator:latest` if it still references `mcr.microsoft.com/durable-task/emulator:latest`. From the sample directory, run:
 >
 > ```bash
 > ./run-local.sh

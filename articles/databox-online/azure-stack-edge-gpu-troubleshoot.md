@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 10/18/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 # Run diagnostics, collect logs to troubleshoot Azure Stack Edge device issues
 

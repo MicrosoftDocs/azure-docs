@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 06/28/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-iot-hub
 ms.subservice: azure-iot-hub-dps
 ---

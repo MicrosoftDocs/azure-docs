@@ -2,7 +2,7 @@
 title: Assert data transformation in mapping data flow
 description: Set assertions for mapping data flows
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.subservice: data-flows
 ms.topic: feature-guide
 ms.date: 04/27/2026

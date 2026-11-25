@@ -4,7 +4,7 @@ description: Overview of Azure Government capabilities
 ms.service: azure-government
 ms.topic: overview
 ms.custom: references_regions
-ms.author: eliotgra
+ms.author: diberry
 author: EliotSeattle
 recommendations: false
 ms.date: 03/07/2022

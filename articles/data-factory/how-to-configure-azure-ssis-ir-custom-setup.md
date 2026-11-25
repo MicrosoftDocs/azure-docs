@@ -4,7 +4,7 @@ description: This article describes how to use the custom setup interface for an
 ms.subservice: integration-services
 ms.topic: how-to
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.date: 05/15/2024
 ---
 

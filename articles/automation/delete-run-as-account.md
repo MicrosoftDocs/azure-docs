@@ -7,7 +7,7 @@ ms.date: 04/11/2025
 ms.update-cycle: 1825-days
 ms.topic: how-to
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

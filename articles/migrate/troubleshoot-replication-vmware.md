@@ -22,7 +22,7 @@ While you perform replications, you might observe that replication for a particu
 
 ## Expedite and remediate slow or stuck replications using monitoring and expedite tool
 
-1. You can use PowerShell to view **Time Remaining** across **all stages of server migration** in Azure Migrate. This helps you monitor replication progress and remediate slow or stuck replications and plan cutover accurately. You can use PowerShell, Windows PowerShell, or Cloud Shell on Azure portal.
+1. You can use PowerShell to view **Time Remaining** across **all stages of server migration** in Azure Catalyst. This helps you monitor replication progress and remediate slow or stuck replications and plan cutover accurately. You can use PowerShell, Windows PowerShell, or Cloud Shell on Azure portal.
 2. Open the Azure portal, and then select Cloud Shell at the upper right of the page. When prompted, select PowerShell.
 3. Run this command in Azure Cloud Shell to monitor the migration status of the server you need.
 
@@ -30,7 +30,7 @@ While you perform replications, you might observe that replication for a particu
 
    Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -MachineName "<your-server-name>"
    ```
-4. Replace `your-project-name`, `your-resource-group`, and `your-server-name` with the actual Azure Migrate project, resource group, and server name.
+4. Replace `your-project-name`, `your-resource-group`, and `your-server-name` with the actual Azure Catalyst project, resource group, and server name.
 5. Run the command and get the following output:
 
    :::image type="content" source="./media/tutorial-migrate-vmware/run-command.png" alt-text="Screenshot shows the output when you run the command." lightbox="./media/tutorial-migrate-vmware/run-command.png":::
@@ -50,7 +50,7 @@ While you perform replications, you might observe that replication for a particu
 
    Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>" -ResourceGroupName "<your-resource-group>"
    ```
-10. Replace `your-project-name` and `your-resource-group` with the actual Azure Migrate project and resource group names.
+10. Replace `your-project-name` and `your-resource-group` with the actual Azure Catalyst project and resource group names.
 11. You run this command and get the following output: 
 
     :::image type="content" source="./media/tutorial-migrate-vmware/replication-status.png" alt-text="Screenshot shows the overall replication status." lightbox="./media/tutorial-migrate-vmware/replication-status.png":::
@@ -67,19 +67,19 @@ While you perform replications, you might observe that replication for a particu
     ```powershell
     Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>" -ResourceGroupName "<your-resource-group>" -ApplianceName "<your-appliance-name>"
     ```
-15. Replace `your-project-name`, `your-resource-group`, and `your-appliance-name` with the actual values from your Azure Migrate setup.
+15. Replace `your-project-name`, `your-resource-group`, and `your-appliance-name` with the actual values from your Azure Catalyst setup.
 16. Run this command to get the following output: 
 
     :::image type="content" source="./media/tutorial-migrate-vmware/appliance-name.png" alt-text="Screenshot shows Azure Migrate server migration status." lightbox="./media/tutorial-migrate-vmware/appliance-name.png":::
 
 > [!NOTE]
-> You can run the above commands in Azure Cloud Shell. You can also use PowerShell or Windows PowerShell on any Windows machine. A machine refers to any Windows PC, not an appliance, or server, as long as it has access to the Azure Migrate project.
+> You can run the above commands in Azure Cloud Shell. You can also use PowerShell or Windows PowerShell on any Windows machine. A machine refers to any Windows PC, not an appliance, or server, as long as it has access to the Azure Catalyst project.
 
 ## Frequent issues that cause slow or stuck replications
 
 ### NFC buffer size low
 
-The Azure Migrate appliance uses the ESXi host Network File Copy (NFC) buffer when it reads disks for replication. Azure Migrate budgets 4 MB of NFC buffer for each replicating disk and assumes 32 MB per ESXi host by default, so it typically replicates about eight disks per host at a time.
+The Azure Catalyst appliance uses the ESXi host Network File Copy (NFC) buffer when it reads disks for replication. Azure Catalyst budgets 4 MB of NFC buffer for each replicating disk and assumes 32 MB per ESXi host by default, so it typically replicates about eight disks per host at a time.
 
 A VM can remain queued even when the host shows free NFC buffer. A VM starts only when at least half of the buffer it needs is free. The scheduler can also hold the host for a higher-priority VM, or for a VM that has waited longer, until a replication cycle on that host releases capacity. The monitoring tool doesn't show these holds.
 
@@ -92,8 +92,8 @@ Exception: GatewayErrorHandling.GatewayServiceException: The operation failed wi
 #### Remediation
 
 1. Stop initial replication or pause delta replication for lower-priority VMs on the same ESXi host to release NFC buffer capacity. Stopping replication removes the intermediate replicated data, so use it only when restarting replication later is acceptable. Pausing takes effect after the current delta replication cycle completes.
-2. If backup operations run on the same host, schedule them outside replication activity. You can also configure an [Azure Migrate blackout window](concepts-vmware-agentless-migration.md#blackout-window). A blackout window prevents new replication cycles but lets cycles in progress finish, and migrations that you start during the window fail.
-3. Use vMotion to move the affected VM, or another lower-priority replicating VM, to an ESXi host with available capacity. Move VMs between replication cycles. Azure Migrate detects the new host after its next refresh, which can take up to 10 minutes.
+2. If backup operations run on the same host, schedule them outside replication activity. You can also configure an [Azure Catalyst blackout window](concepts-vmware-agentless-migration.md#blackout-window). A blackout window prevents new replication cycles but lets cycles in progress finish, and migrations that you start during the window fail.
+3. Use vMotion to move the affected VM, or another lower-priority replicating VM, to an ESXi host with available capacity. Move VMs between replication cycles. Azure Catalyst detects the new host after its next refresh, which can take up to 10 minutes.
 4. If contention persists, you can increase the NFC buffer beyond 32 MB. Configure the same value on the ESXi host and the appliance. Mismatched values can reduce replication performance.
 
 > [!CAUTION]
@@ -125,7 +125,7 @@ Exception: GatewayErrorHandling.GatewayServiceException: The operation failed wi
 
 **Changes in Appliance**
 
-1. Sign in to the primary Azure Migrate appliance as an administrator by using Remote Desktop. Azure Migrate uses the value from the primary appliance for scheduling. Configure the same value on any scale-out appliances.
+1. Sign in to the primary Azure Catalyst appliance as an administrator by using Remote Desktop. Azure Catalyst uses the value from the primary appliance for scheduling. Configure the same value on any scale-out appliances.
 2. Open the `GatewayDataWorker.json` file in the `%programdata%\Microsoft Azure\Config` folder.  
 3. Create an empty JSON file if it doesn't exist and paste the following text in the new file created.
    ```json
@@ -135,13 +135,13 @@ Exception: GatewayErrorHandling.GatewayServiceException: The operation failed wi
    ```
 4. Change the value of `HostBufferSizeInMB` to the value that you set in the ESXi host.
 5. Save and exit.
-6. Restart the Azure Migrate gateway service that is running on the appliance. Go to PowerShell and run the following commands:
+6. Restart the Azure Catalyst gateway service that is running on the appliance. Go to PowerShell and run the following commands:
    - `net stop asrgwy` (wait for the service to stop) 
    - `net start asrgwy`
 
 ### Parallel disk replication capacity
 
-By default, a single Azure Migrate appliance replicates up to 52 disks in parallel, and a primary appliance with scale-out appliances replicates up to 110 disks in parallel. When this capacity is in use, other VMs remain queued until running replication cycles complete. A VM with many disks might wait until enough capacity is free for its disks, and VMs queued after it for delta replication can also wait.
+By default, a single Azure Catalyst appliance replicates up to 52 disks in parallel, and a primary appliance with scale-out appliances replicates up to 110 disks in parallel. When this capacity is in use, other VMs remain queued until running replication cycles complete. A VM with many disks might wait until enough capacity is free for its disks, and VMs queued after it for delta replication can also wait.
 
 #### Remediate parallel disk capacity
 
@@ -151,14 +151,14 @@ By default, a single Azure Migrate appliance replicates up to 52 disks in parall
 
 ### Datastore snapshot capacity
 
-Azure Migrate creates a VMware snapshot for each disk that it replicates. By default, Azure Migrate runs up to 15 of its own disk snapshots per datastore at a time. This limit is a configurable Azure Migrate limit, not a VMware limit. It doesn't include snapshots created by other tools, such as backup software, or by other Azure Migrate appliances.
+Azure Catalyst creates a VMware snapshot for each disk that it replicates. By default, Azure Catalyst runs up to 15 of its own disk snapshots per datastore at a time. This limit is a configurable Azure Catalyst limit, not a VMware limit. It doesn't include snapshots created by other tools, such as backup software, or by other Azure Catalyst appliances.
 
 When the limit is reached, other VMs on the same datastore remain queued until running replication cycles complete. A VM with many disks on one datastore might wait until no other replication is using that datastore.
 
 #### Remediate datastore snapshot capacity
 
 1. Use the [monitoring and expedite tool](#expedite-and-remediate-slow-or-stuck-replications-using-monitoring-and-expedite-tool) with the `-Expedite` parameter to review the snapshot count for each datastore and the other replicating VMs that share the same datastore.
-2. Stop initial replication or pause delta replication for lower-priority VMs that use the same datastore. Stopping replication removes the intermediate replicated data. To avoid overlap with backup or other snapshot-intensive operations, schedule them outside replication activity or configure an [Azure Migrate blackout window](concepts-vmware-agentless-migration.md#blackout-window).
+2. Stop initial replication or pause delta replication for lower-priority VMs that use the same datastore. Stopping replication removes the intermediate replicated data. To avoid overlap with backup or other snapshot-intensive operations, schedule them outside replication activity or configure an [Azure Catalyst blackout window](concepts-vmware-agentless-migration.md#blackout-window).
 3. Use Storage vMotion to distribute lower-priority VMs across datastores with available snapshot capacity.
 4. If the datastore has low free space, increase its capacity or move VMs to a datastore with sufficient space.
 5. If contention persists and the datastore has enough free space and storage performance headroom, you can increase the snapshot limit per datastore.
@@ -168,7 +168,7 @@ When the limit is reached, other VMs on the same datastore remain queued until r
 
 To increase the snapshot limit per datastore:
 
-1. Sign in to the primary Azure Migrate appliance as an administrator by using Remote Desktop.
+1. Sign in to the primary Azure Catalyst appliance as an administrator by using Remote Desktop.
 2. Open the GatewayDataWorker.json file in the "%programdata%\Microsoft Azure\Config" folder. Create the file if it doesn't exist.
 3. Add the `SnapshotLimitPerDatastore` setting, or update its value, and keep any existing settings in the file. For example:
    ```json
@@ -177,7 +177,7 @@ To increase the snapshot limit per datastore:
    }
    ```
 4. Save and exit.
-5. Restart the Azure Migrate gateway service that is running on the appliance. Go to PowerShell and execute the following commands:
+5. Restart the Azure Catalyst gateway service that is running on the appliance. Go to PowerShell and execute the following commands:
    - `net stop asrgwy` (wait for the service to stop) 
    - `net start asrgwy`
 
@@ -191,7 +191,7 @@ Use vMotion to move the VM with slow replication to an ESXi host that isn't too 
 
 ### Network bandwidth
 
-Replication might be slow because of low network bandwidth available to the Azure Migrate appliance. Low bandwidth might be due to other applications using up the bandwidth or presence of bandwidth throttling applications or a proxy setting restricting the bandwidth use of replication appliance.  
+Replication might be slow because of low network bandwidth available to the Azure Catalyst appliance. Low bandwidth might be due to other applications using up the bandwidth or presence of bandwidth throttling applications or a proxy setting restricting the bandwidth use of replication appliance.  
 
 #### Remediation
 

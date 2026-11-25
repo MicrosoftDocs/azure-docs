@@ -3,7 +3,7 @@ author: mumian
 ms.service: azure-blueprints
 ms.topic: include
 ms.date: 10/30/2026
-ms.author: jgao
+ms.author: ashishj
 ---
 
 > [!IMPORTANT]

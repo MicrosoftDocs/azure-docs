@@ -2,8 +2,8 @@
 title: Application (Layer 7) DDoS protection
 titleSuffix: Azure Web Application Firewall
 description: Learn how to use Azure Web Application Firewall with Azure Front Door or Azure Application Gateway to protect web applications against application layer (L7) DDoS attacks.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 11/11/2026

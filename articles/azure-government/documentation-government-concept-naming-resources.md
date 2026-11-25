@@ -4,7 +4,7 @@ description: Guidance on naming Azure resources to prevent accidental spillage o
 ms.service: azure-government
 ms.topic: article
 author: EliotSeattle
-ms.author: eliotgra
+ms.author: diberry
 recommendations: false
 ms.date: 01/28/2022
 ---

@@ -1,6 +1,6 @@
 ---
 title: Migrate VMware VMs to Azure (agentless) - PowerShell
-description: Learn how to run an agentless migration of VMware VMs with Azure Migrate and Modernize through PowerShell.
+description: Learn how to run an agentless migration of VMware VMs with Azure Catalyst through PowerShell.
 author: kmadnani
 ms.author: v-gajeronika
 ms.manager: kmadnani
@@ -21,7 +21,7 @@ In this article, you learn how to migrate discovered VMware virtual machines (VM
 You learn how to:
 
 > [!div class="checklist"]
-> * Retrieve discovered VMware VMs in an Azure Migrate project.
+> * Retrieve discovered VMware VMs in an Azure Catalyst project.
 > * Start replicating VMs.
 > * Update properties for replicating VMs.
 > * Monitor replication.
@@ -41,9 +41,11 @@ Before you begin this tutorial, you should:
 - Complete the [Tutorial: Assess VMware VMs for migration to Azure VMs](./tutorial-assess-vmware-azure-vm.md) before you migrate them to Azure.
 - [Install the Az PowerShell module](/powershell/azure/install-azure-powershell).
 
-## Install the Azure Migrate PowerShell module
+<a name="install-the-azure-migrate-powershell-module"></a>
 
-The Azure Migrate PowerShell module is available as part of Azure PowerShell (`Az`). Run the `Get-InstalledModule -Name Az.Migrate` command to check if the Azure Migrate PowerShell module is installed on your machine.  
+## Install the Azure Catalyst PowerShell module
+
+The Azure Catalyst PowerShell module is available as part of Azure PowerShell (`Az`). Run the `Get-InstalledModule -Name Az.Migrate` command to check if the Azure Catalyst PowerShell module is installed on your machine.  
 
 ## Sign in to your Azure subscription
 
@@ -55,17 +57,19 @@ Connect-AzAccount
 
 ### Select your Azure subscription
 
-Use the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet to get the list of Azure subscriptions you have access to. Select the Azure subscription that has your Azure Migrate project to work with by using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+Use the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet to get the list of Azure subscriptions you have access to. Select the Azure subscription that has your Azure Catalyst project to work with by using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ```
 
-## Retrieve the Azure Migrate project
+<a name="retrieve-the-azure-migrate-project"></a>
 
-An Azure Migrate project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. In a project, you can track discovered assets, orchestrate assessments, and perform migrations.
+## Retrieve the Azure Catalyst project
 
-As part of the prerequisites, you already created an Azure Migrate project. Use the [Get-AzMigrateProject](/powershell/module/az.migrate/get-azmigrateproject) cmdlet to retrieve details of an Azure Migrate project. You need to specify the name of the Azure Migrate project (`Name`) and the name of the resource group of the Azure Migrate project (`ResourceGroupName`).
+An Azure Catalyst project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. In a project, you can track discovered assets, orchestrate assessments, and perform migrations.
+
+As part of the prerequisites, you already created an Azure Catalyst project. Use the [Get-AzMigrateProject](/powershell/module/az.migrate/get-azmigrateproject) cmdlet to retrieve details of an Azure Catalyst project. You need to specify the name of the Azure Catalyst project (`Name`) and the name of the resource group of the Azure Catalyst project (`ResourceGroupName`).
 
 ```azurepowershell-interactive
 # Get resource group of the Azure Migrate project
@@ -80,11 +84,13 @@ $MigrateProject = Get-AzMigrateProject -Name MyMigrateProject -ResourceGroupName
 Write-Output $MigrateProject
 ```
 
-## Retrieve discovered VMs in an Azure Migrate project
+<a name="retrieve-discovered-vms-in-an-azure-migrate-project"></a>
 
-Azure Migrate and Modernize uses a lightweight [Azure Migrate appliance](migrate-appliance-architecture.md). As part of the prerequisites, you deployed the Azure Migrate appliance as a VMware VM.
+## Retrieve discovered VMs in an Azure Catalyst project
 
-To retrieve a specific VMware VM in an Azure Migrate project, specify the name of the Azure Migrate project (`ProjectName`), the resource group of the Azure Migrate project (`ResourceGroupName`), and the VM name (`DisplayName`).
+Azure Catalyst uses a lightweight [Azure Catalyst appliance](migrate-appliance-architecture.md). As part of the prerequisites, you deployed the Azure Catalyst appliance as a VMware VM.
+
+To retrieve a specific VMware VM in an Azure Catalyst project, specify the name of the Azure Catalyst project (`ProjectName`), the resource group of the Azure Catalyst project (`ResourceGroupName`), and the VM name (`DisplayName`).
 
 ```azurepowershell-interactive
 # Get a specific VMware VM in an Azure Migrate project
@@ -96,14 +102,14 @@ Write-Output $DiscoveredServer
 
 We migrate this VM as part of this tutorial.
 
-You can also retrieve all VMware VMs in an Azure Migrate project by using the `ProjectName` and `ResourceGroupName` parameters.
+You can also retrieve all VMware VMs in an Azure Catalyst project by using the `ProjectName` and `ResourceGroupName` parameters.
 
 ```azurepowershell-interactive
 # Get all VMware VMs in an Azure Migrate project
 $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName
 ```
 
-If you have multiple appliances in an Azure Migrate project, you can use the `ProjectName`, `ResourceGroupName`, and `ApplianceName` parameters to retrieve all VMs discovered by using a specific Azure Migrate appliance.
+If you have multiple appliances in an Azure Catalyst project, you can use the `ProjectName`, `ResourceGroupName`, and `ApplianceName` parameters to retrieve all VMs discovered by using a specific Azure Catalyst appliance.
 
 ```azurepowershell-interactive
 # Get all VMware VMs discovered by an Azure Migrate Appliance in an Azure Migrate project
@@ -117,14 +123,14 @@ $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.
 
 - **Service bus**: Migration and modernization uses the service bus to send replication orchestration messages to the appliance.
 - **Gateway storage account**: Migration and modernization uses the gateway storage account to store state information about the VMs being replicated.
-- **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica-managed disks.
-- **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus and access keys for the storage accounts used in replication.
+- **Log storage account**: The Azure Catalyst appliance uploads replication logs for VMs to a log storage account. Azure Catalyst applies the replication information to the replica-managed disks.
+- **Key vault**: The Azure Catalyst appliance uses the key vault to manage connection strings for the service bus and access keys for the storage accounts used in replication.
 
-Before you replicate the first VM in the Azure Migrate project, run the following command to provision the replication infrastructure. This command provisions and configures the preceding resources so that you can start migrating your VMware VMs.
+Before you replicate the first VM in the Azure Catalyst project, run the following command to provision the replication infrastructure. This command provisions and configures the preceding resources so that you can start migrating your VMware VMs.
 
 > [!NOTE]
-> One Azure Migrate project supports migrations to one Azure region only. After you run this script, you can't change the target region to which you want to migrate your VMware VMs.
-> You need to run the `Initialize-AzMigrateReplicationInfrastructure` command if you configure a new appliance in your Azure Migrate project.
+> One Azure Catalyst project supports migrations to one Azure region only. After you run this script, you can't change the target region to which you want to migrate your VMware VMs.
+> You need to run the `Initialize-AzMigrateReplicationInfrastructure` command if you configure a new appliance in your Azure Catalyst project.
 
 In this article, we initialize the replication infrastructure so that we can migrate our VMs to the `Central US` region.
 

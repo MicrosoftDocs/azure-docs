@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 10/16/2025
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: As a cloud administrator, I want to configure authorization and access control for SMB Azure file shares, so that I can manage user permissions at the share, directory, and file levels effectively.
 ---
 

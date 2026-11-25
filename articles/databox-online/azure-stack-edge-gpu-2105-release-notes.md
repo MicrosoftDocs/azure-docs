@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: release-notes
 ms.date: 05/27/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge 2105 release notes

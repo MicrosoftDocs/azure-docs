@@ -2,8 +2,8 @@
 title: 'Quickstart: Create a Node.js Web App'
 description: Deploy your first Node.js Hello World app to Azure App Service in minutes.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.topic: quickstart
 ms.date: 11/18/2025
 ms.devlang: javascript

@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure IoT Edge devices from the Azure portal
 description: Use the troubleshooting page in the Azure portal to monitor IoT Edge devices and modules
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 05/09/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge

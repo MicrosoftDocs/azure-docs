@@ -2,12 +2,12 @@
 title: Open a Container Shell (SSH) and Run Commands
 description: Learn how to access containers in Azure App Service, open an interactive Linux shell, run detached commands, and control SSH access without configuring an SSH server in your custom image.
 keywords: azure app service, web app, linux, windows, oss
-author: msangapu-msft
+author: btardif
 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.topic: how-to
 ms.date: 10/08/2026
-ms.author: msangapu
+ms.author: byvinyal
 ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ms.service: azure-app-service

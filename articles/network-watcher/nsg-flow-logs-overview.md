@@ -3,7 +3,7 @@ title: NSG Flow Logs Overview
 titleSuffix: Azure Network Watcher
 description: Learn about NSG flow logs feature of Azure Network Watcher, which allows you to log information about IP traffic flowing through a network security group.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 12/18/2025

@@ -7,7 +7,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: article
 ms.date: 11/06/2026
-ms.author: jinglou
+ms.author: normesta
 ms.reviewer: cralvord,richardgao
 # Customer intent: "As a cloud storage user, I want to understand the support lifecycle and update policy for my storage management tool, so that I can ensure I am using a supported version with the latest features and security enhancements."
 ---

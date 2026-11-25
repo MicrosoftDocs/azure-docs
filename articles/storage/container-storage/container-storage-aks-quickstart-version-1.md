@@ -1,11 +1,11 @@
 ---
 title: Use Azure Container Storage (version 1.x.x) with AKS
 description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster, install Azure Container Storage (version 1.x.x), and create a storage pool.
-author: khdownie
+author: schoag-msft
 ms.service: azure-container-storage
 ms.topic: quickstart
 ms.date: 09/10/2025
-ms.author: kendownie
+ms.author: schoag
 ms.custom: devx-track-azurecli, linux-related-content
 # Customer intent: As a cloud engineer, I want to install Azure Container Storage (version 1.x.x) on my AKS cluster, so that I can manage container volumes efficiently and choose the appropriate storage options for my workloads.
 ---

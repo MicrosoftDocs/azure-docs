@@ -5,7 +5,7 @@ description: Learn how to request a core limit (quota) increase to expand capaci
 services: lab-services
 ms.service: azure-lab-services
 ms.topic: how-to
-ms.author: rosemalcolm
+ms.author: rabououn
 author: RoseHJM
 ms.date: 02/27/2025
 ms.custom: sfi-image-nochange

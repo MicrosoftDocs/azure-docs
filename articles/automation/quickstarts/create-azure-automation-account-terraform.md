@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 01/15/2025
 ms.custom: devx-track-terraform
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 #customer intent: As a Terraform user, I want to learn how to create an Azure resource group, create an Azure Automation account with a system-assigned identity, and assign a "Reader" role to the account.
 content_well_notification: 

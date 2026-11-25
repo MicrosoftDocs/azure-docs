@@ -1,12 +1,12 @@
 ---
 title: How to Deploy Spring Boot Applications from Azure CLI
 description: In this quickstart, learn how to launch your application in Azure Spring Apps directly from your source code
-author: KarlErickson
+author: sandeep-sen
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
-ms.author: karler
+ms.author: sandeepsen
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-api
 ---
 

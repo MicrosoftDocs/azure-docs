@@ -1,6 +1,6 @@
 ---
-title: How does Hyper-V migration work in Azure Migrate?
-description: Learn about Hyper-V migration with Azure Migrate 
+title: How does Hyper-V migration work in Azure Catalyst?
+description: Learn about Hyper-V migration with Azure Catalyst 
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -18,7 +18,7 @@ ms.custom: engagement-fy25
 
 This article provides an overview of the architecture and processes used when you migrate Hyper-V VMs with the Migration and modernization tool.
 
-[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
+[Azure Catalyst](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Catalyst tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 ## Agentless migration
 

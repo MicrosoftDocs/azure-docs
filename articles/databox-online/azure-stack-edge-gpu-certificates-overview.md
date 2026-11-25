@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 09/01/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 # What are certificates on Azure Stack Edge Pro GPU?
 

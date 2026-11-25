@@ -1,6 +1,6 @@
 ---
 title: Create and manage projects
-description: Find, create, manage, and delete projects in Azure Migrate.
+description: Find, create, manage, and delete projects in Azure Catalyst.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
@@ -41,8 +41,8 @@ Ensure you have the correct permissions to create a project using the following 
 
 Set up a new project in an Azure subscription.
 
-1. In the Azure portal, search for *Azure Migrate*.
-1. In **Services**, select **Azure Migrate**.
+1. In the Azure portal, search for *Catalyst*.
+1. In **Services**, select **Catalyst**.
 1. In **Get started**, select **Discover, assess and migrate**.
 
     :::image type="content" source="./media/create-manage-projects/create-project.png" alt-text="Screenshot shows how to create project." lightbox="./media/create-manage-projects/create-project.png" :::
@@ -55,7 +55,7 @@ Set up a new project in an Azure subscription.
     - Review supported regions for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government). 
 
     > [!Note]
-    > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
+    > Use the **Advanced** configuration section to create an Azure Catalyst project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
 
 6. Select **Create**.
 
@@ -137,8 +137,8 @@ If you already have a project and you want to create an additional project, do t
 ::: moniker-end
 
 ::: moniker range="migrate"
-1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.
-1. On the Azure Migrate dashboard, select **Servers, databases and web apps** > **Create project** on the upper left
+1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Catalyst**.
+1. On the Azure Catalyst dashboard, select **Servers, databases and web apps** > **Create project** on the upper left
    :::image type="content" source="./media/create-manage-projects/switch-project.png" alt-text="Screenshot that contains information on how to create a project." lightbox="./media/create-manage-projects/switch-project.png" :::
 1. To create a new project, select **Click here**.
 ::: moniker-end
@@ -155,8 +155,8 @@ Follow the steps to find a project:
     :::image type="content" source="./media/create-manage-projects/filter-and-select-project.png" alt-text="Screenshot shows how to filter and select the project." lightbox="./media/create-manage-projects/filter-and-select-project.png" :::
 ::: moniker-end
 
-1. In the [Azure portal](https://portal.azure.com), search for *Azure Migrate*. 
-1. In Azure Migrate dashboard, select **Servers, databases and webapps** > **Current project** from the upper right corner.
+1. In the [Azure portal](https://portal.azure.com), search for *Catalyst*. 
+1. In Azure Catalyst dashboard, select **Servers, databases and webapps** > **Current project** from the upper right corner.
  
    :::image type="content" source="./media/create-manage-projects/current-project.png" alt-text="Screenshot to select the current project." lightbox="./media/create-manage-projects/current-project.png" :::
 1. Select the appropriate subscription and project.
@@ -220,7 +220,7 @@ To delete a project, follow these steps:
         
     >[!NOTE]
     > - When you delete, both the project and the metadata about discovered servers are deleted.
-    > - If you're using the older version of Azure Migrate, open the Azure resource group in which the project was created. Select the project you want to delete (the resource type is **Migration project**).
+    > - If you're using the older version of Azure Catalyst, open the Azure resource group in which the project was created. Select the project you want to delete (the resource type is **Migration project**).
     > - If you're using dependency analysis with an Azure Log Analytics workspace:
     > - If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted. The same Log Analytics workspace can be used for multiple scenarios.
     > - If you want to delete the Log Analytics workspace, do that manually.

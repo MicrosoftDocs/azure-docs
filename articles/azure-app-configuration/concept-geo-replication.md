@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: concept-article
-ms.date: 06/22/2026
+ms.date: 11/22/2026
 ---
 
 # Geo-replication overview
@@ -15,6 +15,10 @@ For application developers and IT engineers, a common goal is to build and run r
 The App Configuration geo-replication feature allows you to replicate your configuration store to the regions of your choice at will. Each new **replica** will be in a different region and will create a new endpoint for your applications to send requests to. The original endpoint of your configuration store is called the **Origin**. The origin can't be removed, but otherwise behaves like any replica. 
 
 Changing or updating your key-values can be done in any replica. These changes will be synchronized with all other replicas following an eventual consistency model. 
+
+The following diagram shows how an application uses geo-replication through an App Configuration [configuration provider](./configuration-provider-overview.md). The application is configured with only the origin endpoint. The provider automatically discovers the replicas and uses them for failover and, if enabled, load balancing. For more information, see [Automatic replica discovery](./howto-geo-replication.md#automatic-replica-discovery).
+
+:::image type="content" source="./media/concept-geo-replication/geo-replication-overview.png" alt-text="Diagram of an application that connects to the origin endpoint of an App Configuration store. The provider discovers replicas in other regions for failover and load balancing, and changes sync across the origin and replicas." lightbox="./media/concept-geo-replication/geo-replication-overview.png":::
 
 Replicating your configuration store adds the following benefits:
 - **Added resiliency for Azure outages:** In the event of a regional outage, replicas are individually affected. If one region has an outage, all replicas located in unaffected regions will still be accessible and continuously synchronize. Once the outage has been mitigated, all affected replicas will be synced to the most recent state. Geo-replication provides automatic failover support through App Configuration's configuration providers. You can also build custom failover mechanisms in your application to switch between different replica endpoints if needed. 

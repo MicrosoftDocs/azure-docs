@@ -8,7 +8,7 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/10/2025
-ms.author: shaas
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to change the replication settings of my storage account, so that I can optimize cost and availability based on my organization's data protection requirements."
@@ -480,6 +480,9 @@ Any conversion attempts to add zone redundancy, such as LRS to ZRS or GRS to GZR
 When planning to change your replication settings, consider the following limitations related to the storage account type.
 
 Some storage account types only support certain redundancy configurations, which affect whether they can be converted or migrated and, if so, how. For more information on Azure storage account types and the supported redundancy options, see [the storage account overview](storage-account-overview.md#types-of-storage-accounts).
+
+> [!NOTE]
+> SSD (premium) file shares in `FileStorage` accounts, including accounts that use the `PremiumV2_LRS` SKU, support only LRS and ZRS. They don't support GRS, RA-GRS, GZRS, or RA-GZRS. For more information, see [Supported storage account types](storage-redundancy.md#supported-storage-account-types).
 
 The following table provides an overview of redundancy options available for storage account types and whether conversion and manual migration are supported:
 

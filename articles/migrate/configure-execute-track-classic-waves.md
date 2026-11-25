@@ -1,6 +1,6 @@
 ---
-title: Configure, execute, and track classic waves in Azure Migrate
-description: Learn how to configure targets, prepare prerequisites, execute migrations, and track application and workload progress in classic Azure Migrate waves.
+title: Configure, execute, and track classic waves in Azure Catalyst
+description: Learn how to configure targets, prepare prerequisites, execute migrations, and track application and workload progress in classic Azure Catalyst waves.
 author: snehithm
 ms.author: snmuvva
 ms.service: azure-migrate
@@ -10,13 +10,13 @@ monikerRange: migrate
 # Customer intent: As a migration engineer, I want to configure, execute, and track a classic wave so that I can coordinate migration tasks and monitor progress.
 ---
 
-# Configure, execute, and track classic waves in Azure Migrate (preview)
+# Configure, execute, and track classic waves in Azure Catalyst (preview)
 
-Classic waves are waves you created before November 11, 2026. They use a task-based workflow to configure migration targets, prepare prerequisites, run migrations, and track progress across applications and workloads, including work outside Azure Migrate.
+Classic waves are waves you created before November 11, 2026. They use a task-based workflow to configure migration targets, prepare prerequisites, run migrations, and track progress across applications and workloads, including work outside Azure Catalyst.
 
 ## Prerequisites
 
-- An Azure Migrate project with a classic wave that contains the applications and workloads you want to migrate.
+- An Azure Catalyst project with a classic wave that contains the applications and workloads you want to migrate.
 - Discovery and assessment information for the workloads, where available, to help select Azure targets and migration tools.
 
 > [!NOTE]
@@ -56,11 +56,11 @@ Use application target settings to link an assessment and add tasks beyond the i
 
 Set each workload's target and migration tool, and then review the tasks needed for its migration.
 
-Migration and modernization tasks describe the activities needed to migrate a workload. Azure Migrate can recommend tasks based on the selected migration approach, and you can add tasks for work specific to your organization.
+Migration and modernization tasks describe the activities needed to migrate a workload. Azure Catalyst can recommend tasks based on the selected migration approach, and you can add tasks for work specific to your organization.
 
 1. Select **Configure target** to review the Azure target. If you linked an assessment, the target is populated from that assessment.
 1. Select **None** for workloads that you plan to retire rather than migrate.
-1. In **Migration tool**, select the tool that determines the migration path and tasks. Select **Other** for workloads that you plan to migrate outside Azure Migrate.
+1. In **Migration tool**, select the tool that determines the migration path and tasks. Select **Other** for workloads that you plan to migrate outside Azure Catalyst.
 
    :::image type="content" source="./media/complete-wave-plan/workload-target-settings.png" alt-text="Screenshot of workload target and migration tool settings." lightbox="./media/complete-wave-plan/workload-target-settings.png":::
 
@@ -70,7 +70,7 @@ Migration and modernization tasks describe the activities needed to migrate a wo
 
 ## Prepare the wave for execution
 
-Azure Migrate identifies prerequisites based on the targets, tools, and tasks you configure. Review these prerequisites and add organization-specific preparation work before starting migration.
+Azure Catalyst identifies prerequisites based on the targets, tools, and tasks you configure. Review these prerequisites and add organization-specific preparation work before starting migration.
 
 The wave's planned start and end dates record the intended migration window. Use them to coordinate the work with your teams and review progress against the planned timeline.
 
@@ -97,17 +97,17 @@ After you configure the migration targets and activities and complete the prereq
 
 When the wave is ready and you reach its planned migration window, open it from **Execute** > **Waves**, then select its **Overview** to start execution. Start from the individual classic wave, not the **Waves** list page.
 
-How you execute and track work depends on whether Azure Migrate supports the migration activity:
+How you execute and track work depends on whether Azure Catalyst supports the migration activity:
 
 - **Supported activities:** Start the migration flow from the wave and track its progress automatically. For example, supported server migrations provide replication, test migration, and cutover actions.
-- **Activities outside Azure Migrate:** Complete the migration or modernization work in the appropriate tool, then update the tracked tasks manually in Azure Migrate.
+- **Activities outside Azure Catalyst:** Complete the migration or modernization work in the appropriate tool, then update the tracked tasks manually in Azure Catalyst.
 
 ### Execute application migration tasks
 
 Review the migration flows and any additional tasks for each application.
 
 1. Select the application name. Workloads are grouped by source-to-target combinations that share a migration journey.
-1. For each combination, select **Review and Execute**. If the migration is supported, Azure Migrate opens the workload execution flow.
+1. For each combination, select **Review and Execute**. If the migration is supported, Azure Catalyst opens the workload execution flow.
 
    :::image type="content" source="./media/execute-track-waves/application-execute.png" alt-text="Screenshot of application workloads grouped for migration execution." lightbox="./media/execute-track-waves/application-execute.png":::
 
@@ -115,15 +115,15 @@ Review the migration flows and any additional tasks for each application.
 
    :::image type="content" source="./media/execute-track-waves/application-tasks.png" alt-text="Screenshot of application tasks that can be marked complete." lightbox="./media/execute-track-waves/application-tasks.png":::
 
-1. Complete each task outside Azure Migrate, then select **Mark as Complete** for the completed task.
+1. Complete each task outside Azure Catalyst, then select **Mark as Complete** for the completed task.
 
 ### Execute workload migration flows
 
-Start supported migration flows or record progress for work performed outside Azure Migrate.
+Start supported migration flows or record progress for work performed outside Azure Catalyst.
 
 1. Select **Review and Execute** for each source-to-target combination.
 1. Select **Execute** to start the migration flow for the workloads that support migration.
-1. Complete the work outside Azure Migrate for activities that aren't supported. Select **View Execution Details** to update the tracked tasks.
+1. Complete the work outside Azure Catalyst for activities that aren't supported. Select **View Execution Details** to update the tracked tasks.
 
 ## Track the wave's migration progress
 

@@ -5,7 +5,7 @@ author: angarg05
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 11/01/2021
-ms.author: ananyagarg
+ms.author: sgallagher
 ms.custom:
   - ignite-2023
 # Customer intent: As a cloud architect, I want to evaluate different container offerings for Azure Confidential Computing, so that I can select the best solution for my workload requirements and ensure the security and isolation of sensitive data during processing.

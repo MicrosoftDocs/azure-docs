@@ -5,7 +5,7 @@ ms.date: 02/03/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: khdownie
-ms.author: kendownie
+ms.author: normesta
 ms.service: azure-file-storage
 # Customer intent: As a cloud administrator, I want to monitor Azure Files using metrics and logs, so that I can ensure optimal performance, availability, and troubleshoot any issues effectively.
 ---

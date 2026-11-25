@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: SandeepReddyAcc
 ms.author: v-salin
-ms.date: 04/20/2026
+ms.date: 11/19/2026
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise-agreement
@@ -159,6 +159,9 @@ Answer:
 > Savings plan refunds aren't shown on the **Reservation Transactions** page. However, **Refunded Overage Credits** shows the sum of reservations and savings plans.
 
 ## Download usage charges CSV file
+
+> [!NOTE]
+> The **Usage Details** and **Price sheet** files include the `priceFactors` column at the end of the file, and the **Usage Details** file also includes the `supplementalChargeDetails` column at the end. These files keep their schema version. To select a dataset version, such as 2026-10-01, use exports. For more information, see [Compare downloads and exports](../understand/compare-downloads-exports.md) and [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md).
 
 Enterprise administrators and partner administrators use the Download Usage + Charges page to download the following reports as CSV files.
 

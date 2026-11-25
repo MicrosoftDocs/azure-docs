@@ -1,8 +1,8 @@
 ---
 title: Develop Azure IoT Edge modules using Visual Studio Code tutorial
 description: 'Develop IoT Edge modules with Visual Studio Code: Follow step-by-step instructions to create, build, and deploy modules using Azure IoT Edge tools.'
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 07/16/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge

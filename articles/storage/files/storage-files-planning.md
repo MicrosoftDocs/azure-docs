@@ -4,8 +4,9 @@ description: Plan your Azure Files deployment by choosing a management model, pr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 08/17/2026
-ms.author: kendownie
+ms.date: 11/17/2026
+ai-usage: ai-assisted
+ms.author: normesta
 # Customer intent: As a system architect, I want to evaluate deployment options for Azure Files, so that I can determine the best approach for directly mounting or caching file shares while considering performance, compatibility, and organizational needs.
 ---
 
@@ -31,7 +32,7 @@ The following sections cover each decision in detail.
 
 Azure Files offers two management models for deploying file shares:
 
-- **Classic file shares (Microsoft.Storage resource provider)**: Deploy file shares within a storage account. Supports SMB and NFS, SSD and HDD, all redundancy types, and all regions.
+- **Classic file shares (Microsoft.Storage resource provider)**: Deploy file shares within a storage account. Supports SMB and NFS, SSD and HDD, and multiple redundancy types. Supported combinations depend on the protocol and billing model. 
 - **File shares (Microsoft.FileShares resource provider)**: Deploy file shares as top-level Azure resources without a storage account. Simplify management with per-share networking, billing, and security. Currently only available for NFS file shares.
 
 For details about resource providers, feature comparisons, and regional availability, see [Azure Files management concepts](files-management-concepts.md).
@@ -46,8 +47,8 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 |-|-|-|
 | Supported protocol versions | SMB 3.1.1, SMB 3.0, SMB 2.1 | NFS 4.1 |
 | Recommended OS | <ul><li>Windows 11, version 21H2+</li><li>Windows 10, version 21H1+</li><li>Windows Server 2019+</li><li>Linux kernel version 5.3+</li></ul> | Linux kernel version 4.3+ |
-| [Available media tiers](storage-files-planning.md#storage-tiers) | SSD and HDD | SSD only |
-| [Redundancy](storage-files-planning.md#redundancy) | <ul><li>Local (LRS)</li><li>Zone (ZRS)</li><li>Geo (GRS)</li><li>GeoZone (GZRS)</li></ul> | <ul><li>Local (LRS)</li><li>Zone (ZRS)</li></ul> |
+| [Available media tiers](storage-files-planning.md#storage-tiers) | SSD and HDD | SSD; HDD in preview |
+| [Redundancy](storage-files-planning.md#redundancy) | <ul><li>Local (LRS)</li><li>Zone (ZRS)</li><li>Geo (GRS)</li><li>GeoZone (GZRS)</li></ul> | <ul><li>Local (LRS)</li><li>Zone (ZRS) for SSD</li></ul> |
 | File system semantics | Win32 | POSIX |
 | Authentication | Identity-based authentication (Kerberos), shared key authentication (NTLMv2) | Host-based authentication |
 | Authorization | Win32-style access control lists (ACLs) | UNIX-style permissions |

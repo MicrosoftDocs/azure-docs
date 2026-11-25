@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/20/2026
-ms.author: kendownie
+ms.author: normesta
 # Customer intent: "As a system administrator, I want to enable on-premises Active Directory Domain Services authentication for Azure file shares, so that I can manage access permissions seamlessly while leveraging existing AD credentials for secure file access."
 ---
 

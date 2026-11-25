@@ -3,7 +3,7 @@ title: Message appears when you try to create multiple subscriptions
 titleSuffix: Microsoft Cost Management
 description: Provides help for the message you might see when you try to create multiple subscriptions.
 author: mjeffer
-ms.author: mjeffer
+ms.author: diberry
 ms.reviewer: mjeffer
 ms.service: cost-management-billing
 ms.subservice: billing

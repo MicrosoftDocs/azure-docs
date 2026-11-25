@@ -6,7 +6,7 @@ author: kromerm
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: how-to
-ms.author: makromer
+ms.author: weetok
 ms.date: 09/25/2024
 ---
 

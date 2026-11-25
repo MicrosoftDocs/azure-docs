@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 02/09/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge Pro 2 limits

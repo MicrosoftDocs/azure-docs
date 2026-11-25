@@ -5,8 +5,8 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/07/2025
 zone_pivot_groups: app-service-platform-windows-linux
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 #customer intent: As an app designer, I want to learn how to configure my ASP.NET Core app to use Azure App Service.
 ms.service: azure-app-service
 ms.custom:

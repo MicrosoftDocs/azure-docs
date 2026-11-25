@@ -3,12 +3,12 @@ title: List blob containers with Go
 titleSuffix: Azure Storage
 description: Learn how to list blob containers in your Azure Storage account using the Go client library.
 services: storage
-author: stevenmatthew
+author: schoag-msft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: shaas
+ms.author: schoag
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
 # Customer intent: "As a Go developer, I want to list blob containers in my Azure Storage account, so that I can efficiently manage and retrieve container information based on specific criteria and options."

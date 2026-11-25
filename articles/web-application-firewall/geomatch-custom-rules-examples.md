@@ -1,8 +1,8 @@
 ---
 title: Use Azure WAF geomatch custom rules to enhance network security
 description: This article shows you how to use Microsoft Azure Web Application Firewall (WAF) geomatch customer rules to enhance network security.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 09/17/2025

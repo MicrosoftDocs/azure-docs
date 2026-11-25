@@ -3,7 +3,7 @@ author: tamram
 ms.service: azure-storage
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: tamram
+ms.author: diberry
 ---
 
 | Resource | Target |

@@ -6,7 +6,7 @@ manager: lizross
 ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 08/03/2020
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
 ms.custom: sfi-image-nochange

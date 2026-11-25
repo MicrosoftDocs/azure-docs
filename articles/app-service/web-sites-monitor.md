@@ -4,8 +4,8 @@ description: Learn how to monitor apps in Azure App Service by using the Azure p
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 ms.service: azure-app-service
 
 #customer intent: As an app developer, I need to use quotas and metrics to support my team's web apps in Azure App Service.

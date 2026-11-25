@@ -7,7 +7,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: article
 ms.date: 11/23/2021
-ms.author: jinglou
+ms.author: normesta
 ms.reviewer: cralvord,richardgao
 # Customer intent: "As a developer, I want to connect my application to a local Azure Storage emulator using Storage Explorer, so that I can test my code in a free environment before deploying to the cloud."
 ---

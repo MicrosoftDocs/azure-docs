@@ -2,8 +2,8 @@
 title: Manage formulas in Azure DevTest Labs and create VMs
 description: Explore how to create formulas from a base (shared gallery image or Marketplace image) or an existing virtual machine in your lab.
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 10/29/2026
 ms.custom:
   - UpdateFrequency2

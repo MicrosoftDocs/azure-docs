@@ -3,7 +3,7 @@ title: Automated publishing for continuous integration and delivery
 description: Learn how to publish for continuous integration and delivery automatically.
 ms.subservice: ci-cd
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.reviewer: susabat
 ms.topic: concept-article
 ms.date: 07/29/2026

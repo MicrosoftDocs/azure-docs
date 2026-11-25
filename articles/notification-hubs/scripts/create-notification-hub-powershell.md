@@ -10,7 +10,7 @@ editor: sethmanheim
 ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 01/14/2020
-ms.author: sethm
+ms.author: dimatokar
 ms.custom: devx-track-azurepowershell
 ---
 

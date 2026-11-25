@@ -1,8 +1,8 @@
 ---
 title: 'Securely connect .NET apps to Azure SQL Database using Managed Identity'
 description: Learn how your app can use managed identity for secure access to Azure SQL Database and other Azure services without using passwords or secrets.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 
 ms.devlang: csharp
 ms.topic: tutorial

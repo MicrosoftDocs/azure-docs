@@ -181,6 +181,8 @@ items:
             displayName: Microsoft Discovery, plan, architecture, decisions, immutable settings, create-only, network, identities, customer-managed keys
           - name: Quota and capacity requirements
             href: concept-quota-reservation.md
+          - name: Limits and quotas
+            href: reference-limits-quotas.md
           - name: Resource naming rules
             href: reference-resource-naming.md
           - name: Register resource providers
@@ -516,9 +518,9 @@ items:
           - name: REST API
             href: /rest/api/discovery/
           - name: Azure CLI
-            href: https://learn.microsoft.com/cli/azure/discovery?view=azure-cli-latest
+            href: /cli/azure/discovery
           - name: Azure PowerShell
-            href: https://learn.microsoft.com/powershell/module/az.discovery/?view=azps-16.5.0&viewFallbackFrom=azps-16.3.0
+            href: /powershell/module/az.discovery/?view=azps-16.5.0&viewFallbackFrom=azps-16.3.0&preserve-view=true
           - name: .NET SDKs
             href: reference-dotnet-sdks.md
           - name: Java SDKs

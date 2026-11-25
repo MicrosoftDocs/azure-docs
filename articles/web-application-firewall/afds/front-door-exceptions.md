@@ -2,8 +2,8 @@
 title: Azure Front Door WAF Exceptions List  
 titleSuffix: Azure Web Application Firewall
 description: This article provides an overview of Web Application Firewall (WAF) exceptions on Azure Front Door.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
 ms.date: 11/11/2026

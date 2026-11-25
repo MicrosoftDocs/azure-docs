@@ -1,8 +1,8 @@
 ---
 title: Configure a WAF Rate-Limit Rule for Azure Front Door
 description: Learn how to create and associate an Azure Front Door WAF rate-limit rule by using the Azure portal, Azure PowerShell, Azure CLI, or Bicep.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 10/22/2026

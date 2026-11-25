@@ -1,7 +1,7 @@
 ---
 title: How to run Self-Hosted Integration Runtime in Windows container
 description: Learn about how to run Self-Hosted Integration Runtime in Windows container.
-ms.author: makromer
+ms.author: weetok
 author: kromerm
 ms.subservice: integration-runtime
 ms.topic: how-to

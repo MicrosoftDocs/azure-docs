@@ -103,7 +103,7 @@ Azure value uplift estimates benefits beyond infrastructure cost savings, includ
 
 ### Migration strategy and readiness analysis 
 
-Azure Catalyst agent helps you interpret Azure Migrate assessment results and evaluate the best migration and modernization path for your workloads. The agent summarizes Azure readiness, identifies migration blockers and compatibility issues, and recommends remediation actions. It also explains the rationale behind the recommended target sizing and estimated costs.
+Azure Catalyst agent helps you interpret Azure Catalyst assessment results and evaluate the best migration and modernization path for your workloads. The agent summarizes Azure readiness, identifies migration blockers and compatibility issues, and recommends remediation actions. It also explains the rationale behind the recommended target sizing and estimated costs.
 
 You can compare modernization strategies, such as rehosting workloads on Azure virtual machines (lift-and-shift) or modernizing them with Azure platform as a service (PaaS). Based on your goals, priorities, constraints, timeline, and budget, the agent evaluates the 6R migration strategies and recommends the approach that best meets your requirements.
 
@@ -129,7 +129,7 @@ The following examples show prompts that you can use with the Azure Catalyst age
 
 - How should I plan the migration of my VMware workloads to Azure?
 - What discovery methods are available for my environment?
-- Tell me more about the prerequisites for Azure Migrate Collector.
+- Tell me more about the prerequisites for Azure Catalyst Collector.
 - What data does appliance-based discovery collect?
 
 ### Inventory analysis and organization

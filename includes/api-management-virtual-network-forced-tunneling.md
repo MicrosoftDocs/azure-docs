@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 11/29/2023
-ms.author: patricka
+ms.author: srthirth
 ---
 
 ## Force tunnel traffic to on-premises firewall using ExpressRoute or network virtual appliance  

@@ -1,6 +1,6 @@
 --- 
-title: Overview of Azure Migrate assessment types 
-description: Learn about types of assessments in Azure Migrate and its prerequisites. 
+title: Overview of Azure Catalyst assessment types 
+description: Learn about types of assessments in Azure Catalyst and its prerequisites. 
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.service: azure-migrate 
@@ -8,16 +8,16 @@ ms.topic: concept-article
 ms.date: 04/24/2024 
 ms.custom: engagement-fy24 
 ms.update-cycle: 1825-days
-# Customer intent: "As an IT administrator, I want to evaluate different assessment types in Azure Migrate, so that I can determine the best migration strategy for our on-premises and cloud workloads to ensure a smooth transition to Azure."
+# Customer intent: "As an IT administrator, I want to evaluate different assessment types in Azure Catalyst, so that I can determine the best migration strategy for our on-premises and cloud workloads to ensure a smooth transition to Azure."
 --- 
  
 # Assessment overview 
  
-This article provides an overview of Azure Migrate assessments. An assessment evaluates workloads hosted on on-premises or other public cloud for migration to Azure Migrate offers performance-based and as-is recommendations for a smooth transition to Azure.   
+This article provides an overview of Azure Catalyst assessments. An assessment evaluates workloads hosted on on-premises or other public cloud for migration to Azure Catalyst offers performance-based and as-is recommendations for a smooth transition to Azure.   
  
 ## Assessment types 
  
-There are four types of assessments that you can create in Azure Migrate. 
+There are four types of assessments that you can create in Azure Catalyst. 
  
 **Assessment Type** | **Details** 
 --- | --- 
@@ -37,20 +37,20 @@ There are four types of assessments that you can create in Azure Migrate.
  
 The discovery source may vary for different assessments depending on the data required for creating the assessments. You can discover your on-premises workloads using either of the following methods: 
  
-- By deploying a light-weight Azure Migrate appliance to perform agentless discovery. 
+- By deploying a light-weight Azure Catalyst appliance to perform agentless discovery. 
 - By importing the workload information using predefined templates. 
  
-The recommended discovery source is Azure Migrate appliance as it provides an in-depth view of your machines and ensures regular flow of configuration and performance data and account for changes in the source environment.  
+The recommended discovery source is Azure Catalyst appliance as it provides an in-depth view of your machines and ensures regular flow of configuration and performance data and account for changes in the source environment.  
  
 > [!NOTE] 
-> All assessments that you create with Azure Migrate are a point-in-time snapshot of data. The assessment results are subject to change based on aggregated server performance data collected or change in the source configuration. 
+> All assessments that you create with Azure Catalyst are a point-in-time snapshot of data. The assessment results are subject to change based on aggregated server performance data collected or change in the source configuration. 
  
  
 After you populate the inventory, you can gather relevant workloads to assess into a group and run an assessment for the group with appropriate assessment type. 
  
 ## What data does the appliance collect? 
  
-If you're using the Azure Migrate appliance for assessment, see [metadata and performance](discovered-metadata.md) data collected as an input for the assessment. 
+If you're using the Azure Catalyst appliance for assessment, see [metadata and performance](discovered-metadata.md) data collected as an input for the assessment. 
  
 ## How does the appliance aggregate performance data? 
  
@@ -91,12 +91,12 @@ Every assessment calculates the following three attributes:
  
 Calculations are in the preceding order. A workload moves to a later stage only if it passes the previous one. For example, if a server fails the Azure readiness stage, it's marked as unsuitable for Azure. Sizing and cost calculations aren't done for that server.  
  
-Apart from configuration and performance data, Azure Migrate assessment also considers customers’ intent captured as assessment settings as an input to generate results. The assessment settings can be categorized in the following broad buckets.   
+Apart from configuration and performance data, Azure Catalyst assessment also considers customers’ intent captured as assessment settings as an input to generate results. The assessment settings can be categorized in the following broad buckets.   
  
 **Settings category** | **Details** |   
 --- | --- |  
 **Target Configuration** | Based on the assessment type, customers are asked to provide their input regarding the targets they want to assess their workloads against. Some important attributes in this category are target location, Environment type, target storage, and compute families etc. These settings differ slightly across different types of assessments. | 
-**Pricing Settings** | Customers are asked about the pricing attributes they want to consider during assessment. Customers are asked to choose if they want to assess Pay-as-you Go pricing or if they have a negotiated EA agreement with Azure. If you're an EA customer, select EA subscription as the offer/licensing program and an appropriate subscription ID to fetch the negotiated prices. </br> Customers can specify savings options to optimize on cost. [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (One year or three year reserved) are a good option for the most consistently running resources. </br>[Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-overview.md) (one year or three year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of one savings option at a time. </br> When you select *None*, the Azure Compute cost is based on the Pay as you go rate or based on actual usage. When you select any savings option other than *None*, the *Discount (%)* and *VM uptime* properties aren't applicable. The monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.| 
+**Pricing Settings** | Customers are asked about the pricing attributes they want to consider during assessment. Customers are asked to choose if they want to assess Pay-as-you Go pricing or if they have a negotiated EA agreement with Azure. If you're an EA customer, select EA subscription as the offer/licensing program and an appropriate subscription ID to fetch the negotiated prices. </br> Customers can specify savings options to optimize on cost. [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (One year or three year reserved) are a good option for the most consistently running resources. </br>[Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-overview.md) (one year or three year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Catalyst assessments, you can only see cost estimates of one savings option at a time. </br> When you select *None*, the Azure Compute cost is based on the Pay as you go rate or based on actual usage. When you select any savings option other than *None*, the *Discount (%)* and *VM uptime* properties aren't applicable. The monthly cost estimates are calculated by multiplying 744 hours in the VM uptime field with the hourly price of the recommended SKU.| 
 **Sizing criteria** | These attributes are used for right-sizing the target recommendations. </br> Use as-is sizing or performance-based sizing depending on your requirements. Learn more about performance-based assessments.| 
 **Performance history** | Used with performance-based sizing. Performance history specifies the duration used when performance data is evaluated.  
 **Percentile utilization** | Used with performance-based sizing. Percentile utilization specifies the percentile value of the performance sample used for rightsizing. | 
@@ -105,7 +105,7 @@ Apart from configuration and performance data, Azure Migrate assessment also con
 **Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) to use your existing OS and SQL licenses. If the setting is enabled, Azure prices for selected operating systems aren't considered for VM costing and SQL license cost isn't considered in SQL target costing.| 
 **Security** | Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it assesses security readiness and costs for your Azure VM with Microsoft Defender for Cloud. | 
  
-[Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Migrate. 
+[Review the best practices](best-practices-assessment.md) for creating an assessment with Azure Catalyst. 
  
  
  

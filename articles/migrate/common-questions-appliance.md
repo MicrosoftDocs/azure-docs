@@ -1,6 +1,6 @@
 ---
-title: Azure Migrate Appliance FAQ
-description: Get answers to common questions about the Azure Migrate appliance.
+title: Azure Catalyst Appliance FAQ
+description: Get answers to common questions about the Azure Catalyst appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -13,26 +13,28 @@ ms.custom:
   - engagement-fy25
   - sfi-image-nochange
   - sfi-ropc-nochange
-# Customer intent: "As a systems administrator, I want to deploy and configure the Azure Migrate appliance, so that I can effectively discover and assess on-premises servers for migration to the cloud."
+# Customer intent: "As a systems administrator, I want to deploy and configure the Azure Catalyst appliance, so that I can effectively discover and assess on-premises servers for migration to the cloud."
 ---
 
-# Azure Migrate appliance: Common questions
+# Azure Catalyst appliance: Common questions
 
-This article answers common questions about the Azure Migrate appliance. If you have other questions, check these resources:
+This article answers common questions about the Azure Catalyst appliance. If you have other questions, check these resources:
 
-- [General questions](resources-faq.md) about Azure Migrate
+- [General questions](resources-faq.md) about Azure Catalyst
 - Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md)
 - Questions about [Migration and modernization](common-questions-server-migration.md)
-- Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
+- Get questions answered in the [Azure Catalyst forum](https://aka.ms/AzureMigrateForum)
 
-## What is the Azure Migrate appliance?
+<a name="what-is-the-azure-migrate-appliance"></a>
 
-The Azure Migrate appliance is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover and assess physical or virtual servers from on-premises or any cloud. The Migration and modernization tool also uses the appliance for agentless migration of on-premises servers running in VMware environment.
+## What is the Azure Catalyst appliance?
 
-Here's more information about the Azure Migrate appliance:
+The Azure Catalyst appliance is a lightweight appliance that the Azure Catalyst: Discovery and assessment tool uses to discover and assess physical or virtual servers from on-premises or any cloud. The Migration and modernization tool also uses the appliance for agentless migration of on-premises servers running in VMware environment.
+
+Here's more information about the Azure Catalyst appliance:
 
 - The appliance is deployed on-premises as a physical server or a virtualized server.
-- The appliance discovers on-premises servers and continually sends server metadata and performance data to Azure Migrate.
+- The appliance discovers on-premises servers and continually sends server metadata and performance data to Azure Catalyst.
 - Appliance discovery is agentless. Nothing is installed on the discovered servers.
 
 [Learn more](migrate-appliance.md) about the appliance.
@@ -55,7 +57,7 @@ The appliance can connect to Azure using public or private networks or using Azu
 
 ## Does appliance analysis affect performance?
 
-The Azure Migrate appliance profiles on-premises servers continuously to measure performance data. This profiling has almost no performance impact on profiled servers.
+The Azure Catalyst appliance profiles on-premises servers continuously to measure performance data. This profiling has almost no performance impact on profiled servers.
 
 ## Can I harden the appliance?
 
@@ -67,7 +69,7 @@ The appliance needs access to Azure URLs. [Review](migrate-appliance.md#url-acce
 
 ## What data does the appliance collect?
 
-See the following articles for information about data that the Azure Migrate appliance collects on servers:
+See the following articles for information about data that the Azure Catalyst appliance collects on servers:
 
 - **Servers in VMware environment**: [Review](discovered-metadata.md#collected-metadata-for-vmware-servers) collected data.
 - **Servers in Hyper-V environment**: [Review](discovered-metadata.md#collected-metadata-for-hyper-v-servers) collected data.
@@ -75,22 +77,22 @@ See the following articles for information about data that the Azure Migrate app
 
 ## How is data stored?
 
-Data that's collected by the Azure Migrate appliance is stored in the Azure location where you created the project.
+Data that's collected by the Azure Catalyst appliance is stored in the Azure location where you created the project.
 
 Here's more information about how data is stored:
 
-- The collected data is securely stored in Azure Cosmos DB in a Microsoft subscription. The data is deleted when you delete the project. Storage is handled by Azure Migrate. You can't specifically choose a storage account for collected data.
+- The collected data is securely stored in Azure Cosmos DB in a Microsoft subscription. The data is deleted when you delete the project. Storage is handled by Azure Catalyst. You can't specifically choose a storage account for collected data.
 - If you use [dependency visualization](concepts-dependency-visualization.md), the data that's collected is stored in an Azure Log Analytics workspace created in your Azure subscription. The data is deleted when you delete the Log Analytics workspace in your subscription.
 
 ## How much data is uploaded during continuous profiling?
 
-The volume of data that's sent to Azure Migrate depends on multiple parameters. As an example, a project that has 10 servers (each with one disk and one NIC) sends approximately 50 MB of data per day. This value is approximate; the actual value varies depending on the number of data points for the disks and NICs. If the number of servers, disks, or NICs increases, the increase in data that's sent is nonlinear.
+The volume of data that's sent to Azure Catalyst depends on multiple parameters. As an example, a project that has 10 servers (each with one disk and one NIC) sends approximately 50 MB of data per day. This value is approximate; the actual value varies depending on the number of data points for the disks and NICs. If the number of servers, disks, or NICs increases, the increase in data that's sent is nonlinear.
 
 ## Is data encrypted at rest and in transit?
 
 Yes, for both:
 
-- Metadata is securely sent to the Azure Migrate service over the internet via HTTPS.
+- Metadata is securely sent to the Azure Catalyst service over the internet via HTTPS.
 - Metadata is stored in an [Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
 - The data for dependency analysis also is encrypted in transit (by secure HTTPS). It's stored in a Log Analytics workspace in your subscription. The data is encrypted at rest for dependency analysis.
 
@@ -101,30 +103,38 @@ These steps describe how the appliance connects to VMware vCenter Server:
 1. The appliance connects to vCenter Server (port 443) by using the credentials you provided when you set up the appliance.
 2. The appliance uses VMware PowerCLI to query vCenter Server to collect metadata about the servers that are managed by vCenter Server.
 3. The appliance collects configuration data about servers (cores, memory, disks, NICs) and the performance history of each server for the past month.
-4. The collected metadata is sent to the Azure Migrate: Discovery and assessment tool (over the internet via HTTPS) for assessment.
+4. The collected metadata is sent to the Azure Catalyst: Discovery and assessment tool (over the internet via HTTPS) for assessment.
 
-## Can the Azure Migrate appliance connect to multiple vCenter Servers?
+<a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>
 
-Yes. If the version of appliance configuration manager is  6.1.265.1 or above, you can connect to up to 10 vCenter Servers and perform discovery, assessment, and migration of servers running across multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
+## Can the Azure Catalyst appliance connect to multiple vCenter Servers?
+
+Yes. If the version of appliance configuration manager is  6.1.265.1 or above, you can connect to up to 10 vCenter Servers and perform discovery, assessment, and migration of servers running across multiple vCenter Servers using a single Azure Catalyst appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
 
 ## Can a project have multiple appliances?
 
 A project can have multiple appliances registered to it. However, one appliance can only be registered with one project.
 
-## How do I find the Azure Migrate appliances registered to the project?
+<a name="how-do-i-find-the-azure-migrate-appliances-registered-to-the-project"></a>
 
-1. From the Azure portal, navigate to [Azure Migrate homepage](https://portal.azure.com/?feature.customportal=false&feature.showassettypes=Microsoft_Azure_Migrate_AzureMigrationHub&feature.smsMigrationTool=true&feature.cloudamizeAssessmentTool=true&feature.sasAssessmentTool=true&feature.firstPartyDiscoveredMachines=true#blade/Microsoft_Azure_Migrate/AmhResourceMenuBlade/getStarted) and from the left menu, select **Servers, databases and web apps**.
+## How do I find the Azure Catalyst appliances registered to the project?
+
+1. From the Azure portal, navigate to [Azure Catalyst homepage](https://portal.azure.com/?feature.customportal=false&feature.showassettypes=Microsoft_Azure_Migrate_AzureMigrationHub&feature.smsMigrationTool=true&feature.cloudamizeAssessmentTool=true&feature.sasAssessmentTool=true&feature.firstPartyDiscoveredMachines=true#blade/Microsoft_Azure_Migrate/AmhResourceMenuBlade/getStarted) and from the left menu, select **Servers, databases and web apps**.
 1. Select **Change** in the upper-right corner to choose your project.
-1. In the Azure Migrate project, select **Overview** from the Azure Migrate: Discovery & assessment.
+1. In the Azure Catalyst project, select **Overview** from the Azure Catalyst: Discovery & assessment.
 1. In **Overview**, select **Appliances** in left menu to see the appliances registered with the project and the connectivity status of the agents on the appliance.
 
-## Can I change the Azure user account from the Azure Migrate appliance once registered with the project?
+<a name="can-i-change-the-azure-user-account-from-the-azure-migrate-appliance-once-registered-with-the-project"></a>
 
-If you registered the appliance to Migrate project using a particular user account, it cannot be changed. You can try re-registering the appliance with the new project using another user account via PowerShell script but it will break all the operations in the old project.
+## Can I change the Azure user account from the Azure Catalyst appliance once registered with the project?
 
-## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
+If you registered the appliance to Azure Catalyst project using a particular user account, it cannot be changed. You can try re-registering the appliance with the new project using another user account via PowerShell script but it will break all the operations in the old project.
 
-Yes. You can add both the Azure Migrate appliance (used for assessment and agentless VMware migration), and the replication appliance (used for agent-based migration of servers running in VMware) to the same vCenter server. But make sure that you are not setting up both appliances on the same server and that is currently not supported.
+<a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>
+
+## Can the Azure Catalyst appliance/Replication appliance connect to the same vCenter?
+
+Yes. You can add both the Azure Catalyst appliance (used for assessment and agentless VMware migration), and the replication appliance (used for agent-based migration of servers running in VMware) to the same vCenter server. But make sure that you are not setting up both appliances on the same server and that is currently not supported.
 
 ## How many servers can I discover with an appliance?
 
@@ -156,11 +166,13 @@ No. To discover servers in VMware environment, you must have vCenter Server.
 
 By default, the appliance and its installed agents are updated automatically. The appliance checks for updates every 24 hours. Updates that fail are retried.
 
-Only the appliance and the appliance agents are updated by these automatic updates. The operating system is not updated by Azure Migrate automatic updates. Use Windows Updates to keep the operating system up to date.
+Only the appliance and the appliance agents are updated by these automatic updates. The operating system is not updated by Azure Catalyst automatic updates. Use Windows Updates to keep the operating system up to date.
 
-## How to troubleshoot Auto-update failures for Azure Migrate appliance?
+<a name="how-to-troubleshoot-auto-update-failures-for-azure-migrate-appliance"></a>
 
-A modification was made recently to the MSI validation process, which could potentially impact the Migrate appliance auto-update process. The auto-update process might fail with the following error message:
+## How to troubleshoot Auto-update failures for Azure Catalyst appliance?
+
+A modification was made recently to the MSI validation process, which could potentially impact the Azure Catalyst appliance auto-update process. The auto-update process might fail with the following error message:
 
 :::image type="content" source="./media/common-questions-appliance/auto-update-process-error-inline.png" alt-text="Screenshot of auto update process error." lightbox="./media/common-questions-appliance/auto-update-process-error-expanded.png":::
 
@@ -189,9 +201,9 @@ To fix this issue, follow these steps to ensure that your appliance can validate
 
 1. Ensure that there are no internet access issues or firewall settings interfering with the certificate validation.
 
-**Verify Azure Migrate MSI Validation Readiness**
+**Verify Azure Catalyst MSI Validation Readiness**
 
-1. To ensure that your appliance is ready to validate Azure Migrate MSIs, follow these steps:
+1. To ensure that your appliance is ready to validate Azure Catalyst MSIs, follow these steps:
     1. Download a sample MSI from [Microsoft Download Center](https://download.microsoft.com/download/9/b/8/9b8abdb7-a784-4a25-9da7-31ce4d80a0c5/MicrosoftAzureAutoUpdate.msi) on the appliance.
     1. Right-click on it and go to **Digital Signatures** tab.
         
@@ -203,7 +215,7 @@ To fix this issue, follow these steps to ensure that your appliance can validate
 
 ## Can I check agent health?
 
-Yes. In the portal, go the **Agent health** page of the Azure Migrate: Discovery and assessment tool or the Migration and modernization tool. There, you can check the connection status between Azure and the discovery and assessment agents on the appliance.
+Yes. In the portal, go the **Agent health** page of the Azure Catalyst: Discovery and assessment tool or the Migration and modernization tool. There, you can check the connection status between Azure and the discovery and assessment agents on the appliance.
 
 ## Can I add multiple server credentials on appliance?
 
@@ -213,15 +225,19 @@ Yes, we now support multiple server credentials to perform software inventory (d
 
 You can provide domain/ Windows(non-domain)/ Linux(non-domain)/ SQL Server authentication credentials on the appliance configuration manager. [Learn more](add-server-credentials.md) about how to provide credentials and how we handle them.
 
-## What type of SQL Server connection properties are supported by Azure Migrate for SQL discovery?
+<a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>
 
-Azure Migrate will encrypt the communication between Azure Migrate appliance and source SQL Server instances (with Encrypt connection property set to TRUE). These connections are encrypted with [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (set to TRUE); the transport layer will use SSL to encrypt the channel and bypass the certificate chain to validate trust. The appliance server must be set up to [trust the certificate's root authority](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+## What type of SQL Server connection properties are supported by Azure Catalyst for SQL discovery?
+
+Azure Catalyst will encrypt the communication between Azure Catalyst appliance and source SQL Server instances (with Encrypt connection property set to TRUE). These connections are encrypted with [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (set to TRUE); the transport layer will use SSL to encrypt the channel and bypass the certificate chain to validate trust. The appliance server must be set up to [trust the certificate's root authority](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 If no certificate has been provisioned on the server when it starts up, SQL Server generates a self-signed certificate that is used to encrypt login packets. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
-## How do I extend the validity of Azure Migrate Appliance AD application certificate that’s nearing expiry?
+<a name="how-do-i-extend-the-validity-of-azure-migrate-appliance-ad-application-certificate-thats-nearing-expiry"></a>
 
-For a newly created Migrate appliance, the default expiry period for the associated AD APP (Entra Application) will be one year.  To extend the validity of the Azure AD app, follow these steps:
+## How do I extend the validity of Azure Catalyst Appliance AD application certificate that’s nearing expiry?
+
+For a newly created Azure Catalyst appliance, the default expiry period for the associated AD APP (Entra Application) will be one year.  To extend the validity of the Azure AD app, follow these steps:
 
 1. On the appliance VM, open an elevated privileged PowerShell Command Prompt.
 1. Navigate to the Config Manager installation folder: 

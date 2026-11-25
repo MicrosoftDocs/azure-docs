@@ -8,8 +8,8 @@ metadata:
   description: Learn how to use Event Grid on Kubernetes to react to relevant events generated on Kubernetes clusters connected to Azure Arc in near-real time fashion.
   ms.subservice: kubernetes
   ms.topic: landing-page
-  author: spelluru
-  ms.author: spelluru
+  author: connected-seth
+  ms.author: seshanmugam
   ms.date: 06/10/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

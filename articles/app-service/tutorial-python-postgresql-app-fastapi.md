@@ -4,8 +4,8 @@ description: Create a FastAPI web app with a PostgreSQL database and deploy it t
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 10/08/2026
-ms.author: msangapu
-author: msangapu-msft
+ms.author: byvinyal
+author: btardif
 zone_pivot_groups: app-service-portal-azd
 ms.service: azure-app-service
 ms.custom:

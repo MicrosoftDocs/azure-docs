@@ -5,7 +5,7 @@ ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: how-to
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-notification-hubs
 ---
 

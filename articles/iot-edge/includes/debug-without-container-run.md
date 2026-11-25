@@ -2,7 +2,7 @@
 ms.topic: include
 ms.date: 08/20/2025
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-iot-edge
 services: iot-edge
 ---

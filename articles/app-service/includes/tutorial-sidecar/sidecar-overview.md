@@ -1,9 +1,9 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 06/19/2025
-ms.author: cephalin
+ms.author: byvinyal
 ---
 
 Sidecar containers in App Service let you deploy extra services and features to your Linux apps without tightly coupling them to the built-in or custom main container. The sidecar containers run alongside the main application container in the same App Service plan.

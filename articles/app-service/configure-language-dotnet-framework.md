@@ -5,8 +5,8 @@ description: Learn how to configure an ASP.NET app in Azure App Service. This ar
 ms.devlang: csharp
 ms.topic: concept-article
 ms.date: 07/07/2025
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 #customer intent: As an ASP.NET developer, I want to configure an ASP.NET app using Azure App Service to take advantage the Azure features.
 ms.service: azure-app-service
 ms.custom:

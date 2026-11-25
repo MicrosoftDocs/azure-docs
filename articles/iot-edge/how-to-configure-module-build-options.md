@@ -1,8 +1,8 @@
 ---
 title: Configure module build options
 description: Learn how to use the module.json file to configure build and deployment options for an IoT Edge module
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 06/05/2025
 ms.topic: how-to
 ms.service: azure-iot-edge

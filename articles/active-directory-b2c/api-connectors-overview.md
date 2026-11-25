@@ -7,7 +7,7 @@ ms.subservice: b2c
 ms.topic: how-to
 ms.date: 01/11/2024
 
-ms.author: kengaderdus
+ms.author: diberry
 author: kengaderdus
 manager: CelesteDG
 zone_pivot_groups: b2c-policy-type

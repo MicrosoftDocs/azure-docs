@@ -15,22 +15,9 @@ Service levels are an attribute of a capacity pool. Service levels are defined a
 
 ## Supported service levels
 
-Azure NetApp Files supports four service levels: <!--*Elastic*,--> *Flexible*, *Standard*, *Premium*, and *Ultra*. 
+Azure NetApp Files supports four service levels: *Flexible*, *Standard*, *Premium*, and *Ultra*. 
 
 The Flexible, Standard, Premium, and Ultra service levels deliver in‑Azure bare‑metal flash performance. 
-
-
-
-* **Elastic service level (preview)**:
-    Elastic is an advanced, high-availability service level designed to deliver continuous data access with zero data loss even if an entire Azure Availability Zone becomes unavailable. This service eliminates single points of failure, making it ideal for mission-critical workloads that require uncompromising resilience and in-region data protection.
-    
-    With the Elastic service level, you can:
-
-    - Create capacity pools from 1 TiB to 128 TiB with shared QoS across volumes for seamless workload adaptation.
-    - Provision volumes as small as 1 GiB, giving you flexibility to optimize storage for workloads of any size.
-    - Achieve throughput of 32 MiB/s per 1 TiB, ensuring predictable performance at scale.
-
---> 
 
 * <a name="Flexible"></a>**Flexible service level**:
     The Flexible service level enables you to adjust throughput and size limits independently. You can use the Flexible service level to create high-capacity volumes with low throughput requirements or the reverse: low-capacity volumes with high throughput requirements. The Flexible service level is designed for demanding applications such as Oracle or SAP HANA.

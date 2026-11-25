@@ -4,7 +4,7 @@ ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 01/23/2024
-ms.author: kengaderdus
+ms.author: diberry
 # Use it to explain what the Occurrences mean in Azure AD B2C custom policies".
 ---
 

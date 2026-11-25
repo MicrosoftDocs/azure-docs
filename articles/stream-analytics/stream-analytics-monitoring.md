@@ -1,8 +1,8 @@
 ---
 title: Monitor Stream Analytics job with Azure portal
 description: Monitor Azure Stream Analytics jobs in the Azure portal by using key performance metrics to track query and job performance and troubleshoot issues.
-author: spelluru
-ms.author: spelluru
+author: skommajo
+ms.author: skommajosula
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 08/25/2026

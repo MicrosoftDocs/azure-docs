@@ -11,20 +11,20 @@ ms.update-cycle: 1825-days
 ms.custom: engagement-fy26
 # Customer intent: "As an IT administrator, I want to migrate servers to Azure Trusted Launch Virtual Machines or Confidential Virtual Machines so that I can ensure enhanced security for my Virtual Machines."
 ---
-# Migrate to Trusted Launch or Confidential Virtual machines by using Azure Migrate
-Azure Migrate now supports migrating eligible machines to Trusted Launch and Confidential virtual machines in Azure.
+# Migrate to Trusted Launch or Confidential Virtual machines by using Azure Catalyst
+Azure Catalyst now supports migrating eligible machines to Trusted Launch and Confidential virtual machines in Azure.
 
 ## Migrate Generation 2 virtual machines to Azure Trusted Launch virtual machines
 
-Azure Migrate now supports migrating Generation 2 virtual machines to Azure Virtual Machines with Trusted Launch. This feature is now generally available.
+Azure Catalyst now supports migrating Generation 2 virtual machines to Azure Virtual Machines with Trusted Launch. This feature is now generally available.
   - Trusted Launch uses UEFI-based Secure Boot and a virtual Trusted Platform Module (vTPM) to establish a trusted boot chain. This trusted boot chain helps ensure that only approved and signed components load during startup, reducing the risk of bootkits, rootkits, and other low-level malware.
   - Trusted Launch is the default security type for supported Generation 2 virtual machines and virtual machine scale sets in Azure, where available. [Learn more](/azure/virtual-machines/trusted-launch) about Trusted Launch Virtual Machines.
 
 ## Supported operating systems for Trusted Launch virtual machines
-Azure Migrate supports all Operating systems that are supported for Trusted Launch in Azure. For more information, See [Azure supported OS list and Virtual Machine sizes](/azure/virtual-machines/trusted-launch#operating-systems-supported).
+Azure Catalyst supports all Operating systems that are supported for Trusted Launch in Azure. For more information, See [Azure supported OS list and Virtual Machine sizes](/azure/virtual-machines/trusted-launch#operating-systems-supported).
 
 >[!Note]
->Trusted Launch is a security feature for Generation 2 virtual machines. Generation 1 virtual machines use BIOS and MBR, and they don't support Secure Boot or vTPM by design. As a result, Generation 1 virtual machines can't use Trusted Launch and Azure Migrate doesn't support migrating Generation 1 virtual machines to Trusted Launch virtual machines.
+>Trusted Launch is a security feature for Generation 2 virtual machines. Generation 1 virtual machines use BIOS and MBR, and they don't support Secure Boot or vTPM by design. As a result, Generation 1 virtual machines can't use Trusted Launch and Azure Catalyst doesn't support migrating Generation 1 virtual machines to Trusted Launch virtual machines.
 
 ## Secure boot
 At the root of Trusted Launch is Secure Boot, 
@@ -37,25 +37,25 @@ At the root of Trusted Launch is Secure Boot,
 > - Even if Secure Boot was enabled on the source virtual machine, it's not automatically enabled on the migrated Trusted Launch virtual machine. You must explicitly ensure Secure Boot is enabled in the Trusted Launch configuration during migration.
 
 ## Migrate eligible machines to Azure Confidential Virtual machines
-Azure Migrate now supports the migration of both Generation 1 and Generation 2 virtual machines (VMs) to Azure Confidential Virtual Machines (CVMs).  Azure Migrate supports migrating eligible VMware, Hyper-V, and physical servers to Azure Confidential Virtual Machines.
+Azure Catalyst now supports the migration of both Generation 1 and Generation 2 virtual machines (VMs) to Azure Confidential Virtual Machines (CVMs).  Azure Catalyst supports migrating eligible VMware, Hyper-V, and physical servers to Azure Confidential Virtual Machines.
  - Azure Confidential VMs offer strong security and confidentiality for tenants. They create a hardware-enforced boundary between your application and the virtualization stack. You can use them for cloud migrations without modifying your code, while the platform ensures that your VM’s state remains protected.
  - For more information on Azure Confidential machines, see [Azure confidential virtual machines](../confidential-computing/confidential-vm-overview.md).
 
 >[!Note]
-> - Confidential Virtual Machines (CVMs) are a Generation 2 VMs capability. Azure Migrate supports the migration of both Generation 1 and Generation 2 VMs to Generation 2 CVMs in Azure.
+> - Confidential Virtual Machines (CVMs) are a Generation 2 VMs capability. Azure Catalyst supports the migration of both Generation 1 and Generation 2 VMs to Generation 2 CVMs in Azure.
 > - Ensure that you install the latest updates for the respective operating system (OS) on the source machine before starting the migration.
 > - If you choose  Confidential Virtual Machines (CVMs) as the target security type during migration, only CVM-eligible VMs are available for selection and the rest are grayed out.
  
    
 ## Supported operating systems for migrating to confidential virtual machines
-Azure Migrate currently supports the migration of the following operating systems to Confidential Virtual Machines (CVMs):
+Azure Catalyst currently supports the migration of the following operating systems to Confidential Virtual Machines (CVMs):
  - Windows Server: 2019, 2022
  - Ubuntu: 20.04 LTS, 22.04 LTS, 24.04 LTS
  - Rocky Linux 9.4, 9.5, 9.6
  - RHEL 9.4, 9.5, 9.6
 
 ## Confidential encryption for OS disks (optional)
-Azure Migrate supports optional confidential encryption for OS disks during migration. This encryption protects all critical partitions of the disk. It also binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM.
+Azure Catalyst supports optional confidential encryption for OS disks during migration. This encryption protects all critical partitions of the disk. It also binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM.
  - Confidential OS disk encryption is **optional**.  You can select from the following options:
      - A Confidential VM with Confidential OS disk encryption.
      - A Confidential VM without Confidential OS disk encryption.

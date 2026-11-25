@@ -1,8 +1,8 @@
 ---
 title: Terraform/OpenTofu examples for Exadata Services
 description: Learn about Terraform/OpenTofu examples for Exadata services
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: vaidehikher18
+ms.author: vaidehikher
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024

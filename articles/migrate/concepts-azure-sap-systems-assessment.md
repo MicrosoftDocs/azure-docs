@@ -1,5 +1,5 @@
 ---
-title: SAP systems discovery support in Azure Migrate
+title: SAP systems discovery support in Azure Catalyst
 description: Learn about discovery and assessment support for SAP inventory and workloads.
 author: Jeronika-MS
 ms.author: v-gajeronika

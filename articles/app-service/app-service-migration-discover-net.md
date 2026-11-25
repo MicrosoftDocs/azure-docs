@@ -1,11 +1,11 @@
 ---
 title: Discover .NET Apps to Azure App Service
 description: Learn about .NET migration resources available to Azure App Service and about the capabilities of discovery.
-author: msangapu-msft
+author: btardif
 
 ms.topic: concept-article
 ms.date: 11/17/2025
-ms.author: msangapu
+ms.author: byvinyal
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.service: azure-app-service

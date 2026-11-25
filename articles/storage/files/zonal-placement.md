@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 11/06/2025
-ms.author: kendownie
+ms.author: normesta
 ms.custom:
   - references_regions
 # Customer intent: "As an IT admin, I want to use zonal placement for my storage account so I can select the specific Azure availability zone in which my SSD file shares will reside, potentially reducing latency and improving performance."

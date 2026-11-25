@@ -1,8 +1,8 @@
 ---
 title:  How to Monitor Spring Boot Apps with Elastic APM Java Agent
 description: How to use Elastic APM Java Agent to monitor Spring Boot applications running in Azure Spring Apps
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/19/2025

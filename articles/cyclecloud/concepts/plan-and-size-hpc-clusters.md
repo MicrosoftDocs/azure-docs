@@ -3,7 +3,7 @@ title: Plan and Size HPC Clusters
 description: Learn how to plan and size High Performance Computing (HPC) clusters in Azure CycleCloud, including scheduler, VM, autoscaling, storage, networking, and cost decisions.
 ai-usage: ai-assisted
 author: padmalathas
-ms.author: padmalathas
+ms.author: mattmcinnes
 ms.date: 09/16/2026
 ms.update-cycle: 3650-days
 ms.topic: concept-article

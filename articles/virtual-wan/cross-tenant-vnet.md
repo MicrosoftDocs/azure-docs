@@ -9,7 +9,7 @@ ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/27/2026
-ms.author: wellee
+ms.author: ajitbhu
 ---
 # Connect cross-tenant virtual networks to a Virtual WAN hub
 

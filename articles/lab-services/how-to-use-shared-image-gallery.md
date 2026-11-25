@@ -4,7 +4,7 @@ description: Learn how to use an Azure compute gallery in a lab plan. A compute 
 ms.topic: how-to
 ms.date: 03/06/2022
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.custom: sfi-image-nochange
 ---
 

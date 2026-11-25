@@ -9,8 +9,8 @@ metadata:
   description: Learn about the various Azure network monitoring and management services that you can use to monitor your network resources in Azure. 
   ms.service: azure-network-watcher
   ms.topic: hub-page
-  author: halkazwini
-  ms.author: halkazwini
+  author: huzefafw
+  ms.author: hufurnit
   manager: kumudD
   ms.date: 09/23/2025
   ms.custom: portfolio-consolidation-2025

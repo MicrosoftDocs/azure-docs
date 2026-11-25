@@ -3,7 +3,7 @@ author: alkohli
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/13/2020
-ms.author: alkohli
+ms.author: scompton
 ---
 
 Following caveats apply to data as it moves into Azure.

@@ -3,7 +3,7 @@ author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 03/09/2023
-ms.author: patricka
+ms.author: srthirth
 ms.custom:
   - build-2025
 ---

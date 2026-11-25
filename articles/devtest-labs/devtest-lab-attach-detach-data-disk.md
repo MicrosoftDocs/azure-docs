@@ -2,8 +2,8 @@
 title: Attach or detach data disks for lab VMs
 description: Learn how to use the Azure portal to attach or detach a data disk for an Azure DevTest Labs virtual machine (VM).
 ms.topic: how-to
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 03/20/2025
 ms.custom: UpdateFrequency2
 

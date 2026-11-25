@@ -5,7 +5,7 @@ author: loubigard
 ms.author: loubigard
 ms.service: azure
 ms.topic: concept-article
-ms.date: 11/17/2026
+ms.date: 11/18/2026
 ms.custom: networking, security
 
 #CustomerIntent: As a platform administrator, I want to understand which Microsoft Discovery settings are fixed at creation so that I can make the right architecture decisions before I deploy.
@@ -75,9 +75,15 @@ Choose the key model when you create each workspace, supercomputer, and bookshel
 
 ## Regions
 
+Microsoft Discovery supports the following home regions for its control-plane resources:
+
+[!INCLUDE [Supported home regions](includes/supported-home-regions.md)]
+
+Region support doesn't guarantee model or compute capacity.
+
 | Option | Resource placement |
 | --- | --- |
-| Single region | All resources in one supported region: East US, Sweden Central, or UK South |
+| Single region | All resources in one supported home region |
 | Cross-region | Discovery resources and their managed resource groups in a supported home region, the resources inside the managed resource groups, and your virtual network, storage, container registry, and identities, in one target region |
 
 For a cross-region deployment, apply the `discovery.overridemrgregion` tag when you create each workspace, supercomputer, and bookshelf, and confirm that the target region supports the required Microsoft Foundry features. For details, including how data moves between regions, see [Deploy Microsoft Discovery across Azure regions](how-to-deploy-across-regions.md).

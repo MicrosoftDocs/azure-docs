@@ -46,17 +46,17 @@ Before you begin:
 1. Verify permissions for your Azure account.
      - Your Azure account needs permissions to create a VM.
      - Write to an Azure managed disk.
-     - Manage failover operations for the Recovery Services vault associated with your Azure Migrate project.
-1. For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
+     - Manage failover operations for the Recovery Services vault associated with your Azure Catalyst project.
+1. For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Catalyst](prepare-azure-accounts.md).
 
 > [!NOTE]
-> If you're planning to upgrade your Windows operating system (OS), Azure Migrate and Modernize might download the Windows SetupDiag for error details in case upgrade fails. Ensure that the VM created in Azure after the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). If there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes, but the upgrade can still proceed.
+> If you're planning to upgrade your Windows operating system (OS), Azure Catalyst might download the Windows SetupDiag for error details in case upgrade fails. Ensure that the VM created in Azure after the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). If there's no access to SetupDiag, you might not be able to get detailed OS upgrade failure error codes, but the upgrade can still proceed.
 
 ## Download the provider
 
-For migrating Hyper-V VMs, you need to install the software provider (Azure Site Recovery provider and Recovery Services agent) on Hyper-V hosts or cluster nodes. The [Azure Migrate appliance](migrate-appliance.md) isn't used for Hyper-V migration.
+For migrating Hyper-V VMs, you need to install the software provider (Azure Site Recovery provider and Recovery Services agent) on Hyper-V hosts or cluster nodes. The [Azure Catalyst appliance](migrate-appliance.md) isn't used for Hyper-V migration.
 
-1. In the Azure Migrate project, go to **Manage** > **Server replication**, and select **Start replication**.
+1. In the Azure Catalyst project, go to **Manage** > **Server replication**, and select **Start replication**.
 2. On **Specify intent**, under **What do you want to migrate**, select **Servers or virtual machines (VMs)**. Under **Where do you want to migrate to**, select **Azure VM**.
 3. In **How will you select workloads**, select **From replication provider (Hyper-V)** under **Other sources**. Select the link in the portal to start the replication provider setup.
 4. In the setup page, the virtualization type is prepopulated from the previous step (Hyper-V).
@@ -115,10 +115,10 @@ Run the following commands on each host:
     .\setupdr.exe /i 
     ```
 
-1. Register the Hyper-V host to **Azure Migrate**.
+1. Register the Hyper-V host to **Azure Catalyst**.
 
     > [!NOTE]
-    > If your Hyper-V host is registered with another Azure Migrate project that you're no longer using or deleted, you need to deregister it from that project and register it in the new one. For more information, see [Remove servers and disable protection](../site-recovery/site-recovery-manage-registration-and-protection.md?WT.mc_id=modinfra-39236-thmaure).
+    > If your Hyper-V host is registered with another Azure Catalyst project that you're no longer using or deleted, you need to deregister it from that project and register it in the new one. For more information, see [Remove servers and disable protection](../site-recovery/site-recovery-manage-registration-and-protection.md?WT.mc_id=modinfra-39236-thmaure).
 
     ```
     "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Credentials <key file path>
@@ -152,22 +152,22 @@ It can take up to 15 minutes after finalizing registration until discovered VMs 
 > [!NOTE]
 > In the portal, you can select up to 10 machines at once for replication. If you need to replicate more, then group them in batches of 10.
 
-1. In the Azure Migrate project, go to **Manage** > **Server replication**, and select **Start replication**.
+1. In the Azure Catalyst project, go to **Manage** > **Server replication**, and select **Start replication**.
 
 2. On **Specify intent** page, under **What do you want to migrate**, select **Servers or virtual machines (VMs)**. Under **Where do you want to migrate to**, select **Azure VM**.
 
 3. Under **How will you select workloads**, select one of the following options:
-   - If you have an existing Azure Migrate appliance, select one of the following options and proceed to **Discovery method**:
+   - If you have an existing Azure Catalyst appliance, select one of the following options and proceed to **Discovery method**:
        - **From all inventory** to manually select servers.
        - **From an assessment** to use an existing assessment.
-   - If you don't have an existing Azure Migrate appliance (required for assessments, wave planning, and other planning capabilities) and want to directly execute Hyper-V migrations, select **From replication provider (Hyper-V)**. If you completed the site recovery provider setup for Hyper-V, you can proceed to
+   - If you don't have an existing Azure Catalyst appliance (required for assessments, wave planning, and other planning capabilities) and want to directly execute Hyper-V migrations, select **From replication provider (Hyper-V)**. If you completed the site recovery provider setup for Hyper-V, you can proceed to
      **Workloads**. Otherwise, complete the setup as per the steps provided in the previous section.
 
 4. In **Discovery method**, select the appliance that matches your source environment (Hyper-V) and then select **Next**. If you completed the site recovery provider setup for Hyper-V, you can proceed to **Workloads**. Otherwise, complete the setup as per the steps provided in the previous section.
 
 5. In **Workloads**,
   - Select the **Target VM security type**.
-     - Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
+     - Azure Catalyst supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost.
      - You can also migrate eligible machines to Confidential virtual machines [Learn more](../confidential-computing/confidential-vm-overview.md). If you select **Confidential virtual machines**, only eligible servers are available for selection and the rest are greyed out. Refer [CVM support matrix](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#supported-operating-systems-for-migrating-to-confidential-virtual-machines).
   - Then, select the servers you want to migrate and select **Next**.
 
@@ -176,7 +176,7 @@ It can take up to 15 minutes after finalizing registration until discovered VMs 
   - **Storage account**: Keep the default option to use the cache storage account that the portal automatically creates for the project. To use a different storage account for replication, select it from the drop-down list.
     
    > [!NOTE]
-   > - If you use private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
+   > - If you use private endpoint as the connectivity method for the Azure Catalyst project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
    > - To replicate by using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1)
    
   - **Azure Hybrid Benefit**: Apply Azure Hybrid Benefit and save up to 76% vs. pay-as-you-go costs by using an eligible Windows Server and/or Enterprise Linux license. Check the boxes applicable to your license (Windows Server license or Enterprise Linux license).
@@ -219,7 +219,7 @@ It can take up to 15 minutes after finalizing registration until discovered VMs 
       
 7. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform to [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
-   - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
+   - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise Azure Catalyst picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
    - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk contains the operating system bootloader and installer.
    - **Availability Zone**: Specify the Availability Zone to use.
    - **Availability Set**: Specify the Availability Set to use.
@@ -239,15 +239,15 @@ It can take up to 15 minutes after finalizing registration until discovered VMs 
 
 ## Provision for the first time
 
-If this is the first VM you're replicating in the Azure Migrate project, the Migration and modernization tool automatically provisions these resources in the same resource group as the project.
+If this is the first VM you're replicating in the Azure Catalyst project, the Migration and modernization tool automatically provisions these resources in the same resource group as the project.
 
-- **Storage account**: The Site Recovery provider software that you install on Hyper-V hosts uploads replication data for the VMs you configure for replication to a storage account (known as the cache storage account or log storage account) in your subscription. Azure Migrate and Modernize then copies the uploaded replication data from the storage account to the replica-managed disks corresponding to the VM. You need to specify the cache storage account while configuring replication for a VM. The Azure Migrate portal automatically creates one for the Azure Migrate project when you configure replication for the first time in the project.
+- **Storage account**: The Site Recovery provider software that you install on Hyper-V hosts uploads replication data for the VMs you configure for replication to a storage account (known as the cache storage account or log storage account) in your subscription. Azure Catalyst then copies the uploaded replication data from the storage account to the replica-managed disks corresponding to the VM. You need to specify the cache storage account while configuring replication for a VM. The Azure Catalyst portal automatically creates one for the Azure Catalyst project when you configure replication for the first time in the project.
 
 ## Track and migrate replicating servers
 
 This section explains how to track replicating servers and perform test and final migrations.
 
-1. In your Azure Migrate project, go to **Manage** > **Server replication**. Navigate to **Other**.
+1. In your Azure Catalyst project, go to **Manage** > **Server replication**. Navigate to **Other**.
 2. The following columns show the replication and migration status of your servers for which you initiated replication:
     - **Replication status**: Displays the current state of replication for the server. Learn more about [replication states](concepts-vmware-agentless-migration.md#replication-states).
     - **Replication health**: Indicates whether replication is Healthy, Warning, or Critical.

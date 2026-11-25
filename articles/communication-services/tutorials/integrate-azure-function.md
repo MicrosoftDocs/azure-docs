@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services tutorial
 description: Learn how to enable Azure Function 
 author: jiminwen
 services: azure-communication-services
-ms.author: jiminwen
+ms.author: diberry
 ms.date: 11/03/2022
 ms.topic: tutorial
 ms.service: azure-communication-services

@@ -5,7 +5,7 @@ services: automation
 keywords: azure automation services, automanage, Bicep, Blueprints, Guest Config, Policy, Functions
 ms.date: 08/09/2024
 ms.topic: overview
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

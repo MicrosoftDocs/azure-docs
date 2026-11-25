@@ -6,7 +6,7 @@ ms.service: azure-synapse-analytics
 ms.topic: concept-article
 ms.subservice: security
 ms.date: 01/31/2025
-ms.author: mesrivas
+ms.author: rakrish
 
 ---
 # Understand the roles required to perform common tasks in Azure Synapse

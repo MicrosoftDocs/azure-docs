@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 11/02/2026
-ms.author: rogarana
+ms.author: normesta
 # Customer intent: "As a storage administrator, I want to understand the scalability and performance targets of Elastic SAN Next Generation so that I can plan capacity and performance for my deployment."
 ---
 

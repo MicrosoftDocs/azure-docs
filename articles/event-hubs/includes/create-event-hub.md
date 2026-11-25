@@ -4,7 +4,7 @@ description: This article shows you how to create an event hub in an Event Hubs 
 author: spelluru
 ms.topic: include
 ms.date: 06/25/2025
-ms.author: spelluru
+ms.author: aschhabria
 ms.custom: sfi-image-nochange
 ---
 

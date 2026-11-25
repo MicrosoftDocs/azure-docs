@@ -2,7 +2,7 @@
 title: Migrate Microsoft SQL Server Always On Availability Group to Azure VMware Solution
 description: Learn how to migrate Microsoft SQL Server Always On Availability Group to Azure VMware Solution.
 author: jjaygbay1
-ms.author: jacobjaygbay
+ms.author: mattmcinnes
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 05/28/2026

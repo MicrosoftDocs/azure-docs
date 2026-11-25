@@ -6,7 +6,7 @@
 title: Create and Use a Storage Task Mock Run
 description: Create a mock run for a storage task assignment to evaluate blob conditions and expected results safely before execution.
 author: sshankMSFT
-ms.author: shashankar # Microsoft alias
+ms.author: normesta # Microsoft alias
 ms.service: azure-storage-actions
 ms.topic: feature-guide
 ms.date: 05/07/2026

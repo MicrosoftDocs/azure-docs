@@ -3,7 +3,7 @@ author: alkohli
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 02/07/2019
-ms.author: alkohli
+ms.author: scompton
 ---
 
 - The storage account should be physically closest to the region where the device is deployed (can be different from where the service is deployed).

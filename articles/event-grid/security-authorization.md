@@ -5,7 +5,7 @@ description: Azure Event Grid security controls access to resources using Azure 
 ms.topic: concept-article
 ms.date: 03/26/2026
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ms.reviewer: spelluru
 # Customer intent: I want to know how to secure access to Azure Event Grid resources. 
 ---

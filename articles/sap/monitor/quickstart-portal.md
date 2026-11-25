@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Monitor for SAP solutions using the Azure portal
 description: Learn how to deploy Azure Monitor for SAP solutions.
-author: sameeksha91
+author: samierose
 ms.author: sakhare
 ms.topic: how-to
 ms.service: sap-on-azure

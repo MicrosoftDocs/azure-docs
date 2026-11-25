@@ -93,8 +93,6 @@ items:
         items:
           - name: Create elastic SAN volumes in a batch
             href: elastic-san-batch-create-sample.md
-  - name: Azure Elastic SAN Next Generation (Preview) documentation
-    href: next-generation-index.yml
   - name: Azure Elastic SAN Next Generation (Preview)
     items:
       - name: Overview

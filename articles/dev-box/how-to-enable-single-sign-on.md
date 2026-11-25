@@ -5,7 +5,7 @@ description: Learn how to enable single sign-on for dev boxes and edit an existi
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 08/29/2025
 ms.topic: how-to
 

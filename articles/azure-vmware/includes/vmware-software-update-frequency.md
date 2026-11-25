@@ -5,7 +5,7 @@ ms.topic: include
 ms.service: azure-vmware
 ms.date: 5/20/2026
 author: suzizuber
-ms.author: v-szuber
+ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: As a cloud administrator, I want to understand the VMware software update process in Azure VMware Solution, so that I can effectively manage workloads and plan for potential impacts during patches, updates, and upgrades.
 ---

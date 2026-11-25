@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Azure IoT Hub Error Codes
 description: Understand specific error codes and how to fix errors reported by Azure IoT Hub
-author: sethmanheim
+author: dimatx
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/06/2026
-ms.author: sethm
+ms.author: dimatokar
 ms.custom: [mqtt, iot]
 ai-usage: ai-assisted
 ---
@@ -56,6 +56,8 @@ You might see that your requests to IoT Hub fail with an error that begins with 
 | **400032 ManagedIdentityNotEnabled** | The managed identity isn't enabled. | Enable the managed identity. |
 | **400035 InvalidPolicyKey** | The policy key specified isn't valid. | Check the policy key for correctness. |
 | **400036 BulkRegenerateDeviceKeyOperationFailure** | The bulk regenerate device key operation failed. | Review the operation details. |
+| **400038 HttpResponseExceededAllowedSize** | The HTTP response from the upstream endpoint exceeded the maximum response size allowed by the IoT hub. | Reduce the size of the HTTP response returned by the upstream endpoint. The default maximum HTTP response size is **15 MiB (15,728,640 bytes)**. If your solution requires responses larger than the default limit, contact Azure support to review your requirements. |
+
 
 ### 4001xx Routing errors
 

@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: concept-article
-ms.date: 11/10/2026
+ms.date: 11/18/2026
 ---
 
 # Role assignments in Microsoft Discovery
@@ -306,23 +306,27 @@ The storage container roles don't grant access to the underlying blob contents. 
 
 For onboarding automation, distinguish these target-user personas from the identity executing each stage. Planning and default readiness checks use subscription Reader; landing-zone preparation requires separate elevated authority. See [Onboarding permissions by stage](reference-deployment-permissions.md). Activate PIM-eligible roles before the operation that needs them; eligibility alone doesn't grant active access.
 
-The following table summarizes the recommended role combinations for each user persona. Roles can be assigned at the subscription or resource group scope. You can add more roles as your requirements grow.
+The following lists summarize the recommended role combinations for each user persona. Assign roles at the subscription or resource group scope, except where a specific scope is listed. You can add more roles as your requirements grow.
 
 > [!TIP]
 > Start with least-privilege roles scoped to the narrowest scope needed, and expand permissions only as required.
 
-| Platform administrator | Scientist / researcher | Reader / viewer |
-|-----------------------------|------------------------|-----------------|
-| Microsoft Discovery Platform Administrator (Preview) | Microsoft Discovery Platform Contributor (Preview) | Microsoft Discovery Platform Reader (Preview) |
-| Managed Identity Contributor | Storage Account Contributor | Reader |
-| Managed Identity Operator | Storage Blob Data Contributor | |
-| Storage Account Contributor | AcrPush | |
-| Storage Blob Data Contributor | Reader (subscription level) | |
-| Network Contributor | Foundry User (Workspace MRG level) | |
-| AcrPush | Microsoft Discovery Bookshelf Index Data Reader - Preview | |
-| Reader | | |
-| Foundry Owner (Workspace MRG level) | | |
-| Microsoft Discovery Bookshelf Index Data Reader - Preview | | |
+### Platform administrator
+
+The platform administrator persona uses the following roles:
+
+[!INCLUDE [Platform Administrator persona roles](includes/platform-administrator-roles.md)]
+
+### Scientist or researcher
+
+The scientist persona uses the following roles:
+
+[!INCLUDE [Scientist persona roles](includes/scientist-roles.md)]
+
+### Reader or viewer
+
+- Microsoft Discovery Platform Reader (Preview)
+- Reader
 
 ## Other Azure roles definition
 
@@ -344,14 +348,13 @@ Some workflows require Azure built-in roles beyond the Microsoft Discovery roles
 
 ## Who can assign Microsoft Discovery roles
 
-To assign Microsoft Discovery roles, you need one of the following Azure RBAC permissions at the target scope:
+To assign Azure roles, you need one of the following roles at the assignment scope:
 
-| Role | Description |
-|------|-------------|
-| **Owner** | Can assign any Microsoft Discovery role at subscription, resource group, or resource level. Recommended for initial platform setup. |
-| **User Access Administrator** | Designed for managing user access without requiring full resource management permissions. Ideal for dedicated identity and access management teams. |
-| **Role Based Access Control Administrator** | Can assign any Microsoft Discovery role at the scopes where it's granted, without the broader access management permissions of User Access Administrator. |
-| **Microsoft Discovery Platform Administrator (Preview)** | Can't assign the Microsoft Discovery built-in roles. To assign Discovery roles, use one of the roles above. |
+[!INCLUDE [Role-assignment authority](includes/role-assignment-authority.md)]
+
+Owner manages resources and user access and is recommended for initial platform setup. User Access Administrator manages user access without requiring full resource management permissions. Role Based Access Control Administrator manages role assignments without the broader access management permissions of User Access Administrator.
+
+The **Microsoft Discovery Platform Administrator (Preview)** role can't assign the Microsoft Discovery built-in roles. Use one of the role-assignment roles instead.
 
 ## Understanding assignment scopes
 

@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: Configure disaster recovery in Durable Task Scheduler
 titleSuffix: Durable Task
 description: Set up and operate disaster recovery for Durable Task Scheduler to pair two schedulers in different Azure regions and fail workloads over between them.

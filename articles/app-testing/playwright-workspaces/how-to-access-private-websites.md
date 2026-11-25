@@ -79,7 +79,7 @@ To add your Playwright tests to a continuous integration (CI) workflow, such as 
 
 ### Perform advanced diagnostics on Playwright test results
 
-To use the reporting feature in Playwright Workspaces, see [Quickstart: Perform advanced diagnostics](./quickstart-advanced-diagnostic-with-playwright-workspaces-reporting.md).
+To use the reporting feature in Playwright Workspaces, see [Quickstart: Perform advanced diagnostics](./quickstart-observability-with-playwright-workspaces.md).
 
 ### Run browser automation tasks
 

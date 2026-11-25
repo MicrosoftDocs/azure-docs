@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/05/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge Pro with GPU General Availability (GA) release notes

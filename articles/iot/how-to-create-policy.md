@@ -2,8 +2,8 @@
 title: Set up a managed root and intermediate CA
 titleSuffix: Azure Device Registry
 description: Learn how to provision a Microsoft-managed root certificate authority and create an intermediate CA policy in Azure Device Registry.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.service: azure-device-registry
 ms.topic: how-to
 ai-usage: ai-assisted

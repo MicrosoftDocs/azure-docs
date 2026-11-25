@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 06/17/2026
-ms.author: shaas
+ms.author: singra
 ---
 
 # Customer-initiated disaster recovery for Azure Storage Mover

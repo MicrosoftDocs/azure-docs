@@ -9,7 +9,7 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: csharp
 ms.topic: article
 ms.date: 05/01/2025
-ms.author: sethm
+ms.author: dimatokar
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
 ms.custom:

@@ -1,6 +1,6 @@
 ---
 title: Assessing On-Premises PostgreSQL for Migration to Azure Flexible Server
-description: Learn how to assess on-premises PostgreSQL workloads for Azure migration using Azure Migrate, including how to run configuration-based assessments and analyze readiness, risks, and cost estimates.
+description: Learn how to assess on-premises PostgreSQL workloads for Azure migration using Azure Catalyst, including how to run configuration-based assessments and analyze readiness, risks, and cost estimates.
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.service: azure-migrate 
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/05/2025
 ms.custom: engagement-fy24 
 ms.update-cycle: 1095-days
-# Customer intent: Customers want to assess on-premises PostgreSQL workloads using Azure Migrate to prepare for migration to Azure Database for PostgreSQL flexible server. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
+# Customer intent: Customers want to assess on-premises PostgreSQL workloads using Azure Catalyst to prepare for migration to Azure Database for PostgreSQL flexible server. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
 ---
 
-# Tutorial: Assess PostgreSQL workloads for migration using Azure Migrate (preview)
+# Tutorial: Assess PostgreSQL workloads for migration using Azure Catalyst (preview)
 
-This article guides you through assessing discovered PostgreSQL instances and databases using the Azure Migrate: Discovery and assessment tool, helping you prepare for migration to Azure Database for PostgreSQL flexible server.
+This article guides you through assessing discovered PostgreSQL instances and databases using the Azure Catalyst: Discovery and assessment tool, helping you prepare for migration to Azure Database for PostgreSQL flexible server.
 
 As you plan your migration to Azure, it's important to assess your on-premises PostgreSQL workloads to determine cloud readiness, identify potential risks, and estimate migration costs and complexity. 
 
@@ -26,15 +26,15 @@ In this tutorial, you'll learn how to:
 
 Before you begin, ensure that you've the following:
 
-- An Azure subscription and discover your on-premises PostgreSQL instances using Azure Migrate.
+- An Azure subscription and discover your on-premises PostgreSQL instances using Azure Catalyst.
 - If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
-- Before you assess your PostgreSQL instances for migration to Azure Database for PostgreSQL flexible server, ensure you discover the instances using the Azure Migrate appliance. For more information, follow the [discovery tutorial](tutorial-discover-vmware.md).
-- If you use an existing Azure Migrate project, ensure you complete all [prerequisites](how-to-discover-applications.md) outlined in this article.
+- Before you assess your PostgreSQL instances for migration to Azure Database for PostgreSQL flexible server, ensure you discover the instances using the Azure Catalyst appliance. For more information, follow the [discovery tutorial](tutorial-discover-vmware.md).
+- If you use an existing Azure Catalyst project, ensure you complete all [prerequisites](how-to-discover-applications.md) outlined in this article.
 - Before you proceed further, ensure you’ve reviewed the discovered application.
 
 ## Decide sizing strategy for assessment
 
-For the public preview, Azure Migrate supports configuration-based sizing criteria for PostgreSQL assessments:
+For the public preview, Azure Catalyst supports configuration-based sizing criteria for PostgreSQL assessments:
 
 | Assessment   | Details | Recommendation |
 |--------------| -----------|----------------|

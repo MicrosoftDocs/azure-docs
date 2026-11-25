@@ -5,7 +5,7 @@ description: This article describes the REST API structure for Teams Phone Exten
 author: sofiar
 manager: miguelher
 services: azure-communication-services
-ms.author: sofiar
+ms.author: diberry
 ms.date: 09/01/2025
 ms.topic: reference
 ms.service: azure-communication-services

@@ -4,7 +4,7 @@ description: "Learn how to implement the human interaction pattern for approval 
 ms.topic: how-to
 ms.service: durable-task
 ms.date: 10/12/2026
-ms.author: hannahhunter
+ms.author: vyomnagrani
 author: hhunter-ms
 ms.devlang: csharp
 ms.custom: devx-track-js
@@ -1066,11 +1066,22 @@ To run the sample:
 
 # [C#](#tab/csharp)
 
+This client setup requires the `Microsoft.DurableTask.Client.AzureManaged`, `Microsoft.Extensions.DependencyInjection`, and `Microsoft.Extensions.Logging` NuGet packages.
+
 ```csharp
 using System;
 using System.Threading.Tasks;
+using Microsoft.DurableTask.Client;
+using Microsoft.DurableTask.Client.AzureManaged;
+using Microsoft.Extensions.DependencyInjection;
 
-var client = DurableTaskClientBuilder.UseDurableTaskScheduler(connectionString).Build();
+string connectionString = Environment.GetEnvironmentVariable("DTS_CONNECTION_STRING")
+    ?? "Endpoint=http://localhost:8080;TaskHub=default;Authentication=None";
+var services = new ServiceCollection();
+services.AddLogging();
+services.AddDurableTaskClient(builder => builder.UseDurableTaskScheduler(connectionString));
+await using ServiceProvider serviceProvider = services.BuildServiceProvider();
+DurableTaskClient client = serviceProvider.GetRequiredService<DurableTaskClient>();
 
 // Schedule the approval workflow
 var input = new ApprovalRequestData

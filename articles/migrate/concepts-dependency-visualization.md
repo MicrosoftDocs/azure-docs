@@ -1,6 +1,6 @@
 ---
-title: Dependency analysis in Azure Migrate Discovery and assessment
-description: Describes how to use dependency analysis for assessment using Azure Migrate Discovery and assessment.
+title: Dependency analysis in Azure Catalyst Discovery and assessment
+description: Describes how to use dependency analysis for assessment using Azure Catalyst Discovery and assessment.
 ms.topic: concept-article
 author: Jeronika-MS
 ms.author: v-gajeronika 
@@ -14,7 +14,7 @@ ms.custom: engagement-fy25
 
 # Dependency analysis
 
-This article describes the feature of dependency analysis in Azure Migrate. Dependency analysis identifies dependencies between discovered on-premises running in VMware, Hyper-V, physical servers or servers running on other public clouds. It provides these advantages:
+This article describes the feature of dependency analysis in Azure Catalyst. Dependency analysis identifies dependencies between discovered on-premises running in VMware, Hyper-V, physical servers or servers running on other public clouds. It provides these advantages:
 
 - You can review the network dependencies and group the inter-dependent servers into applications running in your datacenter.
 - You can identify servers that must be migrated together. This is especially useful if you're not sure which servers are part of an application deployment that you want to migrate to Azure.
@@ -23,9 +23,11 @@ This article describes the feature of dependency analysis in Azure Migrate. Depe
 
 ::: moniker range="migrate"
 
-## Dependency analysis options in Azure Migrate
+<a name="dependency-analysis-options-in-azure-migrate"></a>
 
-Azure Migrate provides two options for dependency analysis:
+## Dependency analysis options in Azure Catalyst
+
+Azure Catalyst provides two options for dependency analysis:
 
 - **Agentless dependency analysis** is generally available for VMware VMs, Hyper-V VMs, physical servers, and servers running in other public clouds such as AWS and GCP. It is supported in both Azure Public Cloud and Azure Government and is the recommended approach for dependency visualization and analysis.
 -  **Agent-based dependency analysis** is supported only in the classic view and isn't available in the new experience. The classic view is scheduled for deprecation by the end of 2026. Until then, you can continue to access Log Analytics workspaces for servers where agent-based dependency analysis is already enabled. However, you can't onboard new servers for agent-based dependency analysis. For information, see [Set up dependency visualization](how-to-create-group-machine-dependencies.md).
@@ -56,14 +58,14 @@ There are two options for deploying dependency analysis
 
 After discovery of dependency data begins, polling begins:
 
-- The Azure Migrate appliance polls TCP connection data from servers every five minutes to gather data.
+- The Azure Catalyst appliance polls TCP connection data from servers every five minutes to gather data.
 - Polling gathers this data:
 
     - Name of processes that have active connections.
     - Name of applications that run processes with active connections.
     - Destination port on the active connections.
 
-- The gathered data is processed on the Azure Migrate appliance and is sent to Azure Migrate every six hours.
+- The gathered data is processed on the Azure Catalyst appliance and is sent to Azure Catalyst every six hours.
 
 ## Next steps
 

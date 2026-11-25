@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/29/2022
-ms.author: sipastak
+ms.author: scompton
 ---
 # Use Azure portal to manage shares on your Azure Stack Edge Pro
 

@@ -1,8 +1,8 @@
 ---
 title: How to Troubleshoot VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise Plan
 description: Shows you how to troubleshoot VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
-author: KarlErickson
-ms.author: karler
+author: sandeep-sen
+ms.author: sandeepsen
 ms.reviewer: jiec
 ms.service: azure-spring-apps
 ms.topic: how-to

@@ -7,8 +7,8 @@ ms.topic: best-practice
 ms.date: 11/29/2025
 ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 #customer intent: As a build developer, I want to understand the components of deploying to Azure App Service to design the best build solution for the technologies we use in our project.
 ms.service: azure-app-service
 ---

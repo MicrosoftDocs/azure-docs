@@ -1,8 +1,8 @@
 ---
 title: Retirement of TLS 1.0 and TLS 1.1 versions in Azure API Management
 description: Retirement of TLS 1.0 and 1.1 affects connections to Azure services. Update your Azure API Management client connections to TLS 1.2 or later.
-author: PatAltimore
-ms.author: patricka
+author: sthirthala
+ms.author: srthirth
 ms.date: 8/03/2026
 ms.topic: reference
 ms.service: azure-api-management

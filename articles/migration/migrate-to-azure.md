@@ -112,7 +112,7 @@ Use the following tools to support migration tasks regardless of your source pla
 
 | Tool | Purpose |
 |------|---------|
-| [Azure Migrate and Modernize](/azure/migrate/migrate-services-overview) | Discover and assess migration assets, including infrastructure, applications, and data components. |
+| [Azure Catalyst](/azure/migrate/migrate-services-overview) | Discover and assess migration assets, including infrastructure, applications, and data components. |
 | Well-Architected Review assessment of the source platform | Review and measure the business goals of your architecture on the source platform. This assessment from your source cloud provider helps you set a baseline for your expectations on Azure. |
 | [Azure Well-Architected Review assessment](/assessments/azure-architecture-review/) | Evaluate your architecture decisions to identify regressions from the source baseline and explore optimization opportunities. |
 

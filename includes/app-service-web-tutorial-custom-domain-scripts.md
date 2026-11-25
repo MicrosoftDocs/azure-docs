@@ -2,11 +2,11 @@
 title: "include file"
 description: "include file"
 services: app-service
-author: msangapu-msft
+author: btardif
 ms.service: azure-app-service
 ms.topic: "include"
 ms.date: 12/14/2021
-ms.author: msangapu
+ms.author: byvinyal
 ms.custom: include file
 ---
 

@@ -5,7 +5,7 @@ description: "Azure Key Vault events: Discover how to use Azure Key Vault as an 
 ms.topic: concept-article
 ms.date: 03/26/2026
 author: spelluru
-ms.author: spelluru
+ms.author: seshanmugam
 ms.reviewer: spelluru
 # Customer intent: As an architect or a developer, I want to know whether I can use Azure Key Vault as an Event Grid source. 
 ---

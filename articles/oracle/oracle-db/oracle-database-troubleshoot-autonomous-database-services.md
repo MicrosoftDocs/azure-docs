@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Oracle Autonomous Database@Azure
 description: Learn how to troubleshoot problems in Oracle Autonomous Database@Azure.
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: vaidehikher18
+ms.author: vaidehikher
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024

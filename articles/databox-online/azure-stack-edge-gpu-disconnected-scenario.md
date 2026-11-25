@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 02/24/2022
-ms.author: sipastak
+ms.author: scompton
 # Customer intent: As an IT admin, I need to understand how to use Azure Stack Edge with no internet connection to meet my organization's security restrictions. 
 ---
 

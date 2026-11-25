@@ -1,8 +1,8 @@
 ---
 title: Integrate web app with OpenAPI in Foundry Agent Service (Node.js)
 description: Empower your existing Node.js web apps by integrating their capabilities into Foundry Agent Service with OpenAPI, enabling AI agents to perform real-world tasks.
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.date: 12/05/2025
 ms.topic: tutorial
 ms.custom:

@@ -4,7 +4,7 @@ description: Learn how to copy files from one Azure file share to another using 
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/28/2026
-ms.author: kendownie
+ms.author: normesta
 author: khdownie
 # Customer intent: As a cloud administrator, I want to copy files between Azure file shares so that I can efficiently transition data with minimal downtime and optimize storage performance.
 ---

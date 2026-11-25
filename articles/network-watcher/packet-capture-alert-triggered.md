@@ -2,7 +2,7 @@
 title: Use Packet Capture to Proactively Monitor Your Network
 description: Learn how to create an alert-triggered packet capture by using Azure Network Watcher and Azure Functions.
 author: halkazwini
-ms.author: halkazwini 
+ms.author: hufurnit 
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 02/25/2026

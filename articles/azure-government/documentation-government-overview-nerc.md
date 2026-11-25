@@ -2,7 +2,7 @@
 title: NERC CIP standards and cloud computing
 description: This article discusses implications of NERC CIP standards on cloud computing. It explores compliance assurances that cloud service providers can furnish to registered entities subject to compliance with NERC CIP standards.
 author: EliotSeattle
-ms.author: eliotgra
+ms.author: diberry
 ms.topic: article
 ms.service: azure-government
 recommendations: false

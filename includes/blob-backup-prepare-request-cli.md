@@ -3,7 +3,7 @@ author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
 ms.date: 07/08/2025
-ms.author: v-abhmallick
+ms.author: diberry
 ---
 
 After you set the relevant permissions, configure the blob backup by running the following commands:

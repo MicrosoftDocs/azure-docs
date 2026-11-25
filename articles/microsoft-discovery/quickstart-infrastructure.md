@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: quickstart
-ms.date: 11/18/2026
+ms.date: 11/23/2026
 ms.custom:
   - template-quickstart
   - subject-armqs
@@ -25,7 +25,12 @@ In this quickstart, you set up your Microsoft Discovery environment so that you 
 
 Both paths provision the same core resources: networking, identity, storage, a supercomputer with a node pool, a workspace with a chat model deployment, a storage container, and a project.
 
-The [onboarding tool](how-to-set-up-deployment-tool.md) provides a separate scripts-based deployment path. Its stages and configuration don't replace the portal or Bicep steps in this quickstart.
+> [!IMPORTANT]
+> If you're onboarding a new Microsoft Discovery customer environment, start with [Onboarding User Guide](how-to-set-up-deployment-tool.md). It provides a staged experience for planning and configuring your environment, preparing the landing zone, validating readiness, deploying the platform, and verifying your deployment.
+>
+> This quickstart provides a separate, direct deployment experience by using the Azure portal or Bicep. Use it when you want to deploy infrastructure through either of these methods.
+>
+> Both experiences are documented separately. Choose the path that best matches your deployment needs.
 
 Select the tab that matches your preferred experience under [Deploy Microsoft Discovery infrastructure](#deploy-microsoft-discovery-infrastructure).
 
@@ -35,7 +40,7 @@ The following prerequisites apply to both the Azure portal and Bicep experiences
 
 - An active [Azure subscription](https://portal.azure.com) that's enabled (allow-listed) for Microsoft Discovery access. If your subscription isn't yet enabled, contact your Microsoft account representative to request access.
 - **Sufficient permissions** in your Azure subscription to register resource providers, assign roles, and create resources:
-  - The **Owner**, **Role Based Access Control Administrator**, or **User Access Administrator** role is required to assign roles to administrators (Platform Admins, Scientists, and Engineers) who manage and use Discovery resources. For the full list of required roles, see [Roles required by persona](concept-role-assignments.md#roles-required-by-persona).
+  - [Role-assignment authority](concept-role-assignments.md#who-can-assign-microsoft-discovery-roles) is required to grant roles to administrators, scientists, and engineers who manage and use Discovery resources. For the full list of required roles, see [Roles required by persona](concept-role-assignments.md#roles-required-by-persona).
   - A **Contributor** or higher privileged role (for example, **Owner**) is required to register resource providers and create a resource group.
 
     > [!TIP]
@@ -50,7 +55,7 @@ The following prerequisites apply to both the Azure portal and Bicep experiences
 
    Review the [dependent providers](#required-resource-providers) too.
 
-- **Assign the Discovery NSP Perimeter Joiner role.** Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default using Network Security Perimeter (NSP) rules. Before you create your first workspace, bookshelf, or supercomputer, you must create the **Discovery NSP Perimeter Joiner** custom role. Once created, assign the **Discovery NSP Perimeter Joiner** custom role and the **Reader** role to the Discovery control-plane service App (the first-party service principal) so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
+- **Prepare network-hardening permissions.** Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default using Network Security Perimeter (NSP) rules. Before creating these resources, follow [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role) to create the custom role and assign the required control-plane roles.
 - **Microsoft Foundry, Azure OpenAI quotas, and VM SKU/quotas** available in your chosen region. See [Quota reservations](./concept-quota-reservation.md).
 - An existing **resource group**, or permissions to [create a new one](../azure-resource-manager/management/manage-resource-groups-portal.md). Creating a resource group requires **Contributor** role on the subscription.
 
@@ -60,8 +65,16 @@ After registering `Microsoft.Discovery`, review and register the following depen
 
 [!INCLUDE [Dependent resource providers](includes/deployment-resource-providers.md)]
 
+### Supported home regions
+
+Microsoft Discovery supports the following home regions for its control-plane resources:
+
+[!INCLUDE [Supported home regions](includes/supported-home-regions.md)]
+
+Region support doesn't guarantee model or compute capacity.
+
 > [!IMPORTANT]
-> The current Bicep template accepts **East US**, **Sweden Central**, and **UK South** as home regions. Confirm the required model and compute quota in your chosen workload region before deployment; a template parameter doesn't guarantee available capacity. For this exercise, use matching home and workload regions and keep customer-managed resources in one subscription and resource group.
+> Select one of these home regions in the Bicep template. Confirm the required model and compute quota in your chosen workload region before deployment; a template parameter doesn't guarantee available capacity. For this exercise, use matching home and workload regions and keep customer-managed resources in one subscription and resource group.
 
 > [!NOTE]
 > You can associate a virtual network with only one Microsoft Discovery workspace. If you need multiple workspaces, create a separate virtual network and subnets for each one.
@@ -159,11 +172,11 @@ You can create different UAMIs each with their own required permissions for spec
 
 #### d. Assign Azure Role Based Access Control (RBAC) roles to UAMI
 
-Assign the following built-in roles to the new User Assigned Managed Identity at resource group scope:
+For a single shared user-assigned managed identity (UAMI), assign the following core roles at the resource group scope before creating Discovery resources.
 
-- Microsoft Discovery Platform Contributor (Preview)
-- Storage Blob Data Contributor
-- ACRPull
+[!INCLUDE [Shared UAMI core roles](includes/shared-uami-core-roles.md)]
+
+The roles let the identity manage Discovery resources (workspaces, projects, agents, and tools), read and write Azure Storage blobs, and pull container images from Container Registry. Each list entry includes the role definition ID.
 
 Also assign **Network Contributor** on the referenced virtual network. If the network is in a separate resource group, use that virtual network's scope rather than the platform resource group's scope.
 

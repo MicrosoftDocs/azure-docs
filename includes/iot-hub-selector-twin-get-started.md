@@ -1,6 +1,6 @@
 ---
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 02/17/2023

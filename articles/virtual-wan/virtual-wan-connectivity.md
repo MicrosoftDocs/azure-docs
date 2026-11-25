@@ -2,7 +2,7 @@
 title: Virtual WAN to Virtual WAN Connectivity
 description: Learn about the different available options for connecting your Azure Virtual WAN to another Virtual WAN.
 author: halkazwini
-ms.author: halkazwini
+ms.author: ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 05/29/2025

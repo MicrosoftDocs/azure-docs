@@ -1,6 +1,6 @@
 ---
 title: Assessing on-premises MongoDB for Migration to Azure DocumentDB
-description: Learn how to assess on-premises MongoDB workloads for Azure migration using Azure Migrate, including how to run configuration-based assessments and analyze readiness, risks, and cost estimates.
+description: Learn how to assess on-premises MongoDB workloads for Azure migration using Azure Catalyst, including how to run configuration-based assessments and analyze readiness, risks, and cost estimates.
 author: sandeepsnairms
 ms.author: sandnair
 ms.service: azure-migrate 
@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.update-cycle: 365-days
 ms.date:  04/28/2026
 ms.custom: engagement-fy24 
-# Customer intent: Customers want to assess on-premises MongoDB workloads using Azure Migrate to prepare for migration to Azure DocumentDB. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
+# Customer intent: Customers want to assess on-premises MongoDB workloads using Azure Catalyst to prepare for migration to Azure DocumentDB. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
 ---
 
 
-# Tutorial: Assess on-premises MongoDB for migration to Azure DocumentDB using Azure Migrate (preview)
+# Tutorial: Assess on-premises MongoDB for migration to Azure DocumentDB using Azure Catalyst (preview)
 
- This tutorial shows how to assess discovered MongoDB instances and databases by using Azure Migrate: Discovery and assessment. You can use the assessment results to understand readiness, identify potential issues, and estimate the target configuration and cost for Azure DocumentDB.
+ This tutorial shows how to assess discovered MongoDB instances and databases by using Azure Catalyst: Discovery and assessment. You can use the assessment results to understand readiness, identify potential issues, and estimate the target configuration and cost for Azure DocumentDB.
 
 As you plan your migration to Azure, it's important to assess your on-premises MongoDB workloads to determine cloud readiness, identify potential risks, and estimate migration costs and complexity.
 
 In this tutorial, you learn how to:
 
-- Select related MongoDB workloads discovered using the Azure Migrate appliance. 
+- Select related MongoDB workloads discovered using the Azure Catalyst appliance. 
 
 - Configure assessment settings, such as target Azure environment, region, reserved instances, and sizing criteria. 
 
@@ -30,13 +30,13 @@ In this tutorial, you learn how to:
 
 Before you begin, ensure to have the following prerequisites:
 
-- An active Azure subscription and have completed discovery of your on-premises MongoDB instances using Azure Migrate.
+- An active Azure subscription and have completed discovery of your on-premises MongoDB instances using Azure Catalyst.
 - If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
-- Before you assess your MongoDB instances for migration to Azure, ensure you discover the instances using the Azure Migrate appliance. For more information, follow the [discovery tutorial](tutorial-discover-vmware.md).
+- Before you assess your MongoDB instances for migration to Azure, ensure you discover the instances using the Azure Catalyst appliance. For more information, follow the [discovery tutorial](tutorial-discover-vmware.md).
 
 ## Decide sizing strategy for assessment
 
-Azure Migrate uses the configuration details and metadata it collects from your MongoDB instances to generate recommendations for Azure DocumentDB.
+Azure Catalyst uses the configuration details and metadata it collects from your MongoDB instances to generate recommendations for Azure DocumentDB.
 
 | Assessment | Details | Recommendation |
 | --- | --- | --- |
@@ -48,7 +48,7 @@ Azure Migrate uses the configuration details and metadata it collects from your 
 
 To run an assessment, follow these steps:
 
-1. On the Azure Migrate project overview page, select **Create assessment**.
+1. On the Azure Catalyst project overview page, select **Create assessment**.
 
     :::image type="content" source="./media/tutorial-assess-mongodb/create-assessment.png" alt-text="Screenshot shows how to create assessment." lightbox="./media/tutorial-assess-mongodb/create-assessment.png":::
 2. Enter an assessment name, select the **MongoDB workloads**, and then select **Add workloads**.

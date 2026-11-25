@@ -4,7 +4,7 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.date: 06/16/2026
 ms.topic: sample
 author: padmalathas
-ms.author: padmalathas
+ms.author: mattmcinnes
 ms.service: azure-batch
 ms.custom: subject-policy-compliancecontrols
 # Customer intent: "As a compliance officer, I want to understand the available regulatory compliance controls for Azure Batch, so that I can ensure our resources meet necessary compliance standards effectively."

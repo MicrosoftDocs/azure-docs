@@ -2,7 +2,7 @@
 title: Create Dev Box Image Definition Files for Team Customizations
 description: Learn how to create Dev Box image definition files for team customizations to speed setup and governance. Follow step-by-step instructions to test and deploy.
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.service: dev-box
 ms.custom:
   - ignite-2024

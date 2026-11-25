@@ -5,7 +5,7 @@ author: roygara
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 10/28/2026
-ms.author: rogarana
+ms.author: normesta
 # Customer intent: As a cloud storage administrator, I want to monitor Azure Elastic SAN Next Generation capacity and performance metrics, so that I can manage resource usage and monitor workload availability.
 ---
 

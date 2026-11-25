@@ -3,7 +3,7 @@ author: spelluru
 ms.service: azure-relay
 ms.topic: include
 ms.date: 01/24/2026
-ms.author: spelluru
+ms.author: egrootenboer
 ---
 
 ## Overview

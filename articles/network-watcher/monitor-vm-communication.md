@@ -3,7 +3,7 @@ title: 'Tutorial: Monitor Network Communication between Two VMs - Azure Portal'
 titleSuffix: Azure Network Watcher
 description: In this tutorial, learn how to monitor network communication between two Azure virtual machines with Azure Network Watcher's connection monitor capability.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 09/23/2025

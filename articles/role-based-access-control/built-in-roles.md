@@ -6,7 +6,7 @@ ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
 manager: pmwongera
-ms.author: rolyon
+ms.author: diberry
 ms.date: 09/10/2026
 ai-usage: ai-assisted
 ms.custom: generated, msecd-doc-authoring-1028

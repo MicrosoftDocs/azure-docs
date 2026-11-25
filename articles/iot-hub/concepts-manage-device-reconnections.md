@@ -2,8 +2,8 @@
 title: Manage device reconnections to create resilient applications
 titleSuffix: Azure IoT
 description: Manage the device connection and reconnection process to ensure resilient applications by using the Azure IoT Hub device SDKs.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 1/10/2025
 ms.update-cycle: 1095-days
 ms.topic: concept-article
@@ -26,6 +26,8 @@ Devices can temporarily disconnect from IoT Hub for several reasons, including:
 - Other transient conditions associated with operating a cloud service can cause devices to be temporarily disconnected from IoT Hub.
 
 Transient device disconnects are normal and expected in cloud-connected applications. Device applications should be designed to detect a lost connection and reconnect by using an appropriate retry strategy.
+
+To tell expected reconnections apart from a connectivity problem that needs action,  monitor the **Connected devices** metric together with **Successful connects**, as described in [Monitor device connectivity health in Azure IoT Hub](how-to-monitor-device-connectivity-health.md).
 
 ## Why you need a reconnection strategy
 

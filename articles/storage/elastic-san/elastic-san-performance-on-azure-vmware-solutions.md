@@ -2,7 +2,7 @@
 title: Elastic SAN datastore performance on Azure VMware solutions
 description: Benchmark results and guidance for Azure Elastic SAN datastores used with Azure VMware Solution, including IOPS- and throughput-intensive workloads.
 author: eshanchomsft
-ms.author: rogarana
+ms.author: normesta
 ms.topic: concept-article
 ms.service: azure-elastic-san
 ms.date: 02/26/2026

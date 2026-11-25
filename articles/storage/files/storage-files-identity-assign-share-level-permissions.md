@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/14/2026
-ms.author: kendownie 
+ms.author: normesta 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli
 ms.devlang: azurecli
 # Customer intent: As a cloud administrator, I want to assign share-level permissions for SMB Azure file shares, so that I can control user access to shared files and ensure secure and effective file management within my organization.

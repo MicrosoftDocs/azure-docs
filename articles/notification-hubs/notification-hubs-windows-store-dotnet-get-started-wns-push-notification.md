@@ -9,7 +9,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 05/01/2025
-ms.author: sethm
+ms.author: dimatokar
 ms.custom:
   - mvc
   - devx-track-csharp

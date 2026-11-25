@@ -1,9 +1,9 @@
 ---
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 06/18/2025
-ms.author: cephalin
+ms.author: byvinyal
 ---
 
 ### How do sidecar containers handle internal communication?

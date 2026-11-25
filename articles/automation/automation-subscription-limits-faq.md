@@ -4,7 +4,7 @@ description: This article provides automation subscription and service limits an
 services: automation
 ms.topic: faq
 ms.date: 03/10/2025
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ms.custom: references_regions
 #Customer intent: As an implementer, I want answers to various questions.

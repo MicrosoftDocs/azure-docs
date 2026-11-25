@@ -1,12 +1,12 @@
 ---
 title: Per-app scaling for high-density hosting
 description: Scale apps independently from the App Service plans and optimize the scaled-out instances in your plan.
-author: msangapu-msft
+author: btardif
 
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
 ms.topic: how-to
 ms.date: 08/24/2026
-ms.author: msangapu
+ms.author: byvinyal
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.service: azure-app-service 
 

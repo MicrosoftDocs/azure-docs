@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 03/07/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ---
 

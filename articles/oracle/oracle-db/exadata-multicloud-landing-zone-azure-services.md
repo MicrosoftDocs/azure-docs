@@ -1,8 +1,8 @@
 ---
 title: Exadata - OCI multicloud landing zone for Azure
 description: Learn about Exadata - OCI multicloud landing zone for Azure.
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: vaidehikher18
+ms.author: vaidehikher
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024

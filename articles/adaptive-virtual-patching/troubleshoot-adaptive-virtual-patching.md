@@ -65,7 +65,7 @@ Remove the extension from the VM and reinstall it. You can also open Adaptive Sh
 
 ### Last communication time is old, but the extension shows as installed
 
-The VM stopped reporting. Confirm that the VM is running and can reach the internet. Then select **Scan now** on the **Protected Resources** page. This action restarts the Neuron extension so that it collects and sends a new report. Refresh the page and check **Last communication** time. If it still doesn't update, contact support with the information listed in [Get help](#get-help).
+The VM stopped reporting. Confirm that the VM is running and can reach the internet. Then select **Run on-demand scan** on the **Protected Resources** page. This action restarts the Neuron extension so that it collects and sends a new report. Refresh the page and check **Last communication** time. If it still doesn't update, contact support with the information listed in [Get help](#get-help).
 
 ## Findings and mitigations
 
@@ -76,6 +76,8 @@ A finding shows if a VM is exposed to a CVE. Adaptive Virtual Patching creates a
 - The VM is enrolled and reports its software inventory through the Neuron extension.
 - Adaptive Virtual Patching covers the CVE and can evaluate it. Only CVEs from the last three months are covered. Zero-day CVEs are onboarded within 48 hours of disclosure.
 
+If both conditions are true and you don't want to wait for the next detection cycle, go to the **Protected Resources** page, select the resource, and then select **Run on-demand scan** to generate fresh findings for that resource.
+
 ### Why is a mitigation waiting for approval?
 
 In Manual mode, Adaptive Shield generates mitigations but applies them only after you approve them. Approve mitigations from the **Mitigations** page, the **Findings** page, or the protected resource page. In Auto mode, Adaptive Shield applies mitigations without approval.
@@ -84,7 +86,11 @@ In Manual mode, Adaptive Shield generates mitigations but applies them only afte
 
 - **Skipped:** the CVE is already resolved, so no change was needed. This status counts as success.
 - **Failed:** the CVE is still present. Adaptive Shield tries the next mitigation in recommendation order.
-- If every mitigation fails, the finding shows **MitigationsExhausted**.
+- If every mitigation fails, the finding shows **Mitigations Exhausted**.
+
+### What should I do if all mitigations for a finding are exhausted?
+
+When a finding shows **Mitigations Exhausted**, every recommended mitigation for that finding failed to apply. To generate fresh findings and recommended mitigations, go to the **Protected Resources** page, select the resource, and then select **Run on-demand scan**. This action runs on the whole resource, not on an individual finding.
 
 ### Why is a mitigation stuck in **Queued**, or does a finding show **Unreachable**?
 

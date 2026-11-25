@@ -1,9 +1,9 @@
 ---
-author: msangapu-msft
+author: btardif
 ms.service: azure-app-service
 ms.topic: include
 ms.date: 04/25/2025
-ms.author: msangapu
+ms.author: byvinyal
 ms.custom:
   - build-2025
 ---

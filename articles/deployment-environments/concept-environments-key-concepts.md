@@ -5,8 +5,8 @@ description: Learn the key concepts, role definitions, features, and terminology
 ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.topic: concept-article
-ms.author: rosemalcolm
-author: RoseHJM
+ms.author: rabououn
+author: ramimsft
 ms.date: 05/19/2026
 
 #customer intent: As a platform engineer, I want to understand the key concepts and roles in Azure Deployment Environments so that I can effectively deploy environments for my scenarios.

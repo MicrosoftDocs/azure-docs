@@ -6,7 +6,7 @@ ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 06/26/2025
+ms.date: 11/16/2026
 ms.author: vikdesai
 ---
 
@@ -30,16 +30,19 @@ For for more information about each agreement type and what's included, see [Sup
 
 ## Latest dataset schema files
 
+> [!NOTE]
+> Exports let you select a dataset version, and the 2026-10-01 versions are available only in exports. Usage files and price sheets that you download from the Azure portal, or by using the download APIs, don't use version 2026-10-01. Instead, the new `priceFactors` and `supplementalChargeDetails` columns are added at the end of the file. For more information, see [Understand price factors and supplemental charge details](../automate/understand-price-factors-supplemental-charge-details.md).
+
 |Dataset|Contract|Dataset version|
 |------|------|------|
-|Cost and usage details|Enterprise Agreement (EA)|[2023-12-01-preview](cost-usage-details-ea.md)|
-|Cost and usage details|Microsoft Customer Agreement (MCA)|[2023-12-01-preview](cost-usage-details-mca.md)|
-|Cost and usage details|Microsoft Partner Agreement (MPA)|[2023-12-01-preview](cost-usage-details-mca-partner.md)|
-|Cost and usage details|Cloud Service Provider (CSP) subscription|[2023-12-01-preview](cost-usage-details-mca-partner-subscription.md)|
+|Cost and usage details|Enterprise Agreement (EA)|[2026-10-01](cost-usage-details-ea.md)|
+|Cost and usage details|Microsoft Customer Agreement (MCA)|[2026-10-01](cost-usage-details-mca.md)|
+|Cost and usage details|Microsoft Partner Agreement (MPA)|[2026-10-01](cost-usage-details-mca-partner.md)|
+|Cost and usage details|Cloud Service Provider (CSP) subscription|[2026-10-01](cost-usage-details-mca-partner-subscription.md)|
 |Cost and usage details|Pay-as-you-go (MOSA)|[2019-11-01](cost-usage-details-pay-as-you-go.md)|
 |Cost and usage details (FOCUS)|EA and MCA|[1.2-preview](cost-usage-details-focus.md)|
-|Price sheet|EA|[2023-05-01](price-sheet-ea.md)|
-|Price sheet|MCA|[2024-08-01](price-sheet-mca.md)|
+|Price sheet|EA|[2026-10-01](price-sheet-ea.md)|
+|Price sheet|MCA|[2026-10-01](price-sheet-mca.md)|
 |Reservation details|EA|[2023-03-01](reservation-details-ea.md)|
 |Reservation details|MCA|[2023-03-01](reservation-details-mca.md)|
 |Reservation recommendations|EA|[2023-05-01](reservation-recommendations-ea.md)|

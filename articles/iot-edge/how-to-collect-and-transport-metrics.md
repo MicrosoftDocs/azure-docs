@@ -1,8 +1,8 @@
 ---
 title: Collect and transport Azure IoT Edge metrics
 description: Use Azure Monitor to remotely monitor IoT Edge's built-in metrics. Learn how to add and configure the metrics-collector module to send metrics to Azure Monitor.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 09/15/2026
 ms.topic: concept-article
 ms.reviewer: veyalla

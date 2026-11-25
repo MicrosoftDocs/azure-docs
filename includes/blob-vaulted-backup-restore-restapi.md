@@ -3,7 +3,7 @@ author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
 ms.date: 05/30/2024
-ms.author: v-abhmallick
+ms.author: diberry
 ---
 
 ### Fetch the relevant recovery point

@@ -5,7 +5,7 @@ author: jermth
 ms.date: 06/19/2026
 ms.topic: concept-article
 ms.update-cycle: 1095-days
-ms.author: jechia
+ms.author: mattmcinnes
 ---
 
 # CycleCloud: Core concepts

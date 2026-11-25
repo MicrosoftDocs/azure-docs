@@ -1,6 +1,6 @@
 ---
-title: Discovery methods in Azure Migrate
-description: Learn about the discovery methods in Azure Migrate, including appliance, collector, import, and Arc-based discovery, and choose the approach that best fits your requirements.
+title: Discovery methods in Azure Catalyst
+description: Learn about the discovery methods in Azure Catalyst, including appliance, collector, import, and Arc-based discovery, and choose the approach that best fits your requirements.
 ms.topic: concept-article
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -11,24 +11,24 @@ ms.update-cycle: 1095-days
 ms.custom: engagement-fy24
 ---
 
-# Discovery methods in Azure Migrate
+# Discovery methods in Azure Catalyst
 
-Azure Migrate supports the following modes of discovery:
+Azure Catalyst supports the following modes of discovery:
 
 - Discovery using the appliance
 - Discovery using the collector
-- Discovery using import, either from the Azure Migrate CSV template and RVTools, or from your own inventory exports (preview)
+- Discovery using import, either from the Azure Catalyst CSV template and RVTools, or from your own inventory exports (preview)
 - Discovery of Arc-enabled servers and SQL Server instances (preview)
 
-This article explains the different discovery methods in Azure Migrate and gives guidance to help you choose the most suitable approach for your requirements.
+This article explains the different discovery methods in Azure Catalyst and gives guidance to help you choose the most suitable approach for your requirements.
 
 ## Choose a discovery method
 
 Use the following table to decide which discovery method to use.
 
-| Capability | Azure Migrate appliance | Azure Migrate collector | Import (CSV template or RVTools) | Import inventory exports (preview) |
+| Capability | Azure Catalyst appliance | Azure Catalyst Collector | Import (CSV template or RVTools) | Import inventory exports (preview) |
 | --- | --- | --- | --- | --- |
-| Description | Continuous discovery of your IT estate to generate lift and shift or modernize TCO benchmark reports, map server dependencies, and run migrations. | Quick offline snapshot of your IT estate to generate lift and shift or modernize TCO benchmark reports. | Upload inventory by using the CSV template or an RVTools export to generate lift and shift TCO benchmark reports. | Upload exports from your CMDB or tools such as ServiceNow, Dynatrace, or Ansible in their original format. AI maps the data to the Azure Migrate inventory to generate lift and shift or modernize TCO benchmark reports. |
+| Description | Continuous discovery of your IT estate to generate lift and shift or modernize TCO benchmark reports, map server dependencies, and run migrations. | Quick offline snapshot of your IT estate to generate lift and shift or modernize TCO benchmark reports. | Upload inventory by using the CSV template or an RVTools export to generate lift and shift TCO benchmark reports. | Upload exports from your CMDB or tools such as ServiceNow, Dynatrace, or Ansible in their original format. AI maps the data to the Azure Catalyst inventory to generate lift and shift or modernize TCO benchmark reports. |
 | Mode of discovery | Continuous data collection | One-time data collection; you manually upload the collected data to Azure | Upload preexisting inventory files | Upload preexisting inventory exports, with an optional context file |
 | Time to discover | Requires setup time | Quick to set up | Instant (reuse existing inventory data) | Quick (reuse existing exports, then review the AI-generated proposal) |
 | Assessment types | Lift and shift, Modernize | Lift and shift, Modernize | Lift and shift | Lift and shift, Modernize |
@@ -54,13 +54,13 @@ The appliance-based discovery method involves deploying a virtual appliance that
 
 ### Guidance to choose the right appliance
 
-- **VMware environments**: For VMware-based infrastructures, [deploy the VMware stack of the Azure Migrate appliance](tutorial-discover-vmware.md). This appliance also supports agentless migrations.
-- **Hyper-V environments**: For Hyper-V environments, [deploy the Hyper-V stack of the Azure Migrate appliance](tutorial-discover-hyper-v.md). Also, download the [Hyper-V replication provider](tutorial-migrate-hyper-v.md) to migrate Hyper-V servers.
+- **VMware environments**: For VMware-based infrastructures, [deploy the VMware stack of the Azure Catalyst appliance](tutorial-discover-vmware.md). This appliance also supports agentless migrations.
+- **Hyper-V environments**: For Hyper-V environments, [deploy the Hyper-V stack of the Azure Catalyst appliance](tutorial-discover-hyper-v.md). Also, download the [Hyper-V replication provider](tutorial-migrate-hyper-v.md) to migrate Hyper-V servers.
 - **Physical and public cloud servers**: To discover and assess physical servers and servers running in any public cloud, [set up the physical stack of the appliance](tutorial-discover-physical.md). To migrate physical servers, install a secondary [replication appliance](tutorial-migrate-physical-virtual-machines.md).
 
 ### Supported workloads for appliance-based discovery
 
-Ensure that software inventory is enabled before you start workload discovery. Azure Migrate supports the following workloads with appliance-based discovery:
+Ensure that software inventory is enabled before you start workload discovery. Azure Catalyst supports the following workloads with appliance-based discovery:
 
 - Discovery of SQL Server instances and databases.
 - Discovery of ASP.NET web apps.
@@ -70,11 +70,11 @@ Ensure that software inventory is enabled before you start workload discovery. A
 
 ## Collector-based discovery
 
-The Azure Migrate collector enables offline discovery of your IT estate. By using this lightweight tool, you can collect server configuration, performance, software inventory, and workload metadata without requiring connectivity to Azure during discovery. You can securely upload the collected data back to the Azure Migrate project you created.
+The Azure Catalyst Collector enables offline discovery of your IT estate. By using this lightweight tool, you can collect server configuration, performance, software inventory, and workload metadata without requiring connectivity to Azure during discovery. You can securely upload the collected data back to the Azure Catalyst project you created.
 
 This approach is ideal for scenarios where quick discovery of your IT estate is required. It supports the discovery of VMware environments and physical or virtual servers in a hypervisor-agnostic approach.
 
-For step-by-step instructions, see [Discover using Azure Migrate collector](how-to-discover-using-collector.md).
+For step-by-step instructions, see [Discover using Azure Catalyst Collector](how-to-discover-using-collector.md).
 
 ### Key features
 
@@ -85,7 +85,7 @@ For step-by-step instructions, see [Discover using Azure Migrate collector](how-
 
 ## Import-based discovery
 
-Import-based discovery is a simpler and faster alternative that uses inventory data you already have. You don't deploy an appliance or collector. In your Azure Migrate project, select **Start discovery** > **Using file import**, and then choose one of the following import types.
+Import-based discovery is a simpler and faster alternative that uses inventory data you already have. You don't deploy an appliance or collector. In your Azure Catalyst project, select **Start discovery** > **Using file import**, and then choose one of the following import types.
 
 ### Import by using the CSV template or RVTools
 
@@ -100,7 +100,7 @@ Upload inventory data in a structured format.
 
 ### Import inventory exports with AI (preview)
 
-Upload exports from your CMDB or from tools such as ServiceNow, Dynatrace, or Ansible, without reformatting them to fit a template. Azure Migrate uses AI to analyze your files and generate a proposed inventory, which you review and correct before you save it to your project.
+Upload exports from your CMDB or from tools such as ServiceNow, Dynatrace, or Ansible, without reformatting them to fit a template. Azure Catalyst uses AI to analyze your files and generate a proposed inventory, which you review and correct before you save it to your project.
 
 This approach is ideal when your inventory already exists in other tools, or when your organization prefers discovery without installing tools, running automated scans, or sharing credentials to on-premises servers.
 
@@ -116,18 +116,18 @@ For step-by-step instructions, see [Discover servers and workloads by importing 
 - Add more imports to the same project later. Each saved import adds to the project inventory instead of replacing it.
 
 > [!NOTE]
-> Imported data is a point-in-time snapshot of what your exports contain. If your exports include performance data, such as CPU or memory utilization, Azure Migrate reads it as part of the import. For continuous discovery, real-time performance collection, or server dependencies, use the appliance. For installed software, use the appliance or the collector. You can add either method to the same project later.
+> Imported data is a point-in-time snapshot of what your exports contain. If your exports include performance data, such as CPU or memory utilization, Azure Catalyst reads it as part of the import. For continuous discovery, real-time performance collection, or server dependencies, use the appliance. For installed software, use the appliance or the collector. You can add either method to the same project later.
 
 ## Arc-based discovery (preview)
 
-If you already Arc-enabled your servers and SQL Server instances, Arc-based discovery provides a simple alternative that doesn't require any additional on-premises deployments. To use Arc-based discovery, you must [create a new Azure Migrate project from Arc Center](quickstart-evaluate-readiness-savings-for-arc-resources.md).
+If you already Arc-enabled your servers and SQL Server instances, Arc-based discovery provides a simple alternative that doesn't require any additional on-premises deployments. To use Arc-based discovery, you must [create a new Azure Catalyst project from Arc Center](quickstart-evaluate-readiness-savings-for-arc-resources.md).
 
 ### Key features
 
-- Azure Migrate integrates natively with Azure Arc and requires no additional on-premises deployments to get started.
+- Azure Catalyst integrates natively with Azure Arc and requires no additional on-premises deployments to get started.
 - Scope Arc resources by subscription into the project.
-- Azure Migrate automatically generates a default business case and assessments, typically within an hour.
-- Collect additional information, such as utilization history, by using the Azure Migrate collector VM extension.
+- Azure Catalyst automatically generates a default business case and assessments, typically within an hour.
+- Collect additional information, such as utilization history, by using the Azure Catalyst Collector VM extension.
 
 Learn more about [Arc-based discovery (preview)](concepts-arc-resource-discovery.md).
 

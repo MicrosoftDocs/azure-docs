@@ -6,6 +6,7 @@ summary: Learn how to deploy and manage Azure Adaptive Virtual Patching to apply
 metadata:
   title: Azure Adaptive Virtual Patching documentation
   description: Learn how to deploy and manage Azure Adaptive Virtual Patching to apply temporary protection to supported Azure resources while you prepare permanent patches.
+  image_path: ./media/overview/adaptive-virtual-patching-diagram.png
   ms.service: azure
   ms.topic: landing-page
   author: AlishaJyoti

@@ -1,6 +1,6 @@
 ---
-title: Quickstart to create an Azure Migrate project using an Azure Resource Manager template.
-description: In this quickstart, you learn how to create an Azure Migrate project using an Azure Resource Manager template (ARM template).
+title: Quickstart to create an Azure Catalyst project using an Azure Resource Manager template.
+description: In this quickstart, you learn how to create an Azure Catalyst project using an Azure Resource Manager template (ARM template).
 ms.date: 05/08/2025
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -10,14 +10,14 @@ ms.reviewer: v-gajeronika
 ms.update-cycle: 1095-days
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template, engagement-fy25
-# Customer intent: As a cloud administrator, I want to create an Azure Migrate project using an ARM template, so that I can efficiently assess and migrate my on-premises servers and applications to Azure.
+# Customer intent: As a cloud administrator, I want to create an Azure Catalyst project using an ARM template, so that I can efficiently assess and migrate my on-premises servers and applications to Azure.
 ---
 
-# Quickstart: Create an Azure Migrate project using an ARM template
+# Quickstart: Create an Azure Catalyst project using an ARM template
 
-This quickstart describes how to set up an Azure Migrate project Recovery by using an Azure Resource Manager template (ARM template). Azure Migrate provides a centralized hub to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. Azure Migrate supports assessment and migration of on-premises VMware VMs, Hyper-V VMs, physical servers, other virtualized VMs, databases, web apps, and virtual desktops.
+This quickstart describes how to set up an Azure Catalyst project by using an Azure Resource Manager template (ARM template). Azure Catalyst provides a centralized hub to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. Azure Catalyst supports assessment and migration of on-premises VMware VMs, Hyper-V VMs, physical servers, other virtualized VMs, databases, web apps, and virtual desktops.
 
-This template creates an Azure Migrate project that will be used further for assessing and migrating your Azure on-premises servers, infrastructure, applications, and data.
+This template creates an Azure Catalyst project that you can use to assess and migrate your Azure on-premises servers, infrastructure, applications, and data.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -52,22 +52,22 @@ To deploy the template, the **Subscription**, **Resource group**, **Project name
    - **Region**: Defaults to the resource group's location and becomes unavailable after a
      resource group is selected.
    - **Migrate Project Name**: Provide a name for the vault.
-   - **Location**: Select the location where you want to deploy the Azure Migrate project and its resources.
+   - **Location**: Select the location where you want to deploy the Azure Catalyst project and its resources.
 
 3. Click **Review + create** button to start the deployment.
 
 ## Validate the deployment
 
-To confirm that the Azure Migrate project was created, use the Azure portal.
+To confirm that the Azure Catalyst project was created, use the Azure portal.
 
 
-1. Navigate to Azure Migrate by searching for **Azure Migrate** in the search bar on the Azure portal.
+1. Go to Azure Catalyst by searching for **Catalyst** in the search bar on the Azure portal.
 2. Click the **Discover,** **Assess,** and **Migrate** button under the Servers, databases and web apps tile.
 3. Select the **Azure subscription** and **Project** as per the values specified in the deployment.
 
 
 ## Next steps
 
-In this quickstart, you created an Azure Migrate project. 
-- To learn more about Azure Migrate and its capabilities, continue to the [Azure Catalyst overview](migrate-services-overview.md).
+In this quickstart, you created an Azure Catalyst project. 
+- To learn more about Azure Catalyst and its capabilities, continue to the [Azure Catalyst overview](migrate-services-overview.md).
 - Follow these tutorials to discover [VMware VMs](tutorial-discover-vmware.md), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).

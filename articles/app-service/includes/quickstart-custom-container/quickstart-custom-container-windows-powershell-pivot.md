@@ -1,10 +1,10 @@
 ---
-author: msangapu-msft
+author: btardif
 ms.service: azure-app-service
 ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/20/2026
-ms.author: msangapu
+ms.author: byvinyal
 ---
 
 In this quickstart, you learn how to deploy an ASP.NET app in a Windows image from [Microsoft Artifact Registry](https://mcr.microsoft.com) to Azure App Service.

@@ -4,7 +4,7 @@ description: This article provides a description of how Azure Service Bus messag
 author: spelluru
 ms.topic: overview
 ms.date: 12/08/2022
-ms.author: spelluru 
+ms.author: egrootenboer 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 

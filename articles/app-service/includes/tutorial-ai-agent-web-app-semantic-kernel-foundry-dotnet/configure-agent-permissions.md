@@ -1,7 +1,7 @@
 ---
 title: Configure permissions for Foundry project resource
 description: Steps to assign the required Azure role for your App Service app to access the Foundry project resource.
-ms.author: cephalin
+ms.author: byvinyal
 ms.topic: include
 ms.date: 08/27/2026
 ms.service: azure-app-service

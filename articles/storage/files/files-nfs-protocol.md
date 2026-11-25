@@ -4,8 +4,9 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 10/03/2026
-ms.author: kendownie
+ms.date: 11/17/2026
+ai-usage: ai-assisted
+ms.author: normesta
 ms.custom: references_regions
 # Customer intent: "As a DevOps engineer, I want to deploy and manage NFS file shares in Azure Files, so that I can support Linux-based applications and workloads that require POSIX compliance and efficient data access."
 ---
@@ -17,6 +18,9 @@ ms.custom: references_regions
 Azure Files supports two industry-standard protocols for mounting file shares: the [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol. Choose the protocol that best fits your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols. For classic file shares, you can create separate SMB and NFS file shares within the same FileStorage storage account. Microsoft.FileShares currently supports only NFS file shares. Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
 This article covers NFS Azure file shares. For information about SMB Azure file shares, see [SMB file shares in Azure Files](files-smb-protocol.md).
+
+> [!NOTE]
+> NFS file shares on HDD with provisioned v2 billing are in **preview** for both management models and require sign-up. For prerequisites and commands, see [NFS on HDD preview](create-file-share.md#nfs-on-hdd-preview).
 
 > [!IMPORTANT]
 > NFS Azure file shares aren't supported for Windows. Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json) for a list of known issues. NFS access control lists (ACLs) aren't supported.
@@ -37,7 +41,7 @@ NFS Azure file shares offer a fully POSIX-compliant file system. Hard links and 
 
 NFS Azure file shares currently support most features from the [NFSv4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, Kerberos authentication, and ACLs aren't supported.
 
-Locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported for NFS Azure file shares. Geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) aren't available for NFS shares because NFS requires SSD storage, which doesn't support geo-redundancy.
+NFS Azure file shares on SSD support locally redundant storage (LRS) and zone-redundant storage (ZRS). NFS Azure file shares on HDD support only LRS. NFS shares don't support geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) on either media tier. You can't change the redundancy of NFS HDD shares.
 
 ### NFS Azure file share support for Azure Files features
 
@@ -51,8 +55,8 @@ The status of items that appear in this table might change over time as support 
 | [File data plane REST API](/rest/api/storageservices/file-service-rest-api)| ✔️ Classic file shares only |
 | Encryption at rest|	✔️ |
 | [Encryption in transit](#encryption)| ✔️ |
-| [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
-| [LRS to ZRS conversion or vice versa](files-change-redundancy-configuration.md) (private endpoints only) | ✔️ Classic file shares only |
+| [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)| ✔️ SSD supports LRS and ZRS. HDD (preview) supports LRS only. |
+| [LRS to ZRS conversion or vice versa](files-change-redundancy-configuration.md) (private endpoints only) | ✔️ SSD classic file shares only |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/files/toc.json#storage-account-endpoints) | ✔️ Classic file shares only |
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
@@ -60,7 +64,7 @@ The status of items that appear in this table might change over time as support 
 | [Grant network access to specific Azure virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks)|  ✔️  |
 | [Grant network access to specific IP addresses](storage-files-networking-overview.md#ip-address-rules)| ⛔ |
 | [SSD media tier](storage-files-planning.md#storage-tiers) |  ✔️  |
-| [HDD media tier](storage-files-planning.md#storage-tiers)| ⛔ |
+| [HDD media tier](storage-files-planning.md#storage-tiers)| In preview |
 | [POSIX-permissions](https://en.wikipedia.org/wiki/File-system_permissions#Notation_of_traditional_Unix_permissions)|  ✔️  |
 | [Root squash](nfs-root-squash.md)|  ✔️  |
 | Access same data from Windows and Linux client|  ⛔   |
@@ -82,7 +86,7 @@ The status of items that appear in this table might change over time as support 
 NFS Azure file shares support two top-level resource providers:
 
 - **Microsoft.FileShares** (recommended for new NFS deployments): Creates a standalone file share without a storage account. Supports only the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model).
-- **Microsoft.Storage** (classic): Creates classic file shares within a storage account. Supports provisioned v1 and v2 billing models for NFS shares.
+- **Microsoft.Storage** (classic): Creates classic file shares within a storage account. Supports provisioned v1 and v2 billing models for SSD NFS shares. The NFS HDD preview supports provisioned v2 only.
 
 For a full feature comparison, see [Comparing resource providers: Microsoft.Storage vs Microsoft.FileShares](files-management-concepts.md#comparing-resource-providers-microsoftstorage-versus-microsoftfileshares).
 
@@ -135,7 +139,7 @@ Regional availability depends on the resource provider and redundancy option:
 
 ## NFS Azure file share performance
 
-NFS Azure file shares are only available on SSD file shares. Both resource providers support the provisioned v2 billing model, which lets you set provisioned capacity, IOPS, and throughput independently. Classic file shares also support the provisioned v1 billing model, in which IOPS and throughput scale automatically with provisioned capacity. For details on both models, see [Understand Azure Files billing](understanding-billing.md).
+NFS Azure file shares support SSD and HDD. Both resource providers support the provisioned v2 billing model, which lets you set provisioned capacity, IOPS, and throughput independently. SSD classic file shares also support the provisioned v1 billing model, in which IOPS and throughput scale automatically with provisioned capacity. For details on both models, see [Understand Azure Files billing](understanding-billing.md).
 
 Typical I/O latencies for SSD Azure file shares are in the low-single-digit millisecond range for small I/O operations. Metadata-heavy workloads such as untar might experience higher latencies due to the high volume of open and close operations.
 

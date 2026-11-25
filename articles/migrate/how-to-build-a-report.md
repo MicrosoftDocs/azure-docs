@@ -1,6 +1,6 @@
 ---
-title: Build an Azure Migrate Report 
-description: Build Azure Migrate reports to analyze discovered on-premises servers and workloads and generate insights for migration planning.
+title: Build an Azure Catalyst Report 
+description: Build Azure Catalyst reports to analyze discovered on-premises servers and workloads and generate insights for migration planning.
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: how-to
@@ -12,11 +12,11 @@ ms.date: 03/25/2026
 
 # Build a report (preview) 
 
-This article explains how to build a report (preview) for on‑premises servers and workloads by using Azure Migrate. After completing this article, you’ll be able to generate a report by selecting the appropriate report type, migration preferences, and configuration options in an Azure Migrate project.  
+This article explains how to build a report (preview) for on‑premises servers and workloads by using Azure Catalyst. After completing this article, you’ll be able to generate a report by selecting the appropriate report type, migration preferences, and configuration options in an Azure Catalyst project.  
 
 In this article, you’ll learn how to:
 
-- Create a report on Azure Migrate.
+- Create a report on Azure Catalyst.
 - Select the appropriate report type, migration preferences, and configuration options.
 - Generate the report to review insights about your discovered servers and workloads.
 - After completing this section, you can generate migration and modernization reports.
@@ -25,8 +25,8 @@ In this article, you’ll learn how to:
 
 Before you build a report, ensure the following:
 
-- You’ve created an Azure Migrate project. You can use an existing project if it is available.
-After the project is created, the Azure Migrate: Discovery and assessment tool is automatically added. 
+- You’ve created an Azure Catalyst project. You can use an existing project if it is available.
+After you create the project, the Azure Catalyst: Discovery and assessment tool is automatically added. 
 - You’ve discovered your IT estate using one of the supported discovery sources for your scenario. 
 - All discovery errors are resolved.
 

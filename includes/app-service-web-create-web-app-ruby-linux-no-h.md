@@ -2,11 +2,11 @@
 title: "include file"
 description: "include file"
 services: app-service
-author: cephalin
+author: btardif
 ms.service: azure-app-service
 ms.topic: "include"
 ms.date: 07/10/2019
-ms.author: cephalin
+ms.author: byvinyal
 ms.custom: include file, devx-track-azurecli, linux-related-content
 ---
 

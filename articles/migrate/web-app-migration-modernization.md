@@ -20,7 +20,7 @@ Explore articles that explain how to migrate and modernize ASP.NET and Java web 
 
 Migrate your applications to Azure Kubernetes Service (AKS) for scalable, secure, and containerized deployment.
 
-- **ASP.NET app containerization and migration to AKS**: Use Azure Migrate: App Containerization to package ASP.NET apps without code access and deploy them on Azure Kubernetes Service. [Learn more](tutorial-app-containerization-aspnet-kubernetes.md).
+- **ASP.NET app containerization and migration to AKS**: Use Azure Catalyst: App Containerization to package ASP.NET apps without code access and deploy them on Azure Kubernetes Service. [Learn more](tutorial-app-containerization-aspnet-kubernetes.md).
 
 
 - **Java web app containerization and migration to Azure Kubernetes Service**: App Containerization to package Java apps running on Apache Tomcat without code access and deploy them on Azure Kubernetes Service. [Learn more](tutorial-app-containerization-java-kubernetes.md).

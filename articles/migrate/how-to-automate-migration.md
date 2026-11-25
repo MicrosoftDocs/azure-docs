@@ -1,6 +1,6 @@
 ---
-title: Automate agentless VMware migrations in Azure Migrate
-description: Describes how to use scripts to migrate a large number of VMware VMs in Azure Migrate
+title: Automate agentless VMware migrations in Azure Catalyst
+description: Describes how to use scripts to migrate a large number of VMware VMs in Azure Catalyst
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.manager: kmadnani
@@ -16,10 +16,10 @@ ms.custom: vmware-scenario-422, engagement-fy23
 
 # Scale migration of VMware VMs 
 
-This article helps you understand how to use scripts to migrate large number of VMware virtual machines (VMs) using the agentless method. To scale migrations, you use [Azure Migrate PowerShell module](tutorial-migrate-vmware-powershell.md). 
+This article helps you understand how to use scripts to migrate large number of VMware virtual machines (VMs) by using the agentless method. To scale migrations, use the [Azure Catalyst PowerShell module](tutorial-migrate-vmware-powershell.md). 
 
 
-The Azure Migrate VMware migration automation scripts are available for download in the [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) repo on GitHub. The scripts can be used to migrate VMware VMs to Azure using the agentless migration method. The Azure Migrate PowerShell commands used in these scripts are documented [here](tutorial-migrate-vmware-powershell.md).
+You can download the Azure Catalyst VMware migration automation scripts from the [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) repo on GitHub. Use the scripts to migrate VMware VMs to Azure by using the agentless migration method. The following article documents the Azure Catalyst PowerShell commands used in these scripts: [Migrate VMware VMs to Azure with Azure Catalyst PowerShell](tutorial-migrate-vmware-powershell.md).
 
 ## Current limitations
 - These scripts support migration of VMware VMs with all its disks. You can update the scripts if you want to selectively replicate the disks attached to a VMware VM. 
@@ -31,9 +31,11 @@ The Azure Migrate VMware migration automation scripts are available for download
 - We recommend that you complete the second tutorial to [assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure.
 - You must have the Azure PowerShell `Az` module. If you need to install or upgrade Azure PowerShell, follow this [guide to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
-## Install Azure Migrate PowerShell module
+<a name="install-azure-migrate-powershell-module"></a>
 
-The Azure Migrate PowerShell module is available in preview. You'll need to install the PowerShell module using the following command. 
+## Install Azure Catalyst PowerShell module
+
+The Azure Catalyst PowerShell module is available in preview. Install the PowerShell module by using the following command.
 
 ```azurepowershell
 Install-Module -Name Az.Migrate 
@@ -44,18 +46,18 @@ Once you have completed all the pre-requisites, you need to create a CSV file th
 The csv file is configurable so that you can use assessment recommendations and even specify if certain operations are not to be triggered for a particular VM. 
 
 > [!NOTE]
-> The same csv file can be used to migrate VMs in multiple Azure Migrate projects.
+> Use the same CSV file to migrate VMs in multiple Azure Catalyst projects.
 
 ### CSV file schema
 
 **Column Header** | **Description**
 --- | ---
-AZMIGRATEPROJECT_SUBSCRIPTION_ID | Provide Azure Migrate project subscription ID.
-AZMIGRATEPROJECT_RESOURCE_GROUP_NAME | Provide Azure Migrate resource group name.
-AZMIGRATEPROJECT_NAME | Provide the name of the Azure Migrate project in that you want to migrate servers. 
-SOURCE_MACHINE_NAME | Provide a friendly name (display name) for the discovered VM in the Azure Migrate project.
+AZMIGRATEPROJECT_SUBSCRIPTION_ID | Provide Azure Catalyst project subscription ID.
+AZMIGRATEPROJECT_RESOURCE_GROUP_NAME | Provide Azure Catalyst resource group name.
+AZMIGRATEPROJECT_NAME | Provide the name of the Azure Catalyst project in that you want to migrate servers. 
+SOURCE_MACHINE_NAME | Provide a friendly name (display name) for the discovered VM in the Azure Catalyst project.
 AZMIGRATEASSESSMENT_NAME | Provide the name of the assessment that needs to be leveraged for migration.
-AZMIGRATEGROUP_NAME | Provide the name of the group that was used for the Azure Migrate assessment.
+AZMIGRATEGROUP_NAME | Provide the name of the group that was used for the Azure Catalyst assessment.
 TARGET_RESOURCE_GROUP_NAME | Provide the name of the Azure resource group to which the VM needs to be migrated to.
 TARGET_VNET_NAME| Provide the name of the Azure Virtual Network that the migrated VM should use.
 TARGET_SUBNET_NAME | Provide the name of the subnet in the target virtual network that the migrated VM should use. If left blank, “default” subnet will be used.
@@ -106,15 +108,15 @@ Once the CSV is ready, you can execute the following steps to migrate your on-pr
 7 | AzMigrate_StopReplication.ps1 | Stops the replication for the VM after it has been successfully migrated or if you want to cancel the replication due to other reasons. The script creates a CSV output with the job details for each VM.
 
 
-The following scripts are invoked by other scripts for all Azure Migrate operations like enabling replication, starting test migration, updating VM properties and so on. Ensure that all the scripts are present in the same folder/path. 
+Other scripts invoke the following scripts for all Azure Catalyst operations like enabling replication, starting test migration, and updating VM properties. Ensure that all the scripts are in the same folder or path. 
 
 **Step #** | **Script Name** | **Description**
 --- | --- | ---
 1 | AzMigrate_Shared.ps1 | Common script containing functions for retrieving assessment properties (through API), discovered VMs, and replicating VMs. 
 2 | AzMigrate_CSV_Processor.ps1 | Common script containing functions used for csv file operations including loading, reading, and printing for logs. 
-3 | AzMigrate_Logger.ps1 | Common script invoked for generating the log file for Azure Migrate automation operations. The log file will be of the format log.Scriptname.Datetime.txt.
+3 | AzMigrate_Logger.ps1 | Common script invoked for generating the log file for Azure Catalyst automation operations. The log file is in the format `log.Scriptname.Datetime.txt`.
 
-In addition to the above, the folder also contains AzMigrate_Template.ps1 that contains the skeleton framework for building custom scripts for different Azure Migrate operations. 
+The folder also contains `AzMigrate_Template.ps1`, which provides the skeleton framework for building custom scripts for different Azure Catalyst operations.
 
 ### Script execution syntax
 
@@ -126,4 +128,4 @@ If you want to execute the script to start replication for VMs using the Input.c
 ".\AzMigrate_StartReplication.ps1" .\Input.csv 
 ```
 
-To learn more about using Azure PowerShell for migrating VMware VMs with Azure Migrate, follow the [tutorial](./tutorial-migrate-vmware-powershell.md).
+To learn more about using Azure PowerShell to migrate VMware VMs with Azure Catalyst, see the [tutorial](./tutorial-migrate-vmware-powershell.md).

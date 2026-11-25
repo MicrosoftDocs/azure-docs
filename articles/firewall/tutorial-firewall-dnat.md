@@ -6,7 +6,7 @@ author: varunkalyana
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 01/22/2026
-ms.author: varunkalyana
+ms.author: ashishj
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can publish web applications and control inbound Internet access to resources located in a subnet.
 ---

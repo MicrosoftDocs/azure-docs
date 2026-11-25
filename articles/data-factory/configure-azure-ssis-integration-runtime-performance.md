@@ -5,7 +5,7 @@ ms.date: 01/05/2024
 ms.topic: how-to
 ms.subservice: integration-services
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ---
 # Configure the Azure-SSIS Integration Runtime for high performance
 

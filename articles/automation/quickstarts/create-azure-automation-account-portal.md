@@ -8,7 +8,7 @@ ms.subservice: process-automation
 ms.custom: mvc, mode-ui, engagement-fy24
 #Customer intent: As an administrator, I want to create an Automation account so that I can further use the Automation services.
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

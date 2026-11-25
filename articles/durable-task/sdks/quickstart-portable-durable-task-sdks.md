@@ -1,6 +1,6 @@
 ---
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 title: "Quickstart: Create an App with Durable Task SDKs"
 titleSuffix: Durable Task
 description: Create orchestrations using Durable Task SDKs and the Durable Task Scheduler emulator with the fan-out/fan-in pattern for parallel processing. Get started now.
@@ -25,7 +25,7 @@ By the end of this quickstart, you'll have a working orchestration that fans out
 [!INCLUDE [preview-sample-limitations](../scheduler/includes/preview-sample-limitations.md)]
 
 > [!NOTE]
-> PowerShell support for the Durable Task SDKs is in preview. For a full quickstart experience, select a different language tab above (C#, Python, Java, JavaScript, or Go).
+> For a full quickstart experience, select a different language tab above (C#, Python, Java, JavaScript, or Go). For PowerShell workflows, use [Durable Functions](../common/what-is-durable-task.md).
 
 ::: zone-end
 
@@ -54,7 +54,7 @@ Before you begin:
 
 ::: zone pivot="python"
 
-- Make sure you have [Python 3.9+](https://www.python.org/downloads/) or later.
+- Make sure you have [Python 3.11](https://www.python.org/downloads/) or later.
 - Install [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
     
@@ -82,7 +82,7 @@ Before you begin:
 - Install [Docker](https://www.docker.com/products/docker-desktop/) or a compatible container runtime.
 
 > [!NOTE]
-> The Go SDK is in beta. This quickstart uses `github.com/microsoft/durabletask-go@v1.0.0-beta3` and creates a new self-hosted Go app. You don't need an Azure subscription or sample repository checkout.
+> The Go SDK is in beta. This quickstart uses `github.com/microsoft/durabletask-go@v1.0.0-beta3` and creates a new self-hosted Go app. The beta tag avoids selecting the legacy stable SDK, which lacks Durable Task Scheduler integration. You don't need an Azure subscription or sample repository checkout.
 
 ::: zone-end
 

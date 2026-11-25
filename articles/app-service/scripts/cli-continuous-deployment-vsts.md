@@ -1,14 +1,14 @@
 ---
 title: Continuous Deployment from Azure Repos
 description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to set up CI/CD from Azure Repos.
-author: msangapu-msft
+author: btardif
 tags: azure-service-management
 
 ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/08/2025
-ms.author: msangapu
+ms.author: byvinyal
 ms.custom: mvc, devx-track-azurecli
 ms.service: azure-app-service
 ---

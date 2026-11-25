@@ -2,7 +2,7 @@
 title: "Migrate Durable Functions from in-process to isolated worker (.NET)"
 description: Step-by-step guide to migrate your .NET Durable Functions app from the in-process model to the isolated worker model. Includes code examples, API mapping, and troubleshooting.
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.reviewer: azfuncdf
 ms.date: 05/20/2026
 ms.topic: concept-article
@@ -71,8 +71,8 @@ Apps that show `dotnet` as the runtime use the in-process model. Apps that show 
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="2.13.0" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.6.0" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="3.17.0" />
   </ItemGroup>
 </Project>
 ```
@@ -90,18 +90,20 @@ Apps that show `dotnet` as the runtime use the in-process model. Apps that show 
   </PropertyGroup>
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.17.2" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="1.2.1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.14.1" />
-    <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.22.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="1.2.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.52.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.21.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.23.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="2.51.0" />
   </ItemGroup>
   <ItemGroup>
     <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext"/>
   </ItemGroup>
 </Project>
 ```
+
+Choose package versions for your target .NET runtime from the [isolated worker guide](../../azure-functions/dotnet-isolated-process-guide.md). The Application Insights example retains the 2.x SDK for compatibility with the classic telemetry integration.
 
 The main changes are switching to an executable output type and replacing all `Microsoft.Azure.WebJobs.*` packages with their `Microsoft.Azure.Functions.Worker.*` equivalents.
 
@@ -385,10 +387,10 @@ Review these changes before testing your migrated app. For the complete API-by-A
 > **Serialization default changed**: The isolated worker uses `System.Text.Json` by default instead of `Newtonsoft.Json`. If your orchestrations pass complex objects, test serialization carefully. See [JSON serialization differences](#issue-json-serialization-differences) for configuration options.
 
 > [!WARNING]
-> **ContinueAsNew default change**: The `preserveUnprocessedEvents` parameter default changed from `false` (2.x) to `true` (isolated). If your orchestration uses `ContinueAsNew` and relies on unprocessed events being discarded, explicitly pass `preserveUnprocessedEvents: false`.
+> **ContinueAsNew default change**: The `preserveUnprocessedEvents` parameter default changed from `false` in the legacy in-process API to `true` in the isolated worker API. If your orchestration uses `ContinueAsNew` and relies on unprocessed events being discarded, explicitly pass `preserveUnprocessedEvents: false`.
 
 > [!NOTE]
-> **RestartAsync default change**: The `restartWithNewInstanceId` parameter default changed from `true` (2.x) to `false` (isolated). If your code calls `RestartAsync` and depends on a new instance ID being generated, explicitly pass `restartWithNewInstanceId: true`.
+> **RestartAsync default change**: The `restartWithNewInstanceId` parameter default changed from `true` in the legacy in-process API to `false` in the isolated worker API. If your code calls `RestartAsync` and depends on a new instance ID being generated, explicitly pass `restartWithNewInstanceId: true`.
 
 Other notable changes:
 
@@ -558,7 +560,7 @@ var host = new HostBuilder()
 ```
 
 > [!NOTE]
-> This approach requires the `Newtonsoft.Json` and `Azure.Core.Serialization` NuGet packages.
+> This approach requires the `Microsoft.Azure.Core.NewtonsoftJson` NuGet package, which supplies `NewtonsoftJsonObjectSerializer` in the `Azure.Core.Serialization` namespace and depends on `Newtonsoft.Json`.
 
 ## Checklist
 

@@ -3,7 +3,7 @@ title: Azure RBAC Permissions
 titleSuffix: Azure Network Watcher
 description: Learn which Azure role-based access control (Azure RBAC) permissions you need to use Network Watcher and its capabilities.
 author: halkazwini
-ms.author: halkazwini
+ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 07/30/2026
@@ -95,9 +95,6 @@ Because enabling traffic analytics is part of the flow log resource, you need th
 <sup>1</sup> Required on the Log Analytics workspace subscription when using traffic analytics with virtual network flow logs.
 
 [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
-
-> [!IMPORTANT]
-> [Management group](../governance/management-groups/overview.md?toc=/azure/network-watcher/toc.json) inherited permissions aren't currently supported for enabling traffic analytics.
 
 ## Connection troubleshoot
 

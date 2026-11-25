@@ -2,7 +2,7 @@
 title: "Quickstart: Create a Java Durable Functions app"
 description: Run a Java Durable Functions sample app with function chaining and fan-out/fan-in patterns using the Durable Task Scheduler emulator. Get started now.
 author: hhunter-ms
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ms.topic: quickstart
 ms.service: durable-task
 ms.subservice: durable-functions

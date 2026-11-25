@@ -6,7 +6,7 @@ ms.service: azure-batch
 ms.date: 06/16/2026
 ms.custom: devx-track-terraform
 author: TomArcherMsft
-ms.author: tarcher
+ms.author: mattmcinnes
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

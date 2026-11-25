@@ -2,7 +2,7 @@
 title: What is Azure Resource Mover?
 description: Learn about Azure Resource Mover.
 author: RochakSingh-blr
-ms.author: v-rochak2
+ms.author: bhappayy
 ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: overview

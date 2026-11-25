@@ -4,8 +4,9 @@ description: Understand the data redundancy options available for Azure file sha
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 11/14/2026
-ms.author: kendownie
+ms.date: 11/18/2026
+ai-usage: ai-assisted
+ms.author: normesta
 ms.custom: references_regions
 # Customer intent: "As a data engineer, I want to select the appropriate data redundancy option for Azure file shares, so that I can ensure optimal availability and disaster recovery tailored to my organization's needs."
 ---
@@ -22,6 +23,9 @@ When deciding which redundancy option is best for your scenario, consider the tr
 Azure classic file shares created with the Microsoft.Storage resource provider are managed through a common Azure resource called a *storage account*. The storage account represents a shared pool of storage that can be used to deploy file shares. For more information about storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
 When you create a storage account, you choose a redundancy setting for the storage account that's shared for all storage services exposed by that account. Therefore, all file shares deployed in the same storage account have the same redundancy setting. You might want to isolate file shares in separate storage accounts if they have different redundancy requirements.
+
+> [!IMPORTANT]
+> NFS HDD file shares in preview support only LRS.
 
 ## Redundancy in the primary region
 
@@ -47,7 +51,7 @@ LRS is a good choice for the following scenarios:
 - If your application stores data that can be easily reconstructed if data loss occurs.
 - If your application is restricted to replicating data only within a country or region due to data governance requirements. In some cases, the paired regions across which the data is geo-replicated might be in another country or region. For more information, see [Azure region pairs and nonpaired regions](/azure/reliability/regions-paired).
 
-LRS is supported in all Azure regions for HDD (standard) file shares. For a list of regions that support LRS for SSD (premium) file shares, see [LRS support for SSD file shares](redundancy-premium-file-shares.md#lrs-support-for-ssd-classic-file-shares).
+All Azure regions support LRS for HDD (standard) SMB file shares. For a list of regions that support LRS for SSD (premium) file shares, see [LRS support for SSD file shares](redundancy-premium-file-shares.md#lrs-support-for-ssd-classic-file-shares).
 
 ### Zone-redundant storage
 
@@ -72,7 +76,7 @@ ZRS provides excellent performance, low latency, and resiliency for your data if
 
 ZRS is supported for both SSD and HDD file shares. To see which regions support ZRS for each media tier, refer to the following resources:
 
-- **HDD file shares**: See the availability zone support column in the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1).
+- **HDD SMB file shares**: See the availability zone support column in the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1).
 - **SSD file shares**: See [ZRS support for SSD file shares](redundancy-premium-file-shares.md#zrs-support-for-ssd-classic-file-shares).
 
 ## Redundancy in a secondary region
@@ -80,7 +84,7 @@ ZRS is supported for both SSD and HDD file shares. To see which regions support 
 For applications requiring high durability for SMB file shares, you can choose geo-redundant storage to copy the data in your storage account to a secondary region that is hundreds of miles away from the primary region. If your storage account is copied to a secondary region, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.
 
 > [!IMPORTANT]
-> Azure Files only supports geo-redundancy (GRS or GZRS) for HDD file shares. SSD file shares must use LRS or ZRS. Additionally, unlike other Azure storage services, Azure Files doesn't support read access to data in the secondary region without initiating a failover. RA-GRS and RA-GZRS aren't supported. If you configure a storage account to use RA-GRS or RA-GZRS, file shares in that account are automatically treated as GRS or GZRS.
+> Azure Files only supports geo-redundancy (GRS or GZRS) for HDD SMB file shares. SSD file shares must use LRS or ZRS, and NFS HDD file shares must use LRS. Unlike other Azure storage services, Azure Files doesn't support read access to data in the secondary region without initiating a failover. RA-GRS and RA-GZRS aren't supported. If you configure a storage account to use RA-GRS or RA-GZRS, file shares in that account are automatically treated as GRS or GZRS.
 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For more information about regions supported by Azure, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1).
 
@@ -164,7 +168,7 @@ The following table describes key parameters for each redundancy option:
 
 | Parameter | LRS | ZRS | GRS | GZRS |
 |:-|:-|:-|:-|:-|
-| Percent durability of over a given year | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
+| Percent durability over a given year | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
 | Availability for read requests | At least 99.9% (99% for Cool tier) | At least 99.9% (99% for Cool tier) | At least 99.9% (99% for Cool tier) | At least 99.9% (99% for Cool tier) |
 | Availability for write requests | At least 99.9% (99% for Cool tier) | At least 99.9% (99% for Cool tier) | At least 99.9% (99% for Cool tier) | At least 99.9% (99% for Cool tier) |
 | Number of copies of data maintained on separate nodes | Three copies across one or more availability zones within a region | Three copies across separate availability zones within a single region | Six copies total, including three in the primary region and three in the secondary region | Six copies total, including three across separate availability zones in the primary region and three locally redundant copies in the secondary region |

@@ -3,8 +3,8 @@ title: Secure OpenAPI tool calls from Foundry Agent Service
 description: Configure Microsoft Entra authentication to secure Microsoft Foundry tool calls with managed identity, step by step.
 ms.topic: how-to
 ms.date: 08/25/2026
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days

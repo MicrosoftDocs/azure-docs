@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: concept-article
 ms.date: 02/12/2021
-ms.author: sipastak
+ms.author: scompton
 ---
 
 # Azure Stack Edge Pro R safety instructions

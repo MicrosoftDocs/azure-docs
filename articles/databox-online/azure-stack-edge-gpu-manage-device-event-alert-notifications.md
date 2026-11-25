@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/13/2023
-ms.author: sipastak
+ms.author: scompton
 ---
 # Use alert processing rules to manage alert notifications on Azure Stack Edge devices
 

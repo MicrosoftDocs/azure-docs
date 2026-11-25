@@ -5,7 +5,7 @@ description: Learn how role assignment in different when migrating from lab acco
 services: lab-services
 ms.service: azure-lab-services
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 04/20/2023
 ---

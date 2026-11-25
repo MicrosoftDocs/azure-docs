@@ -8,7 +8,7 @@ ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/28/2023
-ms.author: sipastak
+ms.author: scompton
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro GPU device so that I can deploy VMs on the device.
 ---
 

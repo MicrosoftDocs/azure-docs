@@ -6,7 +6,7 @@ ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
 manager: pmwongera
-ms.author: rolyon
+ms.author: diberry
 ms.date: 07/01/2026
 ms.custom: generated
 ---

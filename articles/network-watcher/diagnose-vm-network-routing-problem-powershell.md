@@ -6,7 +6,7 @@ author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 02/25/2026
-ms.author: halkazwini
+ms.author: hufurnit
 ms.custom: devx-track-azurepowershell
 
 # Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.

@@ -3,7 +3,7 @@ title: Edge Actions
 titleSuffix: Azure Front Door
 description: Enhance security and performance with Azure Front Door edge actions. Learn how to create, manage, and attach custom JavaScript logic to your routes.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 11/05/2026
@@ -30,6 +30,9 @@ Edge Actions support both **client request** and **client response** invocations
 - URL rewrite
 - URL redirect
 - JSON Web Token (JWT) validation
+
+> [!IMPORTANT]
+> Client response invocations are temporarily unavailable due to a known issue. Existing edge actions configured for this invocation phase won't execute until the issue is resolved. A fix is targeted for December 11, 2026.
 
 ### JavaScript samples for supported scenarios
 
@@ -88,6 +91,9 @@ When you configure an Edge Action with the **Client Response** invocation point,
 1. The rules engine invokes the Edge Action at the **Client Response** invocation point and routes the response to it.
 
 1. The Edge Action runs in its execution environment and modifies the response properties.
+
+> [!IMPORTANT]
+> Client response invocations are temporarily unavailable due to a known issue. Existing edge actions configured for this invocation phase won't execute until the issue is resolved. A fix is targeted for December 11, 2026.
 
 ### Execution environment
 

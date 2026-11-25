@@ -1,8 +1,8 @@
 ---
 title: Release Notes for AppCAT 7
-description: Azure Migrate application and code assessment tool - release notes.
+description: Azure Catalyst application and code assessment tool - release notes.
 author: KarlErickson
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.service: azure-java
 ms.subservice: java-fundamentals
@@ -14,7 +14,7 @@ ms.date: 06/24/2026
 
 # Release notes
 
-This article provides the release notes for Azure Migrate application and code assessment for Java (AppCAT 7). It includes information about new features, bug fixes, and known issues.
+This article provides the release notes for Azure Catalyst application and code assessment for Java (AppCAT 7). It includes information about new features, bug fixes, and known issues.
 
 ## Release history
 

@@ -387,7 +387,12 @@ public static async Task<HttpResponseData> GetCounter(
 {
     var entityId = new EntityInstanceId("Counter", entityKey);
     EntityMetadata<int>? entity = await client.Entities.GetEntityAsync<int>(entityId);
-    HttpResponseData response = request.CreateResponse(HttpStatusCode.OK);
+    if (entity is null)
+    {
+        return req.CreateResponse(HttpStatusCode.NotFound);
+    }
+
+    HttpResponseData response = req.CreateResponse(HttpStatusCode.OK);
     await response.WriteAsJsonAsync(entity.State);
 
     return response;
@@ -676,6 +681,9 @@ namespace MyNamespace
 
 The following snippet demonstrates how to incorporate the injected service into your entity class:
 
+> [!NOTE]
+> In the .NET in-process model, the function entry point for class-based entities must be declared `static` and use `IDurableEntityContext.DispatchAsync<T>()`. An instance entry point can cause conflicts between the Azure Functions object initializer and the Durable Entities object initializer.
+
 ```csharp
 public class HttpEntity
 {
@@ -687,7 +695,7 @@ public class HttpEntity
         this.client = factory.CreateClient();
     }
 
-    public Task<int> GetAsync(string url)
+    public async Task<int> GetAsync(string url)
     {
         using (var response = await this.client.GetAsync(url))
         {
@@ -764,6 +772,9 @@ public class Program
 
 The following example demonstrates how to incorporate the injected service into your entity class:
 
+> [!NOTE]
+> In the .NET isolated model, both the static `TaskEntityDispatcher.DispatchAsync<T>()` pattern below and the instance entry point that calls `dispatcher.DispatchAsync(this)` shown earlier are valid. The in-process restriction doesn't prohibit isolated instance dispatch.
+
 ```csharp
 public class HttpEntity : TaskEntity<object?>
 {
@@ -789,9 +800,6 @@ public class HttpEntity : TaskEntity<object?>
 
 > [!NOTE]
 > To avoid issues with serialization, make sure to exclude fields that store injected values from the serialization.
-
-> [!NOTE]
-> Unlike when using constructor injection in regular .NET Azure Functions, the functions entry point method for class-based entities *must* be declared `static`. Declaring a function entry point that isn't static can cause conflicts between the normal Azure Functions object initializer and the Durable Entities object initializer.
 
 ## Function-based syntax
 

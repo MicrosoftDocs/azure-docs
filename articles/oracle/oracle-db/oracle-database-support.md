@@ -1,13 +1,13 @@
 ---
 title: Support for Oracle AI Database@Azure 
 description: Learn about support for Oracle AI Database@Azure.
-author: jjaygbay1
+author: vaidehikher18
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: overview
 ms.date: 04/15/2025
 ms.custom: engagement-fy23
-ms.author: jacobjaygbay
+ms.author: vaidehikher
 # Customer intent: "As a database administrator managing Oracle AI Database on Azure, I want clear guidance on support procedures and contacts for both Oracle and Azure, so that I can efficiently resolve any issues and maintain optimal database performance."
 ---
 

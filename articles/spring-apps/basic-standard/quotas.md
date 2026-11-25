@@ -1,12 +1,12 @@
 ---
 title: Service Plans and Quotas for Azure Spring Apps
 description: Learn about service quotas and service plans for Azure Spring Apps.
-author: KarlErickson
+author: sandeep-sen
 ms.service: azure-spring-apps
 ms.topic: limits-and-quotas
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
-ms.author: karler
+ms.author: sandeepsen
 ms.custom: devx-track-java
 ---
 

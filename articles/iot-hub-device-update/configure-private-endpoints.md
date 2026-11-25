@@ -1,8 +1,8 @@
 ---
 title: Configure private endpoints for Device Update for IoT Hub accounts
 description: This article describes how to configure private endpoints for Device Update for IoT Hub account. 
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.date: 07/06/2022
 ms.topic: how-to
 ms.service: azure-iot-hub

@@ -17,7 +17,7 @@ ms.custom: engagement-fy24
 
 This article describes how to add code insights by using GitHub Copilot modernization when you're migrating applications to Azure services. Adding code insights helps you better assess migration readiness and get recommendations for migration strategies based on the code changes identified during the scan.
 
-Code insights for web apps provide changes required to modernize them to Azure Kubernetes Service (AKS) and Azure App Service. Code changes for an application are an aggregate of code changes for its child web apps.
+Code insights for web apps provide changes required to modernize them to Azure Kubernetes Service (AKS), Azure Container Apps, and Azure App Service. Code changes for an application are an aggregate of code changes for its child web apps.
 
 In this article, you learn how to:
 
@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 You can add code insights by using any of the following methods:
 
-- **Use the GitHub Copilot Modernize CLI**. Use this method to run an at-scale assessment for multiple web apps simultaneously, with automated report upload to Azure Migrate. This approach allows cloud administrators and application developers to collaborate while adhering to their organization's code security guidelines.
+- **Use the GitHub Copilot Modernize CLI**. Use this method to run an at-scale assessment for multiple web apps simultaneously, with automated report upload to Azure Catalyst. This approach allows cloud administrators and application developers to collaborate while adhering to their organization's code security guidelines.
 - **Upload by using a ZIP file**. Use this method when you already have a code scan report or permissions to generate one. It requires manual mapping of reports to each web app.
 - **Request a report through a GitHub issue**. Use this method when you can't generate a code insights report yourself or you don't have access to the code repository.
 
@@ -39,29 +39,31 @@ You can add code insights by using any of the following methods:
 
 Using the GitHub Copilot Modernize CLI enables at-scale code assessment for multiple applications and web apps, with source code spread across multiple repositories.
 
-First, you download a configuration file from Azure Migrate that contains details of all the web apps. You then update the mapping of web apps to repositories and run the assessment by using the GitHub Copilot Modernize CLI. Code changes are automatically mapped back to Azure Migrate for the corresponding applications and web apps.
+First, download a configuration file from Azure Catalyst that contains details of all the web apps. Then update the mapping of web apps to repositories and run the assessment by using the GitHub Copilot Modernize CLI. Code changes automatically map back to Azure Catalyst for the corresponding applications and web apps.
 
-### Prerequisites for Azure Migrate users
+### Prerequisites for Azure Catalyst users
 
-- An Azure Migrate project with successful discovery of applications and web apps.
+- An Azure Catalyst project with successful discovery of applications and web apps.
 - ASP.NET or Java web apps. These types of web apps are supported.
-- Azure App Service or Azure Kubernetes Service. Code insights are supported for these Azure targets.
+- Azure App Service, Azure Container Apps, or Azure Kubernetes Service. Code insights are supported for these Azure targets.
 
 ### Prerequisites for GitHub Copilot Modernize CLI users
 
 - A GitHub Copilot Free, Pro, Pro+, Business, or Enterprise license.
 - Installation of the Azure CLI and GitHub Copilot Modernize CLI. Sign in to Azure and GitHub Copilot.
-- The [Decide and Plan Expert role](/azure/migrate/prepare-azure-accounts) or higher privileges to the Azure Migrate project.
+- The [Decide and Plan Expert role](/azure/migrate/prepare-azure-accounts) or higher privileges to the Azure Catalyst project.
 
 For detailed installation steps, see the Modernize CLI [instructions](/azure/developer/github-copilot-app-modernization/modernization-agent/quickstart).
 
-### Download the configuration file from Azure Migrate
+<a name="download-the-configuration-file-from-azure-migrate"></a>
+
+### Download the configuration file from Azure Catalyst
 
 1. Generate the configuration file by using any of these methods:
 
-    - On the Azure Migrate **Overview** page, under **Explore Applications**, select **Applications**.
-    - On the Azure Migrate **Overview** page, under **Explore inventory**, select **Web apps**.
-    - On the Azure Migrate **Overview** page, under **Decide and Plan**, select **Assessments**. Choose the relevant application assessment or web app assessment.
+    - On the Azure Catalyst **Overview** page, under **Explore Applications**, select **Applications**.
+    - On the Azure Catalyst **Overview** page, under **Explore inventory**, select **Web apps**.
+    - On the Azure Catalyst **Overview** page, under **Decide and Plan**, select **Assessments**. Choose the relevant application assessment or web app assessment.
 
 1. Select the applications or web apps for which you want to add code insights. Then select **Add code insights** > **GitHub Copilot modernization**.
 
@@ -89,13 +91,13 @@ For detailed installation steps, see the Modernize CLI [instructions](/azure/dev
 
 1. Repeat the preceding steps for all web apps in the configuration file.
 
-1. Open the GitHub Copilot Modernize CLI. Authenticate to GitHub Copilot and Azure by using `gh auth login` and `az login`. Ensure that the user running the Modernize CLI has the Decide and Plan Expert role assigned for the Azure Migrate project.
+1. Open the GitHub Copilot Modernize CLI. Authenticate to GitHub Copilot and Azure by using `gh auth login` and `az login`. Ensure that the user running the Modernize CLI has the Decide and Plan Expert role assigned for the Azure Catalyst project.
 
 1. Run `modernize assess --source <local path to configuration file>`. The code assessment might take a few minutes to finish.
 
-1. After a successful code assessment, reports are automatically pushed to Azure Migrate. You receive the message `Distribution complete: m/n app(s) distributed`.
+1. After a successful code assessment, reports are automatically pushed to Azure Catalyst. You receive the message `Distribution complete: m/n app(s) distributed`.
 
-1. Code changes are automatically updated for the selected applications and web apps in Azure Migrate.
+1. Code changes are automatically updated for the selected applications and web apps in Azure Catalyst.
 
 ## View code insights
 
@@ -117,7 +119,7 @@ For detailed installation steps, see the Modernize CLI [instructions](/azure/dev
 
 ## Manually upload code scan reports by using a ZIP file
 
-You can generate a code scan report manually and upload it as a ZIP file to Azure Migrate.
+You can generate a code scan report manually and upload it as a ZIP file to Azure Catalyst.
 
 ### Prerequisites
 
@@ -158,9 +160,9 @@ You can generate a code assessment report by using the GitHub Copilot modernizat
 
 1. Add a code assessment report by using any of these methods:
 
-    - On the Azure Migrate **Overview** page, under **Explore inventory**, select **Web apps**.
-    - On the Azure Migrate **Overview** page, under **Explore Applications**, select **Applications**.
-    - On the Azure Migrate **Overview** page, under **Decide and Plan**, select **Assessments**. Choose the application assessment or web app assessment.
+    - On the Azure Catalyst **Overview** page, under **Explore inventory**, select **Web apps**.
+    - On the Azure Catalyst **Overview** page, under **Explore Applications**, select **Applications**.
+    - On the Azure Catalyst **Overview** page, under **Decide and Plan**, select **Assessments**. Choose the application assessment or web app assessment.
 
 1. Select the applications or web apps for which you want to add code insights. Then select **Add code insights** > **GitHub Copilot modernization**.
 
@@ -190,14 +192,14 @@ You can generate a code assessment report by using the GitHub Copilot modernizat
 
 ## Request a report via GitHub
 
-Requesting a report via GitHub connects Azure Migrate to a GitHub repository by using the provided connection details and automatically creates an issue in that repository. By using the GitHub Copilot modernization extension, you can scan your code and upload reports directly to the related GitHub issue.
+Requesting a report via GitHub connects Azure Catalyst to a GitHub repository by using the provided connection details and automatically creates an issue in that repository. By using the GitHub Copilot modernization extension, you can scan your code and upload reports directly to the related GitHub issue.
 
-After you update the issue, Azure Migrate automatically attaches the code scan reports to the associated web applications. This approach allows cloud administrators and developers to collaborate while maintaining security boundaries for application code.
+After you update the issue, Azure Catalyst automatically attaches the code scan reports to the associated web applications. This approach allows cloud administrators and developers to collaborate while maintaining security boundaries for application code.
 
 ### Prerequisites
 
 - Ensure that a web app assessment exists for each web app, because you can add code scan reports only to an existing assessment.
-- Provide information about the GitHub repository required for integration with Azure Migrate, to allow automatic requests and synchronization of code scan reports.
+- Provide information about the GitHub repository required for integration with Azure Catalyst, to allow automatic requests and synchronization of code scan reports.
 - Provide GitHub application details with permissions to create issues and read comments in the target repository.
 
 ### Create a new GitHub app
@@ -263,7 +265,7 @@ After you update the issue, Azure Migrate automatically attaches the code scan r
 
 #### Get GitHub app details and the private key to create a GitHub connection
 
-Collect the following GitHub app details and private key, and create a GitHub connection in Azure Migrate.
+Collect the following GitHub app details and private key, and create a GitHub connection in Azure Catalyst.
 
 1. Go to the GitHub app that you created and select **Edit**.
 
@@ -284,9 +286,9 @@ Collect the following GitHub app details and private key, and create a GitHub co
 
 1. Add a code assessment report by using any of these methods:
 
-    - On the Azure Migrate **Overview** page, under **Explore inventory**, select **Web apps**.
-    - On the Azure Migrate **Overview** page, under **Explore Applications**, select **Applications**.
-    - On the Azure Migrate **Overview** page, under **Decide and Plan**, select **Assessments**. Choose the application assessment or web app assessment.
+    - On the Azure Catalyst **Overview** page, under **Explore inventory**, select **Web apps**.
+    - On the Azure Catalyst **Overview** page, under **Explore Applications**, select **Applications**.
+    - On the Azure Catalyst **Overview** page, under **Decide and Plan**, select **Assessments**. Choose the application assessment or web app assessment.
 1. Under **Add code insights**, select **Using GitHub Copilot assessment**.
 
     :::image type="content" source="./media/add-copilot-code-insights/github-copilot-assessment.png" alt-text="Screenshot that shows how to add code insights by using a GitHub copilot assessment." lightbox="./media/add-copilot-code-insights/github-copilot-assessment.png":::
@@ -299,7 +301,7 @@ Collect the following GitHub app details and private key, and create a GitHub co
     | --- | --- |
     | **Connection name** | Provide a name for the connection. This name appears in the list when you add a report to the web app. |
     | **GitHub repository URL** | Specify the GitHub repository for creating an issue to request a code scan report. Upload the code scan report to this issue by using GitHub Copilot. </br> </br> Use this repository only to create GitHub issues and read code scan reports from those issues. You don't need to include application code in this repository. |
-    | **App ID** | Enter the app ID of the GitHub app that you created, to allow Azure Migrate access. |
+    | **App ID** | Enter the app ID of the GitHub app that you created, to allow Azure Catalyst access. |
     | **Private Key** | Copy all the contents of the private key file that you generated for your GitHub app. |
     | **Installation ID** | Enter the installation ID of the GitHub app installed on the repository that you specified earlier. |
 
@@ -315,9 +317,9 @@ Collect the following GitHub app details and private key, and create a GitHub co
 
     :::image type="content" source="./media/add-copilot-code-insights/request-report-via-github.png" alt-text="Screenshot that shows how to request a report via GitHub." lightbox="./media/add-copilot-code-insights/request-report-via-github.png":::
 
-1. Azure Migrate creates a GitHub issue in the repository that you specified in the connection details.
+1. Azure Catalyst creates a GitHub issue in the repository that you specified in the connection details.
 
-1. When the code scan report is uploaded to the GitHub issue, Azure Migrate automatically maps the report to the web app and corresponding applications.
+1. When the code scan report is uploaded to the GitHub issue, Azure Catalyst automatically maps the report to the web app and corresponding applications.
 
 1. After the mapping is complete, the **Code changes** column on pages for applications and web apps shows **Available**. All assessments for the selected applications or web apps are marked as outdated. Select **Recalculate** to start recalculation.
 
@@ -334,7 +336,7 @@ Collect the following GitHub app details and private key, and create a GitHub co
 
 ## Troubleshoot
 
-This section helps you resolve problems related to code insights in Azure Migrate.
+This section helps you resolve problems related to code insights in Azure Catalyst.
 
 ### GitHub Copilot Modernize CLI
 
@@ -342,10 +344,10 @@ This section helps you resolve problems related to code insights in Azure Migrat
 
 **Unable to generate a code assessment in the GitHub Copilot Modernize CLI**: Ensure that the installation is complete, you met the [prerequisites](/azure/developer/github-copilot-app-modernization/modernization-agent/quickstart), and the user has permissions to the source code repository.
 
-**Unable to view code changes in Azure Migrate**: If you successfully generated code insights by using the Modernize CLI but you can't view code changes in Azure Migrate, follow these guidelines to view code changes:
+**Unable to view code changes in Azure Catalyst**: If you successfully generated code insights by using the Modernize CLI but you can't view code changes in Azure Catalyst, follow these guidelines to view code changes:
 
 - Ensure that code assessment is completed successfully for all web apps.
-- Ensure that the user running the Modernize CLI has Decide and Plan Expert role permissions to the Azure Migrate project.
+- Ensure that the user running the Modernize CLI has Decide and Plan Expert role permissions to the Azure Catalyst project.
 - Ensure that the relevant web apps are included in the downloaded configuration file.
 - Ensure that the framework of web apps in the configuration file is the same as the mapped code repository.
 
@@ -378,12 +380,12 @@ If you get any of these errors, remove the invalid or extra files and re-create 
 
 Even if the ZIP file meets all guidelines and is processed, the reports might not appear for every file in it. The reason can be JSON schema incompatibility or unsupported targets in the report file.
 
-When this problem occurs, Azure Migrate uses content from valid files to generate the report. Files that fail validation return errors like the following examples.
+When this problem occurs, Azure Catalyst uses content from valid files to generate the report. Files that fail validation return errors like the following examples.
 
 | Error | Reason |
 | ----- | ----- |
 | The report content is invalid or not in the expected JSON format. | The JSON report schema is invalid or incompatible. |
-| The report doesn't contain supported targets for the specified framework. | The report includes targets that Azure Migrate doesn't support. AppCAT supports many targets, but Azure Migrate supports only a subset. |
+| The report doesn't contain supported targets for the specified framework. | The report includes targets that Azure Catalyst doesn't support. AppCAT supports many targets, but Azure Catalyst supports only a subset. |
 
 When you encounter these errors, regenerate the report with the correct configuration and upload it again by using a separate import flow.
 

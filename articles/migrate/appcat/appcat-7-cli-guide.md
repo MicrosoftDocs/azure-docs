@@ -1,8 +1,8 @@
 ---
 title: CLI Command Guide for AppCAT 7
-description: Learn how to run the CLI for Azure Migrate application and code assessment tool.
+description: Learn how to run the CLI for Azure Catalyst application and code assessment tool.
 author: KarlErickson
-ms.author: karler
+ms.author: sandeepsen
 ms.reviewer: seal
 ms.service: azure-java
 ms.subservice: java-fundamentals

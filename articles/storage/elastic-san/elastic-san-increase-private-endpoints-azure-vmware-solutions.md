@@ -56,4 +56,4 @@ After creating the new datastore, use storage vMotion to relocate all VMs and te
 
 ## Next steps
 
-Learn more about [managing Azure VMware Solution datastores](https://learn.microsoft.com/azure/azure-vmware/).
+Learn more about [managing Azure VMware Solution datastores](/azure/azure-vmware/).

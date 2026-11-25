@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL least privilege configuration
-description: Learn how to securely set up a minimally privileged PostgreSQL account for Azure Migrate without requiring superuser access, using a built-in utility to streamline configuration and enhance security.
+description: Learn how to securely set up a minimally privileged PostgreSQL account for Azure Catalyst without requiring superuser access, using a built-in utility to streamline configuration and enhance security.
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.service: azure-migrate 
@@ -8,26 +8,26 @@ ms.topic: concept-article
 ms.date: 08/01/2025
 ms.update-cycle: 1825-days
 ms.custom: engagement-fy24 
-# Customer intent: Customers want to securely configure Azure Migrate for PostgreSQL discovery by creating custom accounts with minimal permissions. The goal is to avoid using superuser access while ensuring the appliance can collect necessary metadata for assessment.
+# Customer intent: Customers want to securely configure Azure Catalyst for PostgreSQL discovery by creating custom accounts with minimal permissions. The goal is to avoid using superuser access while ensuring the appliance can collect necessary metadata for assessment.
 ---
 
-# Create a least-privilege PostgreSQL account for Azure Migrate discovery and assessment (preview)
+# Create a least-privilege PostgreSQL account for Azure Catalyst discovery and assessment (preview)
 
-This article explains how to create a custom PostgreSQL account with the minimum permissions required for Discovery and Assessment in Azure Migrate.
+This article explains how to create a custom PostgreSQL account with the minimum permissions required for Discovery and Assessment in Azure Catalyst.
 
-Before starting discovery, configure the Azure Migrate appliance with PostgreSQL accounts to connect to your PostgreSQL instances. To avoid using superuser accounts, you can create a custom account with only the permissions needed to collect metadata for discovery and assessment. Add this custom account in the Appliance configuration for PostgreSQL Discovery and Assessment. You can use the least privileged account provisioning utility provided in this documentation to simplify the setup.
+Before starting discovery, configure the Azure Catalyst appliance with PostgreSQL accounts to connect to your PostgreSQL instances. To avoid using superuser accounts, you can create a custom account with only the permissions needed to collect metadata for discovery and assessment. Add this custom account in the Appliance configuration for PostgreSQL Discovery and Assessment. You can use the least privileged account provisioning utility provided in this documentation to simplify the setup.
 
 ## Prerequisites
 
 - A running and accessible PostgreSQL server.
 - Superuser access to the PostgreSQL instance.
-- An Azure Migrate project set up.
+- An Azure Catalyst project set up.
 
 ### Minimum required privileges
 
-To ensure security and compliance in Azure Migrate, create a PostgreSQL user with only the necessary permissions—minimizing risks of unauthorized access or unintended changes.
+To ensure security and compliance in Azure Catalyst, create a PostgreSQL user with only the necessary permissions—minimizing risks of unauthorized access or unintended changes.
 
-Based on Azure Migrate requirements, the minimum privileges needed are:
+Based on Azure Catalyst requirements, the minimum privileges needed are:
 
 #### Database-level permissions
 
@@ -87,7 +87,7 @@ COMMIT;
 ```
 
 > [!NOTE] 
-> This user has only the minimum privileges required for Azure Migrate discovery and assessment.
+> This user has only the minimum privileges required for Azure Catalyst discovery and assessment.
 > - The user cannot create databases, roles, or replicate.
 > - Always use strong passwords and follow your organization's security policies.
 
@@ -124,7 +124,7 @@ The result should show `false` for `usecreatedb`, `usesuper`, and `userepl`.
 
 ### Verify granted role-based privileges
 
-Check that the user has necessary monitoring roles by running the following queries. This ensures the account has only the required permissions for Azure Migrate operations.
+Check that the user has necessary monitoring roles by running the following queries. This ensures the account has only the required permissions for Azure Catalyst operations.
 
 ```sql
 -- Verify the user exists
@@ -140,11 +140,11 @@ FROM pg_auth_members m
 JOIN pg_roles r ON m.roleid = r.oid
 WHERE m.member = (SELECT oid FROM pg_roles WHERE rolname = '<<Az Migrate username>>');
 ```
-After running these queries, you should see that the user exists and has only the required permissions for Azure Migrate discovery and assessment.
+After running these queries, you should see that the user exists and has only the required permissions for Azure Catalyst discovery and assessment.
 
 ## Considerations
 
-Use a least-privilege PostgreSQL account exclusively for Azure Migrate, regularly review permissions, rotate credentials, monitor activity, and disable the account when no longer needed.
+Use a least-privilege PostgreSQL account exclusively for Azure Catalyst, regularly review permissions, rotate credentials, monitor activity, and disable the account when no longer needed.
 
 - Replace `<<Az Migrate username>>` and `<PASSWORD>` with your chosen username and a strong password for the least-privilege user.
 - Run the script with superuser privileges, as creating users and assigning roles requires elevated access.

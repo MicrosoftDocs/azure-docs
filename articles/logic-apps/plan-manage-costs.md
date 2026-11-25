@@ -59,8 +59,6 @@ Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage oper
 
 With single-tenant Azure Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Azure Logic Apps data. When *stateful* workflows run their operations, the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. Storage costs change based on your workflow's content. Different triggers, actions, and payloads result in different storage operations and needs. Storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are separately listed in your Azure billing invoice.
 
-For single-tenant Azure Logic Apps, you can get some idea about the number of storage operations that a workflow might run and their cost by using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). You can either select a sample workflow or use an existing workflow definition. The first calculation estimates the number of storage operations in your workflow. You can then use these numbers to estimate possible costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For more information, review [Estimate storage needs and costs for workflows in single-tenant Azure Logic Apps](estimate-storage-costs.md).
-
 <a name="costs-after-resource-deletion"></a>
 
 ### Costs might accrue after resource deletion

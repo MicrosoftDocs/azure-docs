@@ -17,15 +17,15 @@ This tutorial explains how to review assessments created for your on-premises SA
 
 In this tutorial, you'll learn: 
 
-* Step-by-step instructions to review assessments created for on-premises SAP systems using Azure Migrate. 
-* How to navigate Azure Migrate page to access the relevant options to view assessments for SAP systems.
+* Step-by-step instructions to review assessments created for on-premises SAP systems using Azure Catalyst. 
+* How to navigate Azure Catalyst page to access the relevant options to view assessments for SAP systems.
 * How to navigate Assessments page to view detailed information, including SAP system essentials, assessed entities, and cost estimates.
 
 ## Review an assessment 
  
 To review an assessment, follow these steps:
 
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. On the **Azure Catalyst** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number associated with **SAP® Systems (Preview)**.
 
     :::image type="content" source="./media/tutorial-assess-sap-systems/review-assess.png" alt-text="Screenshot that shows the option to access assess." lightbox="./media/tutorial-assess-sap-systems/review-assess.png":::

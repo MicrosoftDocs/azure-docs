@@ -38,7 +38,7 @@ The preparation phase consists of these steps:
 
   Confirm that workload resources comply with the platform team's [Azure Policy assignments](/azure/governance/policy/overview), including regional deployment restrictions, and agree on any required exceptions before deployment. For more information about platform design and responsibilities, see [Azure landing zones for on-premises experts](/azure/migration/migrate-from-on-premises-platform-landing-zone).
 
-- **Set up migration tools:** If you plan to use Azure Migrate for the execution phase, deploy the Azure Migrate appliance and configure your Azure Migrate project if you didn't do so in the Plan phase. Set up system owner participation, access approvals, and appliance prerequisites early, especially when regulated environments require more reviews. Confirm that access is granted and tools are usable before scheduling rehearsal or other dependent work.
+- **Set up migration tools:** If you plan to use Azure Catalyst for the execution phase, deploy the Azure Catalyst appliance and configure your Azure Catalyst project if you didn't do so in the Plan phase. Set up system owner participation, access approvals, and appliance prerequisites early, especially when regulated environments require more reviews. Confirm that access is granted and tools are usable before scheduling rehearsal or other dependent work.
 
 - **Confirm the approved migration path:** Verify that the selected path remains supported and that its prerequisites are available. If the path must change, return to the Plan phase before continuing.
 

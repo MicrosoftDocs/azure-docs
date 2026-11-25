@@ -6,7 +6,7 @@ ms.subservice: shared-capabilities
 ms.date: 11/17/2025
 ms.topic: overview 
 ms.service: azure-automation
-ms.author: v-rochak2
+ms.author: pprajapat
 author: RochakSingh-blr
 ---
 

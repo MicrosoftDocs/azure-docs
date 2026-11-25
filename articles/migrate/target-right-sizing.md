@@ -1,6 +1,6 @@
 ---
 title:  Performance vs As-is on-premises assessments
-description: Describes how Azure Migrate provides sizing recommendations for the assessed workloads.
+description: Describes how Azure Catalyst provides sizing recommendations for the assessed workloads.
 author: rashi-ms
 ms.author: v-gajeronika
 ms.service: azure-migrate
@@ -12,11 +12,11 @@ ms.date: 04/17/2025
 
 # Target right-sizing 
 
-Azure Migrate assessments evaluate the readiness of source workloads, recommend right sized targets, and estimate the cost of hosting these workloads on Azure. Once the readiness of the source workload is determined, the assessment provides sizing recommendations based on either as-is on-premises sizing or performance-based sizing.
+Azure Catalyst assessments evaluate the readiness of source workloads, recommend right sized targets, and estimate the cost of hosting these workloads on Azure. Once the readiness of the source workload is determined, the assessment provides sizing recommendations based on either as-is on-premises sizing or performance-based sizing.
 
 ## Sizing criteria
 
-Azure Migrate supports two types of target sizing:  
+Azure Catalyst supports two types of target sizing:  
 
 | Sizing criteria    | Details   | Examples |
 |--------------------|-----------|----------|

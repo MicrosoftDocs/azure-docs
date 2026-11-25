@@ -5,7 +5,7 @@ author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 06/30/2026
-ms.author: wwilliams
+ms.author: sgallagher
 ms.custom: mode-ui, linux-related-content
 # Customer intent: "As a cloud engineer, I want to create an Intel SGX virtual machine in the Azure portal, so that I can leverage confidential computing capabilities for secure application deployment."
 ---

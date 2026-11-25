@@ -4,8 +4,8 @@ description: Configure authentication and authorization in App Service using a c
 ms.topic: how-to
 ms.date: 03/10/2026
 ms.custom: AppServiceIdentity
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service
 # customer intent: As a developer, I want to configure authentication and authorization in App Service by using a configuration file so that I can enable preview capabilities. 
 

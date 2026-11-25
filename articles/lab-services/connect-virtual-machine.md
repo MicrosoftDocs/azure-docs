@@ -6,7 +6,7 @@ services: lab-services
 ms.service: azure-lab-services
 ms.custom: linux-related-content
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.topic: how-to
 ms.date: 03/12/2024
 #customer intent: As an instructor or student, I want to connect to the template VM or to the lab VMs to configure the lab or to use the lab VMs.

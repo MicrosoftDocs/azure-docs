@@ -6,7 +6,7 @@ ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: reference
-ms.date: 03/03/2026
+ms.date: 11/19/2026
 ms.author: vikdesai
 ---
 
@@ -17,6 +17,8 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 The Azure usage and charges CSV file contain daily and meter-level usage charges for the current billing period.
 
 To get your Azure usage and charges file, see [View and download Azure usage and charges for your Microsoft Customer Agreement](download-azure-daily-usage.md). It's available in a comma-separated values (.csv) file format that you can open in a spreadsheet application.
+
+You can't select a schema version for a downloaded usage file. When new columns are added, such as `priceFactors` and `supplementalChargeDetails`, they're added at the end of the file. To select a dataset version, such as 2026-10-01, use exports. For more information, see [Compare downloads and exports](compare-downloads-exports.md).
 
 Usage charges are the total **monthly** charges on a subscription. The usage charges don't take into account any credits or discounts.
 

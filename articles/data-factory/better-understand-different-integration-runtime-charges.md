@@ -1,7 +1,7 @@
 ---
 title: Examples for better understanding pricing model under different integration runtime types
 description: Learn about pricing model under different integration runtime types from some examples.
-ms.author: makromer
+ms.author: weetok
 author: kromerm
 ms.subservice: integration-runtime
 ms.topic: concept-article

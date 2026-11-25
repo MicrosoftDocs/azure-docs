@@ -2,8 +2,8 @@
 title: Client Fingerprint Match Condition for Azure Front Door
 titleSuffix: Azure Web Application Firewall
 description: Learn how to use the client fingerprint (JA4) match condition in Azure Web Application Firewall custom rules to identify and control traffic by TLS client characteristics.
-author: halkazwini
-ms.author: halkazwini
+author: gunjanj
+ms.author: gunjanj
 ms.reviewer: joeolerich
 ms.service: azure-web-application-firewall
 ms.topic: concept-article

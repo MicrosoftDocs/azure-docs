@@ -44,9 +44,7 @@ Key benefits include:
 
 By default, new objects start in the hot tier. As data ages without access, it moves to cooler tiers and automatically returns to hot when accessed again. Tier-specific performance and service-level characteristics still apply.
 
-Smart tiering includes a monitoring fee per 10,000 monitored objects per month for objects larger than 125KiB. 
-> NOTE
-> It may be more cost effective to keep objects smaller than 125KiB in the hot tier to avoid impact from minimum objects size billing in cooler tiers. [Learn more](access-tiers-overview.md)
+Smart tiering includes a monitoring fee per 10,000 monitored objects per month for objects larger than 128 KiB. 
 
 ## Azure Blob Storage lifecycle management: Rule-based tiering and retention
 
@@ -139,7 +137,8 @@ When you turn on smart tiering at the account scope, the service automatically a
 - Tiering to or from premium accounts isn't supported.
 - Smart tiering is account-level only and can only manage objects that infer the tier from the storage account. Objects with explicit tiers set aren't managed. [Learn more](access-tiers-smart.md).
 - Smart tiering doesn't delete objects.
-- Azure Blob Storage lifecycle management can't act on smart-tier-managed objects.
+- Blob lifecycle management doesn’t impact objects on smart tier for tiering operations but will act on delete operations
+
 - [Storage Actions](../../storage-actions/storage-tasks/storage-task-known-issues.md) and [Azure Blob Storage lifecycle management](lifecycle-management-performance-characteristics.md) performance might vary.
 
 ## See also
@@ -147,3 +146,4 @@ When you turn on smart tiering at the account scope, the service automatically a
 - [Smart tiering](access-tiers-smart.md)
 - [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md)
 - [Azure Storage Actions](../../storage-actions/overview.md)
+

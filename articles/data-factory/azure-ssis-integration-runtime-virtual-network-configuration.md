@@ -5,7 +5,7 @@ ms.subservice: integration-services
 ms.topic: how-to
 ms.date: 01/05/2024
 author: kromerm
-ms.author: makromer
+ms.author: weetok
 ms.custom: sfi-image-nochange
 ---
 

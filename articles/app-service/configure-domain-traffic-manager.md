@@ -5,8 +5,8 @@ keywords: Azure Traffic Manager, custom domain, load balancing, Azure App Servic
 ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: how-to
 ms.date: 02/14/2025
-author: msangapu-msft
-ms.author: msangapu
+author: btardif
+ms.author: byvinyal
 ms.service: azure-app-service 
 # As a systems administrator, I want to use Traffic Manager with a custom domain so that I can improve app performance and global availability. 
   

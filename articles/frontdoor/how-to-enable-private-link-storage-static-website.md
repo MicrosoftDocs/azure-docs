@@ -3,7 +3,7 @@ title: Connect Azure Front Door to a storage static website origin with Private 
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a storage static website privately using the Azure portal or Azure CLI.
 author: halkazwini
-ms.author: halkazwini
+ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 09/24/2025

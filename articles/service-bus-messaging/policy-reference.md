@@ -4,7 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Azure Service Bu
 ms.date: 02/06/2024
 ms.topic: reference
 author: spelluru
-ms.author: spelluru
+ms.author: egrootenboer
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Service Bus Messaging

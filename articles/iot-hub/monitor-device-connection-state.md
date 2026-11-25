@@ -2,8 +2,8 @@
 title: Monitor device status
 titleSuffix: Azure IoT Hub
 description: Use Event Grid or the device heartbeat pattern to monitor the connection states of Azure IoT Hub devices.
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.topic: reference
 ms.service: azure-iot-hub
 ms.date: 01/05/2024

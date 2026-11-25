@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: spelluru
-ms.author: spelluru
+ms.author: egrootenboer
 ms.service: azure-service-bus
 ms.topic: include
 ms.date: 09/28/2021

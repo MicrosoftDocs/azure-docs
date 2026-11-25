@@ -2,7 +2,7 @@
 title: Configure and manage soft delete for Azure Backup
 description: This article describes about how to configure and manage soft delete for Azure Backup.
 ms.topic: how-to
-ms.date: 11/11/2025
+ms.date: 11/24/2026
 ms.update-cycle: 1825-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -16,7 +16,7 @@ ms.custom: references_regions
 This article describes how to configure and use [soft delete](secure-by-default.md) to protect your data and recover backups, if they're deleted.
 
 ## Supported scenarios
-- Soft delete is now enforced by default, and soft delete state can no longer be modified from the Azure portal. This enforcement ensures reliable recovery from any accidental or malicious deletions.
+- In Azure public regions, you can't disable soft delete from the Azure portal. This enforcement ensures reliable recovery from any accidental or malicious deletions.
 - With secure by default, soft delete is also applied at the vault level. When a vault is deleted, it automatically transitions into a soft-deleted state, enabling recovery if required. [Learn more](secure-by-default.md)
 
 ## Supported regions
@@ -25,11 +25,10 @@ This article describes how to configure and use [soft delete](secure-by-default.
 
 | Vault Type               | Availability Type    | Regions                                      |
 |--------------------------|----------------------|---------------------------------------------|
-| Recovery Services Vault  | General Availability | West Central US                            |
-| Recovery Services Vault  | Preview              | All remaining Azure Public Regions         |
-| Backup Vault             | Preview              | Australia East, West Central US, East Asia |
+| Recovery Services vault  | Generally available  | All Azure public regions |
+| Backup vault             | Generally available  | All Azure public regions |
 
-For **Backup Vault**, in regions other than **Australia East**, **West Central US**, and **East Asia**, you still have the option to **disable soft delete** from the Azure portal.
+In these regions, you can't disable soft delete for either vault type. For client and API behavior, see [API considerations for soft delete](secure-by-default.md#api-considerations-for-soft-delete).
 
 ## Soft-Delete a backup item
 

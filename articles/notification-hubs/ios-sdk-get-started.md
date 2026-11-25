@@ -2,7 +2,7 @@
 title: Send push notifications to iOS using Azure Notification Hubs and the iOS SDK
 description: In this tutorial, you learn how to use Azure Notification Hubs and the Apple Push Notification service to send push notifications to iOS devices.
 author: sethmanheim
-ms.author: sethm
+ms.author: dimatokar
 ms.date: 05/01/2025
 ms.topic: tutorial
 ms.service: azure-notification-hubs

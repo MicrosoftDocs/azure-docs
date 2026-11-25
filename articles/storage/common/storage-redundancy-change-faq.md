@@ -8,7 +8,7 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.topic: concept-article
 ms.date: 09/16/2025
-ms.author: shaas
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement
 # Customer intent: "As a cloud architect, I want to evaluate Azure Storage redundancy options, so that I can choose the best replication strategy for my data durability and high availability requirements."
@@ -84,7 +84,12 @@ There are no initial costs for making zonal conversions. However, after an accou
 
 When you **add** geo-redundancy, the resulting geo conversion incurs a [geo-replication data transfer charge](https://azure.microsoft.com/pricing/details/storage/blobs/) at the time of the change. This transfer charge applies because your entire storage account is being replicated to a secondary region. Because all subsequent write operations are also replicated to the secondary region, they too are subject to the data transfer charge. 
 
-You incur no charges when you **remove** geo-redundancy, such as converting **GRS** &rarr; **LRS** or **GZRS** &rarr; **ZRS**.
+You incur no conversion charges when you **remove** geo-redundancy or zone redundancy. Examples include:
+
+- **GRS** &rarr; **LRS**
+- **GZRS** &rarr; **ZRS**
+- **ZRS** &rarr; **LRS**
+- **GZRS** &rarr; **GRS**
 
 When you remove read access from a storage account, it continues to incur charges as *RA-GRS* or *RA-GZRS* for 30 days beyond the date on which it was converted. This policy applies to **RA-GRS &rarr; GRS** or **RA-GZRS &rarr; GZRS**.
 

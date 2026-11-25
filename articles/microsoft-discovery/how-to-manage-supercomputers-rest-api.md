@@ -5,7 +5,7 @@ author: anzaman
 ms.author: alzam
 ms.service: azure
 ms.topic: how-to
-ms.date: 11/17/2026
+ms.date: 11/18/2026
 ms.custom: references_regions
 ---
 
@@ -33,11 +33,11 @@ Before you begin, make sure you have the following:
 
 ### Supported regions
 
-Supercomputers are currently available in the following Azure regions:
+Create the supercomputer resource in one of the following Discovery home regions:
 
-- East US
-- UK South
-- Sweden Central
+[!INCLUDE [Supported home regions](includes/supported-home-regions.md)]
+
+Region support doesn't guarantee model or compute capacity.
 
 ### API version
 

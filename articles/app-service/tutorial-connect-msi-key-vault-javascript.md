@@ -5,8 +5,8 @@ ms.devlang: javascript
 # ms.devlang: javascript, azurecli
 ms.topic: tutorial
 ms.date: 03/31/2026
-author: cephalin
-ms.author: cephalin
+author: btardif
+ms.author: byvinyal
 ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, devx-track-js, AppServiceConnectivity
 ms.service: azure-app-service

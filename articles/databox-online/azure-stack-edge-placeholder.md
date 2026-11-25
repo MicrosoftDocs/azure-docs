@@ -7,7 +7,7 @@ author: sipastak
 ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 09/22/2020
-ms.author: sipastak
+ms.author: scompton
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
 # What is placeholder doc?

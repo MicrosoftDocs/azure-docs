@@ -1,6 +1,6 @@
 ---
 title: Assess ASP.NET/Java web apps for migration to Azure Kubernetes Service
-description: Assessments of ASP.NET web apps to Azure Kubernetes Service using Azure Migrate
+description: Assessments of ASP.NET web apps to Azure Kubernetes Service using Azure Catalyst
 ms.service: azure-migrate
 ms.reviewer: v-gajeronika
 ms.topic: tutorial
@@ -17,13 +17,13 @@ ms.custom:
 
 ::: zone pivot="asp-net"
 
-This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Create an assessment for your ASP.NET web app to provide key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
+This article shows you how to assess ASP.NET web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Catalyst. Create an assessment for your ASP.NET web app to provide key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
 ::: zone-end
 
 ::: zone pivot="java"
 
-This article shows you how to assess Java web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Migrate. Create an assessment for your Java web app to provide key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
+This article shows you how to assess Java web apps for migration to [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) using Azure Catalyst. Create an assessment for your Java web app to provide key insights such as **app-readiness**, **target right-sizing** and **cost** to host and run these apps month over month.
 
 ::: zone-end
 
@@ -52,7 +52,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Deploy and configure the Azure Migrate appliance in your [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md) or [physical environment](./tutorial-discover-physical.md).
+- Deploy and configure the Azure Catalyst appliance in your [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md) or [physical environment](./tutorial-discover-physical.md).
 - Check the [appliance requirements](./migrate-appliance.md#appliance---vmware) and [URL access](./migrate-appliance.md#url-access) to be provided.
 ::: zone pivot="asp-net"
 - Follow [these steps](./how-to-discover-sql-existing-project.md) to discover ASP.NET web apps running on your environment.
@@ -63,8 +63,8 @@ In this tutorial, you learn how to:
 
 ## Create an assessment
 
-1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for Azure Migrate.
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. Sign into the [Azure portal](https://ms.portal.azure.com/#home) and search for Azure Catalyst.
+1. On the **Azure Catalyst** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessments tools**, select **Web apps on Azure** from the **Assess** dropdown menu.
 
     :::image type="content" source="./media/tutorial-assess-aspnet-aks/hub-assess-webapps.png" alt-text="Screenshot of selecting web app assessments.":::
@@ -115,7 +115,7 @@ In this tutorial, you learn how to:
 
 The assessment can take around 10 minutes to complete.
 
-1. On the **Azure Migrate** page, under **Migration goals**, select **Servers, databases and web apps**.
+1. On the **Azure Catalyst** page, under **Migration goals**, select **Servers, databases and web apps**.
 1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number next to the Web apps on Azure assessment. 
 1. On the **Assessments** page, select a desired assessment name to view from the list of assessments.
 

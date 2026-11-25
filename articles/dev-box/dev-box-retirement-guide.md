@@ -5,7 +5,7 @@ ms.service: dev-box
 ms.topic: concept-article
 ms.custom: doc-kit-assisted
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 09/08/2026
 
 #customer intent: As a platform engineer or business decision maker, I want to plan for Microsoft Dev Box retirement and transition developer workflows.

@@ -6,7 +6,7 @@ ms.topic: reference
 ms.service: durable-task
 ms.subservice: durable-functions
 ms.date: 05/20/2026
-ms.author: hannahhunter
+ms.author: vyomnagrani
 ---
 
 # Durable Functions settings in host.json

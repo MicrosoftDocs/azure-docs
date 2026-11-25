@@ -1,8 +1,8 @@
 ---
 title: Script to Self Sign a CSR Certificate in Azure Device Registry
 description: "Use a sample script to self sign a certificate signing request (CSR) for test purposes."
-author: sethmanheim
-ms.author: sethm
+author: dimatx
+ms.author: dimatokar
 ms.topic: reference
 ms.service: azure-iot-hub
 ms.date: 04/14/2026
