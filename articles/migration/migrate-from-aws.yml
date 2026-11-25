@@ -7,7 +7,7 @@ metadata:
   description: Step-by-step guides and service comparisons for migrating compute, databases, storage, networking, and security workloads from AWS to Azure.
   ms.topic: landing-page
   ms.service: azure-migrate
-  author: markingmyname
+  author: diberry
   ms.author: diberry
   ms.reviewer: rhackenberg, chkittel
   ms.date: 04/29/2026
