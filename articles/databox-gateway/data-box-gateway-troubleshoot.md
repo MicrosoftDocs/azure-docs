@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: azure-data-box-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2021
-ms.author: shaas
+ms.author: bchakra
 ms.custom: sfi-image-nochange
 # Customer intent: "As a support technician, I want to troubleshoot Azure Data Box Gateway issues using diagnostic tests and log analysis, so that I can efficiently resolve customer problems and ensure smooth operation of the device."
 ---

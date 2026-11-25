@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: azure-data-box-gateway
 ms.topic: overview
 ms.date: 05/26/2021
-ms.author: shaas
+ms.author: bchakra
 #Customer intent: As an IT admin, I need to understand what Data Box Gateway is and how it works so I can use it to send data to Azure.
 # Customer intent: As an IT admin, I want to understand the Azure Data Box Gateway solution and its key capabilities, so that I can effectively implement it for seamless data transfer to Azure for archival, disaster recovery, or continuous data ingestion.
 ---

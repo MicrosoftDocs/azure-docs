@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: azure-data-box-gateway
 ms.topic: how-to
 ms.date: 03/25/2019
-ms.author: shaas
+ms.author: bchakra
 ms.custom: sfi-image-nochange
 # Customer intent: "As a system administrator, I want to manage user access on my data management gateway, so that I can control permissions for both read-only and full privilege users effectively."
 ---

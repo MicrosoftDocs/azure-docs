@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: azure-data-box-gateway
 ms.topic: release-notes
 ms.date: 11/11/2020
-ms.author: shaas
+ms.author: bchakra
 # Customer intent: "As an IT administrator managing Azure Stack Edge and Data Box Gateway, I want to review the 1911 release notes, so that I can understand critical issues, resolutions, and deployment preparedness for effective device management."
 ---
 
