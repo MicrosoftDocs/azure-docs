@@ -4,7 +4,7 @@ description: This article contains important reference material you need when yo
 ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: sethmanheim
+author: diberry
 ms.author: dimatokar
 ms.service: azure-notification-hubs
 ---

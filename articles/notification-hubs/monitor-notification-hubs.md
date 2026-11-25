@@ -4,7 +4,7 @@ description: Start here to learn how to monitor Azure Notification Hubs.
 ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: how-to
-author: sethmanheim
+author: diberry
 ms.author: dimatokar
 ms.service: azure-notification-hubs
 ---

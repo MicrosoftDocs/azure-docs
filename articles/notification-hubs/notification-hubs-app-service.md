@@ -1,7 +1,7 @@
 ---
 title: Notification Hubs integration with App Service Mobile Apps
 description: Learn how Azure Notification Hubs works with Azure App Service Mobile Apps.
-author: sethmanheim
+author: diberry
 manager: lizross
 services: notification-hubs
 
