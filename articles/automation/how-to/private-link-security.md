@@ -4,7 +4,7 @@ description: Use Azure Private Link to securely connect networks to Azure Automa
 ms.topic: overview
 ms.date: 09/10/2024
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ms.custom: sfi-image-nochange
 ---
 
