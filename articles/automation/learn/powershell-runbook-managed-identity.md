@@ -8,8 +8,8 @@ ms.date: 04/14/2026
 ms.topic: tutorial 
 #Customer intent: As a developer, I want PowerShell runbooks to execute code using a manged identity.
 ms.service: azure-automation
-ms.author: v-rochak2
-author: RochakSingh-blr
+ms.author: pprajapat
+author: preranaprajapat
 ---
 
 # Tutorial: Create Automation PowerShell runbook using managed identity
