@@ -2,7 +2,7 @@
 title: Configure HPC storage on Azure (Lustre, ANF, Blob, Azure Files)
 description: Set up high-performance storage for HPC workloads using Azure Managed Lustre, Azure NetApp Files, Blob Storage, and Azure Files.
 author: tomvcassidy
-ms.author: tomcassidy
+ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
