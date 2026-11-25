@@ -1,7 +1,7 @@
 ---
 title: Limits and quotas common to all Azure Event Hubs tiers
 description: This include file provides information about limits and quotas common to all Azure Event Hubs tiers.
-author: spelluru
+author: axisc
 ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 02/05/2026

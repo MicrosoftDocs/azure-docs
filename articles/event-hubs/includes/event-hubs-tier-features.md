@@ -1,7 +1,7 @@
 ---
 title: Azure Event Hubs Tier Features
 description: This include file provides information about features available in different Azure Event Hubs tiers.
-author: spelluru
+author: axisc
 ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 02/05/2026
