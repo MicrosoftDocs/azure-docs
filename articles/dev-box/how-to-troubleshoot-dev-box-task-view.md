@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to troubleshoot issues with removing a stale or inaccessible dev box from Task view in Windows.
 services: dev-box
 ms.service: dev-box
-ms.author: rosemalcolm
+ms.author: rabououn
 author: RoseHJM
 ms.date: 08/1/2024
 ms.topic: troubleshooting-general

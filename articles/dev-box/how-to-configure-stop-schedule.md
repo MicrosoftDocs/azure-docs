@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-azurecli
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.date: 11/30/2025
 ms.topic: how-to

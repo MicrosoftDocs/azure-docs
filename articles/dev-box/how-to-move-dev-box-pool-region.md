@@ -5,7 +5,7 @@ author: RoseHJM
 contributors: null
 ms.topic: how-to
 ms.date: 05/20/2025
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.custom:
   - ai-gen-docs-bap

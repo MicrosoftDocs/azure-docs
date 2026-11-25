@@ -2,7 +2,7 @@
 title: Add Display Name to Projects and Pools
 description: Learn how to provide clarity for developers by adding a display name to Projects and Pools to rename resources.
 author: iyervarsha
-ms.author: varshaiyer
+ms.author: rabououn
 ms.service: dev-box
 ms.topic: how-to
 ms.date: 09/22/2025

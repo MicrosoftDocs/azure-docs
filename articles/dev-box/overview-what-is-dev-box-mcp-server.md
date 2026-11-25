@@ -8,7 +8,7 @@ ms.custom: devx-track-javascript
 ms.ai-usage: ai-generated
 ms.update-cycle: 90-days
 ms.topic: overview
-ms.author: rosemalcolm
+ms.author: rabououn
 author: RoseHJM
 ms.date: 12/05/2025
 

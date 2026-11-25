@@ -5,7 +5,7 @@ author: RoseHJM
 contributors:
 ms.topic: how-to
 ms.date: 10/31/2025
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.reviewer: rosemalcolm
 ai-usage: ai-assisted
 ms.custom: peer-review-program

@@ -5,7 +5,7 @@ services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.update-cycle: 90-days
 ms.date: 09/23/2025
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.

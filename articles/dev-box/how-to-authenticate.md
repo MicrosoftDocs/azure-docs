@@ -3,7 +3,7 @@ title: Authenticate to Microsoft Dev Box REST APIs
 description: Learn how to authenticate to Microsoft Dev Box REST APIs as administrator or developer, by using the Azure CLI.
 ms.service: dev-box
 ms.topic: concept-article
-ms.author: rosemalcolm
+ms.author: rabououn
 author: RoseHJM
 ms.date: 01/31/2025
 

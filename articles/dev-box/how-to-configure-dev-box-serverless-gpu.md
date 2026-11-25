@@ -5,7 +5,7 @@ ms.service: dev-box
 ms.topic: how-to
 ms.date: 05/05/2025
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ai-usage: ai-generated
 
 #customer intent: As a business decision-maker, I want to evaluate serverless GPU compute in Dev Box so that I can determine its value for my team's workflows.

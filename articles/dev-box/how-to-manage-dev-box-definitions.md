@@ -5,7 +5,7 @@ description: Microsoft Dev Box dev box definitions define a source image, comput
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 10/31/2025
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage dev box definitions so that I can provide appropriate dev boxes to my users.

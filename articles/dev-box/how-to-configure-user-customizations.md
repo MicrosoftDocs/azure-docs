@@ -3,7 +3,7 @@ title: Configure a user Customization File for Your Dev Box
 description: Learn how to upload and validate user customization files for dev boxes directly from your local drive or repository.
 #customer intent: As a developer, I want to upload a customization file from my local drive or repository so that I can configure my dev box with my preferred tools and scripts.
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.service: dev-box
 ms.custom:
   - ignite-2024

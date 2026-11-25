@@ -4,7 +4,7 @@ description: Learn about the networking requirements for deploying dev boxes, co
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.topic: concept-article
 ms.date: 01/15/2026

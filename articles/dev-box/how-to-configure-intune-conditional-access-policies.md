@@ -5,7 +5,7 @@ description: Learn how to configure Intune Conditional Access policies to manage
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
-ms.author: rosemalcolm
+ms.author: rabououn
 ms.date: 05/29/2025
 ms.topic: how-to
 
