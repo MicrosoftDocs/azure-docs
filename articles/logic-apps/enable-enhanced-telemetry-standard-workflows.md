@@ -330,7 +330,7 @@ After the workflow runs and a few minutes pass, you can create a query against t
    | **workflowId** | ID for the workflow that ran the trigger | **c7711d107e6647179c2e15fe2c2720ce** |
    | **workflowName** | Name for the workflow that ran the trigger | **Request-Response-Workflow** |
    | **operation_Name** | Name for the operation that ran the trigger. In this case, this name is the same as the workflow name. | **Request-Response-Workflow** |
-   | **operation_Id** | ID for the component or workflow that just ran. This ID is the same as the **runId** value for the workflow run instance. If exceptions or dependencies exist, this value transcends tables so you can link this trigger record to those exceptions or dependencies. | **08585358375819913417237801890CU00** |
+   | **operation_Id** | ID for the component or workflow that just ran. This ID typically matches the **runId** value of the workflow run instance. If `Runtime.ApplicationInsights.PreserveIncomingOperationId` is set to `true`, the operation ID is preserved from the incoming context and may differ from the workflow run's **runId**. If exceptions or dependencies exist, this value transcends tables so you can link this trigger record to those exceptions or dependencies. | **08585358375819913417237801890CU00** |
    | **operation_ParentId** | Linkable ID for the workflow that called the trigger | **f95138daff8ab129** |
 
    The following example shows the expanded details for the **Compose** action:
@@ -347,7 +347,7 @@ After the workflow runs and a few minutes pass, you can create a query against t
    | **workflowName** | Name for the workflow that ran the action | **Request-Response-Workflow** |
    | **solutionName** | Tracked property name, if specified | **LA-AppInsights** |
    | **operation_Name** | Name for the operation that ran the action. In this case, this name is the same as the workflow name. | **Request-Response-Workflow** |
-   | **operation_Id** | ID for the component or workflow that just ran. This ID is the same as the **runId** value for the workflow run instance. If exceptions or dependencies exist, this value transcends tables so you can link this action record to those exceptions or dependencies. | **08585358375819913417237801890CU00** |
+   | **operation_Id** | ID for the component or workflow that just ran. This ID typically matches the **runId** value of the workflow run instance. If `Runtime.ApplicationInsights.PreserveIncomingOperationId` is set to `true`, the operation ID is preserved from the incoming context and may differ from the workflow run's **runId**. If exceptions or dependencies exist, this value transcends tables so you can link this action record to those exceptions or dependencies. | **08585358375819913417237801890CU00** |
    | **operation_ParentId** | Linkable ID for the workflow that called the action | **f95138daff8ab129** |
 
 <a name="requests-table-view-trigger-or-action-events"></a>
@@ -415,6 +415,14 @@ You can create a query against the Requests table to view a subset of operation 
    ```kusto
    requests
    | where operation_Id == "08585287554177334956853859655CU00"
+   ```
+
+   If the setting `Runtime.ApplicationInsights.PreserveIncomingOperationId` is set to `true`, create and run a query that extracts the **runId** and set it to the workflow run ID, for example:
+   
+   ```kusto
+   requests
+   | extend runId = tostring(parse_json(tostring(customDimensions.resource)).runId)
+   | where runId == "08584093695844616545760902928CU00"
    ```
 
    ![Screenshot shows Requests table query based on workflow run ID.](media/enable-enhanced-telemetry-standard-workflows/requests-table/workflow-run-id.png)
@@ -643,7 +651,7 @@ You can create a query against the Exceptions table to view the exception events
    | **runId** | ID for the workflow run instance |
    | **actionName** | Name for the action that failed with the exception |
    | **operation_Name** | Name for the workflow that experienced the exception |
-   | **operation_Id** | ID for the component or workflow that just ran. This ID is the same as the **runId** value for the workflow run instance. This value transcends tables so you can link this exception record with the workflow run instance. |
+   | **operation_Id** | ID for the component or workflow that just ran. This ID typically matches the **runId** value of the workflow run instance. If `Runtime.ApplicationInsights.PreserveIncomingOperationId` is set to `true`, the operation ID is preserved from the incoming context and may differ from the workflow run's **runId**. This value transcends tables so you can link this exception record with the workflow run instance. |
    | **operation_ParentId** | ID for the workflow that called the action, which you can link to the action's ID in the Requests table |
 
 1. To view the exceptions for a specific workflow, create and run the following query:
