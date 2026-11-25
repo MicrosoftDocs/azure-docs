@@ -4,7 +4,7 @@ description: This PowerShell script copies data from a SQL Server database to an
 ms.subservice: data-movement
 ms.topic: article
 ms.author: tinglee
-author: simplywilson
+author: dcstwh
 ms.custom: devx-track-azurepowershell
 ms.date: 01/05/2024
 ---
