@@ -24,7 +24,15 @@ In this article, you learn about:
 > - How the Durable Task tech stack compares to other agentic workflow options on Azure
 
 > [!TIP]
-> **Ready to start building?** Jump to [Agentic application patterns](./durable-agents-patterns.md) for code samples, or try the [Durable Task extension for Microsoft Agent Framework](./durable-agents-microsoft-agent-framework.md) for a turnkey integration.
+> **Ready to start building?** Jump to [Agentic application patterns](./durable-agents-patterns.md) for code samples, or choose a framework integration below.
+
+## Framework integrations
+
+Use the guide for your framework to register agent or graph work with Durable Task:
+
+- [Microsoft Agent Framework extension](./durable-agents-microsoft-agent-framework.md): integrate agent sessions with the Durable Task extension.
+- [Pydantic AI](./durable-agents-pydantic-ai.md): run a Pydantic AI agent inside a Python orchestrator with activity-backed model and tool calls. The integration is part of the Pydantic AI Harness package.
+- [LangGraph (Preview)](./durable-agents-langgraph.md): attach a compiled graph to a Durable Task worker using the `langchain-azure-compute` integration.
 
 ## Production challenges durable execution solves
 

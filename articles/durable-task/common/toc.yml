@@ -17,6 +17,10 @@ items:
     href: ../sdks/durable-agents-patterns.md
   - name: Microsoft Agent Framework extension (Preview)
     href: ../sdks/durable-agents-microsoft-agent-framework.md
+  - name: Pydantic AI integration
+    href: ../sdks/durable-agents-pydantic-ai.md
+  - name: LangGraph integration (Preview)
+    href: ../sdks/durable-agents-langgraph.md
 - name: Get started
   items:
   - name: Durable Task SDKs
