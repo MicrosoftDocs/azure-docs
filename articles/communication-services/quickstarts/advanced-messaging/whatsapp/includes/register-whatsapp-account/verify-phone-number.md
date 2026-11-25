@@ -2,7 +2,7 @@
 title: Include file
 titleSuffix: Include file
 description: Learn about Verify Your WhatsApp Business Number.
-author: darmour
+author: diberry
 manager: sundraman
 services: azure-communication-services
 ms.author: diberry
