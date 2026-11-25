@@ -670,7 +670,7 @@
         "articles/dev-box/**/*.md": "rosemalcolm",
         "articles/devtest-labs/**/*.md": "rabououn",
         "articles/event-grid/**/*.md": "spelluru",
-        "articles/event-hubs/*.md": "spelluru",
+        "articles/event-hubs/*.md": "aschhabria",
         "articles/governance/blueprints/**/*.md": "kgremban",
         "articles/governance/machine-configuration/**/*.md": "mlombardi",
         "articles/governance/management-groups/**/*.md": "kgremban",
