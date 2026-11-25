@@ -6,7 +6,7 @@ ms.service: azure-synapse-analytics
 ms.subservice: pipeline 
 ms.topic: concept-article
 ms.date: 12/11/2024
-ms.author: makromer
+ms.author: rakrish
 ---
 
 # Data integration in Azure Synapse Analytics versus Azure Data Factory
