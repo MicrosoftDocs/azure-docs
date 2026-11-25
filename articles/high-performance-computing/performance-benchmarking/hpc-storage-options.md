@@ -2,7 +2,7 @@
 title: "High-Performance Computing (HPC) workload best practices and storage options"
 description: A comprehensive guide to choosing a storage solution best suited to your HPC workloads.
 ai-usage: ai-assisted
-author: christinechen2
+author: mdosterjr
 ms.author: mdoster
 ms.reviewer: normesta
 ms.date: 09/16/2026
