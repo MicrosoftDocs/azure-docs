@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Base implementation for workflow trigger nodes with fluent chaining, generated names, and child action tracking.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

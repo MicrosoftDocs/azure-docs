@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Factory methods for creating built-in workflow actions such as Compose, HTTP, Response, CustomCode, NestedWorkflow, and Agent actions.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Extension methods for registering workflow providers with dependency injection service collections.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Defines the fluent chaining contract for composing workflow operations into sequential and parallel execution pipelines using the Then() method pattern.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026
