@@ -2,7 +2,7 @@
 title: Tutorial to set up time, device, update settings for Azure Stack Edge Pro R device in Azure portal
 description: Tutorial to deploy Azure Stack Edge Pro R instructs you to set up device, update, time settings for your physical device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

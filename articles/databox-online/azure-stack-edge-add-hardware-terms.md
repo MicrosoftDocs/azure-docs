@@ -2,7 +2,7 @@
 title: Azure Stack Edge Hardware Additional Terms | Microsoft Docs
 description: Describes additional terms for Azure Stack Edge hardware.
 services: databox
-author: sipastak
+author: scompton1045
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 09/16/2022

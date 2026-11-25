@@ -2,7 +2,7 @@
 title: Azure Stack Edge Pro 2 system requirements
 description: Learn about the system requirements for your Azure Stack Edge Pro 2 solution and for the clients connecting to Azure Stack Edge Pro 2.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template

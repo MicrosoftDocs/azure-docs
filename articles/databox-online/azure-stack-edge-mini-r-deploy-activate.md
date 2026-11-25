@@ -2,7 +2,7 @@
 title: Tutorial to encrypt and activate Azure Stack Edge Mini R device in Azure portal | Microsoft Docs
 description: Tutorial to deploy Azure Stack Edge Mini R instructs you to encrypt and activate your physical device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

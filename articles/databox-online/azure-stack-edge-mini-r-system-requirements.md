@@ -2,7 +2,7 @@
 title: Microsoft Azure Stack Edge Mini R system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your Azure Stack Edge Mini R
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template

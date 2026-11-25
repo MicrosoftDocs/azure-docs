@@ -2,7 +2,7 @@
 title: Use Azure Marketplace image to create VM image for Azure Stack Edge Pro GPU device
 description: Describes how to use an Azure Marketplace image to create a VM image to use on your Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-azurecli

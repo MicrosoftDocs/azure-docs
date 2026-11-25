@@ -1,7 +1,7 @@
 ---
 title: Azure Stack Edge Pro 2103 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge Pro running 2103 release.
-author: sipastak
+author: scompton1045
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/23/2021

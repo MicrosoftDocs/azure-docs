@@ -2,7 +2,7 @@
 title: Azure Stack Edge Pro GPU manage bandwidth schedules | Microsoft Docs 
 description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro GPU.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

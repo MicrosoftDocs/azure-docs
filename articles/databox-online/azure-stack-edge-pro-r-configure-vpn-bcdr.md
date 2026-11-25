@@ -2,7 +2,7 @@
 title: Configure business continuity and disaster recovery (BCDR) on Azure Stack Edge virtual private network (VPN)
 description: Describes how to configure BCDR on Azure Stack Edge VPN.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: article

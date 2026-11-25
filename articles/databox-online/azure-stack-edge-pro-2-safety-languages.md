@@ -2,7 +2,7 @@
 title: Microsoft Azure Stack Edge Pro 2 safety instructions  | Microsoft Docs
 description: Describes the safety instructions in other languages to follow while installing Azure Stack Edge Pro 2 device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: article

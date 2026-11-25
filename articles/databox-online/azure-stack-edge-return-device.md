@@ -2,7 +2,7 @@
 title: Azure Stack Edge device return 
 description: Learn how to wipe the data and return your Azure Stack Edge device, and then delete the resource associated with the device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

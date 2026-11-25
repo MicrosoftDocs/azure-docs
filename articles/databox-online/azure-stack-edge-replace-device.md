@@ -2,7 +2,7 @@
 title: Azure Stack Edge device replacement 
 description: Describes how to get a replacement Azure Stack Edge device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

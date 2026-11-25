@@ -2,7 +2,7 @@
 title: Tutorial to transfer data to storage account with Azure Stack Edge Pro GPU| Microsoft Docs
 description: Learn how to add and connect to local and Edge storage accounts on Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

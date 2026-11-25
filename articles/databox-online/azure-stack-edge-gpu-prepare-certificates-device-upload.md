@@ -2,7 +2,7 @@
 title: Prepare certificates to upload on your Azure Stack Edge Pro GPU/Pro R/Mini R
 description: Describes how to prepare certificates to upload on Azure Stack Edge Pro GPU/Pro R/Mini R devices.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: article

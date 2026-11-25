@@ -2,7 +2,7 @@
 title: Azure Stack Edge Pro FPGA security
 description: Describes the security and privacy features that protect your Azure Stack Edge Pro FPGA device, service, and data on-premises and in the cloud.
 services: Data Box Edge
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: article

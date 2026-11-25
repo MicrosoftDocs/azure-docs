@@ -2,7 +2,7 @@
 title: Tutorial to prepare Azure portal, datacenter environment to deploy Azure Stack Edge Pro 2
 description: The first tutorial about deploying Azure Stack Edge Pro 2 involves preparing the Azure portal.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

@@ -2,7 +2,7 @@
 title: GPU sharing on Azure Stack Edge Pro GPU device
 description: Describes the approaches to sharing GPUs on Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

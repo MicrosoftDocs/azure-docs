@@ -2,7 +2,7 @@
 title: Microsoft Azure Stack Edge system requirements| Microsoft Docs
 description: Learn about the system requirements for your Microsoft Azure Stack Edge solution and for the clients connecting to Azure Stack Edge.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: reference

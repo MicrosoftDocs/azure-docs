@@ -2,7 +2,7 @@
 title: Reset the password on VMs for your Azure Stack Edge Pro GPU device via the Azure portal
 description: Describes how to reset the password on virtual machines (VMs) on an Azure Stack Edge Pro GPU device via the Azure portal.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

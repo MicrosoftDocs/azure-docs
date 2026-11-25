@@ -2,7 +2,7 @@
 title: Create and manage a Kubernetes cluster on Azure Stack Edge Pro GPU device| Microsoft Docs
 description: Describes how to create and manage a Kubernetes cluster on Azure Stack Edge Pro GPU device via the Windows PowerShell interface.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

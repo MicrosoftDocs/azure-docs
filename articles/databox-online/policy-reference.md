@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: azure-stack-edge
-author: sipastak
+author: scompton1045
 ms.author: scompton
 ---
 # Azure Policy built-in definitions for Azure Stack Edge

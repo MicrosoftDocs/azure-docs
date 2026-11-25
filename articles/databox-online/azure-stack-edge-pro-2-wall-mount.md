@@ -2,7 +2,7 @@
 title: Wall mount Azure Stack Edge Pro 2 physical device
 description: This article contains instructions on how to rack the Azure Stack Edge Pro 2 device using a wall mount.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

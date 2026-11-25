@@ -2,7 +2,7 @@
 title: Tutorial to configure certificates for Azure Stack Edge Pro 2 device via the local web UI
 description: Tutorial to deploy Azure Stack Edge Pro 2 instructs you to configure certificates on your physical device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

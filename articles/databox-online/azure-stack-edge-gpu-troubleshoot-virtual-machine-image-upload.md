@@ -2,7 +2,7 @@
 title: Troubleshoot virtual machine image uploads in Azure Stack Edge Pro GPU | Microsoft Docs 
 description: Describes how to troubleshoot issues that occur when uploading, downloading, or deleting virtual machine images in Azure Stack Edge Pro GPU.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: troubleshooting

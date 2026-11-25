@@ -2,7 +2,7 @@
 title: Create a new virtual switch in Azure Stack Edge via PowerShell
 description: Describes how to create a virtual switch on an Azure Stack Edge device by using PowerShell.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

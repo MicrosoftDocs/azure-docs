@@ -2,7 +2,7 @@
 title: Connect to and manage Microsoft Azure Stack Edge Pro device via the Windows PowerShell interface
 description: Describes Azure Stack Edge Pro connection and management via Windows PowerShell interface.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

@@ -2,7 +2,7 @@
 title: Monitor CPU, memory for VM on Azure Stack Edge Pro GPU device
 description: Learn to monitor CPU, memory metrics for VMs on Azure Stack Edge Pro GPU devices in Azure portal.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

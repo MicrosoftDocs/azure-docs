@@ -2,7 +2,7 @@
 title: Azure Stack Edge GA release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Stack Edge running general availability release.
 services: databox
-author: sipastak
+author: scompton1045
  
 ms.service: azure-stack-edge
 ms.topic: article

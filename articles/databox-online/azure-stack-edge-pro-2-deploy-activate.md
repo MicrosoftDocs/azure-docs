@@ -2,7 +2,7 @@
 title: Tutorial to activate Azure Stack Edge Pro 2 device using the local web UI.
 description: Tutorial to deploy Azure Stack Edge Pro 2 instructs you to activate your physical device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

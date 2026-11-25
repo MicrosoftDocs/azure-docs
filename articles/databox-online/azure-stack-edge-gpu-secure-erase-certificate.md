@@ -2,7 +2,7 @@
 title: Erase data from your Azure Stack Edge
 description: Describes the process to erase data from an Azure Stack Edge device and generate a certificate of proof that data has been removed.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

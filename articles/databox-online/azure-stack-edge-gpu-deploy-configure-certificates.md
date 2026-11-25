@@ -2,7 +2,7 @@
 title: Tutorial to configure certificates for Azure Stack Edge Pro device with GPU in Azure portal | Microsoft Docs
 description: Tutorial to deploy Azure Stack Edge Pro with GPU instructs you to configure certificates on your physical device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

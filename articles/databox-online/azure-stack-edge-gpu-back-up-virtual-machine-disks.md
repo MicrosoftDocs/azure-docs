@@ -2,7 +2,7 @@
 title: Back up VM disks on Azure Stack Edge Pro GPU device via PowerShell
 description: Describes how to back up data on virtual machine disks running on your Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

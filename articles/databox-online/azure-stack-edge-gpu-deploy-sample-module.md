@@ -2,7 +2,7 @@
 title: Deploy GPU module on your Azure Stack Edge Pro GPU device| Microsoft Docs
 description: Describes how to enable compute and make your Azure Stack Edge Pro device compute-ready via the local UI.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to
