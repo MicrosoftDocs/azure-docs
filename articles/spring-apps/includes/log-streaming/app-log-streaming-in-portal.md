@@ -1,7 +1,7 @@
 ---
 description: Log streaming for Azure Spring Apps in Azure portal.
 author: KarlErickson
-ms.author: karler
+ms.author: sandeepsen
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 08/19/2025
