@@ -655,7 +655,7 @@
         "articles/azure-resource-manager/management/relocation/**/*.md": "sogangul",
         "articles/azure-resource-manager/templates/**/*.md": "kgremban",
         "articles/azure-resource-manager/troubleshooting/**/*.md": "kgremban",
-        "articles/azure-vmware/**/*.md": "jacobjaygbay",
+        "articles/azure-vmware/**/*.md": "mattmcinnes",
         "articles/backup/**/*.md": "v-mallicka",
         "articles/backup/**/*.yml": "v-mallicka",
         "articles/batch/**/*.md": "padmalathas",
