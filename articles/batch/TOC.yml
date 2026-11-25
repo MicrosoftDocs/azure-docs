@@ -284,6 +284,9 @@
     - name: Monitor with Application Insights
       displayName: debug
       href: monitor-application-insights.md
+    - name: Investigate issues with Azure SRE Agent
+      displayName: SRE Agent, AI, alerts, troubleshoot, root cause
+      href: batch-sre-agent.md
     - name: Create efficient query lists
       displayName: monitor, queries
       href: batch-efficient-list-queries.md
