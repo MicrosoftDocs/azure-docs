@@ -5,7 +5,7 @@ services: azure cyclecloud
 author: adriankjohnson
 ms.topic: concept-article
 ms.date: 07/27/2026
-ms.author: padmalathas
+ms.author: mattmcinnes
 ---
 
 # Azure CycleCloud service policy

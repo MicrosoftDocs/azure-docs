@@ -5,7 +5,7 @@ ai-usage: ai-assisted
 author: xpillons
 ms.date: 09/16/2026
 ms.topic: overview
-ms.author: padmalathas
+ms.author: mattmcinnes
 ---
 
 # What is Azure CycleCloud Workspace for Slurm?
