@@ -2,7 +2,7 @@
 title: Fortanix
 description: Confidential computing solutions from Fortanix on Azure
 services: virtual-machines
-author: ananyagarg
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 03/29/2023
