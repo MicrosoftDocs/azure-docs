@@ -410,4 +410,4 @@ Via the response we should see:
 }
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application and modified request and response headers via Gateway API on Application Gateway for Containers.
+Congratulations, you installed ALB Controller, deployed a backend application, and modified request and response headers through Gateway API on Application Gateway for Containers.
