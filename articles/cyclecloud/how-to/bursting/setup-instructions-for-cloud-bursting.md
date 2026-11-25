@@ -1,7 +1,7 @@
 ---
 title: Cloud Bursting Setup Instruction
 description: Learn how to set up Cloud bursting using Azure CycleCloud and Slurm.
-author: vinil-v
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: mattmcinnes

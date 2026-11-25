@@ -1,7 +1,7 @@
 ---
 title: Cloud Bursting Using Azure CycleCloud and Slurm
 description: Learn how to configure Cloud bursting using Azure CycleCloud and Slurm.
-author: vinil-v
+author: mattmcinnes
 ai-usage: ai-assisted
 ms.date: 08/10/2026
 ms.topic: how-to
