@@ -2,7 +2,7 @@
 title: Parameterizing mapping data flows
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to parameterize a mapping data flow from Azure Data Factory and Azure Synapse Analytics pipelines
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.reviewer: daperlov
 ms.subservice: data-flows

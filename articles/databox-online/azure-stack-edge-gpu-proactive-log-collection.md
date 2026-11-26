@@ -2,7 +2,7 @@
 title: Understand proactive log collection on Azure Stack Edge Pro device
 description: Describes how proactive log collection is done on an Azure Stack Edge Pro device and how to disable it.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: concept-article

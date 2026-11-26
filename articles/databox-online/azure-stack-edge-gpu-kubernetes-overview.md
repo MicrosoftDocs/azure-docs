@@ -2,7 +2,7 @@
 title: Overview of Kubernetes cluster on Azure Stack Edge Pro GPU, Pro R, Mini R device
 description: Describes how Kubernetes is implemented on your Azure Stack Edge Pro GPU, Pro R, Mini R device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: concept-article

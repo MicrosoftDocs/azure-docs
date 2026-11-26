@@ -1,7 +1,7 @@
 ---
 title: Common Issues - Creating Network Resources
 description: Troubleshoot failures creating network resources or interfaces for nodes in Azure CycleCloud.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso

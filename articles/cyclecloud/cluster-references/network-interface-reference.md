@@ -1,7 +1,7 @@
 ---
 title: Cluster Template Reference - Network Interface Objects
 description: Network Interface reference for cluster templates for use with Azure CycleCloud
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: reference
 ms.update-cycle: 3650-days

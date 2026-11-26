@@ -1,7 +1,7 @@
 ---
 title: Manage Settings for Everpure Cloud Azure Native
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Everpure Cloud resource by using the Azure portal.
-author: Reshmi-Sriram
+author: diberry
 ms.author: diberry
 ms.topic: how-to
 ms.date: 08/22/2026

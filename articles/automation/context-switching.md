@@ -9,7 +9,7 @@ ms.topic: overview
 #Customer intent: As a developer, I want to understand Azure context so that I can avoid error when running multiple runbooks.
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Context switching in Azure Automation

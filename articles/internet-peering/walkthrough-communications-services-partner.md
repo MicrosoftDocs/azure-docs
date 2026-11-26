@@ -2,8 +2,8 @@
 title: Set Up an Interconnect for Voice Services
 titleSuffix: Internet Peering
 description: Learn how to set up an interconnect for internet peering in Azure Peering Service voice services. Learn the requirements, the steps to establish a direct interconnect, and how to register a prefix.
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 02/25/2026

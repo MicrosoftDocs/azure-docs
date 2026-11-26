@@ -5,7 +5,7 @@ description: Learn how to configure an autostop schedule to automatically shut d
 services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-azurecli
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.date: 11/30/2025

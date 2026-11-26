@@ -1,5 +1,5 @@
 ---
-author: spelluru
+author: EldertGrootenboer
 ms.service: azure-relay
 ms.topic: include
 ms.date: 12/04/2024

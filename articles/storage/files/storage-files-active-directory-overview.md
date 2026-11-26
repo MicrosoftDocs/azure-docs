@@ -1,7 +1,7 @@
 ---
 title: Overview - Azure Files Identity-Based Authentication
 description: Azure Files supports identity-based authentication over SMB (Server Message Block) with Active Directory Domain Services (AD DS), Microsoft Entra Domain Services, and Microsoft Entra Kerberos for hybrid and cloud-only identities.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 09/18/2026

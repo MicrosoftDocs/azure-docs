@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how role assignment in different when migrating from lab accounts to lab plans in Azure Lab Services.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: how-to
 ms.date: 04/20/2023

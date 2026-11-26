@@ -4,7 +4,7 @@ description: "Learn how to set a dead letter location and customize retry policy
 #customer intent: As a developer, I want to set up a dead-letter location for my Event Grid subscription so that I can capture events that fail to deliver and troubleshoot delivery issues.
 ms.topic: how-to
 ms.date: 03/27/2026
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ms.reviewer: spelluru
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 

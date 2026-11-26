@@ -2,7 +2,7 @@
 title: Create Chat Completions with Prompt Templates in Workflows
 description: Build workflows with chat interactions by using Azure Logic Apps and Azure OpenAI prompt templates.
 services: logic-apps
-author: ecfan
+author: divyaswarnkar
 ms.suite: integration
 ms.reviewers: estfan, shahparth, azla
 ms.topic: how-to

@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Represents a named workflow operation in the execution graph, providing identity and connections to downstream child actions.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

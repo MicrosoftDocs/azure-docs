@@ -1,5 +1,5 @@
 ---
-author: krkutser
+author: diberry
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 07/20/2023

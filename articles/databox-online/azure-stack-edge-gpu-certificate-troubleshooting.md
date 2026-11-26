@@ -2,7 +2,7 @@
 title: Certificates troubleshooting with Azure Stack Edge Pro with GPU| Microsoft Docs
 description: Describes troubleshooting certificate errors with Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: troubleshooting

@@ -18,6 +18,7 @@ Before you configure [cache volumes](configure-cache-volumes.md), make sure that
 * Cache volumes are currently only supported with the REST API (new caches endpoint).
 * The Azure NetApp Files cache volume must be deployed in an availability zone. To populate a new or existing volume in an availability zone, see [Manage availability zones in Azure NetApp Files](manage-availability-zone-volume-placement.md). 
 * When creating a cache volume, ensure that there's sufficient space in the capacity pool to accommodate the new cache volume.
+* A SnapMirror Data Protection (DP) volume can be used as the origin for an Azure NetApp Files cache volume. When the DP origin is updated through a SnapMirror transfer, cached content associated with the origin might be soft-evicted. As a result, subsequent access to the affected content might require origin revalidation, potentially increasing first-access latency. 
 * You should ensure that the protocol type is the same for the cache volume and origin volume. The security style and the Unix permissions are inherited from the origin volume. For example, creating a cache volume with NFSv3 or NFSv4 when origin is UNIX, and SMB when the origin is NTFS.
 * You should enable encryption on the origin volume.
 * The source cluster must be running ONTAP 9.15.1 or later version.

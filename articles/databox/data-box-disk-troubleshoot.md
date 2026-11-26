@@ -2,12 +2,12 @@
 title: Azure Data Box Disk troubleshooting | Microsoft Docs 
 description: Learn how to use logs to troubleshoot the validation issues that might come up when you deploy Azure Data Box Disk.
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box-disk
 ms.topic: troubleshooting
 ms.date: 06/14/2019
-ms.author: shaas
+ms.author: diberry
 # Customer intent: "As a cloud administrator, I want to analyze validation error logs from Azure Data Box Disk, so that I can troubleshoot and resolve deployment issues efficiently."
 ---
 

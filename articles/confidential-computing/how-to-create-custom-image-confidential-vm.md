@@ -1,7 +1,7 @@
 ---
 title: Create a custom image for Azure confidential VMs
 description: Learn how to use the Azure CLI to create a Confidential VM custom image from a vhd.
-author: simranparkhe
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: how-to
 ms.date: 6/09/2023

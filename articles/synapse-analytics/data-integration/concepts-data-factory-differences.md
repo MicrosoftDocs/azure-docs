@@ -1,7 +1,7 @@
 ---
 title: Differences from Azure Data Factory
 description: Learn how the data integration capabilities of Azure Synapse Analytics differ from those of Azure Data Factory
-author: kromerm
+author: rakrish75
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline 
 ms.topic: concept-article

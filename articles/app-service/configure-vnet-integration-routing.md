@@ -1,7 +1,7 @@
 ---
 title: Configure virtual network integration with application and configuration routing.
 description: This how-to article walks you through configuring routing on a regional virtual network integration.
-author: seligj95
+author: btardif
 ms.author: jordanselig
 ms.topic: how-to
 ms.date: 02/25/2026

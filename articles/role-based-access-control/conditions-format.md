@@ -1,7 +1,7 @@
 ---
 title: Azure role assignment condition format and syntax - Azure ABAC
 description: Get an overview of the format and syntax of Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions

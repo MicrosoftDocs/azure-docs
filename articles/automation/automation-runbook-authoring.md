@@ -8,7 +8,7 @@ ms.topic: overview
 ms.custom:
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Runbook authoring through VS Code in Azure Automation

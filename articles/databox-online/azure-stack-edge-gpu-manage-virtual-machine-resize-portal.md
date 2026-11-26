@@ -2,7 +2,7 @@
 title: Resize VMs on Azure Stack Edge Pro GPU, Pro R, Mini R via the Azure portal
 description: Learn how to resize the virtual machines (VM) running on your Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, Azure Stack Edge Mini R via the Azure portal.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

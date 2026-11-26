@@ -2,7 +2,7 @@
 title: Microsoft Azure Stack Edge Pro 2 overview | Microsoft Docs
 description: Describes Azure Stack Edge Pro 2, a storage solution that uses a physical device for network-based transfer into Azure.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: overview

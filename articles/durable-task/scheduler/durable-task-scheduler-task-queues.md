@@ -1,6 +1,6 @@
 ---
 ai-usage: ai-assisted
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: Use task queues in Durable Task Scheduler (preview)
 titleSuffix: Durable Task

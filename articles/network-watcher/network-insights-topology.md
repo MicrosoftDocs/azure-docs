@@ -1,7 +1,7 @@
 ---
 title: View Topology
 description: Learn how to use Network Insights topology to get a visual representation of Azure resources with connectivity and traffic insights for monitoring. 
-author: halkazwini
+author: huzefafw
 ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to

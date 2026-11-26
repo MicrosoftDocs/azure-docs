@@ -1,7 +1,7 @@
 ---
 title: "Developer's Guide: Durable Entities in .NET - Azure Functions"
 description: "Learn how to define, access, and manage durable entities in .NET using the Azure Functions Durable Functions extension. Explore class-based and function-based syntax with examples."
-author: sebastianburckhardt
+author: diberry
 ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-functions

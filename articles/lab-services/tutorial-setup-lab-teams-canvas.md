@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to create a lab by using the Teams or Canvas app for Azure Lab Services.
 ms.topic: tutorial
 ms.date: 07/04/2023
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ---
 

@@ -4,7 +4,7 @@ description: Steps to add an NSX network segment for Azure VMware Solution in th
 ms.topic: include
 ms.service: azure-vmware
 ms.date: 6/12/2024
-author: suzizuber
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.custom: engagement-fy23
 # Customer intent: As a network administrator, I want to add an NSX network segment in Azure VMware Solution, so that I can configure and manage the network settings for my virtual machines effectively.

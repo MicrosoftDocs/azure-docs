@@ -2,7 +2,7 @@
 title: 'Inspect private and internet traffic with spoke NVAs'
 titleSuffix: Azure Virtual WAN
 description: Learn about Azure Virtual WAN routing scenarios that use spoke NVAs to inspect private and internet-bound traffic.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 04/28/2026

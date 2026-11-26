@@ -4,7 +4,7 @@ description: Learn how to configure an App Service plan for zone redundancy, see
 ms.topic: how-to
 ms.service: azure-app-service
 ms.date: 08/24/2026
-author: anaharris
+author: btardif
 ms.author: byvinyal
 
 ---

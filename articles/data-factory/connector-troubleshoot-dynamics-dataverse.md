@@ -2,7 +2,7 @@
 title: Troubleshoot the Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM connectors
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM connectors in Azure Data Factory and Azure Synapse Analytics. 
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 01/05/2024

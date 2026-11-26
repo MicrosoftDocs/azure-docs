@@ -2,7 +2,7 @@
 title: Azure Storage Explorer blob versioning guide
 description: Blob versioning guidance for Azure Storage Explorer
 services: storage
-author: jinglouMSFT
+author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: concept-article

@@ -5,7 +5,7 @@ ms.topic: overview
 ms.date: 11/29/2024
 ms.update-cycle: 1095-days
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Azure Automation network configuration details

@@ -2,7 +2,7 @@
 title: Monitor VM activity on Azure Stack Edge Pro GPU device
 description: Learn how to monitor VM activity on an Azure Stack Edge Pro GPU device in the Azure portal.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

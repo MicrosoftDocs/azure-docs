@@ -1,7 +1,7 @@
 ---
 title: Create a File Share (Microsoft.FileShares)
 description: Learn to use the Azure portal to deploy an NFS file share with Microsoft.FileShares resource provider.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to

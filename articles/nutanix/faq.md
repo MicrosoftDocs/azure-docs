@@ -1,7 +1,7 @@
 ---
 title: FAQ for NC2 on Azure
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: diberry
+ms.author: diberry
 description: Questions frequently asked about NC2 on Azure
 ms.topic: faq
 ms.custom: engagement-fy23

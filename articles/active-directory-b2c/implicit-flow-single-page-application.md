@@ -3,7 +3,7 @@ title: Single-page application sign-in using the OAuth 2.0 implicit flow in Azur
 titleSuffix: Azure AD B2C
 description: Learn how to add single-page sign-in using the OAuth 2.0 implicit flow with Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

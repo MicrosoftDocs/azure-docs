@@ -2,7 +2,7 @@
 title: 'Virtual Network Manager and Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual Network Manager and Virtual WAN.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/25/2026

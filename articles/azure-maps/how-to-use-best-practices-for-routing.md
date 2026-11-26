@@ -1,7 +1,7 @@
 ---
 title: Best practices for Azure Maps Route service in Microsoft Azure Maps 
 description: Learn how to route vehicles by using Route service from Microsoft Azure Maps.
-author: farazgis
+author: diberry
 ms.author: fsiddiqui
 ms.date: 09/30/2026
 ms.topic: best-practice

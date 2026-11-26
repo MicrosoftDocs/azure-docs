@@ -3,7 +3,7 @@ title: Azure Communication Services - Job Router events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for Job Router events.
 ms.topic: reference
 ms.date: 07/12/2023
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ms.reviewr: osaghaso
 ---

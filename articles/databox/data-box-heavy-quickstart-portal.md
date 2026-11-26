@@ -2,11 +2,11 @@
 title: Quickstart for Microsoft Azure Data Box Heavy| Microsoft Docs
 description: In this quickstart, learn how to deploy Azure Data Box Heavy using the Azure portal, including how to cable, configure, and copy data to upload to Azure.
 services: databox
-author: stevenmatthew
+author: diberry
 ms.service: azure-data-box-heavy
 ms.topic: quickstart
 ms.date: 06/13/2022
-ms.author: shaas
+ms.author: diberry
 ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
 # Customer intent: "As an IT admin, I want to deploy and configure Azure Data Box Heavy using the Azure portal, so that I can efficiently transfer large volumes of data to Azure."

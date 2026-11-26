@@ -1,8 +1,8 @@
 ---
 title: Azure Peering Service Overview
 description: Learn about Azure Peering Service concepts and features to optimize network connectivity with Microsoft's global network.
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: azure-peering-service
 ms.topic: overview
 ms.date: 02/25/2026

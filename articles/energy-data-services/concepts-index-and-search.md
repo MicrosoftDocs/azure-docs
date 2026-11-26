@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure Data Manager for Energy - index and search workflow concepts
 description: Learn how to use indexing and search workflows
-author: vivekkalra
+author: diberry
 ms.author: diberry
 ms.service: azure-data-manager-energy
 ms.topic: concept-article

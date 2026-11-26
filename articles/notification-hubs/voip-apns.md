@@ -2,7 +2,7 @@
 
 title: Send APNS VOIP notifications with Azure Notification Hubs
 description: Learn how to send APNS VOIP notifications through Azure Notification Hubs (not officially supported).
-author: sethmanheim
+author: diberry
 ms.author: dimatokar
 ms.date: 3/23/2020
 ms.topic: how-to

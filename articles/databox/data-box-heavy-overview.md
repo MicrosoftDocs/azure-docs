@@ -2,12 +2,12 @@
 title: Microsoft Azure Data Box Heavy overview | Microsoft Docs in data 
 description: Describes Azure Data Box, a hybrid solution that enables you to transfer massive amounts of data into Azure
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box-heavy
 ms.topic: overview
 ms.date: 05/30/2024
-ms.author: shaas
+ms.author: diberry
 # Customer intent: "As a data engineer, I want to utilize a secure and efficient method for transferring hundreds of terabytes of data to Azure, so that I can perform large-scale data migrations without impacting network performance."
 ---
 

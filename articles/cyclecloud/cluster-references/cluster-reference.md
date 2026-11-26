@@ -1,7 +1,7 @@
 ---
 title: Cluster Reference Docs
 description: Reference for the cluster section of an Azure CycleCloud cluster template, including the required inline name attribute.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: reference
 ms.update-cycle: 3650-days

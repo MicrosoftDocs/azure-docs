@@ -1,9 +1,9 @@
 ---
-author: stevenmatthew
+author: diberry
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 31/07/2025
-ms.author: shaas
+ms.author: diberry
 # Customer intent: "As a data transfer manager, I want to understand the transition from the Azure Data Box 80TB to the next-gen data box options, so that I can plan my offline data transfer strategies effectively before the device retirement."
 ---
 

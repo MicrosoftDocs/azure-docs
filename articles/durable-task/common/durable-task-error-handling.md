@@ -6,7 +6,7 @@ ms.service: durable-task
 ms.date: 11/10/2026
 ai-usage: ai-assisted
 ms.author: vyomnagrani
-author: hhunter-ms
+author: diberry
 ms.devlang: csharp
 # ms.devlang: csharp, javascript, powershell, python, java
 ms.custom: devx-track-js

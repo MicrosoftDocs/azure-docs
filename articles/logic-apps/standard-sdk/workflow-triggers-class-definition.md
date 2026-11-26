@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Top-level entry point for creating workflow triggers through built-in and managed connector factories.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

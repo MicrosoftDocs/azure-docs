@@ -1,6 +1,6 @@
 ---
 ai-usage: ai-assisted
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: Work item filtering in the Durable Task Scheduler
 titleSuffix: Durable Task

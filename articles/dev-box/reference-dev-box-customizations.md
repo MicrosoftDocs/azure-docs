@@ -1,7 +1,7 @@
 ---
 title: 'Reference: imagedefinition.yaml and task.yaml files'
 description: Review the current imagedefinition.yaml and task.yaml schema for Microsoft Dev Box customizations, including built-in GitClone, PowerShell, and WinGet tasks.
-author: RoseHJM
+author: ramiMSFT
 ms.service: dev-box
 ms.topic: reference
 ms.date: 06/11/2026

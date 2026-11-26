@@ -1,7 +1,7 @@
 ---
 title: Mount Azure Blob Storage on cluster nodes
 description: Learn how to give Azure CycleCloud compute nodes high-throughput access to an Azure Blob Storage container by mounting it with BlobFuse2 through cloud-init.
-author: padmalathas
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.date: 07/30/2026
 ms.topic: how-to

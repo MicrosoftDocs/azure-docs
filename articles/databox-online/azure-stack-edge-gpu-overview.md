@@ -2,7 +2,7 @@
 title: Microsoft Azure Stack Edge Pro with GPU overview | Microsoft Docs
 description: Describes Azure Stack Edge Pro with GPU, a storage solution that uses a physical device for network-based transfer into Azure.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: overview

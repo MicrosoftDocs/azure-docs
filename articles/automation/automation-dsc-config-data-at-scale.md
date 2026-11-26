@@ -9,7 +9,7 @@ ms.custom: engagement-fy23
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Configure data at scale for Azure Automation State Configuration

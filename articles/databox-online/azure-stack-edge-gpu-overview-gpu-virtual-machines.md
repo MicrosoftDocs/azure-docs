@@ -2,7 +2,7 @@
 title: Overview of GPU VMs on your Azure Stack Edge Pro GPU device
 description: Describes use of virtual machines optimized for GPU-accelerated workloads on Azure Stack Edge Pro with GPU.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: concept-article

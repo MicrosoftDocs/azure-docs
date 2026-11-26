@@ -1,7 +1,7 @@
 ---
 title: How to deploy an Azure Storage Mover agent.
 description: Learn how to deploy an Azure Mover agent
-author: stevenmatthew
+author: rajsinghmsa
 ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: how-to

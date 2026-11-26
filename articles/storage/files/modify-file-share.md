@@ -2,7 +2,7 @@
 title: Modify an Azure File Share
 titleSuffix: Azure Files
 description: Learn how to adjust the size, cost, and performance characteristics of Azure file shares by using the Azure portal, Azure PowerShell, or Azure CLI.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 11/26/2026

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Microsoft Dev Box dev box definitions define a source image, compute size, and storage size for your dev boxes. Learn how to manage dev box definitions.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 10/31/2025
 ms.topic: how-to

@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: Configure managed identity for Durable Task Scheduler
 titleSuffix: Durable Task

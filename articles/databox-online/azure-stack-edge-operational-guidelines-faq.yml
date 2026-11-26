@@ -3,7 +3,7 @@ metadata:
   title: Azure Stack Edge operational guidelines FAQ 
   description: Contains frequently asked questions and answers about Azure Stack Edge operations.
   services: databox
-  author: alkohli
+  author: scompton1045
   
   ms.service: azure-data-box
   ms.topic: faq

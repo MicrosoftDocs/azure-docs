@@ -3,7 +3,7 @@ title: Enable one-time password (OTP) verification
 titleSuffix: Azure AD B2C
 description: Learn how to set up a one-time password (OTP) scenario by using Azure AD B2C custom policies.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

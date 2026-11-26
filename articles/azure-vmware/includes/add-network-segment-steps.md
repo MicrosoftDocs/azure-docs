@@ -4,7 +4,7 @@ description: Steps to add an NSX network segment for Azure VMware Solution in NS
 ms.topic: include
 ms.service: azure-vmware
 ms.date: 6/12/2024
-author: suzizuber
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.custom:
   - engagement-fy23

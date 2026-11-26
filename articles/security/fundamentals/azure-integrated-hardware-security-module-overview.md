@@ -2,7 +2,7 @@
 title: Azure Integrated HSM overview
 description: Learn how Azure Integrated HSM provides hardware-backed cryptographic key caching and crypto offload for supported Azure virtual machines.
 services: security
-author: simranparkhe
+author: diberry
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article

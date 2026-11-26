@@ -2,8 +2,8 @@
 title: Understanding Azure Content Delivery Network billing
 description: Learn about the billing structure for content hosted by Azure Content Delivery Network, including billing regions, delivery charges, and to manage costs.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: kumudd
 ms.service: azure-content-delivery-network
 ms.topic: concept-article

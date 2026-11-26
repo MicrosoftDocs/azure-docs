@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a JavaScript Durable Functions app"
 description: Run a JavaScript Durable Functions sample app with function chaining and fan-out/fan-in patterns using the Durable Task Scheduler emulator. Get started now.
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 ms.topic: quickstart
 ms.service: durable-task

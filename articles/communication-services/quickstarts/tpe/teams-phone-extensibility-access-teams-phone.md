@@ -2,7 +2,7 @@
 title: Access a user's Teams Phone separate from their Teams client
 titleSuffix: An Azure Communication Services article
 description: This article describes how to use Teams Phone Extensibility features with Azure Communication Services.
-author: sofiar
+author: diberry
 manager: miguelher
 services: azure-communication-services
 ms.author: diberry

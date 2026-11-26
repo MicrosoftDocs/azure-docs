@@ -1,7 +1,7 @@
 ---
 title: Configure Azure HPC VM images (AlmaLinux, Ubuntu HPC)
 description: Deploy and customize Azure HPC VM images with pre-installed drivers, MPI libraries, and GPU support for HPC workloads.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to

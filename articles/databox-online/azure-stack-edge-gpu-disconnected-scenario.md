@@ -2,7 +2,7 @@
 title: Disconnected scenario for Azure Stack Edge
 description: Describes assumptions, available features when using Azure Stack Edge standalone with no connection to Azure services.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: concept-article

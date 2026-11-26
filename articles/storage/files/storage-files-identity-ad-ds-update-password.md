@@ -1,7 +1,7 @@
 ---
 title: Update Password for an AD DS Storage Account Identity
 description: Learn how to update the password of the Active Directory Domain Services (AD DS) identity that represents your storage account.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/25/2026

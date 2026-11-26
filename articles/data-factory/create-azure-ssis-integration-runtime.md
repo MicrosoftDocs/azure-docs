@@ -4,7 +4,7 @@ description: Learn how to create an Azure-SSIS integration runtime in Azure Data
 ms.subservice: integration-services
 ms.topic: concept-article
 ms.date: 03/31/2025
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ---
 

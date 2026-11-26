@@ -2,7 +2,7 @@
 title: Deploy a virtual machine with Azure Integrated HSM enabled
 description: Learn how to deploy a VM with Azure Integrated HSM enabled at boot by using the Azure portal, Azure CLI, ARM templates, or Azure SDK.
 services: security
-author: simranparkhe
+author: diberry
 ms.service: security
 ms.topic: article
 ms.date: 04/30/2026

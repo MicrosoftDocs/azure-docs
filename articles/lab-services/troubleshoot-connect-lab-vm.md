@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to troubleshoot common connectivity issues with Azure Lab Services.
 services: lab-services
 ms.service: azure-lab-services
-author: modularity
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: troubleshooting
 ms.date: 02/07/2024

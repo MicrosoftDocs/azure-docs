@@ -2,7 +2,7 @@
 title: Add Agent Tools Backed by Connector Actions
 description: Learn to add tools for agents in Microsoft Foundry powered by connector actions in Azure Logic Apps by creating Model Context Protocol (MCP) servers.
 services: logic-apps, azure-ai-foundry
-author: ecfan
+author: divyaswarnkar
 ms.suite: integration
 ms.reviewers: estfan, divswa, azla
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: Plan for an Azure Elastic SAN Next Generation deployment
 description: Plan capacity, performance, QoS tiers, connectivity, resiliency, and data protection for Azure Elastic SAN Next Generation Preview.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 09/11/2026

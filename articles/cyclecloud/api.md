@@ -1,7 +1,7 @@
 ---
 title: API Reference
 description: Read the Azure CycleCloud REST API Reference. Review commands for operations and resources, such as getting cluster nodes or getting the status of the cluster.
-author: adriankjohnson
+author: mattmcinnes
 ms.topic: reference
 ms.date: 06/19/2026
 ms.author: adjohnso

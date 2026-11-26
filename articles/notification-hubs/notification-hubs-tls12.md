@@ -2,7 +2,7 @@
 title: Notification Hubs TLS updates
 description: Learn about support for TLS in Azure Notification Hubs.
 services: notification-hubs
-author: sethmanheim
+author: diberry
 manager: lizross
 
 ms.service: azure-notification-hubs

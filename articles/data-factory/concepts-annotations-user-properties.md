@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Data Factory and Azure Synapse Analytics pipelines with annotations and user properties
 description: Advanced monitoring with annotations and user properties
-author: whhender
+author: dcstwh
 ms.author: weetok
 ms.subservice: monitoring
 ms.topic: how-to

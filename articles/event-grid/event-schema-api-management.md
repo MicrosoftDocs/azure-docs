@@ -2,7 +2,7 @@
 title: API Management as an Event Grid source
 description: This article describes how to use Azure API Management as an Event Grid event source. It provides the schema and links to how-to articles. 
 ms.topic: reference
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ms.date: 05/01/2025
 ---

@@ -1,7 +1,7 @@
 ---
 title: Improve SMB Azure File Share Performance
 description: Learn about ways to improve performance and throughput for SSD (premium) SMB Azure file shares, including SMB Multichannel and metadata caching.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 10/06/2026

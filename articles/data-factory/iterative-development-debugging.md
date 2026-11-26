@@ -5,7 +5,7 @@ description: Learn how to develop and debug Data Factory and Synapse Analytics p
 ms.date: 05/15/2024
 ms.topic: how-to
 ms.subservice: authoring
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.custom:
   - synapse

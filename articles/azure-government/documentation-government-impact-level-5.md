@@ -4,7 +4,7 @@ description: Guidance for configuring Azure Government services for DoD Impact L
 ms.service: azure-government
 ms.topic: article
 ms.custom: references_regions
-author: EliotSeattle
+author: diberry
 ms.author: diberry
 recommendations: false
 ms.date: 01/04/2024

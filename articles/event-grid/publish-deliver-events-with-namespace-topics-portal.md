@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.custom:
   - build-2024
 ms.author: seshanmugam
-author: spelluru
+author: Connected-Seth
 ms.date: 02/20/2024
 ---
 

@@ -2,8 +2,8 @@
 title: Set Up and Manage an Exchange Peering
 titleSuffix: Internet Peering
 description: Learn how to provision and manage an exchange peering in Azure Peering Service.
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 02/25/2026

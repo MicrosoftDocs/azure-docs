@@ -1,7 +1,7 @@
 ---
 title: Activate eligible Azure role assignments - Azure RBAC
 description: Learn how to activate eligible Azure role assignments in Azure role-based access control (Azure RBAC) using the Azure portal.
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to

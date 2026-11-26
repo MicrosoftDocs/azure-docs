@@ -2,12 +2,12 @@
 title: Safety for your Azure Data Box | Microsoft Docs
 description: Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your Azure Data Box.
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box
 ms.topic: concept-article
 ms.date: 03/25/2025
-ms.author: shaas
+ms.author: diberry
 zone_pivot_groups: data-box-sku
 # Customer intent: "As a data center technician, I want to follow the safety guidelines for installing and operating the Data Box, so that I can ensure safe handling and prevent accidents or equipment damage during setup."
 ---

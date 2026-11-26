@@ -2,7 +2,7 @@
 title: 'Connection policy'
 titleSuffix: Azure Virtual WAN
 description: Learn about  Azure Virtual WAN connection policies.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/18/2026

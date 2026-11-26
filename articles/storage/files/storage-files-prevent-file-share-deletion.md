@@ -1,7 +1,7 @@
 ---
 title: Azure File Share Soft Delete
 description: Learn about soft delete for Azure Files, how it works, and how to enable, restore, and disable it to protect file shares from accidental deletion.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 07/20/2026

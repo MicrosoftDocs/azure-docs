@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: "Quickstart: Create an App with Durable Task SDKs"
 titleSuffix: Durable Task

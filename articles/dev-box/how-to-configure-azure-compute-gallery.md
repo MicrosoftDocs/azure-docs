@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to create and attach an Azure compute gallery to a dev center in Microsoft Dev Box. Use a compute gallery to manage and share dev box images.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 04/03/2025
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Update inventory using Azure portal and topics/subscriptions'
 description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using .NET.
-author: spelluru
+author: EldertGrootenboer
 ms.author: egrootenboer
 ms.date: 06/18/2025
 ms.topic: tutorial

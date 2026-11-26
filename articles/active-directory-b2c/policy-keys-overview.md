@@ -2,7 +2,7 @@
 title: Policy keys overview - Azure Active Directory B2C
 description: Learn about policy keys in Azure AD B2C for signing and validating tokens, client secrets, certificates, and passwords. Manage policy keys for secure integration.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

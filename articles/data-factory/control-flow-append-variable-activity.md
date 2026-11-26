@@ -5,7 +5,7 @@ description: Learn how to set the Append Variable activity to add a value to an 
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: concept-article
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.reviewer: whhender
 ms.date: 09/26/2024

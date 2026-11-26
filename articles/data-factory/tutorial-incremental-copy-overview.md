@@ -1,7 +1,7 @@
 ---
 title: Incrementally copy data from a source data store to a destination data store
 description: These tutorials show you how to incrementally copy data from a source data store to a destination data store. The first one copies data from one table.
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.topic: tutorial
 ms.date: 09/30/2025

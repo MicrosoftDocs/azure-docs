@@ -4,7 +4,7 @@ description: This article contains important reference material you need when yo
 ms.date: 03/05/2025
 ms.custom: horz-monitor
 ms.topic: reference
-author: FuzziWumpus
+author: diberry
 ms.author: mkluck
 ms.service: azure-backup
 # Customer intent: "As a cloud operations engineer, I want to access detailed monitoring data for Azure Backup, so that I can effectively track performance and ensure reliable data protection for our applications."

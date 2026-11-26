@@ -5,7 +5,7 @@ ms.service: azure-data-manager-agriculture
 ms.topic: faq
 ms.date: 10/03/2023
 ms.author: diberry
-author: akhatri
+author: diberry
 ---
 
 # Common questions about Azure Data Manager for Agriculture

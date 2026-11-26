@@ -2,11 +2,11 @@
 title: Domains
 titleSuffix: Azure Front Door
 description: Learn about custom domains in Azure Front Door, including subdomains, apex domains, and wildcard domains.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 10/19/2026
+ms.date: 11/26/2026
 ---
 
 # Domains in Azure Front Door
@@ -70,7 +70,7 @@ The following table lists the validation states that a domain might show.
 |--|--|
 | Submitting | The custom domain is being created. <br /><br /> Wait until the domain resource is ready. |
 | Pending | The DNS TXT record value is generated, and Azure Front Door is ready for you to add the DNS TXT record. <br /><br /> Add the DNS TXT record to your DNS provider and wait for the validation to complete. If the status remains **Pending** even after the TXT record is updated by the DNS provider, select **Regenerate** to refresh the TXT record, and then add the TXT record to your DNS provider again. |
-| Pending revalidation | The managed certificate is less than 45 days from expiring. <br /><br /> If you have a CNAME record already pointing to the Azure Front Door endpoint, no action is required for certificate renewal. If the custom domain points to another CNAME record, select the **Pending re-validation** status, and then select **Regenerate** on the *Validate the custom domain* page. Lastly, select **Add** if you're using Azure DNS or manually add the TXT record with your own DNS provider’s DNS management. |
+| Pending revalidation | The managed certificate is less than 45 days from expiring and domain ownership needs to be revalidated. <br /><br /> Automatic HTTP file-token validation can complete renewal for supported domains, including supported indirect CNAME configurations. If manual revalidation is needed, select **Pending revalidation**, then **Regenerate**, and update the corresponding DNS TXT record with the new value. For requirements and limitations, see [Renew Azure Front Door-managed certificates](#renew-azure-front-door-managed-certificates). |
 | Refreshing validation token | A domain goes into a *Refreshing Validation Token* state for a brief period after the **Regenerate** button is selected. Once a new TXT record value is issued, the state changes to **Pending**. <br /> No action is required. |
 | Approved | The domain is successfully validated, and Azure Front Door can accept traffic that uses this domain. <br /><br /> No action is required. |
 | Rejected | The certificate provider or authority rejected the issuance for the managed certificate. For example, the domain name might be invalid. <br /><br /> Select the **Rejected** link and then select **Regenerate** on the *Validate the custom domain* page. Then, select **Add** to add the TXT record in the DNS provider. |
@@ -99,7 +99,7 @@ Azure Front Door can automatically manage TLS certificates for subdomains and ap
 The process of generating, issuing, and installing a managed TLS certificate can take from several minutes to an hour to complete, and occasionally it can take longer.
 
 > [!NOTE]
-> Azure Front Door (Standard and Premium) managed certificates are automatically rotated if the domain CNAME record points directly to a Front Door endpoint. Otherwise, you need to re-validate the domain ownership to rotate the certificates.
+> Front Door supports automatic renewal by using HTTP file-token validation, including through supported indirect CNAME configurations. If automatic validation can't complete, you can use DNS TXT revalidation. For conditions and limitations, see [Renew Azure Front Door-managed certificates](#renew-azure-front-door-managed-certificates).
 
 #### Domain types
 
@@ -131,7 +131,7 @@ Sometimes, you need to provide your own TLS certificates. Common scenarios for p
 > - Azure Front Door supports Bring Your Own Certificates (BYOC) for domain ownership validation. Front Door approves the domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the certificate matches the custom domain.
 > - For custom domains created before BYOC based validation, and the domain validation status isn't **Approved**, you need to trigger the auto approval of the domain ownership validation by selecting the **Validation State** and clicking on the **Revalidate** button in the portal. If you use the command line tool, you can trigger domain validation by sending an empty PATCH request to the domain API.
 > - Azure managed certificates can be used with wildcard custom domains. When you select an Azure managed certificate, domain validation uses the DNS TXT record.
-> - Cross-signed certificates are supported only on Azure Front Door Standard and Premium. When you use a cross-signed certificate, upload the complete certificate chain to your key vault, including the cross-signed CA certificate that chains to the widely trusted root CA. Front Door serves the certificate chain that you provide, so the uploaded chain must terminate at the intended trusted root.
+> - Cross-signed certificates are supported only on Azure Front Door Standard and Premium. For chain requirements and validation guidance, see [Cross-signed certificate chains](#cross-signed-certificate-chains).
 
 #### Certificate requirements
 
@@ -141,6 +141,20 @@ To use your certificate with Azure Front Door, it must meet the following requir
 - **Common name:** The common name (CN) of the certificate must match the domain configured in Azure Front Door.
 - **Algorithm:** Azure Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. This certificate requirement is separate from the elliptic-curve groups supported for [TLS key exchange](tls-key-exchange-policy.md).
 - **File (content) type:** You must upload your certificate to your key vault from a PFX file, which uses the `application/x-pkcs12` content type.
+
+#### Cross-signed certificate chains
+
+For a customer-managed server certificate on a client-to-Front Door connection, a cross-signed CA certificate can provide a path to a root CA trusted by your clients.
+
+Include the following certificates in the PFX file that you import into Key Vault:
+
+- The server (leaf) certificate.
+- The required intermediate CA certificates.
+- The cross-signed CA certificate that provides a path to a root CA on the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
+
+Front Door must be able to validate the certificate chain to a root CA trusted by its validator. You can omit the self-signed root certificate from the uploaded PFX when that root is already in the validator's trust store. Include the server certificate and its private key, all required intermediate CA certificates, and the cross-signed CA certificate needed for the intended trust path.
+
+After deployment, inspect the certificate chain served by your custom domain and test validation with your target clients. Confirm that the served chain provides the certificates needed to reach a root those clients trust. The self-signed root certificate does not need to be sent during the TLS handshake. Validation results can differ because clients use different trust stores and certificate path-building behavior.
 
 #### Import a certificate to Azure Key Vault
 
@@ -186,21 +200,19 @@ You can change a domain between using an Azure Front Door-managed certificate an
 
 #### Renew Azure Front Door-managed certificates
 
-For most custom domains, Azure Front Door automatically renews (rotates) managed certificates when they're close to expiry, and you don't need to do anything.
+Azure Front Door starts renewing managed certificates 45 days before they expire. Front Door supports HTTP file-token validation to automatically revalidate domain ownership during renewal. When automatic validation succeeds, you don't need to update a DNS TXT record for that renewal.
 
-However, Azure Front Door doesn't automatically rotate certificates in the following scenarios:
+Automatic renewal can work through an indirect CNAME chain, including Azure Traffic Manager, when traffic reaches Front Door and the Front Door endpoint is within the first three CNAME hops.
 
-* The custom domain's CNAME record points to a DNS record other than your Azure Front Door endpoint's domain.
-* The custom domain points to the Azure Front Door endpoint through a chain. 
-* The custom domain uses an A record. Always use a CNAME record to point to Azure Front Door.
-* The custom domain is an [apex domain](apex-domain.md) and uses CNAME flattening.
+Automatic validation can fail if traffic is routed to another service instead of Front Door. For example, a validation attempt can fail while Traffic Manager routes traffic to a failover endpoint. Front Door retries periodically and can complete renewal after traffic returns to Front Door. For production deployments with indirect CNAMEs, we recommend customer-managed certificates (BYOC) for more predictable certificate lifecycle management.
 
-If one of the preceding scenarios applies to your custom domain, then 45 days before the managed certificate expires, the domain validation state becomes *Pending Revalidation*. The *Pending Revalidation* state indicates that you need to create a new DNS TXT record to revalidate your domain ownership.
+**Limitations:** HTTP file-token validation doesn't support wildcard domains. Use DNS TXT revalidation for wildcard managed certificates. For apex domains and CNAME flattening, follow the existing [apex-domain certificate renewal guidance](apex-domain.md#azure-front-door-managed-tls-certificate-rotation).
 
-> [!NOTE]
-> DNS TXT records expire after seven days. If you previously added a domain validation TXT record to your DNS server, you need to replace it with a new TXT record. Ensure you use the new value, otherwise the domain validation process fails.
+This section describes renewal of existing managed certificates. It doesn't change the requirements for initial domain validation.
 
-If your domain can't be validated, the domain validation state becomes *Rejected*. This state indicates that the certificate authority rejected the request for reissuing a managed certificate.
+If automatic validation doesn't complete, you can revalidate domain ownership by using a DNS TXT record. When the domain shows **Pending revalidation**, select that status and then select **Regenerate**. Update the corresponding DNS TXT record with the new validation value. Use the newly generated value rather than a value from a previous renewal. You can use this method even while traffic is routed to another service.
+
+Monitor renewal issues through Azure Resource Health and Azure Advisor, and configure Resource Health alerts. We also recommend independent certificate-expiration monitoring. For more information, see [Monitor certificate expiration](#monitor-certificate-expiration).
 
 For more information on the domain validation states, see [Domain validation states](#domain-validation-states).
 
@@ -214,9 +226,31 @@ When you update the certificate in your key vault, Azure Front Door can automati
 
 If you select a specific version of your certificate, you must manually reselect the new version when you update your certificate.
 
+> [!NOTE]
+> Some existing cross-signed certificates with an incomplete chain might need to be rotated. For these affected certificates, import a new certificate with a different thumbprint and the complete required chain into Key Vault. Re-uploading the same certificate isn't sufficient. Follow the version-selection guidance in this section, then verify the chain served by your custom domain. For a first-time setup, import the complete required chain; you don't need an additional certificate rotation.
+
 It takes up to 72 hours for the new version of the certificate or secret to be automatically deployed.
 
 If you want to change the secret version from **Latest** to a specified version or vice versa, add a new certificate. 
+
+#### Monitor certificate expiration
+
+Azure Resource Health reports certificate expiration for the following Front Door certificate secret types:
+
+| Secret type | Certificate type |
+|--|--|
+| `CustomerCertificate` | Customer-managed certificate (BYOC) |
+| `ManagedCertificate` | Front Door-managed certificate |
+| `AzureFirstPartyManagedCertificate` | Azure first-party managed certificate |
+
+The following table describes the supported expiration reports:
+
+| Condition | When reported | Report level | Reason |
+|--|--|--|--|
+| Expires soon | The certificate expires within the next 30 days. | Warning | `CertificateExpiresSoon` |
+| Expired | The certificate's expiration date has passed. | Error | `CertificateExpired` |
+
+For instructions on setting up notifications, see [Create Resource Health alerts](/azure/service-health/resource-health-alert-monitor-guide).
 
 ## Security policies
 

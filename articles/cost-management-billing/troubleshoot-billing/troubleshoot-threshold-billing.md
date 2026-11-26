@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot threshold billing
 description: Resolve threshold billing problems.
-author: Jkinma39
+author: diberry
 ms.reviewer: Jkinma
 ms.service: cost-management-billing
 ms.subservice: billing

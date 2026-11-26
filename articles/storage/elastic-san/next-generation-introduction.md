@@ -1,7 +1,7 @@
 ---
 title: Introduction to Azure Elastic SAN Next Generation Preview
 description: Learn how Azure Elastic SAN Next Generation provides flexible performance, capacity pooling, and storage management for enterprise workloads.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: overview
 ms.date: 09/15/2026

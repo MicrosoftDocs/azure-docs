@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting import and export issues in Azure Import/Export | Microsoft Docs
 description: Learn how to handle common issues when using Azure Import/Export.
-author: v-dalc
+author: jeevanbalanmanoj
 services: storage
 ms.service: azure-import-export
 ms.topic: troubleshooting

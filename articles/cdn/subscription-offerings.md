@@ -2,8 +2,8 @@
 title: Azure CDN subscription offers and bandwidth throttling
 description: Learn about which Azure CDNs is available for a specific subscription type.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: kumud
 ms.service: azure-content-delivery-network
 ms.topic: troubleshooting

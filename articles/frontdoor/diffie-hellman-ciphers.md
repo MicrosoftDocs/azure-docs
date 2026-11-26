@@ -2,7 +2,7 @@
 title: DHE ciphers
 titleSuffix: Azure Front Door
 description: Learn about how to stop using DHE ciphers on Azure Front Door and CDN
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

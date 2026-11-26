@@ -1,7 +1,7 @@
 ---
 title: Configure encryption in transit for Azure Files
 description: Learn how to require and use encryption in transit for Azure Files with the SMB, NFS, and FileREST protocols.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/23/2026

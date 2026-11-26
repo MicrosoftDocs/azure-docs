@@ -7,7 +7,7 @@ ms.date: 11/17/2025
 ms.topic: overview 
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Security best practices in Azure Automation

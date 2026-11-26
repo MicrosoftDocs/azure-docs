@@ -7,7 +7,7 @@ ms.topic: sample
 ms.service: azure-automation
 ms.custom: subject-policy-compliancecontrols
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Azure Policy Regulatory Compliance controls for Azure Automation

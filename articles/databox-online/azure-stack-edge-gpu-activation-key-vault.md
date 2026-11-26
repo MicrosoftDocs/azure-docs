@@ -2,7 +2,7 @@
 title: Integration of Azure Key Vault with Azure Stack Edge resource and device activation
 description: Describes how Azure Key Vault is associated with secret management during the activation of Azure Stack Edge Pro device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: concept-article

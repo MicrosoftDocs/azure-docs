@@ -5,7 +5,7 @@ keywords: automation disaster recovery
 services: automation
 ms.subservice: process-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ms.date: 11/17/2025
 ms.topic: how-to 
 ms.service: azure-automation

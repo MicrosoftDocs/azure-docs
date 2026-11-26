@@ -2,7 +2,7 @@
 title: Virtual Network Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher virtual network flow logs and how to use them to record your virtual network's traffic. 
-author: srijanch
+author: huzefafw
 ms.author: srijanch
 ms.service: azure-network-watcher
 ms.topic: concept-article

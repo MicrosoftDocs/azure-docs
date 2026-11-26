@@ -2,7 +2,7 @@
 title: Configure VPN on your Azure Stack Edge Pro R device using Azure PowerShell
 description: Describes how to configure VPN on your Azure Stack Edge Pro R device using an Azure PowerShell script to create Azure resources.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: article

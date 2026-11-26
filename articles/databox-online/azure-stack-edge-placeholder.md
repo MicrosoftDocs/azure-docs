@@ -2,7 +2,7 @@
 title: Microsoft Azure Stack Edge placeholder | Microsoft Docs
 description: Describes placeholder doc.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: overview

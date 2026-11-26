@@ -2,7 +2,7 @@
 title: Azure Data Share terminology 
 description: Learn about common terms used to describe resources used in Azure Data Share (data provider, data consumer, data share, share subscription, snapshot, invitation, recipient.)
 ms.service: azure-data-share
-author:  chvukosw
+author:  diberry
 ms.author: diberry
 ms.topic: concept-article
 ms.date: 10/13/2026

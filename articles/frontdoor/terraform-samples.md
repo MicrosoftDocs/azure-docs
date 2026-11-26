@@ -1,7 +1,7 @@
 ---
 title: Terraform samples - Azure Front Door
 description: Learn about Terraform samples for Azure Front Door, including samples for creating a basic Front Door profile.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: sample

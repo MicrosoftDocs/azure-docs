@@ -3,7 +3,7 @@ title: Validate custom policy files by using TrustFrameworkPolicy schema
 titleSuffix: Azure AD B2C
 description: Learn how to validate custom policy files by using TrustFrameworkPolicy schema and other XML extensions for Visual Studio code. You also learn to navigate custom policy file by using Azure AD B2C extension.       
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

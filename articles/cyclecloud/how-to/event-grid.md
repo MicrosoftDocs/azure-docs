@@ -1,7 +1,7 @@
 ---
 title: Using Event Grid
 description: Learn how to process Azure CycleCloud cluster and node events through Azure Event Grid and route them to destinations like Storage queues.
-author: dougclayton
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: mattmcinnes

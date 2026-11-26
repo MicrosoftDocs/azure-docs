@@ -2,7 +2,7 @@
 title: Workflow in Azure Container Apps
 description: Learn how to build and scale durable workflows on Azure Container Apps with the Durable Task SDKs, Durable Task Scheduler, or Durable Functions.
 services: container-apps, azure-functions
-author: lilyjma
+author: vyomnagrani
 ms.service: azure-container-apps
 ms.topic: overview
 ms.date: 11/23/2026

@@ -3,7 +3,7 @@ title: Microsoft Dev Box deployment guide
 description: Learn about the process, configuration options, and considerations for planning a Microsoft Dev Box deployment.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: concept-article
 ms.date: 03/31/2026

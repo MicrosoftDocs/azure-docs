@@ -2,7 +2,7 @@
 title: Copy data from Greenplum
 description: Learn how to copy data from Greenplum to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 01/23/2026

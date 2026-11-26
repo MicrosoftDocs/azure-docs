@@ -2,7 +2,7 @@
 title: Traffic acceleration
 titleSuffix: Azure Front Door
 description: This article helps you understand how Front Door accelerates traffic.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

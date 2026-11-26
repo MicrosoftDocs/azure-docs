@@ -2,7 +2,7 @@
 title: Enforce Governance with Project Policies in Microsoft Dev Box
 description: Control resource use in Microsoft Dev Box with project policies that ensure compliance and streamline development workflows.
 #customer intent: As a platform engineer, I want to set up project policies in Microsoft Dev Box to control resource use for my development teams.
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.service: dev-box
 ms.topic: how-to

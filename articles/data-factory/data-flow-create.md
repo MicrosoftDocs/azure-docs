@@ -1,7 +1,7 @@
 ---
 title: Create a Mapping Data Flow
 description: Learn how to create a mapping data flow in Azure Data Factory and Azure Synapse Analytics.
-author: whhender
+author: dcstwh
 ms.author: weetok
 ms.reviewer: makromer
 ms.subservice: data-flows

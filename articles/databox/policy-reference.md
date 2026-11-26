@@ -5,8 +5,8 @@ ms.date: 02/06/2024
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: azure-data-box
-author: stevenmatthew
-ms.author: shaas
+author: diberry
+ms.author: diberry
 # Customer intent: "As an Azure resource manager, I want to access built-in policy definitions for Azure Data Box, so that I can implement governance and compliance measures effectively across my resources."
 ---
 # Azure Policy built-in definitions for Azure Data Box

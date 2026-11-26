@@ -4,7 +4,7 @@ metadata:
   description: Frequently asked questions for Azure Cloud Services (extended support)
   ms.topic: faq
   ms.service: azure-cloud-services-classic
-  author: hirshah
+  author: mattmcinnes
   ms.author: mattmcinnes
   ms.reviewer: mimckitt
   ms.date: 07/24/2024

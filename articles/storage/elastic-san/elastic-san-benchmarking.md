@@ -1,7 +1,7 @@
 ---
 title:       Benchmarking Azure Elastic SAN
 description: Learn how to benchmark Azure Elastic SAN performance by measuring IOPS and throughput using DiskSpd and fio on Windows and Linux virtual machines.
-author:      eshanchomsft
+author:      normesta
 ms.author:   normesta
 ms.service: azure-elastic-san
 ms.topic:    concept-article

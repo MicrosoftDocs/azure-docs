@@ -3,8 +3,8 @@ ROBOTS: NOINDEX
 title: Troubleshooting file compression in Azure Content Delivery Network
 description: Learn how to troubleshoot issues with file compression in Azure Content Delivery Network. This article covers several possible causes.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: kumudd
 ms.service: azure-content-delivery-network
 ms.topic: troubleshooting

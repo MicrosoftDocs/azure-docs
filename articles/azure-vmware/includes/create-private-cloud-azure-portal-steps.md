@@ -5,7 +5,7 @@ ms.topic: include
 ms.service: azure-vmware
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.date: 12/5/2024
-author: suzizuber
+author: mattmcinnes
 ms.author: mattmcinnes
 # Customer intent: As a cloud architect, I want to create an Azure VMware Solution private cloud using either the Azure portal or CLI, so that I can efficiently deploy and manage virtualized infrastructure in the cloud.
 ---

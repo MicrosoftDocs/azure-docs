@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 title: Large payload support with Durable Task Scheduler (Preview)
 description: Learn how to use preview large payload support in Durable Functions and the Durable Task SDKs with Durable Task Scheduler and Azure Blob Storage.
 ms.topic: feature-guide

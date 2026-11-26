@@ -1,7 +1,7 @@
 ---
 title: Azure Confidential VM options
 description: Compare Azure confidential VM options across AMD and Intel trusted execution technologies.
-author: iamwilliew
+author: vinfnet
 ms.author: sgallagher
 ms.reviewer: mattmcinnes
 ms.service: azure-confidential-computing

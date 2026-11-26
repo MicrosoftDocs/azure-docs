@@ -3,7 +3,7 @@ title: Secure phone-based MFA in Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn tips for securing phone-based multifactor authentication in your Azure AD B2C tenant by using Azure Monitor Log Analytics reports and alerts. Use our workbook to identify fraudulent phone authentications and mitigate fraudulent sign-ups. =
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 ms.topic: how-to

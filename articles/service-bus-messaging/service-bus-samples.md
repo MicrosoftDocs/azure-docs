@@ -2,7 +2,7 @@
 title: Azure Service Bus Code Samples and Examples
 description: Explore Azure Service Bus messaging samples to learn key features and implementation for .NET, Java, Python, JavaScript, and more. Start building today!
 #customer intent: As a developer using SDKs, I want to find examples for Service Bus packages so that I can maintain my existing applications.
-author: spelluru
+author: EldertGrootenboer
 ms.topic: article
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 10/06/2026

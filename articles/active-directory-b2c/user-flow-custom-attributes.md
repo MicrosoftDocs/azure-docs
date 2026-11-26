@@ -2,7 +2,7 @@
 title: Define custom attributes in Azure Active Directory B2C  
 description: Define custom attributes for your application in Azure Active Directory B2C to collect information about your customers.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

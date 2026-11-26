@@ -2,7 +2,7 @@
 ms.suite: integration
 ms.service: azure-logic-apps
 services: logic-apps
-author: ecfan
+author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: azla
 ms.date: 03/18/2025

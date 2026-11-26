@@ -1,7 +1,7 @@
 ---
 title: Azure Synapse Analytics encryption
 description: Understand encryption of data at rest in Synapse Analytics workspaces, configuration of encryption, key management, and Transparent Data Encryption (TDE).
-author: meenalsri
+author: rakrish75
 ms.author: rakrish
 
 ms.date: 07/31/2024

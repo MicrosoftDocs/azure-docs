@@ -2,7 +2,7 @@
 title: Cross-Origin Resource Sharing (CORS)
 titleSuffix: Azure Front Door
 description: Learn how Azure Front Door supports Cross-Origin Resource Sharing (CORS) for wildcard, single-origin, and multiple-origin scenarios.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: qixwang
 ms.reviewer: halkazwini
 ms.service: azure-frontdoor

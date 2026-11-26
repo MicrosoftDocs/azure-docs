@@ -2,12 +2,12 @@
 title: Get started with the Azure CDN SDK for Node.js
 description: Learn how to create a simple Node.js console application that demonstrates how to automate creation and management of Azure CDN profiles and endpoints.
 services: cdn
-author: iamwilliew
+author: diberry
 manager: akashdubey
 ms.service: azure-content-delivery-network
 ms.topic: how-to
 ms.date: 02/28/2026
-ms.author: wwilliams
+ms.author: diberry
 ms.custom: devx-track-js
 ROBOTS: NOINDEX
 # Customer intent: As a developer, I want to create and manage Azure CDN profiles and endpoints using Node.js, so that I can automate content delivery network operations in my applications.

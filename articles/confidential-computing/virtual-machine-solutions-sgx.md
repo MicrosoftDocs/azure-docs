@@ -1,7 +1,7 @@
 ---
 title: Deploy Intel SGX virtual machines (specialized)
 description: Specialized guidance for Intel SGX virtual machine deployments in Azure confidential computing.
-author: iamwilliew
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/30/2026

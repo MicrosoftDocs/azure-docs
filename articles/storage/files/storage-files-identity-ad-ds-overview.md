@@ -1,7 +1,7 @@
 ---
 title: On-Premises AD DS Authentication for Azure Files
 description: Learn about Active Directory Domain Services (AD DS) authentication to Azure file shares over SMB, including supported scenarios and how permissions work between AD DS and Microsoft Entra ID.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/20/2026

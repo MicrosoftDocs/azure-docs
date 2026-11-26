@@ -1,7 +1,7 @@
 ---
 title: Connector lifecycle overview
 description: This article describes the connector lifecycle.
-author: simplywilson
+author: dcstwh
 ms.author: tinglee
 ms.service: azure-data-factory
 ms.subservice: data-movement

@@ -3,7 +3,7 @@ title: Deliver events to webhooks using push model (CLI)
 description: This article provides step-by-step instructions to publish to Azure Event Grid in the CloudEvents JSON format and deliver those events by using the push delivery model to a webhook.
 ms.topic: quickstart
 ms.author: seshanmugam
-author: spelluru
+author: Connected-Seth
 ms.custom: references_regions, build-2024, devx-track-azurecli
 ms.date: 05/21/2024
 ---

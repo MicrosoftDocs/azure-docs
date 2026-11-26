@@ -2,7 +2,7 @@
 title: Azure Resource Manager template samples
 titleSuffix: Azure Front Door
 description: Explore Bicep and Azure Resource Manager template samples for Azure Front Door, including quick-start templates for profiles, custom domains, WAF policies, rate limiting, and various origin configurations such as App Service, Azure Functions, API Management, Storage, and Application Gateway.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: sample

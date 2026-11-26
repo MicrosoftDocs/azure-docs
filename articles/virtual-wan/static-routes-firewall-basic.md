@@ -2,7 +2,7 @@
 title: 'Basic static route scenarios with Azure Firewall in Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: Learn about common static route scenarios that use Azure Firewall in an Azure Virtual WAN hub.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 04/27/2026

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Configure a storage provider by using Netherite"
 description: "Learn how to configure a Durable Functions app to use the Netherite storage provider in Azure Functions. Set up Event Hubs, update host.json, and deploy your app."
-author: sebastianburckhardt
+author: diberry
 ms.author: vyomnagrani
 ms.topic: quickstart
 ms.service: durable-task

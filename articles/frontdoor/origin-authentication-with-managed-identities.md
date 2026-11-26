@@ -2,7 +2,7 @@
 title: Use Managed Identities to Authenticate to Origins
 titleSuffix: Azure Front Door
 description: Learn how to configure managed identities for Azure Front Door origin authentication, including supported scopes and required origin permissions.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to

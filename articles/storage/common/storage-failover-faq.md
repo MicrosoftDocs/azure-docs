@@ -3,7 +3,7 @@ title: Azure Storage failover FAQ - Scenarios, Limitations, and Best Practices
 titleSuffix: Azure Storage
 description: Learn answers to frequently asked questions about Azure storage failover.
 services: storage
-author: stevenmatthew
+author: normesta
 
 ms.service: azure-storage
 ms.subservice: storage-common-concepts

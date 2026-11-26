@@ -5,7 +5,7 @@ description: Learn how to copy and transform data in Dynamics 365 (Microsoft Dat
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.author: tinglee
-author: simplywilson
+author: dcstwh
 ms.date: 07/25/2025
 ai-usage: ai-assisted
 ms.custom:

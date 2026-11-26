@@ -1,7 +1,7 @@
 ---
 title: Overview of geo-redundancy in Azure App Service (Preview)
 description: Learn how geo-redundancy in Azure App Service creates and manages regional silos, synchronizes app deployments, and routes traffic across regions.
-author: apwestgarth
+author: btardif
 ms.author: anwestg
 ms.topic: overview
 ms.service: azure-app-service

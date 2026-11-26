@@ -3,7 +3,7 @@ title: DataMapTestExecutor class
 description: Learn about the DataMapTestExecutor class in the Azure Logic Apps Unit Testing SDK.
 services: logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewers: estfan, azla
 ms.topic: reference
 ms.date: 12/03/2025

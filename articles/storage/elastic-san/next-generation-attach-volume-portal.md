@@ -1,7 +1,7 @@
 ---
 title: Connect an Azure Elastic SAN Next Generation volume to a VM
 description: Learn how to connect an Azure Elastic SAN Next Generation Direct Attach or iSCSI volume to a virtual machine.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to

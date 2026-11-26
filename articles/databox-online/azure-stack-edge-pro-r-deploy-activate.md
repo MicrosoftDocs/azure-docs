@@ -2,7 +2,7 @@
 title: Tutorial to activate Azure Stack Edge Pro R device in Azure portal
 description: Tutorial to deploy Azure Stack Edge Pro R instructs you to activate your physical device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

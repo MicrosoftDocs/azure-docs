@@ -3,7 +3,7 @@ title: Microsoft Dev Box Architecture
 description: Learn about the architecture, key concepts, and terminology for Microsoft Dev Box. Understand dev centers, dev boxes, dev box definitions, and dev box pools.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: concept-article
 ms.date: 10/24/2025

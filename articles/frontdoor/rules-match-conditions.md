@@ -1,7 +1,7 @@
 ---
 title: Configure Azure Front Door rules match conditions
 description: This article provides a list of the various match conditions available with Azure Front Door rules. 
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

@@ -3,7 +3,7 @@ title: Configure authentication in a sample Node.js web application by using Azu
 description: This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a Node.js web application.
 titleSuffix: Azure AD B2C
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 ms.topic: how-to

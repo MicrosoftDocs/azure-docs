@@ -2,7 +2,7 @@
 title: BeeKeeperAI - Confidential Computing Platform for AI
 description: BeeKeeperAI's EscrowAI confidential computing platform on Azure enables secure execution of proprietary AI and analytics on sensitive data.
 services: virtual-machines
-author: ananyagarg
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 08/17/2026

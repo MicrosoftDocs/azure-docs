@@ -2,7 +2,7 @@
 title: 'Quickstart: Send and receive large messages with Azure Event Hubs'
 description: In this quickstart, you learn how to send and receive large messages with Azure Event Hubs after you configure an Event Hubs dedicated cluster.
 ms.topic: quickstart
-author: spelluru
+author: axisc
 ms.author: aschhabria
 ms.date: 08/25/2026
 ai-usage: ai-assisted

@@ -3,7 +3,7 @@ title: What is Azure Logic Apps?
 description: Learn how Azure Logic Apps automates enterprise business process workflows, integrates cloud and on-premises systems, and compares with other automation services.
 services: azure-logic-apps
 ms.suite: integration
-author: ecfan
+author: divyaswarnkar
 ms.reviewer: azla
 ms.topic: overview
 ms.collection: ce-skilling-ai-copilot

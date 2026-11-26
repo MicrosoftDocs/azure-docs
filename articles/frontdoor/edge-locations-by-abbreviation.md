@@ -1,7 +1,7 @@
 ---
 title: 'Azure Front Door POP (point-of-presence) locations by abbreviation'
 description: This article lists Azure Front Door POP (point-of-presence) locations, sorted by edge location abbreviation.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

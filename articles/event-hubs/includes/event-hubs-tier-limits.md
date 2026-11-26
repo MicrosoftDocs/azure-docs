@@ -1,7 +1,7 @@
 ---
 title: Limits for Azure Event Hubs tiers
 description: This include file provides information about limits for different Azure Event Hubs tiers.
-author: spelluru
+author: axisc
 ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 02/05/2026

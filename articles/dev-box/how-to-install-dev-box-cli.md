@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.author: rabououn
-author: RoseHJM
+author: ramiMSFT
 ms.date: 01/31/2025
 
 #Customer intent: As a platform engineer, I want to install the Dev Box CLI extension so that I can create Dev Box resources from the command line.

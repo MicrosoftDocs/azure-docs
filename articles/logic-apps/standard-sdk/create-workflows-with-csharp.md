@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Create and set up projects with code-first workflows with the Azure Logic Apps Standard SDK in Visual Studio Code.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.author: wsilveira
 ms.reviewers: ecfan, azla
 ms.topic: how-to

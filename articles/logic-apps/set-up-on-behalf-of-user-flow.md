@@ -2,7 +2,7 @@
 title: Authorize Agent Access with On-Behalf-Of Flow
 description: Authorize agent tool access to protected Microsoft resources through the signed-in user's identity and permissions in conversational agent workflows for Azure Logic Apps. Set up OAuth 2.0 On-Behalf-Of (OBO) authorization so that tool actions use delegated permissions and per-user connections.
 services: logic-apps
-author: ecfan
+author: divyaswarnkar
 ms.topic: how-to
 ms.date: 02/18/2026
 ms.update-cycle: 365-days

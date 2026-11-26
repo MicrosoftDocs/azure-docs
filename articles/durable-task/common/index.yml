@@ -8,7 +8,7 @@ metadata:
   description: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that automatically survives failures. Durable Task handles state persistence, automatic recovery, and distributed coordination for you. Common use cases include distributed transactions, multi-agent AI orchestration, data processing pipelines, and infrastructure management. 
   ms.service: durable-task
   ms.topic: landing-page
-  author: hhunter-ms
+  author: diberry
   ms.author: vyomnagrani
   ms.date: 03/20/2026
 

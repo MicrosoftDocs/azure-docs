@@ -1,7 +1,7 @@
 ---
 title: Azure Front Door billing
 description: Understand Azure Front Door's billing model, including base fees, request processing charges, data transfer costs, and how pricing varies by region and tier.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

@@ -1,7 +1,7 @@
 ---
 title: Send push notifications to Android using Azure Notification Hubs and Firebase SDK version 1.0.0-preview1
 description: In this tutorial, you learn how to use Azure Notification Hubs and Google Firebase Cloud Messaging to send push notifications to Android devices (version 1.0.0-preview1).
-author: sethmanheim
+author: diberry
 ms.author: dimatokar
 ms.date: 05/01/2025
 ms.topic: tutorial

@@ -2,8 +2,8 @@
 title: 'Quickstart: Integrate an Azure Storage account with Azure Content Delivery Network'
 description: In this quickstart, learn how to use the Azure content delivery network to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: azure-content-delivery-network
 ms.topic: quickstart
 ms.date: 02/28/2026

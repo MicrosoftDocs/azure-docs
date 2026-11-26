@@ -1,7 +1,7 @@
 ---
 title: Assign Share-Level Permissions for Azure Files
 description: Learn how to control access to Azure Files by assigning share-level permissions to control user access to SMB Azure file shares with identity-based authentication.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/14/2026

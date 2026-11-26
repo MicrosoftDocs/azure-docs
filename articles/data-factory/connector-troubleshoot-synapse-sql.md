@@ -2,7 +2,7 @@
 title: Troubleshoot the Azure Synapse Analytics, Azure SQL Database, SQL Server, Azure SQL Managed Instance, and Amazon RDS for SQL Server connectors
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Azure Synapse Analytics, Azure SQL Database, SQL Server connectors, Azure SQL Managed Instance, and Amazon RDS for SQL Server in Azure Data Factory and Azure Synapse Analytics.
-author: simplywilson
+author: dcstwh
 ms.author: tinglee
 ms.reviewer: joanpo, wiassaf
 ms.date: 02/13/2025

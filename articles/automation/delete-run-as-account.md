@@ -8,7 +8,7 @@ ms.update-cycle: 1825-days
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Delete an Azure Automation Run As account

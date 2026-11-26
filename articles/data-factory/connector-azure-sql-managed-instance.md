@@ -5,7 +5,7 @@ description: Learn how to copy and transform data in Azure SQL Managed Instance 
 ms.subservice: data-movement
 ms.topic: how-to
 ms.author: tinglee
-author: simplywilson
+author: dcstwh
 ms.date: 06/17/2024
 ms.custom:
   - synapse

@@ -8,7 +8,7 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 11/17/2025
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Remediate noncompliant Azure Automation State Configuration servers

@@ -1,7 +1,7 @@
 ---
 title: Frequently asked questions - Event Hubs Premium
 description: Provides frequently asked questions (FAQ) and their answers about Event Hubs Premium.
-author: spelluru
+author: axisc
 ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 02/15/2024

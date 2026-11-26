@@ -2,7 +2,7 @@
 title: Tutorial to set up device, update, time for Azure Stack Edge Mini R device in Azure portal
 description: Tutorial to deploy Azure Stack Edge Mini R instructs you to set up device, update and time settings for your physical device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

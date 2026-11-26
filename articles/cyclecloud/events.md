@@ -1,7 +1,7 @@
 ---
 title: Node Events
 description: Use the CycleCloud Events integration to get notified on state changes 
-author: dougclayton
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: concept-article
 ms.author: mattmcinnes

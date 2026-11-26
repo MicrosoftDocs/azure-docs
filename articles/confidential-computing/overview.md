@@ -2,7 +2,7 @@
 title: Azure Confidential Computing Overview
 description: Learn what confidential computing is, how Azure TEEs reduce risk, and where to start.
 services: virtual-machines
-author: iamwilliew
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: overview
 ms.date: 06/30/2026

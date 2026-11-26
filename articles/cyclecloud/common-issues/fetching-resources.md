@@ -1,7 +1,7 @@
 ---
 title: Common Issues - Fetching Resource
 description: Troubleshoot resource-fetching and staging errors in Azure CycleCloud, such as socket-closed urlopen failures.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso

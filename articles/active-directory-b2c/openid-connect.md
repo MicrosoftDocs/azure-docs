@@ -3,7 +3,7 @@ title: Web sign in with OpenID Connect
 titleSuffix: Azure AD B2C
 description: Build web applications using the OpenID Connect authentication protocol in Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

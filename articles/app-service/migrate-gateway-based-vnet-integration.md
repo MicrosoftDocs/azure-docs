@@ -1,7 +1,7 @@
 ---
 title: Migrate from gateway-based to regional virtual network integration
 description: Learn how to migrate your App Service virtual network integration from legacy gateway-based integration to modern regional virtual network integration for improved performance and capabilities.
-author: seligj95
+author: btardif
 ms.topic: how-to
 ms.date: 01/30/2026
 ms.author: jordanselig

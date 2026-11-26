@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Accept & receive data - Azure Data Share'
 description: Tutorial - Accept and receive data using Azure Data Share 
-author: chvukosw
+author: diberry
 ms.author: diberry
 ms.service: azure-data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, msecd-doc-authoring-1030

@@ -2,7 +2,7 @@
 title: Incrementally copy multiple tables using Azure portal
 description: In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.
 ms.author: weetok
-author: kromerm
+author: dcstwh
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement

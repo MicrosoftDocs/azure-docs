@@ -1,7 +1,7 @@
 ---
 title: What is Azure Files?
 description: An overview of Azure Files, a fully managed cloud file share service that supports SMB and NFS protocols for Windows, Linux, and macOS clients.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 08/17/2026

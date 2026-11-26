@@ -3,7 +3,7 @@ title: TestWorkflowOutputParameter class
 description: The unit test flow output parameter that represents the outputs from a Standard logic app workflow during test execution.
 services: logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 06/10/2025

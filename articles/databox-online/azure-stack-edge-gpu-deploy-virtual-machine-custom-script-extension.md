@@ -2,7 +2,7 @@
 title: Use of Custom Script Extensions for VMs on your Azure Stack Edge Pro device
 description: Describes how to install custom script extensions on virtual machines (VMs) running on an Azure Stack Edge Pro device using templates.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

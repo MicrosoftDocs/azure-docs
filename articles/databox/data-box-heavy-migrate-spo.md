@@ -2,12 +2,12 @@
 title: Use Azure Data Box Heavy to move file share content to SharePoint Online
 description: Use this tutorial to learn how to migrate file share content to SharePoint Online using your Azure Data Box Heavy
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box-heavy
 ms.topic: how-to
 ms.date: 07/18/2019
-ms.author: shaas
+ms.author: diberry
 # Customer intent: As a data manager, I want to migrate large volumes of file share content to SharePoint Online using Azure Data Box Heavy, so that I can ensure efficient data transfer without relying on the WAN and manage my data more effectively in the cloud.
 ---
 

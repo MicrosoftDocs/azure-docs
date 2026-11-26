@@ -2,12 +2,12 @@
 title: Safety for your Azure Data Box Heavy | Microsoft Docs
 description: Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your Azure Data Box Heavy.
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box-heavy
 ms.topic: concept-article
 ms.date: 07/08/2019
-ms.author: shaas
+ms.author: diberry
 
 # Customer intent: "As a data center operator, I want to understand the safety guidelines for handling and operating the Data Box Heavy, so that I can prevent injuries and ensure compliance with safety standards during installation and use."
 ---

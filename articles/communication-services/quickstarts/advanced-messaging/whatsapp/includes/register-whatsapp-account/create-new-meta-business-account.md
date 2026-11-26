@@ -2,7 +2,7 @@
 title: Include file
 titleSuffix: Include file
 description: Learn about Communication Service WhatsApp Business Accounts concepts.
-author: darmour
+author: diberry
 manager: sundraman
 services: azure-communication-services
 ms.author: diberry

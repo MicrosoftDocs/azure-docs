@@ -2,7 +2,7 @@
 title: Deploy IoT Edge workload using GPU sharing on Azure Stack Edge Pro GPU device
 description: Describes how you can deploy a GPU shared workload via IoT Edge on your Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

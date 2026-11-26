@@ -1,7 +1,7 @@
 ---
 title: Configure SAP HANA provider for Azure Monitor for SAP solutions
 description: Learn how to configure the SAP HANA provider for Azure Monitor for SAP solutions through the Azure portal.
-author: MightySuz
+author: mattmcinnes
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to

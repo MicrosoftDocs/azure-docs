@@ -2,7 +2,7 @@
 title: Troubleshoot the XML format connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the XML format connector in Azure Data Factory and Azure Synapse Analytics. 
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 10/20/2023

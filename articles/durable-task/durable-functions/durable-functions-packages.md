@@ -1,7 +1,7 @@
 ---
 title: "Durable Functions Packages, Extensions, and SDKs: Overview"
 description: "Learn about Durable Functions packages, extensions, and SDKs for .NET, Node.js, Python, Java, and PowerShell. Find the right package and storage provider for your Azure Functions runtime."
-author: davidmrdavid
+author: diberry
 ms.topic: overview
 ms.service: durable-task
 ms.subservice: durable-functions

@@ -3,8 +3,8 @@ title: Diagnostic logs
 titleSuffix: Azure Content Delivery Network
 description: Learn how to use Azure diagnostic logs to save core analytics, which allows you to export usage metrics from your Azure Content Delivery Network endpoint.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: KumudD
 ms.service: azure-content-delivery-network
 ms.topic: troubleshooting

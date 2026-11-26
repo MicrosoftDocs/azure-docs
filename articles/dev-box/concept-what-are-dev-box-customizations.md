@@ -1,7 +1,7 @@
 ---
 title: Streamline Your Workflow with Dev Box Customizations
 description: Understand how to use Dev Box customizations to create ready-to-code configurations for your development teams and individual developers.
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.service: dev-box
 ms.custom:

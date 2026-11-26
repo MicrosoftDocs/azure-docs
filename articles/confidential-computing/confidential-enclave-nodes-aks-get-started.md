@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Deploy an AKS cluster with enclave confidential container Intel SGX nodes by using the Azure CLI (specialized)'
 description: Specialized quickstart for Intel SGX enclave node pools on Azure Kubernetes Service (AKS).
-author: angarg05
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 06/30/2026

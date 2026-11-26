@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Elastic SAN Next Generation Preview
 description: Learn how to deploy and configure Azure Elastic SAN Next Generation Preview, including autoscaling, volume groups, and volumes.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 10/29/2026

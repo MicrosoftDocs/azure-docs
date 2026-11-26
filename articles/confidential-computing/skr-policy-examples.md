@@ -1,7 +1,7 @@
 ---
 title: Secure Key Release Policy with Azure Key Vault and Azure Confidential Computing
 description: Examples of AKV SKR policies across offered Azure Confidential Computing Trusted Execution Environments
-author: angarg05
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 09/09/2026

@@ -3,7 +3,7 @@ title: Configure Canvas to use Azure Lab Services
 description: Learn how to configure Canvas to use Azure Lab Services.
 ms.topic: how-to
 ms.date: 12/16/2022
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.custom:
   - engagement-fy23

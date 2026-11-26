@@ -2,7 +2,7 @@
 title: Copy data from Concur (Preview) 
 description: Learn how to copy data from Concur to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.date: 06/22/2026

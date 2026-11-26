@@ -2,7 +2,7 @@
 title: ORC format support 
 description: This topic describes how to deal with ORC format in Azure Data Factory and Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: reference

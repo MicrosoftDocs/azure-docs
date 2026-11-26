@@ -2,7 +2,7 @@
 title: Azure Active Directory B2C custom policy overview  
 description: Understand Azure AD B2C custom policies and the Identity Experience Framework to configure and customize your Azure AD B2C tenant for various identity tasks.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

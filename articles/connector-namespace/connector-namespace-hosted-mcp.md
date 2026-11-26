@@ -1,7 +1,7 @@
 ---
 title: Hosted MCP Servers in Connector Namespace
 description: Get an overview of hosted MCP servers in Connector Namespace. 
-author: lilyjma
+author: diberry
 ms.author: jiayma
 ms.reviewer: glenga
 ms.date: 06/02/2026

@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 03/06/2025
 ms.devlang: spark-scala
 ms.subservice: kafka
-author: spelluru
+author: axisc
 ms.author: aschhabria
 ---
 

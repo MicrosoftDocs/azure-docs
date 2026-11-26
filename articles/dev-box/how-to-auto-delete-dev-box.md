@@ -2,7 +2,7 @@
 title: Enable Dev Box Auto-Delete to Control Costs
 description: Dev Box autodeletion helps you control costs by removing unused Dev Boxes. Learn how to enable, configure, and cancel autodeletion in Azure.
 #customer intent: As a Dev Box admin, I want to enable auto-deletion for unused Dev Boxes so that I can control costs in my Azure subscription.
-author: RoseHJM
+author: ramiMSFT
 contributors: null
 ms.topic: how-to
 ms.date: 07/11/2025

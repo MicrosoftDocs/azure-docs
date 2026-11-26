@@ -1,7 +1,7 @@
 ---
 title: Settings mapping between Azure Front Door (classic) and Standard/Premium tier
 description: This article explains the differences between settings mapped between an Azure Front Door (classic) and Azure Front Door Standard or Premium profile.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

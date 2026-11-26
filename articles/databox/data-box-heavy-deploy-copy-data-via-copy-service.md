@@ -2,12 +2,12 @@
 title: "Tutorial: Copy data to Azure Data Box Heavy via data copy service"
 description: In this tutorial, you learn how to copy data to your Azure Data Box Heavy device via the data copy service
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
-ms.author: shaas
+ms.author: diberry
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 # Customer intent: "As an IT admin, I want to copy data from my network-attached storage to Azure Data Box Heavy using the data copy service, so that I can efficiently upload my on-premises data to Azure without the need for an intermediate host."
 ---

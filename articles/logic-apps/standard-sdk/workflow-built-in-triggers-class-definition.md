@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Factory methods for creating built-in workflow triggers such as HTTP request, recurrence, and conversational agent triggers.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 title: "OpenTelemetry Distributed Tracing with Durable Task Scheduler"
 description: Enable OpenTelemetry distributed tracing to visualize orchestration flows in Durable Functions and Durable Task SDKs with Durable Task Scheduler. Get started now.
 ms.topic: how-to

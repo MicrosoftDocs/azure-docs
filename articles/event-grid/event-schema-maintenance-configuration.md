@@ -2,7 +2,7 @@
 title: Azure Maintenance Configuration as an Event Grid source
 description: The article provides details on Azure Maintenance Configuration as an Event Grid source. 
 ms.topic: overview
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ms.date: 11/29/2023
 ---

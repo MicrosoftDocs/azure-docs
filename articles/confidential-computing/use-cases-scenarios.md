@@ -2,7 +2,7 @@
 title: Common Azure Confidential Computing Scenarios and Use Cases
 description: Explore common Azure confidential computing scenarios and map them to practical design goals.
 services: virtual-machines
-author: iamwilliew
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: overview
 ms.date: 06/30/2026

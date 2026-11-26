@@ -1,7 +1,7 @@
 ---
 title: About Nutanix Cloud Clusters on Azure
-author: jjaygbay1
-ms.author: jacobjaygbay
+author: diberry
+ms.author: diberry
 description: Learn about Nutanix Cloud Clusters on Azure and the benefits it offers.
 ms.topic: overview
 ms.custom: engagement-fy23

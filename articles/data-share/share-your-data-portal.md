@@ -1,7 +1,7 @@
 ---
 title: 'Share outside your org (Azure portal) - Azure Data Share quickstart'
 description: Learn how to share data with customers and partners using Azure Data Share in this quickstart.
-author: chvukosw 
+author: diberry 
 ms.author: diberry
 ms.service: azure-data-share
 ms.topic: quickstart

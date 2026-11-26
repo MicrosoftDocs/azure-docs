@@ -4,7 +4,7 @@ description: Start here to learn how to monitor Azure Data Share.
 ms.date: 10/13/2026
 ms.custom: horz-monitor, msecd-doc-authoring-1030
 ms.topic: concept-article
-author: chvukosw
+author: diberry
 ms.author: diberry
 ms.service: azure-data-share
 ai-usage: ai-assisted

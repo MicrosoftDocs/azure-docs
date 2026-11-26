@@ -2,12 +2,12 @@
 title: Troubleshoot time sync issues for Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy devices
 description: Describes how to troubleshoot time sync issues for Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy device via the PowerShell interface.
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box
 ms.topic: troubleshooting
 ms.date: 03/06/2025
-ms.author: shaas
+ms.author: diberry
 # Customer intent: As a data engineer, I want to troubleshoot time synchronization issues on my Data Box device using PowerShell, so that I can ensure accurate data transfer and prevent errors related to time discrepancies during data operations.
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Migrate HPC data to Azure using Data Box, AzCopy, and rsync
 description: Transfer large-scale HPC data from on-premises to Azure storage using Azure Data Box, AzCopy, and rsync with best practices for integrity and security.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to

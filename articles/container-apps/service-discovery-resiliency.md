@@ -3,7 +3,7 @@ title: Service discovery resiliency (preview)
 titleSuffix: Azure Container Apps
 description: Learn how to apply container app to container app resiliency when using the application's service name in Azure Container Apps.
 services: container-apps
-author: hhunter-ms
+author: vyomnagrani
 ms.service: azure-container-apps
 ms.subservice: dapr
 ms.topic: how-to

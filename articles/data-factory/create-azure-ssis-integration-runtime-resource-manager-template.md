@@ -5,7 +5,7 @@ ms.subservice: integration-services
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 01/05/2024
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ---
 

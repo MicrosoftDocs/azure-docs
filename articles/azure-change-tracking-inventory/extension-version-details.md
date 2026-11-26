@@ -6,7 +6,7 @@ ms.date: 09/24/2026
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: gurkisingh
-author: RochakSingh-blr
+author: gurkiratsingh2021
 ---
 
 # Azure Change Tracking and Inventory extension version details and known issues

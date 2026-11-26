@@ -1,7 +1,7 @@
 ---
 title: Configure Customization Tasks
 description: Learn how to create and manage tasks in a catalog for Dev Box team customizations, including adding tasks and attaching the catalog to a project.
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.service: dev-box
 ms.custom:

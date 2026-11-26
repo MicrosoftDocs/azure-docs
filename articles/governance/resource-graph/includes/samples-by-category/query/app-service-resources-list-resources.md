@@ -2,7 +2,7 @@
 ms.service: resource-graph
 ms.topic: include
 ms.date: 09/15/2025
-author: seligj95
+author: mgreenegit
 ms.author: jordanselig
 ---
 

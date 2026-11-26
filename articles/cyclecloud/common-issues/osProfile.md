@@ -1,7 +1,7 @@
 ---
 title: Common Issues - os.Profile
 description: Troubleshoot the 'Parameter os.Profile is not allowed' error in Azure CycleCloud and how to resolve it.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso

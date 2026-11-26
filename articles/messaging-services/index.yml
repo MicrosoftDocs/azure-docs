@@ -9,7 +9,7 @@ metadata:
   description: Learn how to use Azure Event Grid, Azure Event Hubs, Azure Service Bus, and Azure Relay to deliver event messages.
   ms.service: azure-event-grid 
   ms.topic: hub-page
-  author: spelluru
+  author: Connected-Seth
   ms.author: seshanmugam
   ms.date: 03/26/2026
 

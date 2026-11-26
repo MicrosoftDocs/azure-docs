@@ -2,7 +2,7 @@
 title: Copy data from Cassandra
 description: Learn how to copy data from Cassandra to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 08/18/2025

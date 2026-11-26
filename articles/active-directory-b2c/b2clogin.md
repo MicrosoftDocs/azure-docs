@@ -3,7 +3,7 @@ title: Migrate applications and APIs to b2clogin.com
 titleSuffix: Azure AD B2C
 description: Learn how to update redirect URLs in Azure AD B2C applications to use b2clogin.com or a custom domain for authentication endpoints.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

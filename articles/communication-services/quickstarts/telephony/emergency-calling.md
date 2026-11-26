@@ -2,7 +2,7 @@
 title: Quickstart - Add emergency calling to your app
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to add emergency calling to your app by using Azure Communication Services.
-author: boris-bazilevskiy
+author: diberry
 ms.author: bobazile
 ms.date: 07/20/2023
 ms.topic: quickstart

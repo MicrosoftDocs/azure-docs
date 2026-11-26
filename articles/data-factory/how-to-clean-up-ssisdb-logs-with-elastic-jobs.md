@@ -4,7 +4,7 @@ description: This article describes how to clean up SSIS project deployment and 
 ms.subservice: integration-services
 ms.topic: how-to
 ms.date: 05/15/2024
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.custom:
   - sfi-image-nochange

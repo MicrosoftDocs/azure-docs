@@ -1,7 +1,7 @@
 ---
 title: Create Azure Service Bus resources using templates
 description: Use Azure Resource Manager templates to automate the creation of Service Bus resources
-author: spelluru
+author: EldertGrootenboer
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 09/20/2021

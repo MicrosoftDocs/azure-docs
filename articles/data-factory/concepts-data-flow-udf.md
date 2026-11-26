@@ -2,7 +2,7 @@
 title: User defined functions in mapping data flows
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn the concepts of user defined functions in mapping data flow
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.subservice: data-flows
 ms.custom: synapse

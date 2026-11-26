@@ -4,8 +4,8 @@ title: 'Tutorial: Add a custom domain to your endpoint'
 titleSuffix: Azure Content Delivery Network
 description: Use this tutorial to add a custom domain to an Azure Content Delivery Network endpoint so that your domain name is visible in your URL.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: KumudD
 ms.service: azure-content-delivery-network
 ms.topic: tutorial

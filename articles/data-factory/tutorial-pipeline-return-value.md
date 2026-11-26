@@ -6,7 +6,7 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 09/26/2024
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.reviewer: whhender
 ---

@@ -1,7 +1,7 @@
 ---
 title: Use Azure Files for Azure Kubernetes Workloads
 description: Learn how to use Azure file shares for Azure Kubernetes Service (AKS) workloads, including how to use the Azure Files CSI driver.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 03/18/2026

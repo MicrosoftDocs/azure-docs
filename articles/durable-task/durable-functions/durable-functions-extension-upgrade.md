@@ -1,7 +1,7 @@
 ---
 title: "Upgrade the Durable Functions Extension Version"
 description: "Learn why upgrading to the latest Durable Functions extension version improves performance and fixes bugs. Follow step-by-step instructions to upgrade your extension today."
-author: lilyjma
+author: diberry
 ms.topic: how-to
 ms.service: durable-task
 ms.subservice: durable-functions

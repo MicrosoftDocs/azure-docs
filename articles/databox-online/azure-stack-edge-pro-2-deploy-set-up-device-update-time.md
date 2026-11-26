@@ -2,7 +2,7 @@
 title: Tutorial to connect, configure, activate Azure Stack Edge Pro 2 device 
 description: Tutorial to deploy Azure Stack Edge Pro 2 instructs you to configure device settings including device name, update server, and time server via the local web UI
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

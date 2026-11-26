@@ -1,7 +1,7 @@
 ---
 title: Post Migration DevOps Experience
 description: Guidance to update Terraform, ARM templates, Bicep, PowerShell, and Azure CLI pipelines after migrating from Azure Front Door (classic) or CDN Standard from Microsoft (classic) to Azure Front Door Standard/Premium.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: overview

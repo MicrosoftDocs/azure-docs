@@ -1,7 +1,7 @@
 ---
 title: Set up monitoring for Azure HPC with Azure Monitor and Grafana
 description: Configure Azure Monitor, Grafana dashboards, and Prometheus to monitor HPC cluster health, job performance, and resource utilization.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to

@@ -4,7 +4,7 @@ description: "Azure Key Vault events: Discover how to use Azure Key Vault as an 
 #customer intent: As an architect, I want to understand which Azure Key Vault events are available in Event Grid so that I can design event-driven solutions.
 ms.topic: concept-article
 ms.date: 03/26/2026
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ms.reviewer: spelluru
 # Customer intent: As an architect or a developer, I want to know whether I can use Azure Key Vault as an Event Grid source. 

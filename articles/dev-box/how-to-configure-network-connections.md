@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to manage network connections for a dev center in Microsoft Dev Box. Connect to a virtual network or enable connecting to on-premises resources.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 08/27/2025
 ms.topic: how-to

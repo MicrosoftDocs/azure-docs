@@ -2,7 +2,7 @@
 title: Deploy Kubernetes stateless application on Azure Stack Edge Pro GPU device using kubectl| Microsoft Docs
 description: Describes how to create and manage a Kubernetes stateless application deployment using kubectl on a Microsoft Azure Stack Edge Pro device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

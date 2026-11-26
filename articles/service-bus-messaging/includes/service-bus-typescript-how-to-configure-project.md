@@ -1,7 +1,7 @@
 ---
 title: Include file
 description: Include file
-author: spelluru
+author: EldertGrootenboer
 ms.service: azure-service-bus
 ms.topic: include
 ms.date: 07/17/2024

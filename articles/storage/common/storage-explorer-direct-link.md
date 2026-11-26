@@ -2,7 +2,7 @@
 title: Azure Storage Explorer direct link
 description: Documentation of Azure Storage Explorer direct link
 services: storage
-author: jinglouMSFT
+author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: article

@@ -2,7 +2,7 @@
 title: Azure Stack Edge Pro R security | Microsoft Docs
 description: Describes the security and privacy features that protect your Azure Stack Edge Pro 2, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices, service, and data on-premises and in the cloud.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: article

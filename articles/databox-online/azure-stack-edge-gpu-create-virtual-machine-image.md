@@ -2,7 +2,7 @@
 title: Create custom VM images for your Azure Stack Edge Pro GPU device
 description: Describes how to create custom Windows and Linux VM images for deploying virtual machines on Azure Stack Edge Pro GPU devices.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

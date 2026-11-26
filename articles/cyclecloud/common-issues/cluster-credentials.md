@@ -1,7 +1,7 @@
 ---
 title: Common Issues - Cluster Credentials
 description: Troubleshoot cluster credential errors in Azure CycleCloud, such as 'Credentials not found' during node validation.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso

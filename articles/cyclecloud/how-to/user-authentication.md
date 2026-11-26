@@ -1,7 +1,7 @@
 ---
 title: User Authentication
 description: Learn about user authentication in Azure CycleCloud. You can authenticate using a built-in database with encryption, Azure AD, or LDAP.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: adjohnso

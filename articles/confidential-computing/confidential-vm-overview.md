@@ -1,7 +1,7 @@
 ---
 title: About Azure confidential VMs
 description: Learn how Azure confidential VMs protect data in use, encryption keys, and workload integrity.
-author: iamwilliew
+author: vinfnet
 ms.author: mmcrey
 ms.reviewer: mattmcinnes
 ms.service: azure-confidential-computing

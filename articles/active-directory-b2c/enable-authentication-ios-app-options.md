@@ -2,7 +2,7 @@
 title: Enable iOS Swift mobile application options by using Azure Active Directory B2C
 description:  This article discusses several ways to enable iOS Swift mobile application options by using Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

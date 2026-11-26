@@ -5,7 +5,7 @@ ms.service: azure-cloud-services-classic
 ms.reviewer: mimckitt
 ms.topic: how-to
 ms.date: 07/24/2024
-author: hirenshah1
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.update-cycle: 365-days
 ms.custom: cloud-services-extended-support, classic-to-arm-migration

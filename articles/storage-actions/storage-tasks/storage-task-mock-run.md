@@ -5,7 +5,7 @@
 
 title: Mock Runs for Storage Task Assignments
 description: Run a mock run for storage task assignments to validate conditions, preview impacted blobs, and estimate cost before production.
-author: sshankMSFT
+author: normesta
 ms.author:   normesta # Microsoft alias
 ms.service: azure-storage-actions
 ms.topic: concept-article

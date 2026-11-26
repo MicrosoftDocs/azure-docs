@@ -3,7 +3,7 @@ title: Create Unit Tests from Standard Workflow Runs with Visual Studio Code
 description: Create unit tests from previously run Standard workflows in Azure Logic Apps by using Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.author: wsilveira
 ms.reviewer: estfan, azla
 ms.topic: how-to

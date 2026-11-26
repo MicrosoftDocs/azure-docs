@@ -2,7 +2,7 @@
 title: Recover Your Dev Box with Snapshots
 description: Learn how Dev Box uses manual and automatic snapshots to enable you to recover your dev box from critical issues. Restore your dev box quickly and efficiently.
 #customer intent: As a developer, I want to restore my dev box from a snapshot so that I can perform testing, or quickly recover from critical issues.
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.service: dev-box
 ms.topic: how-to

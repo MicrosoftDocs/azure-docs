@@ -2,7 +2,7 @@
 title: Troubleshoot the Azure Data Lake Storage connectors
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Azure Data Lake Storage Gen1 and Gen2 connectors in Azure Data Factory and Azure Synapse Analytics. 
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 09/26/2024

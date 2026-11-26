@@ -1,7 +1,7 @@
 ---
 title: Host a Web App in an App Service Environment
 description: Create a web app that uses an App Service Environment, and host the isolated app in a virtual network/subnet configuration. Follow procedures in the Azure portal to create the web app, enable encryption, diagnostic logging, and more.
-author: seligj95
+author: btardif
 ms.topic: how-to
 ms.date: 10/06/2026
 ms.author: jordanselig

@@ -2,7 +2,7 @@
 title: Phone Number Management for Hong Kong SAR
 titleSuffix: An Azure Communication Services concept document
 description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Hong Kong SAR.
-author: krkutser
+author: diberry
 manager: rcole
 services: azure-communication-services
 

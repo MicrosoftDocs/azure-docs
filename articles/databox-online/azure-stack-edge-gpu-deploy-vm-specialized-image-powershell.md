@@ -2,7 +2,7 @@
 title: Create VM images from specialized image of Windows VHD for your Azure Stack Edge Pro GPU device
 description: Describes how to create VM images from specialized images starting from a Windows VHD or a VHDX. Use this specialized image to create VM images to use with VMs deployed on your Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template, devx-track-azurepowershell

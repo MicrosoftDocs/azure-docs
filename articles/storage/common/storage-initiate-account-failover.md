@@ -3,7 +3,7 @@ title: Initiate a storage account failover
 titleSuffix: Azure Storage
 description: Learn how to initiate the failover process for your storage account. Failover can be initiated if the primary storage service endpoints become unavailable, or to perform disaster recovery testing. The failover process updates the secondary region to become the primary region for your storage account.
 services: storage
-author: stevenmatthew
+author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to

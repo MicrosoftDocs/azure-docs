@@ -2,7 +2,7 @@
 title: Azure Data Box Gateway & Azure Data Box Edge 1906 release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Data Box Gateway and Azure Data Box Edge running 1906 release.
 services: databox
-author: stevenmatthew
+author: Bapic
  
 ms.service: azure-data-box-gateway
 ms.topic: release-notes

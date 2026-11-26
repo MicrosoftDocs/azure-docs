@@ -2,7 +2,7 @@
 title: Enable authentication in a React application by using Azure Active Directory B2C building blocks
 description:  Use the building blocks of Azure Active Directory B2C to sign in and sign up users in a React application.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

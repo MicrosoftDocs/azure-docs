@@ -2,7 +2,7 @@
 title: Filter Virtual Network Flow Logs 
 titleSuffix: Azure Network Watcher
 description: Learn how to apply filtering in Azure Network Watcher virtual network flow logs to capture specific traffic based on flow state, actions, IP ranges, ports, protocols, and more.
-author: halkazwini
+author: huzefafw
 ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to

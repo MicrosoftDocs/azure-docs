@@ -7,7 +7,7 @@ ms.date: 06/27/2025
 ms.topic: quickstart
 ms.custom: references_regions
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Update runbook from PowerShell 7.1 to PowerShell 7.4

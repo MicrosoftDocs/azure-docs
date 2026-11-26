@@ -2,7 +2,7 @@
 title: Get Rule Recommendations in Traffic Analytics
 titleSuffix: Azure Network Watcher
 description: Use Rule Recommendation in Traffic Analytics to generate and review NSG rule recommendations based on observed flow logs, helping you clean up legacy rules and improve least-privilege network access.
-author: srijanch
+author: huzefafw
 ms.author: srijanch
 ms.service: azure-network-watcher
 ms.date: 10/29/2026

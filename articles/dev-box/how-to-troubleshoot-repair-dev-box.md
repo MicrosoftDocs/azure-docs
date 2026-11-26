@@ -1,7 +1,7 @@
 ---
 title: Resolve connectivity issues with Troubleshoot and Repair
 description: Having problems connecting to your dev box remotely? Learn how to troubleshoot and resolve connectivity issues to your dev box with developer portal tools. 
-author: RoseHJM 
+author: ramiMSFT 
 ms.author: rabououn 
 ms.service: dev-box 
 ms.topic: troubleshooting 

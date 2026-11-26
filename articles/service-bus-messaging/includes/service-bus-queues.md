@@ -1,5 +1,5 @@
 ---
-author: spelluru
+author: EldertGrootenboer
 ms.service: azure-service-bus
 ms.topic: include
 ms.date: 11/28/2023

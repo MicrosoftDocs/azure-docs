@@ -2,7 +2,7 @@
 title: "Monitor Azure Communication Services direct routing"
 ms.author: bobazile
 ms.date: 11/27/2023
-author: boris-bazilevskiy
+author: diberry
 manager: rcole
 audience: ITPro
 ms.topic: troubleshooting

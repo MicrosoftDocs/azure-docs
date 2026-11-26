@@ -2,7 +2,7 @@
 title: Manage resources with Microsoft Graph
 titleSuffix: Azure AD B2C
 description: How to manage resources in an Azure AD B2C tenant by calling the Microsoft Graph API and using an application identity to automate the process.
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 ms.topic: how-to

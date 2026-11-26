@@ -7,7 +7,7 @@ ms.date: 07/22/2026
 ms.topic: overview
 ms.custom: linux-related-content
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # What is Azure Automation?

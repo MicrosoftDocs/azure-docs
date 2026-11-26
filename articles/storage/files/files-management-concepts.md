@@ -1,7 +1,7 @@
 ---
 title: Azure Files management concepts
 description: Understand the two resource providers for Azure Files — classic file shares (Microsoft.Storage) and file shares (Microsoft.FileShares) — and choose the right management model for your deployment.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 10/27/2026

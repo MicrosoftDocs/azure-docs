@@ -2,7 +2,7 @@
 title: Tutorial to connect to Azure Stack Edge Mini R in Azure portal 
 description: Learn how you can connect to your Azure Stack Edge Mini R device by using the local web UI.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

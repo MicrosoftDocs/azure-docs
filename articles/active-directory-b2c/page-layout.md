@@ -3,7 +3,7 @@ title: Page layout versions
 titleSuffix: Azure AD B2C
 description: Page layout version history for UI customization in custom policies.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot connector and format issues in mapping data flows
 description: Learn how to troubleshoot data flow problems related to connector and format in Azure Data Factory.
-author: simplywilson
+author: dcstwh
 ms.author: tinglee
 ms.reviewer: wiassaf
 ms.subservice: data-flows

@@ -2,7 +2,7 @@
 title: Notification Hubs enterprise push architecture
 description: Learn about using Azure Notification Hubs in an enterprise environment
 services: notification-hubs
-author: sethmanheim
+author: diberry
 manager: lizross
 editor: jwargo
 

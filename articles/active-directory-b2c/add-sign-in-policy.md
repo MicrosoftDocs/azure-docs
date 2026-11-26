@@ -3,7 +3,7 @@ title: Set up a sign-in flow
 titleSuffix: Azure Active Directory B2C
 description: Learn how to set up a sign-in flow in Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

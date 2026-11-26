@@ -1,7 +1,7 @@
 ---
 title: Azure Data Explorer input bindings for Azure Functions (preview)
 description: Understand how to use Azure Data Explorer input bindings for Azure Functions and query data from Azure Data Explorer.
-author: ramacg
+author: nzthiago
 ms.topic: reference
 ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/04/2023

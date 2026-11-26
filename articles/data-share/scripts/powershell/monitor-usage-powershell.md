@@ -1,7 +1,7 @@
 ---
 title: "PowerShell script: Monitor usage of an Azure Data Share"
 description: This PowerShell script retrieves usage metrics of a sent data share.
-author: chvukosw
+author: diberry
 ms.author: diberry
 ms.service: azure-data-share
 ms.topic: concept-article

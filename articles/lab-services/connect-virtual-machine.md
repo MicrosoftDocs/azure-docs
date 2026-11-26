@@ -5,7 +5,7 @@ description: Learn how to connect to a lab VM in Azure Lab Services. You can use
 services: lab-services
 ms.service: azure-lab-services
 ms.custom: linux-related-content
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: how-to
 ms.date: 03/12/2024

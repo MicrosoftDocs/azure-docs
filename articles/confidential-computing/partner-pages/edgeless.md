@@ -2,7 +2,7 @@
 title: Edgeless
 description: Confidential computing solutions from Edgeless on Azure
 services: virtual-machines
-author: ananyagarg
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 03/29/2023

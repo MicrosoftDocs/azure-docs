@@ -8,7 +8,7 @@ ms.date: 04/14/2026
 ms.topic: how-to 
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Using a user-assigned managed identity for an Azure Automation account

@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Front Door
 description: This article contains important reference material you need when you monitor Azure Front Door by using Azure Monitor.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: reference

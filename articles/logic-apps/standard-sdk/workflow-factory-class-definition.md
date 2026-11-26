@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Primary entry point for creating stateful, stateless, and agent workflows from trigger-rooted operation graphs.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

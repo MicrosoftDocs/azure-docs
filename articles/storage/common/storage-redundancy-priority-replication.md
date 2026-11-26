@@ -3,7 +3,7 @@ title: Azure Storage Geo Priority Replication
 titleSuffix: Azure Storage
 description: Learn how Azure Storage Geo Priority Replication helps maintain high availability and cross-region data integrity.
 services: storage
-author: stevenmatthew
+author: normesta
 
 ms.service: azure-storage
 ms.topic: concept-article

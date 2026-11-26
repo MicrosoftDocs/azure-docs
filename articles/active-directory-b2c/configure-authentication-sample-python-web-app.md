@@ -2,7 +2,7 @@
 title: Configure authentication in a sample Python web app by using Azure AD B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a Python web application.
 
-author: kengaderdus
+author: diberry
 manager: mwongerapk
 ms.service: entra-id
 

@@ -3,7 +3,7 @@ title: Review tenant creation permission in Azure Active Directory B2C
 titleSuffix: Azure Active Directory B2C
 description: Learn how to check tenant creation permission in Azure Active Directory B2C before you create tenant
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

@@ -3,7 +3,7 @@ title: Azure Event Hubs Emulator Overview
 description: Learn about the Azure Event Hubs emulator, a local development tool for testing Event Hubs apps offline with cost efficiency and isolated environments.
 #customer intent: As a developer, I want to understand the Azure Event Hubs emulator so that I can test Event Hubs applications locally.  
 ms.topic: concept-article
-author: spelluru
+author: axisc
 ms.author: aschhabria
 ms.date: 08/25/2026
 ai-usage: ai-assisted

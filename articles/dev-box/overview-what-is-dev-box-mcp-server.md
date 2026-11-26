@@ -9,7 +9,7 @@ ms.ai-usage: ai-generated
 ms.update-cycle: 90-days
 ms.topic: overview
 ms.author: rabououn
-author: RoseHJM
+author: ramiMSFT
 ms.date: 12/05/2025
 
 #Customer intent: As a developer, I want to understand what the Dev Box MCP Server is and how it can help me manage my dev boxes through AI agents.

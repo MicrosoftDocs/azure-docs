@@ -1,7 +1,7 @@
 ---
 title: Add or edit Azure role assignment conditions using the Azure portal - Azure ABAC
 description: Learn how to add, edit, view, or delete attribute-based access control (ABAC) conditions in Azure role assignments using the Azure portal and Azure role-based access control (Azure RBAC).
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions

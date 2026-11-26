@@ -6,7 +6,7 @@ ms.date: 07/08/2025
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, no-azure-ad-ps-ref
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Use Microsoft Entra ID to authenticate to Azure

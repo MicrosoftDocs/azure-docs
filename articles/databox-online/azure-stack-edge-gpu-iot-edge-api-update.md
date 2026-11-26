@@ -2,7 +2,7 @@
 title: Azure Stack Edge January 2021 update impact | Microsoft Docs
 description: This article describes the impact of IoT Edge role management on Azure Stack Edge devices after you install the January 2021 update.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: overview

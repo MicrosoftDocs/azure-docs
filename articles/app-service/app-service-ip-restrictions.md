@@ -1,7 +1,7 @@
 ---
 title: Set Up Access Restrictions 
 description: Learn how to secure your app in Azure App Service by setting up access restrictions. Define a priority-ordered allow/deny list that controls network access.
-author: seligj95
+author: btardif
 ms.author: jordanselig
 ms.topic: how-to
 ms.date: 02/03/2025

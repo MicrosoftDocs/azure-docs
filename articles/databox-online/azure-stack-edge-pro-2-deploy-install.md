@@ -2,7 +2,7 @@
 title: Tutorial to install - Unpack, rack, cable Azure Stack Edge Pro 2 physical device | Microsoft Docs
 description: The second tutorial about installing Azure Stack Edge Pro 2 involves how to unpack, rack, and cable the physical device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

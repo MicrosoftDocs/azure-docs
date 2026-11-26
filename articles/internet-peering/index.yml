@@ -6,8 +6,8 @@ summary: Learn about Internet peering with Microsoft global network.
 metadata:
   title: Internet peering documentation
   description: Learn how to use internet peering with Microsoft.
-  author: halkazwini
-  ms.author: halkazwini
+  author: diberry
+  ms.author: diberry
   ms.service: internet-peering
   ms.topic: landing-page
   ms.date: 02/25/2026

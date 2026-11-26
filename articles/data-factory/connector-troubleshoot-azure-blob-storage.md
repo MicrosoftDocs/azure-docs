@@ -2,7 +2,7 @@
 title: Troubleshoot the Azure Blob Storage connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Azure Blob Storage connector in Azure Data Factory and Azure Synapse Analytics. 
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 05/15/2024

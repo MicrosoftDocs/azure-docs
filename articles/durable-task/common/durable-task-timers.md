@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 title: "Durable Timers: Implement Delays and Timeouts"
 description: "Learn how to implement durable timers in Durable Functions and Durable Task SDKs to add delays, set timeouts on async actions, and schedule billing notifications. Get started with code examples in C#, Python, Java, and JavaScript."
 ms.topic: feature-guide

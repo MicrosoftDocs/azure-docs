@@ -9,7 +9,7 @@ ms.custom:
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:07/08/2025
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 07/08/2025
 ms.topic: how-to

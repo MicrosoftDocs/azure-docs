@@ -3,7 +3,7 @@ title: How to send scheduled notifications | Microsoft Docs
 description: This topic describes using Scheduled Notifications with Azure Notification Hubs.
 services: notification-hubs
 keywords: push notifications,push notification,scheduling push notifications
-author: sethmanheim
+author: diberry
 manager: lizross
 editor: jwargo
 

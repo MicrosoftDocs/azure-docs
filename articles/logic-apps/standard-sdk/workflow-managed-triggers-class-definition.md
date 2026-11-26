@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Extensible access point for managed connector triggers that are generated from Azure connector definitions.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

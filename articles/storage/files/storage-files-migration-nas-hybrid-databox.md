@@ -1,7 +1,7 @@
 ---
 title: On-premises NAS migration to Azure File Sync via Data Box
 description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to a hybrid cloud deployment by using Azure File Sync via Azure Data Box.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/28/2026

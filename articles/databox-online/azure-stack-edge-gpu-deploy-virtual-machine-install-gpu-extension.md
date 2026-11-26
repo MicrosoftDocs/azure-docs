@@ -2,7 +2,7 @@
 title: Install GPU extension on GPU VMs on your Azure Stack Edge Pro GPU device
 description: Describes how to install GPU extensions on GPU virtual machines (VMs) on an Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

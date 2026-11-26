@@ -2,7 +2,7 @@
 title: Protect sensitive data in logs
 titleSuffix: Azure Front Door
 description: Learn how Azure Front Door log scrubbing protects sensitive data and how to configure it for request URIs, IP addresses, and query strings.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to

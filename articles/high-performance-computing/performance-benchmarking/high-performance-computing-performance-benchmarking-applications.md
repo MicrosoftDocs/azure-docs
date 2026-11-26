@@ -1,7 +1,7 @@
 ---
 title: High-performance computing (HPC) performance and benchmarking applications
 description: Review a list of applications and solutions related to HPC performance and benchmarking.
-author: padmalathas
+author: mdosterjr
 ms.author: mdoster
 ms.date: 01/01/2025
 ms.topic: concept-article

@@ -1,7 +1,7 @@
 ---
 title: "PowerShell script: create a new Azure Data Share"
 description: This PowerShell script creates a new data share within an existing Data Share account.
-author: chvukosw
+author: diberry
 ms.author: diberry
 ms.service: azure-data-share
 ms.topic: article

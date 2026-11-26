@@ -1,7 +1,7 @@
 ---
 title: Create Service Bus Topics and Subscriptions in Azure
 description: "Quickstart: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure portal."
-author: spelluru
+author: EldertGrootenboer
 ms.author: egrootenboer
 ms.date: 02/13/2026
 ms.topic: quickstart

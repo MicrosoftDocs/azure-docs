@@ -1,7 +1,7 @@
 ---
 title: Change the Identity Source for Azure Files
 description: Learn how to switch between identity sources for Azure Files identity-based authentication for SMB file shares by disabling your current identity source and enabling a new one.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 03/06/2026

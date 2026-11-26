@@ -2,7 +2,7 @@
 title: Enable authentication in a web app by using Azure Active Directory B2C building blocks
 description: This article discusses how to use the building blocks of Azure Active Directory B2C to sign in and sign up users in an ASP.NET web app.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

@@ -2,7 +2,7 @@
 title: Monitoring mapping data flows
 titleSuffix: Azure Data Factory & Azure Synapse
 description: How to visually monitor mapping data flows in Azure Data Factory and Synapse Analytics.
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.subservice: data-flows
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: "Function Chaining Pattern: Durable Functions and Durable Task SDKs"
 description: "Learn how to implement the function chaining pattern to execute a sequence of activities using Durable Functions or Durable Task SDKs. Get started with code samples."
-author: hhunter-ms
+author: diberry
 ms.topic: concept-article
 ms.service: durable-task
 ms.date: 11/23/2026

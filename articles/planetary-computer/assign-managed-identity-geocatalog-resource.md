@@ -1,7 +1,7 @@
 ---
 title: Using managed identities with GeoCatalog resource
 description: Learn how to add, update, or remove a user-assigned managed identity for a Microsoft Planetary Computer Pro GeoCatalog resource.
-author: jglixon
+author: diberry
 ms.topic: how-to
 ms.service: planetary-computer-pro
 ms.date: 05/29/2026

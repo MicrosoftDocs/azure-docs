@@ -1,7 +1,7 @@
 ---
 title: Copy Data by Using the Copy Data Tool
 description: Create an Azure data factory and then use the Copy Data tool to copy data from one location in Azure Blob Storage to another.
-author: whhender
+author: dcstwh
 ms.author: weetok
 ms.reviewer: yexu
 ms.topic: quickstart

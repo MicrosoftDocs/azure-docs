@@ -3,7 +3,7 @@ title: Conditional Access technical profiles in custom policies
 titleSuffix: Azure AD B2C
 description: Custom policy reference for Conditional Access technical profiles in Azure AD B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.custom: references_regions
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 

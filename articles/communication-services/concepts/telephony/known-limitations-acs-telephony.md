@@ -1,7 +1,7 @@
 ---
 title: Azure direct routing known limitations  - Azure Communication Services
 description: Known limitations of direct routing in Azure Communication Services.
-author: boris-bazilevskiy
+author: diberry
 manager: rcole
 services: azure-communication-services
 ms.author: bobazile

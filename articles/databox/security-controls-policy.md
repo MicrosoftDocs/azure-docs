@@ -3,8 +3,8 @@ title: Azure Policy Regulatory Compliance controls for Azure Data Box
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Data Box. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
 ms.date: 02/06/2024
 ms.topic: sample
-author: stevenmatthew
-ms.author: shaas
+author: diberry
+ms.author: diberry
 ms.service: azure-data-box
 ms.custom: subject-policy-compliancecontrols
 # Customer intent: "As a cloud resource manager, I want to leverage Azure Policy built-in compliance controls for Azure Data Box, so that I can ensure my resources meet regulatory standards and maintain compliance effectively."

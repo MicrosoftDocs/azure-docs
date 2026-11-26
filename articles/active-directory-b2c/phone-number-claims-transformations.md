@@ -3,7 +3,7 @@ title: Phone number claims transformations in custom policies
 titleSuffix: Azure AD B2C
 description: Custom policy reference for phone number claims transformations in Azure AD B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

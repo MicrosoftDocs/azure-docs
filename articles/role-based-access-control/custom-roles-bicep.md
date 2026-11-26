@@ -2,7 +2,7 @@
 title: Create or update Azure custom roles using Bicep - Azure RBAC
 description: Learn how to create or update Azure custom roles using Bicep and Azure role-based access control (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to

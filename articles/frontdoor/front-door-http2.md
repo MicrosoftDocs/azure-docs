@@ -1,7 +1,7 @@
 ---
 title: HTTP/2 support in Azure Front Door
 description: Learn how Azure Front Door uses HTTP/2 for client connections and gRPC origin connections, and how multiplexing and compression improve web performance.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

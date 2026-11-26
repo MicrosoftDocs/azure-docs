@@ -3,7 +3,7 @@ title: Enable authentication in your own Node web application using Azure Active
 description: This article explains how to enable authentication in your own Node.js web application using Azure AD B2C 
 titleSuffix: Azure AD B2C
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

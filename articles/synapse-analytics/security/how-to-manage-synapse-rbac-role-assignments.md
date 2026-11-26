@@ -1,7 +1,7 @@
 ---
 title: How to manage Azure Synapse RBAC assignments in Synapse Studio
 description: This article describes how to assign and revoke Azure Synapse RBAC roles to Microsoft Entra security principals
-author: meenalsri
+author: rakrish75
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: security

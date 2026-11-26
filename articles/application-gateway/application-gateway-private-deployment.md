@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 10/1/2026
+ms.date: 11/25/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
@@ -41,7 +41,10 @@ Each of these features can be configured independently. For example, a public IP
 
 This article covers private Application Gateway deployment for Application Gateway v2 SKUs. It supports two deployment modes: a private-only frontend IP configuration, and a combined configuration that uses both a public and a private frontend IP configuration. The controls for private frontend IP configuration, network security group (NSG) rule management, and route table configuration are generally available and supported in production.
 
-To use these capabilities, you must opt in to the experience by using the Azure portal, PowerShell, CLI, or REST API. This opt-in mechanism also provides flexibility if you need to revert to traditional Application Gateway functionality when required (for example, to enable Private Link).
+> [!NOTE]
+> To create a private-only Application Gateway without registering the `EnableApplicationGatewayNetworkIsolation` feature, select **Network Isolated** under **Deployment tier** when you create the gateway. For more information, see [Application Gateway deployment tiers](deployment-tier.md).
+
+If you use the existing feature-registration path described in this article, you must opt in to the experience by using the Azure portal, PowerShell, CLI, or REST API. Registration provides flexibility if you need to revert to traditional Application Gateway functionality when required (for example, to enable Private Link).
 
 >[!Tip]
 >Gateways operate using the capabilities available at the time they are provisioned. If you unregister from the feature, existing gateways continue to operate with the capabilities that were enabled when they were created.
@@ -373,4 +376,3 @@ If a subnet shares Application Gateway v2 deployments that you created both befo
 ## Next steps
 
 - See [Azure security baseline for Application Gateway](/security/benchmark/azure/baselines/application-gateway-security-baseline) for more security best practices.
-

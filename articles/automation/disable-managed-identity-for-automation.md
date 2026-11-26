@@ -7,7 +7,7 @@ ms.date: 04/14/2026
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Disable system-assigned managed identity for Azure Automation account

@@ -1,7 +1,7 @@
 ---
 title: Azure Notification Hubs Private Link (preview)
 description: Learn how to use the Private Link feature in Azure Notification Hubs. 
-author: sethmanheim
+author: diberry
 ms.author: dimatokar
 ms.date: 02/02/2024
 ms.service: azure-notification-hubs

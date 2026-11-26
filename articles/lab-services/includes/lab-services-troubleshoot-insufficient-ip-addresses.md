@@ -1,7 +1,7 @@
 ---
 ms.service: azure-lab-services
 ms.topic: include
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 03/28/2023
 ---

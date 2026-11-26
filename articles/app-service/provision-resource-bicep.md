@@ -1,7 +1,7 @@
 ---
 title: Create an App Service App by Using Bicep
 description: Create your first Azure App Service app in seconds by using Bicep, which is one of many ways to deploy to App Service.
-author: seligj95
+author: btardif
 ms.author: byvinyal
 ms.topic: quickstart
 ms.custom: devx-track-bicep

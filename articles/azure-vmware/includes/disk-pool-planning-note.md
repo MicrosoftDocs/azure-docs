@@ -4,7 +4,7 @@ description: Information about the importance of deploying a virtual network clo
 ms.topic: include
 ms.service: azure-vmware
 ms.date: 1/03/2024
-author: suzizuber
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.custom: engagement-fy23
 

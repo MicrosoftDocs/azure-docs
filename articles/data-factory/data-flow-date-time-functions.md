@@ -2,7 +2,7 @@
 title: Date and Time Functions in the Mapping Data Flow
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about date and time functions in mapping data flow.
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.subservice: data-flows
 ms.custom: synapse

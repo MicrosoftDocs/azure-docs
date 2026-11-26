@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: overview
 ms.custom: references_regions
 ms.author: diberry
-author: EliotSeattle
+author: diberry
 recommendations: false
 ms.date: 03/07/2022
 ---

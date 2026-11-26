@@ -1,7 +1,7 @@
 ---
 title: VM Security Options
 description: Review Azure CycleCloud VM security options. See options for Confidential VMs, Trusted Launch, and other security features.
-author: dougclayton
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: mattmcinnes

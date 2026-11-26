@@ -3,7 +3,7 @@ title: Request Quota Limit Increase for Dev Box Resources
 description: Extend the number of dev box resources you can use in your subscription by requesting a quota increase of dev box cores, dev centers, and other types of resources.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: how-to
 ms.date: 08/28/2025

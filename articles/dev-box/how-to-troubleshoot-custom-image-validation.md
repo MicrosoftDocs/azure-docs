@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to troubleshoot custom image validation failures in Microsoft Dev Box, including how to test images with equivalent VMs, understand Dev Box architecture differences, and resolve common validation errors.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 03/18/2026
 ms.topic: troubleshooting

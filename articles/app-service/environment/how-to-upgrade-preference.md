@@ -2,7 +2,7 @@
 title: Set Upgrade Preference for Planned Maintenance
 titleSuffix: App Service Environment
 description: Configure the upgrade preference for Azure App Service Environment planned maintenance in the Azure portal or by using the Azure CLI.
-author: seligj95
+author: btardif
 ms.author: jordanselig
 ms.topic: how-to
 ms.date: 03/17/2026

@@ -3,7 +3,7 @@ title: Best practices for Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Recommendations and best practices to consider when working with Azure Active Directory B2C (Azure AD B2C).
 
-author: kengaderdus
+author: diberry
 ms.author: diberry
 manager: mwongerapz
 ms.service: entra-id

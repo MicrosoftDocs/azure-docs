@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Elastic SAN Next Generation
 description: Troubleshoot Azure Elastic SAN Next Generation provisioning, direct-attach connectivity, performance, autoscale, and snapshot issues.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 11/06/2026

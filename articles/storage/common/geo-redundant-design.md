@@ -3,7 +3,7 @@ title: Use geo-redundancy to design highly available applications
 titleSuffix: Azure Storage
 description: Learn how to use geo-redundant storage to design a highly available application that is flexible enough to handle outages.
 services: storage
-author: stevenmatthew
+author: normesta
 
 ms.service: azure-storage
 ms.topic: concept-article
