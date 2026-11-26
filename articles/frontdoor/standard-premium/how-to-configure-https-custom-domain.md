@@ -6,7 +6,7 @@ author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 10/19/2026
+ms.date: 11/20/2026
 ms.custom: sfi-image-nochange
 
 #Customer intent: As a website owner, I want to add a custom domain to my Azure Front Door configuration so that my users can use my custom domain to access my content.
@@ -75,6 +75,8 @@ You can also choose to use your own TLS certificate. Your TLS certificate must m
 #### Prepare your key vault and certificate
 
 Create a separate Azure Key Vault instance in which you store your Azure Front Door TLS certificates. For more information, see [Create a Key Vault instance](/azure/key-vault/general/quick-create-portal). If you already have a certificate, you can upload it to your new Key Vault instance. Otherwise, you can create a new certificate through Key Vault from one of the certificate authority (CA) partners.
+
+For a cross-signed certificate, include the server certificate and its private key, all required intermediate CA certificates, and the cross-signed CA certificate needed for the intended trust path in the PFX. You can omit the self-signed root certificate when that root is already in Front Door's validator trust store. Review [cross-signed certificate chains](../domain.md#cross-signed-certificate-chains) before importing the certificate.
 
 Currently, two methods authenticate Azure Front Door to access your Key Vault:
 
