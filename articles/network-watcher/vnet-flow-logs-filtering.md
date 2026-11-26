@@ -46,6 +46,10 @@ Virtual network flow logs support logical operands `&&` and `||` between any two
 
 ## Enable filtering
 
+In the Azure portal, on the **Configure** tab of **Create a flow log**, select **Custom traffic filters** to configure filtering conditions.
+
+:::image type="content" source="./media/vnet-flow-logs-filtering/configure-filtering-portal.png" alt-text="Screenshot of the Configure tab in the Azure portal showing custom traffic filters and the available filtering attributes." lightbox="./media/vnet-flow-logs-filtering/configure-filtering-portal.png":::
+
 To create virtual network flow logs with filtering, use the [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwatcherflowlog) cmdlet.  
 
 
@@ -102,6 +106,8 @@ Use the RecordTypes parameter to specify which flow states you want to record. T
 | C     | Continuing: an ongoing flow. Statistics are provided at five-minute intervals. |
 | E     | End: when a flow is terminated. Statistics are provided. |
 | D     | Deny: when a flow is denied. |
+
+:::image type="content" source="./media/vnet-flow-logs-filtering/configure-record-types-portal.png" alt-text="Screenshot of the Azure portal showing the Record type dropdown with Begin, Continuing, End, and Deny options." lightbox="./media/vnet-flow-logs-filtering/configure-record-types-portal.png":::
 
 ### Example scenarios using RecordTypes
 
