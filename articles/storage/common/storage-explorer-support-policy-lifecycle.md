@@ -2,7 +2,7 @@
 title: Azure Storage Explorer support lifecycle
 description: Overview of the support policy and lifecycle for Azure Storage Explorer
 services: storage
-author: jinglouMSFT
+author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: article

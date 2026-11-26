@@ -1,7 +1,7 @@
 ---
 title: Connect to Azurite emulator with Azure SDKs and tools
 description: The Azurite open-source emulator provides a free local environment for developing and testing your Azure storage applications.
-author: stevenmatthew
+author: normesta
 ms.author: normesta
 ms.date: 06/24/2025
 ms.service: azure-storage

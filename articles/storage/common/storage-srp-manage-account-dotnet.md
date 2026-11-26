@@ -3,7 +3,7 @@ title: Manage storage account resources with the Azure Storage management librar
 titleSuffix: Azure Storage
 description: Learn how to manage storage account resources with the Azure Storage management library for .NET.
 services: storage
-author: stevenmatthew
+author: normesta
 ms.author: normesta
 ms.date: 11/19/2024
 ms.service: azure-blob-storage

@@ -3,7 +3,7 @@ title: How Azure Storage account customer-managed unplanned failover works
 titleSuffix: Azure Storage
 description: Azure Storage supports failover for geo-redundant storage accounts to recover from a service endpoint outage. Learn what happens to your storage account and services during a customer-managed unplanned failover to the secondary region if the primary endpoint becomes unavailable.
 services: storage
-author: stevenmatthew
+author: normesta
 
 ms.service: azure-storage
 ms.topic: concept-article

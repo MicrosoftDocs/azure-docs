@@ -3,7 +3,7 @@ title: Configure passwordless connections between multiple services
 titleSuffix: Azure Storage
 description: Learn to work with managed identities to configure passwordless connections between multiple Azure services.
 services: storage
-author: alexwolfmsft
+author: normesta
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 11/26/2024

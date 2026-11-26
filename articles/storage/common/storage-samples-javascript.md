@@ -1,7 +1,7 @@
 ---
 title: Azure Storage samples using JavaScript and TypeScript
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the JavaScript/Node.js storage client libraries.
-author: stevenmatthew
+author: normesta
 ms.author: normesta
 ms.date: 02/26/2025
 ms.service: azure-storage

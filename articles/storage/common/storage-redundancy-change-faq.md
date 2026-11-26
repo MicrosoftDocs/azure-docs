@@ -3,7 +3,7 @@ title: Storage redundancy change FAQs
 titleSuffix: Azure Storage
 description: Frequently asked questions about changing redundancy configuration.
 services: storage
-author: stevenmatthew
+author: normesta
 
 ms.service: azure-storage
 ms.topic: concept-article

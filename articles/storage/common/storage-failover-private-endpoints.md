@@ -3,7 +3,7 @@ title: Failover considerations for storage accounts with private endpoints
 titleSuffix: Azure Storage
 description: Learn how to architect highly available storage accounts using Private Endpoints
 services: storage
-author: stevenmatthew
+author: normesta
 
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
