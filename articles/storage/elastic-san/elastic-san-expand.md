@@ -1,7 +1,7 @@
 ---
 title: Resize an Azure Elastic SAN and its volumes
 description: Learn how to increase or decrease the size of an Azure Elastic SAN and its volumes with the Azure portal, Azure PowerShell module, or Azure CLI.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/13/2026

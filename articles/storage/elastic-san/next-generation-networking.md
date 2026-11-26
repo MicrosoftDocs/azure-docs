@@ -1,7 +1,7 @@
 ---
 title: Azure Elastic SAN Next Generation networking overview
 description: Learn how networking works in Azure Elastic SAN Next Generation, including which QoS tiers use Direct Attach or iSCSI connectivity and when network configuration is required.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 11/06/2026

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Elastic SAN
 description: Troubleshoot issues with Azure Elastic SAN
-author: adarshv98
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/08/2026

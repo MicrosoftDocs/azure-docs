@@ -1,7 +1,7 @@
 ---
 title: Azure Elastic SAN Next Generation Preview snapshots overview
 description: Learn how Azure Elastic SAN Next Generation Preview snapshots work, including instant access, background copy, capacity, billing, retention, and deletion behavior.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 11/04/2026

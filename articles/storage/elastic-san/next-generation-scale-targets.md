@@ -1,7 +1,7 @@
 ---
 title: Scale targets for Azure Elastic SAN Next Generation Preview
 description: Learn about capacity, IOPS, throughput, and volume performance targets for Azure Elastic SAN Next Generation.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 11/02/2026

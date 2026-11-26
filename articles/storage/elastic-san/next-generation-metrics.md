@@ -1,7 +1,7 @@
 ---
 title: Metrics for Azure Elastic SAN Next Generation Preview
 description: Learn about Azure Elastic SAN Next Generation capacity and performance metrics, how to view them, and how to calculate IOPS and throughput.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 10/28/2026

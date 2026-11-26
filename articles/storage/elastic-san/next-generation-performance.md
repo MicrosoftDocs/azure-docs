@@ -1,7 +1,7 @@
 ---
 title: Learn about Azure Elastic SAN Next Generation and VM performance
 description: Learn how performance works in Azure Elastic SAN Next Generation, including independently provisioned IOPS and throughput, volume group QoS tiers, and Business Critical reservations.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 11/05/2026

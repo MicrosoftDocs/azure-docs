@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Elastic SAN Next Generation Preview snapshots
 description: Learn how to create, restore, export, and delete Azure Elastic SAN Next Generation Preview volume snapshots.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to

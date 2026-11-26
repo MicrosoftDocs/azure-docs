@@ -1,7 +1,7 @@
 ---
 title: Manage your Azure Elastic SAN Next Generation and its resources
 description: Learn how to resize Azure Elastic SAN Next Generation, manage performance and autoscaling, expand volumes, and delete volumes, volume groups, or a SAN.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 11/06/2026
