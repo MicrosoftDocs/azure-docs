@@ -1,7 +1,7 @@
 ---
 title: Extract SAP data to Microsoft Fabric | Microsoft Docs
 description: Learn how to Extract SAP data to Microsoft Fabric.
-author: suzuber
+author: mattmcinnes
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
