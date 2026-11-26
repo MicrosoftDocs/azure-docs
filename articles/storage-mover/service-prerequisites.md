@@ -1,7 +1,7 @@
 ---
 title: Azure Storage Mover service prerequisites
 description: Learn about the prerequisites for using Azure Storage Mover, including the implementation of private networking.
-author: stevenmatthew
+author: rajsinghmsa
 ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: concept-article

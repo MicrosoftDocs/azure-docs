@@ -2,7 +2,7 @@
 title: Planning for an Azure Storage Mover deployment
 description: Considerations and best-practices for achieving your migration goals with the Azure Storage Mover service
 services: storage-mover
-author: stevenmatthew
+author: rajsinghmsa
 ms.service: azure-storage-mover
 ms.author: singra
 ms.topic: best-practice

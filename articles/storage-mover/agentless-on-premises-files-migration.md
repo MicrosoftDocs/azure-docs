@@ -1,7 +1,7 @@
 ---
 title: Migrate on-premises SMB file shares to Azure Files using the agentless migration capability in Storage Mover
 description: Learn how to migrate SMB file data from on-premises file shares to Azure Files SMB shares by using the agentless migration capability in Azure Storage Mover.
-author: stevenmatthew
+author: rajsinghmsa
 ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: How to create a storage mover resource
 description: Learn how to create a top-level Azure Storage Mover resource
-author: stevenmatthew
+author: rajsinghmsa
 ms.author: singra
 ms.service: azure-storage-mover
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
