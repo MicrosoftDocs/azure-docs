@@ -80,10 +80,6 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * If the source volume's size exceeds 95% utilization, there's a risk that replication to the destination volume can fail. To prevent overfilling the destination volume, add 20% extra capacity when creating the data protection volume. To prevent overprovisioning, you can reduce the volume size after the initial replication completes.
 
-### <a name="supported-region-pairs"></a>Supported cross-region replication pairs
-
-[!INCLUDE [Supported region pairs](includes/region-pairs.md)]
-
 ## Next steps
 
 * [Create volume replication](cross-region-replication-create-peering.md)
