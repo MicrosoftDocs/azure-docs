@@ -2,7 +2,7 @@
 title: 'Configure an Always-On VPN device tunnel for macOS'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure an Always On VPN device tunnel for your VPN gateway on macOS.
-author: flapinski
+author: tracsman
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 02/02/2026
