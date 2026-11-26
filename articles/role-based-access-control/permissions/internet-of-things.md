@@ -3,7 +3,7 @@ title: Azure permissions for Internet of Things - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Internet of Things category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.author: diberry
 ms.date: 07/01/2026
