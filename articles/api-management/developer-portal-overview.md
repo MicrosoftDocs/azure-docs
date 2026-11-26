@@ -13,11 +13,11 @@ ms.custom: sfi-image-nochange
 # Overview of the developer portal
 
 > [!NOTE]
-> The developer portal is disabled by default across all Azure API Management classic (v1) and v2 tiers that support it. You must explicitly enable the developer portal before using it. 
+> The developer portal is disabled by default across all Azure API Management classic (v1) and v2 tiers that support it. You must enable the developer portal before using it. 
 
-1. After you create your instance, enable the developer portal. 
-    1. In the left menu, under **Developer portal**, select **Portal settings**. 
-    1. In the **Portal settings** window, select **Enabled**. Select **Save**. 
+> After you create your instance, enable the developer portal. 
+> 1. In the left menu, under **Developer portal**, select **Portal settings**. 
+> 2. In the **Portal settings** window, select **Enabled**. Select **Save**. 
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
