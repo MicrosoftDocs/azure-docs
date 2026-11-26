@@ -1,7 +1,7 @@
 ---
 title: Configure SQL Server provider for Azure Monitor for SAP solutions
 description: Configure a SQL Server provider for Azure Monitor for SAP solutions to collect performance metrics and health data from SQL Server databases in your SAP environment.
-author: MightySuz
+author: mattmcinnes
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to

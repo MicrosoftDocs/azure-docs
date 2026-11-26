@@ -1,7 +1,7 @@
 ---
 title: Set up a network for Azure Monitor for SAP solutions
 description: Learn how to set up an Azure virtual network for use with Azure Monitor for SAP solutions.
-author: MightySuz
+author: mattmcinnes
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: how-to
