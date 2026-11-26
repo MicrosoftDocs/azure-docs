@@ -25,10 +25,13 @@ When you deploy your web app, web app on Linux, mobile back end, or API app to [
 Deploying your application to a nonproduction slot has the following benefits:
 
 - You can validate app changes before you swap the slot into production.
-- You can make sure that all instances of the slot are warmed up before you swap it into production. This approach eliminates downtime when you deploy your app. The traffic redirection is seamless. No requests are dropped because of swap operations.
+- You can make sure that all instances of the slot are warmed up before you swap it into production. This approach minimizes downtime when you deploy your app, and the traffic redirection is seamless at the routing layer.
 
   You can automate this entire workflow by configuring [auto swap](#Auto-Swap) when pre-swap validation isn't needed.
 - After a swap, the slot with previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can perform the same swap immediately to get your *last known good site* back.
+
+> [!NOTE]
+> On Windows, the just-promoted production worker is recycled shortly after the swap to apply the production configuration, so requests served during that brief recycle can receive HTTP 503. Slot swap alone doesn't guarantee zero downtime.
 
 There's no extra charge for using deployment slots. Each App Service plan tier supports a different number of deployment slots. To find out the number of slots that your app's tier supports, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 
@@ -279,7 +282,7 @@ If any errors occur in the target slot (for example, the production slot) after 
 
 ## Configure auto swap
 
-Auto swap streamlines Azure DevOps scenarios where you want to deploy your app continuously with zero cold starts and zero downtime for customers of the app. When auto swap is enabled from a slot into production, every time you push your code changes to that slot, App Service automatically [swaps the app into production](#swap-operation-steps) after it's warmed up in the source slot.
+Auto swap streamlines Azure DevOps scenarios where you want to deploy your app continuously with warmed-up instances. As with a manual swap, the post-swap worker recycle on Windows means customers can still experience brief HTTP 503s, so auto swap doesn't guarantee zero downtime. When auto swap is enabled from a slot into production, every time you push your code changes to that slot, App Service automatically [swaps the app into production](#swap-operation-steps) after it's warmed up in the source slot.
 
 > [!NOTE]
 > Auto swap isn't supported in web apps on Linux and in Web App for Containers.
