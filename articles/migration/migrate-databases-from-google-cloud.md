@@ -6,6 +6,7 @@ ms.author: rhackenberg
 ms.date: 02/18/2026
 ms.topic: concept-article
 ms.service: azure
+ms.subservice: azure-mig
 ms.collection:
  - migration
  - gcp-to-azure
