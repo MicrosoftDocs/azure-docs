@@ -1,7 +1,7 @@
 ---
 title: Configure Azure Front Door Logs
 description: Learn how to configure Azure Front Door diagnostic logs to enable access logs, health probe logs, and Web Application Firewall (WAF) logs.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to
