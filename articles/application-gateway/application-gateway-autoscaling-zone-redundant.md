@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 11/02/2023
+ms.date: 11/25/2026
 ms.author: mbender
 ms.custom: fasttrack-edit, references_regions
 # Customer intent: As an IT administrator, I want to configure autoscaling for the Application Gateway and WAF v2, so that I can optimize resource usage and ensure high availability while responding dynamically to fluctuating application traffic.
@@ -31,9 +31,12 @@ Azure Application Gateways are always deployed in a highly available fashion. Th
 
 Even if you configure autoscaling with zero minimum instances the service is still highly available, which is always included with the fixed price.
 
-However, it’s important to note that provisioning a new instance may take approximately three to five minutes. Understanding the scaling behavior of Application Gateway instances is key to maintaining performance under varying loads. These instances scale out in groups, and the group size is increased proactively when the current instance count is higher. This strategy allows the system to manage workload surges efficiently, preventing potential service disruptions or slowdowns. Each Azure Application Gateway instance can handle up to 10 Capacity Units. To optimize your autoscaling settings, consider your typical traffic patterns and set the minimum instances accordingly to ensure smooth operation.
+For the Standard and Network Isolated deployment tiers, provisioning a new instance might take approximately three to five minutes. Understanding the scaling behavior of Application Gateway instances is key to maintaining performance under varying loads. These instances scale out in groups, and the group size is increased proactively when the current instance count is higher. This strategy allows the system to manage workload surges efficiently, preventing potential service disruptions or slowdowns. Each Azure Application Gateway instance can handle up to 10 Capacity Units. To optimize your autoscaling settings, consider your typical traffic patterns and set the minimum instances accordingly to ensure smooth operation.
 
-For scale-in events, Application Gateway drains existing connections for 5 minutes on the instance that is subject for removal. After 5 minutes, existing connections are closed and the instance removed. Any new connections during or after the 5 minute scale-in time is established to other existing instances on the same gateway.
+For scale-in events on these deployment tiers, Application Gateway drains existing connections for five minutes on the instance that is subject for removal. After five minutes, existing connections are closed and the instance removed. Any new connections during or after the five-minute scale-in time is established to other existing instances on the same gateway.
+
+> [!NOTE]
+> For workloads that need a faster response to changing traffic, select the [Accelerated (Preview) deployment tier](deployment-tier.md#accelerated-preview) when you create a new gateway. Accelerated combines faster gateway creation, sub-minute scale-out, higher scale limits, connection draining for up to 24 hours, and public, private-only, or combined connectivity without changing the Application Gateway billing model. Accelerated is available in select [preview regions](deployment-tier.md#regional-availability) and has [preview feature limitations](deployment-tier.md#feature-availability-during-preview).
 
 > [!NOTE]
 > During autoscaling events, brief dips in availability metrics may be observed. This behavior is expected during scaling transitions and typically resolves within seconds.
