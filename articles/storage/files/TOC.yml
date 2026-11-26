@@ -246,6 +246,8 @@
     items:
     - name: AVD Hybrid
       href: azure-virtual-desktop-hybrid.md
+  - name: W365 Cloud PC
+    href: windows-365-cloud-pc-workloads.md
   - name: Azure Kubernetes Service
     href: azure-kubernetes-service-workloads.md    
   - name: SAP
