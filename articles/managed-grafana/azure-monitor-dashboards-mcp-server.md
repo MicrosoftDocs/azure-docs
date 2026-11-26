@@ -199,9 +199,29 @@ For example, the following alternative Visual Studio Code configuration prompts 
 
 Start the server and paste the token into the protected input when prompted. Manually supplied tokens expire, and this configuration doesn't refresh them. Get a fresh token and replace the saved input when needed, or use the OAuth configuration for client-managed authentication.
 
+### Claude Code
+
+Claude Code can get the token from the Azure CLI each time it connects, so you don't paste or refresh the token yourself. Sign in with `az login`, then add the server to a `.mcp.json` file at the root of your project. Set `headersHelper` to an Azure CLI command that prints the `Authorization` header as JSON:
+
+```json
+{
+  "mcpServers": {
+    "azure-monitor-dashboard": {
+      "type": "http",
+      "url": "https://mcp.dashboard.azure.com",
+      "headersHelper": "az account get-access-token --scope 6f2d169c-08f3-4a4c-a982-bcaf2d038c45/.default --query \"{Authorization: join(' ', ['Bearer', accessToken])}\" -o json"
+    }
+  }
+}
+```
+
+Claude Code runs the command when it connects to the server, and again when a tool call returns `401 Unauthorized`, so it replaces an expired token without a restart. The token isn't stored in the file. The command works the same in Bash, PowerShell, and the Windows Command Prompt.
+
+Claude Code runs the headers helper of a project's `.mcp.json` file only after you trust the project folder. To check the connection, run `/mcp` in Claude Code. For more information, see [Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp).
+
 ## Example prompts
 
-After you connect, try these prompts in Copilot Chat or in an interactive GitHub Copilot CLI session. Replace the placeholders with your own values, such as subscription, resource, operation, and dashboard IDs, an Azure Data Explorer cluster URL and database, and health model entity names.
+After you connect, try these prompts in Copilot Chat, in an interactive GitHub Copilot CLI session, or in Claude Code. Replace the placeholders with your own values, such as subscription, resource, operation, and dashboard IDs, an Azure Data Explorer cluster URL and database, and health model entity names.
 
 ```text
 List the Azure subscriptions I can access.
