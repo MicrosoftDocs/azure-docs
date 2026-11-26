@@ -4,10 +4,11 @@ description: Plan your IP address allocation for Azure virtual networks. Learn a
 author: duongau
 ms.author: duau
 ms.reviewer: mbender
-ms.date: 06/22/2026
+ms.date: 11/24/2026
 ms.topic: concept-article
 ms.service: azure-virtual-network
 zone_pivot_groups: networking-scenario
+ai-usage: ai-assisted
 #customer intent: As a network architect, I want to plan my Azure IP address allocation so that I can avoid address conflicts and scale my network without re-addressing.
 ---
 
@@ -72,6 +73,7 @@ Use the following decision tables to guide your IP planning decisions.
 | Leave at least 30% headroom in each subnet | Scaling services such as Virtual Machine Scale Sets, AKS, and App Service Environments consume IPs rapidly during scale-out. | A /24 subnet provides 251 usable IPs. If your baseline deployment uses 100, you have room to triple. |
 | Use contiguous CIDR blocks for each environment | Simplifies route summarization and firewall rules. A single summary route represents the whole environment. | Production: 10.1.0.0/16. Staging: 10.2.0.0/16. Development: 10.3.0.0/16. |
 | Avoid Azure platform-reserved and prohibited ranges | Using reserved ranges causes routing failures and deployment errors. | Don't assign 169.254.0.0/16, 168.63.129.16/32, 224.0.0.0/4, 127.0.0.0/8, or 255.255.255.255/32. |
+| Check service-specific reserved ranges before you pick a hub or landing-zone range | Some services that you deploy into your VNet reserve extra private ranges. A hub or landing-zone range that overlaps them can block those services later. | Foundry Agent Service with your own VNet: the VNet and every VNet peered with it can't overlap 172.30.0.0/16 or 172.31.0.0/16 (see [Foundry Agent Service networking limitations](/azure/foundry/agents/how-to/virtual-networks#limitations)). Azure Container Apps: the environment subnet can't overlap 172.30.0.0/16 or 172.31.0.0/16 (see [subnet address range restrictions](/azure/container-apps/custom-virtual-networks#restrictions-for-subnet-address-ranges)). |
 | Document allocations in Azure IPAM or a spreadsheet | Prevents overlap as the environment grows. Centralizes visibility for network teams. | Use Azure Virtual Network Manager IPAM for automated tracking, or maintain a shared spreadsheet for smaller environments. |
 
 <!-- Diagram: Flowchart showing a parent 10.0.0.0/16 VNet address space subdivided into six /24 subnets: web tier, app tier, data tier, GatewaySubnet, AzureFirewallSubnet, and reserved blocks representing 30% headroom for future growth. -->
