@@ -25,10 +25,13 @@ When you deploy your web app, web app on Linux, mobile back end, or API app to [
 Deploying your application to a nonproduction slot has the following benefits:
 
 - You can validate app changes before you swap the slot into production.
-- You can make sure that all instances of the slot are warmed up before you swap it into production. This approach minimizes downtime when you deploy your app, and the traffic redirection is seamless at the routing layer. On Windows, the just-promoted production worker is recycled shortly after the swap to apply the production configuration, so requests served during that brief recycle can receive HTTP 503. Slot swap alone doesn't guarantee zero downtime.
+- You can make sure that all instances of the slot are warmed up before you swap it into production. This approach minimizes downtime when you deploy your app, and the traffic redirection is seamless at the routing layer.
 
   You can automate this entire workflow by configuring [auto swap](#Auto-Swap) when pre-swap validation isn't needed.
 - After a swap, the slot with previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can perform the same swap immediately to get your *last known good site* back.
+
+> [!NOTE]
+> On Windows, the just-promoted production worker is recycled shortly after the swap to apply the production configuration, so requests served during that brief recycle can receive HTTP 503. Slot swap alone doesn't guarantee zero downtime.
 
 There's no extra charge for using deployment slots. Each App Service plan tier supports a different number of deployment slots. To find out the number of slots that your app's tier supports, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 
