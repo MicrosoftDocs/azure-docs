@@ -1,7 +1,7 @@
 ---
 title: Delegate Azure role assignment management to others with conditions - Azure ABAC
 description: How to delegate Azure role assignment management to other users by using Azure attribute-based access control (Azure ABAC).
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions

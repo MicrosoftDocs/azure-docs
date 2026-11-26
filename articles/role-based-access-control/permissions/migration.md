@@ -3,7 +3,7 @@ title: Azure permissions for Migration - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Migration category.
 ms.service: role-based-access-control
 ms.topic: generated-reference
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.author: diberry
 ms.date: 07/01/2026
@@ -212,7 +212,7 @@ Azure service: [Azure Database Migration Service](/azure/dms/)
 
 Easily discover, assess, right-size, and migrate your on-premises VMs to Azure.
 
-Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
+Azure service: [Azure Catalyst](/azure/migrate/migrate-services-overview)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -567,7 +567,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 
 ## Microsoft.OffAzure
 
-Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
+Azure service: [Azure Catalyst](/azure/migrate/migrate-services-overview)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

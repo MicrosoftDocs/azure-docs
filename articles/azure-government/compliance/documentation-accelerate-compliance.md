@@ -4,7 +4,7 @@ description: Provides an overview of resources for Development, Automation, and 
 titleSuffix: Azure Government
 services: azure-government
 cloud: gov
-author: todorgb
+author: diberry
 manager: vernonw
 ms.author: diberry
 ms.service: azure-government

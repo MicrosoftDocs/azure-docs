@@ -1,7 +1,7 @@
 ---
 title: Interpret the AppCAT 7 Report
 description: Learn how to interpret the AppCAT report.
-author: KarlErickson
+author: sandeep-sen
 ms.author: sandeepsen
 ms.reviewer: seal
 ms.service: azure-java

@@ -4,7 +4,7 @@ description: In this quickstart, you create a .NET application that sends and re
 ms.topic: quickstart
 ms.date: 08/25/2026
 ms.devlang: csharp
-author: spelluru
+author: axisc
 ms.author: aschhabria
 ai-usage: ai-assisted
 ms.custom:

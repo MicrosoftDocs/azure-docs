@@ -4,7 +4,7 @@ description: Provides guidance on developing applications for Azure Government
 ms.service: azure-government
 ms.topic: article
 ms.author: diberry
-author: EliotSeattle
+author: diberry
 recommendations: false
 ms.date: 03/07/2022
 ---

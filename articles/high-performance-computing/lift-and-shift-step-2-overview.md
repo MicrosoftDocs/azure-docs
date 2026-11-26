@@ -1,7 +1,7 @@
 ---
 title: Base services migration overview
 description: Learn how to migrate base services from HPC on-premises to the cloud 
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/23/2026
 ms.topic: how-to

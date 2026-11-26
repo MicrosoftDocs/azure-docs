@@ -9,7 +9,7 @@ metadata:
   description: Durable Task is Microsoft's technology for building workflows and orchestrations as ordinary code that handles state persistence, automatic recovery, and distributed coordination for you. Durable Task encompasses the Durable Task SDKs for self-hosted applications, Durable Functions for serverless hosting on Azure Functions, the Durable Task Scheduler storage provider, and Durable Agentic application patterns.
   ms.service: durable-task
   ms.topic: hub-page
-  author: hhunter-ms
+  author: diberry
   ms.author: vyomnagrani
   ms.date: 03/20/2026
 

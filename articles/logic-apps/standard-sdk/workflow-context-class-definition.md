@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Provides runtime access to action and trigger results during custom code execution within workflows.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

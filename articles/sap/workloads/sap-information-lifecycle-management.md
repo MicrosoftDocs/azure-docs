@@ -7,7 +7,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: concept-article
 ms.tgt_pltfrm: vm-linux
 manager: timlt
-author: MSSedusch
+author: mattmcinnes
 ms.author: sedusch
 ms.date: 03/12/2026
 ms.custom: subject-rbac-steps

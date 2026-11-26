@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure RBAC documentation
 description: Learn about the new features and documentation improvements in Azure role-based access control (RBAC).
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new

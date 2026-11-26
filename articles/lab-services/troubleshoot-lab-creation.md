@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to resolve common issues with creating a lab in Azure Lab Services.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: troubleshooting
 ms.date: 01/19/2023

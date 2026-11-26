@@ -2,7 +2,7 @@
 title: Cached Lookup Functions in the Mapping Data Flow
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about cached lookup functions in mapping data flows.
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.subservice: data-flows
 ms.custom: synapse

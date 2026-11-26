@@ -1,7 +1,7 @@
 ---
 title: Analyze Azure Files metrics with Azure Monitor
 description: Learn to use Azure Monitor to monitor workload performance, throughput, and IOPS. Analyze Azure Files metrics such as availability, latency, and utilization.
-author: khdownie
+author: normesta
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to

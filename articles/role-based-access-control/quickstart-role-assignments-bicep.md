@@ -2,7 +2,7 @@
 title: "Quickstart: Assign an Azure role using Bicep - Azure RBAC"
 description: Learn how to grant access to Azure resources for a user at resource group scope using Bicep and Azure role-based access control (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: quickstart

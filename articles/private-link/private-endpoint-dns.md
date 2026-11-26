@@ -185,8 +185,8 @@ For Azure services, use the recommended zone names as described in the following
 > | Microsoft Purview (Microsoft.Purview/accounts) | account | privatelink.purview.azure.com | purview.azure.com |
 > | Microsoft Purview (Microsoft.Purview/accounts) | portal | privatelink.purviewstudio.azure.com | purviewstudio.azure.com |
 > | Microsoft Purview (Microsoft.Purview/accounts) | platform | privatelink.purview-service.microsoft.com | purview-service.microsoft.com |
-> | Azure Migrate (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
-> | Azure Migrate (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
+> | Azure Catalyst (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
+> | Azure Catalyst (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 > | Azure Resource Manager (Microsoft.Authorization/resourceManagementPrivateLinks) | ResourceManagement | privatelink.azure.com | azure.com |
 > | Azure Managed Grafana (Microsoft.Dashboard/grafana) | grafana | privatelink.grafana.azure.com | grafana.azure.com |
 > | Azure Managed Prometheus (Microsoft.Monitor/accounts) | prometheusMetrics | privatelink.{region}.prometheus.monitor.azure.com | {region}.prometheus.monitor.azure.com |
@@ -349,8 +349,8 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure Automation / (Microsoft.Automation/automationAccounts) | Webhook </br> DSCAndHybridWorker | privatelink.azure-automation.us | azure-automation.us |
 > | Azure Backup (Microsoft.RecoveryServices/vaults) | AzureBackup | privatelink.{regionCode}.backup.windowsazure.us | {regionCode}.backup.windowsazure.us |
-> | Azure Migrate (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.us | prod.migration.windowsazure.us |
-> | Azure Migrate (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.us | prod.migration.windowsazure.us |
+> | Azure Catalyst (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.us | prod.migration.windowsazure.us |
+> | Azure Catalyst (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.us | prod.migration.windowsazure.us |
 > | Azure Site Recovery (Microsoft.RecoveryServices/vaults) | AzureSiteRecovery | privatelink.siterecovery.windowsazure.us | {regionCode}.siterecovery.windowsazure.us |
 > | Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.us <br/> privatelink.adx.monitor.azure.us <br/> privatelink.oms.opinsights.azure.us <br/> privatelink.ods.opinsights.azure.us <br/> privatelink.agentsvc.azure-automation.us <br/> privatelink.blob.core.usgovcloudapi.net | monitor.azure.us <br/> adx.monitor.azure.us <br/> oms.opinsights.azure.us<br/> ods.opinsights.azure.us<br/> agentsvc.azure-automation.us <br/> blob.core.usgovcloudapi.net |
 > | Microsoft Purview (Microsoft.Purview) | account | privatelink.purview.azure.us | purview.azure.us |

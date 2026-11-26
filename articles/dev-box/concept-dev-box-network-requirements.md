@@ -3,7 +3,7 @@ title: Microsoft Dev Box Networking Requirements
 description: Learn about the networking requirements for deploying dev boxes, connecting to cloud-based resources, on-premises resources, and internet resources.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.topic: concept-article

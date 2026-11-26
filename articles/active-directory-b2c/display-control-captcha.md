@@ -3,7 +3,7 @@ title: Verify CAPTCHA code using CAPTCHA display controls
 titleSuffix: Azure AD B2C
 description: Learn how to define a CAPTCHA display controls custom policy in Azure AD B2C.
 
-author: kengaderdus
+author: diberry
 manager: mwongerapk
 
 ms.service: entra-id

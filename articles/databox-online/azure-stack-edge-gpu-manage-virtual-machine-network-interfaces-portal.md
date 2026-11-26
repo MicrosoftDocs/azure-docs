@@ -2,7 +2,7 @@
 title: How to manage VMs network interfaces on your Azure Stack Edge Pro via the Azure portal
 description: Learn how to manage network interfaces on VMs that are deployed on your Azure Stack Edge Pro GPU via the Azure portal.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

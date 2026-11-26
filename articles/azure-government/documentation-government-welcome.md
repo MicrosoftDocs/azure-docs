@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: overview
 ms.custom: references_regions
 ms.author: diberry
-author: EliotSeattle
+author: diberry
 recommendations: false
 ms.date: 03/07/2022
 ---
@@ -38,9 +38,11 @@ The following table shows the regions in Azure Government, including regions tha
 
 | Region          | Availability zone support | Paired region | Geography | Programmatic name |
 |-----------------|---------------------------|---------------|-|-|
-| US Gov Arizona  |                           | US Gov Texas  | US Government | usgovarizona |
+| US Gov Arizona  | :::image alt-text="Yes" type="content" source="media/check-mark.svg" border="false"::: :::image type="content" source="media/icon-region-preview.svg" alt-text="Icon that shows that availability zone support in this region is in preview." border="false"::: | US Gov Texas  | US Government | usgovarizona |
 | US Gov Texas    |                           | US Gov Arizona | US Government | usgovtexas |
-| US Gov Virginia | :::image  alt-text="Yes"  type="content" source="media/check-mark.svg"  border="false"::: | US Gov Texas  | US Government | usgovvirginia |
+| US Gov Virginia | :::image alt-text="Yes" type="content" source="media/check-mark.svg" border="false"::: | US Gov Texas  | US Government | usgovvirginia |
+
+:::image type="content" source="media/icon-region-preview.svg" alt-text="Icon that shows that availability zone support in this region is in preview." border="false"::: This icon indicates that availability zone support is in preview in this region.
 
 ## Get started
 

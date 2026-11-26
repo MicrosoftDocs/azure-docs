@@ -5,7 +5,7 @@ services: automation
 ms.topic: faq
 ms.date: 03/10/2025
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ms.custom: references_regions
 #Customer intent: As an implementer, I want answers to various questions.
 ---

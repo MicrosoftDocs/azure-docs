@@ -2,7 +2,7 @@
 title: Managed service identity for Azure Synapse Analytics
 titleSuffix: Azure Synapse
 description: Learn about using and deploying managed identities for Azure Synapse Analytics. 
-author: meenalsri
+author: rakrish75
 ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: how-to

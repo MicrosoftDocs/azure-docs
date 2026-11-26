@@ -2,7 +2,7 @@
 title: Install and Upgrade Azure Monitor Agent on Azure Arc-enabled Servers
 titleSuffix: Azure Network Watcher
 description: Learn how to install, upgrade, and uninstall Azure Monitor Agent on Azure Arc-enabled servers.
-author: halkazwini
+author: huzefafw
 ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to

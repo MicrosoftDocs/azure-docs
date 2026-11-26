@@ -1,7 +1,7 @@
 ---
 title: Create multiple Azure Elastic SAN volumes in a batch
 description: Azure PowerShell Script Sample - Learn how to create multiple Elastic SAN volumes in a batch.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: sample
 ms.date: 01/09/2026

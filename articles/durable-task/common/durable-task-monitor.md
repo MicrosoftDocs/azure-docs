@@ -6,7 +6,7 @@ ms.service: durable-task
 ms.custom: devx-track-js, devx-track-python
 ms.date: 10/12/2026
 ms.author: vyomnagrani
-author: hhunter-ms
+author: diberry
 zone_pivot_groups: azure-durable-approach
 ---
 

@@ -8,7 +8,7 @@ metadata:
   description: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications.
   ms.service: azure-event-hubs
   ms.topic: landing-page
-  author: spelluru
+  author: axisc
   ms.author: aschhabria
   ms.date: 02/10/2026
 

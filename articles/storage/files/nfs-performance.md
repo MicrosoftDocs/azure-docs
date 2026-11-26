@@ -1,7 +1,7 @@
 ---
 title: Improve NFS Azure File Share Performance
 description: Learn ways to improve the performance and throughput of NFS Azure file shares at scale, including the nconnect mount option for Linux clients.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: concept-article

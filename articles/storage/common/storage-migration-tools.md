@@ -129,7 +129,7 @@ Azure Data Box supports direct cross-region data import, so your data source can
 
 The following examples highlight common use cases in which Azure Data Box might be the right choice:
 
-- **When migrating your compute infrastructure using Azure Migrate**<br>By migrating unstructured data using offline mode, you can reduce time, cost, and network bandwidth utilization. This parallel execution can accelerate the overall migration process and reduce the load on the network.
+- **When migrating your compute infrastructure using Azure Catalyst**<br>By migrating unstructured data using offline mode, you can reduce time, cost, and network bandwidth utilization. This parallel execution can accelerate the overall migration process and reduce the load on the network.
 
 - **When performing initial data seeding**<br>You can initially migrate a large data set using Azure Data Box, and then switch to online transfer tools to sync the recent changes, or *deltas*.
 
@@ -194,7 +194,7 @@ The following tables provide a source and target-based supportability matrix for
 | Data Box Gateway    | &#x274C;  | Local; locally mounted; SMB 2.x, 3.x; NFS v3, v4.1 | - | &#x2705; | &#x1F7E6;<sup>2</sup> | &nbsp;&#x274C;         | &#x274C;        |
 | Azure File Sync     | &#x274C;  | Windows file server                 | SMB | &#x274C; | &#x1F7E6;<sup>2</sup>              | &#x274C;               | &#x274C;        |
 | Azure Data Factory  | &#x274C;  | On-premises data lake; HDFS; AWS S3 | -   | &#x2705; | &#x1F7E6;<sup>5</sup>              | &#x274C;               | &#x274C;        |
-| Azure Migrate       | &#x1F7E6; | Hypervisors; VM disks               | -   | &#x274C; | &#x274C;                           | &#x274C;               | &#x2705;        |
+| Azure Catalyst       | &#x1F7E6; | Hypervisors; VM disks               | -   | &#x274C; | &#x274C;                           | &#x274C;               | &#x2705;        |
 
 
 <sup>1</sup> HNS enabled<br>

@@ -18,7 +18,7 @@ The CAF Migration landing zone blueprint sample deploys foundation infrastructur
 confidently get started with Azure.
 
 :::image type="complex" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="C A F Migration landing zone, image describes what gets installed as part of C A F guidance for initial landing zone." border="false":::
-   Describes an Azure architecture which is achieved by deploying the C A F migration blueprint. It's applicable to a subscription with resource groups which consists of an Azure virtual network, storage account for storing logs, Log Analytics configured to store in the storage account. It also depicts Azure Key Vault configured and Azure Migrate initial setup created. All these core infrastructures are accessed using Azure Active Directory.
+   Describes an Azure architecture which is achieved by deploying the C A F migration blueprint. It's applicable to a subscription with resource groups which consists of an Azure virtual network, storage account for storing logs, Log Analytics configured to store in the storage account. It also depicts Azure Key Vault configured and Azure Catalyst initial setup created. All these core infrastructures are accessed using Azure Active Directory.
 :::image-end:::
 
 This environment is composed of several Azure services used to provide a secure, fully monitored,
@@ -27,7 +27,7 @@ enterprise-ready governance. This environment is composed of:
 - An [Azure Key Vault](/azure/key-vault/general/overview) instance used to host secrets   used for the Certificates, Keys, and Secrets deployed in the shared services environment
 - Deploy [Log Analytics](/azure/azure-monitor/overview) is deployed to ensure all actions   and services log to a central location from the moment you start your migration
 - Deploy [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) providing an isolated network and subnets for your virtual machine.
-- Deploy [Azure Migrate Project](../../../../migrate/migrate-services-overview.md) for discovery and
+- Deploy [Azure Catalyst Project](../../../../migrate/migrate-services-overview.md) for discovery and
   assessment. We're adding the tools for Server assessment, Server migration, Database assessment, and Database migration.
 
 All these elements abide to the proven practices published in the

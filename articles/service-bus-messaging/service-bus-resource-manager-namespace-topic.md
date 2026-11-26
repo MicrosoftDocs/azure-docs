@@ -1,7 +1,7 @@
 ---
 title: Create Azure Service Bus namespace topic using a template
 description: 'Quickstart: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template'
-author: spelluru
+author: EldertGrootenboer
 ms.author: egrootenboer
 ms.date: 09/27/2021
 ms.topic: quickstart

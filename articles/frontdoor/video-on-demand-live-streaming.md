@@ -2,7 +2,7 @@
 title: Delivering Video On-Demand (VOD) and Live Streaming
 titleSuffix: Azure Front Door
 description: Improve live and VOD delivery with Microsoft’s global edge network. Get configuration guidance and performance results.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.date: 04/21/2026

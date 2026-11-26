@@ -2,7 +2,7 @@
 title: Configure authentication options in an Angular application by using Azure Active Directory B2C
 description:  Enable the use of Angular application options in several ways.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

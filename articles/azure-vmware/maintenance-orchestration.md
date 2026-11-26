@@ -1,7 +1,7 @@
 ---
 title: Plan maintenance for Azure VMware Solution
 description: Learn how to schedule & plan maintenance for Azure VMware Solution.
-author: jjaygbay1
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.topic: how-to
 ms.service: azure-vmware

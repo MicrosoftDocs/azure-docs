@@ -3,7 +3,7 @@ title: Common errors and known issues when migrating to Azure Cloud Services (ex
 description: Overview of common errors when migrating from Cloud Services (classic) to Cloud Service (extended support)
 ms.topic: how-to
 ms.service: azure-cloud-services-classic
-author: hirenshah1
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.reviewer: mimckitt
 ms.date: 07/24/2024

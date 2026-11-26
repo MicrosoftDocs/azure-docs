@@ -2,7 +2,7 @@
 title: Azure Storage Explorer soft delete guide
 description: Soft delete in Azure Storage Explorer
 services: storage
-author: jinglouMSFT
+author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: concept-article

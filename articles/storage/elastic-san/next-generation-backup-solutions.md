@@ -1,7 +1,7 @@
 ---
 title: Backup and recovery solutions for Azure Elastic SAN Next Generation Preview
 description: Learn about Commvault and Druva backup and recovery integrations for Azure Elastic SAN Next Generation, including preview availability and recovery considerations.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 11/06/2026

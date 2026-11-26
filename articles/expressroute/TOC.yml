@@ -151,6 +151,8 @@
       items:
         - name: Overview
           href: expressroute-erdirect-about.md
+        - name: About ExpressRoute Direct link groups
+          href: expressroute-direct-link-groups.md
         - name: Configure ExpressRoute Direct
           href: how-to-expressroute-direct-portal.md
         - name: Configure MACsec for ExpressRoute Direct ports

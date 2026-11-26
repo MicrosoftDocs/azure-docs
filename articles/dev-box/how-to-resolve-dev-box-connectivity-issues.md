@@ -1,7 +1,7 @@
 ---  
 title: Troubleshoot connectivity issues
 description: Investigate and resolve Microsoft Dev Box connectivity problems such as connection failures, sign-in issues, disconnections, and high latencies.
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.service: dev-box
 ms.topic: troubleshooting-general

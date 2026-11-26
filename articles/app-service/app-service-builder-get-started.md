@@ -1,7 +1,7 @@
 ---
 title: Get started with App Service Builder (preview)
 description: Choose a portal, CLI, agent skills, or canvas guide to prepare and deploy your first App Service Builder app.
-author: seligj95
+author: btardif
 ms.author: jordanselig
 ms.date: 10/27/2026
 ms.topic: get-started

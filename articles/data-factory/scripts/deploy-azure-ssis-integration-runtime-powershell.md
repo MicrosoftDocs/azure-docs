@@ -4,7 +4,7 @@ description: This PowerShell script creates an Azure-SSIS integration runtime th
 ms.subservice: integration-services
 ms.topic: article
 ms.author: weetok
-author: kromerm
+author: dcstwh
 ms.custom: devx-track-azurepowershell
 ms.date: 10/20/2023
 ---

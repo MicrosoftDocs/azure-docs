@@ -3,7 +3,7 @@ title: Write your first Azure AD B2C custom policy - Hello World!
 titleSuffix: Azure AD B2C
 description: Learn how to write your first Azure AD B2C custom policy. Configure keys, build the policy file, upload it to Azure, and test the custom policy.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

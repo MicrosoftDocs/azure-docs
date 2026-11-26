@@ -2,7 +2,7 @@
 title: Review alerts on Azure Stack Edge 
 description: Describes alerts that occur on Azure Stack Edge devices.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

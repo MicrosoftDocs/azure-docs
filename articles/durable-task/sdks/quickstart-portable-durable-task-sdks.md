@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: "Quickstart: Create an App with Durable Task SDKs"
 titleSuffix: Durable Task
@@ -7,7 +7,7 @@ description: Create orchestrations using Durable Task SDKs and the Durable Task 
 ms.topic: quickstart
 ms.service: durable-task
 ms.subservice: durable-task-sdks
-ms.date: 10/12/2026
+ms.date: 11/23/2026
 ai-usage: ai-assisted
 zone_pivot_groups: durable-task-sdk-languages
 ms.custom:
@@ -82,7 +82,7 @@ Before you begin:
 - Install [Docker](https://www.docker.com/products/docker-desktop/) or a compatible container runtime.
 
 > [!NOTE]
-> The Go SDK is in beta. This quickstart uses `github.com/microsoft/durabletask-go@v1.0.0-beta3` and creates a new self-hosted Go app. The beta tag avoids selecting the legacy stable SDK, which lacks Durable Task Scheduler integration. You don't need an Azure subscription or sample repository checkout.
+> The Go SDK is in preview. This quickstart uses `github.com/microsoft/durabletask-go@v1.0.0-beta3` and creates a new self-hosted Go app. The beta tag avoids selecting the legacy stable SDK, which lacks Durable Task Scheduler integration. You don't need an Azure subscription or sample repository checkout.
 
 ::: zone-end
 
@@ -1172,7 +1172,7 @@ await client.stop();
 
 `run` registers the task names, creates separate client and worker connections, starts the worker, and schedules one instance. It requests output payloads, checks `RuntimeStatus`, and reads typed output. Its deferred shutdown uses a fresh context so cleanup can still run after the main timeout.
 
-For other workflow patterns and beta limitations, see [Develop with the Durable Task SDK for Go](durable-task-go.md).
+For other workflow patterns and preview limitations, see [Develop with the Durable Task SDK for Go](durable-task-go.md).
 
 ::: zone-end
 

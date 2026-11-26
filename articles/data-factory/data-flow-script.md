@@ -1,7 +1,7 @@
 ---
 title: Mapping data flow script
 description: Overview of Data Factory's data flow script code-behind language
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.subservice: data-flows
 ms.topic: overview

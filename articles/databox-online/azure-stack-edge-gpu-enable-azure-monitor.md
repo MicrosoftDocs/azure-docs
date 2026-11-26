@@ -2,7 +2,7 @@
 title: Enable Azure Monitor on Azure Stack Edge Pro GPU device
 description: Describes how to enable Azure Monitor on an Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

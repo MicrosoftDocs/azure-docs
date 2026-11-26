@@ -8,8 +8,8 @@ metadata:
   description: Explore Azure Data Box, a storage device for offline data migration to the cloud. Learn more about data transfer services using a secure proprietary storage device.
   ms.service: azure-data-box
   ms.topic: landing-page
-  author: stevenmatthew
-  ms.author: shaas
+  author: diberry
+  ms.author: diberry
   ms.date: 03/06/2025
   ms.custom: seo-azure-migrate
   keywords: cloud data transfer, data migration to cloud, azure data box, data transfer service, data transfer services, azure data transfer 

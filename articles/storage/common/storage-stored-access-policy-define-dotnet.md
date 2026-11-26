@@ -3,7 +3,7 @@ title: Create a stored access policy with .NET
 titleSuffix: Azure Storage
 description: Use Azure Storage and .NET to create a stored access policy. Exercise additional levels of control over service-level shared access signatures on the server.
 services: storage
-author: stevenmatthew
+author: normesta
 
 ms.service: azure-storage
 ms.subservice: storage-common-concepts

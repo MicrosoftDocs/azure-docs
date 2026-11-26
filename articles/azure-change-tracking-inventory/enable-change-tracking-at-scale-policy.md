@@ -5,7 +5,7 @@ description: Learn how to use Azure Policy to enable Azure Change Tracking and I
 ms.date: 12/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
-author: RochakSingh-blr
+author: gurkiratsingh2021
 ms.author: gurkisingh
 ---
 

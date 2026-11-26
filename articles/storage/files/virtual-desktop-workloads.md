@@ -1,7 +1,7 @@
 ---
 title: Use Azure Files for Virtual Desktop Workloads
 description: Learn how to use SMB Azure file shares for virtual desktop workloads, including FSLogix profile containers for Azure Virtual Desktop, and how to optimize scale and performance.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 10/14/2026

@@ -1,7 +1,7 @@
 ---
 title: Configure Directory and File-Level Permissions for Azure Files
 description: Learn how to configure Windows ACLs for directory-level and file-level permissions for Active Directory authentication to Azure file shares over SMB for granular access control.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/14/2026

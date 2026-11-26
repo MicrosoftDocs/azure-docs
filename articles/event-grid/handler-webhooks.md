@@ -4,7 +4,7 @@ description: Learn how to use webhooks as event handlers for Azure Event Grid ev
 #customer intent: As a developer, I want to configure a webhook as an event handler for Azure Event Grid so that I can process events at my own HTTP endpoint.
 ms.topic: concept-article
 ms.date: 03/27/2026
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ms.reviewer: spelluru
 # Customer intent: As a developer or architect, I want to learn how to use Webhooks, Logic Apps, and Azure Automation runbooks as events handlers for Azure Event Grid events.

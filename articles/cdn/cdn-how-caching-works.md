@@ -2,8 +2,8 @@
 title: How caching works in Azure Content Delivery Network
 description: Caching is the process of storing data locally so that future requests for that data can be accessed more quickly.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: kumud
 ms.service: azure-content-delivery-network
 ms.topic: concept-article

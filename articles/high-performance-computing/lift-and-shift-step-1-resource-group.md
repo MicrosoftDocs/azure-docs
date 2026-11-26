@@ -1,7 +1,7 @@
 ---
 title: Configure resource groups for Azure HPC environments
 description: Set up and organize Azure resource groups for effective management, access control, and cost tracking in HPC deployments.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to

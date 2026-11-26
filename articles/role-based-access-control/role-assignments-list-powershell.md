@@ -1,7 +1,7 @@
 ---
 title: List Azure role assignments using Azure PowerShell - Azure RBAC
 description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure PowerShell and Azure role-based access control (Azure RBAC).
-author: rolyon
+author: diberry
 ms.author: diberry
 manager: pmwongera
 ms.reviewer: bagovind

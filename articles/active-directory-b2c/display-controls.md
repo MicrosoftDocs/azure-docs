@@ -3,7 +3,7 @@ title: Display control reference
 titleSuffix: Azure AD B2C
 description: Reference for Azure AD B2C display controls. Use display controls for customizing user journeys defined in your custom policies.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

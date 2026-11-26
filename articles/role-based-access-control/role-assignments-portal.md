@@ -1,7 +1,7 @@
 ---
 title: Assign Azure roles using the Azure portal - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using the Azure portal and Azure role-based access control (Azure RBAC).
-author: rolyon
+author: diberry
 ms.author: diberry
 manager: pmwongera
 ms.date: 03/17/2026

@@ -2,7 +2,7 @@
 title: Troubleshoot first-time Azure CycleCloud setup issues
 description: Resolve common credential, location, subnet, provider registration, and storage issues during Azure CycleCloud setup.
 ai-usage: ai-assisted
-author: padmalathas
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.date: 08/27/2026
 ms.update-cycle: 365-days

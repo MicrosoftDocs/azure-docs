@@ -2,7 +2,7 @@
 title: Pass trigger information to pipeline
 description: Learn how to reference trigger metadata in pipelines.
 ms.subservice: orchestration
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.topic: how-to
 ms.date: 02/13/2025

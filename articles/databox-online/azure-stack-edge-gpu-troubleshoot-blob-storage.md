@@ -2,7 +2,7 @@
 title: Troubleshoot Blob storage for Azure Stack Edge Pro GPU| Microsoft Docs
 description: Describes how to troubleshoot issues with Blob storage for an Azure Stack Edge device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: troubleshooting

@@ -1,7 +1,7 @@
 ---
 title: UI experience for parameterizing linked services
 description: UI experience for parameterizing linked services
-author: whhender
+author: dcstwh
 ms.topic: include
 ms.date: 01/16/2026
 ms.author: weetok

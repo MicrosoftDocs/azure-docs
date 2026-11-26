@@ -1,5 +1,5 @@
 ---
-author: flapinski
+author: diberry
 ms.author: flapinski
 ms.date: 09/12/2025
 ms.service: azure-virtual-wan

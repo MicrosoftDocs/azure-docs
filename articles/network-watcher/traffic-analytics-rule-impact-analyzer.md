@@ -2,7 +2,7 @@
 title: Analyze Security Rules in Traffic Analytics 
 titleSuffix: Azure Network Watcher
 description: Use Rule Impact Analyzer to simulate and assess security admin rule effects in Azure Virtual Network Manager. Ensure compliance and prevent misconfigurations.
-author: halkazwini
+author: huzefafw
 ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.date: 04/07/2026

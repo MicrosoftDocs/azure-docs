@@ -1,7 +1,7 @@
 ---
 title: Configure identity management for Azure HPC clusters
 description: Set up user authentication and identity management for HPC environments using Azure Active Directory and on-premises directory services.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to

@@ -3,7 +3,7 @@ title: Pass an identity provider access token to your app
 titleSuffix: Azure AD B2C
 description: Learn how to pass an access token for OAuth 2.0 identity providers as a claim in a user flow in Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

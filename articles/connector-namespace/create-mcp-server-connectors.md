@@ -3,7 +3,7 @@ title: Create MCP Connectors for Agents and Azure Integration
 titleSuffix: Connector Namespace
 description: Create MCP server connectors from prebuilt connectors for services, systems, MCP servers, and other components by using connector namespaces. Call your MCP server tools from agents and Azure service integrations.
 ms.service: connector-namespace
-author: wsilveiranz
+author: diberry
 ms.author: wsilveira
 ms.topic: how-to
 ai-usage: ai-assisted

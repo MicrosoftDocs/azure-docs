@@ -2,7 +2,7 @@
 title: Send localized push notifications to iOS using Azure Notification Hubs | Microsoft Docs
 description: Learn how to use push localized notifications to iOS devices by using Azure Notification Hubs.
 services: notification-hubs
-author: sethmanheim
+author: diberry
 manager: lizross
 editor: jwargo
 

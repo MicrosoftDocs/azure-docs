@@ -2,7 +2,7 @@
 title: Configure customer-controlled maintenance for Azure Firewall
 description: Learn how to configure customer-controlled maintenance for your Azure Firewall using the Azure portal, or PowerShell.
 services: firewall
-author: varunkalyana
+author: ashjain
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 07/01/2025

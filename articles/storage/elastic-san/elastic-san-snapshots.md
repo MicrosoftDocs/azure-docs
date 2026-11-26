@@ -1,7 +1,7 @@
 ---
 title: Backup Azure Elastic SAN volumes 
 description: Learn about snapshots for Azure Elastic SAN, including their best uses, how to create them, and how to use them to create new volumes or export to a managed disk.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: concept-article

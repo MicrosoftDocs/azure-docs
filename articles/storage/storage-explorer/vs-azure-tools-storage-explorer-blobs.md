@@ -2,7 +2,7 @@
 title: Manage Azure Blob Storage resources with Storage Explorer
 description: Manage Azure Blob Storage resources with Storage Explorer. Create a blob container, view blob container contents, delete or copy a blob container, and more.
 services: storage
-author: jinglouMSFT
+author: normesta
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: azure-storage
 ms.topic: article

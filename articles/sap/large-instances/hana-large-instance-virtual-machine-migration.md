@@ -2,7 +2,7 @@
 title: Migrate SAP HANA on Azure Large Instances to Azure virtual machines
 description: Learn how to plan and migrate SAP HANA workloads from Azure Large Instances (HLI) to Azure virtual machines, including deployment scenarios and strategies.
 services: virtual-machines-linux
-author: bentrin
+author: tunde-az
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances

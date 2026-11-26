@@ -2,7 +2,7 @@
 title: Configure authentication in a sample Angular SPA by using Azure AD B2C
 description: Learn how to configure authentication in an Angular SPA using Azure AD B2C. Securely sign in users and call a protected web API with MSAL Angular.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

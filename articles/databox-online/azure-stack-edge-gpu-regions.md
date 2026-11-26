@@ -2,7 +2,7 @@
 title: Choosing a region for Microsoft Azure Stack Edge Pro with GPU | Microsoft Docs
 description: Explains region choices for Azure Stack Edge service, data storage, and devices for Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: concept-article

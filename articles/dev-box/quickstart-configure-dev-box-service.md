@@ -4,7 +4,7 @@ description: Quickly set up Microsoft Dev Box resources for developers to self-s
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.update-cycle: 90-days
 ms.date: 09/23/2025

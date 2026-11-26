@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Provides access to agent tool parameters for expression conversion in AI agent workflows.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

@@ -1,7 +1,7 @@
 ---
 title: How to define a migration job
 description: To migrate a share, create a job definition in a project.
-author: stevenmatthew
+author: rajsinghmsa
 ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: how-to

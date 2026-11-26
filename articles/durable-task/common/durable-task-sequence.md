@@ -1,10 +1,10 @@
 ---
 title: "Function Chaining Pattern: Durable Functions and Durable Task SDKs"
 description: "Learn how to implement the function chaining pattern to execute a sequence of activities using Durable Functions or Durable Task SDKs. Get started with code samples."
-author: hhunter-ms
+author: diberry
 ms.topic: concept-article
 ms.service: durable-task
-ms.date: 10/12/2026
+ms.date: 11/23/2026
 ai-usage: ai-assisted
 ms.author: vyomnagrani
 ms.devlang: csharp
@@ -27,7 +27,7 @@ Function chaining is a pattern where you run a sequence of functions in order. I
 
 ::: zone pivot="durable-task-sdks"
 
-Function chaining is a pattern where you run a sequence of activities in order. It's common to pass the output of one activity to the input of the next. This article describes the chaining sequence for the Durable Task SDKs for .NET, JavaScript, Python, Java, and Go (beta).
+Function chaining is a pattern where you run a sequence of activities in order. It's common to pass the output of one activity to the input of the next. This article describes the chaining sequence for the Durable Task SDKs for .NET, JavaScript, Python, Java, and Go (preview).
 
 ::: zone-end
 

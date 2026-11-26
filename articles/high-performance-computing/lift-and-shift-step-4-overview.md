@@ -1,7 +1,7 @@
 ---
 title: Select and provision HPC and GPU compute nodes on Azure
 description: Choose Azure VM SKUs, plan quotas, and provision HPC and GPU compute nodes for your cloud HPC environment.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to

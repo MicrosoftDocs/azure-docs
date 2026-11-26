@@ -5,7 +5,7 @@ services: automation
 ms.date: 09/15/2024
 ms.topic: how-to
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Manage databases in Azure SQL database using Azure Automation

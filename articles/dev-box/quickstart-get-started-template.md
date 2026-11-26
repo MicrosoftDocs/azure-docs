@@ -12,7 +12,7 @@ ms.custom:
   - ai-seo-date:05/08/2025
   - ai-gen-description
 ms.topic: quickstart
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 11/21/2025
 ---

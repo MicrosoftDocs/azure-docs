@@ -2,7 +2,7 @@
 title: What is local Azure Resource Manager on Azure Stack Edge Pro GPU device
 description: Describes an overview of what is the local Azure Resource Manager on your Azure Stack Edge device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template

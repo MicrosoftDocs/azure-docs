@@ -1,7 +1,7 @@
 ---
 title: Secure Key Release with Azure Key Vault and Confidential Containers on Azure Container Instance
 description: Learn how to build an application that securely gets the key from AKV to an attested Azure Container Instances confidential container environment
-author: angarg05
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 3/9/2023

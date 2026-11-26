@@ -6,8 +6,8 @@ summary: Azure Extended Zones are small-footprint extensions of Azure to serve l
 metadata:
   title: Azure Extended Zones documentation
   description: Azure Extended Zones are small-footprint extensions of Azure to serve low latency or data residency workloads. Learn how to use Azure Extended Zones with our quickstarts, tutorials, and samples. # Required; article description that is displayed in search results. < 160 chars.
-  author: halkazwini
-  ms.author: halkazwini
+  author: diberry
+  ms.author: diberry
   ms.service: azure-extended-zones
   ms.topic: landing-page
   ms.date: 09/23/2025

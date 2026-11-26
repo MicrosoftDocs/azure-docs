@@ -1,7 +1,7 @@
 ---
 title: App Service Environment Overview
 description: Learn about App Service Environments, which are fully isolated and single-tenant App Service deployments that provide high-scale, network-secured hosting.
-author: seligj95
+author: btardif
 ms.topic: overview
 ms.date: 10/05/2026
 ms.update-cycle: 1095-days

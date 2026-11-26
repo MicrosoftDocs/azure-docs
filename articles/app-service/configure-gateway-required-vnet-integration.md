@@ -1,7 +1,7 @@
 ---
 title: Configure gateway-required virtual network integration for your app
 description: Integrate your app in Azure App Service with Azure virtual networks using gateway-required virtual network integration.
-author: seligj95
+author: btardif
 ms.topic: how-to
 ms.date: 01/30/2026
 ms.author: jordanselig

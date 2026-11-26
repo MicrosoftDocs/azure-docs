@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/15/2026
 ms.custom:
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Enable Azure Automation State Configuration

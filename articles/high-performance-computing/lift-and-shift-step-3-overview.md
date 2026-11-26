@@ -1,7 +1,7 @@
 ---
 title: "Storage migration overview"
 description: Get a high level idea of the steps involved when migrating storage components during a migration of high performance computing architecture.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/23/2026
 ms.topic: how-to

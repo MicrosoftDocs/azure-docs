@@ -4,7 +4,7 @@ description: Learn how to configure integrated monitoring for Azure CycleCloud c
 ms.service: azure-cyclecloud
 ms.topic: how-to
 ms.date: 06/19/2026
-author: xpillons
+author: mattmcinnes
 ms.author: mattmcinnes
 ---
 

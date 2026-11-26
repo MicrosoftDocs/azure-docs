@@ -1,7 +1,7 @@
 ---
 title: Understand Azure Data Share pricing   
 description: Learn how Azure Data Share pricing works
-author:  chvukosw
+author:  diberry
 ms.author: diberry
 ms.service: azure-data-share
 ms.topic: concept-article

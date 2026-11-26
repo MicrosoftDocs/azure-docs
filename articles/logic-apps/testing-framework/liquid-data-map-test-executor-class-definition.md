@@ -2,7 +2,7 @@
 title: LiquidDataMapTestExecutor class
 titleSuffix: Azure Logic Apps
 description: Executes liquid data map transformations for unit testing Azure Logic Apps workflows with support for schema validation.
-author: wsilveiranz
+author: divyaswarnkar
 ms.author: wsilveira
 ms.reviewers: estfan, azla
 ms.topic: reference

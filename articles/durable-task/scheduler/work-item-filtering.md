@@ -1,12 +1,12 @@
 ---
 ai-usage: ai-assisted
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: Work item filtering in the Durable Task Scheduler
 titleSuffix: Durable Task
 description: "Learn how work item filtering connects distributed application components running across different Azure compute environments in a single workflow."
 ms.topic: concept-article
-ms.date: 10/12/2026
+ms.date: 11/23/2026
 ---
 
 # Work item filtering in the Durable Task Scheduler
@@ -91,7 +91,7 @@ This strictness ensures the scheduler never hands a work item to a worker that c
 | .NET             | Available           |
 | Java             | Available           |
 | Python           | Available           |
-| Go (beta)        | Available           |
+| Go (preview)     | Available           |
 | JavaScript       | Not yet available   |
 | PowerShell       | Not yet available   |
 

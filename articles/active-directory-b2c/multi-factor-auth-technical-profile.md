@@ -3,7 +3,7 @@ title: Microsoft Entra ID multifactor authentication technical profiles in custo
 titleSuffix: Azure AD B2C
 description: Custom policy reference for Microsoft Entra ID multifactor authentication technical profiles in Azure AD B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

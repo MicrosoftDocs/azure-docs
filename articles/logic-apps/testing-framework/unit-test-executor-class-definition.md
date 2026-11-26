@@ -3,7 +3,7 @@ title: UnitTestExecutor class
 description: Detailed documentation for the UnitTestExecutor class in the Azure Logic Apps Unit Testing SDK.
 services: logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 06/10/2025

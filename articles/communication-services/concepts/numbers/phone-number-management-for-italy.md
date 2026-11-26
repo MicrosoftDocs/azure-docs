@@ -2,7 +2,7 @@
 title: Phone Number Management for Italy
 titleSuffix: An Azure Communication Services concept document
 description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Italy.
-author: krkutser
+author: diberry
 manager: rcole
 services: azure-communication-services
 

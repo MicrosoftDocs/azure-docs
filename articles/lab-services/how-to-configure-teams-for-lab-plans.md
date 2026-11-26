@@ -3,7 +3,7 @@ title: Configure Teams to use Azure Lab Services
 description: Learn how to configure Microsoft Teams to use Azure Lab Services.
 ms.topic: how-to
 ms.date: 11/15/2022
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.custom: engagement-fy23
 ---

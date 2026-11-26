@@ -2,7 +2,7 @@
 title: Copy data from Phoenix
 description: Learn how to copy data from Phoenix to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.date: 01/26/2025

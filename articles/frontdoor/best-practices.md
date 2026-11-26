@@ -2,7 +2,7 @@
 title: Best Practices
 titleSuffix: Azure Front Door
 description: Learn best practices for configuring and using Azure Front Door, including TLS security, domain management, WAF, health probes, and traffic routing optimization.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

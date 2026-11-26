@@ -3,7 +3,7 @@ title: Migrate OWIN-based web APIs to b2clogin.com or a custom domain
 titleSuffix: Azure AD B2C
 description: Learn how to enable a .NET web API to support tokens issued by multiple token issuers while you migrate your applications to b2clogin.com.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

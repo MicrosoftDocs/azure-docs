@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Host a .NET Durable Task SDK App on AKS"
 description: Deploy a .NET Durable Task SDK app with Durable Task Scheduler to Azure Kubernetes Service (AKS) using Azure Developer CLI. Follow this quickstart to get started.
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 ms.reviewer: azfuncdf
 ms.service: durable-task

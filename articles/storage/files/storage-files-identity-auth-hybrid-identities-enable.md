@@ -1,7 +1,7 @@
 ---
 title: Microsoft Entra Kerberos Authentication for Azure Files
 description: Learn how to enable identity-based Kerberos authentication over Server Message Block (SMB) for Azure Files through Microsoft Entra ID. Hybrid and cloud-only users can then access Azure file shares by using their Microsoft Entra credentials.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/19/2026

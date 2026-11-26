@@ -1,7 +1,7 @@
 ---
 title: Building Azure confidential solutions
 description: Compare options for building confidential solutions on Azure and choose the right approach for your workload.
-author: iamwilliew
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/30/2026

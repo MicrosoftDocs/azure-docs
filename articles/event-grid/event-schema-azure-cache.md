@@ -3,7 +3,7 @@ title: Azure Cache for Redis as Event Grid source
 description: Describes the properties that are provided for Azure Cache for Redis events with Azure Event Grid
 ms.topic: overview
 ms.date: 12/02/2022
-author: spelluru
+author: Connected-Seth
 ms.author: seshanmugam
 ---
 

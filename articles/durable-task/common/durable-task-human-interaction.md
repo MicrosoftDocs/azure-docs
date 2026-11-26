@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: durable-task
 ms.date: 10/12/2026
 ms.author: vyomnagrani
-author: hhunter-ms
+author: diberry
 ms.devlang: csharp
 ms.custom: devx-track-js
 zone_pivot_groups: azure-durable-approach

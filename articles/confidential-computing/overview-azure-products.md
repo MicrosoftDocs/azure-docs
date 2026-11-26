@@ -100,7 +100,7 @@ Related security capabilities include:
 
 The portfolio also includes new integrations for migrating and protecting confidential VM workloads:
 
-- **Azure Migrate support for confidential VMs (generally available)**: [Migrate on-premises Windows and Linux VMs to Azure confidential VMs](/azure/migrate/migrate-to-trusted-launch-virtual-machines-with-azure-migrate) by using Azure Migrate.
+- **Azure Catalyst support for confidential VMs (generally available)**: [Migrate on-premises Windows and Linux VMs to Azure confidential VMs](/azure/migrate/migrate-to-trusted-launch-virtual-machines-with-azure-migrate) by using Azure Catalyst.
 - **New: Azure Backup support for confidential VMs (public preview)**: [Back up confidential VMs by using Azure Backup](/azure/backup/confidential-vm-backup) to protect supported OS-disk encrypted confidential VMs with platform-managed or customer-managed keys. Review the product support matrix for supported VM series, regions, and backup and restore capabilities.
 
 ## What's new in Azure confidential computing

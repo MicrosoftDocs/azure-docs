@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Represents a directed chain of workflow operations with a shared start node and one or more end nodes for fluent workflow composition.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

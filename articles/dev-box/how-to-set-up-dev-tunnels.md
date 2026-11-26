@@ -1,7 +1,7 @@
 ---
 title: Connect to Microsoft Dev Box Using VS Code
 description: Learn how to set up and connect to your Microsoft Dev Box using the Open in VS Code feature. Enable tunnels for a pool, install the Dev Box extension, and connect remotely for development.
-author: RoseHJM
+author: ramiMSFT
 contributors:
 ms.topic: how-to
 ms.date: 01/27/2026

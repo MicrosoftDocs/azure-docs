@@ -2,8 +2,8 @@
 title: Purge an Azure Content Delivery Network endpoint
 description: Learn how to purge all cached content from an Azure Content Delivery Network endpoint. Edge nodes cache assets until their time to live expires.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: kumud
 ms.service: azure-content-delivery-network
 ms.topic: how-to

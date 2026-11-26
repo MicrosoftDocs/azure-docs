@@ -4,7 +4,7 @@ description: This article contains important reference material you need when yo
 ms.date: 10/13/2026
 ms.custom: horz-monitor, msecd-doc-authoring-1030
 ms.topic: reference
-author: chvukosw
+author: diberry
 ms.author: diberry
 ms.service: azure-data-share
 ai-usage: ai-assisted

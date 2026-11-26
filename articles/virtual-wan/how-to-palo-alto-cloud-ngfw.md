@@ -3,7 +3,7 @@ title: 'Install Palo Alto Networks Cloud NGFW in a Virtual WAN hub'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure Palo Alto Networks Cloud NGFW in a Virtual WAN hub.
 services: virtual-wan
-author: wtnlee
+author: Ajitbhu
 
 ms.service: azure-virtual-wan
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: Using a Service Principal
 description: Learn how to use a Microsoft Entra service principal to grant Azure CycleCloud permission to manage clusters in your subscription.
-author: rokeptne
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: rokeptne

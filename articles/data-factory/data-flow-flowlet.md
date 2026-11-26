@@ -2,7 +2,7 @@
 title: Flowlet transformation in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to run a flowlet transformation inside of a mapping data flow in Azure Data Factory and Synapse Analytics pipelines.
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.subservice: data-flows
 ms.custom: synapse

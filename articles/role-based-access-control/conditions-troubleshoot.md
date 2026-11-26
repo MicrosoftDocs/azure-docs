@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure role assignment conditions - Azure ABAC
 description: Troubleshoot Azure role assignment conditions
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions

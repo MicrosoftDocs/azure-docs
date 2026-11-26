@@ -2,7 +2,7 @@
 title: What is Connector Namespace?
 titleSuffix: Connector Namespace
 description: Learn about Connector Namespace, a managed service that hosts reusable connectors and MCP servers. Without writing any custom API client code, integrate your solutions from Azure Functions, Container Apps, and other Azure compute services with Microsoft and non-Microsoft services, apps, data, and AI workloads.
-author: wsilveiranz
+author: diberry
 ms.author: wsilveira
 ms.reviewers: ecfan, azla
 ms.service: connector-namespace

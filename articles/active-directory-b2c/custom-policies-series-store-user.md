@@ -2,7 +2,7 @@
 title: Create a user account by using Azure AD B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to create and read user accounts in Azure AD B2C using custom policies. Store and retrieve user information from Microsoft Entra ID storage.
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

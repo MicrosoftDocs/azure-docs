@@ -1,7 +1,7 @@
 ---
 title: Networking considerations for Azure Files
 description: An overview of networking considerations and options for Azure Files, including encryption in transit, public and private endpoints, network security perimeters, VPN, ExpressRoute, DNS, and firewall settings.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 10/22/2026

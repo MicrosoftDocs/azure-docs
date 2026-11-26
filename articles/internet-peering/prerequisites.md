@@ -2,8 +2,8 @@
 title: Prerequisites to Set Up Peering with Microsoft
 titleSuffix: Internet Peering
 description: Learn about the required prerequisites to set up internet peering with Microsoft.
-ms.author: halkazwini
-author: halkazwini
+ms.author: diberry
+author: diberry
 ms.service: internet-peering
 ms.topic: concept-article
 ms.date: 02/25/2026

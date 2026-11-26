@@ -4,7 +4,7 @@ description: Guidance for configuring Azure Government services for DoD Impact L
 ms.service: azure-government
 ms.topic: article
 ms.custom: references_regions
-author: EliotSeattle
+author: diberry
 ms.author: diberry
 recommendations: false
 ms.date: 01/04/2024
@@ -334,9 +334,11 @@ For Migration services availability in Azure Government, see [Products available
 
 - Configure encryption at rest of content in Azure Data Box [using customer-managed keys in Azure Key Vault](../databox/data-box-customer-managed-encryption-key-portal.md).
 
-### [Azure Migrate](../migrate/index.yml)
+<a name="azure-migrate"></a>
 
-- Configure encryption at rest of content in Azure Migrate by [using customer-managed keys in Azure Key Vault](../migrate/how-to-migrate-vmware-vms-with-cmk-disks.md).
+### [Azure Catalyst](../migrate/index.yml)
+
+- Configure encryption at rest of content in Azure Catalyst by [using customer-managed keys in Azure Key Vault](../migrate/how-to-migrate-vmware-vms-with-cmk-disks.md).
 
 
 ## Security

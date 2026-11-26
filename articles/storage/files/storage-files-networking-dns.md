@@ -1,7 +1,7 @@
 ---
 title: Configure DNS Forwarding for Azure Files
 description: Learn how to configure DNS forwarding for Azure Files to properly resolve the fully qualified domain name (FQDN) of your storage account to your private endpoint's IP address.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 09/09/2024

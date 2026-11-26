@@ -4,7 +4,7 @@ description: Lists the permissions for Azure resource providers.
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.author: diberry
 ms.date: 07/01/2026
@@ -216,8 +216,8 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.DataBox](./permissions/migration.md#microsoftdatabox) | Move stored or in-flight data to Azure quickly and cost-effectively. | [Azure Data Box](/azure/databox/) |
 > | [Microsoft.DataBoxEdge](./permissions/migration.md#microsoftdataboxedge) | Appliances and solutions for data transfer to Azure and edge compute. | [Azure Stack Edge](/azure/databox-online/azure-stack-edge-overview) |
 > | [Microsoft.DataMigration](./permissions/migration.md#microsoftdatamigration) | Simplify on-premises database migration to the cloud. | [Azure Database Migration Service](/azure/dms/) |
-> | [Microsoft.Migrate](./permissions/migration.md#microsoftmigrate) | Easily discover, assess, right-size, and migrate your on-premises VMs to Azure. | [Azure Migrate](/azure/migrate/migrate-services-overview) |
-> | [Microsoft.OffAzure](./permissions/migration.md#microsoftoffazure) |  | [Azure Migrate](/azure/migrate/migrate-services-overview) |
+> | [Microsoft.Migrate](./permissions/migration.md#microsoftmigrate) | Easily discover, assess, right-size, and migrate your on-premises VMs to Azure. | [Azure Catalyst](/azure/migrate/migrate-services-overview) |
+> | [Microsoft.OffAzure](./permissions/migration.md#microsoftoffazure) |  | [Azure Catalyst](/azure/migrate/migrate-services-overview) |
 
 ## Monitor
 

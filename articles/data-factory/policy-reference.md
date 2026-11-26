@@ -2,7 +2,7 @@
 title: Built-in policy definitions
 description: Lists Azure Policy built-in policy definitions for Data Factory. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.author: weetok
-author: kromerm
+author: dcstwh
 ms.subservice: integration-runtime
 ms.topic: reference
 ms.custom: references_regions

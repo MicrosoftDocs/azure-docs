@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Configure geo-redundancy for an Azure App Service app (Preview)"
 description: Learn how to configure an Azure App Service app across multiple Azure regions by adding a silo region and accessing the app through its global endpoint.
-author: apwestgarth
+author: btardif
 ms.author: anwestg
 ms.topic: quickstart
 ms.service: azure-app-service

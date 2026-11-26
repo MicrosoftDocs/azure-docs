@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: Add Tags to Orchestrations and Activities in Durable Task Scheduler
 titleSuffix: Durable Task
@@ -7,7 +7,7 @@ description: Learn how to use tags to attach custom key-value metadata to orches
 ms.topic: how-to
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 10/12/2026
+ms.date: 11/23/2026
 ---
 
 # Add tags to orchestrations and activities in Durable Task Scheduler
@@ -28,7 +28,7 @@ You can add tags to:
 | **Durable Task JavaScript SDK** (`durabletask-js`) | ✅ | ✅ | ✅ | ✅ |
 | **Durable Task Python SDK** (`durabletask-python`) | ✅ | ✅ | ❌ | ❌ (not surfaced in `OrchestrationState`) |
 | **Durable Task Java SDK** (`durabletask-java`) | ✅ (v1.6.0+) | ❌ (`TaskOptions` is retry-only) | ❌ | ✅ |
-| **Durable Task Go SDK** (`durabletask-go`, beta) | ✅ | ✅ | ✅ | ✅ |
+| **Durable Task Go SDK** (`durabletask-go`, preview) | ✅ | ✅ | ✅ | ✅ |
 | **Durable Functions: .NET isolated** | ✅ | ✅ | ✅ | ✅ |
 | **Durable Functions: .NET in-process** | ❌ | ❌ | ❌ | ❌ |
 | **Durable Functions: JavaScript** | ❌ | ❌ | ❌ | ❌ |

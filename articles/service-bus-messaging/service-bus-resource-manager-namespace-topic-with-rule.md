@@ -1,7 +1,7 @@
 ---
 title: Create Service Bus topic subscription and rule using Azure template
 description: Create a Service Bus namespace with topic, subscription, and rule using Azure Resource Manager template
-author: spelluru
+author: EldertGrootenboer
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 09/27/2021

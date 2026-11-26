@@ -2,7 +2,7 @@
 title: 'Hybrid static routing with Azure Firewall and spoke NVAs'
 titleSuffix: Azure Virtual WAN
 description: Learn about Azure Virtual WAN routing scenarios that combine Azure Firewall and spoke NVAs with static routing.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 04/28/2026

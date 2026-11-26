@@ -1,7 +1,7 @@
 ---
 title: Roles and requirements for Azure Data Share   
 description: Learn about the permissions required to share and receive data using Azure Data Share.
-author: chvukosw
+author: diberry
 ms.author: diberry
 ms.service: azure-data-share
 ms.topic: concept-article

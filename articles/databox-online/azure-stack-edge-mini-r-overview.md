@@ -2,7 +2,7 @@
 title: Azure Stack Edge Mini R overview | Microsoft Docs
 description: Describes Azure Stack Edge Mini R, a storage solution for military applications that uses a portable physical device with a battery for transfer over wi-fi into Azure.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: overview

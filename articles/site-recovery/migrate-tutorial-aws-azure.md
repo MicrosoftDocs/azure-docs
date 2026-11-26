@@ -1,6 +1,6 @@
 ---
-title: Migrate AWS VMs to Azure with Azure Migrate
-description: This article describes options for migrating AWS instances to Azure, and recommends Azure Migrate.
+title: Migrate AWS VMs to Azure with Azure Catalyst
+description: This article describes options for migrating AWS instances to Azure, and recommends Azure Catalyst.
 services: site-recovery
 ms.service: azure-site-recovery
 ms.topic: tutorial
@@ -17,11 +17,13 @@ This article describes options for migrating Amazon Web Services (AWS) instances
 > [!NOTE]
 > On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported. [Learn more](./vmware-physical-azure-support-matrix.md#for-linux).
 
-## Migrate with Azure Migrate
+<a name="migrate-with-azure-migrate"></a>
 
-We recommend that you migrate AWS EC2 instances to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. Azure Migrate is purpose-built for server migration. Azure Migrate provides a centralized hub for discovery, assessment and migration of on-premises machines to Azure.
+## Migrate with Azure Catalyst
 
-[Learn how](../migrate/tutorial-migrate-aws-virtual-machines.md) to migrate AWS instances with Azure Migrate. 
+We recommend that you migrate AWS EC2 instances to Azure using the [Azure Catalyst](../migrate/migrate-services-overview.md) service. Azure Catalyst is purpose-built for server migration. Azure Catalyst provides a centralized hub for discovery, assessment and migration of on-premises machines to Azure.
+
+[Learn how](../migrate/tutorial-migrate-aws-virtual-machines.md) to migrate AWS instances with Azure Catalyst. 
 
 
 ## Migrate with Site Recovery
@@ -36,4 +38,4 @@ If you're already using Azure Site Recovery, and you want to continue using it f
 
 ## Next steps
 
-- [Review common questions](../migrate/resources-faq.md) about Azure Migrate.
+- [Review common questions](../migrate/resources-faq.md) about Azure Catalyst.

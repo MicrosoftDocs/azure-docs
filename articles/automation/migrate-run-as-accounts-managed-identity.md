@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.custom:
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Migrate from an existing Run As account to Managed identities

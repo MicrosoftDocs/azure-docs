@@ -1,7 +1,7 @@
 ---
 title: Build a proof-of-concept HPC cluster on Azure
 description: Deploy a proof-of-concept HPC cluster on Azure using CycleCloud and Slurm to validate your migration before moving to production.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to

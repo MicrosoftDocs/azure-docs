@@ -2,7 +2,7 @@
 title: New App registrations experience in Azure AD B2C
 description: An introduction to the new App registration experience in Azure AD B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

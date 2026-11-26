@@ -2,7 +2,7 @@
 title: Create a VM image using source images from Azure Marketplace.
 description: Learn how to create a VM image using source images from Azure Marketplace or from your Azure Storage account.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

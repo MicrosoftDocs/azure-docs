@@ -2,7 +2,7 @@
 title: 'Route traffic to indirect spokes'
 titleSuffix: Azure Virtual WAN
 description: Learn about Azure Virtual WAN routing scenarios for indirect spokes.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 04/28/2026

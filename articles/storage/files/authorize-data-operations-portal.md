@@ -1,7 +1,7 @@
 ---
 title: Authorize Access to Azure File Share Data in the Azure Portal
 description: Learn how requests to Azure Files for accessing file data are authenticated and authorized through a Microsoft Entra account or a storage account access key.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/27/2026

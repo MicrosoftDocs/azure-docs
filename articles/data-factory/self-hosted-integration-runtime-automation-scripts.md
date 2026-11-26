@@ -3,7 +3,7 @@ title: Automating self-hosted integration runtime installation using local Power
 description: To automate installation of Self-hosted Integration Runtime on local machines.
 ms.subservice: integration-runtime
 ms.topic: how-to
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.date: 05/15/2024
 ---

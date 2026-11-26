@@ -1,7 +1,7 @@
 ---
 title: Data exfiltration protection for Azure Synapse Analytics
 description: Learn how to use data exfiltration protection in Azure Synapse Analytics workspaces.
-author: meenalsri
+author: rakrish75
 ms.service: azure-synapse-analytics
 ms.topic: concept-article
 ms.subservice: security 

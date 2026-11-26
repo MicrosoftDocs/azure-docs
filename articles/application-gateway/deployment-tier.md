@@ -6,118 +6,69 @@ author: reyjordi
 ms.author: reyjordi
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 11/17/2026
+ms.date: 11/25/2026
 ---
 
 # Application Gateway deployment tiers
 
-The deployment tier determines the underlying infrastructure for your Azure Application Gateway, including its platform, connectivity model, and scaling behavior. You select the tier when you create the gateway.
+When you create a gateway, you first select its SKU (Standard_v2 or WAF_v2), and then select its deployment tier. The deployment tier determines the gateway's network configuration and how it scales. The choice of deployment tier doesn't affect pricing. Feature availability for your selected SKU is the same across deployment tiers, except as noted in the following table.
 
-Deployment tiers also introduce new infrastructure improvements. Instead of changing the platform beneath your workloads, Azure offers new capabilities as a tier you can opt into. You can try them, share feedback, and adopt them at your own pace. Your input during preview helps shape each option before it becomes the standard experience.
-
-Azure introduces Accelerated as a choice first, so you have time to get familiar with it before its planned transition to the default for eligible new gateways at general availability. Existing gateways continue to run unchanged, and in-place migration to Accelerated isn't available today. Choose the tier that fits your needs when you create the gateway.
-
-> [!IMPORTANT]
-> You can't change the deployment tier after the application gateway is created. To change tiers, deploy a new gateway with the tier you want and migrate your configuration.
-
-## Standard
-
-Standard runs on the current, generally available Application Gateway platform. Use it for most internet-facing and internal workloads, or when you want to continue using the existing infrastructure with no change to how your gateway is deployed.
-
-- Requires a public frontend IP address, even if you use only a private listener.
-- Azure manages the gateway through the `GatewayManager` service tag, so your network security group (NSG) must allow the required inbound traffic. For more information, see [Application Gateway infrastructure configuration](configuration-infrastructure.md).
-- Requires outbound internet access from the Application Gateway subnet.
-
-## Network isolated
-
-Network isolated lets you create a private-only Application Gateway without registering the `EnableApplicationGatewayNetworkIsolation` flag. It removes the gateway's dependency on public management traffic, so you can lock down the subnet like any other workload subnet.
-
-Use it when:
-
-- Your security policy doesn't allow public IP addresses.
-- You must route all outbound traffic through a firewall or network virtual appliance.
-- You need a deny-all outbound NSG rule on the gateway subnet.
-
-For network requirements and setup details, see [Private Application Gateway deployment](application-gateway-private-deployment.md?tabs=portal).
-
-## Accelerated (preview)
-
-Accelerated (Preview) is the new recommended Application Gateway deployment experience. The architecture supports public, private-only, and combined public-and-private connectivity without separate network registration. It delivers higher scale limits, sub-minute scale-out, and extended connection draining to adapt capacity as workload demands change.
-
-Microsoft plans for Accelerated to become the default for eligible new deployments at general availability. Existing gateways remain unchanged.
+| Tier | What it is | Choose it when | Features and regions |
+| --- | --- | --- | --- |
+| **Standard (default)** | The deployment tier most application gateways run on today, with a public IP address and an optional private IP address. | Your gateway can have a public IP address, and you want to keep the deployment model you use today. | All features. All regions. |
+| **Network Isolated** | A platform that doesn't require a public IP address and supports private-only or public-and-private frontends. You can apply a deny-all outbound NSG rule and route all outbound traffic through a firewall or NVA with a UDR. | Your security or compliance requirements don't allow public IP addresses or unrestricted outbound internet access. | All features except Private Link. All regions. See [Private Application Gateway deployment](application-gateway-private-deployment.md). |
+| **Accelerated (preview)** | A next-generation platform with the same network isolation capabilities as Network Isolated, built on a modern underlying architecture. It provides faster autoscaling and provisioning, higher scale, and seamless application connectivity during scale-out and scale-in. [Try the Accelerated tier in the Azure portal](#try-the-accelerated-tier-in-the-azure-portal). | Your workloads experience fluctuating traffic patterns and benefit from rapid scale-out, or your applications use long-running connections that require extra drain time during scale-in, so that the clients aren't disrupted. | WAF and Private Link aren't available during preview. For the full list, see [Feature availability during preview](#feature-availability-during-preview). Available in select preview regions. See [Regional availability during preview](#regional-availability). |
 
 > [!IMPORTANT]
-> For Accelerated gateways, keep at least 10 IP addresses free in the gateway subnet when you create the Application Gateway.
-
-### Limitations (preview)
-
-The following capabilities aren't supported or are limited while the Accelerated tier is in preview:
-
-- **In-place migration** of existing gateways to Accelerated isn't available. To use Accelerated, create a new gateway and select the Accelerated tier.
-- **WAF tier** isn't supported.
-- **FIPS mode** isn't supported.
-- **TCP/TLS proxy** isn't supported.
-- **Private Link** isn't supported.
-- **NSG requirement:** Create an NSG rule that allows inbound traffic from the `AzureLoadBalancer` service tag to your listener ports.
-- **Gateway health dashboard** isn't available.
-- **Get certificate metadata API** isn't available.
-- **On-demand backend health** isn't available.
-- **Subnet sharing** isn't available.
-- **Vertical scaling** isn't available during preview.
-- **Other Application Gateway features currently in preview** aren't supported on the Accelerated tier.
-
-> [!NOTE]
-> These limitations apply to the preview release and are expected to change as Accelerated moves toward general availability. For legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Regional availability
-
-Standard and Network Isolated are available in all regions where Application Gateway is available.
-
-During preview, Accelerated is available only in the following regions:
-
-- Australia Central
-- Australia Southeast
-- Canada Central
-- Canada East
-- Central India
-- East Asia
-- India South Central
-- Indonesia Central
-- Israel Central
-- Japan West
-- Jio India West
-- Korea Central
-- Malaysia West
-- New Zealand North
-- Poland Central
-- South Africa North
-- Southeast Asia
-- Spain Central
-- Sweden Central
-- West Central US
-- West US 2
-
-## Choose a deployment tier
-
-| If you need... | Choose |
-| --- | --- |
-| A general-purpose gateway using the existing generally available infrastructure | Standard |
-| No public IP address, forced tunneling of outbound traffic, or a deny-all outbound NSG rule | Network Isolated |
-| Higher scale limits, faster scaling, and longer connection draining, with public, private-only, or combined public-and-private connectivity | Accelerated (Preview) |
-
-## Try the Accelerated tier in the Azure portal
-
-During preview, use the [Azure portal preview link](https://portal.azure.com/?microsoft_azure_hybridnetworking_appgwdeploymenttier=true) to access the deployment-tier selection. Create a new application gateway and select **Accelerated (Preview)** under **Deployment tier**.
-
-The Accelerated tier is available only in [supported preview regions](#regional-availability). Existing gateways remain unchanged.
+> Changing the deployment tier of an existing gateway isn't supported yet. To move to another tier, create a new gateway and migrate its configuration.
 
 ## Set the deployment tier in the Azure portal
 
 Before you create an application gateway, review the [subnet requirements](quick-create-portal.md#create-a-resource-group-and-virtual-network).
 
-1. Create a new application gateway in the [Azure portal](https://portal.azure.com). If you're trying Accelerated during preview, use the preview link above instead.
-1. On the **Basics** tab, under **Deployment tier**, select **Standard**, **Network Isolated**, or **Accelerated (Preview)**.
-1. Complete the remaining tabs, select **Review + create**, and then select **Create**.
+1. **Create a new application gateway.** To use Accelerated, start from the [Azure portal preview link](https://portal.azure.com/?microsoft_azure_hybridnetworking_appgwdeploymenttier=true).
+1. **Select the deployment tier.** On the **Basics** tab, choose **Standard**, **Network Isolated**, or **Accelerated (Preview)** under **Deployment tier**.
+1. **Complete the remaining configuration.** Review the settings, select **Review + create**, and then select **Create**.
+
+## Accelerated (preview)
+
+Accelerated is the next-generation Application Gateway platform. It delivers sub-minute scale-out, extended connection draining, higher scale, and support for public, private-only, or combined public-and-private connectivity. Accelerated uses the same Application Gateway billing model, so selecting the tier doesn't change how the gateway is billed.
+
+### Feature availability during preview
+
+The Accelerated tier supports the Standard tier feature set except the following capabilities, which are unavailable during preview: Web Application Firewall (WAF), Private Link, FIPS mode, TCP/TLS proxy, the gateway health dashboard, the Get Certificate Metadata API, on-demand backend health, subnet sharing, and other Application Gateway features that are currently in preview.
+
+## Regional availability
+
+Standard and Network Isolated are available in all regions where Application Gateway is available.
+
+During preview, Accelerated is available in these regions:
+
+| Region | Region | Region |
+| --- | --- | --- |
+| Australia Central | Australia Southeast | Canada Central |
+| Canada East | Central India | East Asia |
+| India South Central | Indonesia Central | Israel Central |
+| Japan West | Jio India West | Korea Central |
+| Malaysia West | New Zealand North | Poland Central |
+| South Africa North | Southeast Asia | Spain Central |
+| Sweden Central | West Central US | West US 2 |
+
+> [!NOTE]
+> These limitations apply only during preview. Microsoft is working to add support for these features before general availability. For legal terms that apply to Azure preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Prepare to deploy Accelerated
+
+- **Plan the subnet:** Keep at least 10 IP addresses available in the Application Gateway subnet when you create an Accelerated gateway.
+- **Configure network security:** In your network security group (NSG), allow inbound traffic from your client IP address ranges to your listener ports.
+
+## Try the Accelerated tier in the Azure portal
+
+1. During preview, use the [Azure portal preview link](https://portal.azure.com/?microsoft_azure_hybridnetworking_appgwdeploymenttier=true) to access Accelerated deployment-tier selection.
+1. Create a new application gateway. On the **Basics** tab, under **Deployment tier**, select **Accelerated (Preview)**.
+1. Choose a [supported preview region](#regional-availability).
+
+Accelerated is currently available only in supported preview regions.
 
 ## Next steps
 

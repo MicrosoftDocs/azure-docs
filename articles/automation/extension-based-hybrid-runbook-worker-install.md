@@ -14,7 +14,7 @@ ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation

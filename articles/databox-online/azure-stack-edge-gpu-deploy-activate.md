@@ -2,7 +2,7 @@
 title: Tutorial to activate Azure Stack Edge Pro device with GPU in Azure portal | Microsoft Docs
 description: Tutorial to deploy Azure Stack Edge Pro GPU instructs you to activate your physical device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: tutorial

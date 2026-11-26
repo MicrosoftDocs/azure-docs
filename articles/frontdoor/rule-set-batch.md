@@ -2,7 +2,7 @@
 title: Batch Rule Updates for Rule Sets
 titleSuffix: Azure Front Door
 description: Learn how batch rule updates for Azure Front Door rule sets apply multiple rule changes atomically for safe, repeatable Infrastructure-as-Code deployments.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

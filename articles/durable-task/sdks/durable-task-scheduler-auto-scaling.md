@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: "Configure Autoscaling for Durable Task SDK in Azure Container Apps"
 titleSuffix: Durable Task

@@ -2,7 +2,7 @@
 title: Phone Number Management for France
 titleSuffix: An Azure Communication Services concept document
 description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in France.
-author: krkutser
+author: diberry
 manager: rcole
 services: azure-communication-services
 

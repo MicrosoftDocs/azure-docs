@@ -24,8 +24,8 @@ You can create multiple assessments for the same web apps with different sets of
 
 ## Related content
 
-- [At scale discovery and assessment for ASP.NET app migration with Azure Migrate](https://channel9.msdn.com/Shows/Inside-Azure-for-IT/At-scale-discovery-and-assessment-for-ASPNET-app-migration-with-Azure-Migrate)
+- [At scale discovery and assessment for ASP.NET app migration with Azure Catalyst](https://channel9.msdn.com/Shows/Inside-Azure-for-IT/At-scale-discovery-and-assessment-for-ASPNET-app-migration-with-Azure-Migrate)
 - [Create an Azure App Service assessment](../migrate/how-to-create-azure-app-service-assessment.md)
 - [Tutorial to assess web apps for migration to Azure App Service](../migrate/tutorial-assess-webapps.md)
-- [Azure App Service assessments in Azure Migrate Discovery and assessment tool](../migrate/concepts-azure-webapps-assessment-calculation.md)
+- [Azure App Service assessments in Azure Catalyst Discovery and assessment tool](../migrate/concepts-azure-webapps-assessment-calculation.md)
 - [Best practices for creating assessments](../migrate/best-practices-assessment.md)

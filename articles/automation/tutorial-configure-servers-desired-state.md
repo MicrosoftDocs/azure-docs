@@ -8,7 +8,7 @@ ms.date: 04/24/2026
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Configure machines to a desired state

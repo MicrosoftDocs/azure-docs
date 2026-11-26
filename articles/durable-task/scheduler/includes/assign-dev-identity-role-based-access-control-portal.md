@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 10/29/2025
 ms.author: vyomnagrani
 ms.reviewer: azfuncdf
-author: hhunter-ms
+author: diberry
 ---
 
 > [!NOTE] 

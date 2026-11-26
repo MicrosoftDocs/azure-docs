@@ -2,7 +2,7 @@
 title: Restrict allowed lab VM sizes
 description: Learn how to use the Lab Services should restrict allowed virtual machine SKU sizes Azure Policy to restrict educators to specified virtual machine sizes for their labs.  
 ms.topic: how-to
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 08/28/2023
 ms.custom: sfi-image-nochange

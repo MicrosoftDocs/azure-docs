@@ -2,7 +2,7 @@
 title: Confidential Containers (preview) on Azure Kubernetes Service
 description: Learn about pod level isolation using Confidential Containers (preview) on Azure Kubernetes Service
 services: container-service
-author: angarg05
+author: vinfnet
 ms.topic: concept-article
 ms.date: 11/7/2023
 ms.author: sgallagher

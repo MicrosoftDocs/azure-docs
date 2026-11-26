@@ -2,7 +2,7 @@
 title: Enable Azure Function in chat app
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to enable Azure Function 
-author: jiminwen
+author: diberry
 services: azure-communication-services
 ms.author: diberry
 ms.date: 11/03/2022

@@ -5,7 +5,7 @@ ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: how-to
 ms.author: weetok
-author: kromerm
+author: dcstwh
 ms.date: 05/15/2024
 ms.custom:
   - sfi-image-nochange

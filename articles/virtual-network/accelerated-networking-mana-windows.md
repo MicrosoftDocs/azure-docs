@@ -1,7 +1,7 @@
 ---
 title: Windows VMs with the Microsoft Azure Network Adapter
 description: Learn how the Microsoft Azure Network Adapter can improve the networking performance of Windows VMs in Azure.
-author: mattmcinnes
+author: diberry
 ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/10/2023

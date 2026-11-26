@@ -410,9 +410,11 @@ For Azure Media Services v3 feature variations in Azure Government, see [Azure M
 
 This section outlines variations and considerations when using Migration services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration,cost-management,azure-migrate,site-recovery&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
-### [Azure Migrate](../migrate/index.yml)
+<a name="azure-migrate"></a>
 
-The following Azure Migrate **features aren't currently available** in Azure Government:
+### [Azure Catalyst](../migrate/index.yml)
+
+The following Azure Catalyst **features aren't currently available** in Azure Government:
 
 - Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on App Service.
 - Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on Azure Kubernetes Service (AKS).
@@ -420,7 +422,7 @@ The following Azure Migrate **features aren't currently available** in Azure Gov
 - Containerizing ASP.NET apps and deploying them on Windows containers on App Service.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
 
-For more information, see [Azure Migrate support matrix](../migrate/supported-geographies.md#azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
+For more information, see [Azure Catalyst support matrix](../migrate/supported-geographies.md#azure-government). For a list of Azure Government URLs needed by the Azure Catalyst appliance when connecting to the internet, see [Azure Catalyst appliance URL access](../migrate/migrate-appliance.md#url-access).
 
 ## Networking
 

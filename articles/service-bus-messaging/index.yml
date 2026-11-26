@@ -8,7 +8,7 @@ metadata:
   description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
   ms.service: azure-service-bus
   ms.topic: landing-page
-  author: spelluru
+  author: EldertGrootenboer
   ms.author: egrootenboer
   ms.date: 02/10/2026
 

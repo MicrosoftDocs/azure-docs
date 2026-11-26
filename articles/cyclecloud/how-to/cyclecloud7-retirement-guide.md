@@ -1,7 +1,7 @@
 ---
 title: Azure CycleCloud 7 Retirement Guide
 description: This article describes the impact of the CycleCloud 7 retirement and migration options.
-author: padmalathas
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.topic: how-to
 ms.date: 06/19/2026

@@ -2,7 +2,7 @@
 title: Tutorial to prepare Azure portal, datacenter environment to deploy Azure Stack Edge Pro R
 description: The first tutorial about deploying Azure Stack Edge Pro R involves preparing the Azure portal.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-azurecli

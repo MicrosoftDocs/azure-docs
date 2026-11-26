@@ -2,8 +2,8 @@
 title: Set Up and Monitor a Direct Peering
 titleSuffix: Internet Peering
 description: Learn how to provision and manage a direct peering in Azure Peering Service.
-ms.author: halkazwini
-author: halkazwini
+ms.author: diberry
+author: diberry
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 02/25/2026

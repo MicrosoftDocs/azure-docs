@@ -9,7 +9,7 @@ metadata:
   description: Azure Government provides a physically isolated instance of Azure that employs world-class security and compliance critical to US government.
   ms.service: azure-government
   ms.topic: landing-page
-  author: anaharris-ms
+  author: diberry
   ms.author: diberry 
   ms.date: 05/07/2022
 

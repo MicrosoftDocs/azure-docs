@@ -1,7 +1,7 @@
 ---
 title: Deploy and migrate HPC job schedulers on Azure
 description: Configure and migrate job schedulers (Slurm, PBS, LSF) to Azure using CycleCloud, including queue setup and autoscaling policies.
-author: tomvcassidy
+author: mdosterjr
 ms.author: mdoster
 ms.date: 02/19/2026
 ms.topic: how-to

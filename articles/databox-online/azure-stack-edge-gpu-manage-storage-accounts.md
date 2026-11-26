@@ -2,7 +2,7 @@
 title: Azure Stack Edge Pro GPU storage account management | Microsoft Docs 
 description: Describes how to use the Azure portal to manage storage account on your Azure Stack Edge Pro GPU.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell

@@ -1,7 +1,7 @@
 ---
 title: Configure network endpoints for Azure file shares
 description: Learn how to configure public and private network endpoints for Azure file shares. Restrict access to file shares by setting up a private link.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/22/2026

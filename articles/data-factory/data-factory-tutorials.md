@@ -1,7 +1,7 @@
 ---
 title: Azure Data Factory Tutorials
 description: A list of top tutorials and guides for developing pipelines, data flows, and managing your Azure Data Factory.
-author: whhender
+author: dcstwh
 ms.author: weetok
 ms.reviewer: makromer
 ms.topic: get-started

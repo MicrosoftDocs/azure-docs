@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Route electric vehicles using Jupyter Notebooks (Python) with Microsoft Azure Maps'
 description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Jupyter Notebooks in VS Code.
-author: farazgis
+author: diberry
 ms.author: fsiddiqui
 ms.date: 10/11/2024
 ms.topic: tutorial

@@ -7,7 +7,7 @@ metadata:
   description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
   ms.service: azure-network-watcher
   ms.topic: landing-page
-  author: halkazwini
+  author: huzefafw
   ms.author: hufurnit
   ms.date: 02/25/2026
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

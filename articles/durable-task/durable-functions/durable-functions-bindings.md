@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 title: "Durable Functions Triggers and Bindings - Azure"
 description: "Learn how to use triggers and bindings for the Durable Functions extension in Azure Functions, including orchestration, activity, and entity triggers with code samples."
 ms.topic: concept-article

@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure Data Factory 
 description: This page highlights new features and recent improvements for Azure Data Factory. Data Factory is a managed cloud service that's built for complex hybrid extract-transform-and-load (ETL), extract-load-and-transform (ELT), and data integration projects.
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.topic: overview
 ms.custom: references_regions

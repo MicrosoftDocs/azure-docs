@@ -2,7 +2,7 @@
 title: Azure Notification Hubs SDKs
 description: A list of the available Azure Notification Hubs SDKs
 services: notification-hubs
-author: sethmanheim
+author: diberry
 manager: lizross
 editor: jwargo
 

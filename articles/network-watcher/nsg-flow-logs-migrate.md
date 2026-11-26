@@ -2,7 +2,7 @@
 title: Migrate to Virtual Network Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn how to migrate your Azure Network Watcher network security group flow logs to virtual network flow logs using the Azure portal and a PowerShell script.
-author: halkazwini
+author: huzefafw
 ms.author: hufurnit
 ms.service: azure-network-watcher
 ms.topic: how-to

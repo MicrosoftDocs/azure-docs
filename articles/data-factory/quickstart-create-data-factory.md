@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Data Factory
 description: Learn how to create a data factory using Azure Data Factory Studio or the Azure portal.
-author: whhender
+author: dcstwh
 ms.topic: quickstart
 ms.subservice: authoring
 ms.date: 07/29/2026

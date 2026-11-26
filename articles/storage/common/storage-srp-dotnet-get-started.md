@@ -3,7 +3,7 @@ title: Get started with the Azure Storage management library for .NET
 titleSuffix: Azure Storage
 description: Get started developing a .NET application to manage a storage account by using the Azure Storage management library for .NET.
 services: storage
-author: stevenmatthew
+author: normesta
 
 ms.author: normesta
 ms.service: azure-storage

@@ -3,8 +3,8 @@ ROBOTS: NOINDEX
 title: Microsoft POP locations by abbreviation for Azure CDN
 description: This article lists Microsoft POP locations, sorted by POP abbreviation, for Azure CDN.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: azure-content-delivery-network
 ms.topic: concept-article
 ms.date: 02/28/2026

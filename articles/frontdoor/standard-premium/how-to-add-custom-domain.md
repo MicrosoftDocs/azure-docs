@@ -2,7 +2,7 @@
 title: Add a Custom Domain
 titleSuffix: Azure Front Door
 description: In this article, you learn how to onboard a custom domain to an Azure Front Door profile by using the Azure portal.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: how-to

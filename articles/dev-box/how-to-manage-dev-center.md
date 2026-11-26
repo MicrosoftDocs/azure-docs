@@ -4,7 +4,7 @@ titleSuffix: Microsoft Dev Box
 description: Learn how to create, delete, and manage dev centers to group Microsoft Dev Box projects with similar settings.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 11/20/2025
 ms.topic: how-to

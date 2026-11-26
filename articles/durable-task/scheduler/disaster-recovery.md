@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: Disaster recovery in Durable Task Scheduler
 titleSuffix: Durable Task

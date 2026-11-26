@@ -3,7 +3,7 @@ title: Run Python Code in Agentic Workflows
 description: Call and run Python code to process files in AI agentic workflows by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: ecfan
+author: divyaswarnkar
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot

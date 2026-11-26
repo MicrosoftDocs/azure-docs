@@ -1,7 +1,7 @@
 ---
 title: Choose Between Deployment Models
 description: Compare AMD SEV-SNP and Intel TDX VM deployments with confidential container options on Azure.
-author: iamwilliew
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/30/2026

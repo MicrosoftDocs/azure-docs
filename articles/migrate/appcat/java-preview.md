@@ -1,7 +1,7 @@
 ---
 title: Azure Catalyst Application and Code Assessment for Java Version 7
 description: Learn how to use the next generation of Azure Catalyst application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
-author: KarlErickson
+author: sandeep-sen
 ms.author: sandeepsen
 ms.reviewer: seal
 ms.service: azure-java

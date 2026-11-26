@@ -6,7 +6,7 @@ ms.date: 04/29/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
 ms.update-cycle: 1095-days
-author: RochakSingh-blr
+author: gurkiratsingh2021
 ms.author: gurkisingh
 ms.custom: sfi-image-nochange
 ---

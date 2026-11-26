@@ -2,7 +2,7 @@
 title: Wildcard Domains
 titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door supports mapping and managing wildcard domains in the list of custom domains.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

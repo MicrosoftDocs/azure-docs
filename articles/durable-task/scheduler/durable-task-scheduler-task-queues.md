@@ -1,6 +1,6 @@
 ---
 ai-usage: ai-assisted
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 title: Use task queues in Durable Task Scheduler (preview)
 titleSuffix: Durable Task
@@ -8,7 +8,7 @@ description: Learn how to create task queues, configure work-item throughput, an
 ms.topic: how-to
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 10/27/2026
+ms.date: 11/23/2026
 ---
 
 # Use task queues in Durable Task Scheduler (preview)
@@ -192,7 +192,7 @@ Queue selection uses [orchestration and activity tags](./durable-task-scheduler-
 | Durable Task JavaScript/TypeScript SDK | Yes | Yes | Yes |
 | Durable Task Python SDK | Yes | Yes | No |
 | Durable Task Java SDK (v1.6.0+) | Yes | No | No |
-| Durable Task Go SDK (beta) | Yes | Yes | Yes |
+| Durable Task Go SDK (preview) | Yes | Yes | Yes |
 | Durable Functions: .NET isolated | Yes | Yes | Yes |
 | Durable Functions: Java | Yes | No | No |
 
@@ -251,7 +251,7 @@ String instanceId = client.scheduleNewOrchestrationInstance(
     "ProcessOrderOrchestration", order, options);
 ```
 
-# [Go (beta)](#tab/go)
+# [Go (preview)](#tab/go)
 
 Use `api` from `github.com/microsoft/durabletask-go/api`. This snippet runs in a function that returns an error.
 
@@ -329,7 +329,7 @@ The Python SDK doesn't support explicit sub-orchestration tags. A sub-orchestrat
 
 The Java SDK doesn't support explicit activity or sub-orchestration tags. Activities and sub-orchestrations inherit the parent orchestration's queue selection.
 
-# [Go (beta)](#tab/go)
+# [Go (preview)](#tab/go)
 
 Pass `task.WithActivityTags(map[string]string{"DTS_TaskQueue": "partner-api"})` when calling an activity, or `task.WithSubOrchestrationTags(map[string]string{"DTS_TaskQueue": "partner-api"})` when calling a sub-orchestration. Use `task` from `github.com/microsoft/durabletask-go/task`.
 

@@ -4,7 +4,7 @@ description: Learn how to create a shared self-hosted integration runtime in Azu
 ms.subservice: integration-runtime
 ms.topic: how-to
 ms.author: weetok
-author: kromerm
+author: dcstwh
 ms.date: 02/13/2025
 ms.custom:
   - devx-track-azurepowershell

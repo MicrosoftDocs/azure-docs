@@ -4,7 +4,7 @@ description: Remove the shutdown command from the Windows Start menu in a lab vi
 services: lab-services
 ms.service: azure-lab-services
 ms.author: rabououn
-author: RoseHJM
+author: ramiMSFT
 ms.topic: how-to
 ms.date: 06/02/2023
 ---

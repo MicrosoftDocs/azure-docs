@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a C# Durable Functions app"
 description: Run a C# Durable Functions sample app with function chaining using the Durable Task Scheduler emulator. Get started now.
-author: hhunter-ms
+author: diberry
 ms.author: vyomnagrani
 ms.topic: quickstart
 ms.service: durable-task

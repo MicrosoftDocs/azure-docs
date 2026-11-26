@@ -5,7 +5,7 @@ description: Learn how to set up a lab for classroom training with Azure Lab Ser
 ms.topic: tutorial
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.date: 03/13/2024
 ms.custom:

@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box Disk system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your Azure Data Box Disk 
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box-disk
 ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 04/18/2024
-ms.author: shaas
+ms.author: diberry
 # Customer intent: As a systems administrator, I want to review the system and software requirements for Azure Data Box Disk, so that I can ensure my environment is properly configured for deployment and data transfer.
 ---
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to manage lab users in Azure Lab Services. Configure the number of lab users, manage user registrations, and specify the number of hours they can use their lab VM.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: how-to
 ms.date: 06/30/2023

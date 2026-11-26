@@ -3,7 +3,7 @@ title: "Manage Orchestration Instances in Durable Functions and Durable Task SDK
 description: Learn how to manage orchestration instances in Durable Functions and Durable Task SDKs. Start, query, terminate, suspend, and resume workflows using built-in APIs.
 author: cgillum
 ms.topic: how-to
-ms.date: 10/12/2026
+ms.date: 11/23/2026
 ai-usage: ai-assisted
 ms.author: azfuncdf
 reviewer: hhunter-ms
@@ -2645,7 +2645,7 @@ func waitForResult[T any](ctx context.Context, durableClient *durabletaskschedul
 }
 ```
 
-For example, use `waitForResult[string]` for an orchestration with string output. The [Go SDK management sample](https://github.com/microsoft/durabletask-go/tree/main/samples/management) demonstrates queries, lifecycle operations, restart, and instance-scoped purge. For rewind behavior and emulator limitations, see [Go beta compatibility considerations](../sdks/durable-task-go.md#beta-compatibility-considerations).
+For example, use `waitForResult[string]` for an orchestration with string output. The [Go SDK management sample](https://github.com/microsoft/durabletask-go/tree/main/samples/management) demonstrates queries, lifecycle operations, restart, and instance-scoped purge. For rewind behavior and emulator limitations, see [Go preview compatibility considerations](../sdks/durable-task-go.md#preview-compatibility-considerations).
 
 ::: zone-end
 

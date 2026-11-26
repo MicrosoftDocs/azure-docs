@@ -2,7 +2,7 @@
 title: Enable disaster recovery for an existing Azure Notification Hubs namespace
 description: Learn how to enable disaster recovery or change the disaster recovery region for an existing Azure Notification Hubs namespace in the Azure portal.
 services: notification-hubs
-author: sethmanheim
+author: diberry
 ms.author: dimatokar
 ms.date: 08/20/2026
 ms.topic: how-to

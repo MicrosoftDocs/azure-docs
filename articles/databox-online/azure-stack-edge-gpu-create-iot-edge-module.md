@@ -2,7 +2,7 @@
 title: C# IoT Edge module for Azure Stack Edge Pro with GPU | Microsoft Docs
 description: Learn how to develop a C# IoT Edge module that can be deployed on your Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

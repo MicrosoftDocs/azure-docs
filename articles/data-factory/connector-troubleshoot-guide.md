@@ -2,7 +2,7 @@
 title: Troubleshoot connectors
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot connector issues in Azure Data Factory and Azure Synapse Analytics.
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 06/17/2026

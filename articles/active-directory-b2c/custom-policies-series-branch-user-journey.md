@@ -3,7 +3,7 @@ title: Create branching in user journey by using Azure AD B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to create branching in user journeys using Azure AD B2C custom policies. Enable or disable technical profiles based on claim values. 
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

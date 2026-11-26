@@ -2,7 +2,7 @@
 title: Use temporary NVMe disks on Batch compute nodes
 description: Learn how Azure Batch manages temporary NVMe disks on compute nodes.
 ms.topic: concept-article
-author: zhaoyiluo
+author: mattmcinnes
 ms.author: mattmcinnes
 ms.service: azure-batch
 ms.date: 05/19/2026

@@ -1,8 +1,8 @@
 ---
 title: Set Up Peering with Microsoft
 description: Overview of peering.
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: internet-peering
 ms.topic: overview
 ms.date: 02/25/2026

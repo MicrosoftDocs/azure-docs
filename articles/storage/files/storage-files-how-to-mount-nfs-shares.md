@@ -1,11 +1,11 @@
 ---
 title: Mount an NFS Azure file share on Linux
 description: Learn how to mount a Network File System (NFS) Azure file share on Linux, including configuring network security and mount options.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to
-ms.date: 10/24/2026
+ms.date: 11/25/2026
 ms.author: normesta
 ---
 
@@ -24,7 +24,7 @@ To mount a file share with encryption in transit, install the AzNFS mount helper
 
 AzNFS supports the following Linux distributions:
 
-- Ubuntu (20.04 LTS, 22.04 LTS, 24.04 LTS)
+- Ubuntu (20.04 LTS, 22.04 LTS, 24.04 LTS, 26.04 LTS)
 - Debian (12, 13)
 - Red Hat Enterprise Linux (8, 9, 10)
 - Rocky Linux (8, 9)
@@ -110,6 +110,14 @@ sudo AZNFS_NONINTERACTIVE_INSTALL=1 DEBIAN_FRONTEND=noninteractive apt-get insta
 
 > [!NOTE]
 > A noninteractive install sets `AUTO_UPDATE_AZNFS=true` by default.
+
+> [!NOTE]
+> Starting with version 3.0.21, AzNFS writes NFSv4 logs to syslog by default, as described in [Troubleshoot AzNFS mounts](#troubleshoot-aznfs-mounts). Earlier versions write them to `/opt/microsoft/aznfs/data/aznfs.log` and `/etc/stunnel/microsoft/aznfs/nfsv4_fileShare/logs`. After an upgrade, existing mounts keep logging to the old locations. To ensure that the new logging takes effect:
+>
+> 1. Unmount all the shares from the storage account.
+> 1. Wait about 30 seconds.
+> 1. Restart the `aznfswatchdogv4` service by running `sudo systemctl restart aznfswatchdogv4`.
+> 1. Mount the shares again.
 
 ## Mount an NFS Azure file share
 You can mount the share by using the AzNFS mount helper (an Azure NFS mount helper package) in the Azure portal, or you can use the native NFS mount commands at the command line. You can also create a record in the **/etc/fstab** file to automatically mount the share every time the Linux server or VM boots.
@@ -382,16 +390,22 @@ To check that an AzNFS mount uses encryption in transit, run `df -Th`. The file 
 
 The stunnel process listens on 127.0.0.1 for NFS traffic from the NFS client. Stunnel forwards this traffic over TLS to Azure Files.
 
-To check the TLS version and cipher that stunnel negotiated with Azure Files, search the stunnel logs:
+To check the TLS version and cipher that stunnel negotiated with Azure Files, search the stunnel logs. By default, stunnel writes its logs to syslog:
 
 ```bash
-sudo grep -h ciphersuite /etc/stunnel/microsoft/aznfs/nfsv4_fileShare/logs/*
+sudo journalctl -t stunnel | grep ciphersuite
+```
+
+If you set `AZNFS_LOGDIR` to write the logs to files, search the stunnel log files in that directory instead. Replace `<AZNFS_LOGDIR>` with the directory that you set:
+
+```bash
+sudo grep -h ciphersuite <AZNFS_LOGDIR>/stunnel_*.log
 ```
 
 Each TLS connection writes a line like the following example:
 
 ```output
-2026.10.25 00:41:44 LOG6[0]: TLSv1.3 ciphersuite: TLS_AES_256_GCM_SHA384 (256-bit encryption)
+Nov 19 06:11:44 myvm stunnel[2817]: LOG6[0]: TLSv1.3 ciphersuite: TLS_AES_256_GCM_SHA384 (256-bit encryption)
 ```
 
 To check that the NFS traffic on the network is encrypted, capture packets on port 2049 by using `tcpdump`:
@@ -418,10 +432,19 @@ sudo mount -t aznfs \
 
 If the VM is joined to a custom domain, use the custom DNS FQDN or short name of the file share in `/etc/fstab`, as defined in your DNS. To check host name resolution, run `nslookup <hostname>` and `getent hosts <hostname>`. Set the environment variable `AZURE_ENDPOINT_OVERRIDE` on the `sudo` command that runs the mount, for example `sudo AZURE_ENDPOINT_OVERRIDE="<your-dns-suffix>" mount -t aznfs ...`.
 
-If mounting issues continue, check the log files for more troubleshooting details:
+If mounting issues continue, check the logs for more troubleshooting details. Starting with version 3.0.21, AzNFS writes NFSv4 logs to syslog by default:
 
-- **Mount helper and watchdog logs**: `/opt/microsoft/aznfs/data/aznfs.log`
-- **Stunnel logs**: `/etc/stunnel/microsoft/aznfs/nfsv4_fileShare/logs`
+- **Mount helper and watchdog logs**: `sudo journalctl -t aznfs`
+- **Stunnel logs**: `sudo journalctl -t stunnel`
+
+To write the logs to files instead, set `AZNFS_LOGDIR` in `/opt/microsoft/aznfs/data/config` to the directory that you want to use. AzNFS then writes the logs to `aznfs.log` and `stunnel_<ip>.log` in that directory, and rotates them by using logrotate. For all logging options, see the [AzNFS README](https://github.com/Azure/AZNFS-mount/blob/main/README.md#logs).
+
+After you set `AZNFS_LOGDIR`, existing mounts keep logging to syslog until you restart the `aznfswatchdogv4` service and remount the shares. To apply the change:
+
+1. Unmount all the shares from the storage account.
+1. Wait about 30 seconds.
+1. Restart the `aznfswatchdogv4` service by running `sudo systemctl restart aznfswatchdogv4`.
+1. Mount the shares again.
 
 ## Validate connectivity
 If your mount fails, it's possible that your private endpoint isn't set up correctly or isn't accessible. For details, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).

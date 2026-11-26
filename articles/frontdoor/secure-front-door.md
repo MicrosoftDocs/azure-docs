@@ -1,7 +1,7 @@
 ---
 title: Secure your Azure Front Door deployment
 description: Learn how to secure Azure Front Door by using edge protection, origin controls, identity, encryption, monitoring, and recovery best practices.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: best-practice

@@ -1,7 +1,7 @@
 ---
 title: Configure Service Endpoints for Azure Elastic SAN
 description: Learn how to configure service endpoints to access Azure Elastic SAN volumes.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/09/2026

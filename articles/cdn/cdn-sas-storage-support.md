@@ -2,8 +2,8 @@
 title: Using Azure Content Delivery Network with SAS
 description: Azure Content Delivery Network supports the use of Shared Access Signature (SAS) to grant limited access to private storage containers.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: danielgi
 ms.service: azure-content-delivery-network
 ms.topic: how-to

@@ -2,7 +2,7 @@
 title: Troubleshoot custom policies and user flows in Azure Active Directory B2C
 description: Learn about approaches to solving errors when working with custom policies in Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

@@ -2,7 +2,7 @@
 title: ClaimsProviders  - Azure Active Directory B2C  
 description: Specify the ClaimsProvider element of a custom policy in Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

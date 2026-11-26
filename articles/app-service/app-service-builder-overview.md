@@ -1,7 +1,7 @@
 ---
 title: App Service Builder overview (preview)
 description: Learn what App Service Builder does, understand its app model, and find current product guidance.
-author: seligj95
+author: btardif
 ms.author: jordanselig
 ms.date: 10/27/2026
 ms.topic: overview

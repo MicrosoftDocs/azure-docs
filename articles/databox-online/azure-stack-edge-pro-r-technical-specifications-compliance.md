@@ -2,7 +2,7 @@
 title: Microsoft Azure Stack Edge Pro R technical specifications and compliance| Microsoft Docs
 description: Learn about the technical specifications and compliance for your Azure Stack Edge Pro R device
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: concept-article

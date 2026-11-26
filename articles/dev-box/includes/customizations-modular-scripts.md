@@ -1,6 +1,6 @@
 ---
 
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.date: 10/08/2025

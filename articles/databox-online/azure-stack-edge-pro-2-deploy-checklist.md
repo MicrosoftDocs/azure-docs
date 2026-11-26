@@ -2,7 +2,7 @@
 title: Predeployment checklist to deploy Azure Stack Edge Pro 2 device | Microsoft Docs
 description: This article describes the information that can be gathered before you deploy your Azure Stack Edge Pro 2 device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: article

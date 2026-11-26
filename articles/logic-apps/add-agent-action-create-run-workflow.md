@@ -2,7 +2,7 @@
 title: "Run Automation Workflows from Foundry Agents (Classic)"
 description: Set up Foundry classic agents to automate business processes with Consumption workflows in Azure Logic Apps.
 services: azure-logic-apps, cognitive-services, azure-ai-foundry
-author: ecfan
+author: divyaswarnkar
 ms.suite: integration
 ms.reviewers: estfan, divswa, psamband, aahi, azla
 ms.topic: how-to

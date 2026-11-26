@@ -1,7 +1,7 @@
 ---
 title: Azure Elastic SAN Next Generation configuration best practices
 description: Learn best practices for optimizing Azure Elastic SAN Next Generation performance, including reserved performance for Business Critical volume groups and client configuration for General Purpose iSCSI.
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 11/06/2026

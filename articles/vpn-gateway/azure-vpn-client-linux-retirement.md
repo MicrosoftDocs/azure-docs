@@ -2,7 +2,7 @@
 title: 'Azure VPN Client for Linux - Retirement Overview and Migration Guide'
 titleSuffix: Azure VPN Gateway
 description: Learn how to migrate from the Azure VPN Client for Linux to a supported client for Azure VPN Gateway P2S connections.
-author: flapinski
+author: tracsman
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 05/27/2026

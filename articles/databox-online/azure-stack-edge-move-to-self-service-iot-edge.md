@@ -2,7 +2,7 @@
 title: Move workloads from managed IoT Edge on Azure Stack Edge to an IoT Edge solution on a Linux VM 
 description: Describes steps to move workloads from Azure Stack Edge to a self-service IoT Edge solution on a Linux VM.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.custom: linux-related-content

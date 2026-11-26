@@ -1,7 +1,7 @@
 ---
 title: Calling with toll-free numbers - Azure Communication Services
 description: Information about inbound and outbound calling limitations with toll-free numbers
-author: krkutser
+author: diberry
 manager: rcole
 services: azure-communication-services
 

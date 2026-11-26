@@ -9,7 +9,7 @@ metadata:
   description: Azure Storage Mover documentation hub page. Points to service documentation for using the Azure Storage Mover hybrid service to migrate unstructured data to Azure. 
   ms.service: azure-storage-mover
   ms.topic: hub-page
-  author: stevenmatthew
+  author: rajsinghmsa
   ms.author: singra
   ms.date: 09/14/2022
 

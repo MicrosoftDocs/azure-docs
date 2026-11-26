@@ -2,7 +2,7 @@
 title: Configure Customer-Managed Keys for Azure Elastic SAN
 description: Learn how to configure Azure Elastic SAN encryption with customer-managed keys for an Elastic SAN volume group by using the Azure PowerShell module or Azure CLI.
 services: storage
-author: roygara
+author: normesta
 
 ms.author: normesta
 ms.service: azure-elastic-san

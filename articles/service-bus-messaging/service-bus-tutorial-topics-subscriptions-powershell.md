@@ -3,7 +3,7 @@ title: Create Service Bus Topics and Subscriptions - Azure PowerShell
 description: Create an Azure Service Bus topic and subscriptions with message filters using Azure PowerShell. Follow step-by-step commands in Azure Cloud Shell.
 ms.date: 04/06/2026
 ms.topic: quickstart
-author: spelluru
+author: EldertGrootenboer
 ms.author: egrootenboer
 ms.devlang: azurepowershell
 ms.custom:

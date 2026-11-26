@@ -1,7 +1,7 @@
 ---
 title: Azure Kubernetes Service plugin for confidential VMs (specialized)
 description: Specialized guidance for Intel SGX device plugin and quote helper daemon sets on Azure Kubernetes Service.
-author: angarg05
+author: vinfnet
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 06/30/2026

@@ -4,7 +4,7 @@ description: Learn how to authenticate to Microsoft Dev Box REST APIs as adminis
 ms.service: dev-box
 ms.topic: concept-article
 ms.author: rabououn
-author: RoseHJM
+author: ramiMSFT
 ms.date: 01/31/2025
 
 #customer intent: As a developer, I want to learn how to authenticate to Microsoft Dev Box REST APIs, so that I can securely interact with Microsoft Dev Box services.

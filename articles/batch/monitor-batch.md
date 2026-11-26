@@ -138,6 +138,8 @@ The following table lists some alert rule triggers for Batch. These alert rules 
 | Metric | Unusable node count | Whenever the Unusable Node Count is greater than 0 |
 | Metric | Task Fail Events | Whenever the total Task Fail Events is greater than dynamic threshold |
 
+To have an AI agent investigate Batch alerts automatically when they fire, see [Investigate Azure Batch issues with Azure SRE Agent](batch-sre-agent.md).
+
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Other Batch monitoring options
@@ -166,5 +168,6 @@ You can integrate Application Insights with your Azure Batch applications to ins
 
 - See [Batch monitoring data reference](monitor-batch-reference.md) for a reference of the metrics, logs, and other important values created for Batch.
 - Learn how to [monitor Batch pool compute nodes with Azure Monitor Agent](monitor-batch-pool-nodes.md).
+- Learn how to [investigate Batch issues with Azure SRE Agent](batch-sre-agent.md).
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
 - Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.

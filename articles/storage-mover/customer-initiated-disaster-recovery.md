@@ -1,7 +1,7 @@
 ---
 title: Customer-Initiated Disaster Recovery for Azure Storage Mover
 description: Plan and execute customer-initiated disaster recovery for Azure Storage Mover by redeploying management resources in a secondary region.
-author: stevenmatthew
+author: rajsinghmsa
 ms.service: azure-storage-mover
 ms.topic: how-to
 ms.date: 06/17/2026

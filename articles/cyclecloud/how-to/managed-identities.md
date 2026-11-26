@@ -1,7 +1,7 @@
 ---
 title: Using Managed Identities
 description: Learn how to use Managed Identities with Azure CycleCloud. Assign roles to cluster VMs with Managed Identity.
-author: rokeptne
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: rokeptne

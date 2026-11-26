@@ -2,7 +2,7 @@
 title: Understand Kubernetes role-based access control on Azure Stack Edge Pro device| Microsoft Docs
 description: Describes how Kubernetes role-based access control occurs on an Azure Stack Edge Pro device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: concept-article

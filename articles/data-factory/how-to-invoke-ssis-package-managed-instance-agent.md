@@ -4,7 +4,7 @@ description: Learn how to run SSIS packages by using Azure SQL Managed Instance 
 ms.subservice: integration-runtime
 ms.topic: how-to
 ms.author: weetok
-author: kromerm
+author: dcstwh
 ms.date: 05/15/2024
 ms.custom: sfi-image-nochange
 ---

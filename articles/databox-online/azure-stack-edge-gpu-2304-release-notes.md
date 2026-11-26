@@ -2,7 +2,7 @@
 title: Azure Stack Edge 2304 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge running 2304 release.
 services: databox
-author: sipastak
+author: scompton1045
  
 ms.service: azure-stack-edge
 ms.topic: article

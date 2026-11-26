@@ -1,7 +1,7 @@
 ---
 title: Rules Development Guide for AppCAT 7
 description: Learn how to write and run custom rules for Azure Catalyst application and code assessment tool.
-author: KarlErickson
+author: sandeep-sen
 ms.author: sandeepsen
 ms.reviewer: seal
 ms.service: azure-java

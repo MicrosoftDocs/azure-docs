@@ -1,6 +1,6 @@
 ---
 title: Create an Azure VMware Solution Generation 2 private cloud (preview)
-author: jjaygbay1
+author: mattmcinnes
 ms.author: mattmcinnes
 description: Learn how to create an Azure VMware Solution Generation 2 Private Cloud to apply Azure's infrastructure and VMware expertise effectively.
 ms.topic: how-to

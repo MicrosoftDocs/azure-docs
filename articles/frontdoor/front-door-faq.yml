@@ -2,7 +2,7 @@
 metadata:
   title: Azure Front Door Frequently Asked Questions (FAQ)
   description: Get answers to frequently asked questions about Azure Front Door features, routing, origins, protocols, security, caching, billing, and diagnostics.
-  author: halkazwini
+  author: dburkhardtmsft
   ms.author: dburkhardt
   ms.service: azure-frontdoor
   ms.topic: faq

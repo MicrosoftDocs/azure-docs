@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Type-safe interfaces for workflow actions with strongly typed output contracts for body and structured output access.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

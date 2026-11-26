@@ -2,7 +2,7 @@
 title: Troubleshoot IoT Edge issues on your Azure Stack Edge Pro with GPU device| Microsoft Docs
 description: Describes how to troubleshoot errors with IoT Edge on your Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: troubleshooting

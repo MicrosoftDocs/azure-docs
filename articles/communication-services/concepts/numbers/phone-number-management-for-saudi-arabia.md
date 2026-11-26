@@ -2,7 +2,7 @@
 title: Phone Number Management for Saudi Arabia
 titleSuffix: An Azure Communication Services concept document
 description: Learn about subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Saudi Arabia.
-author: krkutser
+author: diberry
 manager: rcole
 services: azure-communication-services
 

@@ -2,7 +2,7 @@
 title: Azure Data Box Gateway 2105 release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Data Box Gateway running 2105 release.
 services: databox
-author: stevenmatthew
+author: Bapic
  
 ms.service: azure-data-box-gateway
 ms.topic: release-notes

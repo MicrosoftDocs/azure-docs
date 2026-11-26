@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to connect using remote desktop (RDP) from a Mac to a virtual machine in Azure Lab Services.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: how-to
 ms.date: 07/08/2025

@@ -1,7 +1,7 @@
 ---
 title: Power Query activity in Azure Data Factory 
 description: Learn how to use the Power Query activity for data wrangling features in a Data Factory pipeline
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.subservice: data-flows
 ms.topic: concept-article

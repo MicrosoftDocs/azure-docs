@@ -4,7 +4,7 @@ titleSuffix: Azure Lab Services
 description: Learn how to connect from your Chromebook system to a virtual machine in Azure Lab Services by using RDP.
 services: lab-services
 ms.service: azure-lab-services
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.topic: how-to
 ms.date: 05/22/2024

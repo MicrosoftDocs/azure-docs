@@ -3,7 +3,7 @@ title: Configure authentication in a sample Node.js web API by using Azure Activ
 description: Follow the steps in this article to learn how to configure authentication in a sample Node.js web API by using Azure AD B2C
 titleSuffix: Azure AD B2C
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

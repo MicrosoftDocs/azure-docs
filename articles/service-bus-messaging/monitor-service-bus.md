@@ -4,7 +4,7 @@ description: Start here to learn how to monitor Azure Service Bus by using Azure
 ms.date: 07/22/2024
 ms.custom: horz-monitor
 ms.topic: how-to
-author: spelluru
+author: EldertGrootenboer
 ms.author: egrootenboer 
 ---
 

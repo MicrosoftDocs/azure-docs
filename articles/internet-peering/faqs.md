@@ -2,8 +2,8 @@
 title: Internet Peering - FAQ
 description: This article provides answers to some of the frequently asked questions asked about Internet peering.
 services: internet-peering
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: internet-peering
 ms.topic: faq
 ms.date: 02/25/2026

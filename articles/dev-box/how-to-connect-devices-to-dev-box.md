@@ -1,7 +1,7 @@
 ---  
 title: How to connect Android devices to a dev box
 description: Learn how to connect Android devices to a dev box for efficient testing and debugging, enhancing your app development workflow and productivity.
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.service: dev-box
 ms.topic: how-to

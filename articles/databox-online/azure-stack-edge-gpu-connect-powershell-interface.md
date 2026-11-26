@@ -2,7 +2,7 @@
 title: Connect to and manage Microsoft Azure Stack Edge Pro GPU device via the Windows PowerShell interface | Microsoft Docs
 description: Describes how to connect to and then manage Azure Stack Edge Pro GPU via the Windows PowerShell interface.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: Use Managed Connectors in Azure App Service
 description: Learn how App Service apps receive events and call operations through managed connectors, with managed identity authentication and C#, JavaScript, TypeScript, and Python examples.
-author: seligj95
+author: btardif
 ms.author: jordanselig
 ms.topic: concept-article
 ms.date: 09/23/2026

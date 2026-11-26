@@ -1,7 +1,7 @@
 ---
 title: Applying FinOps
 description: Learn how to apply FinOps to Azure Data Factory.
-author: kromerm
+author: dcstwh
 ms.author: weetok
 ms.reviewer: whhender
 ms.topic: concept-article

@@ -1,7 +1,7 @@
 ---
 title: Migration Overview for SMB Azure File Shares
 description: Learn how to migrate to SMB Azure file shares and choose from a table of migration guides using Azure Storage Mover, Robocopy, Azure File Sync, and other tools.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 10/28/2026
@@ -67,9 +67,11 @@ The following table lists supported metadata for Azure Files.
 
 The first phase of a migration is the discovery phase. In this phase, you determine all the existing SMB file shares that need to be migrated, including their size, number, and any dependencies. This phase can be difficult and time-consuming, especially for organizations with large, distributed environments.
 
-### Azure Migrate file share discovery
+<a name="azure-migrate-file-share-discovery"></a>
 
-If you've already deployed an [Azure Migrate](/azure/migrate/migrate-services-overview) appliance for server migration, you can use it to discover file shares without any additional setup. The appliance automatically identifies existing SMB and NFS shares on both Windows and Linux servers and displays them in the Azure Migrate portal.
+### Azure Catalyst file share discovery
+
+If you've already deployed an [Azure Catalyst](/azure/migrate/migrate-services-overview) appliance for server migration, you can use it to discover file shares without any additional setup. The appliance automatically identifies existing SMB and NFS shares on both Windows and Linux servers and displays them in the Azure Catalyst portal.
 
 You can view discovered file shares in two ways:
 
@@ -86,9 +88,11 @@ Keep in mind that your existing SMB file shares might not be limited to on-premi
 
 After discovery comes the assessment phase, which involves understanding available options for file storage, deploying the Azure resources you'll need, and preparing to use Azure file shares.
 
-### Azure Migrate file share assessment
+<a name="azure-migrate-file-share-assessment"></a>
 
-If you used [Azure Migrate](/azure/migrate/migrate-services-overview) to discover your file shares, you can also use it to create assessments. Select one or more discovered shares and create an assessment. For each share, Azure Migrate evaluates IOPS, throughput, size, capacity, and regional availability to determine a readiness state: **ready**, **ready with conditions**, or **not ready**. It then recommends a target configuration, prioritizing migration to Azure Files as a modernization path. If Azure Files isn't suitable for a particular share, the assessment falls back to recommending an Azure VM-based path.
+### Azure Catalyst file share assessment
+
+If you used [Azure Catalyst](/azure/migrate/migrate-services-overview) to discover your file shares, you can also use it to create assessments. Select one or more discovered shares and create an assessment. For each share, Azure Catalyst evaluates IOPS, throughput, size, capacity, and regional availability to determine a readiness state: **ready**, **ready with conditions**, or **not ready**. It then recommends a target configuration, prioritizing migration to Azure Files as a modernization path. If Azure Files isn't suitable for a particular share, the assessment falls back to recommending an Azure VM-based path.
 
 You can also create a business case from the assessment to compare the cost of running your file shares on-premises versus migrating them to Azure Files, helping you make a data-driven decision.
 

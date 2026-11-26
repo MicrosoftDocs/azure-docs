@@ -5,7 +5,7 @@ description: Complete reference for the Azure Logic Apps Workflow SDK classes an
 services: azure-logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.author: wsilveira
 ms.reviewers: estfan, azla
 ms.topic: reference

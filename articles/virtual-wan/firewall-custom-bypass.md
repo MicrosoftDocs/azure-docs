@@ -2,7 +2,7 @@
 title: 'Selective Azure Firewall bypass in a secure hub'
 titleSuffix: Azure Virtual WAN
 description: Learn about Azure Virtual WAN design scenarios where selected traffic flows bypass Azure Firewall inspection in a single secure hub.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 04/28/2026

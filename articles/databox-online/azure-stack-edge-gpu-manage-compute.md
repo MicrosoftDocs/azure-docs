@@ -2,7 +2,7 @@
 title: Azure Stack Edge Pro GPU compute management | Microsoft Docs 
 description: Describes how to manage the Edge compute settings such as trigger, modules, view compute configuration, remove configuration via the Azure portal on your Azure Stack Edge Pro GPU.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

@@ -1,7 +1,7 @@
 ---
 title: Grid Engine Scheduler Integration
 description: Learn how to configure and integrate the Grid Engine scheduler with Azure CycleCloud to schedule HPC workloads.
-author: adriankjohnson
+author: mattmcinnes
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: adjohnso

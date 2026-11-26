@@ -2,7 +2,7 @@
 title: Deploy IoT Edge runtime on Ubuntu VM on Azure Stack Edge Pro with GPU | Microsoft Docs
 description: Learn how to deploy IoT Edge runtime and run IoT Edge module on an Ubuntu virtual machine that is running on your Azure Stack Edge Pro GPU device.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

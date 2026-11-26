@@ -2,7 +2,7 @@
 title: High-Availability Implementation Guide
 titleSuffix: Azure Front Door
 description: Learn how to implement manual failover for Azure Front Door by using Azure Traffic Manager to help ensure high availability during rare service interruptions.
-author: halkazwini
+author: dburkhardtmsft
 ms.author: dburkhardt
 ms.service: azure-frontdoor
 ms.topic: concept-article

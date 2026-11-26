@@ -1,7 +1,7 @@
 ---
 title: Configure private endpoints for Azure Elastic SAN
 description: Learn how to configure private endpoint connections to Azure Elastic SAN volumes for secure network isolation by using Azure portal, PowerShell, or CLI
-author: roygara
+author: normesta
 ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/09/2026

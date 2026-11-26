@@ -3,7 +3,7 @@ title: 'Connect cross-tenant virtual networks to a hub: PowerShell'
 titleSuffix: Azure Virtual WAN
 description: This article helps you connect cross-tenant virtual networks to a virtual hub by using PowerShell.
 services: virtual-wan
-author: wtnlee
+author: Ajitbhu
 
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell

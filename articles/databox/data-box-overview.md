@@ -2,12 +2,12 @@
 title: Microsoft Azure Data Box overview | Microsoft Docs in data 
 description: Describes Azure Data Box, a cloud solution that enables you to transfer massive amounts of data into Azure
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box
 ms.topic: overview
 ms.date: 03/04/2025
-ms.author: shaas
+ms.author: diberry
 zone_pivot_groups: data-box-sku
 ms.custom:
   - references_regions

@@ -7,7 +7,7 @@ ms.date: 11/17/2025
 ms.topic: overview 
 ms.custom:
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Author graphical runbooks in Azure Automation

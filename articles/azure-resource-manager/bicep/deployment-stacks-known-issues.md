@@ -3,7 +3,7 @@ title: Known issues for deployment stacks
 description: Learn about the known limitations and known issues for Azure deployment stacks, and the recommended workarounds.
 ms.topic: troubleshooting-known-issue
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 11/09/2026
+ms.date: 11/24/2026
 ---
 
 # Known issues for deployment stacks
@@ -21,6 +21,11 @@ along with recommended workarounds when available.
 - Deny-assignments don't support tags.
 - Deny-assignments aren't supported at the management group scope. However, they're supported in a
   management group stack when the deployment is pointed at the subscription scope.
+- When a deployment stack manages a resource group, the deny settings on the resource group don't
+  apply to its child scopes, even if you apply deny settings to child scopes. That setting still
+  applies to the other resources that the stack manages. This behavior is by design. For more
+  information, see
+  [Deny settings on managed resource groups](./deployment-stacks.md#deny-settings-on-managed-resource-groups).
 - Deployment stacks can't delete Key Vault secrets. If you're removing Key Vault secrets from a
   template, also run the deployment stack update or delete command with detach mode. The latest
   versions of Azure PowerShell and Azure CLI include an option to detach non-deletable resources,
@@ -54,7 +59,8 @@ along with recommended workarounds when available.
   settings to child scopes only if you include `--deny-settings-apply-to-child-scopes` (Azure CLI)
   or `-DenySettingsApplyToChildScopes` (Azure PowerShell) when you create or update the stack. In
   the REST API, `denySettings.applyToChildScopes` is optional, and the stack uses `false` if you
-  leave it out. Set it to `true` to apply deny settings to child scopes. For more information, see
+  leave it out. Set it to `true` to apply deny settings to child scopes. This setting doesn't apply
+  to a resource group that the stack manages. For more information, see
   [Protect managed resources](./deployment-stacks.md#protect-managed-resources).
 - **A management group-scoped stack can't deploy to another management group.** It can only deploy
   to the management group of the stack itself, or to a child subscription.

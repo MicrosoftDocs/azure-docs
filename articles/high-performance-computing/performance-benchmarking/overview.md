@@ -2,7 +2,7 @@
 title: "High-Performance Computing (HPC) performance and benchmarking overview"
 description: Learn about understanding and measuring the performance concepts and benchmarking methodologies.
 ai-usage: ai-assisted
-author: padmalathas
+author: mdosterjr
 ms.author: mdoster
 ms.date: 09/16/2026
 ms.topic: concept-article

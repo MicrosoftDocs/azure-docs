@@ -1,7 +1,7 @@
 ---
 title: How to manage Azure Mover projects
 description: Learn how to manage Azure Mover projects
-author: stevenmatthew
+author: rajsinghmsa
 ms.author: singra
 ms.service: azure-storage-mover
 ms.topic: how-to

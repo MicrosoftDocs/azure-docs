@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Data Share status and history
 description: Learn how to monitor invitation status, share subscriptions, and snapshot history for Azure Data Share 
-author: chvukosw
+author: diberry
 ms.author: diberry
 ms.service: azure-data-share
 ms.topic: how-to

@@ -2,7 +2,7 @@
 title: Data access strategies
 description: Azure Data Factory now supports Static IP address ranges.
 ms.author: weetok
-author: kromerm
+author: dcstwh
 ms.subservice: integration-runtime
 ms.topic: concept-article
 ms.date: 01/05/2024

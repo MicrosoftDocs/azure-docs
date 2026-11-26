@@ -123,11 +123,13 @@ The Azure pricing calculator allows you to mix and match different combinations 
 
 For more information, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
-### Azure Migrate
+<a name="azure-migrate"></a>
 
-Azure Migrate is a service that assesses your organization's current workloads in on-premises datacenters. It gives you insight into what you might need from an Azure replacement solution. First, Migrate analyzes your on-premises machines to determine whether migration is feasible. Then, it recommends VM sizing in Azure to maximize performance. Finally, it also creates a cost estimate for an Azure-based solution.
+### Azure Catalyst
 
-For more information, see [Azure Migrate](../../migrate/migrate-services-overview.md).
+Azure Catalyst is a service that assesses your organization's current workloads in on-premises datacenters. It gives you insight into what you might need from an Azure replacement solution. First, Migrate analyzes your on-premises machines to determine whether migration is feasible. Then, it recommends VM sizing in Azure to maximize performance. Finally, it also creates a cost estimate for an Azure-based solution.
+
+For more information, see [Azure Catalyst](../../migrate/migrate-services-overview.md).
 
 ## Analyze and manage your costs
 

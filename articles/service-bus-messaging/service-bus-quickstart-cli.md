@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Use the Azure CLI to create a Service Bus queue | Microsoft Docs
 description: In this quickstart, you learn how to use the Azure CLI to create a Service Bus namespace and then a queue in that namespace.
-author: spelluru
+author: EldertGrootenboer
 ms.topic: quickstart
 ms.date: 01/24/2024
 ms.author: egrootenboer

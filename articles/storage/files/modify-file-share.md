@@ -2,10 +2,10 @@
 title: Modify an Azure File Share
 titleSuffix: Azure Files
 description: Learn how to adjust the size, cost, and performance characteristics of Azure file shares by using the Azure portal, Azure PowerShell, or Azure CLI.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/26/2026
+ms.date: 11/26/2026
 ms.author: normesta
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to adjust the size, cost, or performance characteristics my Azure file share, or delete the file share."
@@ -306,7 +306,10 @@ The conversion applies to all classic file shares in the storage account. Each s
 > Currently, this feature is available in the following regions:
  > - West Central US
  > - East Asia
+ > - North Europe
  > - Southeast Asia
+ > - Switzerland North
+ >  - UAE North
 
 ### Prerequisites
 - Complete the [survey](https://forms.cloud.microsoft/r/tkjpMwPPvU) required to use the limited public preview.

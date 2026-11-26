@@ -9,7 +9,7 @@ ms.topic: overview
 ms.custom:
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Azure Automation account authentication overview

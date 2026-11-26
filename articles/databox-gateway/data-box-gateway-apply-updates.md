@@ -2,7 +2,7 @@
 title: Install Update on Azure Data Box Gateway series device | Microsoft Docs
 description: Describes how to apply updates using the Azure portal and local web UI for Azure Data Box Gateway series device
 services: databox
-author: stevenmatthew
+author: Bapic
 
 ms.service: azure-data-box
 ms.topic: how-to

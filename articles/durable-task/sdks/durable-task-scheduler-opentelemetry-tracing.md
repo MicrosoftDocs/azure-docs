@@ -1,9 +1,9 @@
 ---
-author: hhunter-ms
+author: diberry
 title: "OpenTelemetry Distributed Tracing with Durable Task Scheduler"
 description: Enable OpenTelemetry distributed tracing to visualize orchestration flows in Durable Functions and Durable Task SDKs with Durable Task Scheduler. Get started now.
 ms.topic: how-to
-ms.date: 10/12/2026
+ms.date: 11/23/2026
 ms.author: azfuncdf
 ms.service: durable-task
 ms.subservice: durable-task-sdks
@@ -20,7 +20,7 @@ Distributed tracing provides end-to-end visibility into orchestration execution.
 ::: zone pivot="durable-task-sdks"
 
 > [!NOTE]
-> In the Go SDK beta, Durable Task Scheduler creates the durable orchestration, activity, and timer spans. The Go SDK propagates their trace context to activities, and your application creates its own spans through OpenTelemetry. To see the scheduler's spans in your tracing backend, configure the scheduler's tracing support separately. For provider and exporter setup, see the [Go SDK distributed tracing sample](https://github.com/microsoft/durabletask-go/tree/main/samples/distributedtracing).
+> In the Go SDK preview, Durable Task Scheduler creates the durable orchestration, activity, and timer spans. The Go SDK propagates their trace context to activities, and your application creates its own spans through OpenTelemetry. To see the scheduler's spans in your tracing backend, configure the scheduler's tracing support separately. For provider and exporter setup, see the [Go SDK distributed tracing sample](https://github.com/microsoft/durabletask-go/tree/main/samples/distributedtracing).
 
 ::: zone-end
 

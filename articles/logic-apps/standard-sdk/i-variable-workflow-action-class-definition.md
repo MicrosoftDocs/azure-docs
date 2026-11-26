@@ -4,7 +4,7 @@ titleSuffix: Azure Logic Apps
 description: Extends IWorkflowAction to support variable operations, providing access to variable name and value.
 services: azure-logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026

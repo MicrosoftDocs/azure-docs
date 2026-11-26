@@ -2,7 +2,7 @@
 title: Configure Google Firebase Cloud Messaging in Azure Notification Hubs | Microsoft Docs
 description: Learn how to configure an Azure notification hub with Google Firebase Cloud Messaging settings.
 services: notification-hubs
-author: sethmanheim
+author: diberry
 manager: lizross
 
 ms.service: azure-notification-hubs

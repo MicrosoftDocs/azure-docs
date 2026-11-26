@@ -1,7 +1,7 @@
 ---
 title: Work with Large Directories in Azure Files
 description: Learn recommendations for working with large directories in Azure file shares mounted on Linux clients, including mount options, commands, and operations.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: concept-article

@@ -2,7 +2,7 @@
 title: Manage VMs disks on Azure Stack Edge Pro GPU, Pro R, Mini R via Azure portal
 description: Learn how to manage disks including add, resize, detach, and delete data disks for VMs deployed on your Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R via the Azure portal.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.topic: how-to

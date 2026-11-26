@@ -3,7 +3,7 @@ title: "Quickstart: Work Item Filtering With the Durable Task SDKs"
 description: Use work item filtering with the Durable Task SDKs to route orchestrations to dedicated workers. Deploy to Azure Container Apps.
 ms.subservice: durable-task-scheduler
 ms.author: vyomnagrani
-author: hhunter-ms
+author: diberry
 ms.service: durable-task
 ms.topic: quickstart
 ms.date: 09/01/2026

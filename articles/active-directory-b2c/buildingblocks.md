@@ -3,7 +3,7 @@ title: BuildingBlocks
 titleSuffix: Azure AD B2C
 description: Specify the BuildingBlocks element of a custom policy in Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

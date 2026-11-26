@@ -1,7 +1,7 @@
 ---
 title: "Azure Communication Services direct routing: SIP protocol details"
 description: SIP protocol details for Azure Communication Services direct routing
-author: boris-bazilevskiy
+author: diberry
 ms.author: bobazile
 manager: rcole
 ms.date: 06/15/2023

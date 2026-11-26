@@ -2,8 +2,8 @@
 title: Azure CDN endpoint multi-origin
 description: Get started with Azure CDN endpoint multiple origins.
 services: cdn
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 manager: KumudD
 ms.service: azure-content-delivery-network
 ms.topic: how-to

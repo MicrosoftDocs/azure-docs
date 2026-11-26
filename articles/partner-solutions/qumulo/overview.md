@@ -1,7 +1,7 @@
 ---
 title: Azure Native Qumulo overview
 description: Learn about what Azure Native Qumulo offers you.
-author: Reshmi-Sriram
+author: diberry
 ms.author: diberry
 ms.topic: overview
 ms.date: 01/21/2025

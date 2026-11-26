@@ -3,7 +3,7 @@ title: TestErrorInfo class
 description: The extended error information for Standard logic app workflow testing scenarios.
 services: logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 06/10/2025

@@ -2,7 +2,7 @@
 title: "Troubleshoot Durable Task SDKs: Common Issues and Fixes"
 description: Diagnose common issues with the portable Durable Task SDKs for .NET, Java, JavaScript, Python, and Go. Resolve setup, connection, and replay failures.
 ms.topic: troubleshooting
-ms.date: 10/12/2026
+ms.date: 11/23/2026
 ai-usage: ai-assisted
 ms.author: azfuncdf
 author: torosent
@@ -712,7 +712,7 @@ except TaskFailedError as e:
 
 ### Go
 
-The Go SDK is in beta. For known limitations, see [Go beta compatibility considerations](durable-task-go.md#beta-compatibility-considerations).
+The Go SDK is in preview. For known limitations, see [Go preview compatibility considerations](durable-task-go.md#preview-compatibility-considerations).
 
 #### Missing module checksum entries
 
@@ -720,7 +720,7 @@ If `go run` or `go build` reports a `missing go.sum entry` error in a new applic
 
 #### Migrate from earlier Go SDK versions
 
-The beta isn't a drop-in upgrade from v0.6.0. It removes the embedded SQLite and PostgreSQL backends and the standalone gRPC host. Use Go 1.25 or later, and connect with `durabletaskscheduler.NewClient` and `durabletaskscheduler.NewWorker`. For details, see the [Go SDK beta release notes](https://github.com/microsoft/durabletask-go/releases/tag/v1.0.0-beta.1).
+The preview isn't a drop-in upgrade from v0.6.0. It removes the embedded SQLite and PostgreSQL backends and the standalone gRPC host. Use Go 1.25 or later, and connect with `durabletaskscheduler.NewClient` and `durabletaskscheduler.NewWorker`. For details, see the [Go SDK beta release notes](https://github.com/microsoft/durabletask-go/releases/tag/v1.0.0-beta.1).
 
 #### Orchestration replay failures or hangs
 

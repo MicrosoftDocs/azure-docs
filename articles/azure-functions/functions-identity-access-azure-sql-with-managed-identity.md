@@ -5,7 +5,7 @@ ms.service: azure-functions
 description: Learn how to connect Azure SQL bindings through managed identity.
 ms.topic: tutorial
 ms.date: 07/22/2026
-author: dzsquared
+author: nzthiago
 ms.author: thalme
 ms.reviewer: cachai
 ms.custom: sfi-ropc-nochange

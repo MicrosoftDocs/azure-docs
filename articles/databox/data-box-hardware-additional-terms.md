@@ -2,11 +2,11 @@
 title: Azure Data Box hardware additional terms 
 description: Describes additional terms for Azure Data Box hardware.
 services: databox
-author: stevenmatthew
+author: diberry
 ms.service: azure-data-box
 ms.topic: concept-article
 ms.date: 09/13/2022
-ms.author: shaas
+ms.author: diberry
 # Customer intent: "As a customer using Azure Data Box hardware, I want to understand the terms regarding possession, return, and potential fees for the device, so that I can ensure compliance and avoid unexpected charges during data transfer activities."
 ---
 # Azure Data Box Hardware Additional Terms

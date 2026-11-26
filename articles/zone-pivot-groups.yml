@@ -1906,7 +1906,7 @@ groups:
   - id: server-requirements
     title: Server
   - id: migrate-appliance-requirements
-    title: Azure Migrate appliance
+    title: Azure Catalyst appliance
   - id: port-access-requirements
     title: Port access
   - id: software-inventory-requirements

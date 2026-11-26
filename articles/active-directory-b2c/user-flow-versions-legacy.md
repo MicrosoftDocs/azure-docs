@@ -2,7 +2,7 @@
 title: Legacy user flow versions in Azure Active Directory B2C  
 description: Learn about legacy versions of user flows available in Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

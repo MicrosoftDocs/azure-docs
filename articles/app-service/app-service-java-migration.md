@@ -38,7 +38,7 @@ App containerization offers a simple approach to repackage applications as conta
 
 For more information, see the following articles:
 
-- [Accelerate application modernization with Azure Migrate: App Containerization](https://azure.microsoft.com/blog/accelerate-application-modernization-with-azure-migrate-app-containerization/)
+- [Accelerate application modernization with Azure Catalyst: App Containerization](https://azure.microsoft.com/blog/accelerate-application-modernization-with-azure-migrate-app-containerization/)
 - [Java web app containerization and migration to Azure App Service](../migrate/tutorial-app-containerization-java-app-service.md)
 
 ## Next step

@@ -2,7 +2,7 @@
 title: Supported file formats by copy activity in Azure Data Factory
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes the file formats and compression codes that are supported by copy activity in Azure Data Factory and Azure Synapse Analytics.
-author: simplywilson
+author: dcstwh
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: concept-article

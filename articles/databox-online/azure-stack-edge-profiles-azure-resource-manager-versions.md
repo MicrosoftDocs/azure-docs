@@ -2,7 +2,7 @@
 title: Resource provider API profile versions for Azure Stack Edge | Microsoft Docs
 description: Learn about the Azure Resource Manager API versions supported by profiles in Azure Stack Edge.
 services: databox
-author: sipastak
+author: scompton1045
 ms.service: azure-stack-edge
 ms.custom: devx-track-arm-template
 ms.topic: article

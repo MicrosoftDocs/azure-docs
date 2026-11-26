@@ -1,7 +1,7 @@
 ---
 title: Change Redundancy Configuration for Azure Files
 description: Learn how to change how Azure Files data in an existing storage account is replicated.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 11/17/2026

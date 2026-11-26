@@ -1,7 +1,7 @@
 ---
 title: How to use DFS-N with Azure Files
 description: Learn how to use DFS Namespaces (DFS-N) with Azure Files. DFS Namespaces works with SMB file shares, agnostic of where those file shares are hosted.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 08/26/2026

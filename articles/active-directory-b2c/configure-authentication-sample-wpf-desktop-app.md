@@ -2,7 +2,7 @@
 title: Configure authentication in a sample WPF desktop application by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a WPF desktop application.
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 ms.service: entra-id
 

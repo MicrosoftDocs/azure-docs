@@ -1,5 +1,5 @@
 ---
-author: hhunter-ms
+author: diberry
 title: "Handle External Events in Durable Orchestrations"
 description: "Learn how to handle external events in durable orchestrations. Discover how to wait for, send, and process external events like human approvals using the Durable Task framework."
 ms.topic: how-to

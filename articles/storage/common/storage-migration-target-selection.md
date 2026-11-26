@@ -71,7 +71,7 @@ If any of the limits prevent you from using a specific service, there are severa
 > - AKS with persistent volumes for containerized workloads.
 > - File server cluster on Azure VMs or other NAS appliances in Azure. For example, NetApp ONTAP, Nasuni, Qumulo, and Dell PowerScale.
 > - Migrating S3 object data to Azure Blob using Azure Storage Mover, AzCopy, or partner/ISV tools. The application layer requires deliberate changes. Azure Blob Storage doesn't natively support the S3 API, so applications must be updated to use Azure's native APIs for the migration to complete.
-> - Azure VM with Managed Disks, often orchestrated via *Azure Migrate* or other *partner solutions* when migrating to VMs or databases.
+> - Azure VM with Managed Disks, often orchestrated via *Azure Catalyst* or other *partner solutions* when migrating to VMs or databases.
 
 #### See also
 

@@ -3,7 +3,7 @@ title: Publish your Azure Active Directory B2C app to the Microsoft Entra app ga
 description: Learn how to list an Azure AD B2C app that supports single sign-on in the Microsoft Entra app gallery.
 titleSuffix: Azure AD B2C
 
-author: kengaderdus
+author: diberry
 manager: CelesteDG
 
 ms.service: entra-id

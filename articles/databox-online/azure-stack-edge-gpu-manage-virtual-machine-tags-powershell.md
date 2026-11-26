@@ -2,7 +2,7 @@
 title: Manage VM Tags on Azure Stack Edge Pro GPU device via Azure PowerShell
 description: Describes how to create and manage virtual machine tags for virtual machines running in Azure Stack Edge by using Azure PowerShell.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell, devx-track-arm-template

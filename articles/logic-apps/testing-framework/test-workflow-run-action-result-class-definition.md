@@ -3,7 +3,7 @@ title: TestWorkflowRunActionResult class
 description: The result from an action in a Standard logic app workflow run during unit test execution. This result represents the action execution details.
 services: logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: reference
 ms.date: 06/10/2025

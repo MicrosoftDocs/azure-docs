@@ -1,7 +1,7 @@
 ---
 title: Azure classic subscription administrators
 description: Describes the retirement of the Co-Administrator and Service Administrator roles.
-author: rolyon
+author: diberry
 manager: pmwongera
 
 ms.service: role-based-access-control

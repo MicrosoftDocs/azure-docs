@@ -1,7 +1,7 @@
 ---
 title: Azure Notification Hubs iOS 13 updates | Microsoft Docs
 description: Learn about iOS 13 breaking changes in Azure Notification Hubs
-author: sethmanheim
+author: diberry
 
 ms.author: dimatokar
 ms.date: 10/16/2019

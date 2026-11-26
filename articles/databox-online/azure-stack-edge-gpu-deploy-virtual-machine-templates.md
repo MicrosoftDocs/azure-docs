@@ -2,7 +2,7 @@
 title: Deploy VMs on your Azure Stack Edge Pro device via templates
 description: Describes how to create and manage virtual machines (VMs) on an Azure Stack Edge Pro device using templates.
 services: databox
-author: sipastak
+author: scompton1045
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell, linux-related-content

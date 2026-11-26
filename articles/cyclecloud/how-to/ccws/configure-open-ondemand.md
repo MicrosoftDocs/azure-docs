@@ -2,7 +2,7 @@
 title: Configure Open OnDemand with CycleCloud
 description: Learn how to configure Open OnDemand with Azure CycleCloud to give users a web-based interface for your Slurm cluster.
 ai-usage: ai-assisted
-author: abatallas
+author: mattmcinnes
 ms.date: 08/24/2026
 ms.topic: how-to
 ms.author: mattmcinnes

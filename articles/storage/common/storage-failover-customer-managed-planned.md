@@ -3,7 +3,7 @@ title: How customer-managed planned failover works
 titleSuffix: Azure Storage
 description: Azure Storage supports account failover of geo-redundant storage accounts for disaster recovery testing and planning. Learn what happens to your storage account and storage services during a customer-managed planned failover to the secondary region to perform disaster recovery testing and planning.
 services: storage
-author: stevenmatthew
+author: normesta
 
 ms.service: azure-storage
 ms.topic: concept-article

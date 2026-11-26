@@ -6,7 +6,7 @@ ms.subservice: durable-functions
 ms.topic: tutorial
 ms.date: 05/20/2026
 ms.author: vyomnagrani
-author: hhunter-ms
+author: diberry
 ms.custom:
   - devx-track-azurecli
   - devx-track-azdevcli

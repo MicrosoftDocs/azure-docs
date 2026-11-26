@@ -3,7 +3,7 @@ title: Define a CAPTCHA technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a CAPTCHA technical profile custom policy in Azure Active Directory B2C.
 
-author: kengaderdus
+author: diberry
 manager: mwongerapk
 
 ms.service: entra-id

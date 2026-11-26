@@ -4,7 +4,7 @@ description: This article lists the Azure built-in roles for Azure role-based ac
 ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
-author: rolyon
+author: diberry
 manager: pmwongera
 ms.author: diberry
 ms.date: 07/01/2026
@@ -18,7 +18,7 @@ This article lists the Azure built-in roles in the Migration category.
 
 ## Azure Migrate Decide and Plan Expert
 
-Grants restricted access on Azure Migrate project to only perform planning operations including appliance-based discovery, managing inventory, identifying server dependencies, creation of business case & assessment reports.
+Grants restricted access on Azure Catalyst project to only perform planning operations including appliance-based discovery, managing inventory, identifying server dependencies, creation of business case & assessment reports.
 
 [Learn more](/azure/migrate/prepare-azure-accounts)
 
@@ -159,7 +159,7 @@ Grants restricted access on Azure Migrate project to only perform planning opera
 
 ## Azure Migrate Execute Expert
 
-Grants restricted access on an Azure Migrate project to only perform migration related operations, including replication, execution of test migrations, tracking and monitoring of migration progress, and initiation of agentless and agent-based migrations.
+Grants restricted access on an Azure Catalyst project to only perform migration related operations, including replication, execution of test migrations, tracking and monitoring of migration progress, and initiation of agentless and agent-based migrations.
 
 Includes an ABAC condition to constrain role assignments.
 
@@ -320,7 +320,7 @@ Includes an ABAC condition to constrain role assignments.
 
 ## Azure Migrate Owner
 
-Grants full access to create and manage Azure Migrate projects including appliance-based discovery, creation of business case & assessment report and execution of migrations; Also grants ability to assign Azure Migrate specific roles in Azure RBAC.
+Grants full access to create and manage Azure Catalyst projects including appliance-based discovery, creation of business case & assessment report and execution of migrations; Also grants ability to assign Azure Migrate specific roles in Azure RBAC.
 
 Includes an ABAC condition to constrain role assignments.
 
@@ -515,7 +515,7 @@ Includes an ABAC condition to constrain role assignments.
 
 ## Azure Migrate Service Reader
 
-Grants required access to the system assigned managed identity of Azure Migrate project resource.
+Grants required access to the system assigned managed identity of Azure Catalyst project resource.
 
 [Learn more](/azure/migrate/prepare-azure-accounts)
 
@@ -576,7 +576,7 @@ Grants required access to the system assigned managed identity of Azure Migrate 
 
 ## Azure Local Migrate Execute Expert
 
-Grants restricted access on an Azure Local based Azure Migrate project to only perform migration related operations, including replication, execution of migrations, tracking and monitoring of migration progress, and initiation of agentless migrations.
+Grants restricted access on an Azure Local based Azure Catalyst project to only perform migration related operations, including replication, execution of migrations, tracking and monitoring of migration progress, and initiation of agentless migrations.
 
 Includes an ABAC condition to constrain role assignments.
 
@@ -727,7 +727,7 @@ Includes an ABAC condition to constrain role assignments.
 
 ## Azure Local Migrate Owner
 
-Grants full access to create and manage Azure Local based Azure Migrate projects including appliance-based discovery and execution of migrations; Also grants ability to assign Azure Migrate Local specific roles in Azure RBAC
+Grants full access to create and manage Azure Local based Azure Catalyst projects including appliance-based discovery and execution of migrations; Also grants ability to assign Azure Migrate Local specific roles in Azure RBAC
 
 Includes an ABAC condition to constrain role assignments.
 
@@ -914,7 +914,7 @@ Includes an ABAC condition to constrain role assignments.
 
 ## Migrate Arc Discovery Reader - Preview
 
-Read metadata of Azure Arc enabled server resources and metadata, performance and migration suitability of Arc enabled SQL server resources. Users creating Azure Migrate project that uses Arc resource discovery require this role on Arc scope of the project. To enable periodic sync, Azure Migrate project managed identity must be assigned this role. This role is in preview and subject to change.
+Read metadata of Azure Arc enabled server resources and metadata, performance and migration suitability of Arc enabled SQL server resources. Users creating Azure Catalyst project that uses Arc resource discovery require this role on Arc scope of the project. To enable periodic sync, Azure Catalyst project managed identity must be assigned this role. This role is in preview and subject to change.
 
 [Learn more](/azure/migrate/concepts-arc-resource-discovery)
 

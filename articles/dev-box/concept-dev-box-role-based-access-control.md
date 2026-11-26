@@ -6,7 +6,7 @@ description: Learn how Microsoft Dev Box provides protection with Azure role-bas
 ms.service: dev-box
 ms.custom:
   - ignite-2024
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.topic: concept-article

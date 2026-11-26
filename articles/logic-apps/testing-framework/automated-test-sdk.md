@@ -3,7 +3,7 @@ title: Azure Logic Apps Automated Test SDK
 description: Reference documentation for the Azure Logic Apps Automated Test SDK classes and enums.
 services: logic-apps
 ms.suite: integration
-author: wsilveiranz
+author: divyaswarnkar
 ms.reviewers: estfan, azla
 ms.topic: concept-article
 ms.date: 12/03/2025

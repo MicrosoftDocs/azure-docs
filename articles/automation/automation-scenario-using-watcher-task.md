@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 11/17/2025
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Track updated files with a watcher task

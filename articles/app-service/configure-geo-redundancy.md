@@ -1,7 +1,7 @@
 ---
 title: "Configure and manage Geo-redundancy in Azure App Service (Preview)"
 description: Learn how to configure traffic routing, revisions, silo regions, networking, App Service plans, and failover for geo-redundant Azure App Service apps.
-author: apwestgarth
+author: btardif
 ms.author: anwestg
 ms.topic: how-to
 ms.service: azure-app-service

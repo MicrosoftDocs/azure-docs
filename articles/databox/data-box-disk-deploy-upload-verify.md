@@ -1,11 +1,11 @@
 ---
 title: Tutorial to verify data upload from Azure Data Box Disk to storage account
 description: Use this tutorial to learn how to verify the data uploaded from your Azure Data Box Disk to Azure storage account.
-author: stevenmatthew
+author: diberry
 ms.service: azure-data-box-disk
 ms.topic: tutorial
 ms.date: 05/05/2022
-ms.author: shaas
+ms.author: diberry
 ms.custom: sfi-image-nochange
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Integrate Azure Automation State Configuration with Azure Monitor Logs

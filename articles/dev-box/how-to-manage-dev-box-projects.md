@@ -5,7 +5,7 @@ description: Create and configure Microsoft Dev Box projects to support your tea
 #customer intent: As a platform engineer, I want to create a Microsoft Dev Box project so that my development team can access and use dev boxes.
 services: dev-box
 ms.service: dev-box
-author: RoseHJM
+author: ramiMSFT
 ms.author: rabououn
 ms.reviewer: rosemalcolm
 ms.date: 12/29/2025

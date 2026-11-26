@@ -3,10 +3,10 @@ title: "Fan-Out/Fan-In Pattern Scenarios in Durable Functions"
 description: Learn how to implement the fan-out/fan-in pattern in Durable Functions and Durable Task SDKs to run multiple tasks in parallel and aggregate results. Try it now.
 ms.topic: tutorial
 ms.custom: devx-track-js, devx-track-python
-ms.date: 10/12/2026
+ms.date: 11/23/2026
 ai-usage: ai-assisted
 ms.author: vyomnagrani
-author: hhunter-ms
+author: diberry
 ms.service: durable-task
 zone_pivot_groups: azure-durable-approach
 ---
@@ -29,7 +29,7 @@ Use the *fan-out/fan-in* pattern for parallel processing in workflow orchestrati
 - Fan out work across multiple activities running concurrently.
 - Fan in by aggregating the results. 
 
-In this tutorial, you implement the fan-out/fan-in pattern with the Durable Task SDKs for .NET, JavaScript, Python, Java, and Go (beta).
+In this tutorial, you implement the fan-out/fan-in pattern with the Durable Task SDKs for .NET, JavaScript, Python, Java, and Go (preview).
 
 ::: zone-end
 

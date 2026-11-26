@@ -200,4 +200,5 @@ To recover an unusable node in [VirtualMachineConfiguration](/rest/api/batchserv
 ## Next steps
 
 - Learn about [job and task error checking](batch-job-task-error-checking.md).
+- Learn how to [investigate Batch issues with Azure SRE Agent](batch-sre-agent.md).
 - Learn about [best practices](best-practices.md) for working with Azure Batch.

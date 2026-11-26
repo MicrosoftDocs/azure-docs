@@ -1,7 +1,7 @@
 ---
 title: Geo-Distributed Horizontal Scale
 description: Learn how to horizontally scale apps by using geo-distribution with Traffic Manager and App Service Environments.
-author: seligj95
+author: btardif
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.topic: concept-article
 ms.date: 03/13/2026

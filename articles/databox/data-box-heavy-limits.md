@@ -2,12 +2,12 @@
 title: Azure Data Box Heavy limits | Microsoft Docs
 description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Heavy components and connections.
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box-heavy
 ms.topic: concept-article
 ms.date: 03/06/2025
-ms.author: shaas
+ms.author: diberry
 # Customer intent: "As a data engineer, I want to understand the limits and recommended sizes for the Azure Data Box Heavy components, so that I can effectively plan my data transfer and storage strategy."
 ---
 

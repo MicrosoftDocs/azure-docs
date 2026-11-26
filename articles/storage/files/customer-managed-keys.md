@@ -2,7 +2,7 @@
 title: Configure encryption at rest with customer-managed keys
 titleSuffix: Azure Files
 description: Learn how to configure customer-managed keys (CMK) in Azure Key Vault for encrypting Azure file share data at rest.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/26/2026

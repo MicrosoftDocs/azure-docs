@@ -8,7 +8,7 @@ ms.date: 05/08/2025
 ms.update-cycle: 1825-days
 ms.topic: how-to 
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Manage your Azure Automation account

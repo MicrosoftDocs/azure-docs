@@ -2,12 +2,12 @@
 title: Tutorial to set up Azure Data Box| Microsoft Docs
 description: In this tutorial, learn how to cable your Azure Data Box, connect Azure Data Box, and turn on Azure Data Box.
 services: databox
-author: stevenmatthew
+author: diberry
 
 ms.service: azure-data-box
 ms.topic: tutorial
 ms.date: 02/16/2023
-ms.author: shaas
+ms.author: diberry
 zone_pivot_groups: data-box-sku
 ms.custom: sfi-image-nochange
 

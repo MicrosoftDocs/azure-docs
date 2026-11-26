@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 04/15/2026
 ms.service: azure-automation
 ms.author: pprajapat
-author: RochakSingh-blr
+author: preranaprajapat
 ---
 
 # Manage Azure Automation subscription limits and quotas

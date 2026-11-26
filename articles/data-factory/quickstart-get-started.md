@@ -1,7 +1,7 @@
 ---
 title: Get started and try out your first Data Factory pipeline
 description: Get started with your first data factory to copy data from one Azure Blob Storage folder to another.
-author: whhender
+author: dcstwh
 ms.subservice: data-movement
 ms.devlang: bicep
 ms.topic: get-started

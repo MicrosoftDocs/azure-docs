@@ -1,7 +1,7 @@
 ---
 title: Set up the SAP LaMa connector for Azure
 description: Learn how to set up and configure the SAP Landscape Management (LaMa) connector for Azure to manage SAP systems on Azure virtual machines.
-author: MSSedusch
+author: mattmcinnes
 manager: timlt
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads

@@ -2,7 +2,7 @@
 title: Connect to, configure, and activate Azure Data Box Gateway in Azure portal
 description: Third tutorial to deploy Data Box Gateway instructs you to connect, set up, and activate your virtual device.
 services: databox
-author: stevenmatthew
+author: Bapic
 
 ms.service: azure-data-box-gateway
 ms.topic: tutorial

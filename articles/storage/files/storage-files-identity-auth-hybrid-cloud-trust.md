@@ -1,7 +1,7 @@
 ---
 title: Configure Cloud Trust between AD DS and Entra ID
 description: Learn how to enable Microsoft Entra Kerberos authentication over SMB for Azure Files and establish a cloud trust between on-premises Active Directory Domain Services (AD DS) and Microsoft Entra ID. Your users can then access Azure file shares by using their on-premises credentials.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 07/16/2026

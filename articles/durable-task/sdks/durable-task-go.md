@@ -1,12 +1,12 @@
 ---
 title: "Develop with the Durable Task SDK for Go"
-description: Build self-hosted Go workflows with Durable Task Scheduler. Learn SDK setup, deterministic orchestration APIs, connection options, and beta limitations.
+description: Build self-hosted Go workflows with Durable Task Scheduler. Learn SDK setup, deterministic orchestration APIs, connection options, and preview limitations.
 author: torosent
 ms.author: torosent
 ms.topic: how-to
 ms.service: durable-task
 ms.subservice: durable-task-sdks
-ms.date: 10/12/2026
+ms.date: 11/23/2026
 ai-usage: ai-assisted
 ---
 
@@ -15,7 +15,7 @@ ai-usage: ai-assisted
 By using the [Durable Task SDK for Go](https://github.com/microsoft/durabletask-go), you can define orchestrations, activities, and durable entities as Go functions. Host the application on your own compute platform. The [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) stores execution history and dispatches work to your Go workers.
 
 > [!IMPORTANT]
-> The Go SDK is in **beta**. This article and the [Go quickstart](quickstart-portable-durable-task-sdks.md?pivots=go) use **v1.0.0-beta3**. The beta isn't a drop-in replacement for v0.6.0: it doesn't support embedded SQLite and PostgreSQL backends or the standalone gRPC host. Go isn't a Durable Functions language.
+> The Go SDK is in **preview**. This article and the [Go quickstart](quickstart-portable-durable-task-sdks.md?pivots=go) use **v1.0.0-beta3**. This preview isn't a drop-in replacement for v0.6.0: it doesn't support embedded SQLite and PostgreSQL backends or the standalone gRPC host. Go isn't a Durable Functions language.
 
 ## Prerequisites and installation
 
@@ -23,7 +23,7 @@ By using the [Durable Task SDK for Go](https://github.com/microsoft/durabletask-
 - Docker or a compatible container runtime for the [Durable Task Scheduler emulator](../scheduler/develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator).
 - For Azure, an existing scheduler and task hub, and an identity with the **Durable Task Data Contributor** role. See [Identity-based access](../scheduler/durable-task-scheduler-identity.md).
 
-Install the released beta from an existing Go module:
+Install the preview release from an existing Go module:
 
 ```bash
 go get github.com/microsoft/durabletask-go@v1.0.0-beta3
@@ -101,7 +101,7 @@ The Go SDK repository includes runnable samples for its feature areas, including
 
 The SDK doesn't include a storage backend, so orchestrations run only against Durable Task Scheduler or its emulator. Test activities and other business logic with ordinary Go unit tests. To verify orchestration behavior, including replay, run integration tests against the emulator or a dedicated task hub.
 
-## Beta compatibility considerations
+## Preview compatibility considerations
 
 - **Schedules:** Go schedules don't share their persisted state format with other SDKs. Use a Go-only task hub for scheduled tasks.
 - **Entity locks:** Go and Python use a different multi-entity lock ordering from .NET. Don't acquire overlapping lock sets concurrently across Go/Python and .NET orchestrations.

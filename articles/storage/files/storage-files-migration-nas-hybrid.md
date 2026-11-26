@@ -1,7 +1,7 @@
 ---
 title: On-premises NAS migration to Azure File Sync
 description: Learn how to migrate SMB file shares from on-premises Network Attached Storage (NAS) to a hybrid cloud deployment with Azure File Sync and Azure file shares.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/28/2026
