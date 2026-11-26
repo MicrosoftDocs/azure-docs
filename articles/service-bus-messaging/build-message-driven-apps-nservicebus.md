@@ -1,7 +1,7 @@
 ---
 title: Build message-driven applications with NServiceBus and Azure Service Bus
 description: Learn how to solve complex problems with distributed systems on Azure Service Bus using the NServiceBus framework.
-author: kbaley                      
+author: EldertGrootenboer                      
 ms.author: egrootenboer
 ms.topic: how-to                     
 ms.date: 03/29/2023                 

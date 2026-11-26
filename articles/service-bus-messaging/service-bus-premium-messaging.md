@@ -5,7 +5,7 @@ description: Learn how Azure Service Bus premium tier provides dedicated resourc
 ms.topic: concept-article
 ms.custom: devx-track-extended-java
 ms.date: 10/06/2026
-author: spelluru
+author: EldertGrootenboer
 ms.author: egrootenboer
 ai-usage: ai-assisted
 ---

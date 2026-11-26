@@ -1,7 +1,7 @@
 ---
 title: Use Azure PowerShell to create a Service Bus queue
 description: In this quickstart, you learn how to create a Service Bus namespace and a queue in the namespace by using the Azure PowerShell.
-author: spelluru
+author: EldertGrootenboer
 ms.author: egrootenboer
 ms.date: 09/28/2021
 ms.topic: quickstart

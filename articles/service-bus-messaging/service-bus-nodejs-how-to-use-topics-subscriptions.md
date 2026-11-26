@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Service Bus topics (JavaScript)
 description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the JavaScript programming language.
-author: spelluru
+author: EldertGrootenboer
 ms.author: egrootenboer
 ms.date: 12/08/2023
 ms.topic: quickstart

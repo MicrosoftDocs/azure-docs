@@ -1,7 +1,7 @@
 ---
 title: Get started with Azure Service Bus topics (TypeScript)
 description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the TypeScript programming language.
-author: spelluru
+author: EldertGrootenboer
 ms.author: egrootenboer
 ms.date:  07/17/2024
 ms.topic: quickstart

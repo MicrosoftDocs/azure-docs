@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Get started with Azure Service Bus queues (JavaScript)'
 description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the JavaScript programming language.
-author: spelluru
+author: EldertGrootenboer
 ms.author: egrootenboer
 ms.date: 06/13/2025
 ms.topic: quickstart
