@@ -27,7 +27,7 @@ In this article, you learn about virtual network flow logs filtering capability.
 | Protocol        | Protocol type                          | TCP, UDP                                                                  |
 | Encryption      | Encryption status                      | All supported encryption values and `NX_ALL` (not encrypted for any reason) |
 
-All the fields can take comma separate value as input. All are case-insensitive.
+All the fields can take comma-separated values as input. All are case-insensitive.
 
 ## Supported operations
 
@@ -46,8 +46,37 @@ Virtual network flow logs support logical operands `&&` and `||` between any two
 
 ## Enable filtering
 
-To create virtual network flow logs with filtering, use the [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwatcherflowlog) cmdlet.  
+# [**Azure Portal**](#tab/version2)
 
+1. In the Azure portal, go to **Network Watcher** > **Flow logs**, and select **+ Create**.
+2. On the **Basics** tab, enter the required details for the flow log, and then select **Next: Configure**.
+3. On the **Configure** tab, under **Configure traffic capture**, select a **Traffic capture mode**:
+   - **Capture all traffic (default)**: Captures all supported traffic for the selected resources.
+   - **Custom traffic filters**: Captures only traffic that matches the filters you configure.
+
+
+:::image type="content" source="./media/vnet-flow-logs-filtering/enable-filtering-on-portal.png" alt-text="Screenshot that shows custom traffic filters for a virtual network flow log in the Azure portal." lightbox="./media/vnet-flow-logs-filtering/enable-filtering-on-portal.png":::
+
+4. If you select **Custom traffic filters**, configure the filters under **Configure traffic filters**:
+   1. In **Record type**, select one or more values.
+   2. Select **+ Add condition**.
+   3. For the condition, set the following values:
+
+      | Field | Description |
+      |---|---|
+      | **Attribute** | The traffic property to filter on. Select one of: **Source IP**, **Source port**, **Destination IP**, **Destination port**, **Protocol**, **Encryption**, or **Direction**. |
+      | **Operator** | The comparison to apply. |
+      | **Value** | The value to match, such as an IP address or range, port, or protocol. |
+
+   4. To add more conditions, select **+ Add condition** again and choose a **Connector** to combine them with the previous condition. 
+   5. To remove a condition, select the **Delete** icon in its row.
+5. Select **Next: Analytics** and configure Traffic Analytics if needed.
+6. Optionally, add **Tags**.
+7. Select **Review + create**, review the settings, and then select **Create**.
+
+# [**PowerShell**](#tab/version5)
+
+To create virtual network flow logs with filtering, use the [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwatcherflowlog) cmdlet.  
 
 ```azurepowershell-interactive
 # Place the virtual network configuration into a variable.
@@ -66,7 +95,9 @@ New-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcher
     -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId `
     -EnableRetention $true -RetentionPolicyDays 15
 ```
-  
+
+---
+
 ## Update existing filtering
 
 You can modify existing filtering criteria for virtual network flow logs using the [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) cmdlet with updated conditions without the need to recreate the flow log.
@@ -102,6 +133,8 @@ Use the RecordTypes parameter to specify which flow states you want to record. T
 | C     | Continuing: an ongoing flow. Statistics are provided at five-minute intervals. |
 | E     | End: when a flow is terminated. Statistics are provided. |
 | D     | Deny: when a flow is denied. |
+
+:::image type="content" source="./media/vnet-flow-logs-filtering/record-type-filtering-on-portal.png" alt-text="Screenshot that shows the Begin, Continuing, End, and Deny record type options for a virtual network flow log in the Azure portal." lightbox="./media/vnet-flow-logs-filtering/record-type-filtering-on-portal.png":::
 
 ### Example scenarios using RecordTypes
 
