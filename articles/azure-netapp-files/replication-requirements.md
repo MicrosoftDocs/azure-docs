@@ -60,7 +60,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 ## Cross-region replication requirements and considerations
 
-* Azure NetApp Files replication is only available in specific fixed region pairs. For more information, see [Supported cross-region replication pairs](#supported-region-pairs).
+* Azure NetApp Files replication is only available in specific fixed region pairs. For more information, see [Supported cross-region replication pairs](replication.md#supported-region-pairs).
 
 * Cross-region replication requires a NetApp account in the destination region.
 
