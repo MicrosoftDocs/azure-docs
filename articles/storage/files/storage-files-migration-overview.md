@@ -1,7 +1,7 @@
 ---
 title: Migration Overview for SMB Azure File Shares
 description: Learn how to migrate to SMB Azure file shares and choose from a table of migration guides using Azure Storage Mover, Robocopy, Azure File Sync, and other tools.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 10/28/2026

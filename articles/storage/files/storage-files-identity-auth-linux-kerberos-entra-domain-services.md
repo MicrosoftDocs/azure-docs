@@ -1,7 +1,7 @@
 ---
 title: Configure Linux clients for Azure Files with Microsoft Entra Domain Services
 description: Learn how to configure Linux clients to use Kerberos authentication for Azure Files with Microsoft Entra Domain Services.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to

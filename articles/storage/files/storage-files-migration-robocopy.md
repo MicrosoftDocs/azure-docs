@@ -1,7 +1,7 @@
 ---
 title: Migrate to Azure Files Using RoboCopy
 description: Learn how to move or migrate files to an SMB Azure file share using RoboCopy.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/28/2026

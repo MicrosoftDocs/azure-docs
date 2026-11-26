@@ -1,7 +1,7 @@
 ---
 title: Use Azure Files Share Snapshots
 description: A share snapshot is a read-only, point-in-time copy of an Azure file share that you can use to recover previous versions of a file. Learn how to take snapshots using the Azure portal, Azure PowerShell, and Azure CLI.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/26/2026

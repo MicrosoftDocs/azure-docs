@@ -5,7 +5,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/28/2026
 ms.author: normesta
-author: khdownie
+author: normesta
 # Customer intent: As a cloud administrator, I want to copy files between Azure file shares so that I can efficiently transition data with minimal downtime and optimize storage performance.
 ---
 

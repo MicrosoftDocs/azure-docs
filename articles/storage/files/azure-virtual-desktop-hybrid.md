@@ -2,7 +2,7 @@
 title: Use Azure File Sync with Azure Virtual Desktop Hybrid
 titleSuffix: Azure Files
 description: Learn how to use Azure File Sync with Azure Virtual Desktop Hybrid to centralize file data in Azure Files while keeping low-latency local access.
-author: khdownie
+author: normesta
 ms.author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article

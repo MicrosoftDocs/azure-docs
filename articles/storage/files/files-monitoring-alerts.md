@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Files by Creating Alerts
 description: Learn how to use Azure Monitor to create alerts on metrics and logs for Azure Files. Monitor throttling, capacity, and egress. Create an alert on high server latency.
-author: khdownie
+author: normesta
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to

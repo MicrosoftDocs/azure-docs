@@ -1,7 +1,7 @@
 ---
 title: Azure Files and Azure NetApp Files Comparison
 description: Compare the scalability, performance, and features of Azure Files and Azure NetApp Files, two different and distinct Azure storage services.
-author: khdownie
+author: normesta
 services: storage
 ms.service: azure-file-storage
 ms.topic: concept-article

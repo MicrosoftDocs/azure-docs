@@ -1,7 +1,7 @@
 ---
 title: Plan an Azure Files deployment
 description: Plan your Azure Files deployment by choosing a management model, protocol, identity configuration, networking approach, and media tier.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 11/17/2026

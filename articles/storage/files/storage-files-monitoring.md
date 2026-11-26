@@ -4,7 +4,7 @@ description: Learn how to monitor Azure Files and analyze metrics and logs using
 ms.date: 02/03/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: khdownie
+author: normesta
 ms.author: normesta
 ms.service: azure-file-storage
 # Customer intent: As a cloud administrator, I want to monitor Azure Files using metrics and logs, so that I can ensure optimal performance, availability, and troubleshoot any issues effectively.

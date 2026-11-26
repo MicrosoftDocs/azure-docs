@@ -3,7 +3,7 @@ title: Reduce Costs for Azure Files with Reservations
 titleSuffix: Azure Files 
 description: Learn how to save costs on Azure file share deployments by using Azure Files Reservations, also called reserved instances. Get a discount on capacity when you commit to a Reservation for either one year or three years.
 services: storage
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 07/29/2026

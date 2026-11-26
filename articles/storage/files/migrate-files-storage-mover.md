@@ -5,7 +5,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/28/2026
 ms.author: normesta
-author: khdownie
+author: normesta
 # Customer intent: "As an IT administrator, I want to migrate on-premises file shares to Azure file shares using a managed service, so that I can ensure full fidelity transfer and streamline my data management in the cloud."
 ---
 

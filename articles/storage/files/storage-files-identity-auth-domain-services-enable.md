@@ -1,7 +1,7 @@
 ---
 title: Use Microsoft Entra Domain Services with Azure Files
 description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Microsoft Entra Domain Services. Your Windows VMs can then access Azure file shares by using Microsoft Entra credentials.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 03/04/2026

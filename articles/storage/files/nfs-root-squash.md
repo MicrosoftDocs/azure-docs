@@ -1,7 +1,7 @@
 ---
 title: Configure Root Squash Settings for NFS Azure File Shares
 description: Root squash is a security feature that prevents unauthorized root-level access to the NFS server by client machines. Learn how to configure root squash for NFS Azure file shares.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: concept-article

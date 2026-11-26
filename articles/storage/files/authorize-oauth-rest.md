@@ -1,7 +1,7 @@
 ---
 title: Enable Access to Azure File Shares Using OAuth Over REST
 description: Learn how to authorize admin-level read and write access to Azure file shares and directories via OAuth authentication over REST APIs by using Microsoft Entra ID.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 02/27/2026

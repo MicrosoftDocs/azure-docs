@@ -4,7 +4,7 @@ description: Learn how to estimate the cost of Azure Files usage across differen
 ms.date: 10/23/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: khdownie
+author: normesta
 ms.author: normesta
 ms.service: azure-file-storage
 ---

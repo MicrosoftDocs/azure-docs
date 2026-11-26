@@ -1,7 +1,7 @@
 ---
 title: Mount an NFS Azure file share on Linux
 description: Learn how to mount a Network File System (NFS) Azure file share on Linux, including configuring network security and mount options.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.custom: linux-related-content, references_regions
 ms.topic: how-to

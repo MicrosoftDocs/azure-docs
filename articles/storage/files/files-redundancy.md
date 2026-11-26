@@ -1,7 +1,7 @@
 ---
 title: Data Redundancy in Azure Files
 description: Understand the data redundancy options available for Azure file shares and how to choose the best fit for your availability and disaster recovery requirements.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: concept-article
 ms.date: 11/18/2026

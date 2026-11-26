@@ -1,7 +1,7 @@
 ---
 title: GlusterFS to Azure Files Migration Guide
 description: Red Hat Gluster Storage (based on GlusterFS) has reached the end of its support lifecycle. Use this guide to migrate GlusterFS volumes to Azure Files.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 10/28/2026

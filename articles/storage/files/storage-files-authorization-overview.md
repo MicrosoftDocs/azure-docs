@@ -1,7 +1,7 @@
 ---
 title: Overview - Azure Files Authorization and Access Control
 description: Learn how Azure Files enforces authorization using Azure RBAC for share-level permissions and Windows ACLs for directory- and file-level permissions on SMB file shares.
-author: khdownie
+author: normesta
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 10/16/2025
