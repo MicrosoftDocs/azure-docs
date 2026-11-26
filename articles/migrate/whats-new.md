@@ -7,7 +7,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.reviewer: v-gajeronika
-ms.date: 10/27/2026
+ms.date: 11/26/2026
 ms.custom: mvc, engagement-fy25
 # Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Catalyst, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
 ---
@@ -22,8 +22,15 @@ ms.custom: mvc, engagement-fy25
 Your current migration experience and capabilities aren't impacted by this change. Existing projects and workflows continue to work as they do today.
 - Azure Catalyst now supports two ways to execute migrations after discovery and planning. You can group applications and workloads into migration waves for coordinated execution. [Learn more about wave migrations](wave-migrations-overview.md). Alternatively, you can start server replications and migrate directly without creating a wave. Direct migration is supported only for servers. [Learn more about direct server migrations](execute-server-migrations.md).
 - General availability: Azure Catalyst now supports migrating to Azure Confidential VMs. Azure confidential VMs provide strong protection for sensitive workloads. They create a hardware-enforced boundary between your workload and the virtualization stack, so you can migrate many applications without code changes while keeping VM state protected. [Learn more](migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md#migrate-eligible-machines-to-azure-confidential-virtual-machines).
-- Public preview: Azure Catalyst expands target coverage for webapps with two new targets: Azure Container Apps and Managed Instance on Azure App Service. Webapps can now be assessed across multiple Azure targets - Azure App Service Code, Azure App Service Containers, Azure App Service Managed instance, Azure Container Apps (ACA) and Azure Kubernetes Service (AKS). You can determine readiness status for these apps, code changes required to modernize, effort estimate, target SKU size and Azure costs. Comparing these services side by side helps you quickly choose the one that best fits your organization's requirements.
-  
+- Public preview: Azure Catalyst expands target coverage for webapps with two new targets: Azure Container Apps and Managed Instance on Azure App Service. Webapps can now be assessed across multiple Azure targets - Azure App Service Code, Azure App Service Containers, Azure App Service Managed instance, Azure Container Apps (ACA) and Azure Kubernetes Service (AKS). You can determine readiness status for these apps, code changes required to modernize, effort estimate, target SKU size and Azure costs. Comparing these services side by side helps you quickly choose the one that best fits your organization's requirements. 
+- **New guided migration journey in Azure Catalyst**: Azure Catalyst introduces a redesigned Overview experience that guides you through four stages of your migration journey: **Discover, Decide, Plan, and Execute**.  
+The new experience provides visibility into your migration progress, brings together relevant information and actions for each stage, and recommends next steps based on your project's current state. It also highlights best practices to help you improve migration readiness and planning. [Learn more about migration phases](migrate-services-overview.md#migration-phases).
+- **Decision Insights for migration planning**: Azure Catalyst introduces **Decision Insights** to help you make informed migration decisions and build actionable migration plans.  
+Using your discovered inventory, Decision Insights generates a business case, application aware assessments with target recommendations, and proposed migration waves in a single click. These insights help you evaluate migration options, understand costs and readiness, and plan your migration to Azure. [Learn more about building a migration plan](concepts-migration-planning.md).
+- **Discover servers and workloads using existing inventory exports (Preview)**:  Azure Catalyst now supports AI-powered discovery using inventory exports from existing tools, including configuration management databases (CMDBs) and infrastructure management solutions.  
+You can upload inventory files from your existing inventory management tools. Azure Catalyst analyzes the files to identify servers and workloads and prepares structured inventory for your review. You can review and refine the generated inventory before adding it to your Azure Catalyst project.  
+This capability helps you reuse existing inventory data to get started with migration assessments and planning. [Learn more](how-to-import-inventory-exports-file-import.md).
+
 ## Update (September 2026)
 
 - Public preview: Wave planning is now available in Azure Migrate. Generate recommended migration waves based on workload inventory, assessment data, application mappings, and dependencies. Review grouping and sequencing, dependencies, and risks, then configure and commit selected waves. [Learn more](wave-plan-overview.md).
