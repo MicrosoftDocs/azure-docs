@@ -5,7 +5,7 @@ description: Query Azure monitoring and cost data, inspect health models, and up
 author: weng5e
 ms.author: wuweng
 ms.reviewer: wuweng
-ms.date: 11/09/2026
+ms.date: 11/26/2026
 ms.topic: how-to
 ms.service: azure-managed-grafana
 ---
@@ -159,12 +159,12 @@ Sign in interactively as a user and request a token for the Azure Monitor dashbo
 
 ```azurecli
 az login
-az account get-access-token --resource https://dashboard.azure.com --query accessToken -o tsv
+az account get-access-token --scope 6f2d169c-08f3-4a4c-a982-bcaf2d038c45/.default --query accessToken -o tsv
 ```
 
 To sign in to a specific tenant, use `az login --tenant <tenant-id>` instead of `az login`. Don't use `az login --service-principal` or `az login --identity`, because this endpoint supports only user authentication.
 
-The token resource and audience is `https://dashboard.azure.com`. MCP clients that use OAuth can discover the sign-in configuration through the server's OAuth protected resource metadata at `https://mcp.dashboard.azure.com/.well-known/oauth-protected-resource`.
+The token audience is `6f2d169c-08f3-4a4c-a982-bcaf2d038c45`, the application ID of the Azure Managed Grafana sign-in app. MCP clients that use OAuth discover this scope through the server's OAuth protected resource metadata at `https://mcp.dashboard.azure.com/.well-known/oauth-protected-resource`.
 
 ### Configure the bearer token
 
