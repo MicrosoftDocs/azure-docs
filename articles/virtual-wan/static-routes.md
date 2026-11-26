@@ -2,7 +2,7 @@
 title: 'Static routes in Azure Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: Learn about the types of static routes in Azure Virtual WAN, their use cases, best practices, and limitations.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 04/27/2026

@@ -1,7 +1,7 @@
 ---
 title: 'Azure Virtual WAN: Manage IP Configurations for Network Virtual Appliance (NVA) in the hub'
 description: Learn how to manage  IP configurations for Network Virtual Appliance in the Virtual WAN hub.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 04/21/2025

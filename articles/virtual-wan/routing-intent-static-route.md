@@ -2,7 +2,7 @@
 title: 'Use routing intent with static routes in Azure Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: Learn how to combine Azure Virtual WAN routing intent and routing policies with static routes on virtual network connections.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 04/30/2026

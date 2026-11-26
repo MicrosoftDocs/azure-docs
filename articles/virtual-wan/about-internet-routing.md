@@ -2,7 +2,7 @@
 title: 'Securing Internet access with routing intent'
 titleSuffix: Azure Virtual WAN
 description: Learn how to secure internet traffic with routing intent.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 08/27/2026

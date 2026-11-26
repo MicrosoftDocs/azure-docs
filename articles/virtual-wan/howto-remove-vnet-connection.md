@@ -2,7 +2,7 @@
 title: 'Remove a VNet Connection to a Virtual WAN hub - portal'
 titleSuffix: Azure Virtual WAN
 description: Learn how to remove a Virtual Network Connection to a Virtual WAN hub using the portal.
-author: flapinski
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/20/2026

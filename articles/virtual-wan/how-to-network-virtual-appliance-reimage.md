@@ -1,7 +1,7 @@
 ---
 title: 'Azure Virtual WAN: reimage a Network Virtual Appliance (NVA) in the hub'
 description: Learn how to reimage a Network Virtual Appliance in the Virtual WAN hub.
-author: wtnlee
+author: Ajitbhu
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 1/28/2025
