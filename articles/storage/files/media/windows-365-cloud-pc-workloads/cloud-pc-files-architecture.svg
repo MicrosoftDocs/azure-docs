@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="660" viewBox="0 0 1120 660" role="img" aria-labelledby="title desc">
+  <title id="title">Azure Files access from a Windows 365 Cloud PC</title>
+  <desc id="desc">Intune delivers policy and an optional mapping application to an Entra joined Cloud PC. The Cloud PC obtains Kerberos tickets from Microsoft Entra ID over HTTPS and accesses Azure Files using SMB on TCP 445 through a private endpoint. Azure Files enforces share RBAC and Windows ACLs. The private endpoint and Cloud PC network adapter are in a customer virtual network.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#2563a6"/></marker>
+    <style>text{font-family:Segoe UI,Arial,sans-serif;fill:#172b4d}.heading{font-size:24px;font-weight:600}.name{font-size:19px;font-weight:600}.body{font-size:16px}.small{font-size:14px}.node{fill:#fff;stroke:#3978b8;stroke-width:2}.line{fill:none;stroke:#2563a6;stroke-width:2;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1120" height="660" fill="#fff"/>
+  <text x="35" y="42" class="heading">Shared file access for Windows 365</text>
+  <text x="35" y="70" class="body">Private endpoint example · management and authentication are separate from SMB data</text>
+  <rect x="55" y="110" width="290" height="110" rx="8" class="node"/>
+  <text x="80" y="145" class="name">Microsoft Intune</text>
+  <text x="80" y="175" class="body">Client policy</text><text x="80" y="199" class="body">Optional Win32 mapping app</text>
+  <rect x="640" y="110" width="410" height="110" rx="8" class="node"/>
+  <text x="665" y="145" class="name">Microsoft Entra ID</text>
+  <text x="665" y="175" class="body">Sign-in and Microsoft Entra Kerberos</text><text x="665" y="199" class="body">KDC proxy over HTTPS</text>
+  <rect x="35" y="285" width="690" height="270" rx="10" fill="#f2f7fc" stroke="#7a9cbb" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="55" y="318" class="name">Customer virtual network</text>
+  <rect x="55" y="345" width="330" height="155" rx="8" class="node"/>
+  <text x="75" y="378" class="name">Windows 365 Cloud PC</text>
+  <text x="75" y="407" class="body">Network adapter in ANC subnet</text>
+  <text x="75" y="433" class="body">Entra joined · user SMB client</text>
+  <text x="75" y="459" class="body">Optional user-context mapping task</text>
+  <rect x="485" y="365" width="215" height="115" rx="8" class="node"/>
+  <text x="505" y="399" class="name">Private endpoint</text><text x="505" y="427" class="body">File service</text><text x="505" y="453" class="body">Private IP destination</text>
+  <rect x="800" y="345" width="285" height="155" rx="8" class="node"/>
+  <text x="820" y="378" class="name">Azure Files SMB share</text>
+  <text x="820" y="409" class="body">Share-level Azure RBAC</text><text x="820" y="437" class="body">Directory and file ACLs</text><text x="820" y="465" class="body">Shared data</text>
+  <path d="M200 220 L200 345" class="line" stroke-dasharray="6 4"/>
+  <text x="215" y="255" class="small">Management</text><text x="215" y="276" class="small">HTTPS</text>
+  <path d="M350 345 L440 260 L845 260 L845 220" class="line"/>
+  <text x="488" y="250" class="small">Kerberos ticket requests · HTTPS 443</text>
+  <path d="M385 422 L485 422" class="line"/>
+  <text x="398" y="401" class="small">SMB 445</text>
+  <path d="M700 422 L800 422" class="line"/>
+  <text x="742" y="402" class="small">SMB</text>
+  <text x="55" y="532" class="small">DNS resolves the normal storage hostname to the private endpoint IP.</text>
+  <text x="35" y="592" class="body">Alternative: a service endpoint uses the public storage endpoint with subnet-restricted firewall access.</text>
+  <text x="35" y="622" class="body">Neither Intune nor the mapping task proxies file data. This diagram omits unrelated Windows 365 service paths.</text>
+</svg>

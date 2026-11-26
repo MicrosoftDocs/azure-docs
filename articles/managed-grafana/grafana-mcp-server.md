@@ -5,7 +5,7 @@ description: Discover MCP tools for Azure Managed Grafana. Query Application Ins
 author: weng5e
 ms.author: wuweng
 ms.reviewer: wuweng
-ms.date: 10/29/2026
+ms.date: 11/26/2026
 ms.topic: concept-article
 ms.service: azure-managed-grafana
 ---
@@ -188,33 +188,50 @@ To configure Visual Studio Code with a Grafana service account token, add the `A
 | `url` | The Azure Managed Grafana MCP endpoint URL: `https://<grafana-endpoint>/api/azure-mcp`. |
 | `headers.Authorization` | Bearer token using a Grafana service account token (`glsa_xxx`). |
 
-### Example 3: Claude Code with a service account token
+### Example 3: Claude Code with a Microsoft Entra ID user token
 
-To configure MCP for Claude Code, use configuration settings similar to the following example. Use a Grafana service account token for authentication.
+Claude Code gets a Microsoft Entra ID token from the Azure CLI each time it connects, so you don't need to paste or refresh a token yourself. Sign in by using `az login` as a user who has a Grafana role on the workspace, and then add the server to a `.mcp.json` file at the root of your project. Set `headersHelper` to an Azure CLI command that prints the `Authorization` header as JSON:
 
 ```json
 {
-  "<your-grafana-mcp-server-name>": {
-    "disabled": false,
-    "timeout": 60,
-    "type": "streamableHttp",
-    "url": "https://<grafana-endpoint>/api/azure-mcp",
-    "headers": {
-      "Authorization": "Bearer glsa_xxxxxxxxxxxxxxxxxxxxxxxx_xxxxxxx"
+  "mcpServers": {
+    "<your-grafana-mcp-server-name>": {
+      "type": "http",
+      "url": "https://<grafana-endpoint>/api/azure-mcp",
+      "headersHelper": "az account get-access-token --resource https://dashboard.azure.com --query \"{Authorization: join(' ', ['Bearer', accessToken])}\" -o json"
     }
   }
 }
 ```
 
+Claude Code runs the command when it connects to the server, and again when a tool call returns `401 Unauthorized`, so it replaces an expired token without a restart. The token isn't stored in the file. The command works the same in Bash, PowerShell, and the Windows Command Prompt.
+
+To use a Grafana service account token instead, replace `headersHelper` with a fixed header:
+
+```json
+{
+  "mcpServers": {
+    "<your-grafana-mcp-server-name>": {
+      "type": "http",
+      "url": "https://<grafana-endpoint>/api/azure-mcp",
+      "headers": {
+        "Authorization": "Bearer glsa_xxxxxxxxxxxxxxxxxxxxxxxx_xxxxxxx"
+      }
+    }
+  }
+}
+```
+
+Claude Code runs the headers helper of a project's `.mcp.json` file only after you trust the project folder. To check the connection, run `/mcp` in Claude Code. For more information, see [Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp).
+
 #### Configuration parameters
 
 | Parameter | Description |
 |-----------|-------------|
-| `disabled` | Set to `false` to enable the MCP server connection. |
-| `timeout` | Connection timeout in seconds. |
-| `type` | Transport type. Use `streamableHttp` for remote MCP endpoints. |
+| `type` | Transport type. Use `http` for remote MCP endpoints. |
 | `url` | The Azure Managed Grafana MCP endpoint URL: `https://<grafana-endpoint>/api/azure-mcp`. |
-| `headers.Authorization` | Bearer token using a Grafana service account token (`glsa_xxx`). |
+| `headersHelper` | A command that prints the request headers as JSON. Claude Code runs it to get a fresh Microsoft Entra ID token for the audience `https://dashboard.azure.com`. |
+| `headers.Authorization` | Bearer token by using a Grafana service account token (`glsa_xxx`). Use it instead of `headersHelper`. |
 
 ### Example 4: OpenClaw with a service account token
 

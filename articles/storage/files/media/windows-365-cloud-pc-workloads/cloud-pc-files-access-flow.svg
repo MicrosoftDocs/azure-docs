@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="620" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
+  <title id="title">Authentication and authorization flow</title>
+  <desc id="desc">The user signs in and Windows retrieves a cloud TGT. The SMB client obtains a CIFS service ticket from Microsoft Entra ID and connects to Azure Files. Both effective share-level permissions and Windows ACLs must allow the operation. TGT expiration can prevent new service tickets; Windows sign-out and sign-in restores the sign-in session.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#2563a6"/></marker>
+    <style>text{font-family:Segoe UI,Arial,sans-serif;fill:#172b4d}.heading{font-size:24px;font-weight:600}.name{font-size:18px;font-weight:600}.body{font-size:16px}.step{fill:#fff;stroke:#3978b8;stroke-width:2}.arrow{fill:none;stroke:#2563a6;stroke-width:2;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1120" height="620" fill="#fff"/>
+  <text x="35" y="43" class="heading">A ticket establishes identity; permissions determine access</text>
+  <rect x="35" y="95" width="305" height="115" rx="8" class="step"/>
+  <text x="55" y="130" class="name">1. User signs in to Windows</text><text x="55" y="160" class="body">Cloud ticket retrieval is enabled.</text><text x="55" y="185" class="body">Windows obtains a cloud TGT.</text>
+  <rect x="410" y="95" width="305" height="115" rx="8" class="step"/>
+  <text x="430" y="130" class="name">2. Request service ticket</text><text x="430" y="160" class="body">Microsoft Entra KDC proxy</text><text x="430" y="185" class="body">issues the CIFS service ticket.</text>
+  <rect x="785" y="95" width="300" height="115" rx="8" class="step"/>
+  <text x="805" y="130" class="name">3. Connect to Azure Files</text><text x="805" y="160" class="body">SMB on TCP 445 presents</text><text x="805" y="185" class="body">the user's service ticket.</text>
+  <path d="M340 152 L410 152" class="arrow"/><path d="M715 152 L785 152" class="arrow"/>
+  <path d="M935 210 L935 250 L187 250 L187 295" class="arrow"/>
+  <rect x="35" y="295" width="305" height="115" rx="8" class="step"/>
+  <text x="55" y="330" class="name">4. Share permission check</text><text x="55" y="360" class="body">Effective share access must</text><text x="55" y="385" class="body">allow the requested operation.</text>
+  <rect x="410" y="295" width="305" height="115" rx="8" class="step"/>
+  <text x="430" y="330" class="name">5. Windows ACL check</text><text x="430" y="360" class="body">Directory and file permissions</text><text x="430" y="385" class="body">must also allow the operation.</text>
+  <rect x="785" y="295" width="300" height="115" rx="8" fill="#edf7ef" stroke="#32804a" stroke-width="2"/>
+  <text x="805" y="330" class="name">6. Authorized file access</text><text x="805" y="360" class="body">The user works with files</text><text x="805" y="385" class="body">through the mapped drive.</text>
+  <path d="M340 352 L410 352" class="arrow"/><path d="M715 352 L785 352" class="arrow"/>
+  <rect x="35" y="465" width="1050" height="110" rx="8" fill="#fff8e6" stroke="#a87913" stroke-width="2"/>
+  <text x="55" y="499" class="name">Plan for the cloud TGT lifetime</text>
+  <text x="55" y="529" class="body">After approximately 10 hours, an expired cloud TGT can prevent new service-ticket acquisition.</text>
+  <text x="55" y="554" class="body">Sign out of Windows and sign back in. Reconnecting, refreshing the PRT, or remapping isn't guaranteed renewal.</text>
+</svg>
