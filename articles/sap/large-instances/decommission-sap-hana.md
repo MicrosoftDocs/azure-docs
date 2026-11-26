@@ -1,7 +1,7 @@
 ---
 title: SAP HANA Large Instance on Azure is being Decommissioned
 description: Learn about the current state of the HLI service and how to migrate your workload to Azure VMs.
-author: bqtrinh
+author: tunde-az
 ms.author: tundeazeez
 ms.date: 09/15/2025
 ms.service: sap-on-azure
