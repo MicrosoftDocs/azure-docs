@@ -6,7 +6,7 @@ author: ashwinder
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 08/28/2026
+ms.date: 11/27/2026
 ms.author: henikaraa
 services: azure-communication-services
 ---
@@ -146,7 +146,7 @@ For these flows, the availability of the participant-move latency optimization d
 | --- | --- | --- |
 | Calling Plan | The optimization is applied automatically. | No action is required. |
 | Operator Connect | A carrier configuration change is required for the optimization to apply. | Ask your Operator Connect provider to configure the trunk so that SIP `INVITE` requests with a `Replaces` header are treated as unsupported for this scenario. |
-| Direct Routing | At publication, this specific optimization isn't applied to Direct Routing. | Check the current Teams Phone extensibility and Direct Routing documentation when designing or updating the flow. |
+| Direct Routing | A per-trunk configuration change is required for the optimization to apply. | Set `InviteWithReplaces` to `ForceUnsupported` on each relevant Direct Routing gateway, as described in the following section. |
 
 > [!NOTE]
 > These differences apply only to the Proactive Outbound participant-move latency optimization. Calling Plan, Operator Connect, and Direct Routing remain supported PSTN connectivity options for Teams Phone extensibility.
@@ -155,6 +155,29 @@ For these flows, the availability of the participant-move latency optimization d
 > The absence of this optimization doesn't mean that the outbound call or participant-move operation will fail. End-to-end latency and reliability can also be affected by application orchestration, call state, destination readiness, network conditions, and carrier or session border controller behavior. Use correlated application and platform telemetry to investigate a specific result.
 
 For the .NET API, see [`CallConnection.MoveParticipantsAsync`](/dotnet/api/azure.communication.callautomation.callconnection.moveparticipantsasync) and [`MoveParticipantsOptions`](/dotnet/api/azure.communication.callautomation.moveparticipantsoptions).
+
+### Configure Direct Routing gateways
+
+For Proactive Outbound flows that use the participant-move latency optimization, configure the relevant Direct Routing gateway to treat SIP `INVITE` requests containing a `Replaces` header as unsupported. Use the `InviteWithReplaces` parameter with the value `ForceUnsupported`.
+
+For an existing gateway, connect to Microsoft Teams PowerShell and run the following commands. Replace `sbc.contoso.com` with the fully qualified domain name (FQDN) of your SBC.
+
+```powershell
+Connect-MicrosoftTeams
+
+Set-CsOnlinePSTNGateway -Identity "sbc.contoso.com" -InviteWithReplaces ForceUnsupported
+
+Get-CsOnlinePSTNGateway -Identity "sbc.contoso.com" |
+    Select-Object Identity, InviteWithReplaces
+```
+
+Verify that the returned `InviteWithReplaces` value is `ForceUnsupported`. Apply the setting to each gateway used by the relevant outbound call flow.
+
+`ForceUnsupported` prevents the service from sending SIP `INVITE` requests containing a `Replaces` header on that trunk, regardless of the SBC's advertised support. Disabling this signaling path enables the participant-move latency optimization for this scenario. The default for a new gateway, `OptimisticallySupported`, can still send INVITE-with-Replaces requests, so it isn't equivalent to explicitly setting `ForceUnsupported`. Don't use `ForceSupported` to enable this optimization.
+
+The setting applies to the gateway, not to an individual resource account or API request. Validate other call flows that share the gateway before deploying the change broadly. After configuration, test the complete Proactive Outbound flow with your SBC and use correlated telemetry to measure participant-move latency and confirm media continuity. A configuration read-back doesn't establish an end-to-end latency result.
+
+For parameter details, see [`Set-CsOnlinePSTNGateway -InviteWithReplaces`](/powershell/module/microsoftteams/set-csonlinepstngateway#-invitewithreplaces). When creating a gateway, specify the same value with [`New-CsOnlinePSTNGateway -InviteWithReplaces`](/powershell/module/microsoftteams/new-csonlinepstngateway#-invitewithreplaces).
 
 ## Production considerations
 
