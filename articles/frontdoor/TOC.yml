@@ -21,6 +21,8 @@
   items:
   - name: Routing architecture
     href: front-door-routing-architecture.md?pivots=front-door-standard-premium
+  - name: Unicast routing architecture
+    href: unicast-routing-architecture.md
   - name: Route matching
     href: front-door-route-matching.md?pivots=front-door-standard-premium
   - name: Routing limits
