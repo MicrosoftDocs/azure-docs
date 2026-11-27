@@ -68,14 +68,11 @@ Separate charges might apply for:
 
 ### Where is Azure SRE Agent available?
 
-Azure SRE Agent is currently available in:
-- Sweden Central
-- East US 2
-- Australia East
+Azure SRE Agent is available in multiple Azure regions. For the current list of regions, see [Supported regions for Azure SRE Agent](supported-regions.md).
 
 ### Can I deploy in other regions?
 
-Support for additional regions will be added as the service expands. For the latest regional availability, check the Azure portal during agent creation.
+Support for additional regions will be added as the service expands. To see which regions are available for your subscription, check the **Region** dropdown during agent creation. To ask for a region that isn't listed, see [Can I request a new region?](supported-regions.md#can-i-request-a-new-region).
 
 ### Does the agent work with resources in other regions?
 
