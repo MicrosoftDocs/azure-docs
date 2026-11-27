@@ -6,7 +6,7 @@ author: ashwinder
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 08/28/2026
+ms.date: 11/27/2026
 ms.author: henikaraa
 services: azure-communication-services
 ---
@@ -146,7 +146,7 @@ For these flows, the availability of the participant-move latency optimization d
 | --- | --- | --- |
 | Calling Plan | The optimization is applied automatically. | No action is required. |
 | Operator Connect | A carrier configuration change is required for the optimization to apply. | Ask your Operator Connect provider to configure the trunk so that SIP `INVITE` requests with a `Replaces` header are treated as unsupported for this scenario. |
-| Direct Routing | At publication, this specific optimization isn't applied to Direct Routing. | Check the current Teams Phone extensibility and Direct Routing documentation when designing or updating the flow. |
+| Direct Routing | Per-trunk `InviteWithReplaces` configuration is available through Microsoft Teams PowerShell. | For configuration options and parameter behavior, see [`Set-CsOnlinePSTNGateway`](/powershell/module/microsoftteams/set-csonlinepstngateway#-invitewithreplaces). |
 
 > [!NOTE]
 > These differences apply only to the Proactive Outbound participant-move latency optimization. Calling Plan, Operator Connect, and Direct Routing remain supported PSTN connectivity options for Teams Phone extensibility.
