@@ -61,6 +61,8 @@
       href: storage-files-identity-auth-hybrid-cloud-trust.md
     - name: Enable authentication on macOS with Platform SSO
       href: identity-kerberos-authentication-macos.md
+    - name: Microsoft Entra Kerberos for Linux clients
+      href: identity-kerberos-authentication-linux.md
   - name: Authorization and access control
     items:
     - name: Overview of authorization and access control
