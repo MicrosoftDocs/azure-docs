@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: diberry
 manager: pmwongera
 ms.author: diberry
-ms.date: 07/01/2026
+ms.date: 2026-11-27
 ms.custom: generated
 ---
 
@@ -14,6 +14,8 @@ ms.custom: generated
 
 This article lists the permissions for the Azure resource providers in the Containers category. You can use these permissions in your own [Azure custom roles](/azure/role-based-access-control/custom-roles) to provide granular access control to resources in Azure. Permission strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`
 
+> [!IMPORTANT]
+> The operations listed on this page describe Azure RBAC permissions. Listing an operation doesn't guarantee that its corresponding service or feature is available in every Azure region. Before designing custom roles or deployments, verify the feature's regional availability, service-tier requirements, and release status.
 
 ## Microsoft.ContainerInstance
 
@@ -69,6 +71,9 @@ Azure service: [Container Instances](/azure/container-instances/)
 Store and manage container images across all types of Azure deployments.
 
 Azure service: [Container Registry](/azure/container-registry/)
+
+> [!IMPORTANT]
+> Azure Container Registry Tasks and dedicated task agent pools can have regional limitations even where Azure Container Registry is available. Their operations can still appear in this permissions reference. For dedicated agent-pool regional availability and requirements, see [Task agent-pool preview limitations](/azure/container-registry/tasks-agent-pools#preview-limitations).
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
