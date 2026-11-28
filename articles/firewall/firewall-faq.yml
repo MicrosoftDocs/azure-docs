@@ -322,8 +322,8 @@ sections:
             | TargetURL | `www.contoso.com` | Yes | `www.contoso.com`<br>`www.contoso.com/` |
             | TargetURL | `*.contoso.com` | Yes | `any.contoso.com/`<br>`sub1.any.contoso.com` |
             | TargetURL | `*contoso.com` | Yes | `example.anycontoso.com`<br>`sub1.example.contoso.com`<br>`contoso.com`<br>Warning: this usage of wildcard also allows potentially undesired/risky variations such as `th3re4lcontoso.com` - use with caution. |
-            | TargetURL | `www.contoso.com/test` | Yes | `www.contoso.com/test`<br>`www.contoso.com/test/`<br>`www.contoso.com/test?with_query=1` |
-            | TargetURL | `www.contoso.com/test/*` | Yes | `www.contoso.com/test/anything`<br>Note: `www.contoso.com/test` **doesn't** match (last slash) |
+            | TargetURL | `www.contoso.com/test` | Yes | `www.contoso.com/test`<br>`www.contoso.com/test/`<br>`www.contoso.com/test?with_query=1`<br>`www.contoso.com/test/?with_query=1` |
+            | TargetURL | `www.contoso.com/test/*` | Yes | `www.contoso.com/test/anything`<br>Note: `www.contoso.com/test` and `www.contoso.com/test/?with_query=1` **don't** match (last slash) |
             | TargetURL | `www.contoso.*/test/*` | No |  |
             | TargetURL | `www.contoso.com/test?example=1` | No |  |
             | TargetURL | `www.contoso.*` | No |  |
