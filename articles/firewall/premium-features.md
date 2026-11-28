@@ -88,6 +88,9 @@ IDPS detects attacks on all ports and protocols for non-encrypted traffic. For H
 > [!NOTE]
 > For guidance on overriding signature modes and important limitations to avoid silent drops, see [Override behavior and limitations](idps-signature-categories.md#override-behavior-and-limitations).
 
+> [!NOTE]
+> If TLS inspection decrypts Microsoft Entra sign-in traffic (for example, to insert [tenant restrictions v2](/entra/external-id/tenant-restrictions-v2) headers), credential submissions can match **Phishing** signatures and be dropped in **Alert and Deny** mode. The sign-in page then times out without an error. Test an interactive sign-in, not only `GET` requests, and override the matching signatures if needed.
+
 The IDPS Bypass List allows you to exclude specific IP addresses, ranges, and subnets from filtering. Note that the bypass list is not intended to improve throughput performance, as the firewall's performance is still subject to your use case. For more information, see [Azure Firewall performance](firewall-performance.md#performance-data).
 
 ### IDPS Private IP ranges
