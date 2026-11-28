@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/08/2026
-ms.author: shaas
+ms.author: diberry
 ---
 
 Here's a list of the supported storage accounts and storage types for a Data Box device. For a complete list of all capabilities for all types of storage accounts, see [Types of storage accounts](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).

@@ -1,6 +1,6 @@
 ---
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: azure-route-server
 ms.topic: include
 ms.date: 02/25/2025

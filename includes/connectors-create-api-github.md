@@ -1,7 +1,7 @@
 ---
 ms.service: azure-logic-apps
 ms.topic: include
-author: ecfan
+author: diberry
 ms.author: divswa
 ms.date: 09/27/2022
 ms.custom: engagement-fy23

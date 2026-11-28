@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 06/05/2020
-ms.author: shaas
+ms.author: diberry
 ---
 
 Based on the storage account selected, Data Box creates up to:

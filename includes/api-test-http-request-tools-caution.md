@@ -1,6 +1,6 @@
 ---
 ms.service: azure
-author: ecfan
+author: diberry
 ms.author: divswa
 ms.topic: include
 ms.date: 04/08/2025

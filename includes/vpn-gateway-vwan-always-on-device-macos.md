@@ -3,7 +3,7 @@
  author: flapinski
  ms.service: azure-vpn-gateway
  ms.date: 04/23/2026
- ms.author: flapinski
+ ms.author: diberry
  # this file is used for both virtual wan and vpn gateway. When modifying, make sure that your changes work for both environments.
 ---
 > [!NOTE]

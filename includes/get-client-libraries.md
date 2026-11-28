@@ -1,9 +1,9 @@
 ---
-author: spelluru
+author: diberry
 ms.service: azure-service-bus
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: spelluru
+ms.author: diberry
 ---
 ### Install via Composer
 1. Create a file named **composer.json** in the root of your project and add the following code to it:

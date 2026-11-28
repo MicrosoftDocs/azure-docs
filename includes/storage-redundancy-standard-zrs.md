@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.topic: include
 ms.date: 01/22/2025
-ms.author: shaas
+ms.author: diberry
 ---
 
 ZRS for standard general-purpose v2 storage accounts is available for a subset of Azure regions:

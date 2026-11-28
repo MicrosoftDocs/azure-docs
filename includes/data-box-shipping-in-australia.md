@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 06/06/2022
-ms.author: shaas
+ms.author: diberry
 ---
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps to ship in Australia.

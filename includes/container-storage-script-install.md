@@ -5,7 +5,7 @@
  ms.service: azure-container-storage
  ms.topic: include
  ms.date: 09/13/2023
- ms.author: kendownie
+ ms.author: diberry
  ms.custom: include file
 ---
 

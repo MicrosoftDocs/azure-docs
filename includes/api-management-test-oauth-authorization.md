@@ -3,7 +3,7 @@
 title: include file
 description: include file
 services: api-management
-author: PatAltimore
+author: diberry
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 08/20/2021

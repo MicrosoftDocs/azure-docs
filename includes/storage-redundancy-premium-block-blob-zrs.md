@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-storage
 ms.topic: include
 ms.date: 03/07/2024
-ms.author: shaas
+ms.author: diberry
 ---
 
 ZRS for Premium block blobs accounts is available in a subset of Azure regions:

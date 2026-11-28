@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 09/24/2020
-ms.author: shaas
+ms.author: diberry
 ---
 
 - [2019-02-02](/rest/api/storageservices/version-2019-02-02)

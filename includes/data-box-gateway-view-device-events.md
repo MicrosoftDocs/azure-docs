@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: shaas
+ms.author: diberry
 ---
 
 Take the following steps in the Azure portal to view a device event. 

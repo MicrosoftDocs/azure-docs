@@ -7,7 +7,7 @@ ms.service: azure-storage
 ms.subservice: common-concepts
 ms.topic: "include"
 ms.date: 12/20/2024
-ms.author: shaas
+ms.author: diberry
 ms.custom: "include file", references_regions
 ---
 

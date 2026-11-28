@@ -1,5 +1,5 @@
 ---
-author: PatAltimore
+author: diberry
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 01/29/2026

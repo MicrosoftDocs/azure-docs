@@ -1,6 +1,6 @@
 ---
 author: flapinski
-ms.author: flapinski
+ms.author: diberry
 ms.date: 05/26/2026
 ms.service: azure-vpn-gateway
 ms.topic: include

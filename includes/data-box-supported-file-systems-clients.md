@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 09/14/2021
-ms.author: shaas
+ms.author: diberry
 ---
 
 | **Protocol** | **Versions** | **Notes** |

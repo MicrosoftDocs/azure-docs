@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/02/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 |    URL pattern                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Component or functionality                                                                           |

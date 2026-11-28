@@ -6,7 +6,7 @@
  ms.service: azure-storage
  ms.topic: include
  ms.date: 11/26/2019
- ms.author: tamram
+ ms.author: diberry
  ms.custom: include
 ---
 

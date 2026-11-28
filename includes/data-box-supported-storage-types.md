@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box-heavy
 ms.topic: include
 ms.date: 05/22/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 Here is a list of the supported storage types for the Data Box device.

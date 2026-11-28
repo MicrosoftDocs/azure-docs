@@ -6,7 +6,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 03/25/2024
-ms.author: shaas
+ms.author: diberry
 zone_pivot_groups: data-box-sku
 ---
 ### For the Data Box service

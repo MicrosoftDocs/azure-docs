@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box-disk
 ms.topic: include
 ms.date: 12/16/2021
-ms.author: shaas
+ms.author: diberry
 ---
 
 The following sample is a copy log for an import to both Azure Files and Azure Blob storage.

@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 11/18/2022
-ms.author: shaas
+ms.author: diberry
 ---
 
 ## Timestamps

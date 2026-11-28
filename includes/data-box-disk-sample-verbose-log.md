@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box-disk
 ms.topic: include
 ms.date: 12/16/2021
-ms.author: shaas
+ms.author: diberry
 ---
 
 The following sample verbose log has sample file entries for block blob, page blob, and Azure File imports.

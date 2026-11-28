@@ -1,5 +1,5 @@
 ---
-author: RoseHJM
+author: diberry
 ms.author: rabououn
 ms.service: azure-lab-services
 ms.topic: include

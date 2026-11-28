@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/15/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 You can also view the metrics to monitor the performance of the device and in some instances for troubleshooting device issues.

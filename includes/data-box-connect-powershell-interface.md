@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 11/15/2021
-ms.author: shaas
+ms.author: diberry
 ms.custom:
   - sfi-image-nochange
 ---

@@ -3,7 +3,7 @@ author: khdownie
 ms.service: azure-container-storage
 ms.topic: include
 ms.date: 09/10/2025
-ms.author: kendownie
+ms.author: diberry
 ---
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.

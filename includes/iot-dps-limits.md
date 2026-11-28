@@ -3,7 +3,7 @@ author: cwatson-cat
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 04/24/2026
-ms.author: cwatson
+ms.author: diberry
 ms.subservice: azure-iot-hub-dps
 ---
 

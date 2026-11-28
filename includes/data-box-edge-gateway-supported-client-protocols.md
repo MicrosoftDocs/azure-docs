@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 03/24/2022
-ms.author: shaas
+ms.author: diberry
 ---
 
 Here are the supported protocols for clients accessing your device.

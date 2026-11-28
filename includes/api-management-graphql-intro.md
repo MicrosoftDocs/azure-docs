@@ -1,7 +1,7 @@
 ---
 ms.service: azure-api-management
 ms.topic: include
-author: PatAltimore
+author: diberry
 ms.author: srthirth
 ms.date: 12/11/2023
 ---

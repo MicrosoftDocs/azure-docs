@@ -6,7 +6,7 @@
  ms.subservice: managed-identities
  ms.topic: include
  ms.date: 07/13/2021
- ms.author: barclayn
+ ms.author: diberry
  ms.custom: include file
 ---
 

@@ -6,7 +6,7 @@
  ms.service: azure-file-storage
  ms.topic: include
  ms.date: 11/01/2022
- ms.author: kendownie
+ ms.author: diberry
  ms.custom:
    - include file
    - sfi-image-nochange

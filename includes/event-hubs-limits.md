@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-author: spelluru
+author: diberry
 ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 05/10/2021
-ms.author: spelluru
+ms.author: diberry
 ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
 ---

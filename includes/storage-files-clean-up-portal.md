@@ -6,7 +6,7 @@
  ms.service: azure-file-storage
  ms.topic: include
  ms.date: 07/18/2022
- ms.author: kendownie
+ ms.author: diberry
  ms.custom: include file
 ---
 When you're done, delete the resource group. Deleting the resource group deletes the storage account, the Azure file share, and any other resources deployed inside the resource group.

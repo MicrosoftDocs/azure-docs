@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box-heavy
 ms.topic: include
 ms.date: 01/25/2022
-ms.author: shaas
+ms.author: diberry
 ---
 
 - Containers, shares, and folders:

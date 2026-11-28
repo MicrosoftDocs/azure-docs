@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 03/06/2025
-ms.author: shaas
+ms.author: diberry
 ---
 
 ## Cross-region data transfer for Data Box devices

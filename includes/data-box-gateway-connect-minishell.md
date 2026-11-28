@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: shaas
+ms.author: diberry
 ---
 
 Depending on the operating system of the client, the procedures to remotely connect to the device are different.

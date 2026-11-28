@@ -1,6 +1,6 @@
 ---
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: azure-frontdoor
 ms.topic: include
 ms.date: 06/01/2023

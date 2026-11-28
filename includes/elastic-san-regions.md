@@ -6,7 +6,7 @@
  ms.service: azure-storage
  ms.topic: include
  ms.date: 07/20/2026
- ms.author: rogarana
+ ms.author: diberry
  ms.custom: include file
 ---
 The following table contains the regions where Elastic SAN is currently available and the supported redundancy options.

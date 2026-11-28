@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 11/17/2026
  ai-usage: ai-assisted
- ms.author: kendownie
+ ms.author: diberry
  ms.custom: include file
 ---
 Azure Files offers two media tiers of storage: solid-state disk (SSD) and hard disk drive (HDD). These tiers allow you to tailor your shares to the performance and price requirements of your scenario:

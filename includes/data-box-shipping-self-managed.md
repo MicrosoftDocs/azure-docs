@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 06/07/2022
-ms.author: shaas
+ms.author: diberry
 ---
 
 If you selected self-managed shipping when you created your order, follow these instructions (except for Brazil). 

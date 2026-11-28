@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: shaas
+ms.author: diberry
 ---
 
 If you boot up in a non-DHCP environment, follow these steps to deploy the virtual machine for your Data Box Gateway.

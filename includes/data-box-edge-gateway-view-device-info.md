@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 03/04/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).

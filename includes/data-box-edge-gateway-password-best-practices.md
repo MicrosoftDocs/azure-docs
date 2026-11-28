@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/16/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 Keep these best practices in mind:

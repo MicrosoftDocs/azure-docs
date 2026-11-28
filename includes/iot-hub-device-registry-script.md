@@ -2,7 +2,7 @@
 title: Create an IoT Hub with Certificate Management in Azure Device Registry by Using a Script
 description: This article explains how to create an IoT hub with Azure Device Registry and certificate management integration by using a script.
 author: cwatson-cat
-ms.author: cwatson
+ms.author: diberry
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 12/19/2025
