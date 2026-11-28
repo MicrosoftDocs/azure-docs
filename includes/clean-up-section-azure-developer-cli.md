@@ -2,7 +2,7 @@
 ms.topic: include
 ms.date: 09/05/2023
 author: alexwolfmsft
-ms.author: alexwolf
+ms.author: diberry
 ---
 ## Clean up resources
 

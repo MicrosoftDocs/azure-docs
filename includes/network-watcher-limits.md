@@ -1,6 +1,6 @@
 ---
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: azure-network-watcher
 ms.topic: include
 ms.date: 03/30/2023    

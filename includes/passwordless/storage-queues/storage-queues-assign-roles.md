@@ -6,7 +6,7 @@ author: alexwolfmsft
 ms.service: azure-storage
 ms.topic: include
 ms.date: 10/11/2022
-ms.author: alexwolf
+ms.author: diberry
 ms.custom: include file
 ---
 

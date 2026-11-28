@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 02/05/2021
-ms.author: shaas
+ms.author: diberry
 ---
 
 The following list of browsers are supported for the virtual device's local web UI:

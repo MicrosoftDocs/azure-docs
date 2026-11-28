@@ -4,7 +4,7 @@ ms.service: azure-data-box
 ms.subservice: databox
 ms.topic: include
 ms.date: 04/22/2024
-ms.author: shaas
+ms.author: diberry
 zone_pivot_groups: data-box-sku
 ms.custom: sfi-image-nochange
 ---

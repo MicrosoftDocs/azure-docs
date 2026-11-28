@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 01/23/2023
-ms.author: shaas
+ms.author: diberry
 ---
 
 Take the following steps if returning the device in India.

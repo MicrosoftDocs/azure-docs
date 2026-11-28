@@ -2,7 +2,7 @@
 ms.service: azure-devtest-labs
 ms.topic: include
 ms.author: rabououn
-author: RoseHJM
+author: diberry
 ms.date: 11/09/2018
 
 ---

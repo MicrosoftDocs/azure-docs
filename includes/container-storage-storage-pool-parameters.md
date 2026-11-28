@@ -3,7 +3,7 @@ author: khdownie
 ms.service: azure-container-storage
 ms.topic: include
 ms.date: 03/18/2024
-ms.author: kendownie
+ms.author: diberry
 ---
 
 ## Storage pool parameters for Azure Container Storage

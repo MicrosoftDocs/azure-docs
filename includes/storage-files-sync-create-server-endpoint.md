@@ -6,7 +6,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: include
 ms.date: 06/04/2024
-ms.author: kendownie
+ms.author: diberry
 ms.custom: include file, devx-track-azurecli 
 ms.devlang: azurecli
 ---

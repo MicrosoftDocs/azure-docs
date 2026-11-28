@@ -7,7 +7,7 @@ services: storage
 ms.service: azure-storage
 ms.topic: include
 ms.date: 03/21/2024
-ms.author: shaas
+ms.author: diberry
 ms.custom: include file
 
 ---

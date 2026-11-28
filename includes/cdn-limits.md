@@ -1,6 +1,6 @@
 ---
-author: halkazwini
-ms.author: halkazwini
+author: diberry
+ms.author: diberry
 ms.service: azure-content-delivery-network
 ms.topic: include
 ms.date: 07/31/2021    

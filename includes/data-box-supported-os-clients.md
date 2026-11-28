@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/06/2022
-ms.author: shaas
+ms.author: diberry
 ---
 
 Here is a list of the supported operating systems for the data copy operation via the clients connected to your device. 

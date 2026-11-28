@@ -2,7 +2,7 @@
 title: API Management workspace limits
 description: Include file
 services: api-management
-author: PatAltimore
+author: diberry
 
 ms.service: azure-api-management
 ms.topic: include

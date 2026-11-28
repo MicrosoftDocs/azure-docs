@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 05/22/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 Here is a list of web browsers supported for the local web UI.

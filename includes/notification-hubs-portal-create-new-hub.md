@@ -6,7 +6,7 @@
  ms.service: azure-notification-hubs
  ms.topic: include
  ms.date: 02/21/2024
- ms.author: sethm
+ ms.author: diberry
  ms.custom: include file
 ---
 

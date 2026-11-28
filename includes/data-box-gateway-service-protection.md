@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: shaas
+ms.author: diberry
 ---
 
 - To access the Azure Stack Edge service, your organization needs to have an Enterprise Agreement (EA) or Cloud Solution Provider (CSP) subscription. For more information, see [Sign up for an Azure subscription](https://www.youtube.com/watch?v=W9CmaHZeOAo).

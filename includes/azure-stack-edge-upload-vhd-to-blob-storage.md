@@ -1,5 +1,5 @@
 ---
-author: v-dalc
+author: diberry
 ms.service: azure-data-box
 ms.author: scompton
 ms.topic: include

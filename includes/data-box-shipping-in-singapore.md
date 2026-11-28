@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/14/2025
-ms.author: shaas
+ms.author: diberry
 ---
 
 Take the following steps if you're returning the device in Singapore.

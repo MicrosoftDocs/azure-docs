@@ -1,11 +1,11 @@
 ---
 title: Quotas and limits for Azure Service Bus 
 description: Provides the list of quotas and limits for Azure Service Bus resources. 
-author: spelluru
+author: diberry
 ms.service: azure-service-bus
 ms.topic: include
 ms.date: 03/17/2025
-ms.author: spelluru
+ms.author: diberry
 ---
 
 The following table lists quota information specific to Azure Service Bus messaging. For information about pricing and other quotas for Service Bus, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).

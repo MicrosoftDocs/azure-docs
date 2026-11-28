@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 01/25/2022
-ms.author: shaas
+ms.author: diberry
 ---
 
 Take the following steps if you're returning the device in Japan.

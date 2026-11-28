@@ -6,7 +6,7 @@
  ms.service: azure-file-storage
  ms.topic: include
  ms.date: 04/08/2025
- ms.author: kendownie
+ ms.author: diberry
  ms.custom: include file
 ---
 A storage account is a shared pool of storage in which you can deploy an Azure file share or other storage resources, such as blobs or queues. A storage account can contain an unlimited number of shares. A share can store an unlimited number of files, up to the capacity limits of the storage account.

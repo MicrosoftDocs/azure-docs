@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/14/2025
-ms.author: shaas
+ms.author: diberry
 ---
 
 Take the following steps if returning the device in Hong Kong Special Administrative Region.

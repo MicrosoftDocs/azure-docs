@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 03/25/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 The following list contains supported operating systems for use by clients or hosts connected to your device. These operating system versions were tested in-house.

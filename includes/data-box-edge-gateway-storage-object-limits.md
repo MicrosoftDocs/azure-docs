@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 02/04/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 Here are the sizes of the Azure objects that can be written. Make sure that all the files that are uploaded conform to these limits.

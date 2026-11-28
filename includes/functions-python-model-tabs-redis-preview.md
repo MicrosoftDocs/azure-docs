@@ -1,5 +1,5 @@
 ---
-author: flang-msft
+author: diberry
 ms.author: diberry
 ms.service: azure-functions
 ms.topic: include

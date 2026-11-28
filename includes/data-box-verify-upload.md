@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 08/27/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 1. When the Data Box device is connected to the Azure datacenter network, the data upload to Azure starts automatically. 

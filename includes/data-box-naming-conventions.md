@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box-heavy
 ms.topic: include
 ms.date: 05/21/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 | Entity                                       | Conventions   |

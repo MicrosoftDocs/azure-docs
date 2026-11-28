@@ -3,7 +3,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: include
 ms.date: 08/04/2026
-ms.author: kendownie
+ms.author: diberry
 ---
 > [!div class="op_single_selector"]
 > * [.NET](../articles/storage/files/storage-dotnet-how-to-use-files.md)

@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box-heavy
 ms.topic: include
 ms.date: 08/02/2021
-ms.author: shaas
+ms.author: diberry
 ---
 
 Here are the limits on the size of the data that's copied into a storage account. Make sure the data you upload conforms to these limits. For the most up-to-date information on these limits, see [Scalability and performance targets for Blob storage](../articles/storage/blobs/scalability-targets.md) and [Azure Files scalability and performance targets](../articles/storage/files/storage-files-scale-targets.md). 

@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 03/18/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 |     Error code     |      Error description     |

@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/26/2021
-ms.author: shaas
+ms.author: diberry
 ---
 
 | Port no.|	In or out |	Port scope|	Required|	Notes |

@@ -3,7 +3,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.topic: include
 ms.date: 08/19/2024
-ms.author: kendownie
+ms.author: diberry
 ---
 
 ZRS for premium file shares is available for a subset of Azure regions:

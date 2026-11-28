@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 09/24/2020
-ms.author: shaas
+ms.author: diberry
 ---
 
 Client library     |Supported version     | Link   |     Endpoint specification      |

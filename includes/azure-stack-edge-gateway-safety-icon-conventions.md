@@ -1,5 +1,5 @@
 ---
-author: sipastak
+author: diberry
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 02/15/2022

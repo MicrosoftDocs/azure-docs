@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 07/24/2025
-ms.author: shaas
+ms.author: diberry
 ---
 
 > [!IMPORTANT]

@@ -2,8 +2,8 @@
 title: "Assign roles in Azure Service Bus"
 description: "This include contains information and steps about assigning Azure Service Bus roles to a user."
 services: service-bus
-author: spelluru
-ms.author: spelluru
+author: diberry
+ms.author: diberry
 ms.service: azure-service-bus
 ms.topic: include
 ms.date: 10/11/2022

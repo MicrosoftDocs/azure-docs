@@ -5,7 +5,7 @@
  ms.service: azure
  ms.topic: include
  ms.date: 08/04/2026
- ms.author: alalve
+ ms.author: diberry
  ms.custom: include file
  ms.subservice: azure-governance
 ---

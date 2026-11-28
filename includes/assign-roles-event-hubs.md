@@ -1,8 +1,8 @@
 ---
 title: "include file"
 description: "include file"
-author: spelluru
-ms.author: spelluru
+author: diberry
+ms.author: diberry
 ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 10/11/2022

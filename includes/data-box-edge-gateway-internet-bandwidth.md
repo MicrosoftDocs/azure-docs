@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 02/14/2019
-ms.author: shaas
+ms.author: diberry
 ---
 
 The devices are designed to continue to operate when your internet connection is slow or gets interrupted. In normal operating conditions, we recommend that you use: 

@@ -3,7 +3,7 @@ author: stevenmatthew
 ms.service: azure-data-box
 ms.topic: include
 ms.date: 10/25/2018
-ms.author: shaas
+ms.author: diberry
 ---
 
 Here is a list of the supported storage accounts for your device.
