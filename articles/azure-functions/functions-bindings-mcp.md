@@ -30,7 +30,7 @@ The Azure Functions MCP extension enables you to use Azure Functions to create r
 + When you use the SSE transport, the MCP extension relies on Azure Queue storage provided by the [default host storage account](./storage-considerations.md) (`AzureWebJobsStorage`). When using identity-based connections, make sure that your function app has at least the equivalent of these role-based permissions in the host storage account: [Storage Queue Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-queue-data-contributor) and [Storage Queue Data Message Processor](/azure/role-based-access-control/built-in-roles/storage#storage-queue-data-message-processor).
 + When running locally, the MCP extension requires version 4.0.7030 of the [Azure Functions Core Tools](functions-run-local.md), or a later version.
 ::: zone pivot="programming-language-csharp"
-+ Requires version 2.1.0 or later of the `Microsoft.Azure.Functions.Worker` package.
++ Requires version 2.51.0 or later of the `Microsoft.Azure.Functions.Worker` package.
 + Requires version 1.0.0 or later of the `Azure.Functions.Sdk` project SDK.
 
 ## Install extension
