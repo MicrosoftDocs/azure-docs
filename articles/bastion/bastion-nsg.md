@@ -44,6 +44,9 @@ The following table summarizes all required NSG rules.
 | AllowBastionCommunication | Outbound | VirtualNetwork | VirtualNetwork | 8080, 5701 | * |
 | AllowHttpOutbound | Outbound | * | Internet | 80 | * |
 
+> [!NOTE]
+> Azure validates every change to an NSG that's associated with AzureBastionSubnet. If the resulting NSG doesn't allow the required traffic, the change fails with `NetworkSecurityGroupNotCompliantForAzureBastionSubnet`. Keep the **VirtualNetwork** service tag for ports 8080 and 5701 and for outbound ports 22 and 3389; replacing it with address prefixes can fail validation. When you tighten rules, add the new rules first, remove the old rules next, and add deny-all rules last.
+
 You can configure the required NSG rules using the Azure portal or PowerShell.
 
 ### [Portal](#tab/portal)
